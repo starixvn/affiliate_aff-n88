@@ -41,6 +41,7 @@ export class Content extends PureComponent {
             <Row>
                 <Cell header={true} colWidth={30}>#</Cell>
                 <Cell header={true} colWidth={100} title={resource.Date}>{resource.Date}</Cell>
+                <Cell header={true} colWidth={100} title={resource.Turnover}>{resource.Turnover}</Cell>
                 <Cell header={true} colWidth={100} title={resource.Ggr}>{resource.Ggr}</Cell>
                 <Cell header={true} colWidth={100} title={resource.Deposit}>{resource.Deposit}</Cell>
                 <Cell header={true} colWidth={100} title={resource.Withdrawal}>{resource.Withdrawal}</Cell>
@@ -75,6 +76,7 @@ export class Content extends PureComponent {
     }
 
     _buildDataRow(dataItem, rowNumber, productColumnClassName) {
+        const turnover = formatDecimal(dataItem.Turnover);
         const ggr = formatDecimal(dataItem.MemberGgr);
         const deposit = formatDecimal(dataItem.Deposit);
         const withdrawal = formatDecimal(dataItem.Withdrawal);
@@ -93,6 +95,7 @@ export class Content extends PureComponent {
                         dataItem.Date
                     }
                 </Cell>
+                <Cell className="text-right" title={turnover}>{turnover}</Cell>
                 <Cell className={productColumnClassName} title={ggr}>{ggr}</Cell>
                 <Cell className="text-right" title={deposit}>{deposit}</Cell>
                 <Cell className="text-right" title={withdrawal}>{withdrawal}</Cell>

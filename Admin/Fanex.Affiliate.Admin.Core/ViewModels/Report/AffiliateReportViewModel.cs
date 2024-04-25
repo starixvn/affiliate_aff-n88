@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Fanex.Affiliate.Admin.Core.DTO;
+using Fanex.Affiliate.Admin.Core.DTO.CommissionGroup;
 
 namespace Fanex.Affiliate.Admin.Core.ViewModels.Report
 {
@@ -12,7 +13,9 @@ namespace Fanex.Affiliate.Admin.Core.ViewModels.Report
 
         public IEnumerable<Currency> PaymentCurrencyList { get; set; }
 
-        public IEnumerable<SelectItem> CommGroupList { get; set; }
+        public IEnumerable<CommGroup> CommGroupList { get; set; }
+
+        public IEnumerable<CommGroupType> CommGroupTypes { get; set; }
 
         public DateTime ReportCutOffDate { get; set; }
     }

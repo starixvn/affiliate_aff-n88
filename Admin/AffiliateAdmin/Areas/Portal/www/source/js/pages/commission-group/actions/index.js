@@ -3,7 +3,7 @@ import { toggleLoader } from '../../../actions/loaderAction';
 import { setPagingOption } from '../../../actions/pagingAction';
 import { getSelectedProductIds } from '../modules/service';
 
-import { SET_GRIDDATA, SET_SELECTED_GROUP, SET_SEARCHED_GROUPNAME, SET_SELECTED_PRODUCT_IDS } from './types';
+import { SET_GRIDDATA, SET_SELECTED_GROUP, SET_SEARCHED_GROUPNAME, SET_SELECTED_PRODUCT_IDS, SET_SEARCHED_GROUP_TYPE } from './types';
 
 export { toggleLoader, setPagingOption };
 
@@ -61,6 +61,13 @@ export const setSelectedGroup = (data) => {
 export const setSearchedGroupName = (data) => {
     return {
         type: SET_SEARCHED_GROUPNAME,
+        data
+    }
+}
+
+export const setSearchedGroupType = (data) => {
+    return {
+        type: SET_SEARCHED_GROUP_TYPE,
         data
     }
 }

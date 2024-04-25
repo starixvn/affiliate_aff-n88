@@ -38,10 +38,21 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
             return _commGroupRepository.GetDeductionList().Where(d => d.DeductionId != Deduction.OperationalFeeId);
         }
 
+        public IEnumerable<CommGroupType> GetCommGroupTypes()
+        {
+            return _commGroupRepository.GetCommissionGroupTypes();
+        }
+
         private static void BuildXml(CreateUpdateCommissionGroupParam param)
         {
             param.TierSettingXml = BuildTierSettingXml(param.TierSettingList, param.PlatformFeeList);
+
             var tierDeductionSettingList = param.PlatformFeeList.Concat(new[] { param.DepositFee, param.WithdrawalFee });
+            if (param.KillRateFeeList != null && param.KillRateFeeList.Any())
+            {
+                tierDeductionSettingList = tierDeductionSettingList.Concat(param.KillRateFeeList);
+            }
+
             param.TierDeductionsXml = BuildTierDeductionSettingXml(tierDeductionSettingList);
             param.P2pDeductionsXml = BuildP2pDeductionSettingXml(param.P2pDeductionList);
         }

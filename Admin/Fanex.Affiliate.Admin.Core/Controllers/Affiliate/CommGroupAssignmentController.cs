@@ -48,18 +48,22 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
         }
 
         [HttpGet]
-        public ActionResult AssignGroup(int affId)
+        public ActionResult AssignGroup(int affId, int groupTypeId)
         {
             var viewModel = new AssignNormalGroupViewModel();
 
             if (affId >= Validation.MinId)
             {
-                var param = new GetGroupListParam { AffId = affId };
+                var selectedGroupType = groupTypeId == 0 ? 1 : groupTypeId;
+                var param = new GetGroupListParam { AffId = affId, GroupTypeId = -1 };
                 var commGroupList = _commGroupAssignmentService.GetNormalCommGroupList(param);
+                var commGroupTypeList = _commGroupCommonService.GetCommGroupTypes();
 
                 viewModel = new AssignNormalGroupViewModel
                 {
                     CommGroupList = commGroupList,
+                    CommGroupTypes = commGroupTypeList,
+                    SelectedGroupType = selectedGroupType,
                     SelectedGroup = param.GroupId,
                     AffInfo = _affiliateService.GetAffiliateBasicInfo(affId)
                 };
@@ -94,18 +98,21 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
         }
 
         [HttpGet]
-        public ActionResult AssignPrivateGroup(int affId)
+        public ActionResult AssignPrivateGroup(int affId, int groupTypeId)
         {
             var viewModel = new AssignPrivateGroupViewModel();
             if (affId >= Validation.MinId)
             {
                 var productList = _productRepository.GetProductList();
+                var affInfo = _affiliateService.GetAffiliateBasicInfo(affId);
+
                 viewModel = new AssignPrivateGroupViewModel
                 {
                     ProductList = productList,
                     P2pProductList = productList.Where(p => p.IsP2P),
                     DeductionList = _commGroupCommonService.GetDeductionList(),
-                    AffInfo = _affiliateService.GetAffiliateBasicInfo(affId)
+                    AffInfo = affInfo,
+                    SelectedGroupType = groupTypeId
                 };
             }
 
@@ -130,10 +137,12 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
                     UserId = SessionService.UserId,
                     GroupId = commGroup.GroupId,
                     GroupName = affInfo.UserName,
+                    GroupTypeId = commGroup.GroupTypeId,
                     Description = PrivateGroupName,
                     TierSettingList = commGroup.TierSettingList,
                     P2pDeductionList = commGroup.P2pDeductionList,
                     PlatformFeeList = commGroup.PlatformFeeList,
+                    KillRateFeeList = commGroup.KillRateFeeList,
                     DepositFee = commGroup.DepositFee,
                     WithdrawalFee = commGroup.WithdrawalFee,
                     SubAffCommRate = commGroup.SubAffCommRate,

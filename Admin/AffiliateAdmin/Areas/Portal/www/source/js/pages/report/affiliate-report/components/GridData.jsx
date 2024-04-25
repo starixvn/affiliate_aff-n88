@@ -101,7 +101,7 @@ export class GridData extends PureComponent {
                 <th width={55} rowSpan="2" title={headerText.ActiveMember}>{headerText.ActiveMember}</th>
                 <th width={65} rowSpan="2" title={headerText.NoOfSubAff}>{headerText.NoOfSubAff}</th>
                 <th colSpan="10" height={28} title={headerText.MemberStatistics}>{headerText.MemberStatistics}</th>
-                <th colSpan={isMainView ? 8 : 7} title={headerText.AffiliateStatistics}>{headerText.AffiliateStatistics}</th>
+                <th colSpan="8" title={headerText.AffiliateStatistics}>{headerText.AffiliateStatistics}</th>
                 {isMainView && (<th width={55} rowSpan="2" title={headerText.MonthOnMonth}>{headerText.MonthOnMonth}</th>)}
                 {isMainView && (<th width={55} rowSpan="2" title={headerText.PlayerGgr}>{headerText.PlayerGgr}</th>)}
             </tr>,
@@ -119,6 +119,7 @@ export class GridData extends PureComponent {
 
                 <th width={65} title={headerText.CommissionRate}>{headerText.CommissionRate}</th>
                 <th width={75} title={headerText.Earning}>{headerText.Earning}</th>
+                {!isMainView && (<th width={75} title={headerText.EarningBy}>{headerText.EarningBy}</th>)}
                 <th width={75} title={headerText.P2pEarning}>{headerText.P2pEarning}</th>
                 <th width={75} title={headerText.SubAffEarning}>{headerText.SubAffEarning}</th>
                 <th width={75} title={headerText.TotalEarning}>{headerText.TotalEarning}</th>
@@ -189,6 +190,7 @@ export class GridData extends PureComponent {
         const withdrawalFee = formatDecimal(dataItem.WithdrawalFee)
         const totalFee = formatDecimal(dataItem.TotalFee);
         const earning = formatDecimal(dataItem.Earning);
+        const earningBy = isTotalRow ? 'N/A' : dataItem.EarningBy;
         const p2pEarning = formatDecimal(dataItem.P2pEarning);
         const affWithdrawal = formatDecimal(dataItem.AffWithdrawal);
         const affAdjustment = formatDecimal(dataItem.AffAdjustment);
@@ -220,10 +222,11 @@ export class GridData extends PureComponent {
                     dataItem.IsMultiGroupProduct && isMainView ? (
                         <td className="text-right text-danger" title={isBeforeCutOffDate ? "First product group's share% of multiple groups" : "The highest share % of multiple groups"}>{commRate}</td>
                     ) : (
-                            <td className="text-right" title={commRate}>{commRate}</td>
-                        )
+                        <td className="text-right" title={commRate}>{commRate}</td>
+                    )
                 }
                 <td className="text-right" title={earning}>{earning}</td>
+                {!isMainView && (<td className="text-right" title={earningBy}>{earningBy}</td>)}
                 <td className="text-right" title={p2pEarning}>{p2pEarning}</td>
                 <td className="text-right" title={subAffEarning}>{subAffEarning}</td>
                 <td className="text-right" title={totalEarning}>{totalEarning}</td>
@@ -255,6 +258,7 @@ export class GridData extends PureComponent {
 
         const postParam = Object.assign({}, param, {
             UserName: userName,
+            EarningBy: 'all',
             SortType: sortByMonthOnMonthView.Month,
             SortDirectionType: sortDirectionType.descending,
             PageIndex: 1,

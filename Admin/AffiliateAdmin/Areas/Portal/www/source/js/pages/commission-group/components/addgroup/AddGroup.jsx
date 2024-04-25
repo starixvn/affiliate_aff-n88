@@ -4,11 +4,11 @@ import { bindActionCreators } from 'redux';
 import { Alert } from 'reactstrap';
 
 import { insertCommissionGroup, getGroupSettingList, setSelectedGroup, setSelectedProductIds } from '../../actions';
-import { buildDefaultCommGroup, validate } from '../../modules/service';
+import { buildDefaultCommGroup, handleKillRateListData, validate } from '../../modules/service';
 
 import DeductionSetting from '../shared/tier-deduction';
 import CommGroupInfo from '../shared/CommGroupInfo';
-import { messages } from '../../modules/constant';
+import { groupTypeList, messages } from '../../modules/constant';
 import { toggleLoader } from '../../../../actions/loaderAction';
 import P2pProductSetting from '../shared/p2p-deduction';
 import SubAffCommRateSetting from '../shared/sub-aff-comm-rate';
@@ -55,6 +55,12 @@ export class AddGroup extends React.Component {
             this.props.toggleLoader(true);
             const platformFeeList = selectedGroup.PlatformFeeList.filter(item => !!item.ProductIds);
 
+            if (selectedGroup.GroupTypeId === groupTypeList.Turnover) {
+                handleKillRateListData(platformFeeList, selectedGroup.KillRateFeeList);
+            } else {
+                selectedGroup.KillRateFeeList = [];
+            }
+
             const param = { ...selectedGroup, PlatformFeeList: platformFeeList };
             const response = await this.props.insertCommissionGroup(param);
             if (response && response.status === 200) {
@@ -62,7 +68,7 @@ export class AddGroup extends React.Component {
                 if (result.IsSuccessful) {
                     window.setTimeout(this.props.onClose, 3000);
                     const { pagingOption } = this.props;
-                    const gettingParam = Object.assign({}, { PageIndex: pagingOption.PageIndex, PageSize: pagingOption.PageSize, GroupName: this.props.searchedGroupName });
+                    const gettingParam = Object.assign({}, { PageIndex: pagingOption.PageIndex, PageSize: pagingOption.PageSize, GroupName: this.props.searchedGroupName, GroupTypeId: selectedGroup.GroupTypeId });
                     this.props.getGroupSettingList(gettingParam);
                 }
 

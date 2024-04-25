@@ -53,7 +53,8 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Report
                 CurrencyList = _currencyRepository.GetCurrencies(),
                 BaseCurrencyList = _currencyRepository.GetBaseCurrencies(),
                 PaymentCurrencyList = _currencyRepository.GetPaymentCurrencies(),
-                CommGroupList = _commissionGroupRepository.GetNormalCommGroupList(new GetGroupListParam { AffId = -1 }),
+                CommGroupList = _commissionGroupRepository.GetNormalCommGroupList(new GetGroupListParam { AffId = -1, GroupTypeId = -1 }),
+                CommGroupTypes = _commissionGroupRepository.GetCommissionGroupTypes()
             };
 
             return View(viewModel);

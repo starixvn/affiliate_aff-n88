@@ -106,7 +106,7 @@
                 $('.sumrow.active').nextUntil('.sumrow').addClass('expanded');
             }
             else {
-                $('#reportData').html('<tr class="noInfo"><td class="text-center no-info" colspan=' + (langResource.isMaxLevel ? "15" : "16") + '>' + langResource.noInfo + '</td></tr>');
+                $('#reportData').html('<tr class="noInfo"><td class="text-center no-info" colspan=' + (langResource.isMaxLevel ? "16" : "17") + '>' + langResource.noInfo + '</td></tr>');
             }
         },
 
@@ -158,6 +158,7 @@
                 rowItems.push(_me.buildCell(formatDecimal(dataRow.Rebate)));
                 rowItems.push(commRateCell);
                 rowItems.push(_me.buildCell(formatDecimal(dataRow.Commission)));
+                rowItems.push(_me.buildCell(dataRow.EarningBy));
                 rowItems.push(_me.buildCell(formatDecimal(dataRow.P2pCommission)));
                 !langResource.isMaxLevel && rowItems.push('<td class="text-right">' + subCommRate + '</td>');
                 !langResource.isMaxLevel && rowItems.push(_me.buildSubAffCell(formatDecimal(dataRow.SubAffCommission), date));
@@ -186,6 +187,7 @@
                     _me.buildCell(formatDecimal(dataRow.Rebate)) +
                     _me.buildCell('') +
                     _me.buildCell(formatDecimal(dataRow.Commission)) +
+                    _me.buildCell('') +
                     _me.buildCell(formatDecimal(dataRow.P2pCommission)) +
                     (langResource.isMaxLevel ? '' : _me.buildCell('')) +
                     (langResource.isMaxLevel ? '' : _me.buildCell(formatDecimal(dataRow.SubAffCommission))) +
@@ -232,8 +234,19 @@
             mainDataList.sort(function (item, nextItem) {
                 if (_sortingColumn === 'Month') {
                     return _isSortingAsc ? item.Month - nextItem.Month : -(item.Month - nextItem.Month);
-                }
-                else {
+                } else if (_sortingColumn === 'EarningBy') {
+                    let sortedEarningBy = 0;
+                    const earningByCurrent = item.Data['EarningByDisplay'].toLowerCase();
+                    const earningByNext = nextItem.Data['EarningByDisplay'].toLowerCase();
+
+                    if (earningByCurrent < earningByNext) {
+                        sortedEarningBy = -1;
+                    } else if (earningByCurrent > earningByNext) {
+                        sortedEarningBy = 1;
+                    }
+
+                    return _isSortingAsc ? sortedEarningBy : -sortedEarningBy;
+                } else {
                     return _isSortingAsc ?
                         item.Data[_sortingColumn] - nextItem.Data[_sortingColumn] :
                         -(item.Data[_sortingColumn] - nextItem.Data[_sortingColumn]);

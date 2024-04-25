@@ -5,5 +5,7 @@
         public int AffId { get; set; }
 
         public int GroupId { get; set; }
+
+        public int GroupTypeId { get; set; }
     }
 }

@@ -30,7 +30,8 @@ export class Filter extends Component {
             isGetAll: false,
             selectedBaseCurrency: baseCurrencyList.length && baseCurrencyList[0].ExchangeId || defaultBaseCurrency,
             selectedCurrencyList: currencyList.filter(item => item.checked).map(item => item.key).join(',') || '',
-            selectedPaymentCurrencyList: paymentCurrencyList.filter(item => item.checked).map(item => item.key).join(',') || ''
+            selectedPaymentCurrencyList: paymentCurrencyList.filter(item => item.checked).map(item => item.key).join(',') || '',
+            selectedEarning: 'all'
         }
 
         this.cachedMainReportParam = null;
@@ -75,6 +76,7 @@ export class Filter extends Component {
                 this.setState({
                     userName: param.UserName,
                     sortBy: sortByMonthOnMonthView.Month,
+                    selectedEarning: 'all',
                     isSortAscending: false
                 }, callback);
             }
@@ -173,7 +175,7 @@ export class Filter extends Component {
         }
 
         this._updateReportTitle();
-        const { selectedLanguage, selectedCommGroupList, selectedBaseCurrency, selectedCurrencyList, selectedPaymentCurrencyList, fromMonth, toMonth, sortBy, isSortAscending, userName, isGetAll } = this.state;
+        const { selectedLanguage, selectedEarning, selectedCommGroupList, selectedBaseCurrency, selectedCurrencyList, selectedPaymentCurrencyList, fromMonth, toMonth, sortBy, isSortAscending, userName, isGetAll } = this.state;
         const { pagingOption } = this.props;
 
         const isSelectAllCommGroup = this.props.commGroupList.every(c => c.checked);
@@ -183,6 +185,7 @@ export class Filter extends Component {
             FromDate: `${fromMonth.month}/1/${fromMonth.year}`,
             ToDate: `${toMonth.month}/1/${toMonth.year}`,
             PreferredLanguage: selectedLanguage,
+            EarningBy: selectedEarning,
             BaseCurrencyId: Number(selectedBaseCurrency),
             GroupIds: isSelectAllCommGroup ? 'all' : selectedCommGroupList,
             CurrencyIds: selectedCurrencyList,
@@ -276,8 +279,8 @@ export class Filter extends Component {
     }
 
     render() {
-        const { selectedLanguage, selectedBaseCurrency, fromMonth, toMonth, sortBy, isSortAscending, selectedProductList, userName, isGetAll } = this.state;
-        const { productList, languageList, currencyList, baseCurrencyList, paymentCurrencyList, isProduction, commGroupList } = this.props;
+        const { selectedLanguage, selectedEarning, selectedBaseCurrency, fromMonth, toMonth, sortBy, isSortAscending, selectedProductList, userName, isGetAll } = this.state;
+        const { productList, languageList, currencyList, baseCurrencyList, paymentCurrencyList, isProduction, commGroupList, earningByList } = this.props;
 
         const isValidSelectedProduct = !!selectedProductList;
 
@@ -295,6 +298,19 @@ export class Filter extends Component {
                             onChange={this.handleChange}
                             value={userName} />
                     </FormGroup>
+                    {
+                        !isMainView &&
+                        <FormGroup className="my-sm-1 mr-sm-2">
+                            <Label className="mr-sm-2">Earning By</Label>
+                            <Input type="select" name="selectedEarning" value={selectedEarning} onChange={this.handleChange}>
+                                {
+                                    Object.keys(earningByList).map(type => {
+                                        return (<option key={'earning-by-' + type} value={earningByList[type]}>{type}</option>)
+                                    })
+                                }
+                            </Input>
+                        </FormGroup>
+                    }
                     <FormGroup className="my-sm-1 mr-sm-2">
                         <Label className="mr-sm-2">{globalResource.BaseCurrency}</Label>
                         <Input type="select" name="selectedBaseCurrency" id="BaseCurrency" value={selectedBaseCurrency} onChange={this.handleChange}>
@@ -447,7 +463,8 @@ function mapStateToProps(state) {
         today: state.today,
         currentViewLevel: state.currentViewLevel,
         param: state.param,
-        commGroupList: state.commGroupList
+        commGroupList: state.commGroupList,
+        earningByList: state.earningByList
     });
 }
 

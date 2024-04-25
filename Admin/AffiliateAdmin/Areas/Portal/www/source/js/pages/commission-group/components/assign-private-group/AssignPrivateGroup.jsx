@@ -4,8 +4,8 @@ import { bindActionCreators } from 'redux';
 import { Alert } from 'reactstrap';
 
 import { getSelectedCommGroup, setSelectedGroup, setSelectedProductIds } from '../../actions';
-import { buildDefaultCommGroup, validateTierSettingList, validateItemMustHaveAProduct, validateDeductedFees } from '../../modules/service';
-import { messages } from '../../modules/constant';
+import { buildDefaultCommGroup, validateTierSettingList, validateItemMustHaveAProduct, validateDeductedFees, handleKillRateListData } from '../../modules/service';
+import { groupTypeList, messages } from '../../modules/constant';
 
 import DeductionSetting from '../shared/tier-deduction';
 import Loader from '../../../../components/Loader';
@@ -29,10 +29,15 @@ export class AssignPrivateGroup extends React.Component {
     componentDidMount() {
         this.setState({ isShowLoader: true });
 
-        const { GroupId, IsUsingPrivateCommGroup } = this.props.affInfo;
+        const { GroupId, IsUsingPrivateCommGroup, GroupTypeId } = this.props.affInfo;
+        const { selectedGroupType, selectedGroup } = this.props;
 
         if (IsUsingPrivateCommGroup && !!GroupId) {
             this.props.getSelectedCommGroup({ GroupId });
+
+            if (GroupTypeId === 0) {
+                this.props.setSelectedGroup({ ...selectedGroup, GroupTypeId: selectedGroupType })
+            }
         }
         else {
             const { deductionList, productList, p2pProductList } = this.props;
@@ -40,6 +45,8 @@ export class AssignPrivateGroup extends React.Component {
             this.props.setSelectedProductIds(productIds);
 
             const commGroup = buildDefaultCommGroup(deductionList, productList, p2pProductList);
+            commGroup.GroupTypeId = selectedGroupType;
+
             this.props.setSelectedGroup(commGroup);
         }
         this.setState({ isShowLoader: false });
@@ -66,6 +73,13 @@ export class AssignPrivateGroup extends React.Component {
             const { selectedGroup, affInfo } = this.props;
 
             const platformFeeList = selectedGroup.PlatformFeeList.filter(item => !!item.ProductIds);
+
+            if (selectedGroup.GroupTypeId === groupTypeList.Turnover) {
+                handleKillRateListData(platformFeeList, selectedGroup.KillRateFeeList);
+            } else {
+                selectedGroup.KillRateFeeList = [];
+            }
+
             const commGroup = { ...selectedGroup, PlatformFeeList: platformFeeList };
             const param = { commGroup, affInfo };
 
@@ -89,6 +103,7 @@ export class AssignPrivateGroup extends React.Component {
             }
         }
     }
+
     hideMessage = () => {
         this.setState({
             isShowMessage: false
@@ -102,7 +117,7 @@ export class AssignPrivateGroup extends React.Component {
         const depositFeeValidation = validateDeductedFees(DepositFee, messages.requireDepositAmount, messages.invalidDepositAmount);
         const withdrawalFeeValidation = validateDeductedFees(WithdrawalFee, messages.requireWithdrawalAmount, messages.invalidWithdrawalAmount);
 
-        const isValid = tierSettingValidation.isValid && selectedProductValidation.isValid  && depositFeeValidation.isValid && withdrawalFeeValidation.isValid;
+        const isValid = tierSettingValidation.isValid && selectedProductValidation.isValid && depositFeeValidation.isValid && withdrawalFeeValidation.isValid;
         const messageList = [...tierSettingValidation.messageList, ...selectedProductValidation.messageList, ...depositFeeValidation.messageList, ...withdrawalFeeValidation.messageList];
 
         return { isValid, messageList };
@@ -128,8 +143,8 @@ export class AssignPrivateGroup extends React.Component {
     }
 }
 
-function mapStateToProp({ deductionList, productList, p2pProductList, selectedGroup, affInfo }) {
-    return { deductionList, productList, p2pProductList, selectedGroup, affInfo };
+function mapStateToProp({ deductionList, productList, p2pProductList, selectedGroup, selectedGroupType, affInfo }) {
+    return { deductionList, productList, p2pProductList, selectedGroup, selectedGroupType, affInfo };
 }
 
 function mapDispatchToProps(dispatch) {

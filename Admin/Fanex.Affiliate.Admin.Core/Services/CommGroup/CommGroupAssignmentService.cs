@@ -34,7 +34,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
             _thirdPartyLicenseeService= thirdPartyLicenseeService;
         }
 
-        public IEnumerable<SelectItem> GetNormalCommGroupList(GetGroupListParam param)
+        public IEnumerable<DTO.CommissionGroup.CommGroup> GetNormalCommGroupList(GetGroupListParam param)
         {
             return _commGroupRepository.GetNormalCommGroupList(param);
         }

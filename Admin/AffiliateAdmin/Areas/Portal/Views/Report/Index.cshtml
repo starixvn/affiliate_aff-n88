@@ -20,6 +20,7 @@
             isProduction: '@(appSetting.Environment)'.toLowerCase() === 'production',
             isN8B: '@appSetting.SiteName'.toLowerCase() === 'n8b',
             commGroupList: @Html.Raw(Json.Encode(Model.CommGroupList)),
+            commGroupTypes: @Html.Raw(Json.Encode(Model.CommGroupTypes))
         }
     </script>
     <script type="text/javascript" src="@Url.VersionedLink("~/Areas/Portal/www/dist/js/pages/report.js")"></script>

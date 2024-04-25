@@ -5,6 +5,7 @@ using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.MetaModels.CommissionGroup;
 using Fanex.Affiliate.Admin.Core.Repository;
+using Fanex.Affiliate.Admin.Core.Services.CommGroup;
 
 namespace Fanex.Affiliate.Admin.Core.Utilities.CommGroup
 {
@@ -13,22 +14,26 @@ namespace Fanex.Affiliate.Admin.Core.Utilities.CommGroup
         private const string brElementHtml = "<br />";
 
         private readonly IProductRepository _productRepository;
+        private readonly ICommGroupCommonService _commGroupCommonService;
 
-        public CommGroupValidationHelper(IProductRepository productRepository)
+        public CommGroupValidationHelper(IProductRepository productRepository, ICommGroupCommonService commGroupCommonService)
         {
             _productRepository = productRepository;
+            _commGroupCommonService = commGroupCommonService;
         }
 
         public ResultInfo ValidateCommGroup(CommGroupSettingParam commGroup)
         {
+            var validateGroupType = ValidateGroupType(commGroup.GroupTypeId);
+
             var result = ValidateAllFees(commGroup);
 
             var validateTierSettingList = ValidateTierSettingList(commGroup.TierSettingList);
 
-            if(!validateTierSettingList.IsSuccessful)
+            if(!validateGroupType.IsSuccessful || !validateTierSettingList.IsSuccessful)
             {
                 result.Code = ErrCode.GeneralErrorCode;
-                result.Message = string.Join(result.Message, validateTierSettingList.Message);
+                result.Message = string.Join(validateGroupType.Message, result.Message, validateTierSettingList.Message);
             }
 
             return result;
@@ -145,6 +150,22 @@ namespace Fanex.Affiliate.Admin.Core.Utilities.CommGroup
             }
 
             return new ResultInfo();
+        }
+
+        private ResultInfo ValidateGroupType(int groupTypeId)
+        {
+            var commGroupTypeList = _commGroupCommonService.GetCommGroupTypes();
+
+            var groupType = commGroupTypeList.FirstOrDefault(_ => _.GroupTypeId == groupTypeId);
+
+            var result = new ResultInfo();
+
+            if (groupType is null)
+            {
+                UpdateResult(result, CommGroupErrorMessage.InvalidGroupType);
+            }
+
+            return result;
         }
 
         private static void UpdateResult(ResultInfo initialResult, string message)

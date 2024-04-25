@@ -8,6 +8,8 @@ namespace Fanex.Affiliate.User.Core.DTO.UserPanel
 
         public decimal Deposit { get; set; }
 
+        public decimal Turnover { get; set; }
+
         public decimal Withdrawal { get; set; }
 
         public decimal MemberGGR { get; set; }

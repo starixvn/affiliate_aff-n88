@@ -1402,6 +1402,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Current Monthly Earning (Calculate Revenue Share by Winloss).
+        /// </summary>
+        public static string CurrentMonthlyEarningDescription {
+            get {
+                return ResourceManager.GetString("CurrentMonthlyEarningDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Current Month Statistics.
         /// </summary>
         public static string CurrentMonthStatistics {
@@ -1641,6 +1650,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string DueTo {
             get {
                 return ResourceManager.GetString("DueTo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Earning By.
+        /// </summary>
+        public static string EarningBy {
+            get {
+                return ResourceManager.GetString("EarningBy", resourceCulture);
             }
         }
         
@@ -3144,6 +3162,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string MonthlyEarning {
             get {
                 return ResourceManager.GetString("MonthlyEarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Monthly Earning (Calculate Revenue Share by Winloss).
+        /// </summary>
+        public static string MonthlyEarningDescription {
+            get {
+                return ResourceManager.GetString("MonthlyEarningDescription", resourceCulture);
             }
         }
         
@@ -5331,6 +5358,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string UncalculatedMonthlyEarning {
             get {
                 return ResourceManager.GetString("UncalculatedMonthlyEarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UnCalculated Monthly Earning (Calculate Revenue Share by Winloss).
+        /// </summary>
+        public static string UncalculatedMonthlyEarningDescription {
+            get {
+                return ResourceManager.GetString("UncalculatedMonthlyEarningDescription", resourceCulture);
             }
         }
         

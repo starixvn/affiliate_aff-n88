@@ -8,6 +8,8 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.CommissionGroup
     {
         public int GroupId { get; set; }
 
+        public int GroupTypeId { get; set; }
+
         public string GroupName { get; set; }
 
         [Range(Validation.Zero, Validation.MaxPercentage, ErrorMessage = "Sub-Affiliate Commission Rate is incorrect!")]
@@ -26,6 +28,8 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.CommissionGroup
 
         [Required]
         public IEnumerable<TierDeductionSettingParam> PlatformFeeList { get; set; }
+
+        public IEnumerable<TierDeductionSettingParam> KillRateFeeList { get; set; }
 
         [Required]
         public TierDeductionSettingParam DepositFee { get; set; }

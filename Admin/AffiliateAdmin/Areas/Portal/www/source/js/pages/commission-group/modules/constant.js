@@ -8,23 +8,26 @@ export const INFINITY_QM = 1000000000;
 export const INFINITY_SYMBOL = '∞';
 export const FIRST_ITEM_INDEX = 0;
 export const ONLY_ONE_ITEM = 1;
+export const MAX_KILL_RATE_PERCENT = 5;
 
-function generateCommissionValues() {
-    let min = 0,
-        max = 99.9;
+function generateCommissionValues(maxValue = 100) {
+    let min = 0, max = maxValue;
 
-    const commissionList = { 0.0: '0.0%'};
+    const commissionList = { 0.0: '0.0%' };
 
     while (min < max) {
-        min = min + 0.1;
-        commissionList[format(min/100, 3)] = format(min, 1) + "%";
+        min = (min * 100 + 0.1 * 100) / 100;
+        commissionList[format(min / 100, 3)] = format(min, 1) + "%";
     }
 
     return commissionList;
 }
+
 const _commValueList = generateCommissionValues();
+const _killRateValueList = generateCommissionValues(MAX_KILL_RATE_PERCENT);
 
 export const commissionValueList = _commValueList;
+export const killRateValueList = _killRateValueList;
 
 function generateSubAffCommRateValues() {
     let min = 10.0,
@@ -44,7 +47,11 @@ const _subAffCommRateValueList = generateSubAffCommRateValues();
 export const subAffCommRateValueList = _subAffCommRateValueList;
 export const defaultSubAffCommRate = 0.1;
 
-export const GGR = '| Gross Game Revenue |'
+export const GGR = '| Gross Game Revenue |';
+export const Turnover = '| Turnover |';
+
+export const MinNetWin = 'Min Net Win';
+export const MinNetTurnover = 'Min Net Turnover';
 
 export const messages = {
     requireGroupName: 'Group Name cannot be empty. Please check!',
@@ -70,6 +77,7 @@ export const messages = {
 const _deductionNameList = {
     p2pDeduction: 'P2P Fee',
     platformFee: 'Platform Fee',
+    killRate: 'Kill Rate',
     depositFee: 'Deposit Fee',
     withdrawalFee: 'Withdrawal Fee'
 }
@@ -79,4 +87,9 @@ export const regExp = {
     checkAmount: "^(\\d+\\.?\\d*)?$",
     shouldFormatAmount: "^\\d+$",
     validAmount: "^\\d+(\\.\\d{1,})?$"
+}
+
+export const groupTypeList = {
+    Winloss: 1,
+    Turnover: 2
 }

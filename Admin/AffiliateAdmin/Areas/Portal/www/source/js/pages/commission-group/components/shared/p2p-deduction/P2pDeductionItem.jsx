@@ -50,6 +50,7 @@ export default class P2pDeductionItem extends PureComponent {
                         <DeductedPercentageGroup
                             value={deductedPercentage}
                             label="| Revenue |"
+                            valueList={commissionValueList}
                             onChange={this.handleChangeComm} />
                     </Form>
                 </Col>

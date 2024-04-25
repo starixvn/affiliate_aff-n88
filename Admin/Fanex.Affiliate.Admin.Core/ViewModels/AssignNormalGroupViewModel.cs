@@ -1,12 +1,16 @@
 ﻿using System.Collections.Generic;
-using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.Affiliate;
+using Fanex.Affiliate.Admin.Core.DTO.CommissionGroup;
 
 namespace Fanex.Affiliate.Admin.Core.ViewModels
 {
     public class AssignNormalGroupViewModel
     {
-        public IEnumerable<SelectItem> CommGroupList { get; set; }
+        public IEnumerable<CommGroup> CommGroupList { get; set; }
+
+        public IEnumerable<CommGroupType> CommGroupTypes { get; set; }
+
+        public int SelectedGroupType { get; set; }
 
         public int SelectedGroup { get; set; }
 

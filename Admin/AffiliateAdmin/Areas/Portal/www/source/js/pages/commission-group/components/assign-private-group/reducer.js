@@ -3,6 +3,7 @@ import { selectedGroup, productList, p2pProductList, deductionList, defaultCurre
 import createReducer from '../../../../modules/createReducer';
 
 export const affInfo = createReducer({}, {});
+export const selectedGroupType = createReducer(1, {});
 
 export default combineReducers({
     productList,
@@ -11,5 +12,6 @@ export default combineReducers({
     selectedGroup,
     affInfo,
     defaultCurrency,
-    selectedProductIds
+    selectedProductIds,
+    selectedGroupType
 });

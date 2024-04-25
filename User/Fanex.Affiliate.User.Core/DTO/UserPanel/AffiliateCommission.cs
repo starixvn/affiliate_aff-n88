@@ -30,6 +30,9 @@ namespace Fanex.Affiliate.User.Core.DTO.UserPanel
         public decimal CommissionRate { get; set; }
 
         public decimal Commission { get; set; }
+
+        public string EarningBy { get; set; }
+
         public decimal P2pCommission { get; set; }
 
         public decimal SubAffCommission { get; set; }

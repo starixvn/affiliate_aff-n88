@@ -1,18 +1,17 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Threading.Tasks;
+using System.Web.Mvc;
 using Fanex.Affiliate.Admin.Core.Attributes;
 using Fanex.Affiliate.Admin.Core.Constants;
+using Fanex.Affiliate.Admin.Core.DTO;
+using Fanex.Affiliate.Admin.Core.DTO.Email;
 using Fanex.Affiliate.Admin.Core.Extensions;
 using Fanex.Affiliate.Admin.Core.MetaModels;
 using Fanex.Affiliate.Admin.Core.MetaModels.Customer;
 using Fanex.Affiliate.Admin.Core.Services.Common;
 using Fanex.Affiliate.Admin.Core.Services.Customer;
-using Fanex.Affiliate.Admin.Core.DTO.Email;
 using Fanex.Affiliate.Admin.Core.Utilities;
-using Fanex.Affiliate.Admin.Core.DTO;
 using ONEbook.UM.AspNetMVC.Filters;
-using System.Linq;
-using Fanex.Affiliate.Admin.Core.Apis;
-using System.Threading.Tasks;
 
 namespace Fanex.Affiliate.Admin.Core.Controllers
 {

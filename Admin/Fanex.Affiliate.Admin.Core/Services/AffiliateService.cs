@@ -1,14 +1,15 @@
-﻿using Fanex.Affiliate.Admin.Core.Constants;
+﻿using System;
+using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.Affiliate;
 using Fanex.Affiliate.Admin.Core.MetaModels.Affiliate;
 using Fanex.Affiliate.Admin.Core.Repository;
-using System;
-using System.Data;
+using Fanex.Common.Extensions;
 
 namespace Fanex.Affiliate.Admin.Core.Services
 {
-    public class AffiliateService: BaseRepository, IAffiliateService
+
+    public class AffiliateService : BaseRepository, IAffiliateService
     {
         public AffiliateBasicInfo GetAffiliateBasicInfo(int? affId, string affName = null)
         {
@@ -29,6 +30,7 @@ namespace Fanex.Affiliate.Admin.Core.Services
                             AffId = Convert.ToInt32(reader["AffId"]),
                             AffCode = Convert.ToString(reader["AffCode"]),
                             GroupId = Convert.ToInt32(reader["GroupId"]),
+                            GroupTypeId = reader.ToInt(Field.GroupTypeId),
                             UserName = Convert.ToString(reader["UserName"]),
                             FirstName = Convert.ToString(reader["FirstName"]),
                             Email = Convert.ToString(reader["Email"]),

@@ -45,6 +45,7 @@ export class Content extends PureComponent {
                 <Cell header={true} colWidth={30}>#</Cell>
                 <Cell header={true} colWidth={100} title={resource.UserName}>{resource.UserName}</Cell>
                 <Cell header={true} colWidth={100} title={resource.SystemUserName}>{resource.SystemUserName}</Cell>
+                <Cell header={true} colWidth={100} title={resource.Turnover}>{resource.Turnover}</Cell>
                 <Cell header={true} colWidth={100} title={resource.Ggr}>{resource.Ggr}</Cell>
                 <Cell header={true} colWidth={100} title={resource.Deposit}>{resource.Deposit}</Cell>
                 <Cell header={true} colWidth={100} title={resource.Withdrawal}>{resource.Withdrawal}</Cell>
@@ -79,6 +80,7 @@ export class Content extends PureComponent {
     }
 
     _buildDataRow(dataItem, rowNumber, productColumnClassName) {
+        const turnover = formatDecimal(dataItem.Turnover);
         const ggr = formatDecimal(dataItem.Ggr);
         const deposit = formatDecimal(dataItem.Deposit);
         const withdrawal = formatDecimal(dataItem.Withdrawal);
@@ -90,6 +92,7 @@ export class Content extends PureComponent {
                 {rowNumber && <Cell className="text-center" title={rowNumber}>{rowNumber}</Cell>}
                 {rowNumber && <Cell className="text-center" title={dataItem.UserName}>{dataItem.UserName}</Cell>}
                 <Cell className="text-center" title={dataItem.IbcUserName} colSpan={!rowNumber && 3}>{dataItem.IbcUserName}</Cell>
+                <Cell className="text-right" title={turnover}>{turnover}</Cell>
                 <Cell className={productColumnClassName} title={ggr}>{ggr}</Cell>
                 <Cell className="text-right" title={deposit}>{deposit}</Cell>
                 <Cell className="text-right" title={withdrawal}>{withdrawal}</Cell>

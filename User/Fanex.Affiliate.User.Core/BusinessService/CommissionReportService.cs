@@ -32,24 +32,21 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         {
             var rawData = _commissionReportRepository.GetAffiliateCommission(param);
 
-            var byMonth =
-                    (from n in rawData
-                     group n by n.MonthDate into g
-                     orderby g.Key descending
-                     select new AffiliateCommisionByMonth
-                     {
-                         Month = g.Key.Month,
-                         DiplayMonth = g.Key.ToString("MMM-yyyy") + GetCalculatedNote(g.FirstOrDefault()?.CalculatedType),
-                         Data = g.FirstOrDefault(i => i.ProductId == 0),
-                         ProductData = g.Where(i => i.ProductId > 0).ToList()
-
-                     }).ToList();
+            var byMonth = rawData.GroupBy(n => n.MonthDate)
+                        .OrderByDescending(g => g.Key)
+                        .Select(g => new AffiliateCommisionByMonth
+                        {
+                            Month = g.Key.Month,
+                            DiplayMonth = g.Key.ToString("MMM-yyyy") + GetCalculatedNote(g.FirstOrDefault()?.CalculatedType),
+                            Data = g.FirstOrDefault(i => i.ProductId == 0),
+                            ProductData = g.Where(i => i.ProductId > 0).ToList()
+                        }).ToList();
 
             var total = new AffiliateCommission();
             foreach (var item in byMonth)
             {
-                item.Data.CommissionRate = item.Data.CommissionRate * PercentageUnit;
-                item.Data.SubCommRate = item.Data.SubCommRate * PercentageUnit;
+                item.Data.CommissionRate *= PercentageUnit;
+                item.Data.SubCommRate *= PercentageUnit;
 
                 total.TurnOver += item.Data.TurnOver;
                 total.GGR += item.Data.GGR;

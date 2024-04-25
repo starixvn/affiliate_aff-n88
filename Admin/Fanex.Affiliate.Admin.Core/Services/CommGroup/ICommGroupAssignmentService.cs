@@ -8,7 +8,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
 {
     public interface ICommGroupAssignmentService
     {
-        IEnumerable<SelectItem> GetNormalCommGroupList(GetGroupListParam param);
+        IEnumerable<DTO.CommissionGroup.CommGroup> GetNormalCommGroupList(GetGroupListParam param);
 
         Task<ResultInfo> AssignGroup(AssignGroupParam param, AffInfoParam affInfo, AffInformationEmail emailParam);
 

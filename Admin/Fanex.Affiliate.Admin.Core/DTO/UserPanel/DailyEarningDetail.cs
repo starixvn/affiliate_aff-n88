@@ -8,6 +8,8 @@
 
         public string IbcUserName { get; set; }
 
+        public decimal Turnover { get; set; }
+
         public decimal Ggr { get; set; }
 
         public decimal Deposit { get; set; }

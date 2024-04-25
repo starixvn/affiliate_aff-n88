@@ -48,7 +48,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
                 new SubMenu { Name = Lang.CommGroup, Url = Url.Content("~/Portal/RevenueGroup") }
             };
 
-            var groupListParam = new GetGroupListParam { AffId = -1 };
+            var groupListParam = new GetGroupListParam { AffId = -1, GroupTypeId = -1 };
             var viewModel = new AffiliateInfoViewModel
             {
                 CommGroupList = _commissionGroupRepository.GetNormalCommGroupList(groupListParam),

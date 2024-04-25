@@ -113,11 +113,11 @@ namespace Fanex.Affiliate.User.Core.ViewModels.UserPanel
             switch (calculatedType)
             {
                 case Constants.CalculatedType.CalculatedMonth:
-                    return Resources.Lang.MonthlyEarning;
+                    return Resources.Lang.MonthlyEarningDescription;
                 case Constants.CalculatedType.UnCalculatedMonth:
-                    return Resources.Lang.UncalculatedMonthlyEarning;
+                    return Resources.Lang.UncalculatedMonthlyEarningDescription;
                 default:
-                    return Resources.Lang.CurrentMonthlyEarning;
+                    return Resources.Lang.CurrentMonthlyEarningDescription;
             }
         }
 

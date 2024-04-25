@@ -37,6 +37,9 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
                              RowIdx = c.RowIdx,
                              GroupId = c.GroupId,
                              GroupName = c.GroupName,
+                             GroupTypeId = c.GroupTypeId,
+                             GroupTypeName = c.GroupTypeName,
+                             GroupTypeBy = c.GroupTypeBy,
                              SubAffCommRate = c.SubAffCommRate,
                              CreatedDate = c.CreatedDate,
                              Creator = c.Creator,
@@ -47,7 +50,8 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
                              P2pDeductionList = groupP2pDeductionSetting,
                              PlatformFeeList = groupTierDeductionSetting.Where(p => p.DeductionId == Constants.Deduction.PlatformFeeId),
                              DepositFee = groupTierDeductionSetting.FirstOrDefault(p => p.DeductionId == Constants.Deduction.DepositFeeId),
-                             WithdrawalFee = groupTierDeductionSetting.FirstOrDefault(p => p.DeductionId == Constants.Deduction.WithdrawalFeeId)
+                             WithdrawalFee = groupTierDeductionSetting.FirstOrDefault(p => p.DeductionId == Constants.Deduction.WithdrawalFeeId),
+                             KillRateFeeList = groupTierDeductionSetting.Where(p => p.DeductionId == Constants.Deduction.KillRateFeeId),
                          };
 
             return result;

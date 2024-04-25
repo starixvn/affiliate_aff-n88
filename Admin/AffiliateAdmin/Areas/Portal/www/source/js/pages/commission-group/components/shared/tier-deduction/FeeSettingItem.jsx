@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 
 import { Col, FormGroup, Label, Input, Form } from 'reactstrap';
-import { regExp, formatDecimal, format } from '../../../modules/constant';
+import { regExp, formatDecimal, format, commissionValueList } from '../../../modules/constant';
 import { money } from '../../../../../modules/constants';
 import DeductedPercentageGroup from '../deduction/DeductedPercentageGroup';
 
@@ -44,7 +44,7 @@ export default class FeeSettingItem extends React.Component {
     render() {
         const { label, data, basedValueName, isInitial, defaultCurrency } = this.props;
         const isDeductedPercent = data && data.IsDeductedPercent;
-        var deductionAmount = isInitial && data && regexValidAmount.test(data.DeductedAmount) && formatDecimal(Number(data.DeductedAmount));
+        const deductionAmount = isInitial && data && regexValidAmount.test(data.DeductedAmount) && formatDecimal(Number(data.DeductedAmount));
 
         return (
             <FormGroup row className="align-items-center">
@@ -57,6 +57,7 @@ export default class FeeSettingItem extends React.Component {
                                     <DeductedPercentageGroup
                                         value={data && data.DeductedPercentage}
                                         label={basedValueName}
+                                        valueList={commissionValueList}
                                         onChange={this.handleChange} />
                                 </Form>
                             </Col>

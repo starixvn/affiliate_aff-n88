@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import { Table, Row, Cell } from '@9softstudio/react-fixed-table-header';
 
 import { resolveClientUrl } from '../../../../modules/utils';
-import { globalResource, format, formatDecimal } from '../../modules/constant';
+import { globalResource, format, formatDecimal, MinNetWin, MinNetTurnover, groupTypeList } from '../../modules/constant';
 import { deleteCommGroup, getGroupSettingList } from '../../actions';
 import { htmlDecode } from '../../../../modules/htmlHelper';
 import NotificationPopup from '../../../common/components/NotificationPopup';
@@ -123,7 +123,7 @@ export class GridData extends Component {
             for (let index = 0; index < gridData.length; index++) {
                 const item = gridData[index];
 
-                const { TierSettingList, P2pDeductionList, PlatformFeeList, DepositFee, WithdrawalFee, SubAffCommRate, ...group } = item;
+                const { TierSettingList, P2pDeductionList, PlatformFeeList, KillRateFeeList, DepositFee, WithdrawalFee, SubAffCommRate, ...group } = item;
                 const tierSettingRowSpan = TierSettingList.length;
                 const platformFeeRowSpan = PlatformFeeList.length;
                 const p2pDeductionRowSpan = P2pDeductionList.length;
@@ -131,7 +131,9 @@ export class GridData extends Component {
 
                 const depositFee = DepositFee && (DepositFee.IsDeductedPercent ? `${format(DepositFee.DeductedPercentage * 100, 1)}%` : formatDecimal(Number(DepositFee.DeductedAmount)));
                 const withdrawalFee = WithdrawalFee && (WithdrawalFee.IsDeductedPercent ? `${format(WithdrawalFee.DeductedPercentage * 100, 1)}%` : formatDecimal(Number(WithdrawalFee.DeductedAmount)));
-                const subAffCommRate = SubAffCommRate && `${format(SubAffCommRate * 100, 1)}%`
+                const subAffCommRate = SubAffCommRate && `${format(SubAffCommRate * 100, 1)}%`;
+
+                const isTurnover = item.GroupTypeId === groupTypeList.Turnover;
 
                 for (let iP2P = 0; iP2P < P2pDeductionList.length; iP2P++) {
                     const p2pDeduction = P2pDeductionList[iP2P];
@@ -158,7 +160,7 @@ export class GridData extends Component {
                                     </Fragment>
                                 )}
                                 <Cell className="cell-deduction" rowSpan="2">
-                                    <div dangerouslySetInnerHTML={{ __html: `<strong>P2P Group ${iP2P + 1}</strong><br />Royalty Fee ${royaltyFee}`}}></div>
+                                    <div dangerouslySetInnerHTML={{ __html: `<strong>P2P Group ${iP2P + 1}</strong><br />Royalty Fee ${royaltyFee}` }}></div>
                                 </Cell>
                                 <Cell className="font-weight-bold text-center cell-deduction" colSpan="4">{`Fixed Rate ${p2pFixedRate}`}</Cell>
                                 {isFirstItem && (
@@ -190,17 +192,28 @@ export class GridData extends Component {
 
                 for (let iPlatform = 0; iPlatform < PlatformFeeList.length; iPlatform++) {
                     const platformFee = PlatformFeeList[iPlatform]
-                    const percent = `${format(platformFee.DeductedPercentage * 100, 1)}%`;
+                    const royalPercent = `${format(platformFee.DeductedPercentage * 100, 1)}%`;
+
+                    let killRateHtml = '';
+                    if (isTurnover) {
+                        const killRateFee = KillRateFeeList[iPlatform];
+                        const killRatePercent = `${format(killRateFee.DeductedPercentage * 100, 1)}%`;
+
+                        killRateHtml = `<br /> Kill rate ${killRatePercent}`;
+                    }
+
                     const productIds = platformFee.ProductIds;
                     const tierSettings = TierSettingList.filter(t => t.GroupProductId === platformFee.GroupProductId);
 
                     rows.push(
                         <Row key={`row-platform-${index}-${productIds}`}>
                             <Cell className="cell-deduction" rowSpan={2 + tierSettings.length}>
-                                <div dangerouslySetInnerHTML={{ __html: `<strong>Product Group ${iPlatform + 1}</strong><br />Royalty Fee ${percent}` }}></div>
+                                <div dangerouslySetInnerHTML={{
+                                    __html: `<strong>Product Group ${iPlatform + 1}</strong><br />Royalty Fee ${royalPercent}${killRateHtml}`
+                                }}></div>
                             </Cell>
                             <Cell className="font-weight-bold text-center cell-deduction">Tier</Cell>
-                            <Cell className="font-weight-bold text-center cell-deduction">Min Net Win</Cell>
+                            <Cell className="font-weight-bold text-center cell-deduction">{isTurnover ? MinNetTurnover : MinNetWin}</Cell>
                             <Cell className="font-weight-bold text-center cell-deduction">Min Active Player</Cell>
                             <Cell className="font-weight-bold text-center cell-deduction">Rev. Share%</Cell>
                         </Row>

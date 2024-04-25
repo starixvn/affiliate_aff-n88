@@ -3,7 +3,7 @@ import TierSetting from './TierSetting';
 import MultipleSelect from "../../../../../components/multiple-select";
 import { Col, Form, FormGroup, Label } from 'reactstrap';
 import DeductedPercentageForm from '../deduction/DeductedPercentageGroup';
-import { ONLY_ONE_ITEM, GGR } from '../../../modules/constant';
+import { ONLY_ONE_ITEM, GGR, Turnover, commissionValueList, killRateValueList } from '../../../modules/constant';
 
 export default class PlatformFeeItem extends React.Component {
     constructor(props) {
@@ -14,22 +14,23 @@ export default class PlatformFeeItem extends React.Component {
         selectedItem && this.props.onSelectProduct(selectedItem);
     }
 
-    handleChangeComm = (event) => {
+    handleChangeComm = (event, propName) => {
         const { name, value } = event.target;
-        this.props.onChangeCommission({ [name]: Number(value) });
+        this.props.onChangeCommission({ [name]: Number(value) }, propName);
     }
 
     render() {
-        const { data, handleClick, btnText, isOnlyOnePlatformFeeRow, isFirst, index } = this.props;
+        const { data, handleClick, isOnlyOnePlatformFeeRow, isFirst, isTurnover, index } = this.props;
 
-        const { productList, commission, groupProductId } = data;
+        const { productList, royaltyFee, killRate, groupProductId } = data;
         const isValid = (isFirst && isOnlyOnePlatformFeeRow) || productList.filter(p => !p.Checked).length < productList.length;
         const isDisableAddButton = isFirst && (productList.length === ONLY_ONE_ITEM);
+        const btnText = isFirst ? (<><span>Add Product Group</span><span>+</span></>) : (<><span>Remove Product Group</span><span>-</span></>);
 
         return (
-            <div className="mb-2">
+            <div className="my-2">
                 <FormGroup row className="align-items-center">
-                    <Col sm={4}>
+                    <Col sm={3}>
                         <span className="group-index">{index}.</span>
                         <div className={`select-product ${isValid ? "" : "is-invalid"}`}>
                             <MultipleSelect
@@ -49,16 +50,30 @@ export default class PlatformFeeItem extends React.Component {
                         <Form inline>
                             <Label className="font-weight-bold pr-2">Royalty Fee:</Label>
                             <DeductedPercentageForm
-                                value={commission}
+                                value={royaltyFee}
                                 label={GGR}
-                                onChange={this.handleChangeComm} />
+                                valueList={commissionValueList}
+                                onChange={(e) => this.handleChangeComm(e, 'PlatformFeeList')} />
                         </Form>
                     </Col>
-                    <Col sm={3} className="pl-0">
-                        <button type="button" className="btn btn-action" style={{ width: '100%', display: 'flex', justifyContent: 'space-between' }} disabled={isDisableAddButton} onClick={handleClick}>{btnText}</button>
-                    </Col>
+                    {isTurnover && <Col sm={4} className="pl-0">
+                        <Form inline>
+                            <Label className="font-weight-bold pr-2">Kill Rate:</Label>
+                            <DeductedPercentageForm
+                                value={killRate}
+                                label={Turnover}
+                                valueList={killRateValueList}
+                                onChange={(e) => this.handleChangeComm(e, 'KillRateFeeList')} />
+                        </Form>
+                    </Col>}
                 </FormGroup>
-                <TierSetting groupProductId={groupProductId} />
+                <TierSetting
+                    groupProductId={groupProductId}
+                    handleClick={handleClick}
+                    isDisableAddButton={isDisableAddButton}
+                    btnText={btnText}
+                    isTurnover={isTurnover}
+                />
             </div>
         )
     }
