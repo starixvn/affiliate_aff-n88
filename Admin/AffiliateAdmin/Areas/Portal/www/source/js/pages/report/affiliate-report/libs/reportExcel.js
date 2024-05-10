@@ -19,13 +19,13 @@ const MAIN_VIEW = {
 }
 
 const DETAIL_VIEW = {
-    TOTAL_COLUMN: 24,
+    TOTAL_COLUMN: 25,
     INDEX_PLAYER_STATISTICS_COLUMN: 7,
     INDEX_AFFILIATE_STATISTICS_COLUMN: 8,
     INDEX_DEPOSIT_COLUMN: 7,
     INDEX_COMM_COLUMN: 17,
     COLSPAN_PLAYER_STATISTICS: 10,
-    COLSPAN_AFFILIATE_STATISTICS: 7
+    COLSPAN_AFFILIATE_STATISTICS: 8
 }
 
 const MAIN_SECTION_STYLE = 'mainSectionStyle';
@@ -55,6 +55,7 @@ const fields = {
     TotalFee: 'TotalFee',
     CommissionRate: 'CommissionRate',
     Earning: 'Earning',
+    EarningBy: 'EarningBy',
     P2pEarning: 'P2pEarning',
     SubAffEarning: 'SubAffEarning',
     TotalEarning: 'TotalEarning',
@@ -230,7 +231,8 @@ export default class ReportExcel {
                 [fields.CommissionRate]: "N/A"
             } : {
                 [fields.MonthDateString]: totalText,
-                [fields.CommissionRate]: "N/A"
+                [fields.CommissionRate]: "N/A",
+                [fields.EarningBy]: 'N/A'
             }
             const total = Object.assign({}, totalData, customTotalData);
 
@@ -461,9 +463,16 @@ export default class ReportExcel {
         }
         ];
 
+        const earningByField = {
+            field: fields.EarningBy,
+            [MAIN_SECTION_STYLE]: bodyCellStyle.right,
+            [TOTAL_SECTION_STYLE]: totalCellStyle.right
+        }
+
         if (!isMainView) {
             columnConfigList.splice(1, 1);
-            columnConfigList.splice(24, 1);
+            columnConfigList.splice(19, 0, earningByField);
+            columnConfigList.splice(25, 1);
         }
 
         return columnConfigList;

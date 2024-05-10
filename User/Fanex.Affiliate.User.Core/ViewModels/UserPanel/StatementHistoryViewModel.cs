@@ -95,7 +95,7 @@ namespace Fanex.Affiliate.User.Core.ViewModels.UserPanel
                 switch (TransType)
                 {
                     case Constants.TransType.Commission:
-                        return GetCommissionDescription(CalculatedType);
+                        return Description;
                     case Constants.TransType.SubAffBonus:
                         return GetSubAffiliateDescription(CalculatedType);
                     case Constants.TransType.MonthlyTotal:
