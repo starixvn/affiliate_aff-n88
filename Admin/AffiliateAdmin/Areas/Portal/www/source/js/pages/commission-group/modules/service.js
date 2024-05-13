@@ -246,8 +246,14 @@ export const removeTierItem = (tierId, groupProductId, dataList) => {
 }
 
 export const handleKillRateListData = (platformFeeList, killRateFeeList) => {
-    killRateFeeList && platformFeeList.map((item, index) => {
-        killRateFeeList[index].ProductIds = item.ProductIds;
+    return platformFeeList.map((item, index) => {
+        return {
+            ProductIds: item.ProductIds,
+            DeductedPercentage: killRateFeeList[index].DeductedPercentage,
+            DeductionId: killRateFeeList[index].DeductionId,
+            GroupProductId: item.GroupProductId,
+            IsDeductedPercent: item.IsDeductedPercent
+        }
     });
 }
 

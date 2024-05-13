@@ -58,8 +58,8 @@ export class GridData extends Component {
             const result = response.data;
 
             if (result.IsSuccessful) {
-                const { pagingOption } = this.props;
-                const gettingParam = Object.assign({}, { PageIndex: pagingOption.PageIndex, PageSize: pagingOption.PageSize, GroupName: this.props.searchedGroupName });
+                const { pagingOption, searchedGroupName, searchedGroupType } = this.props;
+                const gettingParam = Object.assign({}, { PageIndex: pagingOption.PageIndex, PageSize: pagingOption.PageSize, GroupName: searchedGroupName, GroupTypeId: searchedGroupType });
                 this.props.getGroupSettingList(gettingParam);
 
                 this.setState({ messageNotification: "Delete Revenue Group Successfully", isConfirmPopup: false, shouldResetScrollPosition: true });
@@ -266,8 +266,8 @@ export class GridData extends Component {
     }
 }
 
-function mapStateToProps({ gridData, productList, searchedGroupName, pagingOption }) {
-    return Object.assign({}, { gridData, productList, searchedGroupName, pagingOption });
+function mapStateToProps({ gridData, productList, searchedGroupName, searchedGroupType, pagingOption }) {
+    return Object.assign({}, { gridData, productList, searchedGroupName, searchedGroupType, pagingOption });
 }
 
 function mapDispatchToProps(dispatch) {

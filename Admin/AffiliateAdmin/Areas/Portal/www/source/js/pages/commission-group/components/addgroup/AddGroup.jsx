@@ -54,21 +54,20 @@ export class AddGroup extends React.Component {
         else {
             this.props.toggleLoader(true);
             const platformFeeList = selectedGroup.PlatformFeeList.filter(item => !!item.ProductIds);
+            let killRateFeeList = [];
 
             if (selectedGroup.GroupTypeId === groupTypeList.Turnover) {
-                handleKillRateListData(platformFeeList, selectedGroup.KillRateFeeList);
-            } else {
-                selectedGroup.KillRateFeeList = [];
+                killRateFeeList = handleKillRateListData(platformFeeList, selectedGroup.KillRateFeeList);
             }
 
-            const param = { ...selectedGroup, PlatformFeeList: platformFeeList };
+            const param = { ...selectedGroup, PlatformFeeList: platformFeeList, KillRateFeeList: killRateFeeList };
             const response = await this.props.insertCommissionGroup(param);
             if (response && response.status === 200) {
                 const result = response.data;
                 if (result.IsSuccessful) {
                     window.setTimeout(this.props.onClose, 3000);
-                    const { pagingOption } = this.props;
-                    const gettingParam = Object.assign({}, { PageIndex: pagingOption.PageIndex, PageSize: pagingOption.PageSize, GroupName: this.props.searchedGroupName, GroupTypeId: selectedGroup.GroupTypeId });
+                    const { pagingOption, searchedGroupName, searchedGroupType } = this.props;
+                    const gettingParam = Object.assign({}, { PageIndex: pagingOption.PageIndex, PageSize: pagingOption.PageSize, GroupName: searchedGroupName, GroupTypeId: searchedGroupType });
                     this.props.getGroupSettingList(gettingParam);
                 }
 
@@ -101,8 +100,8 @@ export class AddGroup extends React.Component {
     }
 }
 
-function mapStateToProp({ deductionList, productList, p2pProductList, selectedGroup, searchedGroupName, pagingOption }) {
-    return { deductionList, productList, p2pProductList, selectedGroup, searchedGroupName, pagingOption };
+function mapStateToProp({ deductionList, productList, p2pProductList, selectedGroup, searchedGroupName, searchedGroupType, pagingOption }) {
+    return { deductionList, productList, p2pProductList, selectedGroup, searchedGroupName, searchedGroupType, pagingOption };
 }
 
 function mapDispatchToProps(dispatch) {

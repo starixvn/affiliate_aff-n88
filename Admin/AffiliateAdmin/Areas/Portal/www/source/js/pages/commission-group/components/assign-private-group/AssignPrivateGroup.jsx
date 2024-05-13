@@ -73,14 +73,13 @@ export class AssignPrivateGroup extends React.Component {
             const { selectedGroup, affInfo } = this.props;
 
             const platformFeeList = selectedGroup.PlatformFeeList.filter(item => !!item.ProductIds);
+            let killRateFeeList = [];
 
             if (selectedGroup.GroupTypeId === groupTypeList.Turnover) {
-                handleKillRateListData(platformFeeList, selectedGroup.KillRateFeeList);
-            } else {
-                selectedGroup.KillRateFeeList = [];
+                killRateFeeList = handleKillRateListData(platformFeeList, selectedGroup.KillRateFeeList);
             }
 
-            const commGroup = { ...selectedGroup, PlatformFeeList: platformFeeList };
+            const commGroup = { ...selectedGroup, PlatformFeeList: platformFeeList, KillRateFeeList: killRateFeeList };
             const param = { commGroup, affInfo };
 
             const response = await post('Portal/CommGroupAssignment/AssignPrivateGroup', param);
