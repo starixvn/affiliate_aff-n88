@@ -36,9 +36,10 @@ export class CommGroupInfo extends React.Component {
     }
 
     handleChangeGroupType = (event) => {
-        const { value } = event.target;
-
-        this.props.setSelectedGroup({ GroupTypeId: Number(value) });
+        if (!this.state.isDisableGroupType) {
+            const { value } = event.target;
+            this.props.setSelectedGroup({ GroupTypeId: Number(value) });
+        }
     }
 
     render() {
@@ -71,7 +72,7 @@ export class CommGroupInfo extends React.Component {
                     </Col>
                 </FormGroup>
                 <FormGroup row>
-                    <Label for="Description" sm={2}>Description: </Label>
+                    <Label for="Description" sm={2}>Description </Label>
                     <Col sm={10}>
                         <Input type="text" name="Description" id="Description" value={htmlDecode(Description)} onChange={this.handleChangeText} />
                     </Col>

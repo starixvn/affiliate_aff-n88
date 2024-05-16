@@ -135,7 +135,7 @@
             var activeClass = isFirstSumRow ? ' active' : '';
             var toggleIconClass = isFirstSumRow ? 'bottom' : 'left';
             var className = isSummaryRow ? ' class="sumrow' + activeClass + '"' : '';
-            var length = langResource.isMaxLevel ? 10 : 11;
+            var length = langResource.isMaxLevel ? 11 : 12;
 
             var date = dataRow.MonthDate;
 

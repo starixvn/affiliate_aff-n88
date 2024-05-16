@@ -114,7 +114,7 @@ export class TierSetting extends Component {
                         <button
                             type="button"
                             className="btn btn-action"
-                            style={{ width: '100%', display: 'flex', justifyContent: 'space-between' }}
+                            style={{ width: '100%', display: 'flex', justifyContent: 'space-between', margin: 0 }}
                             disabled={isDisableAddButton}
                             onClick={handleClick}>
                             {btnText}
