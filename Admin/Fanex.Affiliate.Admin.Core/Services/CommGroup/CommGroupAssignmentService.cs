@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
+using Fanex.Affiliate.Admin.Core.DTO.CommissionGroup;
 using Fanex.Affiliate.Admin.Core.DTO.Email;
 using Fanex.Affiliate.Admin.Core.MetaModels.Affiliate;
 using Fanex.Affiliate.Admin.Core.MetaModels.CommissionGroup;
@@ -34,7 +35,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
             _thirdPartyLicenseeService= thirdPartyLicenseeService;
         }
 
-        public IEnumerable<DTO.CommissionGroup.CommGroup> GetNormalCommGroupList(GetGroupListParam param)
+        public IEnumerable<NormalCommGroup> GetNormalCommGroupList(GetGroupListParam param)
         {
             return _commGroupRepository.GetNormalCommGroupList(param);
         }

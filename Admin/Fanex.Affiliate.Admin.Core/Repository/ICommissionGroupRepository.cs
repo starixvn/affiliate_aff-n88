@@ -19,7 +19,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository
 
         IEnumerable<DeductionItem> GetDeductionList();
 
-        IEnumerable<CommGroup> GetNormalCommGroupList(GetGroupListParam param);
+        IEnumerable<NormalCommGroup> GetNormalCommGroupList(GetGroupListParam param);
 
         IEnumerable<SelectItem> GetAllCommGroups();
 

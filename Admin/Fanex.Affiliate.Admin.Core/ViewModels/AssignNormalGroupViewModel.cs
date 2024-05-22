@@ -6,7 +6,7 @@ namespace Fanex.Affiliate.Admin.Core.ViewModels
 {
     public class AssignNormalGroupViewModel
     {
-        public IEnumerable<CommGroup> CommGroupList { get; set; }
+        public IEnumerable<NormalCommGroup> CommGroupList { get; set; }
 
         public IEnumerable<CommGroupType> CommGroupTypes { get; set; }
 

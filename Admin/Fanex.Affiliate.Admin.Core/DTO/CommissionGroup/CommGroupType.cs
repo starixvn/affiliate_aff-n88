@@ -7,7 +7,5 @@
         public string GroupTypeName { get; set; }
 
         public string GroupTypeBy { get; set; }
-
-        public int DisplayOrder { get; set; }
     }
 }

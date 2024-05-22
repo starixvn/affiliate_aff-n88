@@ -7,7 +7,7 @@ namespace Fanex.Affiliate.Admin.Core.ViewModels.Affiliate
 {
     public class AffiliateInfoViewModel
     {
-        public IEnumerable<CommGroup> CommGroupList { get; set; }
+        public IEnumerable<NormalCommGroup> CommGroupList { get; set; }
 
         public IEnumerable<Language> LanguageList { get; set; }
 

@@ -105,10 +105,10 @@ namespace Fanex.Affiliate.Admin.Core.Repository
                 return objectDb.Query<DeductionItem>();
             }
         }
-        public IEnumerable<CommGroup> GetNormalCommGroupList(GetGroupListParam param)
+        public IEnumerable<NormalCommGroup> GetNormalCommGroupList(GetGroupListParam param)
         {
             const string SpKey = "Aff_Admin_CommGroupNormal_Sel";
-            var result = new List<CommGroup>();
+            var result = new List<NormalCommGroup>();
 
             using (var objectDb = GetObjectDb(SpKey))
             {
@@ -120,7 +120,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository
                 {
                     while (reader.Read())
                     {
-                        result.Add(new CommGroup
+                        result.Add(new NormalCommGroup
                         {
                             GroupId = reader.ToInt(Field.GroupId),
                             GroupName = reader.ToString(Field.GroupName),

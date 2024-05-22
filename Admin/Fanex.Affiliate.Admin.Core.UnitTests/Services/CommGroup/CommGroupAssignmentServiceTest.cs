@@ -2,6 +2,7 @@
 using Autofac.Integration.Mvc;
 using Fanex.Affiliate.Admin.Core.Configurations;
 using Fanex.Affiliate.Admin.Core.DTO;
+using Fanex.Affiliate.Admin.Core.DTO.CommissionGroup;
 using Fanex.Affiliate.Admin.Core.DTO.Email;
 using Fanex.Affiliate.Admin.Core.MetaModels.Affiliate;
 using Fanex.Affiliate.Admin.Core.MetaModels.CommissionGroup;
@@ -27,12 +28,13 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
         {
             // Arrange
             var param = new GetGroupListParam();
-            var expectedResult = new List<SelectItem>
+            var expectedResult = new List<NormalCommGroup>
             {
-                new SelectItem
+                new NormalCommGroup
                 {
-                    Id = "133",
-                    Name = "New Test"
+                    GroupId = 123,
+                    GroupName = "New Test",
+                    GroupTypeId = 1
                 }
             };
             var commGroupRepository = new Mock<ICommissionGroupRepository>();
