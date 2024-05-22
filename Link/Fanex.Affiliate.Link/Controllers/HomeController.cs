@@ -3,8 +3,8 @@
 namespace Fanex.Affiliate.Link.Controllers
 {
     using System;
+    using System.Collections.Generic;
     using System.Collections.Specialized;
-    using System.Globalization;
     using System.Text;
     using System.Web.Mvc;
     using Commands;
@@ -27,6 +27,12 @@ namespace Fanex.Affiliate.Link.Controllers
 
         private const string LinkIsInvalidMessage = "This link does not exists. Please contact administrator!";
         private const string LinkIsIncorrectMessage = "This link is incorrect. Please contact administrator!";
+
+        private readonly IDictionary<string, string> CustomShortedCodes = new Dictionary<string, string>
+        {
+            { "bn", "bd" },
+            { "ms", "my" }
+        };
 
         #endregion Services
 
@@ -57,24 +63,7 @@ namespace Fanex.Affiliate.Link.Controllers
             return View();
         }
 
-        public ActionResult Link(string affId, string pageId, string lang = null, string deviceType = null)
-        {
-            try
-            {
-                var affInfo = _generalAffiliateInfoService.GetGeneralAffiliateInfo(affId: Convert.ToInt32(affId));
-                var affDomain = GetFullAffDomain(GetOriginalUrl(), affId.ToString());
-
-                return InsertAffiliate(affInfo.affId, affInfo.affCode, pageId, lang, affDomain);
-            }
-            catch(Exception ex)
-            {
-                LogService.Error($"{ex.Message}", ex);
-                ViewBag.Result = LinkIsIncorrectMessage;
-                return View("Link");
-            }
-        }
-
-        public ActionResult NewLink(string pageId, string affCode = null, string lang = null)
+        public ActionResult Link(string pageId, string affCode = null, string lang = null)
         {
             try
             {
@@ -174,16 +163,22 @@ namespace Fanex.Affiliate.Link.Controllers
 
         private string HandleRedirectUrl(string redirectUrl, string pageId, string languageCode, string affCode)
         {
+            var customLanguageCode = languageCode;
+            if (CustomShortedCodes.ContainsKey(languageCode))
+            {
+                customLanguageCode = CustomShortedCodes[languageCode];
+            }
+
             var redirectPattern = ConfigurationManager.AppSettings[$"Redirect_{pageId.ToLowerInvariant()}_pattern"];
             if (!string.IsNullOrEmpty(redirectPattern))
             {
                 var redirectUri = new Uri(redirectUrl);
-                var pathAndQueryString = redirectPattern.Replace("#language#", languageCode).Replace("#affCode#", affCode);
+                var pathAndQueryString = redirectPattern.Replace("#language#", customLanguageCode).Replace("#affCode#", affCode);
                 return $"{redirectUri.Scheme}://{redirectUri.Host}{pathAndQueryString}";
             }
             else
             {
-                var url = redirectUrl.Split('?');
+                var url = redirectUrl.Replace($"/{languageCode}/", $"/{customLanguageCode}/").Split('?');
                 return $"{url[0]}?affCode={affCode}";
             }
         }
