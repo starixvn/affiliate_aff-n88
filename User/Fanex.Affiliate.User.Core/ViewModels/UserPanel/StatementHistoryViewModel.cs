@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace Fanex.Affiliate.User.Core.ViewModels.UserPanel
 {
@@ -95,7 +96,7 @@ namespace Fanex.Affiliate.User.Core.ViewModels.UserPanel
                 switch (TransType)
                 {
                     case Constants.TransType.Commission:
-                        return Description;
+                        return GetCommissionDescription(CalculatedType);
                     case Constants.TransType.SubAffBonus:
                         return GetSubAffiliateDescription(CalculatedType);
                     case Constants.TransType.MonthlyTotal:
@@ -108,17 +109,28 @@ namespace Fanex.Affiliate.User.Core.ViewModels.UserPanel
 
         public IEnumerable<StatementHistoryViewModel> Children { get; set; } = new List<StatementHistoryViewModel>();
 
-        private static string GetCommissionDescription(byte? calculatedType)
+        private string GetCommissionDescription(byte? calculatedType)
         {
+            var description = new StringBuilder();
+
             switch (calculatedType)
             {
                 case Constants.CalculatedType.CalculatedMonth:
-                    return Resources.Lang.MonthlyEarningDescription;
+                    description.Append(Resources.Lang.MonthlyEarning);
+                    break;
                 case Constants.CalculatedType.UnCalculatedMonth:
-                    return Resources.Lang.UncalculatedMonthlyEarningDescription;
+                    description.Append(Resources.Lang.UncalculatedMonthlyEarning);
+                    break;
                 default:
-                    return Resources.Lang.CurrentMonthlyEarningDescription;
+                    description.Append(Resources.Lang.CurrentMonthlyEarning);
+                    break;
             }
+
+            description.Append(Description.Contains(Constants.CommByGroupType.Winloss)
+                ? $" ({Resources.Lang.RevenueShareByWinloss})"
+                : $" ({Resources.Lang.RevenueShareByTurnover})");
+
+            return description.ToString();
         }
 
         private static string GetSubAffiliateDescription(byte? calculatedType)

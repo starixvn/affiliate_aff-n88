@@ -158,7 +158,7 @@
                 rowItems.push(_me.buildCell(formatDecimal(dataRow.Rebate)));
                 rowItems.push(commRateCell);
                 rowItems.push(_me.buildCell(formatDecimal(dataRow.Commission)));
-                rowItems.push(_me.buildCell(dataRow.EarningBy));
+                rowItems.push(_me.buildCell(dataRow.EarningByDisplay));
                 rowItems.push(_me.buildCell(formatDecimal(dataRow.P2pCommission)));
                 !langResource.isMaxLevel && rowItems.push('<td class="text-right">' + subCommRate + '</td>');
                 !langResource.isMaxLevel && rowItems.push(_me.buildSubAffCell(formatDecimal(dataRow.SubAffCommission), date));

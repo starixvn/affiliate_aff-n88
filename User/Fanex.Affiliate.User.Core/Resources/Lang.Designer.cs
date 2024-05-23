@@ -1402,15 +1402,6 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Current Monthly Earning (Calculate Revenue Share by Winloss).
-        /// </summary>
-        public static string CurrentMonthlyEarningDescription {
-            get {
-                return ResourceManager.GetString("CurrentMonthlyEarningDescription", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Current Month Statistics.
         /// </summary>
         public static string CurrentMonthStatistics {
@@ -3166,15 +3157,6 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Monthly Earning (Calculate Revenue Share by Winloss).
-        /// </summary>
-        public static string MonthlyEarningDescription {
-            get {
-                return ResourceManager.GetString("MonthlyEarningDescription", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Monthly Total.
         /// </summary>
         public static string MonthlyTotal {
@@ -4233,6 +4215,24 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string ResponsibilitiesOfTheAffiliate {
             get {
                 return ResourceManager.GetString("ResponsibilitiesOfTheAffiliate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Calculate Revenue Share by Turnover.
+        /// </summary>
+        public static string RevenueShareByTurnover {
+            get {
+                return ResourceManager.GetString("RevenueShareByTurnover", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Calculate Revenue Share by Winloss.
+        /// </summary>
+        public static string RevenueShareByWinloss {
+            get {
+                return ResourceManager.GetString("RevenueShareByWinloss", resourceCulture);
             }
         }
         
@@ -5362,15 +5362,6 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to UnCalculated Monthly Earning (Calculate Revenue Share by Winloss).
-        /// </summary>
-        public static string UncalculatedMonthlyEarningDescription {
-            get {
-                return ResourceManager.GetString("UncalculatedMonthlyEarningDescription", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Application Under Review.
         /// </summary>
         public static string UnderReview {
@@ -5691,6 +5682,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string WhatWeOffer {
             get {
                 return ResourceManager.GetString("WhatWeOffer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Winloss.
+        /// </summary>
+        public static string Winloss {
+            get {
+                return ResourceManager.GetString("Winloss", resourceCulture);
             }
         }
         

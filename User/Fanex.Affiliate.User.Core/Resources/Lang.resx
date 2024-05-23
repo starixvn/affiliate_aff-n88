@@ -2117,13 +2117,13 @@
   <data name="EarningBy" xml:space="preserve">
     <value>Earning By</value>
   </data>
-  <data name="MonthlyEarningDescription" xml:space="preserve">
-    <value>Monthly Earning (Calculate Revenue Share by Winloss)</value>
+  <data name="RevenueShareByWinloss" xml:space="preserve">
+    <value>Calculate Revenue Share by Winloss</value>
   </data>
-  <data name="CurrentMonthlyEarningDescription" xml:space="preserve">
-    <value>Current Monthly Earning (Calculate Revenue Share by Winloss)</value>
+  <data name="RevenueShareByTurnover" xml:space="preserve">
+    <value>Calculate Revenue Share by Turnover</value>
   </data>
-  <data name="UncalculatedMonthlyEarningDescription" xml:space="preserve">
-    <value>UnCalculated Monthly Earning (Calculate Revenue Share by Winloss)</value>
+  <data name="Winloss" xml:space="preserve">
+    <value>Winloss</value>
   </data>
 </root>

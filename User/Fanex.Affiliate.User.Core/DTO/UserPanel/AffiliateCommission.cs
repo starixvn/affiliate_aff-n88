@@ -3,7 +3,6 @@ using System;
 
 namespace Fanex.Affiliate.User.Core.DTO.UserPanel
 {
-
     [Serializable]
     public class AffiliateCommission
     {
@@ -45,5 +44,7 @@ namespace Fanex.Affiliate.User.Core.DTO.UserPanel
 
         [SpParam(Ignored = true)]
         public decimal TotalCommission => Commission + P2pCommission + SubAffCommission;
+
+        public string EarningByDisplay => EarningBy == Constants.EarningByType.Winloss ? Resources.Lang.Winloss : Resources.Lang.Turnover;
     }
 }

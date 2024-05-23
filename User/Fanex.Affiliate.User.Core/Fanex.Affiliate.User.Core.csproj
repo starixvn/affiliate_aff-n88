@@ -252,8 +252,10 @@
     <Compile Include="Constants\Apis\CustomerStatus.cs" />
     <Compile Include="Constants\CalculatedType.cs" />
     <Compile Include="Constants\CommGroupName.cs" />
+    <Compile Include="Constants\CommByGroupType.cs" />
     <Compile Include="Constants\CommissionType.cs" />
     <Compile Include="Constants\ControllerName.cs" />
+    <Compile Include="Constants\EarningByType.cs" />
     <Compile Include="Constants\ErrCodes.cs" />
     <Compile Include="Constants\GMT.cs" />
     <Compile Include="Constants\Menu.cs" />
