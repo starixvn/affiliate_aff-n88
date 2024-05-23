@@ -5,23 +5,29 @@ import { Filter } from '../Filter';
 describe('commission group - Filter', () => {
     const defaultProps = {
         pagingOption: {},
-        searchedGroupName: ''
+        searchedGroupName: '',
+        commGroupTypes: []
     };
 
     it("should call getGroupSettingList when click button Search", () => {
         const mockGetGroupSettingList = jest.fn();
+        const mockSetSearchedGroupName = jest.fn();
+        const mockSetSearchedGroupType = jest.fn();
 
         const expectParam = {
             PageIndex: 1,
             PageSize: 20,
-            GroupName: 'abc'
+            GroupName: 'abc',
+            GroupTypeId: 1
         }
         const props = Object.assign({}, defaultProps, {
             getGroupSettingList: mockGetGroupSettingList,
-            pagingOption: { PageIndex: 1, PageSize: 20 },
-            searchedGroupName: 'abc'
+            setSearchedGroupName: mockSetSearchedGroupName,
+            setSearchedGroupType: mockSetSearchedGroupType,
+            pagingOption: { PageIndex: 1, PageSize: 20 }
         });
         const wrapper = shallow(<Filter {...props} />);
+        wrapper.setState({ groupName: 'abc', groupTypeId: 1 });
         wrapper.instance().handleSearch = jest.fn();
 
         wrapper.find('Button').simulate('click');
@@ -30,16 +36,13 @@ describe('commission group - Filter', () => {
     });
 
     it("should call handleChange when change Group Name's value", () => {
-        const mockedEvent = { target: { value: "Group name" } };
-        const mockGetGroupSettingList = jest.fn();
-        const mockSetSearchedGroupName = jest.fn();
+        const mockedEvent = { target: { name: 'groupName', value: "Group name" } };
+        const wrapper = shallow(<Filter {...defaultProps} />);
+        wrapper.setState = jest.fn();
 
-        const props = Object.assign({}, defaultProps, { getGroupSettingList: mockGetGroupSettingList, setSearchedGroupName: mockSetSearchedGroupName });
-        const wrapper = shallow(<Filter {...props} />);
+        wrapper.find('Input[type="text"]').simulate('change', mockedEvent);
 
-        wrapper.find('Input').simulate('change', mockedEvent);
-
-        expect(props.setSearchedGroupName).toHaveBeenCalledWith("Group name");
+        expect(wrapper.setState).toHaveBeenCalledWith({ groupName: "Group name" });
     });
 
     it('handlePressEnter - should call handleSearch when press Enter', () => {

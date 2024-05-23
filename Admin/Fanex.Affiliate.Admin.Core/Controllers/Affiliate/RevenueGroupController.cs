@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Web.Mvc;
-using Fanex.Affiliate.Admin.Core.Attributes;
+﻿using Fanex.Affiliate.Admin.Core.Attributes;
 using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.CommissionGroup;
@@ -13,6 +10,9 @@ using Fanex.Affiliate.Admin.Core.Services.CommGroup;
 using Fanex.Affiliate.Admin.Core.Services.Common;
 using Fanex.Affiliate.Admin.Core.Utilities.CommGroup;
 using Fanex.Affiliate.Admin.Core.ViewModels;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
 
 namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
 {
@@ -88,7 +88,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
             if (param.GroupId >= Validation.MinId)
             {
                 var commissionGroupInfo = _commissionGroupService.GetCommissionGroupList(param).FirstOrDefault();
-                if(commissionGroupInfo != null)
+                if (commissionGroupInfo != null)
                 {
                     var groupName = commissionGroupInfo.GroupName;
                     var description = commissionGroupInfo.Description;

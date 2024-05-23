@@ -1,7 +1,6 @@
-﻿using Fanex.Affiliate.Admin.Core.Repository;
-using Fanex.Affiliate.Admin.Core.DTO;
+﻿using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.MetaModels.ChangeAdminPassword;
-using System.Data;
+using Fanex.Affiliate.Admin.Core.Repository;
 
 namespace Fanex.Affiliate.Admin.Core.Services.ChangeAdminPassword
 {

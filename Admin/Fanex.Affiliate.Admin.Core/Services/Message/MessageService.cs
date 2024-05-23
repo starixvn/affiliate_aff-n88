@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Fanex.Affiliate.Admin.Core.Constants;
+using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.Message;
 using Fanex.Affiliate.Admin.Core.MetaModels.Message;
-using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.Repository;
 using Fanex.Data;
-using Fanex.Affiliate.Admin.Core.Constants;
+using System;
+using System.Collections.Generic;
 
 namespace Fanex.Affiliate.Admin.Core.Services.Message
 {

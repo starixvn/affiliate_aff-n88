@@ -59,7 +59,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Customer
             var param = "B2CAFF226";
             var passedParam = string.Empty;
             var customerLeftPanelService = new Mock<ICustomerLeftPanelService>();
-            customerLeftPanelService.Setup(s => s.GetOnlineList(param)).Returns(new List<OnlineList> { new OnlineList()}).Callback<string>(p => passedParam = p);
+            customerLeftPanelService.Setup(s => s.GetOnlineList(param)).Returns(new List<OnlineList> { new OnlineList() }).Callback<string>(p => passedParam = p);
             var controller = CreateCustomerLeftPanelController(customerLeftPanelService: customerLeftPanelService.Object);
 
             // Action
@@ -120,7 +120,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Customer
         public void UpdateTransferLimitSetting_WhenCallWithValidParam_ExcuteSuccessfully()
         {
             // Arrange
-            var param = new TransferLimitSettingParam { AffId = 1271808};
+            var param = new TransferLimitSettingParam { AffId = 1271808 };
             TransferLimitSettingParam passedParam = null;
             var customerLeftPanelService = new Mock<ICustomerLeftPanelService>();
             customerLeftPanelService.Setup(s => s.UpdateTransferLimitSetting(It.IsAny<TransferLimitSettingParam>())).Returns(new ResultInfo()).Callback<TransferLimitSettingParam>(p => passedParam = p);

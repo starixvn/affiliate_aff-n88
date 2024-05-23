@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace Fanex.Affiliate.Admin.Core.Services.Domain
 {
-    public class SubAffDomainService: BaseRepository, ISubAffDomainService
+    public class SubAffDomainService : BaseRepository, ISubAffDomainService
     {
         private readonly IDomainRepository _domainRepository;
 

@@ -69,6 +69,17 @@ exports[`daily earning detail - components - Content render correctly 1`] = `
           onClick={[Function]}
           sortable={false}
           sorting={false}
+          title="Turnover"
+        >
+          Turnover
+        </t>
+        <t
+          asc={true}
+          colWidth={100}
+          header={true}
+          onClick={[Function]}
+          sortable={false}
+          sorting={false}
           title="GGR"
         >
           GGR
@@ -174,6 +185,17 @@ exports[`daily earning detail - components - Content render correctly with have 
           </t>
           <t
             asc={true}
+            className="text-right"
+            header={false}
+            onClick={[Function]}
+            sortable={false}
+            sorting={false}
+            title=""
+          >
+            
+          </t>
+          <t
+            asc={true}
             className="text-right highlight"
             header={false}
             onClick={[Function]}
@@ -265,6 +287,17 @@ exports[`daily earning detail - components - Content render correctly with have 
           </t>
           <t
             asc={true}
+            className="text-right"
+            header={false}
+            onClick={[Function]}
+            sortable={false}
+            sorting={false}
+            title=""
+          >
+            
+          </t>
+          <t
+            asc={true}
             className="text-right highlight"
             header={false}
             onClick={[Function]}
@@ -337,6 +370,17 @@ exports[`daily earning detail - components - Content render correctly with have 
             title="Total"
           >
             Total
+          </t>
+          <t
+            asc={true}
+            className="text-right"
+            header={false}
+            onClick={[Function]}
+            sortable={false}
+            sorting={false}
+            title=""
+          >
+            
           </t>
           <t
             asc={true}
@@ -429,6 +473,17 @@ exports[`daily earning detail - components - Content render correctly with have 
           title="System Name"
         >
           System Name
+        </t>
+        <t
+          asc={true}
+          colWidth={100}
+          header={true}
+          onClick={[Function]}
+          sortable={false}
+          sorting={false}
+          title="Turnover"
+        >
+          Turnover
         </t>
         <t
           asc={true}

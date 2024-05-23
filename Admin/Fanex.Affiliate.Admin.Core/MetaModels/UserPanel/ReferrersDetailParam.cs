@@ -1,12 +1,11 @@
 ﻿using Fanex.Affiliate.Admin.Core.Constants;
 using System.ComponentModel.DataAnnotations;
-using System.Diagnostics.CodeAnalysis;
 
 namespace Fanex.Affiliate.Admin.Core.MetaModels.UserPanel
 {
     public class ReferrersDetailParam : ReferrersParam
     {
-        
+
         public string SelectedSiteUrl { get; set; }
 
         [Range(Validation.MinPageIndex, Validation.MaxPageIndex)]

@@ -75,15 +75,19 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services
         {
             return new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase)
             {
-                ["AffId"] = 1271808,
-                ["GroupId"] = 123,
+                ["AffId"] = "1271808",
+                ["GroupId"] = "123",
+                ["AffCode"] = "123",
+                ["GroupTypeId"] = "1",
                 ["UserName"] = "N88Aff001",
                 ["FirstName"] = "abc",
                 ["Email"] = "abc@gmail.com",
                 ["MailOption"] = true,
                 ["PreferredLanguage"] = "vi-VN",
                 ["PlayerUsername"] = "123abc",
-                ["AffType"] = 2,
+                ["PlayerCustId"] = "1",
+                ["ParentAffName"] = "test",
+                ["AffType"] = "2",
                 ["IsPrivate"] = false
             };
         }

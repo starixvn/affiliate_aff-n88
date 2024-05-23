@@ -21,10 +21,10 @@ namespace Fanex.Affiliate.Admin.Core.Configurations
 
         public string BccMail => GetValue("bccMail");
 
-        
+
         public string EuropeanAffSiteUrl => GetValue("EuropeanAffiliateURL");
 
-        
+
         public string AsianAffSiteUrl => GetValue("AsianAffiliateURL");
 
         public string JsVersion => GetValue("JsVersion");
@@ -49,7 +49,7 @@ namespace Fanex.Affiliate.Admin.Core.Configurations
 
         public string RabbitMQConnectionString => GetValue("RabbitMQConnectionString");
 
-        
+
         public string BannerRootUrl => GetValue("BannerUrl");
 
         public string[] BannerFolders => GetValue("BannerFolders").Split(';');
@@ -70,19 +70,19 @@ namespace Fanex.Affiliate.Admin.Core.Configurations
 
         public string DefaultCurrency => GetValue("DefaultCurrency");
 
-        
+
         public string MemberSiteApiUrl => GetValue("MemberSiteApiUrl");
 
         public int MemberSiteId => Convert.ToInt32(GetValue("MemberSiteId"));
 
-        
+
         public string MemberSiteProxyUrl => GetValue("MemberSiteProxyUrl");
 
         public string MemberSiteApiAuthenticationKey => GetValue("MemberSiteApiAuthenticationKey");
 
         public bool IsUseMemberSiteProxy => Convert.ToBoolean(GetValue("IsUseProxyToGetMemberSiteApi"));
 
-        
+
         public string AffSiteUrl => GetValue("AffSiteUrl");
 
         [SuppressMessage("Major Code Smell", "S3995:URI return values should not be strings", Justification = "Reviewed. Suppression is OK here.")]

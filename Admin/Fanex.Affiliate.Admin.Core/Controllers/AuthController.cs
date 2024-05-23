@@ -1,18 +1,18 @@
-﻿using System.Web.Mvc;
+﻿using Fanex.Affiliate.Admin.Core.Attributes;
+using Fanex.Affiliate.Admin.Core.Configurations;
+using Fanex.Affiliate.Admin.Core.DTO;
+using Fanex.Affiliate.Admin.Core.DTO.Common;
+using Fanex.Affiliate.Admin.Core.Extensions;
+using Fanex.Affiliate.Admin.Core.MetaModels.Login;
 using Fanex.Affiliate.Admin.Core.Repository;
 using Fanex.Affiliate.Admin.Core.Resources;
 using Fanex.Affiliate.Admin.Core.Services.Common;
-using Fanex.Affiliate.Admin.Core.Extensions;
-using Fanex.Affiliate.Admin.Core.MetaModels.Login;
-using Fanex.Affiliate.Admin.Core.Attributes;
-using Fanex.Affiliate.Admin.Core.DTO.Common;
-using System.Web.Security;
-using System.Web;
+using ONEbook.UM.AspNetMVC.Filters;
 using System.Collections.Generic;
 using System.Linq;
-using Fanex.Affiliate.Admin.Core.Configurations;
-using Fanex.Affiliate.Admin.Core.DTO;
-using ONEbook.UM.AspNetMVC.Filters;
+using System.Web;
+using System.Web.Mvc;
+using System.Web.Security;
 
 namespace Fanex.Affiliate.Admin.Core.Controllers
 {

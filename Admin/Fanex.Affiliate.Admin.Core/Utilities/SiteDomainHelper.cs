@@ -1,10 +1,9 @@
-﻿using System;
+﻿using Fanex.Affiliate.Admin.Core.Configurations;
+using Fanex.Affiliate.Admin.Core.Constants;
+using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Web;
 using System.Web.Mvc;
-using Autofac;
-using Fanex.Affiliate.Admin.Core.Configurations;
-using Fanex.Affiliate.Admin.Core.Constants;
 
 namespace Fanex.Affiliate.Admin.Core.Utilities
 {

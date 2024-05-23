@@ -44,20 +44,10 @@ exports[`commission group - platform fee setting should render correctly 1`] = `
     </Form>
   </div>
   <PlatformFeeItem
-    btnText={
-      <React.Fragment>
-        <span>
-          Add Product Group
-        </span>
-        <span>
-          +
-        </span>
-      </React.Fragment>
-    }
     data={
       Object {
-        "commission": 0.17,
         "groupProductId": 123,
+        "killRate": 0.01,
         "productList": Array [
           Object {
             "Checked": true,
@@ -75,31 +65,23 @@ exports[`commission group - platform fee setting should render correctly 1`] = `
             "ProductName": "Number Game",
           },
         ],
+        "royaltyFee": 0.17,
       }
     }
     handleClick={[Function]}
     index={1}
     isFirst={true}
     isOnlyOnePlatformFeeRow={false}
+    isTurnover={false}
     key="platformfee-0"
     onChangeCommission={[Function]}
     onSelectProduct={[Function]}
   />
   <PlatformFeeItem
-    btnText={
-      <React.Fragment>
-        <span>
-          Remove Product Group
-        </span>
-        <span>
-          -
-        </span>
-      </React.Fragment>
-    }
     data={
       Object {
-        "commission": 0.12,
         "groupProductId": 234,
+        "killRate": 0.02,
         "productList": Array [
           Object {
             "Checked": false,
@@ -117,12 +99,14 @@ exports[`commission group - platform fee setting should render correctly 1`] = `
             "ProductName": "Number Game",
           },
         ],
+        "royaltyFee": 0.12,
       }
     }
     handleClick={[Function]}
     index={2}
     isFirst={false}
     isOnlyOnePlatformFeeRow={false}
+    isTurnover={false}
     key="platformfee-1"
     onChangeCommission={[Function]}
     onSelectProduct={[Function]}

@@ -4,6 +4,7 @@ import { shallow } from 'enzyme';
 
 describe('commission group - CommGroupInfo', () => {
     const defaultProps = {
+        commGroupTypes: [{ GroupTypeId: 1, GroupTypeName: 'Winloss' }, { GroupTypeId: 2, GroupTypeName: 'Turnover' }],
         selectedGroup: {
             BankingFee: { DeductedPercentage: 0.02, DeductionId: 12, ProductIds: 0 },
             Description: "A B C",

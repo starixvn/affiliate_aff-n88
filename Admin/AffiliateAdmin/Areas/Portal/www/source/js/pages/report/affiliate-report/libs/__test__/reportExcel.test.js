@@ -165,7 +165,7 @@ describe('affiliate report - Report Excel ', () => {
 
         expect(instance._buildColspanColumn.mock.calls[1][0]).toBe(HEADER_ROW_INDEX);
         expect(instance._buildColspanColumn.mock.calls[1][1]).toBe(INDEX_COMM_COLUMN);
-        expect(instance._buildColspanColumn.mock.calls[1][2]).toBe(COLSPAN_AFFILIATE_STATISTICS - 1);
+        expect(instance._buildColspanColumn.mock.calls[1][2]).toBe(COLSPAN_AFFILIATE_STATISTICS);
         expect(instance._buildColspanColumn.mock.calls[1][3]).toEqual('Affiliate Statistics');
     });
 
@@ -253,7 +253,7 @@ describe('affiliate report - Report Excel ', () => {
 
         instance._createBodyData();
 
-        expect(Excel.getCellAddress).toHaveBeenCalledTimes(48);
+        expect(Excel.getCellAddress).toHaveBeenCalledTimes(50);
         expect(Excel.getCellAddress.mock.calls[0][0]).toEqual({ "c": 0, "r": 3 });
         expect(Excel.getCellAddress.mock.calls[1][0]).toEqual({ "c": 1, "r": 3 });
         expect(Excel.getCellAddress.mock.calls[2][0]).toEqual({ "c": 2, "r": 3 });
@@ -261,7 +261,7 @@ describe('affiliate report - Report Excel ', () => {
         expect(Excel.getCellAddress.mock.calls[4][0]).toEqual({ "c": 4, "r": 3 });
         expect(Excel.getCellAddress.mock.calls[5][0]).toEqual({ "c": 5, "r": 3 });
 
-        expect(instance._buildDataRow).toHaveBeenCalledTimes(48);
+        expect(instance._buildDataRow).toHaveBeenCalledTimes(50);
         expect(instance._buildDataRow.mock.calls[0][0]).toBe(itemHaveDescription);
         expect(instance._buildDataRow.mock.calls[0][1]).toBe(MAIN_SECTION_STYLE);
         expect(instance._buildDataRow.mock.calls[0][2]).toBe(0);
@@ -298,14 +298,14 @@ describe('affiliate report - Report Excel ', () => {
     });
 
     it('_createTotalRow - should call _buildDataRow, Excel.getCellAddress with Month on Month view', () => {
-        const customTotalData = { CommissionRate: "N/A", MonthDateString: "Total (all pages)" };
+        const customTotalData = { CommissionRate: "N/A", EarningBy: "N/A", MonthDateString: "Total (all pages)" };
         const instance = new ReportExcel(data, title, !isMainView);
         instance._buildDataRow = jest.fn();
         Excel.getCellAddress = jest.fn();
 
         instance._createTotalRow();
 
-        expect(Excel.getCellAddress).toHaveBeenCalledTimes(24);
+        expect(Excel.getCellAddress).toHaveBeenCalledTimes(25);
         expect(Excel.getCellAddress.mock.calls[0][0]).toEqual({ "c": 0, "r": 3 });
         expect(Excel.getCellAddress.mock.calls[1][0]).toEqual({ "c": 1, "r": 3 });
         expect(Excel.getCellAddress.mock.calls[2][0]).toEqual({ "c": 2, "r": 3 });
@@ -313,7 +313,7 @@ describe('affiliate report - Report Excel ', () => {
         expect(Excel.getCellAddress.mock.calls[4][0]).toEqual({ "c": 4, "r": 3 });
         expect(Excel.getCellAddress.mock.calls[5][0]).toEqual({ "c": 5, "r": 3 });
 
-        expect(instance._buildDataRow).toHaveBeenCalledTimes(24);
+        expect(instance._buildDataRow).toHaveBeenCalledTimes(25);
         expect(instance._buildDataRow.mock.calls[0][0]).toEqual(customTotalData);
         expect(instance._buildDataRow.mock.calls[0][1]).toBe(TOTAL_SECTION_STYLE);
         expect(instance._buildDataRow.mock.calls[0][2]).toBe(0);
@@ -366,7 +366,7 @@ describe('affiliate report - Report Excel ', () => {
             { field: "DepositFee", mainSectionStyle: { numFmt: "#,##0.00" }, totalSectionStyle: { fill: { fgColor: { rgb: "ffc4a8" }, patternType: "solid" }, font: { "bold": true }, numFmt: "#,##0.00" } },
             { field: "WithdrawalFee", mainSectionStyle: { numFmt: "#,##0.00" }, totalSectionStyle: { fill: { fgColor: { rgb: "ffc4a8" }, patternType: "solid" }, font: { "bold": true }, numFmt: "#,##0.00" } },
             { field: "TotalFee", mainSectionStyle: { numFmt: "#,##0.00" }, totalSectionStyle: { fill: { fgColor: { rgb: "ffc4a8" }, patternType: "solid" }, font: { "bold": true }, numFmt: "#,##0.00" } },
-            { field: "CommissionRate", mainSectionStyle: { "alignment": { horizontal: "right", vertical: "center" } }, multiCommGroupSectionStyle: { alignment: { horizontal: "right", vertical: "center" }, font: { color: { rgb: "ff0000",} } }, totalSectionStyle: { alignment: { horizontal: "right", vertical: "center" }, fill: { fgColor: { rgb: "ffc4a8" }, patternType: "solid" }, font: { "bold": true } } },
+            { field: "CommissionRate", mainSectionStyle: { "alignment": { horizontal: "right", vertical: "center" } }, multiCommGroupSectionStyle: { alignment: { horizontal: "right", vertical: "center" }, font: { color: { rgb: "ff0000", } } }, totalSectionStyle: { alignment: { horizontal: "right", vertical: "center" }, fill: { fgColor: { rgb: "ffc4a8" }, patternType: "solid" }, font: { "bold": true } } },
             { field: "Earning", mainSectionStyle: { numFmt: "#,##0.00" }, totalSectionStyle: { fill: { fgColor: { rgb: "ffc4a8" }, patternType: "solid" }, font: { "bold": true }, numFmt: "#,##0.00" } },
             { field: "P2pEarning", mainSectionStyle: { numFmt: "#,##0.00" }, totalSectionStyle: { fill: { fgColor: { rgb: "ffc4a8" }, patternType: "solid" }, font: { "bold": true }, numFmt: "#,##0.00" } },
             { field: "SubAffEarning", mainSectionStyle: { numFmt: "#,##0.00" }, totalSectionStyle: { fill: { fgColor: { rgb: "ffc4a8" }, patternType: "solid" }, font: { "bold": true }, numFmt: "#,##0.00" } },

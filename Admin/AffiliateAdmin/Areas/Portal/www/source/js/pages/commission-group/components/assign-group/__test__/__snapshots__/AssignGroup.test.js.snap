@@ -3,7 +3,8 @@
 exports[`commission group - AssignGroup Should render correctly 1`] = `
 AssignGroup {
   "context": undefined,
-  "handleChange": [Function],
+  "handleChangeGroup": [Function],
+  "handleChangeGroupType": [Function],
   "handleCheck": [Function],
   "handleSave": [Function],
   "hideMessage": [Function],
@@ -31,12 +32,24 @@ AssignGroup {
         "Name": "CG22124",
       },
     ],
+    "commGroupListByType": Array [
+      Object {
+        "Id": "133",
+        "Name": "NewGroup",
+      },
+      Object {
+        "Id": "152",
+        "Name": "CG22124",
+      },
+    ],
+    "commGroupTypes": undefined,
     "isPrivateGroup": false,
     "isShowLoader": false,
     "isShowMessage": false,
     "isSuccess": true,
     "message": "",
     "selectedGroup": 102,
+    "selectedGroupType": undefined,
   },
   "updater": Object {
     "enqueueForceUpdate": [Function],
@@ -132,6 +145,47 @@ exports[`commission group - AssignGroup Should render correctly with isSuccess s
         }
         xs="4"
       >
+        New Revenue Group Type: 
+      </Label>
+      <Col
+        className="select-comm"
+        tag="div"
+        widths={
+          Array [
+            "xs",
+            "sm",
+            "md",
+            "lg",
+            "xl",
+          ]
+        }
+        xs="5"
+      >
+        <select
+          className="form-control"
+          name="selectedGroupType"
+          onChange={[Function]}
+        />
+      </Col>
+    </FormGroup>
+    <FormGroup
+      row={true}
+      tag="div"
+    >
+      <Label
+        className="font-weight-bold"
+        tag="label"
+        widths={
+          Array [
+            "xs",
+            "sm",
+            "md",
+            "lg",
+            "xl",
+          ]
+        }
+        xs="4"
+      >
         New Revenue Group: 
       </Label>
       <Col
@@ -150,21 +204,19 @@ exports[`commission group - AssignGroup Should render correctly with isSuccess s
       >
         <select
           className="form-control"
-          name="SelectedGroup"
+          name="selectedGroup"
           onChange={[Function]}
-          value="102"
+          value={102}
         >
           <option
-            key="commgroup-0"
-            value="133"
+            key="comm-group-0"
           >
-            NewGroup
+            undefined
           </option>
           <option
-            key="commgroup-1"
-            value="152"
+            key="comm-group-1"
           >
-            CG22124
+            undefined
           </option>
         </select>
       </Col>

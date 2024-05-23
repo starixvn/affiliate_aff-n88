@@ -73,7 +73,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
 
         private ResultInfo ValidateWebSite(UserAccountParam param)
         {
-            if(param.HasWebSite && string.IsNullOrEmpty(param.SiteUrl))
+            if (param.HasWebSite && string.IsNullOrEmpty(param.SiteUrl))
             {
                 return new ResultInfo
                 {

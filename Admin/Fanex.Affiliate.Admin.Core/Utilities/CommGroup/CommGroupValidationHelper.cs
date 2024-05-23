@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Fanex.Affiliate.Admin.Core.Constants;
+﻿using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.MetaModels.CommissionGroup;
 using Fanex.Affiliate.Admin.Core.Repository;
 using Fanex.Affiliate.Admin.Core.Services.CommGroup;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Fanex.Affiliate.Admin.Core.Utilities.CommGroup
 {
@@ -30,7 +30,7 @@ namespace Fanex.Affiliate.Admin.Core.Utilities.CommGroup
 
             var validateTierSettingList = ValidateTierSettingList(commGroup.TierSettingList);
 
-            if(!validateGroupType.IsSuccessful || !validateTierSettingList.IsSuccessful)
+            if (!validateGroupType.IsSuccessful || !validateTierSettingList.IsSuccessful)
             {
                 result.Code = ErrCode.GeneralErrorCode;
                 result.Message = string.Join(validateGroupType.Message, result.Message, validateTierSettingList.Message);
@@ -51,7 +51,7 @@ namespace Fanex.Affiliate.Admin.Core.Utilities.CommGroup
             }
 
             var validatePlatformFeeList = ValidateDeductionList(commGroup.PlatformFeeList, productIdOfDB, CommGroupErrorMessage.InvalidPlatformFee);
-            if(!validatePlatformFeeList.IsSuccessful)
+            if (!validatePlatformFeeList.IsSuccessful)
             {
                 UpdateResult(result, validatePlatformFeeList.Message);
             }
@@ -132,13 +132,13 @@ namespace Fanex.Affiliate.Admin.Core.Utilities.CommGroup
                 Message = message
             };
 
-            if(!deductedFee.IsDeductedPercent)
+            if (!deductedFee.IsDeductedPercent)
             {
                 try
                 {
                     var deductedAmount = Convert.ToDecimal(deductedFee.DeductedAmount);
 
-                    if(deductedAmount < 0 || deductedAmount > Money.AllowedMaxValue)
+                    if (deductedAmount < 0 || deductedAmount > Money.AllowedMaxValue)
                     {
                         return result;
                     }

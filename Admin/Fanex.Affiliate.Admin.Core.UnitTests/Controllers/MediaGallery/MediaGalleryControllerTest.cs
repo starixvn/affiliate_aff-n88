@@ -26,7 +26,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.MediaGallery
             // Arrange
             var param = new BannerParamFromHome { UserType = 1, IsFromHome = true };
             var commonMediaGalleryService = new Mock<ICommonMediaGalleryService>();
-            commonMediaGalleryService.Setup(c => c.GetCategoryList(1,1)).Returns(new List<Category> { new Category { CategoryName = "Category" } });
+            commonMediaGalleryService.Setup(c => c.GetCategoryList(1, 1)).Returns(new List<Category> { new Category { CategoryName = "Category" } });
             commonMediaGalleryService.Setup(c => c.GetCurrencyList()).Returns(new List<MediaGalleryFilterItem> { new MediaGalleryFilterItem { Id = 234, Name = "Currency" } });
             var languageService = new Mock<ILanguageService>();
             languageService.Setup(l => l.GetLanguageList()).Returns(new List<Language> { new Language { LanguageCode = "en", LanguageName = "English" } });

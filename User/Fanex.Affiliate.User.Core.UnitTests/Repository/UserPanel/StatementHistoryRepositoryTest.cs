@@ -78,6 +78,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Repository.UserPanel
             reader["GGR"].Returns(100);
             reader["Bonus"].Returns(100);
             reader["Rebate"].Returns(10);
+            reader["Turnover"].Returns(10);
             reader["WinlostDate"].Returns(new DateTime(2021, 10, 25));
 
             var repo = CreateRepo();

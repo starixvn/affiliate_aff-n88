@@ -1,10 +1,10 @@
-﻿using System;
-using Fanex.Affiliate.Admin.Core.Constants;
+﻿using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.Affiliate;
 using Fanex.Affiliate.Admin.Core.MetaModels.Affiliate;
 using Fanex.Affiliate.Admin.Core.Repository;
 using Fanex.Common.Extensions;
+using System;
 
 namespace Fanex.Affiliate.Admin.Core.Services
 {

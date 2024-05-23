@@ -132,7 +132,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services
             };
             var mainContent = "mail content";
             MailProcessor.BuildTemplateContent(null, null, null).ReturnsForAnyArgs(mainContent);
-            LanguageService.GetLanguageList().Returns(new List<Language> { new Language { LanguageCode = "en-US"} });
+            LanguageService.GetLanguageList().Returns(new List<Language> { new Language { LanguageCode = "en-US" } });
 
             //Action
             var service = CreateEmailService();

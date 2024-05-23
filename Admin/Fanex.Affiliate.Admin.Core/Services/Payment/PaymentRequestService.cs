@@ -1,20 +1,20 @@
-﻿using Fanex.Affiliate.Admin.Core.DTO;
+﻿using Fanex.Affiliate.Admin.Core.Configurations;
+using Fanex.Affiliate.Admin.Core.Constants;
+using Fanex.Affiliate.Admin.Core.Constants.Apis;
+using Fanex.Affiliate.Admin.Core.DTO;
+using Fanex.Affiliate.Admin.Core.DTO.Affiliate;
+using Fanex.Affiliate.Admin.Core.DTO.Api;
+using Fanex.Affiliate.Admin.Core.DTO.Email;
 using Fanex.Affiliate.Admin.Core.DTO.Payment;
+using Fanex.Affiliate.Admin.Core.Exceptions;
 using Fanex.Affiliate.Admin.Core.MetaModels.Payment;
 using Fanex.Affiliate.Admin.Core.Repository.Payment;
-using Fanex.Affiliate.Admin.Core.DTO.Email;
+using Fanex.Affiliate.Admin.Core.Resources;
 using Fanex.Affiliate.Admin.Core.Utilities;
-using Fanex.Affiliate.Admin.Core.Constants;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Fanex.Affiliate.Admin.Core.Configurations;
-using Fanex.Affiliate.Admin.Core.Resources;
-using Fanex.Affiliate.Admin.Core.DTO.Affiliate;
-using Fanex.Affiliate.Admin.Core.DTO.Api;
-using Fanex.Affiliate.Admin.Core.Constants.Apis;
-using Fanex.Affiliate.Admin.Core.Exceptions;
-using Newtonsoft.Json;
 
 namespace Fanex.Affiliate.Admin.Core.Services.Payment
 {
@@ -55,14 +55,14 @@ namespace Fanex.Affiliate.Admin.Core.Services.Payment
             var affInfo = _affiliateService.GetAffiliateBasicInfo(param.AffId);
             var paymentRequestDetail = GetPaymentRequestDetail(param.TransId);
             var result = UpdatePaymentRequest(param, paymentRequestDetail);
-            if(result != null && result.IsSuccessful)
+            if (result != null && result.IsSuccessful)
             {
                 SendMail(param, emailParam, affInfo, paymentRequestDetail);
             }
             return result;
         }
 
-        public (IEnumerable<PaymentMethodInfo> paymentMethods, decimal minAmount)  GetPaymentMethod()
+        public (IEnumerable<PaymentMethodInfo> paymentMethods, decimal minAmount) GetPaymentMethod()
         {
             return _paymentRequestRepository.GetPaymentMethod();
         }

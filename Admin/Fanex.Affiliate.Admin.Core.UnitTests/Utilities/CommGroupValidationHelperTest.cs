@@ -286,6 +286,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Utilities
         {
             var productRepository = new Mock<IProductRepository>();
             var commGroupCommonService = new Mock<ICommGroupCommonService>();
+
             productRepository.Setup(p => p.GetProductList()).Returns(new List<Product>
             {
                 new Product { ProductId = 1 },
@@ -304,6 +305,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Utilities
         {
             return new CommGroupSettingParam
             {
+                GroupTypeId = 1,
                 DepositFee = new TierDeductionSettingParam
                 {
                     DeductedPercentage = 0.02m,

@@ -58,7 +58,12 @@ describe('common - components - CommissionGroupPopup', () => {
         const instance = result.instance();
         instance.handleChangeAssignToPrivateGroup = jest.fn();
 
-        instance.handleClosePopupEvent({ data: 'changeAssignToPrivateGroup' });
+        instance.handleClosePopupEvent({
+            data: {
+                eventName: 'changeAssignToPrivateGroup',
+                groupTypeId: 1
+            }
+        });
 
         expect(instance.handleChangeAssignToPrivateGroup).toHaveBeenCalled();
     });
@@ -100,9 +105,9 @@ describe('common - components - CommissionGroupPopup', () => {
         const result = shallow(<CommissionGroupPopup {...defaultProps} />);
         result.setState = jest.fn();
 
-        result.instance().handleChangeAssignToPrivateGroup();
+        result.instance().handleChangeAssignToPrivateGroup(1);
 
-        expect(result.setState).toHaveBeenCalledWith({ isUsingPrivateGroup: true });
+        expect(result.setState).toHaveBeenCalledWith({ isUsingPrivateGroup: true, privateGroupTypeId: 1 });
     });
 
     it('handleClosePopup - should call setShowPopupCommGroup and window.setTimeout', () => {
@@ -122,6 +127,6 @@ describe('common - components - CommissionGroupPopup', () => {
 
         result.instance().resetState();
 
-        expect(result.setState).toHaveBeenCalledWith({ isUsingPrivateGroup: false });
+        expect(result.setState).toHaveBeenCalledWith({ isUsingPrivateGroup: false, privateGroupTypeId: 1 });
     });
 });

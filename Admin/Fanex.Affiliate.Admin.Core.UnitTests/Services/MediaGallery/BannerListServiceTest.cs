@@ -395,7 +395,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
             systemFile.Setup(s => s.GetExtension(It.IsAny<string>())).Returns(".png");
             var bannerValidationService = new Mock<IBannerValidationService>();
             bannerValidationService.Setup(b => b.CheckFileInFolder(It.IsAny<string>(), It.IsAny<string>())).Returns(new ResultInfo { Code = ErrCode.ErrTheFileNameAlreadyExists });
-            bannerValidationService.Setup(b => b.ValidateFile(It.IsAny<string>(), It.IsAny<int>())).Returns(new ResultInfo { Code = ErrCode.GeneralErrorCode , Message = "Invalid File"});
+            bannerValidationService.Setup(b => b.ValidateFile(It.IsAny<string>(), It.IsAny<int>())).Returns(new ResultInfo { Code = ErrCode.GeneralErrorCode, Message = "Invalid File" });
             var bannerListRepository = new Mock<IBannerListRepository>();
             bannerListRepository.Setup(s => s.GetBannerDetail(It.IsAny<int>(), 1)).Returns(new BannerInfo { FileName = "CategoryMedia/Players/abc.png" });
             bannerListRepository.Setup(s => s.UpdateBanner(It.IsAny<InsertUpdateMultipleBannersParam>())).Returns(new ResultInfo { Code = ErrCode.GeneralErrorCode });

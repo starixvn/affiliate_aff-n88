@@ -1,7 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 
 namespace Fanex.Affiliate.Admin.Core.DTO.UserPanel
 {
@@ -35,12 +34,12 @@ namespace Fanex.Affiliate.Admin.Core.DTO.UserPanel
 
         public string Country { get; set; }
 
-        
+
         public string SiteUrl { get; set; }
 
-        
+
         public string MoreSiteUrls { get; set; }
-        
+
         public string NoSiteDescription { get; set; }
 
         public string PreferredPayment { get; set; }

@@ -59,7 +59,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
             repository.Setup(r => r.GetUserAccountInfo(It.IsAny<int>())).Returns(new UserAccount { PlayerUsername = "Abc" });
             var licenseeService = new Mock<ILicenseeService>();
             licenseeService.Setup(s => s.CheckCustomerIsValid(It.IsAny<MemberSiteCustomerInfo>()))
-                .Returns(new ResultInfo {Code = 0 });
+                .Returns(new ResultInfo { Code = 0 });
             licenseeService.Setup(s => s.GetMemberSiteCustomerInfo(It.IsAny<string>(), It.IsAny<int>()))
                 .ReturnsAsync(new MemberSiteCustomerInfo());
             repository.Setup(comm => comm.UpdateUserAccount(It.IsAny<UserAccountParam>())).Returns(new ResultInfo());

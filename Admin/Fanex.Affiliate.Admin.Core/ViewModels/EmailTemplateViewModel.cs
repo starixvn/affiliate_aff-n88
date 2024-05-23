@@ -1,5 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using Fanex.Affiliate.Admin.Core.Configurations;
+﻿using Fanex.Affiliate.Admin.Core.Configurations;
 
 namespace Fanex.Affiliate.Admin.Core.ViewModels
 {
@@ -7,13 +6,13 @@ namespace Fanex.Affiliate.Admin.Core.ViewModels
     {
         private static readonly IAppSetting _appSetting = AppSetting.Instance;
 
-        
+
         public string RootUrl { get; set; }
 
-        
+
         public string UserSiteUrl { get; set; }
 
-        
+
         public string ImageRootUrl { get; set; }
 
         public string Language { get; set; }

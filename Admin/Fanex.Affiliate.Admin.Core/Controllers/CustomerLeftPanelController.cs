@@ -1,7 +1,4 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
-using System.Web.Mvc;
-using Fanex.Affiliate.Admin.Core.Attributes;
+﻿using Fanex.Affiliate.Admin.Core.Attributes;
 using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.Email;
@@ -12,13 +9,16 @@ using Fanex.Affiliate.Admin.Core.Services.Common;
 using Fanex.Affiliate.Admin.Core.Services.Customer;
 using Fanex.Affiliate.Admin.Core.Utilities;
 using ONEbook.UM.AspNetMVC.Filters;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace Fanex.Affiliate.Admin.Core.Controllers
 {
     [CustomAuthorize]
     [CheckUMFilter]
     [FunctionAuthorize(FunctionName = Function.Affiliate)]
-    public class CustomerLeftPanelController: Controller
+    public class CustomerLeftPanelController : Controller
     {
         private readonly ICustomerLeftPanelService _customerLeftPanelService;
         private readonly ISessionService _sessionService;
@@ -58,7 +58,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
         [HttpPost]
         public ActionResult GetOnlineList(string affUsername)
         {
-            if(string.IsNullOrEmpty(affUsername))
+            if (string.IsNullOrEmpty(affUsername))
             {
                 return new JsonResult();
             }
@@ -113,7 +113,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
         [FunctionAuthorize(FunctionName = Function.Affiliate, IsHost = true)]
         public ActionResult UpdateLanguage(UpdateLanguageParam param)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 var updateLanguageParam = new UpdateLanguageParam
                 {

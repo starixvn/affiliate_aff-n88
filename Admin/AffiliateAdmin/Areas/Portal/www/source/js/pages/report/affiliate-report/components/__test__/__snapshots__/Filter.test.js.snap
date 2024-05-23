@@ -492,6 +492,51 @@ exports[`affiliate report - Filter  should render correctly when currentMainView
           ]
         }
       >
+        Earning By
+      </Label>
+      <Input
+        name="selectedEarning"
+        onChange={[Function]}
+        type="select"
+        value="all"
+      >
+        <option
+          key="earning-by-All"
+          value="all"
+        >
+          All
+        </option>
+        <option
+          key="earning-by-Winloss"
+          value="Winloss"
+        >
+          Winloss
+        </option>
+        <option
+          key="earning-by-Turnover"
+          value="Turnover"
+        >
+          Turnover
+        </option>
+      </Input>
+    </FormGroup>
+    <FormGroup
+      className="my-sm-1 mr-sm-2"
+      tag="div"
+    >
+      <Label
+        className="mr-sm-2"
+        tag="label"
+        widths={
+          Array [
+            "xs",
+            "sm",
+            "md",
+            "lg",
+            "xl",
+          ]
+        }
+      >
         Base Currency
       </Label>
       <Input

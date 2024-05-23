@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using Fanex.Affiliate.Admin.Core.Constants;
+﻿using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.Customer;
 using Fanex.Affiliate.Admin.Core.MetaModels.Customer;
 using Fanex.Common.Extensions;
+using System;
+using System.Collections.Generic;
 
 namespace Fanex.Affiliate.Admin.Core.Repository.Customer
 {

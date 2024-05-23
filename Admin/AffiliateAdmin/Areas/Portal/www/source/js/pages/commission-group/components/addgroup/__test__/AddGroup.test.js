@@ -10,11 +10,13 @@ describe('commission group - AddGroup', () => {
         Description: "",
         GroupId: 0,
         GroupName: "",
+        GroupTypeId: 1,
         SubAffCommRate: 0.1,
         IsActivePlayerSum: true,
-        PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4", IsDeductedPercent: true, DeductedAmount: "" }],
+        PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4", GroupProductId: 0, IsDeductedPercent: true, DeductedAmount: "" }],
         P2pDeductionList: [{ DeductedPercentage: 0.02, DeductionId: 15, ProductIds: "2,5", Commission: 0.01 }],
-        TierSettingList: []
+        TierSettingList: [],
+        KillRateFeeList: [{ DeductedPercentage: 0.05, DeductionId: 16, ProductIds: "", GroupProductId: 0, IsDeductedPercent: true, DeductedAmount: "" }],
     };
     const defaultProps = {
         deductionList: [
@@ -22,7 +24,8 @@ describe('commission group - AddGroup', () => {
             { DeductionId: 11, DeductionName: "Operational Fee", DeductedPercentage: 0.07, IsDeductedPercent: true, DeductedAmount: "" },
             { DeductionId: 13, DeductionName: "Deposit Fee", DeductedPercentage: 0.02, IsDeductedPercent: true, DeductedAmount: "" },
             { DeductionId: 14, DeductionName: "Withdrawal Fee", DeductedPercentage: 0.02, IsDeductedPercent: true, DeductedAmount: "" },
-            { DeductionId: 15, DeductionName: "P2P Fee", DeductedPercentage: 0.02, Commission: 0.01 }
+            { DeductionId: 15, DeductionName: "P2P Fee", DeductedPercentage: 0.02, Commission: 0.01 },
+            { DeductionId: 16, DeductionName: "Kill Rate", DeductedPercentage: 0.05, IsDeductedPercent: true, DeductedAmount: "" },
         ],
         productList: [
             { ProductId: 1, ProductName: "Sportsbook" },
@@ -43,7 +46,8 @@ describe('commission group - AddGroup', () => {
             GroupName: "",
             PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4", IsDeductedPercent: true, DeductedAmount: "" }],
             P2pDeductionList: [{ DeductedPercentage: 0.15, DeductionId: 15, ProductIds: "2,5", Commission: 0.1 }],
-            TierSettingList: []
+            TierSettingList: [],
+            KillRateFeeList: [{ DeductedPercentage: 0.05, DeductionId: 16, ProductIds: "", IsDeductedPercent: true, DeductedAmount: "" }],
         },
         pagingOption: defaultPagingOption,
         searchedGroupName: '',

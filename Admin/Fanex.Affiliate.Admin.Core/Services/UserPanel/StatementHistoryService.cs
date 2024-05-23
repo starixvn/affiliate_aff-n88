@@ -1,11 +1,11 @@
-﻿using System;
+﻿using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.UserPanel;
+using Fanex.Affiliate.Admin.Core.MetaModels;
 using Fanex.Affiliate.Admin.Core.MetaModels.UserPanel;
 using Fanex.Affiliate.Admin.Core.Repository.UserPanel;
-using Fanex.Affiliate.Admin.Core.MetaModels;
+using System;
 using System.Collections.Generic;
-using Fanex.Affiliate.Admin.Core.Constants;
 using System.Linq;
 
 namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
@@ -72,7 +72,8 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
                 }
             }
 
-            return new EntityResult<StatementHistory> {
+            return new EntityResult<StatementHistory>
+            {
                 MainData = vms,
                 TotalItem = result.TotalItem
             };

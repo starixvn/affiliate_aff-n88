@@ -3,10 +3,10 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Email
 {
     public class EmailBase
     {
-        
+
         public string RootUrl { get; set; }
 
-        
+
         public string UserSiteUrl { get; set; }
 
         public string MailContact { get; set; }

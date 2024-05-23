@@ -1,10 +1,9 @@
-﻿using Fanex.Affiliate.Admin.Core.DTO.UserPanel;
-using System.Data;
+﻿using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
-using Fanex.Affiliate.Admin.Core.MetaModels.UserPanel;
-using Fanex.Affiliate.Admin.Core.Constants;
-using Fanex.Common.Extensions;
+using Fanex.Affiliate.Admin.Core.DTO.UserPanel;
 using Fanex.Affiliate.Admin.Core.Extensions;
+using Fanex.Affiliate.Admin.Core.MetaModels.UserPanel;
+using Fanex.Common.Extensions;
 
 namespace Fanex.Affiliate.Admin.Core.Repository.UserPanel
 {
@@ -25,33 +24,33 @@ namespace Fanex.Affiliate.Admin.Core.Repository.UserPanel
                     {
                         result = new UserAccount
                         {
-                            AffId =reader.ToInt(Field.AffId),
-                            AffName =reader.ToString("UserName"),
-                            FirstName =reader.ToString("FirstName"),
-                            LastName =reader.ToString("LastName"),
+                            AffId = reader.ToInt(Field.AffId),
+                            AffName = reader.ToString("UserName"),
+                            FirstName = reader.ToString("FirstName"),
+                            LastName = reader.ToString("LastName"),
                             Gender = reader.GetVal<bool?>("Gender"),
-                            Email =reader.ToString("Email"),
-                            Phone =reader.ToString("Phone"),
-                            ContactApps =reader.ToString("ContactApps"),
-                            Address =reader.ToString("Address"),
-                            City =reader.ToString("City"),
-                            State =reader.ToString("State"),
-                            Postcode =reader.ToString("Postal"),
-                            Country =reader.ToString("Country"),
-                            MoreSiteUrls =reader.ToString("MoreSiteUrls"),
-                            SiteUrl =reader.ToString("SiteUrl"),
-                            PreferredPayment =reader.ToString("PreferredPayment"),
-                            PlayerUsername =reader.ToString("PlayerUsername"),
-                            NoSiteDescription =reader.ToString("NoSiteDesc"),
-                            NetellerAccountId =reader.ToString("NetellerAccountID"),
-                            MoneybookersEmail =reader.ToString("MoneybookersEmail"),
-                            BankName =reader.ToString("BankName"),
-                            BankAddress =reader.ToString("BankAddress"),
-                            BankCode =reader.ToString("BankSwiftCode"),
-                            BankAccountName =reader.ToString("BankAccountName"),
-                            BankAccountNumber =reader.ToString("BankAccountNo"),
-                            Question =reader.ToString("Question"),
-                            Answer =reader.ToString("Answer"),
+                            Email = reader.ToString("Email"),
+                            Phone = reader.ToString("Phone"),
+                            ContactApps = reader.ToString("ContactApps"),
+                            Address = reader.ToString("Address"),
+                            City = reader.ToString("City"),
+                            State = reader.ToString("State"),
+                            Postcode = reader.ToString("Postal"),
+                            Country = reader.ToString("Country"),
+                            MoreSiteUrls = reader.ToString("MoreSiteUrls"),
+                            SiteUrl = reader.ToString("SiteUrl"),
+                            PreferredPayment = reader.ToString("PreferredPayment"),
+                            PlayerUsername = reader.ToString("PlayerUsername"),
+                            NoSiteDescription = reader.ToString("NoSiteDesc"),
+                            NetellerAccountId = reader.ToString("NetellerAccountID"),
+                            MoneybookersEmail = reader.ToString("MoneybookersEmail"),
+                            BankName = reader.ToString("BankName"),
+                            BankAddress = reader.ToString("BankAddress"),
+                            BankCode = reader.ToString("BankSwiftCode"),
+                            BankAccountName = reader.ToString("BankAccountName"),
+                            BankAccountNumber = reader.ToString("BankAccountNo"),
+                            Question = reader.ToString("Question"),
+                            Answer = reader.ToString("Answer"),
                             MailOption = reader.GetVal<bool?>("MailOption")
                         };
                     }

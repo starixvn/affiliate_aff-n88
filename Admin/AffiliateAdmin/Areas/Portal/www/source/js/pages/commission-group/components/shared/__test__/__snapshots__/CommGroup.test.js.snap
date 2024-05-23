@@ -7,6 +7,83 @@ exports[`commission group - CommGroupInfo Should render correctly 1`] = `
     tag="div"
   >
     <Label
+      for="GroupTypeId"
+      sm={2}
+      tag="label"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
+      Group Type 
+      <span
+        className="text-danger required"
+        style={
+          Object {
+            "margin": 0,
+          }
+        }
+      >
+        *
+      </span>
+    </Label>
+    <Col
+      sm={8}
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
+      <Input
+        disabled={false}
+        name="GroupTypeId"
+        onChange={[Function]}
+        type="select"
+      >
+        <option
+          key="type-1"
+          value={1}
+        >
+          Winloss
+        </option>
+        <option
+          key="type-2"
+          value={2}
+        >
+          Turnover
+        </option>
+      </Input>
+    </Col>
+    <Col
+      sm={2}
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    />
+  </FormGroup>
+  <FormGroup
+    row={true}
+    tag="div"
+  >
+    <Label
       for="GroupName"
       sm={2}
       tag="label"
@@ -20,7 +97,18 @@ exports[`commission group - CommGroupInfo Should render correctly 1`] = `
         ]
       }
     >
-      Group Name: 
+      Group Name 
+      <span
+        className="text-danger required"
+        style={
+          Object {
+            "margin": 0,
+          }
+        }
+      >
+        *
+      </span>
+       
     </Label>
     <Col
       sm={8}
@@ -55,13 +143,7 @@ exports[`commission group - CommGroupInfo Should render correctly 1`] = `
           "xl",
         ]
       }
-    >
-      <p
-        className="text-danger required"
-      >
-        *
-      </p>
-    </Col>
+    />
   </FormGroup>
   <FormGroup
     row={true}
@@ -81,7 +163,7 @@ exports[`commission group - CommGroupInfo Should render correctly 1`] = `
         ]
       }
     >
-      Description: 
+      Description 
     </Label>
     <Col
       sm={10}

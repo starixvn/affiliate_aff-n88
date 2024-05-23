@@ -79,7 +79,7 @@ describe('customer member - components - Content', () => {
     });
 
     it('fetchData - should call toggleLoaderUserPanel, setState and setPagingOption with correct parameter', async () => {
-        const data = { MainData: [{ Id: 123 }], TotalItem: 1 };
+        const data = { EntityResult: { MainData: [{ Id: 123 }], TotalItem: 1 } };
 
         const toggleLoaderUserPanel = jest.fn();
         const setPagingOption = jest.fn();

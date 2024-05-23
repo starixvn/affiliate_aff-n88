@@ -1,5 +1,4 @@
 ﻿using Fanex.Affiliate.Admin.Core.DTO;
-using Fanex.Affiliate.Admin.Core.DTO.Api;
 using Newtonsoft.Json;
 using System;
 using System.Runtime.Serialization;
@@ -10,7 +9,7 @@ namespace Fanex.Affiliate.Admin.Core.Exceptions
     public class LicenseetException : Exception
     {
         public LicenseetException(object param, ResultInfo resultInfo)
-            :base ($"Error in lincensee api:\n" +
+            : base($"Error in lincensee api:\n" +
                 $"Param: {JsonConvert.SerializeObject(param)}\n" +
                 $"Error: {resultInfo.Code} - {resultInfo.Message}")
         { }

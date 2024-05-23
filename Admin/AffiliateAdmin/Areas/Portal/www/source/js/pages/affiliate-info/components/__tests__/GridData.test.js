@@ -7,6 +7,7 @@ import NotificationPopup from '../../../common/components/NotificationPopup';
 describe('affiliate info - GridData ', () => {
     const dataItem = {
         AffId: 927841,
+        GroupTypeId: 1,
         UserName: "N8BAFF001",
         Status: "Approved",
         FirstName: "",
@@ -253,10 +254,11 @@ describe('affiliate info - GridData ', () => {
         const mockSetShowPopupCommGroup = jest.fn();
         const mockSetAffId = jest.fn();
         const mockSetCommGroup = jest.fn();
+        const mockSetGroupTypeId = jest.fn();
 
         const affId = 927841;
         const commGroup = 1;
-        const props = Object.assign({}, defaultProps, { setShowPopupCommGroup: mockSetShowPopupCommGroup, setAffId: mockSetAffId, setCommGroup: mockSetCommGroup });
+        const props = Object.assign({}, defaultProps, { setShowPopupCommGroup: mockSetShowPopupCommGroup, setAffId: mockSetAffId, setCommGroup: mockSetCommGroup, setGroupTypeId: mockSetGroupTypeId });
         const componentInstance = new GridData(props);
 
         componentInstance.handleEditCommGroup(affId, commGroup);
@@ -347,7 +349,7 @@ describe('affiliate info - GridData ', () => {
         const buildDataRow = shallow(<div>{wrapper.instance()._buildDataRow(dataItem, index, selectedColumnList)}</div>);
 
         buildDataRow.find('Button').at(0).simulate('click');
-        expect(wrapper.instance().handleEditCommGroup).toHaveBeenCalledWith(927841, 'N8BAFF001');
+        expect(wrapper.instance().handleEditCommGroup).toHaveBeenCalledWith(927841, 'N8BAFF001', 1);
     });
 
     it("should call handleToggleFavorite when click icon favorite", () => {
