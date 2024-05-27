@@ -472,7 +472,7 @@ export default class ReportExcel {
         if (!isMainView) {
             columnConfigList.splice(1, 1);
             columnConfigList.splice(19, 0, earningByField);
-            columnConfigList.splice(25, 1);
+            columnConfigList.splice(24, 1);
         }
 
         return columnConfigList;
