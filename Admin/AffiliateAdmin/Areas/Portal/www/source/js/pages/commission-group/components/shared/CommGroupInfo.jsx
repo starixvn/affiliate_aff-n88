@@ -24,6 +24,8 @@ export class CommGroupInfo extends React.Component {
             this.setState({
                 isDisableGroupType: true
             })
+        } else {
+            this.props.setSelectedGroup({ GroupTypeId: this.props.searchedGroupType });
         }
     }
 
@@ -82,8 +84,8 @@ export class CommGroupInfo extends React.Component {
     }
 }
 
-function mapStateToProp({ selectedGroup, commGroupTypes }) {
-    return { selectedGroup, commGroupTypes };
+function mapStateToProp({ selectedGroup, searchedGroupType, commGroupTypes }) {
+    return { selectedGroup, searchedGroupType, commGroupTypes };
 }
 
 function mapDispatchToProps(dispatch) {

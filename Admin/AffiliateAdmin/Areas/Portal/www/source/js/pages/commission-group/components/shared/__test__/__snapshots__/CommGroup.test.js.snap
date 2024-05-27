@@ -50,6 +50,7 @@ exports[`commission group - CommGroupInfo Should render correctly 1`] = `
         name="GroupTypeId"
         onChange={[Function]}
         type="select"
+        value={1}
       >
         <option
           key="type-1"

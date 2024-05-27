@@ -5,11 +5,13 @@ import { shallow } from 'enzyme';
 describe('commission group - CommGroupInfo', () => {
     const defaultProps = {
         commGroupTypes: [{ GroupTypeId: 1, GroupTypeName: 'Winloss' }, { GroupTypeId: 2, GroupTypeName: 'Turnover' }],
+        searchedGroupType: 1,
         selectedGroup: {
             BankingFee: { DeductedPercentage: 0.02, DeductionId: 12, ProductIds: 0 },
             Description: "A B C",
             GroupId: 0,
             GroupName: "ABC",
+            GroupTypeId: 1,
             PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4,5,6" }],
             TierSettingList: [{ TierId: 1, MinAmount: 0, MaxAmount: 100000000000000, MinAp: 0, MaxAp: 1000000000, Commission: 0 }]
         }
@@ -32,7 +34,7 @@ describe('commission group - CommGroupInfo', () => {
         const wrapper = shallow(<CommGroupInfo {...props} />);
 
         wrapper.find('Input[id="GroupName"]').simulate('change', mockEvent)
-        expect(props.setSelectedGroup).not.toHaveBeenCalled();
+        expect(props.setSelectedGroup).not.toHaveBeenCalledWith({ groupName: 'ABCDEFGHJKMNOPQRUSTXWYZABCDEFGHJKMNOPQRUSTXWYZABCDEFGHJKMNOPQRUSTXWYZABCDEFGHJKMNOPQRUSTXWYZABCDEFGHJK' });
     });
 
     it('handleChange - should call setSelectedGroup when change Description', () => {
@@ -52,11 +54,14 @@ describe('commission group - CommGroupInfo', () => {
         const wrapper = shallow(<CommGroupInfo {...props} />);
 
         wrapper.find('Input[id="Description"]').simulate('change', mockEvent)
-        expect(props.setSelectedGroup).not.toHaveBeenCalled();
+        expect(props.setSelectedGroup).not.toHaveBeenCalledWith({ description: 'ABCDEFGHJKMNOPQRUSTXWYZABCDEFGHJKMNOPQRUSTXWYZABCDEFGHJKMNOPQRUSTXWYZABCDEFGHJKMNOPQRUSTXWYZABCDEFGHJK' });
     });
 
     it('Should render correctly', () => {
-        const wrapper = shallow(<CommGroupInfo {...defaultProps} />);
+        const mockSetSelectedGroup = jest.fn();
+        const props = Object.assign({}, defaultProps, { setSelectedGroup: mockSetSelectedGroup });
+
+        const wrapper = shallow(<CommGroupInfo {...props} />);
 
         expect(wrapper).toMatchSnapshot();
     });
