@@ -2,6 +2,7 @@ import { deductionNameList, messages, INFINITY_AM, INFINITY_QM, defaultSubAffCom
 
 const emptyCommGroup = {
     GroupId: 0,
+    GroupTypeId: 1,
     GroupName: '',
     Description: '',
     SubAffCommRate: defaultSubAffCommRate,
@@ -20,8 +21,9 @@ export const buildDefaultCommGroup = (deductionList, productList, p2pProductList
 
     const p2pProductIds = p2pProductList.map(i => i.ProductId);
     const platformFeeProductList = productList.filter(i => !p2pProductIds.includes(i.ProductId));
-    const platformFeeParam = { platformFeeProductList, deductionSetting };
-    const platformFeeList = buildPlatformFeeList(platformFeeParam);
+    const { platformFeeSetting, killRateFeeSetting } = deductionSetting;
+    const platformFeeList = buildProductGroupsDeductionFeeList(platformFeeProductList, platformFeeSetting);
+    const killRateFeeList = buildProductGroupsDeductionFeeList([], killRateFeeSetting);
 
     const depositFee = createDefaultDepositSetting(deductionSetting.depositFeeSetting);
     const withdrawalFee = createDefaultWithdrawalSetting(deductionSetting.withdrawalFeeSetting);
@@ -29,6 +31,7 @@ export const buildDefaultCommGroup = (deductionList, productList, p2pProductList
     return Object.assign({}, emptyCommGroup, {
         P2pDeductionList: p2pDeductionList,
         PlatformFeeList: platformFeeList,
+        KillRateFeeList: killRateFeeList,
         DepositFee: depositFee,
         WithdrawalFee: withdrawalFee
     });
@@ -38,12 +41,14 @@ export const getDeductionSetting = (deductionList) => {
     const deductionObj = convertDeductionList(deductionList);
     const p2pDeductionSetting = deductionObj[deductionNameList.p2pDeduction];
     const platformFeeSetting = deductionObj[deductionNameList.platformFee];
+    const killRateFeeSetting = deductionObj[deductionNameList.killRate]
     const depositFeeSetting = deductionObj[deductionNameList.depositFee];
     const withdrawalFeeSetting = deductionObj[deductionNameList.withdrawalFee];
 
     return {
         p2pDeductionSetting,
         platformFeeSetting,
+        killRateFeeSetting,
         depositFeeSetting,
         withdrawalFeeSetting
     }
@@ -81,16 +86,15 @@ export const buildP2pDeductionList = ({ p2pProductList, deductionSetting }) => {
     }];
 }
 
-export const buildPlatformFeeList = ({ platformFeeProductList, deductionSetting }) => {
-    const { platformFeeSetting } = deductionSetting;
-
+export const buildProductGroupsDeductionFeeList = (platformFeeProductList, feeSetting) => {
     const products = convertProductList(platformFeeProductList);
     return [{
-        DeductionId: platformFeeSetting.DeductionId,
+        GroupProductId: 0,
+        DeductionId: feeSetting.DeductionId,
         ProductIds: products.map(p => p.ProductId).join(','),
-        DeductedPercentage: platformFeeSetting.DeductedPercentage,
-        DeductedAmount: platformFeeSetting.DeductedAmount,
-        IsDeductedPercent: platformFeeSetting.IsDeductedPercent
+        DeductedPercentage: feeSetting.DeductedPercentage,
+        DeductedAmount: feeSetting.DeductedAmount,
+        IsDeductedPercent: feeSetting.IsDeductedPercent
     }];
 }
 
@@ -103,11 +107,11 @@ export const createDefaultP2pDeduction = (p2pProductList, p2pDeductionSetting) =
     };
 }
 
-export const createDefaultPlatformfee = (productList, platformFeeSetting) => {
+export const createDefaultProductGroupsDeductionFee = (productList, feeSetting) => {
     return {
-        deductionId: platformFeeSetting.DeductionId,
+        deductionId: feeSetting.DeductionId,
         productList: convertProductList(productList),
-        commission: platformFeeSetting.DeductedPercentage
+        deductedPercentage: feeSetting.DeductedPercentage
     };
 }
 
@@ -149,7 +153,7 @@ export const validate = (selectedGroup) => {
     const isValid = groupNameValidation.isValid && tierSettingValidation.isValid && selectedProductValidation.isValid
         && depositFeeValidation.isValid && withdrawalFeeValidation.isValid;
     const messageList = [...groupNameValidation.messageList, ...tierSettingValidation.messageList, ...selectedProductValidation.messageList,
-        ...depositFeeValidation.messageList, ...withdrawalFeeValidation.messageList
+    ...depositFeeValidation.messageList, ...withdrawalFeeValidation.messageList
     ];
 
     return { isValid, messageList };
@@ -241,6 +245,18 @@ export const removeTierItem = (tierId, groupProductId, dataList) => {
     return dataList.filter(item => !(item.TierId === tierId && item.GroupProductId === groupProductId));
 }
 
+export const handleKillRateListData = (platformFeeList, killRateFeeList) => {
+    return platformFeeList.map((item, index) => {
+        return {
+            ProductIds: item.ProductIds,
+            DeductedPercentage: killRateFeeList[index].DeductedPercentage,
+            DeductionId: killRateFeeList[index].DeductionId,
+            GroupProductId: item.GroupProductId,
+            IsDeductedPercent: item.IsDeductedPercent
+        }
+    });
+}
+
 const getPlatformFeeListIds = (selectedProductIdsOfP2p, prePlatformFeeIds, allProductIds) => {
     const preSelProductIds = prePlatformFeeIds.reduce((acc, cur) => acc.concat(cur), []);
     const additionIds = getAdditionId(selectedProductIdsOfP2p, preSelProductIds, allProductIds);
@@ -252,7 +268,7 @@ const getPlatformFeeListIds = (selectedProductIdsOfP2p, prePlatformFeeIds, allPr
 }
 
 const getAdditionId = (curIds, preSelIds, allProductIds) => {
-    return allProductIds.filter(i => !(curIds.find(c => c ===i) || preSelIds.find(t => t === i)));
+    return allProductIds.filter(i => !(curIds.find(c => c === i) || preSelIds.find(t => t === i)));
 }
 
 const removeCheckedProductId = (curSelIds, preListIds) => {

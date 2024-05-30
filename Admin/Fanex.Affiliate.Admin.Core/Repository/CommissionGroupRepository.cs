@@ -1,17 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.CommissionGroup;
 using Fanex.Affiliate.Admin.Core.MetaModels.CommissionGroup;
-using Fanex.Affiliate.Admin.Core.Constants;
-using Fanex.Data;
 using Fanex.Common.Extensions;
+using Fanex.Data;
+using System;
+using System.Collections.Generic;
+using System.Data;
 
 namespace Fanex.Affiliate.Admin.Core.Repository
 {
     public class CommissionGroupRepository : BaseRepository, ICommissionGroupRepository
     {
+        public IEnumerable<CommGroupType> GetCommissionGroupTypes()
+        {
+            const string SpKey = "Aff_Admin_CommGroup_GroupTypeSel";
+
+            using (var objDb = GetObjectDb(SpKey))
+            {
+                return objDb.Query<CommGroupType>();
+            }
+        }
+
         public CommissionGroupResultEntity GetCommissionGroupList(GetCommissionGroupParam param)
         {
             const string SpKey = "Aff_Admin_CommGroup_Sel";
@@ -43,6 +53,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository
                 AssignCreateUpdateCommissionGroupParam(objectDb, param);
                 objectDb.SetParameterValue("IsPrivate", param.IsPrivate);
                 objectDb.SetParameterValue(Field.GroupId, DefaultValue.Int);
+                objectDb.SetParameterValue(Field.GroupTypeId, param.GroupTypeId);
 
                 objectDb.ExecuteNonQuery();
 
@@ -94,24 +105,26 @@ namespace Fanex.Affiliate.Admin.Core.Repository
                 return objectDb.Query<DeductionItem>();
             }
         }
-        public IEnumerable<SelectItem> GetNormalCommGroupList(GetGroupListParam param)
+        public IEnumerable<NormalCommGroup> GetNormalCommGroupList(GetGroupListParam param)
         {
             const string SpKey = "Aff_Admin_CommGroupNormal_Sel";
-            var result = new List<SelectItem>();
+            var result = new List<NormalCommGroup>();
 
             using (var objectDb = GetObjectDb(SpKey))
             {
                 objectDb.SetParameterValue("AffId", param.AffId);
+                objectDb.SetParameterValue("GroupTypeId", param.GroupTypeId);
                 objectDb.SetParameterValue(Field.GroupId, DefaultValue.Int);
 
                 using (var reader = objectDb.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                        result.Add(new SelectItem
+                        result.Add(new NormalCommGroup
                         {
-                            Id = reader.ToString(Field.GroupId),
-                            Name = reader.ToString(Field.GroupName)
+                            GroupId = reader.ToInt(Field.GroupId),
+                            GroupName = reader.ToString(Field.GroupName),
+                            GroupTypeId = reader.ToInt(Field.GroupTypeId),
                         });
                     }
                 }
@@ -173,6 +186,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository
                     RowIdx = reader.ToInt("RowIDX"),
                     GroupId = reader.ToInt(Field.GroupId),
                     GroupName = reader.ToString(Field.GroupName),
+                    GroupTypeId = reader.ToInt(Field.GroupTypeId),
                     CreatedDate = reader.ToDateTime("CreatedDate"),
                     Creator = reader.ToString("Creator"),
                     Description = reader.ToString("Description"),

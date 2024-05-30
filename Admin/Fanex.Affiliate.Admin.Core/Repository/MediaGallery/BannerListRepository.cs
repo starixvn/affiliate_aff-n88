@@ -1,13 +1,13 @@
-﻿using System;
+﻿using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.MediaGallery;
+using Fanex.Affiliate.Admin.Core.Extensions;
 using Fanex.Affiliate.Admin.Core.MetaModels.MediaGallery;
+using Fanex.Common.Extensions;
+using Fanex.Data;
+using System;
 using System.Collections.Generic;
 using System.Data;
-using Fanex.Data;
-using Fanex.Affiliate.Admin.Core.Constants;
-using Fanex.Affiliate.Admin.Core.Extensions;
-using Fanex.Common.Extensions;
 
 namespace Fanex.Affiliate.Admin.Core.Repository.MediaGallery
 {
@@ -145,8 +145,8 @@ namespace Fanex.Affiliate.Admin.Core.Repository.MediaGallery
                     {
                         result.Add(new MediaGalleryFilterItem
                         {
-                            Id =reader.ToInt("SizeId"),
-                            Name =reader.ToString("Size")
+                            Id = reader.ToInt("SizeId"),
+                            Name = reader.ToString("Size")
                         });
                     }
                 }
@@ -175,13 +175,13 @@ namespace Fanex.Affiliate.Admin.Core.Repository.MediaGallery
         {
             return new BannerInfo
             {
-                BannerId =reader.ToInt("BannerID"),
-                FileName =reader.ToString("FileName"),
-                Categories =reader.ToString("Categories").Split(','),
-                SubCategories =reader.ToString("SubCategories").Split(','),
-                Language =reader.ToString("Language"),
-                Currencies =reader.ToString("Currencies").Split(','),
-                Size =reader.ToString("Size"),
+                BannerId = reader.ToInt("BannerID"),
+                FileName = reader.ToString("FileName"),
+                Categories = reader.ToString("Categories").Split(','),
+                SubCategories = reader.ToString("SubCategories").Split(','),
+                Language = reader.ToString("Language"),
+                Currencies = reader.ToString("Currencies").Split(','),
+                Size = reader.ToString("Size"),
                 DeviceTypes = reader.GetVal<string>("DeviceTypes").Split(','),
                 UserType = reader.GetVal<byte>("TargetId")
             };

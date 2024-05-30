@@ -1,18 +1,18 @@
-﻿using System.Linq;
-using System.Web.Mvc;
-using Fanex.Affiliate.Admin.Core.Attributes;
+﻿using Fanex.Affiliate.Admin.Core.Attributes;
 using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.CommissionGroup;
 using Fanex.Affiliate.Admin.Core.Extensions;
 using Fanex.Affiliate.Admin.Core.MetaModels.CommissionGroup;
 using Fanex.Affiliate.Admin.Core.Repository;
+using Fanex.Affiliate.Admin.Core.Resources;
 using Fanex.Affiliate.Admin.Core.Services.CommGroup;
 using Fanex.Affiliate.Admin.Core.Services.Common;
 using Fanex.Affiliate.Admin.Core.Utilities.CommGroup;
 using Fanex.Affiliate.Admin.Core.ViewModels;
 using System.Collections.Generic;
-using Fanex.Affiliate.Admin.Core.Resources;
+using System.Linq;
+using System.Web.Mvc;
 
 namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
 {
@@ -58,7 +58,8 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
                 ProductList = productList,
                 P2pProductList = productList.Where(p => p.IsP2P),
                 DeductionList = _commGroupCommonService.GetDeductionList(),
-                SubMenuList = subMenu
+                SubMenuList = subMenu,
+                CommGroupTypeList = _commGroupCommonService.GetCommGroupTypes()
             };
 
             return View("~/Areas/Portal/Views/Affiliate/CommissionGroup.cshtml", viewModel);
@@ -87,13 +88,18 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
             if (param.GroupId >= Validation.MinId)
             {
                 var commissionGroupInfo = _commissionGroupService.GetCommissionGroupList(param).FirstOrDefault();
-                if(commissionGroupInfo != null)
+                if (commissionGroupInfo != null)
                 {
                     var groupName = commissionGroupInfo.GroupName;
                     var description = commissionGroupInfo.Description;
 
                     commissionGroupInfo.GroupName = Server.HtmlDecode(groupName);
                     commissionGroupInfo.Description = Server.HtmlDecode(description);
+
+                    if (commissionGroupInfo.KillRateFeeList is null || !commissionGroupInfo.KillRateFeeList.Any())
+                    {
+                        commissionGroupInfo.KillRateFeeList = BuildKillRateFeeListByPlatForm(commissionGroupInfo.PlatformFeeList);
+                    }
 
                     return new JsonNetResult
                     {
@@ -132,10 +138,12 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
                     UserId = SessionService.UserId,
                     Ip = Request.UserHostAddress,
                     GroupName = Server.HtmlEncode(commGroup.GroupName.Trim()),
+                    GroupTypeId = commGroup.GroupTypeId,
                     Description = Server.HtmlEncode(commGroup.Description?.Trim()),
                     TierSettingList = commGroup.TierSettingList,
                     P2pDeductionList = commGroup.P2pDeductionList,
                     PlatformFeeList = commGroup.PlatformFeeList,
+                    KillRateFeeList = commGroup.KillRateFeeList,
                     DepositFee = commGroup.DepositFee,
                     WithdrawalFee = commGroup.WithdrawalFee,
                     SubAffCommRate = commGroup.SubAffCommRate,
@@ -183,6 +191,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
                     TierSettingList = commGroup.TierSettingList,
                     P2pDeductionList = commGroup.P2pDeductionList,
                     PlatformFeeList = commGroup.PlatformFeeList,
+                    KillRateFeeList = commGroup.KillRateFeeList,
                     DepositFee = commGroup.DepositFee,
                     WithdrawalFee = commGroup.WithdrawalFee,
                     SubAffCommRate = commGroup.SubAffCommRate,
@@ -222,6 +231,25 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
             {
                 Data = _commissionGroupService.DeleteCommissionGroup(param)
             };
+        }
+
+        private IEnumerable<DeductionSetting> BuildKillRateFeeListByPlatForm(IEnumerable<DeductionSetting> platformFeeList)
+        {
+            var deductionSetting = _commGroupCommonService.GetDeductionList().FirstOrDefault(i => i.DeductionId == Deduction.KillRateFeeId);
+
+            IEnumerable<DeductionSetting> killRateFeeList = null;
+            if (platformFeeList != null && platformFeeList.Any())
+            {
+                killRateFeeList = platformFeeList.Select(x => new DeductionSetting
+                {
+                    DeductedPercentage = deductionSetting.DeductedPercentage,
+                    GroupProductId = x.GroupProductId,
+                    ProductIds = string.Empty,
+                    DeductionId = deductionSetting.DeductionId
+                });
+            }
+
+            return killRateFeeList;
         }
 
         private ActionResult CreateErrorResult()

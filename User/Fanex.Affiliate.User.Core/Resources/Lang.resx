@@ -2114,4 +2114,16 @@
   <data name="YourRevenueShareN88" xml:space="preserve">
     <value>58,050</value>
   </data>
+  <data name="EarningBy" xml:space="preserve">
+    <value>Earning By</value>
+  </data>
+  <data name="RevenueShareByWinloss" xml:space="preserve">
+    <value>Calculate Revenue Share by Winloss</value>
+  </data>
+  <data name="RevenueShareByTurnover" xml:space="preserve">
+    <value>Calculate Revenue Share by Turnover</value>
+  </data>
+  <data name="Winloss" xml:space="preserve">
+    <value>Winloss</value>
+  </data>
 </root>

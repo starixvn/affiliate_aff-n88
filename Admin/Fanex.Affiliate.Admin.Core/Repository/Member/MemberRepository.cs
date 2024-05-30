@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.Member;
-using Fanex.Affiliate.Admin.Core.MetaModels.Member;
-using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.Extensions;
+using Fanex.Affiliate.Admin.Core.MetaModels.Member;
 using Fanex.Common.Extensions;
+using System;
+using System.Collections.Generic;
 
 namespace Fanex.Affiliate.Admin.Core.Repository.Member
 {
@@ -31,7 +31,8 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Member
                 {
                     while (reader.Read())
                     {
-                        dataList.Add(new MemberInfo {
+                        dataList.Add(new MemberInfo
+                        {
                             MemberId = reader.ToInt("CustID"),
                             UserName = reader.ToString("UserName"),
                             IbcUserName = reader.ToString("IBCUserName"),

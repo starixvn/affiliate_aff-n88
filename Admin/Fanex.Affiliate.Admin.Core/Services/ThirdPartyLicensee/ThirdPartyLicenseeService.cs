@@ -19,7 +19,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.ThirdPartyLicensee
         private readonly IJobTrackerRepository _trackerRepository;
         private readonly ILicenseeApi _licenseeApi;
         private readonly IAppSetting _appSetting;
-        
+
         public ThirdPartyLicenseeService(IJobTrackerRepository jobTrackerRepository, ILicenseeApi licenseeApi, IAppSetting appSetting)
         {
             _trackerRepository = jobTrackerRepository;

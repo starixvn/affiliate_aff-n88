@@ -1,14 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Fanex.Affiliate.Admin.Core.Constants;
+﻿using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
+using Fanex.Affiliate.Admin.Core.DTO.CommissionGroup;
 using Fanex.Affiliate.Admin.Core.DTO.Email;
 using Fanex.Affiliate.Admin.Core.MetaModels.Affiliate;
 using Fanex.Affiliate.Admin.Core.MetaModels.CommissionGroup;
 using Fanex.Affiliate.Admin.Core.Repository;
 using Fanex.Affiliate.Admin.Core.Services.ThirdPartyLicensee;
 using Fanex.Affiliate.Admin.Core.Utilities;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
 {
@@ -31,10 +32,10 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
             _affiliateService = affiliateService;
             _emailService = emailService;
             _commGroupCommonService = commGroupCommonService;
-            _thirdPartyLicenseeService= thirdPartyLicenseeService;
+            _thirdPartyLicenseeService = thirdPartyLicenseeService;
         }
 
-        public IEnumerable<SelectItem> GetNormalCommGroupList(GetGroupListParam param)
+        public IEnumerable<NormalCommGroup> GetNormalCommGroupList(GetGroupListParam param)
         {
             return _commGroupRepository.GetNormalCommGroupList(param);
         }

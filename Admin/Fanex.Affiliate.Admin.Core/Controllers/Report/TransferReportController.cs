@@ -14,7 +14,7 @@ using System.Web.Mvc;
 namespace Fanex.Affiliate.Admin.Core.Controllers.Report
 {
     [FunctionAuthorize(FunctionName = Function.TransferPlayerReport)]
-    public class TransferReportController: BaseController
+    public class TransferReportController : BaseController
     {
         private readonly ICurrencyRepository _currencyRepository;
         private readonly ITransferReportService _transferReportService;

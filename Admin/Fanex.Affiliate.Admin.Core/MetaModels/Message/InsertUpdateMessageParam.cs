@@ -2,7 +2,7 @@
 
 namespace Fanex.Affiliate.Admin.Core.MetaModels.Message
 {
-    public class InsertUpdateMessageParam: UserInfoParam
+    public class InsertUpdateMessageParam : UserInfoParam
     {
         public int MessageId { get; set; }
 
@@ -35,13 +35,14 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.Message
         [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string MessageContentkh { get; set; }
 
-        public bool IsValid() {
+        public bool IsValid()
+        {
             if (!(string.IsNullOrEmpty(MessageContenten) && string.IsNullOrEmpty(MessageContentcs) && string.IsNullOrEmpty(MessageContentbn)))
             {
                 return true;
             }
 
-            if(!(string.IsNullOrEmpty(MessageContentth) && string.IsNullOrEmpty(MessageContentvn) && string.IsNullOrEmpty(MessageContentid)))
+            if (!(string.IsNullOrEmpty(MessageContentth) && string.IsNullOrEmpty(MessageContentvn) && string.IsNullOrEmpty(MessageContentid)))
             {
                 return true;
             }

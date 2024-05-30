@@ -1645,6 +1645,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Earning By.
+        /// </summary>
+        public static string EarningBy {
+            get {
+                return ResourceManager.GetString("EarningBy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ebet.
         /// </summary>
         public static string Ebet {
@@ -4210,6 +4219,24 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Calculate Revenue Share by Turnover.
+        /// </summary>
+        public static string RevenueShareByTurnover {
+            get {
+                return ResourceManager.GetString("RevenueShareByTurnover", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Calculate Revenue Share by Winloss.
+        /// </summary>
+        public static string RevenueShareByWinloss {
+            get {
+                return ResourceManager.GetString("RevenueShareByWinloss", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Revenue Share Payment.
         /// </summary>
         public static string RevenueSharePayment {
@@ -5655,6 +5682,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string WhatWeOffer {
             get {
                 return ResourceManager.GetString("WhatWeOffer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Winloss.
+        /// </summary>
+        public static string Winloss {
+            get {
+                return ResourceManager.GetString("Winloss", resourceCulture);
             }
         }
         

@@ -21,14 +21,12 @@ describe('customer member - Content - connect', () => {
         const expectedResult = {
             affId: 1271808,
             param: { abc: 123 },
-            canViewMemberEmail: true,
             pagingOption: { PageSize: 10 }
         };
         const state = {
             affCommonInfo: { affId: 1271808, affName: 'B2CAFF226' },
             member: {
                 param: { abc: 123 },
-                canViewMemberEmail: true,
                 pagingOption: { PageSize: 10 }
             },
             anotherProp: "Not included"

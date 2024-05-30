@@ -20,6 +20,7 @@
     <Setting Key="Aff_Admin_CommGroup_Del" SpName="Aff_Admin_CommGroup_Del" DbName="DBAFFN88.Affiliate_N88.wsv_afinet" />
     <Setting Key="Aff_Admin_CommGroupNormal_Sel" SpName="Aff_Admin_CommGroupNormal_Sel" DbName="DBAFFN88.Affiliate_N88.wsv_afinet" />
     <Setting Key="Aff_Admin_CommGroup_Assign" SpName="Aff_Admin_CommGroup_Assign" DbName="DBAFFN88.Affiliate_N88.wsv_afinet" />
+    <Setting Key="Aff_Admin_CommGroup_GroupTypeSel" SpName="Aff_Admin_CommGroup_GroupTypeSel" DbName="DBAFFN88.Affiliate_N88.wsv_afinet" />
   </Function>
   <Function Name="Auth">
     <Setting Key="Aff_Admin_PolicySel" SpName="Aff_Admin_PolicySel" DbName="DBAFFN88.Affiliate_N88.wsv_afinet" />

@@ -58,6 +58,17 @@ exports[`customer member - components - Content render correctly 1`] = `
           onClick={[Function]}
           sortable={false}
           sorting={false}
+          title="Turnover"
+        >
+          Turnover
+        </t>
+        <t
+          asc={true}
+          colWidth={100}
+          header={true}
+          onClick={[Function]}
+          sortable={false}
+          sorting={false}
           title="GGR"
         >
           GGR
@@ -159,6 +170,17 @@ exports[`customer member - components - Content render correctly with have data 
           </t>
           <t
             asc={true}
+            className="text-right"
+            header={false}
+            onClick={[Function]}
+            sortable={false}
+            sorting={false}
+            title=""
+          >
+            
+          </t>
+          <t
+            asc={true}
             className="text-right highlight"
             header={false}
             onClick={[Function]}
@@ -246,6 +268,17 @@ exports[`customer member - components - Content render correctly with have data 
           </t>
           <t
             asc={true}
+            className="text-right"
+            header={false}
+            onClick={[Function]}
+            sortable={false}
+            sorting={false}
+            title=""
+          >
+            
+          </t>
+          <t
+            asc={true}
             className="text-right highlight"
             header={false}
             onClick={[Function]}
@@ -318,6 +351,17 @@ exports[`customer member - components - Content render correctly with have data 
             title="Total"
           >
             Total
+          </t>
+          <t
+            asc={true}
+            className="text-right"
+            header={false}
+            onClick={[Function]}
+            sortable={false}
+            sorting={false}
+            title=""
+          >
+            
           </t>
           <t
             asc={true}
@@ -399,6 +443,17 @@ exports[`customer member - components - Content render correctly with have data 
           title="Date"
         >
           Date
+        </t>
+        <t
+          asc={true}
+          colWidth={100}
+          header={true}
+          onClick={[Function]}
+          sortable={false}
+          sorting={false}
+          title="Turnover"
+        >
+          Turnover
         </t>
         <t
           asc={true}

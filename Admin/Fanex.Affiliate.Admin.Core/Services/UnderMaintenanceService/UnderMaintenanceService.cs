@@ -4,7 +4,7 @@ using ONEbook.UM.Services;
 
 namespace Fanex.Affiliate.Admin.Core.Services.UnderMaintenanceService
 {
-    public class UnderMaintenanceService: IUnderMaintenanceService
+    public class UnderMaintenanceService : IUnderMaintenanceService
     {
         private readonly IMaintenanceService _maintenaceService;
         public UnderMaintenanceService()

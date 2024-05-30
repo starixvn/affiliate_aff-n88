@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.Report;
 using Fanex.Affiliate.Admin.Core.MetaModels.Report;
-using Fanex.Data;
-using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Common.Extensions;
+using Fanex.Data;
+using System;
+using System.Collections.Generic;
+using System.Data;
 
 namespace Fanex.Affiliate.Admin.Core.Repository.Report
 {
@@ -75,6 +75,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
             using (var objectDb = GetObjectDb(SpKey))
             {
                 AssignCommonParam(objectDb, param);
+                objectDb.SetParameterValue("EarningType", param.EarningBy);
                 objectDb.SetParameterValue("IsGetAll", param.IsGetAll);
 
                 using (var reader = objectDb.ExecuteReader())
@@ -82,6 +83,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
                     while (reader.Read())
                     {
                         var item = BuildDataItem(reader);
+                        item.EarningBy = reader.ToString("EarningBy");
                         item.MonthDate = reader.ToDateTime("MonthDate");
                         item.Description = reader.ToString("Description");
 

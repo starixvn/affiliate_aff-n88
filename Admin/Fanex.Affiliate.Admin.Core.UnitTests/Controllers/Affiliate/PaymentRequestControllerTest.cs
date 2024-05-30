@@ -203,7 +203,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
         {
             // Arrange
             var paymentRequestService = new Mock<IPaymentService>();
-            paymentRequestService.Setup(t => t.GetPaymentMethod()).Returns((new List<PaymentMethodInfo> (), 0m));
+            paymentRequestService.Setup(t => t.GetPaymentMethod()).Returns((new List<PaymentMethodInfo>(), 0m));
             var controller = CreatePaymentRequestController(paymentRequestService: paymentRequestService.Object);
 
             // Action

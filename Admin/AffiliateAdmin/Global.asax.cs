@@ -1,10 +1,10 @@
-﻿using System;
-using System.Web;
-using System.Web.Mvc;
-using Fanex.Affiliate.Admin.Core.Configurations;
+﻿using Fanex.Affiliate.Admin.Core.Configurations;
 using Fanex.Affiliate.Admin.Core.Utilities;
 using Fanex.Data;
 using Fanex.Data.SqlServer;
+using System;
+using System.Web;
+using System.Web.Mvc;
 
 namespace AffiliateAdmin
 {

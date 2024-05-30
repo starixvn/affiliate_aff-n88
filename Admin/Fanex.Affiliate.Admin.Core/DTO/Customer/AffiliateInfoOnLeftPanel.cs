@@ -1,7 +1,7 @@
-﻿using System;
-using Fanex.Affiliate.Admin.Core.Attributes;
+﻿using Fanex.Affiliate.Admin.Core.Attributes;
 using Fanex.Affiliate.Admin.Core.Constants;
 using Newtonsoft.Json;
+using System;
 
 namespace Fanex.Affiliate.Admin.Core.DTO.Customer
 {
@@ -17,6 +17,8 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Customer
 
         public int GroupId { get; set; }
 
+        public int GroupTypeId { get; set; }
+
         public string AffName { get; set; }
 
         public string FirstName { get; set; }
@@ -27,10 +29,10 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Customer
 
         public string ContactApps { get; set; }
 
-        
+
         public string SiteUrl { get; set; }
 
-        
+
         public string MoreSiteUrl { get; set; }
 
         public string NoSiteDescription { get; set; }

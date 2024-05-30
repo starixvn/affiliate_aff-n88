@@ -91,7 +91,7 @@ exports[`banner list - components - EditBannerForm  render correctly with insert
             />
           </Alert>
           <Form
-            autocomplete="off"
+            autoComplete="off"
             className="mb-2 p-1 border"
             tag="form"
           >
@@ -790,7 +790,7 @@ exports[`banner list - components - EditBannerForm  render correctly with not sh
             />
           </Alert>
           <Form
-            autocomplete="off"
+            autoComplete="off"
             className="mb-2 p-1 border"
             tag="form"
           >
@@ -1494,7 +1494,7 @@ exports[`banner list - components - EditBannerForm  render correctly with update
             />
           </Alert>
           <Form
-            autocomplete="off"
+            autoComplete="off"
             className="mb-2 p-1 border"
             tag="form"
           >

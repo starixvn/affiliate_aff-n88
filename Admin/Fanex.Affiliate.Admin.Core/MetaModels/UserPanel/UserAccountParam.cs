@@ -1,8 +1,7 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using System.ComponentModel.DataAnnotations;
-using System.Collections.Generic;
-using Fanex.Affiliate.Admin.Core.DTO.UserPanel;
+﻿using Fanex.Affiliate.Admin.Core.DTO.UserPanel;
 using Fanex.Data;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Fanex.Affiliate.Admin.Core.MetaModels.UserPanel
 {
@@ -41,11 +40,11 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.UserPanel
         [Required]
         public string Country { get; set; }
 
-        
+
         [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string SiteUrl { get; set; }
 
-        
+
         [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string MoreSiteUrls { get; set; }
 

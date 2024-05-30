@@ -50,7 +50,6 @@ describe('customer - mainpage reducer', () => {
             isValidUserName: true,
         },
         member: {
-            canViewMemberEmail: false,
             pagingOption: defaultPagingOption,
             param: null,
         },

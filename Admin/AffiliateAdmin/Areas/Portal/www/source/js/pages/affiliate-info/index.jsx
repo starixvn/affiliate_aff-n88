@@ -14,7 +14,7 @@ export default class App extends Component {
 
         const { commGroupList, languageList, groupId, param } = window.initialState;
 
-        let newCommGroupList = convertListToMutilpleSelected(commGroupList, 'Id', 'Name');
+        let newCommGroupList = convertListToMutilpleSelected(commGroupList, 'GroupId', 'GroupName');
 
         if (!!groupId) {
             newCommGroupList = handleChangeMultipleSelected(newCommGroupList, groupId.toString());

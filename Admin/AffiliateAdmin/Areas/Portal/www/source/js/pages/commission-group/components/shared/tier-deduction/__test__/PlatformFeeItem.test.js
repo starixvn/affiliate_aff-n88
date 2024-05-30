@@ -36,7 +36,7 @@ describe('commission group - PlatformFeeItem', () => {
 
         wrapper.find(DeductedPercentageGroup).simulate('change', mockEvent);
 
-        expect(wrapper.instance().props.onChangeCommission).toHaveBeenCalledWith({ DeductedPercentage: 0.15 });
+        expect(wrapper.instance().props.onChangeCommission).toHaveBeenCalledWith({ DeductedPercentage: 0.15 }, 'PlatformFeeList');
     });
 
     it('handleChangeComm - should call onChangeCommission when change DeductedPercentage when update', () => {
@@ -46,7 +46,7 @@ describe('commission group - PlatformFeeItem', () => {
 
         wrapper.find(DeductedPercentageGroup).simulate('change', mockEvent);
 
-        expect(wrapper.instance().props.onChangeCommission).toHaveBeenCalledWith({ DeductedPercentage: 0.15 });
+        expect(wrapper.instance().props.onChangeCommission).toHaveBeenCalledWith({ DeductedPercentage: 0.15 }, 'PlatformFeeList');
     });
 
     it('Should render correctly', () => {

@@ -79,9 +79,9 @@ namespace Fanex.Affiliate.Admin.Core.Services
             {
                 return result;
             }
-            
+
             var afterAmount = await _licenseeApi.UpdatePaymentRequestAsync(paymentRequest).ConfigureAwait(false);
-            if(afterAmount > 0)
+            if (afterAmount > 0)
             {
                 result.Code = 0;
             }

@@ -42,6 +42,12 @@ describe('affiliate report - Filter ', () => {
         }
     ]
 
+    const earningByList = {
+        All: 'all',
+        Winloss: 'Winloss',
+        Turnover: 'Turnover'
+    };
+
     const defaultProps = {
         productList: [],
         pagingOption: {
@@ -54,10 +60,12 @@ describe('affiliate report - Filter ', () => {
         today: now.getMonth() + '/' + now.getDate() + '/' + now.getFullYear(),
         currentViewLevel: mainView,
         param: {},
+        selectedEarning: 'all',
         currencyList,
         commGroupList,
         baseCurrencyList,
-        paymentCurrencyList
+        paymentCurrencyList,
+        earningByList
     };
 
     it('componentDidUpdate - should call setParam, setState and setReportTitle when currentViewLevel change to Main view', () => {
@@ -100,7 +108,8 @@ describe('affiliate report - Filter ', () => {
         const state = {
             userName: 'Month on Month view',
             sortBy: 1,
-            isSortAscending: false
+            isSortAscending: false,
+            selectedEarning: 'all'
         };
         const selectedProductList = '1,2';
         const productList = [
@@ -338,6 +347,7 @@ describe('affiliate report - Filter ', () => {
         const param = {
             BaseCurrencyId: 20,
             CurrencyIds: '20',
+            EarningBy: 'all',
             UserName: '',
             FromDate: now.getMonth() + '/1/' + now.getFullYear(),
             ToDate: now.getMonth() + '/1/' + now.getFullYear(),
@@ -373,6 +383,7 @@ describe('affiliate report - Filter ', () => {
         const param = {
             BaseCurrencyId: 20,
             CurrencyIds: '20',
+            EarningBy: 'all',
             UserName: '',
             FromDate: now.getMonth() + '/1/' + now.getFullYear(),
             ToDate: now.getMonth() + '/1/' + now.getFullYear(),
@@ -412,6 +423,7 @@ describe('affiliate report - Filter ', () => {
         const param = {
             BaseCurrencyId: 20,
             CurrencyIds: '20',
+            EarningBy: 'all',
             UserName: '',
             FromDate: now.getMonth() + '/1/' + now.getFullYear(),
             ToDate: now.getMonth() + '/1/' + now.getFullYear(),

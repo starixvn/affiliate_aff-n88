@@ -1,5 +1,5 @@
-﻿using System;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
+using System;
 
 namespace Fanex.Affiliate.Admin.Core.DTO.Report
 {
@@ -51,6 +51,8 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Report
         public decimal CommissionRate { get; set; }
 
         public decimal Earning { get; set; }
+
+        public string EarningBy { get; set; }
 
         public decimal AffWithdrawal { get; set; }
 

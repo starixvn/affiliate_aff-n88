@@ -46,6 +46,7 @@ export class CommissionPanel extends PureComponent {
                             isPrivateGroup={affiliateInfo.IsUsingPrivateCommGroup}
                             affName={affiliateInfo.AffName}
                             affId={affiliateInfo.AffId}
+                            groupTypeId={affiliateInfo.GroupTypeId}
                             setShowPopupCommGroup={this.toggleEditingCommissionPopup}
                             getAffiliateInfo={this.props.getAffiliateInfo}
                         />

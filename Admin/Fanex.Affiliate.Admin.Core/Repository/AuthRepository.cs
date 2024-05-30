@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using Fanex.Affiliate.Admin.Core.DTO.Common;
+﻿using DNAide.Utils;
 using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
-using Fanex.Affiliate.Admin.Core.MetaModels.Login;
-using DNAide.Utils;
-using Fanex.Common.Extensions;
+using Fanex.Affiliate.Admin.Core.DTO.Common;
 using Fanex.Affiliate.Admin.Core.MetaModels;
+using Fanex.Affiliate.Admin.Core.MetaModels.Login;
+using Fanex.Common.Extensions;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Fanex.Affiliate.Admin.Core.Repository
@@ -114,7 +114,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository
         public ResultInfo CheckPermission(CheckPermissionParam param)
         {
             const string spName = "Aff_Con_CheckPermission";
-            using(var objectDb = GetObjectDb(spName))
+            using (var objectDb = GetObjectDb(spName))
             {
                 objectDb.ExecuteNonQuery(param);
 

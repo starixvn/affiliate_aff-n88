@@ -38,5 +38,8 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.Report
 
         [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string PaymentCurrencyIds { get; set; }
+
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
+        public string EarningBy { get; set; }
     }
 }

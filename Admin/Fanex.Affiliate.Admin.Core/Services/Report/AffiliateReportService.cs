@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using Fanex.Affiliate.Admin.Core.DTO;
+﻿using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.Report;
 using Fanex.Affiliate.Admin.Core.MetaModels.Report;
 using Fanex.Affiliate.Admin.Core.Repository.Report;
 using Fanex.Affiliate.Admin.Core.Utilities;
+using System;
 
 namespace Fanex.Affiliate.Admin.Core.Services.Report
 {

@@ -27,7 +27,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
             service.Setup(r => r.GetObjectDb(SpKeyBannerSelType, 120)).Returns(objectDb.Object);
 
             // Action
-            var result = service.Object.GetCategoryList(1,1);
+            var result = service.Object.GetCategoryList(1, 1);
 
             // Assert
             Assert.Single(result);
@@ -46,7 +46,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
             service.Setup(r => r.GetObjectDb(SpKeyBannerSelType, 120)).Returns(objectDb.Object);
 
             // Action
-            var result = service.Object.GetCategoryList(1,1);
+            var result = service.Object.GetCategoryList(1, 1);
 
             // Assert
             Assert.Empty(result);

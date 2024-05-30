@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Col, FormGroup } from 'reactstrap';
 import { bindActionCreators } from 'redux';
 
 import { setSelectedGroup } from '../../../actions';
@@ -7,7 +8,7 @@ import { setSelectedGroup } from '../../../actions';
 import TierSettingItem from './TierSettingItem';
 import { removeTierItem } from '../../../modules/service';
 import { isValidNumber } from '../../../../../modules/utils';
-import { FIRST_ITEM_INDEX } from '../../../modules/constant';
+import { FIRST_ITEM_INDEX, MinNetTurnover, MinNetWin } from '../../../modules/constant';
 
 export class TierSetting extends Component {
     constructor(props) {
@@ -76,35 +77,51 @@ export class TierSetting extends Component {
     }
 
     render() {
-        const { selectedGroup, groupProductId } = this.props;
+        const { selectedGroup, groupProductId, isDisableAddButton, handleClick, btnText, isTurnover } = this.props;
         const tierSettings = selectedGroup.TierSettingList.filter(t => t.GroupProductId === groupProductId)
 
         return (
-                <table className="table table-bordered tier-setting-table" style={{ width: '495px', marginLeft: 42 }}>
-                    <thead>
-                        <tr>
-                            <th style={{ width: 40 }}>Tier</th>
-                            <th>Min Net Win</th>
-                            <th>Min Active Player</th>
-                            <th style={{ width: 85 }}>Rev. Share%</th>
-                            <th style={{ width: 50 }}>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            !!tierSettings.length &&
-                                tierSettings.map((item, i) => {
-                                    const isFirst = i === FIRST_ITEM_INDEX;
-                                    const handleClick = isFirst ? this.handleAdd : () => this.handleRemove(item.TierId, groupProductId);
+            <div className='my-2'>
+                <FormGroup row>
+                    <Col sm={9} className="pl-0">
+                        <table className="table table-bordered tier-setting-table" style={{ width: '495px', marginLeft: 42 }}>
+                            <thead>
+                                <tr>
+                                    <th style={{ width: 40 }}>Tier</th>
+                                    <th>{isTurnover ? MinNetTurnover : MinNetWin}</th>
+                                    <th>Min Active Player</th>
+                                    <th style={{ width: 85 }}>Rev. Share%</th>
+                                    <th style={{ width: 50 }}>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    !!tierSettings.length &&
+                                    tierSettings.map((item, i) => {
+                                        const isFirst = i === FIRST_ITEM_INDEX;
+                                        const handleClick = isFirst ? this.handleAdd : () => this.handleRemove(item.TierId, groupProductId);
 
-                                    return (<TierSettingItem data={item} key={`tier-${i}`}
-                                        handleClick={handleClick}
-                                        btnText={isFirst ? '+' : '-'}
-                                        onChange={this.handleChangeInput} />);
-                                })
-                        }
-                    </tbody>
-                </table>
+                                        return (<TierSettingItem data={item} key={`tier-${i}`}
+                                            handleClick={handleClick}
+                                            btnText={isFirst ? '+' : '-'}
+                                            onChange={this.handleChangeInput} />);
+                                    })
+                                }
+                            </tbody>
+                        </table>
+                    </Col>
+                    <Col sm={3} className="pl-0">
+                        <button
+                            type="button"
+                            className="btn btn-action"
+                            style={{ width: '100%', display: 'flex', justifyContent: 'space-between', margin: 0 }}
+                            disabled={isDisableAddButton}
+                            onClick={handleClick}>
+                            {btnText}
+                        </button>
+                    </Col>
+                </FormGroup>
+            </div>
         )
     }
 }

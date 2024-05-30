@@ -1,14 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.UserPanel;
 using Fanex.Affiliate.Admin.Core.Extensions;
-using Fanex.Affiliate.Admin.Core.MetaModels.UserPanel;
 using Fanex.Affiliate.Admin.Core.MetaModels;
-using Fanex.Affiliate.Admin.Core.Constants;
-using Fanex.Data;
+using Fanex.Affiliate.Admin.Core.MetaModels.UserPanel;
 using Fanex.Common.Extensions;
+using Fanex.Data;
+using System;
+using System.Collections.Generic;
+using System.Data;
 
 namespace Fanex.Affiliate.Admin.Core.Repository.UserPanel
 {
@@ -36,8 +36,8 @@ namespace Fanex.Affiliate.Admin.Core.Repository.UserPanel
                     {
                         dataList.Add(new StatementHistory
                         {
-                            TransId =reader.ToLong("TransId"),
-                            Date =reader.ToDateTime(Field.MonthDate),
+                            TransId = reader.ToLong("TransId"),
+                            Date = reader.ToDateTime(Field.MonthDate),
                             TransType = reader.ToInt("TransType"),
                             Amount = reader.ToDecimal("Amount"),
                             Status = reader.ToString("Status"),
@@ -142,7 +142,8 @@ namespace Fanex.Affiliate.Admin.Core.Repository.UserPanel
                             Deposit = reader.ToDecimal("Deposit"),
                             Withdrawal = reader.ToDecimal("Withdrawal"),
                             Bonus = reader.ToDecimal("Bonus"),
-                            Rebate = reader.ToDecimal("Rebate")
+                            Rebate = reader.ToDecimal("Rebate"),
+                            Turnover = reader.ToDecimal("Turnover")
                         });
                     }
                 }
@@ -168,7 +169,8 @@ namespace Fanex.Affiliate.Admin.Core.Repository.UserPanel
                 Withdrawal = reader.ToDecimal("Withdrawal"),
                 MemberGgr = reader.ToDecimal("Ggr"),
                 Bonus = reader.ToDecimal("Bonus"),
-                Rebate = reader.ToDecimal("Rebate")
+                Rebate = reader.ToDecimal("Rebate"),
+                Turnover = reader.ToDecimal("Turnover")
             };
         }
         private static SubAffiliate BuildSubAffilliateItem(IDataReader reader)

@@ -46,6 +46,13 @@ export const setCommGroup = (data) => {
     }
 }
 
+export const setGroupTypeId = (data) => {
+    return {
+        type: types.SET_GROUP_TYPE_ID,
+        data
+    }
+}
+
 export const setCommGroupList = (data) => {
     return {
         type: types.SET_COMM_GROUP_LIST,

@@ -1,5 +1,4 @@
-﻿using System.Web.Mvc;
-using Fanex.Affiliate.Admin.Core.Attributes;
+﻿using Fanex.Affiliate.Admin.Core.Attributes;
 using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.Extensions;
 using Fanex.Affiliate.Admin.Core.MetaModels.CommissionGroup;
@@ -9,6 +8,7 @@ using Fanex.Affiliate.Admin.Core.Services;
 using Fanex.Affiliate.Admin.Core.Services.Common;
 using Fanex.Affiliate.Admin.Core.Services.Report;
 using Fanex.Affiliate.Admin.Core.ViewModels.Report;
+using System.Web.Mvc;
 
 namespace Fanex.Affiliate.Admin.Core.Controllers.Report
 {
@@ -53,7 +53,8 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Report
                 CurrencyList = _currencyRepository.GetCurrencies(),
                 BaseCurrencyList = _currencyRepository.GetBaseCurrencies(),
                 PaymentCurrencyList = _currencyRepository.GetPaymentCurrencies(),
-                CommGroupList = _commissionGroupRepository.GetNormalCommGroupList(new GetGroupListParam { AffId = -1 }),
+                CommGroupList = _commissionGroupRepository.GetNormalCommGroupList(new GetGroupListParam()),
+                CommGroupTypes = _commissionGroupRepository.GetCommissionGroupTypes()
             };
 
             return View(viewModel);

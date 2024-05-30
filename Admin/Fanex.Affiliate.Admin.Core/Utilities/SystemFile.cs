@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Fanex.Affiliate.Admin.Core.Constants;
+using Fanex.Affiliate.Admin.Core.DTO;
+using System;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
-using Fanex.Affiliate.Admin.Core.DTO;
-using Fanex.Affiliate.Admin.Core.Constants;
 
 namespace Fanex.Affiliate.Admin.Core.Utilities
 {

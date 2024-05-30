@@ -14,8 +14,8 @@ describe('affiliate info - App', () => {
         ],
         commGroupList: [
             {
-                Id: 123,
-                Name: 'Test'
+                GroupId: 123,
+                GroupName: 'Test'
             }
         ],
         param: {},

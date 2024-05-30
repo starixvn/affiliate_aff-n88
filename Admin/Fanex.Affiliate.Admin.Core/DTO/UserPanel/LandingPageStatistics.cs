@@ -1,6 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
-namespace Fanex.Affiliate.Admin.Core.DTO.UserPanel
+﻿namespace Fanex.Affiliate.Admin.Core.DTO.UserPanel
 {
     public class LandingPageStatistics
     {
@@ -16,7 +14,7 @@ namespace Fanex.Affiliate.Admin.Core.DTO.UserPanel
 
         public int Fdm { get; set; }
 
-        
+
         public string WebsiteUrl { get; set; }
     }
 }

@@ -6,8 +6,8 @@ using Fanex.Affiliate.Admin.Core.Repository.UserPanel;
 using Fanex.Affiliate.Admin.Core.Services.UserPanel;
 using Moq;
 using System;
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
 using Xunit;
 
 namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
@@ -36,7 +36,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
             // Arrange
             var param = new DailyEarningParam();
             var repository = new Mock<IStatementHistoryRepository>();
-            repository.Setup(comm => comm.GetDailyEarning(param)).Returns(new DailyEarningResult{ MainData = new List<DailyEarning> { new DailyEarning() }, Total = new DailyEarning() });
+            repository.Setup(comm => comm.GetDailyEarning(param)).Returns(new DailyEarningResult { MainData = new List<DailyEarning> { new DailyEarning() }, Total = new DailyEarning() });
             var service = CreateStatementHistoryService(repository.Object);
 
             // Action
@@ -84,7 +84,9 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
             // Arrange
             var param = new AffiliatePagingByDateParam();
             var repository = new Mock<IStatementHistoryRepository>();
-            repository.Setup(comm => comm.GetStatementHistoryList(param)).Returns(new EntityResult<StatementHistory> { MainData = new List<StatementHistory> {
+            repository.Setup(comm => comm.GetStatementHistoryList(param)).Returns(new EntityResult<StatementHistory>
+            {
+                MainData = new List<StatementHistory> {
                 new StatementHistory { TransType = 201, Date = new DateTime(2020, 06, 10), Status = "Current", CalculatedType = 1 },
                 new StatementHistory { TransType = 204, Date = new DateTime(2020, 06, 10), Status = "Current", CalculatedType = 1 },
                 new StatementHistory { TransType = 201, Date = new DateTime(2020, 05, 10), Status = "Current", CalculatedType = 2 },
@@ -93,7 +95,9 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
                 new StatementHistory { TransType = 204, Date = new DateTime(2020, 04, 10), Status = "Current", CalculatedType = 0 },
                 new StatementHistory { TransType = 204, Date = new DateTime(2020, 03, 10), Status = "Current" },
                 new StatementHistory { TransType = 200, Date = new DateTime(2020, 06, 10), Status = "Cancelled", Description = "test" }
-            }, TotalItem = 5 });
+            },
+                TotalItem = 5
+            });
             var service = CreateStatementHistoryService(repository.Object);
 
             // Action

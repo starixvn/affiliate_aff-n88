@@ -83,6 +83,7 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
             return new DailyEarning
             {
                 Deposit = reader.ToDecimal("Deposit"),
+                Turnover = reader.ToDecimal("Turnover"),
                 Withdrawal = reader.ToDecimal("Withdrawal"),
                 MemberGGR = reader.ToDecimal("GGR"),
                 Bonus = reader.ToDecimal("Bonus"),

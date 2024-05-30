@@ -1,5 +1,5 @@
-﻿using System;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
+using System;
 
 namespace Fanex.Affiliate.Admin.Core.DTO.Affiliate
 {
@@ -34,6 +34,8 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Affiliate
         public DateTime? ApprovalDate { get; set; }
 
         public string CommissionGroup { get; set; }
+
+        public int GroupTypeId { get; set; }
 
         public decimal? BalanceBf { get; set; }
 

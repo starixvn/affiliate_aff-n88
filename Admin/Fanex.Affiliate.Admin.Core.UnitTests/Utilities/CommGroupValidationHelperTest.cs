@@ -1,6 +1,8 @@
 ﻿using Fanex.Affiliate.Admin.Core.DTO;
+using Fanex.Affiliate.Admin.Core.DTO.CommissionGroup;
 using Fanex.Affiliate.Admin.Core.MetaModels.CommissionGroup;
 using Fanex.Affiliate.Admin.Core.Repository;
+using Fanex.Affiliate.Admin.Core.Services.CommGroup;
 using Fanex.Affiliate.Admin.Core.Utilities.CommGroup;
 using Moq;
 using System.Collections.Generic;
@@ -283,19 +285,27 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Utilities
         private static CommGroupValidationHelper CreateCommGroupValidationHelper()
         {
             var productRepository = new Mock<IProductRepository>();
+            var commGroupCommonService = new Mock<ICommGroupCommonService>();
+
             productRepository.Setup(p => p.GetProductList()).Returns(new List<Product>
             {
                 new Product { ProductId = 1 },
                 new Product { ProductId = 2 },
                 new Product { ProductId = 3 }
             });
+            commGroupCommonService.Setup(c => c.GetCommGroupTypes()).Returns(new List<CommGroupType>
+            {
+                new CommGroupType {GroupTypeId = 1},
+                new CommGroupType {GroupTypeId = 2}
+            });
 
-            return new CommGroupValidationHelper(productRepository.Object);
+            return new CommGroupValidationHelper(productRepository.Object, commGroupCommonService.Object);
         }
         private static CommGroupSettingParam CreateValidCommGroupSettingParam()
         {
             return new CommGroupSettingParam
             {
+                GroupTypeId = 1,
                 DepositFee = new TierDeductionSettingParam
                 {
                     DeductedPercentage = 0.02m,

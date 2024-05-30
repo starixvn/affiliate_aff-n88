@@ -1,17 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using DNAide.Utils;
+using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
+using Fanex.Affiliate.Admin.Core.DTO.Affiliate;
 using Fanex.Affiliate.Admin.Core.DTO.Customer;
+using Fanex.Affiliate.Admin.Core.DTO.Email;
 using Fanex.Affiliate.Admin.Core.MetaModels.Customer;
 using Fanex.Affiliate.Admin.Core.Repository.Customer;
-using DNAide.Utils;
-using Fanex.Affiliate.Admin.Core.Constants;
-using Fanex.Affiliate.Admin.Core.Utilities;
-using Fanex.Affiliate.Admin.Core.DTO.Email;
-using Fanex.Affiliate.Admin.Core.DTO.Affiliate;
-using Fanex.Affiliate.Admin.Core.Configurations;
-using System.Threading.Tasks;
 using Fanex.Affiliate.Admin.Core.Services.ThirdPartyLicensee;
+using Fanex.Affiliate.Admin.Core.Utilities;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Fanex.Affiliate.Admin.Core.Services.Customer
 {
@@ -31,7 +30,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Customer
             _emailService = emailService;
             _affiliateService = affiliateService;
             _customerLeftPanelRepository = customerLeftPanelRepository;
-            _thirdPartyLicenseeService= thirdPartyLicenseeService;
+            _thirdPartyLicenseeService = thirdPartyLicenseeService;
         }
         public AffiliateInfoOnLeftPanel GetAffiliateInfoOnLeftPanel(string affUserName, string accId, string accOnId, string sessionId)
         {

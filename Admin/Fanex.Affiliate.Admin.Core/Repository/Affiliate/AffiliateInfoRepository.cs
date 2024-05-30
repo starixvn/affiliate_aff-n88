@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.Affiliate;
 using Fanex.Affiliate.Admin.Core.MetaModels.Affiliate;
-using Fanex.Data;
-using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Common.Extensions;
+using Fanex.Data;
+using System;
+using System.Collections.Generic;
+using System.Data;
 
 namespace Fanex.Affiliate.Admin.Core.Repository.Affiliate
 {
@@ -87,8 +87,8 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Affiliate
         {
             return new AffiliateInfo
             {
-                AffId =reader.ToInt(Field.AffId),
-                AffCode =reader.ToInt("AffCode"),
+                AffId = reader.ToInt(Field.AffId),
+                AffCode = reader.ToInt("AffCode"),
                 UserName = reader.ToString("Username"),
                 Status = reader.ToString("Status"),
                 FirstName = reader.ToString("FirstName"),
@@ -98,18 +98,19 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Affiliate
                 RegistrationDate = reader.ToDateTime("RegisteredDate"),
                 ApprovalDate = reader["ApprovedDate"] == DBNull.Value ? (DateTime?)null : reader.ToDateTime("ApprovedDate"),
                 BalanceBf = reader["BFF"] == DBNull.Value ? (decimal?)null : reader.ToDecimal("BFF"),
-                Member = reader["NoOfMember"] == DBNull.Value ? (int?)null :reader.ToInt("NoOfMember"),
+                Member = reader["NoOfMember"] == DBNull.Value ? (int?)null : reader.ToInt("NoOfMember"),
                 CommissionGroup = reader["GroupName"] == DBNull.Value ? "N/A" : reader.ToString("GroupName"),
+                GroupTypeId = reader.ToInt(Field.GroupTypeId),
                 IsFavorite = Convert.ToBoolean(reader["IsFavorite"]),
                 IsClosed = reader.ToBool("IsClosed"),
                 Currency = reader.ToString("Currency"),
                 PlayerCurrency = reader.ToString("PlayerCurrency"),
                 Phone = reader.ToString("Phone"),
                 PlayerUserName = reader.ToString("Player_Username"),
-                IsUsingPrivateCommGroup = (reader["IsPrivate"] != DBNull.Value) &&reader.ToBool("IsPrivate"),
-                ParentAffId = reader["ParentAffId"] == DBNull.Value ? (int?)null :reader.ToInt("ParentAffId"),
+                IsUsingPrivateCommGroup = (reader["IsPrivate"] != DBNull.Value) && reader.ToBool("IsPrivate"),
+                ParentAffId = reader["ParentAffId"] == DBNull.Value ? (int?)null : reader.ToInt("ParentAffId"),
                 ParentAffName = reader.ToString("ParentAffName"),
-                NoOfSubAff = reader["NoOfSubAff"] == DBNull.Value ? (int?)null :reader.ToInt("NoOfSubAff"),
+                NoOfSubAff = reader["NoOfSubAff"] == DBNull.Value ? (int?)null : reader.ToInt("NoOfSubAff"),
                 ApprovedBy = reader.ToString("ApprovedBy")
             };
         }

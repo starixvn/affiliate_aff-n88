@@ -46,8 +46,8 @@ export class Content extends Component {
     }
 
     onPaging = (pageIndex, pageSize) => {
-        const { searchedGroupName } = this.props;
-        const param = Object.assign({}, { PageIndex: pageIndex, PageSize: pageSize }, { GroupName: searchedGroupName });
+        const { searchedGroupName, searchedGroupType } = this.props;
+        const param = Object.assign({}, { PageIndex: pageIndex, PageSize: pageSize }, { GroupName: searchedGroupName, GroupTypeId: searchedGroupType });
         this.props.getGroupSettingList(param);
     }
 
@@ -77,8 +77,8 @@ export class Content extends Component {
     }
 }
 
-function mapStateToProps({ pagingOption, searchedGroupName, gridData }) {
-    return Object.assign({}, { pagingOption, searchedGroupName, gridData });
+function mapStateToProps({ pagingOption, searchedGroupName, searchedGroupType, gridData }) {
+    return Object.assign({}, { pagingOption, searchedGroupName, searchedGroupType, gridData });
 }
 
 function mapDispatchToProps(dispatch) {

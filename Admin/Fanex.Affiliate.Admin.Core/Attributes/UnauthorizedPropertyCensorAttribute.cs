@@ -11,7 +11,7 @@ using System.Web.Mvc;
 namespace Fanex.Affiliate.Admin.Core.Attributes
 {
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
-    public class UnauthorizedPropertyCensorAttribute: ActionFilterAttribute
+    public class UnauthorizedPropertyCensorAttribute : ActionFilterAttribute
     {
         public string PermissionName { get; set; }
         private IEnumerable<UserPermission> PermissionList { get; set; }
@@ -55,7 +55,7 @@ namespace Fanex.Affiliate.Admin.Core.Attributes
                 var properties = type.GetProperties(BindingFlags.Instance | BindingFlags.Public);
                 foreach (var pro in properties)
                 {
-                    if(IsNeedResetPro(pro))
+                    if (IsNeedResetPro(pro))
                     {
                         pro.SetValue(data, null, null);
                     }

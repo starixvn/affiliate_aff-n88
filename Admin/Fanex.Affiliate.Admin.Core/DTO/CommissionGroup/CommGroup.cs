@@ -3,7 +3,7 @@ using System;
 
 namespace Fanex.Affiliate.Admin.Core.DTO.CommissionGroup
 {
-    public class CommGroup
+    public class CommGroup : CommGroupType
     {
         public int RowIdx { get; set; }
 

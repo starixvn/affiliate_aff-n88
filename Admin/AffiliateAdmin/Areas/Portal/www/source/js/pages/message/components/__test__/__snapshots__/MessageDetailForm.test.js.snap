@@ -92,7 +92,7 @@ exports[`message - components - MessageDetailForm  render correctly with current
             />
           </Alert>
           <Form
-            autocomplete="off"
+            autoComplete="off"
             className="mb-2 p-1 border"
             tag="form"
           >
@@ -681,7 +681,7 @@ exports[`message - components - MessageDetailForm  render correctly with insert 
             />
           </Alert>
           <Form
-            autocomplete="off"
+            autoComplete="off"
             className="mb-2 p-1 border"
             tag="form"
           >
@@ -1252,7 +1252,7 @@ exports[`message - components - MessageDetailForm  render correctly with not sho
             />
           </Alert>
           <Form
-            autocomplete="off"
+            autoComplete="off"
             className="mb-2 p-1 border"
             tag="form"
           >
@@ -1841,7 +1841,7 @@ exports[`message - components - MessageDetailForm  render correctly with update 
             />
           </Alert>
           <Form
-            autocomplete="off"
+            autoComplete="off"
             className="mb-2 p-1 border"
             tag="form"
           >
@@ -2430,7 +2430,7 @@ exports[`message - components - MessageDetailForm  render correctly with update 
             />
           </Alert>
           <Form
-            autocomplete="off"
+            autoComplete="off"
             className="mb-2 p-1 border"
             tag="form"
           >

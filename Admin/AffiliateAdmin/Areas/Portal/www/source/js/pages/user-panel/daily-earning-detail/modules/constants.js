@@ -7,6 +7,7 @@ export { selectedAllProduct, globalResource, maxWidth, userPanelMenuKey, monthNa
 export const resource = {
     UserName: 'User Name',
     SystemUserName: globalResource.SystemUserName,
+    Turnover: 'Turnover',
     Ggr: 'GGR',
     Deposit: 'Deposit',
     Withdrawal: 'Withdrawal',

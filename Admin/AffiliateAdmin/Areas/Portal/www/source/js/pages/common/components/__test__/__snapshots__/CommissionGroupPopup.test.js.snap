@@ -56,7 +56,7 @@ exports[`common - components - CommissionGroupPopup render correctly 1`] = `
         className="modal-body-wrapper"
         style={
           Object {
-            "height": 310,
+            "height": 340,
             "padding": 0,
           }
         }
@@ -64,7 +64,7 @@ exports[`common - components - CommissionGroupPopup render correctly 1`] = `
         <iframe
           frameBorder="0"
           height="100%"
-          src="/Portal/CommGroupAssignment/AssignGroup?affId=1271808"
+          src="/Portal/CommGroupAssignment/AssignGroup?affId=1271808&groupTypeId=undefined"
           width="100%"
         />
       </div>
@@ -135,7 +135,7 @@ exports[`common - components - CommissionGroupPopup render correctly with Privat
       >
         <iframe
           className="embed-responsive-item"
-          src="/Portal/CommGroupAssignment/AssignPrivateGroup?affId=1271808"
+          src="/Portal/CommGroupAssignment/AssignPrivateGroup?affId=1271808&groupTypeId=undefined"
         />
       </div>
     </ModalBody>

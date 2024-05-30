@@ -85,7 +85,7 @@ exports[`note - components - InsertUpdateNoteForm  render correctly with add Not
           />
         </Alert>
         <Form
-          autocomplete="off"
+          autoComplete="off"
           className="mb-5"
           tag="form"
         >
@@ -257,7 +257,7 @@ exports[`note - components - InsertUpdateNoteForm  render correctly with update 
           />
         </Alert>
         <Form
-          autocomplete="off"
+          autoComplete="off"
           className="mb-5"
           tag="form"
         >

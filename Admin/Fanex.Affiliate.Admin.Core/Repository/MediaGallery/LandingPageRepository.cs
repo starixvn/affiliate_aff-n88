@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.MediaGallery;
 using Fanex.Affiliate.Admin.Core.MetaModels.MediaGallery;
-using Fanex.Data;
-using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Common.Extensions;
+using Fanex.Data;
+using System.Collections.Generic;
 
 namespace Fanex.Affiliate.Admin.Core.Repository.MediaGallery
 {
@@ -23,9 +23,9 @@ namespace Fanex.Affiliate.Admin.Core.Repository.MediaGallery
                     {
                         result.Add(new LandingPage
                         {
-                            PageId =reader.ToInt(Field.PageId),
-                            PageName =reader.ToString("PageName"),
-                            PageCode =reader.ToString("PageCode")
+                            PageId = reader.ToInt(Field.PageId),
+                            PageName = reader.ToString("PageName"),
+                            PageCode = reader.ToString("PageCode")
                         });
                     }
                 }
@@ -49,9 +49,9 @@ namespace Fanex.Affiliate.Admin.Core.Repository.MediaGallery
                     {
                         result = new LandingPage
                         {
-                            PageId =reader.ToInt(Field.PageId),
-                            PageName =reader.ToString("PageName"),
-                            PageCode =reader.ToString("PageCode")
+                            PageId = reader.ToInt(Field.PageId),
+                            PageName = reader.ToString("PageName"),
+                            PageCode = reader.ToString("PageCode")
                         };
                     }
                 }

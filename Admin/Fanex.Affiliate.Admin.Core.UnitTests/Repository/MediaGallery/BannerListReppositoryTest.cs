@@ -98,7 +98,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.MediaGalleryRepository
             repository.Setup(r => r.GetObjectDb(SpKeyBannerSel, 120)).Returns(objectDb.Object);
 
             // Action
-            var result = repository.Object.GetBannerDetail(123,1);
+            var result = repository.Object.GetBannerDetail(123, 1);
 
             // Assert
             Assert.Equal(123, result.BannerId);
@@ -117,7 +117,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.MediaGalleryRepository
             repository.Setup(r => r.GetObjectDb(SpKeyBannerSel, 120)).Returns(objectDb.Object);
 
             // Action
-            var result = repository.Object.GetBannerDetail(123,1);
+            var result = repository.Object.GetBannerDetail(123, 1);
 
             // Assert
             Assert.Null(result);

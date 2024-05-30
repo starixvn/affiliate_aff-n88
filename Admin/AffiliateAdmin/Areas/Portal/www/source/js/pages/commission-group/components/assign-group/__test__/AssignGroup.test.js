@@ -29,7 +29,7 @@ describe('commission group - AssignGroup', () => {
         const mockedEvent = { target: { name: "commGroup", value: 133 } };
         const wrapper = shallow(<AssignGroup />);
         wrapper.setState = jest.fn();
-        wrapper.find('select[name="SelectedGroup"]').simulate('change', mockedEvent);
+        wrapper.find('select[name="selectedGroup"]').simulate('change', mockedEvent);
 
         expect(wrapper.setState).toHaveBeenCalledWith({ selectedGroup: mockedEvent.target.value });
     });
@@ -55,13 +55,14 @@ describe('commission group - AssignGroup', () => {
     });
 
     it('handleSave - should call parent.postMessage when check private group', () => {
+        window.initialState = Object.assign({}, window.initialState, { selectedGroupType: 1 });
         const wrapper = shallow(<AssignGroup />);
         wrapper.setState({ isPrivateGroup: true });
         parent.postMessage = jest.fn();
 
         wrapper.find('Button').simulate('click');
 
-        expect(parent.postMessage).toHaveBeenCalledWith("changeAssignToPrivateGroup", "http://localhost");
+        expect(parent.postMessage).toHaveBeenCalledWith({ "eventName": "changeAssignToPrivateGroup", "groupTypeId": 1 }, "http://localhost");
     });
 
     it('handleSave - should call setState and hideMessage when GroupId same selectedGroup', () => {

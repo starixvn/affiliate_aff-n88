@@ -4,11 +4,11 @@ import { bindActionCreators } from 'redux';
 import { Alert } from 'reactstrap';
 
 import { insertCommissionGroup, getGroupSettingList, setSelectedGroup, setSelectedProductIds } from '../../actions';
-import { buildDefaultCommGroup, validate } from '../../modules/service';
+import { buildDefaultCommGroup, handleKillRateListData, validate } from '../../modules/service';
 
 import DeductionSetting from '../shared/tier-deduction';
 import CommGroupInfo from '../shared/CommGroupInfo';
-import { messages } from '../../modules/constant';
+import { groupTypeList, messages } from '../../modules/constant';
 import { toggleLoader } from '../../../../actions/loaderAction';
 import P2pProductSetting from '../shared/p2p-deduction';
 import SubAffCommRateSetting from '../shared/sub-aff-comm-rate';
@@ -54,15 +54,20 @@ export class AddGroup extends React.Component {
         else {
             this.props.toggleLoader(true);
             const platformFeeList = selectedGroup.PlatformFeeList.filter(item => !!item.ProductIds);
+            let killRateFeeList = [];
 
-            const param = { ...selectedGroup, PlatformFeeList: platformFeeList };
+            if (selectedGroup.GroupTypeId === groupTypeList.Turnover) {
+                killRateFeeList = handleKillRateListData(platformFeeList, selectedGroup.KillRateFeeList);
+            }
+
+            const param = { ...selectedGroup, PlatformFeeList: platformFeeList, KillRateFeeList: killRateFeeList };
             const response = await this.props.insertCommissionGroup(param);
             if (response && response.status === 200) {
                 const result = response.data;
                 if (result.IsSuccessful) {
                     window.setTimeout(this.props.onClose, 3000);
-                    const { pagingOption } = this.props;
-                    const gettingParam = Object.assign({}, { PageIndex: pagingOption.PageIndex, PageSize: pagingOption.PageSize, GroupName: this.props.searchedGroupName });
+                    const { pagingOption, searchedGroupName, searchedGroupType } = this.props;
+                    const gettingParam = Object.assign({}, { PageIndex: pagingOption.PageIndex, PageSize: pagingOption.PageSize, GroupName: searchedGroupName, GroupTypeId: searchedGroupType });
                     this.props.getGroupSettingList(gettingParam);
                 }
 
@@ -95,8 +100,8 @@ export class AddGroup extends React.Component {
     }
 }
 
-function mapStateToProp({ deductionList, productList, p2pProductList, selectedGroup, searchedGroupName, pagingOption }) {
-    return { deductionList, productList, p2pProductList, selectedGroup, searchedGroupName, pagingOption };
+function mapStateToProp({ deductionList, productList, p2pProductList, selectedGroup, searchedGroupName, searchedGroupType, pagingOption }) {
+    return { deductionList, productList, p2pProductList, selectedGroup, searchedGroupName, searchedGroupType, pagingOption };
 }
 
 function mapDispatchToProps(dispatch) {

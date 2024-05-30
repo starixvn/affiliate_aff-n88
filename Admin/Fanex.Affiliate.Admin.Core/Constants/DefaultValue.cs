@@ -1,5 +1,4 @@
-﻿using System;
-
+﻿
 namespace Fanex.Affiliate.Admin.Core.Constants
 {
     public static class DefaultValue
@@ -11,5 +10,7 @@ namespace Fanex.Affiliate.Admin.Core.Constants
         public const decimal Decimal = default(decimal);
 
         public const bool Bool = default(bool);
+
+        public const int AllId = -1;
     }
 }

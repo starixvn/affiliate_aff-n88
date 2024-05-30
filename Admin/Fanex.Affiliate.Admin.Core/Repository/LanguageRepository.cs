@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using Fanex.Affiliate.Admin.Core.DTO;
+﻿using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Common.Extensions;
+using System.Collections.Generic;
 
 namespace Fanex.Affiliate.Admin.Core.Repository
 {
@@ -20,7 +19,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository
                     {
                         result.Add(new Language
                         {
-                            LanguageCode =reader.ToString("MarketId"),
+                            LanguageCode = reader.ToString("MarketId"),
                             LanguageName = reader.ToString("MarketName"),
                             ShortedLanguageCode = reader.ToString("ShortedCode")
                         });

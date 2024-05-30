@@ -6,6 +6,8 @@ namespace Fanex.Affiliate.Admin.Core.DTO.UserPanel
     {
         public DateTime? WinlostDate { get; set; }
 
+        public decimal Turnover { get; set; }
+
         public decimal MemberGgr { get; set; }
 
         public decimal Deposit { get; set; }

@@ -8,6 +8,7 @@ import * as types from '../actions/types';
 import { viewLevel } from '../libs/constants';
 
 const languageList = createReducer({}, {});
+const earningByList = createReducer({}, {});
 const baseCurrencyList = createReducer([], {});
 const isProduction = createReducer(false, {});
 const isN8B = createReducer(false, {});
@@ -67,6 +68,7 @@ export default combineReducers({
     reportCutOffDate,
     productList,
     commGroupList,
+    earningByList,
     pagingOption,
     languageList,
     currencyList,

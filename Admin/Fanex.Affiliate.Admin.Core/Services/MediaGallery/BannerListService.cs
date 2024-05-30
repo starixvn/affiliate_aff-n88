@@ -1,19 +1,19 @@
-﻿using System;
+﻿using Fanex.Affiliate.Admin.Core.Configurations;
+using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.MediaGallery;
 using Fanex.Affiliate.Admin.Core.MetaModels.MediaGallery;
 using Fanex.Affiliate.Admin.Core.Repository.MediaGallery;
-using Fanex.Affiliate.Admin.Core.Utilities.MediaGallery;
-using Fanex.Affiliate.Admin.Core.Configurations;
-using System.Collections.Generic;
 using Fanex.Affiliate.Admin.Core.Resources;
 using Fanex.Affiliate.Admin.Core.Utilities;
+using Fanex.Affiliate.Admin.Core.Utilities.MediaGallery;
+using System;
+using System.Collections.Generic;
 using System.Drawing;
-using System.Web;
 using System.IO;
-using Fanex.Affiliate.Admin.Core.Constants;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Web;
 
 namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
 {
@@ -165,9 +165,10 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
 
         private ResultInfo ValidateCurrency(InsertUpdateMultipleBannersParam param)
         {
-            if(param.UserType == UserType.Player && string.IsNullOrEmpty(param.Currencies))
+            if (param.UserType == UserType.Player && string.IsNullOrEmpty(param.Currencies))
             {
-                return new ResultInfo {
+                return new ResultInfo
+                {
                     Code = ErrCode.GeneralErrorCode,
                     Message = "Please select Currency."
                 };

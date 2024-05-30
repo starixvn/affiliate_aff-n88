@@ -199,6 +199,7 @@ export class SettingPanel extends PureComponent {
                             isNewAffiliate={true}
                             affName={affiliateInfo.AffName}
                             affId={affiliateInfo.AffId}
+                            groupTypeId={affiliateInfo.GroupTypeId}
                             setShowPopupCommGroup={this.toggleAssignCommissionPopup}
                             getAffiliateInfo={this.props.getAffiliateInfo}
                         />

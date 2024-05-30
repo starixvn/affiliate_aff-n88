@@ -85,7 +85,7 @@ exports[`domain control - components - DomainControlPopup  render correctly with
           />
         </Alert>
         <Form
-          autocomplete="off"
+          autoComplete="off"
           className="mb-5"
           tag="form"
         >
@@ -406,7 +406,7 @@ exports[`domain control - components - DomainControlPopup  render correctly with
           />
         </Alert>
         <Form
-          autocomplete="off"
+          autoComplete="off"
           className="mb-5"
           tag="form"
         >

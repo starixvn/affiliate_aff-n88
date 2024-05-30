@@ -4,6 +4,8 @@
     {
         public const string InvalidGroupName = "Invalid Group Name";
 
+        public const string InvalidGroupType = "Invalid Group Type";
+
         public const string InvalidGroupId = "Invalid GroupId";
 
         public const string InvalidPlatformFee = "Invalid Royalty Fee";
