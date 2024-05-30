@@ -9,7 +9,6 @@ using Fanex.Data;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 
 namespace Fanex.Affiliate.Admin.Core.Services.Administrator
 {
@@ -90,7 +89,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Administrator
                 }
             }
 
-            return result.Where(p => !p.FunctionDescription.Contains("Transfer Balance For Player")); //Hide Transfer Player
+            return result;
         }
 
         public IEnumerable<PolicyInfo> GetPolicyListByGroupIds(string groupIds)
@@ -113,7 +112,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Administrator
                 }
             }
 
-            return result.Where(p => !p.FunctionDescription.Contains("Transfer Balance For Player")); //Hide Transfer Player
+            return result;
         }
 
         public ResultInfo InsertUser(InsertUserParam param)

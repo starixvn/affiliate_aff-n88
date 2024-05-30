@@ -64,15 +64,6 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
         [AjaxOnly]
         public async Task<ActionResult> SubmitTransferMoney(TransMoneyRequestViewModel param)
         {
-            if (SessionService.UserSession.DisabledTransfer)
-            {
-                return Json(new ResultInfo
-                {
-                    IsOk = false,
-                    Message = Lang.ErrAuthorized
-                });
-            }
-
             if (param.SearchName != param.SubmitName)
             {
                 var result = new ResultInfo

@@ -7,7 +7,6 @@ using Fanex.Affiliate.Admin.Core.MetaModels.Login;
 using Fanex.Common.Extensions;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Fanex.Affiliate.Admin.Core.Repository
 {
@@ -33,7 +32,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository
                 }
             }
 
-            return result.Where(p => !p.FunctionName.Contains("TransferPlayer")).ToList(); //Hide Transfer Player
+            return result;
         }
 
         public bool ReCheckin(int onUserId)

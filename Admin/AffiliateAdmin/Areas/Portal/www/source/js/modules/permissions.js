@@ -1,7 +1,7 @@
 ﻿export const permissionResource = {
     AffReport: "[AffReport]",
-    TransferPlayerSetting: "[HideTransferPlayerSetting]", //Hide Transfer Player
-    TransferPlayerReport: "[HideTransferPlayerReport]" //Hide Transfer Player
+    TransferPlayerSetting: "[TransferPlayerSetting]",
+    TransferPlayerReport: "[TransferPlayerReport]"
 }
 
 export class Permission {

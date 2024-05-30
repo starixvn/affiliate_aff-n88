@@ -28,9 +28,9 @@
 
         public const string MemberEmail = "[MemberEmail]";
 
-        public const string TransferPlayerSetting = "[HideTransferPlayerSetting]"; //Hide Transfer Player
+        public const string TransferPlayerSetting = "[TransferPlayerSetting]";
 
-        public const string TransferPlayerReport = "[HideTransferPlayerReport]"; //Hide Transfer Player
+        public const string TransferPlayerReport = "[TransferPlayerReport]";
 
         public const string EditAffStatus = "[EditAffiliateStatus]";
 

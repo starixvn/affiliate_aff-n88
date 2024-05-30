@@ -1,4 +1,4 @@
-using Fanex.Affiliate.User.Core.Constants;
+﻿using Fanex.Affiliate.User.Core.Constants;
 using Fanex.Affiliate.User.Core.DTO.Auth;
 using Fanex.Affiliate.User.Core.DTO.VerificationAccount;
 using System.Web;
@@ -86,7 +86,7 @@ namespace Fanex.Affiliate.User.Core.CoreService
                 IsMaxSubLevel = authorizedUser.IsMaxSubLevel,
                 IsDepositFeePercent = authorizedUser.IsDepositFeePercent,
                 IsWithdrawalFeePercent = authorizedUser.IsWithdrawalFeePercent,
-                DisabledTransfer = true //authorizedUser.DisabledTransfer //Hide Transfer Player
+                DisabledTransfer = authorizedUser.DisabledTransfer
             };
 
             HttpContext.Current.Session[UserSessionKey] = userSession;
