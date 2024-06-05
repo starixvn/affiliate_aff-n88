@@ -39,5 +39,6 @@
   </Function>
   <Function Name="Test">
     <Setting Key="N88_Get_Customer_xtest" SpName="N88_Get_Customer_xtest" DbName="N88Licensee_Read"/>
+    <Setting Key="API_Customer_Update_Test" SpName="API_Customer_Update" DbName="N88Licensee_Write"/>
   </Function>
 </Functions>
