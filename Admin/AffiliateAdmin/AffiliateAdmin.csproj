@@ -255,7 +255,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="12monitor.aspx" />
+    <Content Include="whoami.aspx" />
     <Content Include="App_Data\SpConfig\SpName.n88admin-n88.local.xml">
       <DependentUpon>_SpName.tt</DependentUpon>
     </Content>
