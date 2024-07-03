@@ -28,6 +28,8 @@ export class Filter extends Component {
             selectedProductList: productList.filter(item => item.checked).map(item => item.key).join(',') || '',
             selectedCommGroupList: 'all',
             isGetAll: false,
+            isExcludeNegvBBF: false,
+            isExcludeNegvCurrentBBF: false,
             selectedBaseCurrency: baseCurrencyList.length && baseCurrencyList[0].ExchangeId || defaultBaseCurrency,
             selectedCurrencyList: currencyList.filter(item => item.checked).map(item => item.key).join(',') || '',
             selectedPaymentCurrencyList: paymentCurrencyList.filter(item => item.checked).map(item => item.key).join(',') || '',
@@ -62,7 +64,9 @@ export class Filter extends Component {
                     selectedBaseCurrency: BaseCurrencyId,
                     selectedCurrencyList: CurrencyIds,
                     selectedPaymentCurrencyList: PaymentCurrencyIds,
-                    isGetAll: false
+                    isGetAll: false,
+                    isExcludeNegvBBF: false,
+                    IsExcludeNegvCurrentBBF: false,
                 }, callback);
 
                 this.props.setParam(this.cachedMainReportParam);
@@ -167,6 +171,13 @@ export class Filter extends Component {
         }))
     }
 
+    handleCheck = (e) => {
+        const { name } = e.target;
+        this.setState((prevState) => ({
+            [name]: !prevState[name]
+        }))
+    }
+
     handleClickSearch = () => {
         const { selectedProductList } = this.state;
 
@@ -175,7 +186,7 @@ export class Filter extends Component {
         }
 
         this._updateReportTitle();
-        const { selectedLanguage, selectedEarning, selectedCommGroupList, selectedBaseCurrency, selectedCurrencyList, selectedPaymentCurrencyList, fromMonth, toMonth, sortBy, isSortAscending, userName, isGetAll } = this.state;
+        const { selectedLanguage, selectedEarning, selectedCommGroupList, selectedBaseCurrency, selectedCurrencyList, selectedPaymentCurrencyList, fromMonth, toMonth, sortBy, isSortAscending, userName, isGetAll, isExcludeNegvBBF, isExcludeNegvCurrentBBF } = this.state;
         const { pagingOption } = this.props;
 
         const isSelectAllCommGroup = this.props.commGroupList.every(c => c.checked);
@@ -195,7 +206,9 @@ export class Filter extends Component {
             SortDirectionType: isSortAscending ? sortDirectionType.ascending : sortDirectionType.descending,
             PageIndex: 1,
             PageSize: pagingOption.PageSize,
-            IsGetAll: isGetAll
+            IsGetAll: isGetAll,
+            IsExcludeNegvBBF: isExcludeNegvBBF,
+            IsExcludeNegvCurrentBBF: isExcludeNegvCurrentBBF,
         }
 
         if (this._isMainView()) {
@@ -279,7 +292,7 @@ export class Filter extends Component {
     }
 
     render() {
-        const { selectedLanguage, selectedEarning, selectedBaseCurrency, fromMonth, toMonth, sortBy, isSortAscending, selectedProductList, userName, isGetAll } = this.state;
+        const { selectedLanguage, selectedEarning, selectedBaseCurrency, fromMonth, toMonth, sortBy, isSortAscending, selectedProductList, userName, isGetAll, isExcludeNegvBBF, isExcludeNegvCurrentBBF } = this.state;
         const { productList, languageList, currencyList, baseCurrencyList, paymentCurrencyList, isProduction, commGroupList, earningByList } = this.props;
 
         const isValidSelectedProduct = !!selectedProductList;
@@ -442,6 +455,26 @@ export class Filter extends Component {
                             <Input className="ml-1" type="checkbox" checked={isSortAscending} onChange={this.handleChangeSortAscending} />
                         </Label>
                     </FormGroup>
+                    {
+                        isMainView && (
+                            <FormGroup className="my-sm-1 mr-sm-2">
+                                <Label check>
+                                    Exclude affiliate with negative Balance B/F
+                                    <Input name="isExcludeNegvBBF" className="ml-1" type="checkbox" checked={isExcludeNegvBBF} onChange={this.handleCheck} />
+                                </Label>
+                            </FormGroup>
+                        )
+                    }
+                    {
+                        isMainView && (
+                            <FormGroup className="my-sm-1 mr-sm-2">
+                                <Label check>
+                                    Exclude affiliate with negative Current Balance B/F
+                                    <Input name="isExcludeNegvCurrentBBF" className="ml-1" type="checkbox" checked={isExcludeNegvCurrentBBF} onChange={this.handleCheck} />
+                                </Label>
+                            </FormGroup>
+                        )
+                    }
                     <Button outline color="primary" type="button" onClick={this.handleClickSearch} disabled={!isValidSelectedProduct}>
                         <span className="oi oi-magnifying-glass"></span> Search
                     </Button>
