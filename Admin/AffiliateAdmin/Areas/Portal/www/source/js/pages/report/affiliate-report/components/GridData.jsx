@@ -311,11 +311,12 @@ export class GridData extends PureComponent {
     render() {
         const { gridData, total } = this.state;
         const maxHeight = getMaxHeight();
+        const style = this._isMainView() ? { minWidth: '2225px' } : { };
 
         return gridData && (
             <Fragment>
                 <div className="table-responsive aff-report-table-container" style={{ maxHeight }} ref={this.tableRef}>
-                    <Table className="freeze-table">
+                    <Table className="freeze-table" style={style}>
                         <thead>
                             {
                                 this._renderHeader()
