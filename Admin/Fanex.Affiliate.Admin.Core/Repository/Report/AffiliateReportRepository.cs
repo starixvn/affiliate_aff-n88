@@ -57,10 +57,8 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
 
                     if (reader.NextResult() && reader.Read())
                     {
-                        var total = BuildDataItem(reader);
-                        total.CurrentBBF = reader.ToDecimal("CurrentBFF");
-
-                        result.Total = total;
+                        result.Total = BuildDataItem(reader);
+                        result.Total.CurrentBBF = reader.ToDecimal("CurrentBFF");
                     }
                 }
 

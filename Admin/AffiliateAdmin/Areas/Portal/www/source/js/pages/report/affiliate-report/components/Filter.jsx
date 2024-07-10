@@ -153,22 +153,10 @@ export class Filter extends Component {
         this.props.setProductList(handleChangeMultipleSelected(this.props.productList, selectedProductList));
     }
 
-    handleChangeSortAscending = () => {
-        this.setState((prevState) => ({
-            isSortAscending: !prevState.isSortAscending
-        }))
-    }
-
     handleChange = (event) => {
         const { name, value } = event.target;
 
         this.setState({ [name]: value });
-    }
-
-    handleChangeGetAll = () => {
-        this.setState((prevState) => ({
-            isGetAll: !prevState.isGetAll
-        }))
     }
 
     handleCheck = (e) => {
@@ -434,7 +422,7 @@ export class Filter extends Component {
                             <FormGroup check>
                                 <Label check>
                                     Get All
-                                    <Input className="ml-1 mr-2" type="checkbox" checked={isGetAll} onChange={this.handleChangeGetAll} />
+                                    <Input name="isGetAll" className="ml-1 mr-2" type="checkbox" checked={isGetAll} onChange={this.handleCheck} />
                                 </Label>
                             </FormGroup>
                         )
@@ -452,7 +440,7 @@ export class Filter extends Component {
                     <FormGroup className="my-sm-1 mr-sm-2">
                         <Label check>
                             A-Z
-                            <Input className="ml-1" type="checkbox" checked={isSortAscending} onChange={this.handleChangeSortAscending} />
+                            <Input name="isSortAscending" className="ml-1" type="checkbox" checked={isSortAscending} onChange={this.handleCheck} />
                         </Label>
                     </FormGroup>
                     {
