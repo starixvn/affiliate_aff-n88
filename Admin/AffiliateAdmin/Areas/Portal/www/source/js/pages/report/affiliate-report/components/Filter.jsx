@@ -418,7 +418,7 @@ export class Filter extends Component {
                             enable={!isGetAll} />
                     </FormGroup>
                     {
-                        isMainView && (
+                        !isMainView && (
                             <FormGroup check>
                                 <Label check>
                                     Get All
