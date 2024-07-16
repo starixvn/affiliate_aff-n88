@@ -9,13 +9,13 @@ const HEADER_ROW_INDEX = 1;
 const DATA_ROW_INDEX = 3;
 
 const MAIN_VIEW = {
-    TOTAL_COLUMN: 26,
+    TOTAL_COLUMN: 27,
     INDEX_PLAYER_STATISTICS_COLUMN: 8,
     INDEX_AFFILIATE_STATISTICS_COLUMN: 9,
     INDEX_DEPOSIT_COLUMN: 8,
     INDEX_COMM_COLUMN: 18,
     COLSPAN_PLAYER_STATISTICS: 10,
-    COLSPAN_AFFILIATE_STATISTICS: 8
+    COLSPAN_AFFILIATE_STATISTICS: 9
 }
 
 const DETAIL_VIEW = {
@@ -61,7 +61,8 @@ const fields = {
     TotalEarning: 'TotalEarning',
     AffWithdrawal: 'AffWithdrawal',
     AffAdjustment: 'AffAdjustment',
-    BalanceBf: 'BalanceBf'
+    BalanceBf: 'BalanceBf',
+    CurrentBBF: 'CurrentBBF'
 }
 
 export default class ReportExcel {
@@ -322,6 +323,8 @@ export default class ReportExcel {
         }, {
             wpx: 120
         }, {
+            wpx: 120
+        },{
             wpx: 150
         }, {
             wpx: 150
@@ -458,6 +461,11 @@ export default class ReportExcel {
         },
         {
             field: fields.BalanceBf,
+            [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
+            [TOTAL_SECTION_STYLE]: totalCellStyle.decimal
+        },
+        {
+            field: fields.CurrentBBF,
             [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
             [TOTAL_SECTION_STYLE]: totalCellStyle.decimal
         }

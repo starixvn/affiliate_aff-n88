@@ -60,6 +60,8 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Report
 
         public decimal BalanceBf { get; set; }
 
+        public decimal CurrentBBF { get; set; }
+
         public int NoOfSubAff { get; set; }
 
         public decimal SubAffEarning { get; set; }

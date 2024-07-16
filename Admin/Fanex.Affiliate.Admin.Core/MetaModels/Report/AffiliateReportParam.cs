@@ -41,5 +41,9 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.Report
 
         [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string EarningBy { get; set; }
+
+        public bool IsExcludeNegvBBF { get; set; }
+
+        public bool IsExcludeNegvCurrentBBF { get; set; }
     }
 }

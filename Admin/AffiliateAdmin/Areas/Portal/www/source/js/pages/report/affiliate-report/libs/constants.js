@@ -63,6 +63,7 @@ export const headerText = {
     AffWithdrawal: 'Withdrawal',
     AffAdjustment: 'Adjustment',
     BalanceBf: 'Balance B/F',
+    CurrentBBF: 'Current Balance B/F',
     MemberStatistics: 'Player Statistics',
     AffiliateStatistics: 'Affiliate Statistics',
     MonthOnMonth: 'Month on Month',

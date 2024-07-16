@@ -38,6 +38,8 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
                 objectDb.SetParameterValue("GroupIds", param.GroupIds);
                 objectDb.SetParameterValue("PreferredLanguage", param.PreferredLanguage);
                 objectDb.SetParameterValue("PaymentCurrencies", param.PaymentCurrencyIds);
+                objectDb.SetParameterValue("IsExcludeNegvBBF", param.IsExcludeNegvBBF);
+                objectDb.SetParameterValue("IsExcludeNegvCurrentBBF", param.IsExcludeNegvCurrentBBF);
 
                 using (var reader = objectDb.ExecuteReader())
                 {
@@ -48,6 +50,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
                         item.UserName = reader.ToString("Username");
                         item.PaymentCurrency = reader.ToString("PaymentCurrency");
                         item.IsMultiGroupProduct = reader.ToBool("IsMultiGroupProduct");
+                        item.CurrentBBF = reader.ToDecimal("CurrentBFF");
 
                         dataList.Add(item);
                     }
@@ -55,6 +58,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
                     if (reader.NextResult() && reader.Read())
                     {
                         result.Total = BuildDataItem(reader);
+                        result.Total.CurrentBBF = reader.ToDecimal("CurrentBFF");
                     }
                 }
 

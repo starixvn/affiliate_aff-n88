@@ -101,7 +101,7 @@ export class GridData extends PureComponent {
                 <th width={55} rowSpan="2" title={headerText.ActiveMember}>{headerText.ActiveMember}</th>
                 <th width={65} rowSpan="2" title={headerText.NoOfSubAff}>{headerText.NoOfSubAff}</th>
                 <th colSpan="10" height={28} title={headerText.MemberStatistics}>{headerText.MemberStatistics}</th>
-                <th colSpan="8" title={headerText.AffiliateStatistics}>{headerText.AffiliateStatistics}</th>
+                <th colSpan={isMainView ? 9 : 8} title={headerText.AffiliateStatistics}>{headerText.AffiliateStatistics}</th>
                 {isMainView && (<th width={55} rowSpan="2" title={headerText.MonthOnMonth}>{headerText.MonthOnMonth}</th>)}
                 {isMainView && (<th width={55} rowSpan="2" title={headerText.PlayerGgr}>{headerText.PlayerGgr}</th>)}
             </tr>,
@@ -126,6 +126,7 @@ export class GridData extends PureComponent {
                 <th width={75} title={headerText.AffWithdrawal}>{headerText.AffWithdrawal}</th>
                 {isMainView && (<th width={75} title={headerText.AffAdjustment}>{headerText.AffAdjustment}</th>)}
                 <th width={80} title={headerText.BalanceBf}>{headerText.BalanceBf}</th>
+                {isMainView && (<th width={80} title={headerText.CurrentBBF}>{headerText.CurrentBBF}</th>)}
             </tr>
         ];
     }
@@ -147,7 +148,7 @@ export class GridData extends PureComponent {
         }
         else {
             dataRows.push(<tr key="no-info">
-                <td className="text-center" colSpan={24 + (this._isMainView() ? 3 : 0)}>{globalResource.NoInfo}</td>
+                <td className="text-center" colSpan={25 + (this._isMainView() ? 4 : 0)}>{globalResource.NoInfo}</td>
             </tr>);
         }
 
@@ -195,6 +196,7 @@ export class GridData extends PureComponent {
         const affWithdrawal = formatDecimal(dataItem.AffWithdrawal);
         const affAdjustment = formatDecimal(dataItem.AffAdjustment);
         const balanceBf = formatDecimal(dataItem.BalanceBf);
+        const currentBalanceBf = formatDecimal(dataItem.CurrentBBF);
         const commRate = isTotalRow ? 'N/A' : dataItem.CommissionRate + '%';
         const subAffEarning = formatDecimal(dataItem.SubAffEarning);
         const totalEarning = formatDecimal(dataItem.TotalEarning);
@@ -233,6 +235,7 @@ export class GridData extends PureComponent {
                 <td className="text-right" title={affWithdrawal}>{affWithdrawal}</td>
                 {isMainView && (<td className="text-right" title={affAdjustment}>{affAdjustment}</td>)}
                 <td className="text-right" title={balanceBf}>{balanceBf}</td>
+                {isMainView && <td className="text-right" title={currentBalanceBf}>{currentBalanceBf}</td>}
                 {
                     isMainView && (
                         <td className="text-center">
@@ -308,11 +311,12 @@ export class GridData extends PureComponent {
     render() {
         const { gridData, total } = this.state;
         const maxHeight = getMaxHeight();
+        const style = this._isMainView() ? { minWidth: '2225px' } : { };
 
         return gridData && (
             <Fragment>
                 <div className="table-responsive aff-report-table-container" style={{ maxHeight }} ref={this.tableRef}>
-                    <Table className="freeze-table">
+                    <Table className="freeze-table" style={style}>
                         <thead>
                             {
                                 this._renderHeader()
