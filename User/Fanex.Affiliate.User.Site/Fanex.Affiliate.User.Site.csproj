@@ -362,9 +362,6 @@
     <Content Include="Configurations\AppSetting\AppSetting.n88user-n88.production.config">
       <DependentUpon>AppSetting.tt</DependentUpon>
     </Content>
-    <Content Include="Configurations\AppSetting\AppSetting.n88user-n88.sit.config">
-      <DependentUpon>AppSetting.tt</DependentUpon>
-    </Content>
     <Content Include="Configurations\AppSetting\AppSetting.n88user-n88.uat.config">
       <DependentUpon>AppSetting.tt</DependentUpon>
     </Content>
@@ -374,9 +371,6 @@
     <Content Include="Configurations\AppSetting\AppSetting.n88user-n8b.production.config">
       <DependentUpon>AppSetting.tt</DependentUpon>
     </Content>
-    <Content Include="Configurations\AppSetting\AppSetting.n88user-n8b.sit.config">
-      <DependentUpon>AppSetting.tt</DependentUpon>
-    </Content>
     <Content Include="Configurations\AppSetting\AppSetting.n88user-n8b.uat.config">
       <DependentUpon>AppSetting.tt</DependentUpon>
     </Content>
@@ -384,9 +378,6 @@
       <DependentUpon>AppSetting.tt</DependentUpon>
     </Content>
     <Content Include="Configurations\AppSetting\AppSetting.n88user-n8g.production.config">
-      <DependentUpon>AppSetting.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\AppSetting\AppSetting.n88user-n8g.sit.config">
       <DependentUpon>AppSetting.tt</DependentUpon>
     </Content>
     <Content Include="Configurations\AppSetting\AppSetting.n88user-n8g.uat.config">
@@ -400,16 +391,10 @@
     <Content Include="Configurations\AppSetting\Transform\n88.production.config">
       <DependentUpon>n88.local.config</DependentUpon>
     </Content>
-    <Content Include="Configurations\AppSetting\Transform\n88.sit.config">
-      <DependentUpon>n88.local.config</DependentUpon>
-    </Content>
     <Content Include="Configurations\AppSetting\Transform\n88.uat.config">
       <DependentUpon>n88.local.config</DependentUpon>
     </Content>
     <Content Include="Configurations\AppSetting\Transform\n8b.production.config">
-      <DependentUpon>n8b.local.config</DependentUpon>
-    </Content>
-    <Content Include="Configurations\AppSetting\Transform\n8b.sit.config">
       <DependentUpon>n8b.local.config</DependentUpon>
     </Content>
     <Content Include="Configurations\AppSetting\Transform\n8b.uat.config">
@@ -418,16 +403,10 @@
     <Content Include="Configurations\AppSetting\Transform\n8g.production.config">
       <DependentUpon>n8g.local.config</DependentUpon>
     </Content>
-    <Content Include="Configurations\AppSetting\Transform\n8g.sit.config">
-      <DependentUpon>n8g.local.config</DependentUpon>
-    </Content>
     <Content Include="Configurations\AppSetting\Transform\n8g.uat.config">
       <DependentUpon>n8g.local.config</DependentUpon>
     </Content>
     <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n88.production.config">
-      <DependentUpon>ConnectionString.n88user-n88.local.config</DependentUpon>
-    </Content>
-    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n88.sit.config">
       <DependentUpon>ConnectionString.n88user-n88.local.config</DependentUpon>
     </Content>
     <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n88.uat.config">
@@ -436,16 +415,10 @@
     <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n8b.production.config">
       <DependentUpon>ConnectionString.n88user-n8b.local.config</DependentUpon>
     </Content>
-    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n8b.sit.config">
-      <DependentUpon>ConnectionString.n88user-n8b.local.config</DependentUpon>
-    </Content>
     <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n8b.uat.config">
       <DependentUpon>ConnectionString.n88user-n8b.local.config</DependentUpon>
     </Content>
     <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n8g.production.config">
-      <DependentUpon>ConnectionString.n88user-n8g.local.config</DependentUpon>
-    </Content>
-    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n8g.sit.config">
       <DependentUpon>ConnectionString.n88user-n8g.local.config</DependentUpon>
     </Content>
     <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n8g.uat.config">
@@ -454,25 +427,16 @@
     <Content Include="Configurations\Web\Transform\n88.production.config">
       <DependentUpon>n88.local.config</DependentUpon>
     </Content>
-    <Content Include="Configurations\Web\Transform\n88.sit.config">
-      <DependentUpon>n88.local.config</DependentUpon>
-    </Content>
     <Content Include="Configurations\Web\Transform\n88.uat.config">
       <DependentUpon>n88.local.config</DependentUpon>
     </Content>
     <Content Include="Configurations\Web\Transform\n8b.production.config">
       <DependentUpon>n8b.local.config</DependentUpon>
     </Content>
-    <Content Include="Configurations\Web\Transform\n8b.sit.config">
-      <DependentUpon>n8b.local.config</DependentUpon>
-    </Content>
     <Content Include="Configurations\Web\Transform\n8b.uat.config">
       <DependentUpon>n8b.local.config</DependentUpon>
     </Content>
     <Content Include="Configurations\Web\Transform\n8g.production.config">
-      <DependentUpon>n8g.local.config</DependentUpon>
-    </Content>
-    <Content Include="Configurations\Web\Transform\n8g.sit.config">
       <DependentUpon>n8g.local.config</DependentUpon>
     </Content>
     <Content Include="Configurations\Web\Transform\n8g.uat.config">
@@ -514,9 +478,6 @@
     <Content Include="Configurations\Web\Transform\n88.local.config" />
     <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n88.local.config" />
     <Content Include="Configurations\Web\Web.n88user-n88.production.config">
-      <DependentUpon>Web.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\Web\Web.n88user-n88.sit.config">
       <DependentUpon>Web.tt</DependentUpon>
     </Content>
     <Content Include="Configurations\Web\Web.n88user-n88.uat.config">
@@ -1399,16 +1360,10 @@
     <Content Include="Configurations\Web\Web.n88user-n8b.production.config">
       <DependentUpon>Web.tt</DependentUpon>
     </Content>
-    <Content Include="Configurations\Web\Web.n88user-n8b.sit.config">
-      <DependentUpon>Web.tt</DependentUpon>
-    </Content>
     <Content Include="Configurations\Web\Web.n88user-n8b.uat.config">
       <DependentUpon>Web.tt</DependentUpon>
     </Content>
     <Content Include="Configurations\Web\Web.n88user-n8g.production.config">
-      <DependentUpon>Web.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\Web\Web.n88user-n8g.sit.config">
       <DependentUpon>Web.tt</DependentUpon>
     </Content>
     <Content Include="Configurations\Web\Web.n88user-n8g.uat.config">
