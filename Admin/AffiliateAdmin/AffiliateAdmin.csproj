@@ -306,6 +306,7 @@
     </Content>
     <Content Include="App_Data\SpConfig\_SpNameConfig.xml" />
     <Content Include="App_Data\SpConfig\_SpNameOriginal.xml" />
+    <Content Include="Areas\Portal\www\config-utils\layoutEntry.js" />
     <Content Include="Areas\Portal\www\dist\imgs\**" />
     <Content Include="Areas\Portal\www\dist\jquery-3.3.1.min.js" />
     <Content Include="Areas\Portal\www\dist\js\**" />

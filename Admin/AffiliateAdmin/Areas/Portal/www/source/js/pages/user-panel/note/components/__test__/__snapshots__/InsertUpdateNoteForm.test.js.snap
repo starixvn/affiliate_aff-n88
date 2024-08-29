@@ -11,6 +11,7 @@ exports[`note - components - InsertUpdateNoteForm  render correctly with add Not
     }
   }
   centered={false}
+  container="body"
   fade={true}
   isOpen={true}
   keyboard={true}
@@ -25,6 +26,7 @@ exports[`note - components - InsertUpdateNoteForm  render correctly with add Not
   role="dialog"
   scrollable={false}
   toggle={[Function]}
+  trapFocus={false}
   unmountOnClose={true}
   zIndex={1050}
 >
@@ -96,7 +98,7 @@ exports[`note - components - InsertUpdateNoteForm  render correctly with add Not
           >
             <Label
               className="d-flex justify-content-center align-items-center required"
-              for="noteContent"
+              htmlFor="noteContent"
               sm={3}
               tag="label"
               widths={
@@ -183,6 +185,7 @@ exports[`note - components - InsertUpdateNoteForm  render correctly with update 
     }
   }
   centered={false}
+  container="body"
   fade={true}
   isOpen={true}
   keyboard={true}
@@ -197,6 +200,7 @@ exports[`note - components - InsertUpdateNoteForm  render correctly with update 
   role="dialog"
   scrollable={false}
   toggle={[Function]}
+  trapFocus={false}
   unmountOnClose={true}
   zIndex={1050}
 >
@@ -268,7 +272,7 @@ exports[`note - components - InsertUpdateNoteForm  render correctly with update 
           >
             <Label
               className="d-flex justify-content-center align-items-center required"
-              for="noteContent"
+              htmlFor="noteContent"
               sm={3}
               tag="label"
               widths={

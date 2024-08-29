@@ -64,7 +64,7 @@ export class Payment extends PureComponent {
         return userAccountInfo && (
             <Form tag="div">
                 <FormGroup row>
-                    <Label for="preferredPayment" sm={3} xl={2}>Preferred Payment Method</Label>
+                    <Label htmlFor="preferredPayment" sm={3} xl={2}>Preferred Payment Method</Label>
                     <Col sm={5} xl={6}>
                         <Input type="select" id="preferredPayment" name="preferredPayment" onChange={this.handleChangePaymentMethod} value={userAccountInfo.PreferredPayment}>
                             {paymentMethodList && paymentMethodList.map(item => {

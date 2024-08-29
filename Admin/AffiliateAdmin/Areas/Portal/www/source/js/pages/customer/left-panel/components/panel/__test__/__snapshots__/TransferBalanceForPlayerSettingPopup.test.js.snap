@@ -11,6 +11,7 @@ exports[`left panel - TransferBalanceForPlayerSettingPopup component -  should r
     }
   }
   centered={false}
+  container="body"
   fade={true}
   isOpen={true}
   keyboard={true}
@@ -24,6 +25,7 @@ exports[`left panel - TransferBalanceForPlayerSettingPopup component -  should r
   returnFocusAfterClose={true}
   role="dialog"
   scrollable={false}
+  trapFocus={false}
   unmountOnClose={true}
   zIndex={1050}
 >
@@ -111,7 +113,7 @@ exports[`left panel - TransferBalanceForPlayerSettingPopup component -  should r
                 type="checkbox"
               />
               <Label
-                for="isEnable"
+                htmlFor="isEnable"
                 tag="label"
                 widths={
                   Array [
@@ -211,6 +213,15 @@ exports[`left panel - TransferBalanceForPlayerSettingPopup component -  should r
             </Col>
             <Row
               tag="div"
+              widths={
+                Array [
+                  "xs",
+                  "sm",
+                  "md",
+                  "lg",
+                  "xl",
+                ]
+              }
             >
               <Col
                 sm={1}
@@ -328,6 +339,7 @@ exports[`left panel - TransferBalanceForPlayerSettingPopup component -  should r
     }
   }
   centered={false}
+  container="body"
   fade={true}
   isOpen={true}
   keyboard={true}
@@ -341,6 +353,7 @@ exports[`left panel - TransferBalanceForPlayerSettingPopup component -  should r
   returnFocusAfterClose={true}
   role="dialog"
   scrollable={false}
+  trapFocus={false}
   unmountOnClose={true}
   zIndex={1050}
 >
@@ -428,7 +441,7 @@ exports[`left panel - TransferBalanceForPlayerSettingPopup component -  should r
                 type="checkbox"
               />
               <Label
-                for="isEnable"
+                htmlFor="isEnable"
                 tag="label"
                 widths={
                   Array [
@@ -528,6 +541,15 @@ exports[`left panel - TransferBalanceForPlayerSettingPopup component -  should r
             </Col>
             <Row
               tag="div"
+              widths={
+                Array [
+                  "xs",
+                  "sm",
+                  "md",
+                  "lg",
+                  "xl",
+                ]
+              }
             >
               <Col
                 sm={1}

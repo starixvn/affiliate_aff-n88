@@ -36,6 +36,7 @@ exports[`commission group - Content should render correctly 1`] = `
       }
     }
     centered={false}
+    container="body"
     fade={true}
     innerRef={
       Object {
@@ -56,6 +57,7 @@ exports[`commission group - Content should render correctly 1`] = `
     scrollable={false}
     size="lg"
     toggle={[Function]}
+    trapFocus={false}
     unmountOnClose={true}
     zIndex={1050}
   >

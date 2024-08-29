@@ -725,6 +725,11 @@ exports[`affiliate report - GridData  should render correctly 1`] = `
     <Table
       className="freeze-table"
       responsiveTag="div"
+      style={
+        Object {
+          "minWidth": "2225px",
+        }
+      }
       tag="table"
     >
       <thead>
@@ -797,7 +802,7 @@ exports[`affiliate report - GridData  should render correctly 1`] = `
             Player Statistics
           </th>
           <th
-            colSpan="8"
+            colSpan={9}
             title="Affiliate Statistics"
           >
             Affiliate Statistics
@@ -928,6 +933,12 @@ exports[`affiliate report - GridData  should render correctly 1`] = `
             width={80}
           >
             Balance B/F
+          </th>
+          <th
+            title="Current Balance B/F"
+            width={80}
+          >
+            Current Balance B/F
           </th>
         </tr>
       </thead>
@@ -1074,6 +1085,10 @@ exports[`affiliate report - GridData  should render correctly 1`] = `
           >
             165.00
           </td>
+          <td
+            className="text-right"
+            title=""
+          />
           <td
             className="text-center"
           >
@@ -1242,6 +1257,10 @@ exports[`affiliate report - GridData  should render correctly 1`] = `
             803,935.72
           </td>
           <td
+            className="text-right"
+            title=""
+          />
+          <td
             className="text-center"
           >
             <Button
@@ -1376,6 +1395,10 @@ exports[`affiliate report - GridData  should render correctly 1`] = `
             title=""
           />
           <td
+            className="text-right"
+            title=""
+          />
+          <td
             className="text-center"
           />
           <td
@@ -1478,7 +1501,7 @@ exports[`affiliate report - GridData  should render correctly with _renderHeader
       Player Statistics
     </th>
     <th
-      colSpan="8"
+      colSpan={9}
       title="Affiliate Statistics"
     >
       Affiliate Statistics
@@ -1610,6 +1633,12 @@ exports[`affiliate report - GridData  should render correctly with _renderHeader
     >
       Balance B/F
     </th>
+    <th
+      title="Current Balance B/F"
+      width={80}
+    >
+      Current Balance B/F
+    </th>
   </tr>
 </div>
 `;
@@ -1678,7 +1707,7 @@ exports[`affiliate report - GridData  should render correctly with _renderHeader
       Player Statistics
     </th>
     <th
-      colSpan="8"
+      colSpan={8}
       title="Affiliate Statistics"
     >
       Affiliate Statistics
@@ -1813,6 +1842,11 @@ exports[`affiliate report - GridData  should render correctly with empty data 1`
     <Table
       className="freeze-table"
       responsiveTag="div"
+      style={
+        Object {
+          "minWidth": "2225px",
+        }
+      }
       tag="table"
     >
       <thead>
@@ -1885,7 +1919,7 @@ exports[`affiliate report - GridData  should render correctly with empty data 1`
             Player Statistics
           </th>
           <th
-            colSpan="8"
+            colSpan={9}
             title="Affiliate Statistics"
           >
             Affiliate Statistics
@@ -2017,6 +2051,12 @@ exports[`affiliate report - GridData  should render correctly with empty data 1`
           >
             Balance B/F
           </th>
+          <th
+            title="Current Balance B/F"
+            width={80}
+          >
+            Current Balance B/F
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -2025,7 +2065,7 @@ exports[`affiliate report - GridData  should render correctly with empty data 1`
         >
           <td
             className="text-center"
-            colSpan={27}
+            colSpan={29}
           >
             There is no information available
           </td>

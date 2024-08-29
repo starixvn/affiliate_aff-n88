@@ -7,6 +7,15 @@ exports[`left panel - components - Content render correctly with affiliateInfo 1
   <Row
     className="border-0 py-1"
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       sm={5}
@@ -49,6 +58,15 @@ exports[`left panel - components - Content render correctly with affiliateInfo 1
   </Row>
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       sm={5}
@@ -89,6 +107,15 @@ exports[`left panel - components - Content render correctly with affiliateInfo 1
   </Row>
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       sm={5}
@@ -122,6 +149,15 @@ exports[`left panel - components - Content render correctly with affiliateInfo 1
   </Row>
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       sm={5}
@@ -157,6 +193,15 @@ exports[`left panel - components - Content render correctly with affiliateInfo 1
   </Row>
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       sm={5}
@@ -192,6 +237,15 @@ exports[`left panel - components - Content render correctly with affiliateInfo 1
   </Row>
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       sm={5}
@@ -227,6 +281,15 @@ exports[`left panel - components - Content render correctly with affiliateInfo 1
   </Row>
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       className="pr-0"
@@ -264,6 +327,15 @@ exports[`left panel - components - Content render correctly with affiliateInfo 1
   <Connect(Component) />
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       sm={5}
@@ -299,6 +371,15 @@ exports[`left panel - components - Content render correctly with affiliateInfo 1
   </Row>
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       sm={5}
@@ -334,6 +415,15 @@ exports[`left panel - components - Content render correctly with affiliateInfo 1
   </Row>
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       sm={5}
@@ -375,6 +465,15 @@ exports[`left panel - components - Content render correctly with affiliateInfo 1
   </Row>
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       sm={5}
@@ -410,6 +509,15 @@ exports[`left panel - components - Content render correctly with affiliateInfo 1
   </Row>
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       sm={5}
@@ -459,6 +567,15 @@ exports[`left panel - components - Content render correctly with affiliateInfo h
   <Row
     className="border-0 py-1"
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       sm={5}
@@ -501,6 +618,15 @@ exports[`left panel - components - Content render correctly with affiliateInfo h
   </Row>
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       sm={5}
@@ -538,6 +664,15 @@ exports[`left panel - components - Content render correctly with affiliateInfo h
   </Row>
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       sm={5}
@@ -571,6 +706,15 @@ exports[`left panel - components - Content render correctly with affiliateInfo h
   </Row>
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       sm={5}
@@ -604,6 +748,15 @@ exports[`left panel - components - Content render correctly with affiliateInfo h
   </Row>
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       sm={5}
@@ -637,6 +790,15 @@ exports[`left panel - components - Content render correctly with affiliateInfo h
   </Row>
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       sm={5}
@@ -670,6 +832,15 @@ exports[`left panel - components - Content render correctly with affiliateInfo h
   </Row>
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       className="pr-0"
@@ -707,6 +878,15 @@ exports[`left panel - components - Content render correctly with affiliateInfo h
   <Connect(Component) />
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       sm={5}
@@ -742,6 +922,15 @@ exports[`left panel - components - Content render correctly with affiliateInfo h
   </Row>
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       sm={5}
@@ -777,6 +966,15 @@ exports[`left panel - components - Content render correctly with affiliateInfo h
   </Row>
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       sm={5}
@@ -818,6 +1016,15 @@ exports[`left panel - components - Content render correctly with affiliateInfo h
   </Row>
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       sm={5}
@@ -853,6 +1060,15 @@ exports[`left panel - components - Content render correctly with affiliateInfo h
   </Row>
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       sm={5}
@@ -901,6 +1117,15 @@ exports[`left panel - components - Content render correctly with affiliateInfo n
   <Row
     className="border-0 py-1"
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       sm={5}
@@ -943,6 +1168,15 @@ exports[`left panel - components - Content render correctly with affiliateInfo n
   </Row>
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       sm={5}
@@ -983,6 +1217,15 @@ exports[`left panel - components - Content render correctly with affiliateInfo n
   </Row>
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       sm={5}
@@ -1016,6 +1259,15 @@ exports[`left panel - components - Content render correctly with affiliateInfo n
   </Row>
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       sm={5}
@@ -1051,6 +1303,15 @@ exports[`left panel - components - Content render correctly with affiliateInfo n
   </Row>
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       sm={5}
@@ -1086,6 +1347,15 @@ exports[`left panel - components - Content render correctly with affiliateInfo n
   </Row>
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       sm={5}
@@ -1121,6 +1391,15 @@ exports[`left panel - components - Content render correctly with affiliateInfo n
   </Row>
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       className="pr-0"
@@ -1158,6 +1437,15 @@ exports[`left panel - components - Content render correctly with affiliateInfo n
   <Connect(Component) />
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       sm={5}
@@ -1193,6 +1481,15 @@ exports[`left panel - components - Content render correctly with affiliateInfo n
   </Row>
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       sm={5}
@@ -1228,6 +1525,15 @@ exports[`left panel - components - Content render correctly with affiliateInfo n
   </Row>
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       sm={5}
@@ -1269,6 +1575,15 @@ exports[`left panel - components - Content render correctly with affiliateInfo n
   </Row>
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       sm={5}
@@ -1304,6 +1619,15 @@ exports[`left panel - components - Content render correctly with affiliateInfo n
   </Row>
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       sm={5}
@@ -1353,6 +1677,15 @@ exports[`left panel - components - Content render correctly with affiliateInfo n
   <Row
     className="border-0 py-1"
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       sm={5}
@@ -1395,6 +1728,15 @@ exports[`left panel - components - Content render correctly with affiliateInfo n
   </Row>
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       sm={5}
@@ -1435,6 +1777,15 @@ exports[`left panel - components - Content render correctly with affiliateInfo n
   </Row>
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       sm={5}
@@ -1468,6 +1819,15 @@ exports[`left panel - components - Content render correctly with affiliateInfo n
   </Row>
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       sm={5}
@@ -1503,6 +1863,15 @@ exports[`left panel - components - Content render correctly with affiliateInfo n
   </Row>
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       sm={5}
@@ -1538,6 +1907,15 @@ exports[`left panel - components - Content render correctly with affiliateInfo n
   </Row>
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       sm={5}
@@ -1573,6 +1951,15 @@ exports[`left panel - components - Content render correctly with affiliateInfo n
   </Row>
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       className="pr-0"
@@ -1610,6 +1997,15 @@ exports[`left panel - components - Content render correctly with affiliateInfo n
   <Connect(Component) />
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       sm={5}
@@ -1645,6 +2041,15 @@ exports[`left panel - components - Content render correctly with affiliateInfo n
   </Row>
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       sm={5}
@@ -1680,6 +2085,15 @@ exports[`left panel - components - Content render correctly with affiliateInfo n
   </Row>
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       sm={5}
@@ -1721,6 +2135,15 @@ exports[`left panel - components - Content render correctly with affiliateInfo n
   </Row>
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       sm={5}
@@ -1756,6 +2179,15 @@ exports[`left panel - components - Content render correctly with affiliateInfo n
   </Row>
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       sm={5}

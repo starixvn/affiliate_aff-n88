@@ -153,7 +153,7 @@ export class MessageDetailForm extends PureComponent {
                                 </Alert>
                                 <Form tag="form" className="mb-2 p-1 border" autoComplete="off">
                                     <FormGroup row className="mb-2">
-                                        <Label for="important" sm={2} className="text-right">{resource.Important}</Label>
+                                        <Label htmlFor="important" sm={2} className="text-right">{resource.Important}</Label>
                                         <Col sm={10}>
                                             <Input name="important" type="checkbox" className="important-checkbox" checked={important} disabled={isDisabled} onChange={() => this.setState({ important: !important })} />
                                         </Col>

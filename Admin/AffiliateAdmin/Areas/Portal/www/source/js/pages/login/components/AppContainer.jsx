@@ -118,7 +118,7 @@ export default class AppContainer extends PureComponent {
                         </div>
                         {
                             licenseeName === nova88 && <div className="switch-mode-theme">
-                                <input type="checkbox" id="switch" checked={!isLightMode} onChange={this._handleChangeMode} /><label for="switch"></label>
+                                <input type="checkbox" id="switch" checked={!isLightMode} onChange={this._handleChangeMode} /><label htmlFor="switch"></label>
                             </div>
                         }
                     </div>
@@ -131,7 +131,7 @@ export default class AppContainer extends PureComponent {
                     <Form tag="form" className="form-login" autoComplete="false">
                         <FormGroup>
                             {/* <span className="icUser">&nbsp;</span> */}
-                            <Label for="userName" className="form-login-text">User Name</Label>
+                            <Label htmlFor="userName" className="form-login-text">User Name</Label>
                             <div>
                                 <Input type="text" name="userName" id="userName" value={userName}
                                     onKeyPress={this._handlePressEnter} onChange={this._handleChange} />
@@ -140,7 +140,7 @@ export default class AppContainer extends PureComponent {
 
                         <FormGroup>
                             {/* <span className="icPass">&nbsp;</span> */}
-                            <Label for="passWord" className="form-login-text">Password</Label>
+                            <Label htmlFor="passWord" className="form-login-text">Password</Label>
                             <div>
                                 <Input type="password" name="password" id="password" autoComplete="false"
                                     value={password} onKeyPress={this._handlePressEnter} onChange={this._handleChange} />

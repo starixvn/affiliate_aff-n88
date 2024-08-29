@@ -11,6 +11,7 @@ exports[`administrator - common - components - DepartmentPopup  render correctly
     }
   }
   centered={false}
+  container="body"
   fade={true}
   isOpen={true}
   keyboard={true}
@@ -26,6 +27,7 @@ exports[`administrator - common - components - DepartmentPopup  render correctly
   scrollable={false}
   size="xl"
   toggle={[Function]}
+  trapFocus={false}
   unmountOnClose={true}
   zIndex={1050}
 >
@@ -170,6 +172,7 @@ exports[`administrator - common - components - DepartmentPopup  render correctly
     }
   }
   centered={false}
+  container="body"
   fade={true}
   isOpen={true}
   keyboard={true}
@@ -185,6 +188,7 @@ exports[`administrator - common - components - DepartmentPopup  render correctly
   scrollable={false}
   size="xl"
   toggle={[Function]}
+  trapFocus={false}
   unmountOnClose={true}
   zIndex={1050}
 >
@@ -284,6 +288,7 @@ exports[`administrator - common - components - DepartmentPopup  render correctly
     }
   }
   centered={false}
+  container="body"
   fade={true}
   isOpen={true}
   keyboard={true}
@@ -299,6 +304,7 @@ exports[`administrator - common - components - DepartmentPopup  render correctly
   scrollable={false}
   size="xl"
   toggle={[Function]}
+  trapFocus={false}
   unmountOnClose={true}
   zIndex={1050}
 >

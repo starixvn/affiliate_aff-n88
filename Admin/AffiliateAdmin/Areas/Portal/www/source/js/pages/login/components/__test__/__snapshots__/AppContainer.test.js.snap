@@ -32,7 +32,7 @@ exports[`Login - components - AppContainer render correctly 1`] = `
           type="checkbox"
         />
         <label
-          for="switch"
+          htmlFor="switch"
         />
       </div>
     </div>
@@ -85,7 +85,7 @@ exports[`Login - components - AppContainer render correctly 1`] = `
       >
         <Label
           className="form-login-text"
-          for="userName"
+          htmlFor="userName"
           tag="label"
           widths={
             Array [
@@ -115,7 +115,7 @@ exports[`Login - components - AppContainer render correctly 1`] = `
       >
         <Label
           className="form-login-text"
-          for="passWord"
+          htmlFor="passWord"
           tag="label"
           widths={
             Array [
@@ -238,7 +238,7 @@ exports[`Login - components - AppContainer render correctly with is not Nova88 1
       >
         <Label
           className="form-login-text"
-          for="userName"
+          htmlFor="userName"
           tag="label"
           widths={
             Array [
@@ -268,7 +268,7 @@ exports[`Login - components - AppContainer render correctly with is not Nova88 1
       >
         <Label
           className="form-login-text"
-          for="passWord"
+          htmlFor="passWord"
           tag="label"
           widths={
             Array [

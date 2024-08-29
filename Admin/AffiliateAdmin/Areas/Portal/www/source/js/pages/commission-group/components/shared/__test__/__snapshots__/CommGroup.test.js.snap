@@ -7,7 +7,7 @@ exports[`commission group - CommGroupInfo Should render correctly 1`] = `
     tag="div"
   >
     <Label
-      for="GroupTypeId"
+      htmlFor="GroupTypeId"
       sm={2}
       tag="label"
       widths={
@@ -85,7 +85,7 @@ exports[`commission group - CommGroupInfo Should render correctly 1`] = `
     tag="div"
   >
     <Label
-      for="GroupName"
+      htmlFor="GroupName"
       sm={2}
       tag="label"
       widths={
@@ -151,7 +151,7 @@ exports[`commission group - CommGroupInfo Should render correctly 1`] = `
     tag="div"
   >
     <Label
-      for="Description"
+      htmlFor="Description"
       sm={2}
       tag="label"
       widths={

@@ -11,6 +11,7 @@ exports[`common - components - NotificationPopup Confirm Popup - render correctl
     }
   }
   centered={false}
+  container="body"
   fade={true}
   isOpen={false}
   keyboard={true}
@@ -25,6 +26,7 @@ exports[`common - components - NotificationPopup Confirm Popup - render correctl
   role="dialog"
   scrollable={false}
   toggle={[Function]}
+  trapFocus={false}
   unmountOnClose={true}
   zIndex={1050}
 >
@@ -96,6 +98,7 @@ exports[`common - components - NotificationPopup Notification Popup - render cor
     }
   }
   centered={false}
+  container="body"
   fade={true}
   isOpen={false}
   keyboard={true}
@@ -110,6 +113,7 @@ exports[`common - components - NotificationPopup Notification Popup - render cor
   role="dialog"
   scrollable={false}
   toggle={[Function]}
+  trapFocus={false}
   unmountOnClose={true}
   zIndex={1050}
 >
