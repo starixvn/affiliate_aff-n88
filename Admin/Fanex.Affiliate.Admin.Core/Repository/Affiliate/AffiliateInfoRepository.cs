@@ -102,7 +102,6 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Affiliate
                 CommissionGroup = reader["GroupName"] == DBNull.Value ? "N/A" : reader.ToString("GroupName"),
                 GroupTypeId = reader.ToInt(Field.GroupTypeId),
                 IsFavorite = Convert.ToBoolean(reader["IsFavorite"]),
-                IsClosed = reader.ToBool("IsClosed"),
                 Currency = reader.ToString("Currency"),
                 PlayerCurrency = reader.ToString("PlayerCurrency"),
                 Phone = reader.ToString("Phone"),

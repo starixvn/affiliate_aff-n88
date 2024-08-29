@@ -232,6 +232,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Administrator
 
         [HttpPost]
         [ValidateAntiForgeryHeader]
+        [FunctionAuthorize(FunctionName = Function.UserControl, IsHost = true)]
         public ActionResult ChangePassword(UpdatePasswordParam param)
         {
             if (ModelState.IsValid)
