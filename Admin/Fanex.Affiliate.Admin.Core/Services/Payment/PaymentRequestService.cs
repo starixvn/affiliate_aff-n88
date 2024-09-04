@@ -13,7 +13,6 @@ using Fanex.Affiliate.Admin.Core.Resources;
 using Fanex.Affiliate.Admin.Core.Utilities;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Fanex.Affiliate.Admin.Core.Services.Payment
@@ -60,11 +59,6 @@ namespace Fanex.Affiliate.Admin.Core.Services.Payment
                 SendMail(param, emailParam, affInfo, paymentRequestDetail);
             }
             return result;
-        }
-
-        public (IEnumerable<PaymentMethodInfo> paymentMethods, decimal minAmount) GetPaymentMethod()
-        {
-            return _paymentRequestRepository.GetPaymentMethod();
         }
 
         public async Task<ResultInfo> HandlePaymentRequest(PaymentRequestUpdateParam param, PaymentRequestUpdateEmail emailParam)
