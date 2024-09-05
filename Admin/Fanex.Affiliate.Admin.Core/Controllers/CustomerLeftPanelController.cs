@@ -110,7 +110,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
 
         [ValidateAntiForgeryHeader]
         [HttpPost]
-        [FunctionAuthorize(FunctionName = Function.Affiliate, FunctionNameOption = Function.EditAffDetails, IsHost = true)]
+        [FunctionAuthorize(FunctionName = Function.EditAffDetails, IsHost = true)]
         public ActionResult UpdateLanguage(UpdateLanguageParam param)
         {
             if (ModelState.IsValid)
@@ -163,7 +163,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
 
         [ValidateAntiForgeryHeader]
         [HttpPost]
-        [FunctionAuthorize(FunctionName = Function.Affiliate, FunctionNameOption = Function.EditAffStatus, IsHost = true)]
+        [FunctionAuthorize(FunctionName = Function.EditAffStatus, IsHost = true)]
         public async Task<ActionResult> UpdateStatus(UpdateStatusParam param)
         {
             if (ModelState.IsValid)
