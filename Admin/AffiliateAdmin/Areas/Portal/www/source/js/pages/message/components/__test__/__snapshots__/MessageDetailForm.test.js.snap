@@ -12,6 +12,7 @@ exports[`message - components - MessageDetailForm  render correctly with current
       }
     }
     centered={false}
+    container="body"
     fade={true}
     innerRef={
       Object {
@@ -32,6 +33,7 @@ exports[`message - components - MessageDetailForm  render correctly with current
     scrollable={false}
     size="lg"
     toggle={[Function]}
+    trapFocus={false}
     unmountOnClose={true}
     zIndex={1050}
   >
@@ -103,7 +105,7 @@ exports[`message - components - MessageDetailForm  render correctly with current
             >
               <Label
                 className="text-right"
-                for="important"
+                htmlFor="important"
                 sm={2}
                 tag="label"
                 widths={
@@ -601,6 +603,7 @@ exports[`message - components - MessageDetailForm  render correctly with insert 
       }
     }
     centered={false}
+    container="body"
     fade={true}
     innerRef={
       Object {
@@ -621,6 +624,7 @@ exports[`message - components - MessageDetailForm  render correctly with insert 
     scrollable={false}
     size="lg"
     toggle={[Function]}
+    trapFocus={false}
     unmountOnClose={true}
     zIndex={1050}
   >
@@ -692,7 +696,7 @@ exports[`message - components - MessageDetailForm  render correctly with insert 
             >
               <Label
                 className="text-right"
-                for="important"
+                htmlFor="important"
                 sm={2}
                 tag="label"
                 widths={
@@ -1172,6 +1176,7 @@ exports[`message - components - MessageDetailForm  render correctly with not sho
       }
     }
     centered={false}
+    container="body"
     fade={true}
     innerRef={
       Object {
@@ -1192,6 +1197,7 @@ exports[`message - components - MessageDetailForm  render correctly with not sho
     scrollable={false}
     size="lg"
     toggle={[Function]}
+    trapFocus={false}
     unmountOnClose={true}
     zIndex={1050}
   >
@@ -1263,7 +1269,7 @@ exports[`message - components - MessageDetailForm  render correctly with not sho
             >
               <Label
                 className="text-right"
-                for="important"
+                htmlFor="important"
                 sm={2}
                 tag="label"
                 widths={
@@ -1761,6 +1767,7 @@ exports[`message - components - MessageDetailForm  render correctly with update 
       }
     }
     centered={false}
+    container="body"
     fade={true}
     innerRef={
       Object {
@@ -1781,6 +1788,7 @@ exports[`message - components - MessageDetailForm  render correctly with update 
     scrollable={false}
     size="lg"
     toggle={[Function]}
+    trapFocus={false}
     unmountOnClose={true}
     zIndex={1050}
   >
@@ -1852,7 +1860,7 @@ exports[`message - components - MessageDetailForm  render correctly with update 
             >
               <Label
                 className="text-right"
-                for="important"
+                htmlFor="important"
                 sm={2}
                 tag="label"
                 widths={
@@ -2350,6 +2358,7 @@ exports[`message - components - MessageDetailForm  render correctly with update 
       }
     }
     centered={false}
+    container="body"
     fade={true}
     innerRef={
       Object {
@@ -2370,6 +2379,7 @@ exports[`message - components - MessageDetailForm  render correctly with update 
     scrollable={false}
     size="lg"
     toggle={[Function]}
+    trapFocus={false}
     unmountOnClose={true}
     zIndex={1050}
   >
@@ -2441,7 +2451,7 @@ exports[`message - components - MessageDetailForm  render correctly with update 
             >
               <Label
                 className="text-right"
-                for="important"
+                htmlFor="important"
                 sm={2}
                 tag="label"
                 widths={

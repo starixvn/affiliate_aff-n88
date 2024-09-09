@@ -43,6 +43,15 @@ exports[`user account - components - Content render correctly 1`] = `
   </Alert>
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       className="pl-0"
@@ -87,6 +96,15 @@ exports[`user account - components - Content render correctly 1`] = `
   </Row>
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       className="px-0"
@@ -111,6 +129,15 @@ exports[`user account - components - Content render correctly 1`] = `
   </Row>
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       className="px-0"
@@ -135,6 +162,15 @@ exports[`user account - components - Content render correctly 1`] = `
   </Row>
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       className="px-0"
@@ -162,6 +198,15 @@ exports[`user account - components - Content render correctly 1`] = `
   </Row>
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Button
       className="mb-3"
@@ -218,6 +263,15 @@ exports[`user account - components - Content render correctly with isSuccess is 
   </Alert>
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       className="pl-0"
@@ -262,6 +316,15 @@ exports[`user account - components - Content render correctly with isSuccess is 
   </Row>
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       className="px-0"
@@ -286,6 +349,15 @@ exports[`user account - components - Content render correctly with isSuccess is 
   </Row>
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       className="px-0"
@@ -310,6 +382,15 @@ exports[`user account - components - Content render correctly with isSuccess is 
   </Row>
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       className="px-0"
@@ -337,6 +418,15 @@ exports[`user account - components - Content render correctly with isSuccess is 
   </Row>
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Button
       className="mb-3"

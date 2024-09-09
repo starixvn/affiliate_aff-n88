@@ -12,6 +12,7 @@ exports[`banner list - components - EditBannerForm  render correctly with insert
       }
     }
     centered={false}
+    container="body"
     fade={true}
     innerRef={
       Object {
@@ -31,6 +32,7 @@ exports[`banner list - components - EditBannerForm  render correctly with insert
     role="dialog"
     scrollable={false}
     toggle={[Function]}
+    trapFocus={false}
     unmountOnClose={true}
     zIndex={1050}
   >
@@ -148,7 +150,7 @@ exports[`banner list - components - EditBannerForm  render correctly with insert
             >
               <Label
                 className="required"
-                for="file"
+                htmlFor="file"
                 sm={3}
                 tag="label"
                 widths={
@@ -195,7 +197,7 @@ exports[`banner list - components - EditBannerForm  render correctly with insert
               tag="div"
             >
               <Label
-                for="userType"
+                htmlFor="userType"
                 sm={3}
                 tag="label"
                 widths={
@@ -252,7 +254,7 @@ exports[`banner list - components - EditBannerForm  render correctly with insert
             >
               <Label
                 className="required"
-                for="category"
+                htmlFor="category"
                 sm={3}
                 tag="label"
                 widths={
@@ -316,7 +318,7 @@ exports[`banner list - components - EditBannerForm  render correctly with insert
             >
               <Label
                 className="required"
-                for="subCategory"
+                htmlFor="subCategory"
                 sm={3}
                 tag="label"
                 widths={
@@ -379,7 +381,7 @@ exports[`banner list - components - EditBannerForm  render correctly with insert
               tag="div"
             >
               <Label
-                for="language"
+                htmlFor="language"
                 sm={3}
                 tag="label"
                 widths={
@@ -436,7 +438,7 @@ exports[`banner list - components - EditBannerForm  render correctly with insert
             >
               <Label
                 className="required"
-                for="currency"
+                htmlFor="currency"
                 sm={3}
                 tag="label"
                 widths={
@@ -498,7 +500,7 @@ exports[`banner list - components - EditBannerForm  render correctly with insert
             >
               <Label
                 className="required"
-                for="affType"
+                htmlFor="affType"
                 sm={3}
                 tag="label"
                 widths={
@@ -560,7 +562,7 @@ exports[`banner list - components - EditBannerForm  render correctly with insert
             >
               <Label
                 className="required"
-                for="deviceType"
+                htmlFor="deviceType"
                 sm={3}
                 tag="label"
                 widths={
@@ -622,7 +624,7 @@ exports[`banner list - components - EditBannerForm  render correctly with insert
               tag="div"
             >
               <Label
-                for="inputFileName"
+                htmlFor="inputFileName"
                 sm={3}
                 tag="label"
                 widths={
@@ -664,7 +666,7 @@ exports[`banner list - components - EditBannerForm  render correctly with insert
                   className="mr-3"
                   color="danger"
                   disabled={true}
-                  for="inputFileName"
+                  htmlFor="inputFileName"
                   onClick={[Function]}
                   tag="button"
                   type="button"
@@ -711,6 +713,7 @@ exports[`banner list - components - EditBannerForm  render correctly with not sh
       }
     }
     centered={false}
+    container="body"
     fade={true}
     innerRef={
       Object {
@@ -730,6 +733,7 @@ exports[`banner list - components - EditBannerForm  render correctly with not sh
     role="dialog"
     scrollable={false}
     toggle={[Function]}
+    trapFocus={false}
     unmountOnClose={true}
     zIndex={1050}
   >
@@ -847,7 +851,7 @@ exports[`banner list - components - EditBannerForm  render correctly with not sh
             >
               <Label
                 className="required"
-                for="file"
+                htmlFor="file"
                 sm={3}
                 tag="label"
                 widths={
@@ -894,7 +898,7 @@ exports[`banner list - components - EditBannerForm  render correctly with not sh
               tag="div"
             >
               <Label
-                for="userType"
+                htmlFor="userType"
                 sm={3}
                 tag="label"
                 widths={
@@ -951,7 +955,7 @@ exports[`banner list - components - EditBannerForm  render correctly with not sh
             >
               <Label
                 className="required"
-                for="category"
+                htmlFor="category"
                 sm={3}
                 tag="label"
                 widths={
@@ -1015,7 +1019,7 @@ exports[`banner list - components - EditBannerForm  render correctly with not sh
             >
               <Label
                 className="required"
-                for="subCategory"
+                htmlFor="subCategory"
                 sm={3}
                 tag="label"
                 widths={
@@ -1078,7 +1082,7 @@ exports[`banner list - components - EditBannerForm  render correctly with not sh
               tag="div"
             >
               <Label
-                for="language"
+                htmlFor="language"
                 sm={3}
                 tag="label"
                 widths={
@@ -1135,7 +1139,7 @@ exports[`banner list - components - EditBannerForm  render correctly with not sh
             >
               <Label
                 className="required"
-                for="currency"
+                htmlFor="currency"
                 sm={3}
                 tag="label"
                 widths={
@@ -1197,7 +1201,7 @@ exports[`banner list - components - EditBannerForm  render correctly with not sh
             >
               <Label
                 className="required"
-                for="affType"
+                htmlFor="affType"
                 sm={3}
                 tag="label"
                 widths={
@@ -1259,7 +1263,7 @@ exports[`banner list - components - EditBannerForm  render correctly with not sh
             >
               <Label
                 className="required"
-                for="deviceType"
+                htmlFor="deviceType"
                 sm={3}
                 tag="label"
                 widths={
@@ -1321,7 +1325,7 @@ exports[`banner list - components - EditBannerForm  render correctly with not sh
               tag="div"
             >
               <Label
-                for="inputFileName"
+                htmlFor="inputFileName"
                 sm={3}
                 tag="label"
                 widths={
@@ -1363,7 +1367,7 @@ exports[`banner list - components - EditBannerForm  render correctly with not sh
                   className="mr-3"
                   color="danger"
                   disabled={true}
-                  for="inputFileName"
+                  htmlFor="inputFileName"
                   onClick={[Function]}
                   tag="button"
                   type="button"
@@ -1415,6 +1419,7 @@ exports[`banner list - components - EditBannerForm  render correctly with update
       }
     }
     centered={false}
+    container="body"
     fade={true}
     innerRef={
       Object {
@@ -1434,6 +1439,7 @@ exports[`banner list - components - EditBannerForm  render correctly with update
     role="dialog"
     scrollable={false}
     toggle={[Function]}
+    trapFocus={false}
     unmountOnClose={true}
     zIndex={1050}
   >
@@ -1536,7 +1542,7 @@ exports[`banner list - components - EditBannerForm  render correctly with update
             >
               <Label
                 className=""
-                for="file"
+                htmlFor="file"
                 sm={3}
                 tag="label"
                 widths={
@@ -1584,7 +1590,7 @@ exports[`banner list - components - EditBannerForm  render correctly with update
             >
               <Label
                 className="required"
-                for="category"
+                htmlFor="category"
                 sm={3}
                 tag="label"
                 widths={
@@ -1642,7 +1648,7 @@ exports[`banner list - components - EditBannerForm  render correctly with update
             >
               <Label
                 className="required"
-                for="subCategory"
+                htmlFor="subCategory"
                 sm={3}
                 tag="label"
                 widths={
@@ -1699,7 +1705,7 @@ exports[`banner list - components - EditBannerForm  render correctly with update
               tag="div"
             >
               <Label
-                for="language"
+                htmlFor="language"
                 sm={3}
                 tag="label"
                 widths={
@@ -1756,7 +1762,7 @@ exports[`banner list - components - EditBannerForm  render correctly with update
             >
               <Label
                 className="required"
-                for="currency"
+                htmlFor="currency"
                 sm={3}
                 tag="label"
                 widths={
@@ -1818,7 +1824,7 @@ exports[`banner list - components - EditBannerForm  render correctly with update
             >
               <Label
                 className="required"
-                for="affType"
+                htmlFor="affType"
                 sm={3}
                 tag="label"
                 widths={
@@ -1880,7 +1886,7 @@ exports[`banner list - components - EditBannerForm  render correctly with update
             >
               <Label
                 className="required"
-                for="deviceType"
+                htmlFor="deviceType"
                 sm={3}
                 tag="label"
                 widths={
@@ -1941,7 +1947,7 @@ exports[`banner list - components - EditBannerForm  render correctly with update
               tag="div"
             >
               <Label
-                for="inputFileName"
+                htmlFor="inputFileName"
                 sm={3}
                 tag="label"
                 widths={

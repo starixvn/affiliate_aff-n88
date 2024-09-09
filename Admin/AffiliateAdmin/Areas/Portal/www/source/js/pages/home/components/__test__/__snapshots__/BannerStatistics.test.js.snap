@@ -6,6 +6,15 @@ exports[`home - components - BannerStatistics render correctly 1`] = `
 >
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <span
       className="home-title"
@@ -16,6 +25,15 @@ exports[`home - components - BannerStatistics render correctly 1`] = `
   <Row
     className="background-gray border"
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <Col
       sm={12}

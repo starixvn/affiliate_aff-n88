@@ -21,7 +21,6 @@ describe('affiliate info - GridData ', () => {
         BalanceBf: -4439.0000,
         Member: 6,
         IsFavorite: false,
-        IsClosed: false,
         RegistrationDateText: "05/22/2008 06:49:00",
         ApprovalDateText: "05/22/2008 06:50:00",
         IsUsingPrivateCommGroup: true
@@ -328,7 +327,6 @@ describe('affiliate info - GridData ', () => {
             BalanceBf: null,
             Member: null,
             IsFavorite: true,
-            IsClosed: false,
             RegistrationDateText: "05/22/2008 06:49:00",
             ApprovalDateText: "05/22/2008 06:50:00"
         };

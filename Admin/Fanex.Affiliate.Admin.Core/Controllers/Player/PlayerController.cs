@@ -62,6 +62,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Player
 
         [HttpPost]
         [ValidateAntiForgeryHeader]
+        [FunctionAuthorize(FunctionName = Function.Affiliate, IsHost = true)]
         public ActionResult UpdateMember(UpdateMemberParam param)
         {
             param.UserId = SessionService.UserId;

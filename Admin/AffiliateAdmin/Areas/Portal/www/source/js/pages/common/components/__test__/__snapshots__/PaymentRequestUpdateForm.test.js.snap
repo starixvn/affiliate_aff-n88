@@ -11,6 +11,7 @@ exports[`common - components - PaymentRequestUpdateForm render correctly 1`] = `
     }
   }
   centered={false}
+  container="body"
   fade={true}
   isOpen={false}
   keyboard={true}
@@ -25,6 +26,7 @@ exports[`common - components - PaymentRequestUpdateForm render correctly 1`] = `
   role="dialog"
   scrollable={false}
   toggle={[Function]}
+  trapFocus={false}
   unmountOnClose={true}
   zIndex={1050}
 >
@@ -540,6 +542,15 @@ exports[`common - components - PaymentRequestUpdateForm render correctly 1`] = `
         </fieldset>
         <Row
           tag="div"
+          widths={
+            Array [
+              "xs",
+              "sm",
+              "md",
+              "lg",
+              "xl",
+            ]
+          }
         >
           <Col
             className="pr-1"
@@ -567,7 +578,7 @@ exports[`common - components - PaymentRequestUpdateForm render correctly 1`] = `
                 tag="div"
               >
                 <Label
-                  for="AdminDesc"
+                  htmlFor="AdminDesc"
                   tag="label"
                   widths={
                     Array [
@@ -618,7 +629,7 @@ exports[`common - components - PaymentRequestUpdateForm render correctly 1`] = `
                 tag="div"
               >
                 <Label
-                  for="AffDesc"
+                  htmlFor="AffDesc"
                   tag="label"
                   widths={
                     Array [
@@ -679,6 +690,7 @@ exports[`common - components - PaymentRequestUpdateForm render correctly with no
     }
   }
   centered={false}
+  container="body"
   fade={true}
   isOpen={false}
   keyboard={true}
@@ -693,6 +705,7 @@ exports[`common - components - PaymentRequestUpdateForm render correctly with no
   role="dialog"
   scrollable={false}
   toggle={[Function]}
+  trapFocus={false}
   unmountOnClose={true}
   zIndex={1050}
 >
@@ -1221,6 +1234,15 @@ exports[`common - components - PaymentRequestUpdateForm render correctly with no
         </fieldset>
         <Row
           tag="div"
+          widths={
+            Array [
+              "xs",
+              "sm",
+              "md",
+              "lg",
+              "xl",
+            ]
+          }
         >
           <Col
             className="pr-1"
@@ -1248,7 +1270,7 @@ exports[`common - components - PaymentRequestUpdateForm render correctly with no
                 tag="div"
               >
                 <Label
-                  for="AdminDesc"
+                  htmlFor="AdminDesc"
                   tag="label"
                   widths={
                     Array [
@@ -1299,7 +1321,7 @@ exports[`common - components - PaymentRequestUpdateForm render correctly with no
                 tag="div"
               >
                 <Label
-                  for="AffDesc"
+                  htmlFor="AffDesc"
                   tag="label"
                   widths={
                     Array [

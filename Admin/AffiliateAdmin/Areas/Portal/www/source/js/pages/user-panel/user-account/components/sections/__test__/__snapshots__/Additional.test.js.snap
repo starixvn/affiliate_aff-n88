@@ -194,7 +194,7 @@ exports[`user account - components - sections - Additional render correctly 1`] 
   >
     <Label
       className="required"
-      for="country"
+      htmlFor="country"
       sm={3}
       tag="label"
       widths={

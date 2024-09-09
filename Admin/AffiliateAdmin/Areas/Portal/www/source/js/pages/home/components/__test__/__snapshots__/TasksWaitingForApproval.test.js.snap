@@ -6,6 +6,15 @@ exports[`home - components - TasksWaitingForApproval render correctly 1`] = `
 >
   <Row
     tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
   >
     <span
       className="home-title"

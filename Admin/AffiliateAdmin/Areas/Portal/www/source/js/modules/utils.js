@@ -37,7 +37,19 @@ export const changeMode = (isLightMode) => {
     const n88Link = document.getElementById('n88-link');
     n88Link && n88Link.setAttribute('href', resolveClientUrl(`Areas/Portal/www/dist/style/N88-${mode}.css`));
 
-    document.cookie = "mode=" + mode + "; path=/";
+    document.cookie = `mode=${mode}; path=${resolveClientUrl("Portal/Login")}`;
+}
+
+export const getUserPanelMenuCookie = () => {
+    return getCookie("selectedUserPanelMenu");
+}
+
+export const clearUserPanelMenuCookie = () => {
+    setUserPanelMenuCookie("");
+}
+
+export const setUserPanelMenuCookie = (selectedUserPanel) => {
+    document.cookie = `selectedUserPanelMenu=${selectedUserPanel}; path=${resolveClientUrl(`Portal/Customer`)}`;
 }
 
 export const formatUnit = (value) => {

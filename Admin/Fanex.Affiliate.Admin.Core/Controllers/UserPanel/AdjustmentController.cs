@@ -43,7 +43,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.UserPanel
 
         }
 
-        [FunctionAuthorize(FunctionName = Function.Affiliate, IsHost = true)]
+        [FunctionAuthorize(FunctionName = Function.Payment, IsHost = true)]
         [HttpPost]
         [ValidateAntiForgeryHeader]
         public ActionResult InsertAdjustment(AdjustmentParam param)

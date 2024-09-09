@@ -70,7 +70,6 @@
     <Setting Key="Aff_Admin_AffiliateAdjustment_Ins" SpName="Aff_Admin_AffiliateAdjustment_Ins" DbName="DBAFFN8G.Affiliate_N8G.wsv_afinet" />
     <Setting Key="Aff_Admin_AffiliatePreferredLanguage_Upd" SpName="Aff_Admin_AffiliatePreferredLanguage_Upd" DbName="DBAFFN8G.Affiliate_N8G.wsv_afinet" />
     <Setting Key="Aff_Admin_AffiliateStatus_Upd" SpName="Aff_Admin_AffiliateStatus_Upd" DbName="DBAFFN8G.Affiliate_N8G.wsv_afinet" />
-    <Setting Key="Aff_Admin_AffiliateClosed_Upd" SpName="Aff_Admin_AffiliateClosed_Upd" DbName="DBAFFN8G.Affiliate_N8G.wsv_afinet" />
     <Setting Key="Aff_Admin_AffiliateAffType_Upd" SpName="Aff_Admin_AffiliateAffType_Upd" DbName="DBAFFN8G.Affiliate_N8G.wsv_afinet" />
     <Setting Key="Aff_Admin_AffiliateInfo_Upd" SpName="Aff_Admin_AffiliateInfo_Upd" DbName="DBAFFN8G.Affiliate_N8G.wsv_afinet" />
     <Setting Key="Aff_SubAffiliate_Commission_Sel" SpName="Aff_SubAffiliate_Commission_Sel" DbName="DBAFFN8G.Affiliate_N8G.wsv_afinet" />

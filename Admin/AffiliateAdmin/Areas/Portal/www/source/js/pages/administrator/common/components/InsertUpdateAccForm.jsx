@@ -159,17 +159,17 @@ export class InsertUpdateAccForm extends PureComponent {
                                 {
                                     isInsert && (<React.Fragment>
                                         <FormGroup row className="mb-2">
-                                            <Label for="userName" sm={4} className="required">{headerText.UserName}</Label>
+                                            <Label htmlFor="userName" sm={4} className="required">{headerText.UserName}</Label>
                                             {
                                                 isInsertExistedAcc ? (
                                                     <Col sm={8}>
-                                                        <Input type="text" name="userName" className="mt-2" autoComplete="off" maxlength="20" value={userName} onChange={this._handleChange}
+                                                        <Input type="text" name="userName" className="mt-2" autoComplete="off" maxLength="20" value={userName} onChange={this._handleChange}
                                                             onKeyPress={this._handleKeyPress} />
                                                     </Col>
                                                 ) : (
                                                         <Col sm={8} className="row-user">
                                                             <Input type="text" className="refix" disabled value="AA" />
-                                                            <Input type="text" name="userName" className="userName" autoComplete="off" maxlength="20" value={userName} onChange={this._handleChange}
+                                                            <Input type="text" name="userName" className="userName" autoComplete="off" maxLength="20" value={userName} onChange={this._handleChange}
                                                                 onKeyPress={this._handleKeyPress} />
                                                         </Col>
                                                     )
@@ -178,9 +178,9 @@ export class InsertUpdateAccForm extends PureComponent {
                                         {
                                             !isInsertExistedAcc && (
                                                 <FormGroup row className="mb-2">
-                                                    <Label for="password" sm={4} className="required">{headerText.Password}</Label>
+                                                    <Label htmlFor="password" sm={4} className="required">{headerText.Password}</Label>
                                                     <Col sm={8}>
-                                                        <Input type="password" name="password" className="mt-2" maxlength="20" autoComplete="off" className="mt-2" value={password}
+                                                        <Input type="password" name="password" className="mt-2" maxLength="20" autoComplete="off" className="mt-2" value={password}
                                                             onChange={this._handleChange} onKeyPress={this._handleKeyPress} />
                                                     </Col>
                                                 </FormGroup>
@@ -191,23 +191,23 @@ export class InsertUpdateAccForm extends PureComponent {
                                 {
                                     !isInsertExistedAcc && (<React.Fragment>
                                         <FormGroup row className="mb-2">
-                                            <Label for="firstName" sm={4}>{headerText.FirstName}</Label>
+                                            <Label htmlFor="firstName" sm={4}>{headerText.FirstName}</Label>
                                             <Col sm={8}>
-                                                <Input type="text" name="firstName" maxlength="20" className="mt-2" value={firstName} onChange={this._handleChange}
+                                                <Input type="text" name="firstName" maxLength="20" className="mt-2" value={firstName} onChange={this._handleChange}
                                                     onKeyPress={this._handleKeyPress} />
                                             </Col>
                                         </FormGroup>
                                         <FormGroup row className="mb-2">
-                                            <Label for="lastName" sm={4}>{headerText.LastName}</Label>
+                                            <Label htmlFor="lastName" sm={4}>{headerText.LastName}</Label>
                                             <Col sm={8}>
-                                                <Input type="text" name="lastName" maxlength="20" className="mt-2" value={lastName} onChange={this._handleChange}
+                                                <Input type="text" name="lastName" maxLength="20" className="mt-2" value={lastName} onChange={this._handleChange}
                                                     onKeyPress={this._handleKeyPress} />
                                             </Col>
                                         </FormGroup>
                                     </React.Fragment>)
                                 }
                                 <FormGroup row>
-                                    <Label for="department" sm={4}>{headerText.Department}</Label>
+                                    <Label htmlFor="department" sm={4}>{headerText.Department}</Label>
                                     <Col sm={8}>
                                         <Input type="select" name="department" className="mt-2" value={department} onChange={this._handleChange}>
                                             {

@@ -11,6 +11,7 @@ exports[`sub-affiliate domain - components - SubAffDomainPopup  render correctly
     }
   }
   centered={false}
+  container="body"
   fade={true}
   isOpen={true}
   keyboard={true}
@@ -25,6 +26,7 @@ exports[`sub-affiliate domain - components - SubAffDomainPopup  render correctly
   role="dialog"
   scrollable={false}
   toggle={[Function]}
+  trapFocus={false}
   unmountOnClose={true}
   zIndex={1050}
 >
@@ -96,7 +98,7 @@ exports[`sub-affiliate domain - components - SubAffDomainPopup  render correctly
           >
             <Label
               className="required"
-              for="domainName"
+              htmlFor="domainName"
               sm={4}
               tag="label"
               widths={
@@ -213,6 +215,7 @@ exports[`sub-affiliate domain - components - SubAffDomainPopup  render correctly
     }
   }
   centered={false}
+  container="body"
   fade={true}
   isOpen={true}
   keyboard={true}
@@ -227,6 +230,7 @@ exports[`sub-affiliate domain - components - SubAffDomainPopup  render correctly
   role="dialog"
   scrollable={false}
   toggle={[Function]}
+  trapFocus={false}
   unmountOnClose={true}
   zIndex={1050}
 >
@@ -298,7 +302,7 @@ exports[`sub-affiliate domain - components - SubAffDomainPopup  render correctly
           >
             <Label
               className="required"
-              for="domainName"
+              htmlFor="domainName"
               sm={4}
               tag="label"
               widths={
