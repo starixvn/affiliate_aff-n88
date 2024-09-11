@@ -77,6 +77,11 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
         [ValidateAntiForgeryHeader]
         public async Task<ActionResult> AssignGroup(AssignGroupParam assignParam, AffInfoParam affInfo)
         {
+            if(!_commGroupValidation.HasPermissionAssignOnAff(SessionService.UserId, affInfo.AffId))
+            {
+                return CreateAccessDeniedResult();
+            }
+
             if (!ModelState.IsValid || assignParam.GroupId < Validation.MinId)
             {
                 return CreateErrorResult();
@@ -124,6 +129,11 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
         [ValidateAntiForgeryHeader]
         public async Task<ActionResult> AssignPrivateGroup(CommGroupSettingParam commGroup, AffInfoParam affInfo)
         {
+            if (!_commGroupValidation.HasPermissionAssignOnAff(SessionService.UserId, affInfo.AffId))
+            {
+                return CreateAccessDeniedResult();
+            }
+
             if (!ModelState.IsValid)
             {
                 return CreateErrorResult();
@@ -179,6 +189,18 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
                 {
                     Code = ErrCode.GeneralErrorCode,
                     Message = string.Join("<br />", ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage))
+                }
+            };
+        }
+
+        private ActionResult CreateAccessDeniedResult()
+        {
+            return new JsonNetResult
+            {
+                Data = new ResultInfo
+                {
+                    Code = ErrCode.ErrCodeAccessDenied,
+                    Message = "You are not authorized to approve affiliate."
                 }
             };
         }

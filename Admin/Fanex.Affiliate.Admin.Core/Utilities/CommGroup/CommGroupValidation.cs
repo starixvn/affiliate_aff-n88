@@ -1,7 +1,9 @@
 ﻿using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
+using Fanex.Affiliate.Admin.Core.Extensions;
 using Fanex.Affiliate.Admin.Core.MetaModels.CommissionGroup;
 using Fanex.Affiliate.Admin.Core.Repository;
+using Fanex.Affiliate.Admin.Core.Services;
 using Fanex.Affiliate.Admin.Core.Services.CommGroup;
 using System;
 using System.Collections.Generic;
@@ -9,17 +11,39 @@ using System.Linq;
 
 namespace Fanex.Affiliate.Admin.Core.Utilities.CommGroup
 {
-    public class CommGroupValidationHelper : ICommGroupValidation
+    public class CommGroupValidation : ICommGroupValidation
     {
         private const string brElementHtml = "<br />";
 
+        private readonly IAuthRepository _authRepository;
+        private readonly IAffiliateService _affiliateService;
         private readonly IProductRepository _productRepository;
         private readonly ICommGroupCommonService _commGroupCommonService;
 
-        public CommGroupValidationHelper(IProductRepository productRepository, ICommGroupCommonService commGroupCommonService)
+        public CommGroupValidation(
+            IAuthRepository authRepository,
+            IAffiliateService affiliateService,
+            IProductRepository productRepository,
+            ICommGroupCommonService commGroupCommonService)
         {
+            _authRepository = authRepository;
+            _affiliateService = affiliateService;
             _productRepository = productRepository;
             _commGroupCommonService = commGroupCommonService;
+        }
+
+        public bool HasPermissionAssignOnAff(int userId, int affId)
+        {
+            var affInfo = _affiliateService.GetAffiliateBasicInfo(affId);
+
+            if(string.IsNullOrEmpty(affInfo.AffCode))
+            {
+                var permissionList = _authRepository.GetPermissionList(userId);
+
+                return permissionList.Any(i => i.FunctionName.MatchWith(Function.EditAffStatus) && i.IsHost);
+            }    
+
+            return true;
         }
 
         public ResultInfo ValidateCommGroup(CommGroupSettingParam commGroup)
