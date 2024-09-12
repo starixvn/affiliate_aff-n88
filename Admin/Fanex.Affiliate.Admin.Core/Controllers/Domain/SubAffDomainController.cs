@@ -56,7 +56,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Domain
 
         [HttpPost]
         [ValidateAntiForgeryHeader]
-        [FunctionAuthorize(FunctionName = Function.Media, IsHost = true)]
+        [FunctionAuthorize(FunctionName = Function.Domain, IsHost = true)]
         public ActionResult InsertSubAffDomain(InsertUpdateDomainParam param)
         {
             if (ModelState.IsValid)
@@ -82,7 +82,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Domain
 
         [HttpPost]
         [ValidateAntiForgeryHeader]
-        [FunctionAuthorize(FunctionName = Function.Media, IsHost = true)]
+        [FunctionAuthorize(FunctionName = Function.Domain, IsHost = true)]
         public ActionResult UpdateSubAffDomain(InsertUpdateDomainParam param)
         {
             var isValidDomainId = param.DomainId >= Validation.MinId;
@@ -109,7 +109,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Domain
 
         [HttpPost]
         [ValidateAntiForgeryHeader]
-        [FunctionAuthorize(FunctionName = Function.Media, IsHost = true)]
+        [FunctionAuthorize(FunctionName = Function.Domain, IsHost = true)]
         public ActionResult DeleteSubAffDomain(DeleteDomainParam param)
         {
             if (ModelState.IsValid)
