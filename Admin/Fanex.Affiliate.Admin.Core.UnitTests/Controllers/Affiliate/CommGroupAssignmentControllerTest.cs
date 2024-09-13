@@ -75,7 +75,10 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
             var assignParam = new AssignGroupParam { AffId = 1271808, GroupId = 133 };
             var affInfo = new AffInfoParam();
             const string ErrorMessage1 = "ErrorMessage1";
-            var controller = CreateCommGroupAssignmentController();
+
+            var commGroupValidation = new Mock<ICommGroupValidation>();
+            commGroupValidation.Setup(e => e.HasPermissionAssignOnAff(It.IsAny<int>(), It.IsAny<int>())).Returns(true);
+            var controller = CreateCommGroupAssignmentController(commGroupValidation: commGroupValidation.Object);
             controller.ModelState.AddModelError("Error01", ErrorMessage1);
             var expectResult = new ResultInfo
             {
@@ -98,7 +101,9 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
             // Arrange
             var assignParam = new AssignGroupParam { AffId = 1271808 };
             var affInfo = new AffInfoParam();
-            var controller = CreateCommGroupAssignmentController();
+            var commGroupValidation = new Mock<ICommGroupValidation>();
+            commGroupValidation.Setup(e => e.HasPermissionAssignOnAff(It.IsAny<int>(), It.IsAny<int>())).Returns(true);
+            var controller = CreateCommGroupAssignmentController(commGroupValidation: commGroupValidation.Object);
             var expectResult = new ResultInfo
             {
                 Code = ErrCode.GeneralErrorCode
@@ -132,7 +137,9 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
             var affInfo = new AffInfoParam();
             var commGroupAssignmentService = new Mock<ICommGroupAssignmentService>();
             commGroupAssignmentService.Setup(c => c.AssignGroup(It.IsAny<AssignGroupParam>(), affInfo, It.IsAny<AffInformationEmail>())).Returns(Task.FromResult(new ResultInfo()));
-            var controller = CreateCommGroupAssignmentController(commGroupAssignmentService: commGroupAssignmentService.Object);
+            var commGroupValidation = new Mock<ICommGroupValidation>();
+            commGroupValidation.Setup(e => e.HasPermissionAssignOnAff(It.IsAny<int>(), It.IsAny<int>())).Returns(true);
+            var controller = CreateCommGroupAssignmentController(commGroupAssignmentService: commGroupAssignmentService.Object, commGroupValidation: commGroupValidation.Object);
 
             // Action
             var jsonNetResult = await controller.AssignGroup(assignParam, affInfo) as JsonNetResult;
@@ -190,7 +197,10 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
             var commGroup = new CommGroupSettingParam();
             var affInfo = new AffInfoParam();
             const string ErrorMessage1 = "ErrorMessage1";
-            var controller = CreateCommGroupAssignmentController();
+
+            var commGroupValidation = new Mock<ICommGroupValidation>();
+            commGroupValidation.Setup(e => e.HasPermissionAssignOnAff(It.IsAny<int>(), It.IsAny<int>())).Returns(true);
+            var controller = CreateCommGroupAssignmentController(commGroupValidation: commGroupValidation.Object);
             controller.ModelState.AddModelError("Error01", ErrorMessage1);
             var expectResult = new ResultInfo
             {
@@ -222,6 +232,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
             });
 
             var commGroupValidation = new Mock<ICommGroupValidation>();
+            commGroupValidation.Setup(e => e.HasPermissionAssignOnAff(It.IsAny<int>(), It.IsAny<int>())).Returns(true);
             commGroupValidation.Setup(e => e.ValidateCommGroup(It.IsAny<CommGroupSettingParam>())).Returns(new ResultInfo { Code = ErrCode.GeneralErrorCode });
 
             var controller = CreateCommGroupAssignmentController(productRepository: productRepository.Object, commGroupValidation: commGroupValidation.Object);
@@ -263,6 +274,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
             commGroupAssignmentService.Setup(c => c.AssignPrivateGroup(It.IsAny<CreateUpdateCommissionGroupParam>(), affInfo, It.IsAny<AffInformationEmail>())).Returns(Task.FromResult(new ResultInfo()));
 
             var commGroupValidation = new Mock<ICommGroupValidation>();
+            commGroupValidation.Setup(e => e.HasPermissionAssignOnAff(It.IsAny<int>(), It.IsAny<int>())).Returns(true);
             commGroupValidation.Setup(e => e.ValidateCommGroup(It.IsAny<CommGroupSettingParam>())).Returns(new ResultInfo());
 
             var controller = CreateCommGroupAssignmentController(productRepository: productRepository.Object, commGroupAssignmentService: commGroupAssignmentService.Object, commGroupValidation: commGroupValidation.Object);

@@ -1,8 +1,6 @@
 ﻿using Fanex.Affiliate.Admin.Core.Attributes;
 using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
-using Fanex.Affiliate.Admin.Core.Extensions;
-using Fanex.Affiliate.Admin.Core.MetaModels;
 using Fanex.Affiliate.Admin.Core.MetaModels.Domain;
 using Fanex.Affiliate.Admin.Core.Repository;
 using Fanex.Affiliate.Admin.Core.Resources;
@@ -16,7 +14,7 @@ using System.Web.Mvc;
 namespace Fanex.Affiliate.Admin.Core.Controllers.Domain
 {
     [FunctionAuthorize(FunctionName = Function.Domain)]
-    public class DomainControlController : BaseController
+    public class DomainControlController : ReadOnlySessionBaseController
     {
         private readonly IDomainControlService _domainControlService;
         private readonly ILanguageRepository _languageRepository;
@@ -53,10 +51,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Domain
         [ValidateAntiForgeryHeader]
         public ActionResult GetDomainControlList(string market)
         {
-            return new JsonNetResult
-            {
-                Data = _domainControlService.GetDomainControlList(market)
-            };
+            return GenerateJsonNetResult(_domainControlService.GetDomainControlList(market));
         }
 
         [HttpPost]
@@ -66,22 +61,12 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Domain
         {
             if (ModelState.IsValid)
             {
-                GetUserInfoParam(param);
+                AssignUserInfoParam(param);
 
-                return new JsonNetResult
-                {
-                    Data = _domainControlService.InsertDomainControl(param)
-                };
+                return GenerateJsonNetResult(_domainControlService.InsertDomainControl(param));
             }
 
-            return new JsonNetResult
-            {
-                Data = new ResultInfo
-                {
-                    Code = ErrCode.GeneralErrorCode,
-                    Message = "Domain's info is invalid!"
-                }
-            };
+            return GenerateErrResult("Domain's info is invalid!");
         }
 
         [HttpPost]
@@ -92,22 +77,12 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Domain
             var isValidDomainId = param.DomainId >= Validation.MinId;
             if (ModelState.IsValid && isValidDomainId)
             {
-                GetUserInfoParam(param);
+                AssignUserInfoParam(param);
 
-                return new JsonNetResult
-                {
-                    Data = _domainControlService.UpdateDomainControl(param)
-                };
+                return GenerateJsonNetResult(_domainControlService.UpdateDomainControl(param));
             }
 
-            return new JsonNetResult
-            {
-                Data = new ResultInfo
-                {
-                    Code = ErrCode.GeneralErrorCode,
-                    Message = !isValidDomainId ? "Domain Id is invalid." : "Domain's info is invalid!"
-                }
-            };
+            return GenerateErrResult(isValidDomainId ? "Domain's info is invalid!" : "Domain Id is invalid.");
         }
 
         [HttpPost]
@@ -117,22 +92,12 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Domain
         {
             if (ModelState.IsValid)
             {
-                GetUserInfoParam(param);
+                AssignUserInfoParam(param);
 
-                return new JsonNetResult
-                {
-                    Data = _domainControlService.DeleteDomainControl(param)
-                };
+                return GenerateJsonNetResult(_domainControlService.DeleteDomainControl(param));
             }
 
-            return new JsonNetResult
-            {
-                Data = new ResultInfo
-                {
-                    Code = ErrCode.GeneralErrorCode,
-                    Message = "Domain Id is invalid."
-                }
-            };
+            return GenerateErrResult("Domain Id is invalid.");
         }
     }
 }

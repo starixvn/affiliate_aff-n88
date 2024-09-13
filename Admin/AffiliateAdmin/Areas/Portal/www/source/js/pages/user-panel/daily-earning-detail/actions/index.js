@@ -1,6 +1,5 @@
 import { post } from '../../../../modules/ajaxRequest';
-import { toggleLoaderUserPanel } from '../../../customer/user-panel/actions';
-import { setSelectedUserPanel, redirectToDailyEarning, redirectToStatementHistory } from '../../../customer/user-panel/actions';
+import { setSelectedUserPanel, redirectToDailyEarning, redirectToStatementHistory, toggleLoaderUserPanel } from '../../../customer/user-panel/actions';
 import { SET_PARAM } from './types';
 
 export { toggleLoaderUserPanel, setSelectedUserPanel, redirectToDailyEarning, redirectToStatementHistory };

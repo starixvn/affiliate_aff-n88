@@ -9,7 +9,7 @@ using System.Web.Mvc;
 namespace Fanex.Affiliate.Admin.Core.Controllers.UserPanel
 {
     [FunctionAuthorize(FunctionName = Function.Affiliate)]
-    public class LandingPageStatisticsController : BaseController
+    public class LandingPageStatisticsController : ReadOnlySessionBaseController
     {
         private readonly ILandingPageStatisticsRepository _landingPageStatisticsRepository;
 
@@ -26,10 +26,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.UserPanel
         {
             if (ModelState.IsValid)
             {
-                return new JsonNetResult
-                {
-                    Data = _landingPageStatisticsRepository.GetLandingPageStatisticsList(param)
-                };
+                return GenerateJsonNetResult(_landingPageStatisticsRepository.GetLandingPageStatisticsList(param));
             }
 
             return new JsonNetResult();
@@ -41,10 +38,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.UserPanel
         {
             if (ModelState.IsValid)
             {
-                return new JsonNetResult
-                {
-                    Data = _landingPageStatisticsRepository.GetLandingPageStatisticsDetailList(param)
-                };
+                return GenerateJsonNetResult(_landingPageStatisticsRepository.GetLandingPageStatisticsDetailList(param));
             }
 
             return new JsonNetResult();

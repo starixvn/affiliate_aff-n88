@@ -1,6 +1,5 @@
 ﻿using Fanex.Affiliate.Admin.Core.Attributes;
 using Fanex.Affiliate.Admin.Core.Constants;
-using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.Email;
 using Fanex.Affiliate.Admin.Core.Extensions;
 using Fanex.Affiliate.Admin.Core.MetaModels;
@@ -8,17 +7,13 @@ using Fanex.Affiliate.Admin.Core.MetaModels.Customer;
 using Fanex.Affiliate.Admin.Core.Services.Common;
 using Fanex.Affiliate.Admin.Core.Services.Customer;
 using Fanex.Affiliate.Admin.Core.Utilities;
-using ONEbook.UM.AspNetMVC.Filters;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace Fanex.Affiliate.Admin.Core.Controllers
 {
-    [CustomAuthorize]
-    [CheckUMFilter]
     [FunctionAuthorize(FunctionName = Function.Affiliate)]
-    public class CustomerLeftPanelController : Controller
+    public class CustomerLeftPanelController : BaseController
     {
         private readonly ICustomerLeftPanelService _customerLeftPanelService;
         private readonly ISessionService _sessionService;
@@ -39,7 +34,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
         {
             if (string.IsNullOrEmpty(affUsername))
             {
-                return new JsonResult();
+                return new JsonNetResult();
             }
 
             var accId = _sessionService.UserId.ToString();
@@ -48,10 +43,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
             var affiliateInfo = _customerLeftPanelService.GetAffiliateInfoOnLeftPanel(affUsername, accId, accOnId, sessionId);
             _sessionService.AffName = affUsername;
 
-            return new JsonNetResult
-            {
-                Data = affiliateInfo
-            };
+            return GenerateJsonNetResult(affiliateInfo);
         }
 
         [ValidateAntiForgeryHeader]
@@ -60,13 +52,10 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
         {
             if (string.IsNullOrEmpty(affUsername))
             {
-                return new JsonResult();
+                return new JsonNetResult();
             }
 
-            return new JsonNetResult
-            {
-                Data = _customerLeftPanelService.GetOnlineList(affUsername)
-            };
+            return GenerateJsonNetResult(_customerLeftPanelService.GetOnlineList(affUsername));
         }
 
         [ValidateAntiForgeryHeader]
@@ -76,13 +65,10 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
         {
             if (string.IsNullOrEmpty(affId) || !int.TryParse(affId, out int parsedId))
             {
-                return new JsonResult();
+                return new JsonNetResult();
             }
 
-            return new JsonNetResult
-            {
-                Data = _customerLeftPanelService.GetTransferLimitSetting(parsedId)
-            };
+            return GenerateJsonNetResult(_customerLeftPanelService.GetTransferLimitSetting(parsedId));
         }
 
         [ValidateAntiForgeryHeader]
@@ -92,20 +78,11 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
         {
             if (ModelState.IsValid)
             {
-                AssignParam(param);
-                return new JsonNetResult
-                {
-                    Data = _customerLeftPanelService.UpdateTransferLimitSetting(param)
-                };
+                AssignUserInfoParam(param);
+
+                return GenerateJsonNetResult(_customerLeftPanelService.UpdateTransferLimitSetting(param));
             }
-            return new JsonResult
-            {
-                Data = new ResultInfo
-                {
-                    Code = ErrCode.GeneralErrorCode,
-                    Message = string.Join("<br/>", ModelState.Values.SelectMany(e => e.Errors).Select(e => e.ErrorMessage))
-                }
-            };
+            return GenerateModelStateErrResult();
         }
 
         [ValidateAntiForgeryHeader]
@@ -120,21 +97,11 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
                     AffId = param.AffId,
                     PreferredLanguage = Server.HtmlEncode(param.PreferredLanguage)
                 };
-                AssignParam(updateLanguageParam);
+                AssignUserInfoParam(updateLanguageParam);
 
-                return new JsonNetResult
-                {
-                    Data = _customerLeftPanelService.UpdateLanguage(updateLanguageParam)
-                };
+                return GenerateJsonNetResult(_customerLeftPanelService.UpdateLanguage(updateLanguageParam));
             }
-            return new JsonResult
-            {
-                Data = new ResultInfo
-                {
-                    Code = ErrCode.GeneralErrorCode,
-                    Message = "Update Language is failed!"
-                }
-            };
+            return GenerateErrResult("Update Language is failed!");
         }
 
         [ValidateAntiForgeryHeader]
@@ -144,20 +111,11 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
         {
             if (ModelState.IsValid)
             {
-                AssignParam(param);
-                return new JsonNetResult
-                {
-                    Data = _customerLeftPanelService.UpdateAffType(param)
-                };
+                AssignUserInfoParam(param);
+
+                return GenerateJsonNetResult(_customerLeftPanelService.UpdateAffType(param));
             }
-            return new JsonResult
-            {
-                Data = new ResultInfo
-                {
-                    Code = ErrCode.GeneralErrorCode,
-                    Message = "Update Affiliate Type is failed!"
-                }
-            };
+            return GenerateErrResult("Update Affiliate Type is failed!");
         }
 
         [ValidateAntiForgeryHeader]
@@ -172,29 +130,20 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
                     AffId = param.AffId,
                     Status = Server.HtmlEncode(param.Status)
                 };
-                AssignParam(updateStatusParam);
+                AssignUserInfoParam(updateStatusParam);
 
                 var emailParam = new AffInformationEmail
                 {
                     RootUrl = SiteDomainHelper.GetRootUrl(this)
                 };
 
-                return new JsonNetResult
-                {
-                    Data = await _customerLeftPanelService.UpdateStatus(updateStatusParam, emailParam)
-                };
+                return GenerateJsonNetResult(await _customerLeftPanelService.UpdateStatus(updateStatusParam, emailParam));
             }
-            return new JsonResult
-            {
-                Data = new ResultInfo
-                {
-                    Code = ErrCode.GeneralErrorCode,
-                    Message = "Update Status is failed!"
-                }
-            };
+
+            return GenerateModelStateErrResult();
         }
 
-        private void AssignParam(AffiliateBasicInfoParam param)
+        private void AssignUserInfoParam(UserInfoParam param)
         {
             param.UserId = _sessionService.UserId;
             param.Ip = Request.GetClientIP();

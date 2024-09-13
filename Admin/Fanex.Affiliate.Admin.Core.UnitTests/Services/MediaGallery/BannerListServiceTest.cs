@@ -5,7 +5,6 @@ using Fanex.Affiliate.Admin.Core.DTO.MediaGallery;
 using Fanex.Affiliate.Admin.Core.MetaModels.MediaGallery;
 using Fanex.Affiliate.Admin.Core.Repository.MediaGallery;
 using Fanex.Affiliate.Admin.Core.Services.MediaGallery;
-using Fanex.Affiliate.Admin.Core.UnitTests.Common;
 using Fanex.Affiliate.Admin.Core.UnitTests.TestHelper;
 using Fanex.Affiliate.Admin.Core.Utilities;
 using Moq;
@@ -98,7 +97,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
             var service = CreateBannerListService(bannerValidationService: bannerValidationService.Object);
 
             // Action
-            var result = service.InsertBanner(new MockFile[1] { (new MockFile(stream: new MemoryStream(), fileName: "abc.pdf")) }, new InsertUpdateMultipleBannersParam { UserType = 1 });
+            var result = service.InsertBanner(new MockingFile[1] { (new MockingFile(stream: new MemoryStream(), fileName: "abc.pdf")) }, new InsertUpdateMultipleBannersParam { UserType = 1 });
 
             // Assert
             Assert.False(result.IsSuccessful);
@@ -114,7 +113,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
             var service = CreateBannerListService(bannerValidationService: bannerValidationService.Object);
 
             // Action
-            var result = service.InsertBanner(new MockFile[1] { (new MockFile(stream: new MemoryStream(), fileName: "abc.pdf")) }, new InsertUpdateMultipleBannersParam { Currencies = "USD" });
+            var result = service.InsertBanner(new MockingFile[1] { (new MockingFile(stream: new MemoryStream(), fileName: "abc.pdf")) }, new InsertUpdateMultipleBannersParam { Currencies = "USD" });
 
             // Assert
             Assert.False(result.IsSuccessful);
@@ -133,7 +132,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
             var service = CreateBannerListService(bannerValidationService: bannerValidationService.Object, systemFile: systemFile.Object);
 
             // Action
-            var result = service.InsertBanner(new MockFile[1] { (new MockFile(stream: new MemoryStream())) }, param);
+            var result = service.InsertBanner(new MockingFile[1] { (new MockingFile(stream: new MemoryStream())) }, param);
 
             // Assert
             Assert.False(result.IsSuccessful);
@@ -152,7 +151,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
             var service = CreateBannerListService(bannerValidationService: bannerValidationService.Object, systemFile: systemFile.Object);
 
             // Action
-            var result = service.InsertBanner(new MockFile[1] { (new MockFile(stream: new MemoryStream())) }, param);
+            var result = service.InsertBanner(new MockingFile[1] { (new MockingFile(stream: new MemoryStream())) }, param);
 
             // Assert
             Assert.False(result.IsSuccessful);
@@ -171,7 +170,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
             var service = CreateBannerListService(bannerValidationService: bannerValidationService.Object, systemFile: systemFile.Object);
 
             // Action
-            var result = service.InsertBanner(new MockFile[1] { (new MockFile(stream: new MemoryStream())) }, param);
+            var result = service.InsertBanner(new MockingFile[1] { (new MockingFile(stream: new MemoryStream())) }, param);
 
             // Assert
             Assert.False(result.IsSuccessful);
@@ -190,7 +189,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
             var service = CreateBannerListService(bannerValidationService: bannerValidationService.Object, systemFile: systemFile.Object);
 
             // Action
-            var result = service.InsertBanner(new MockFile[1] { (new MockFile(stream: new MemoryStream())) }, param);
+            var result = service.InsertBanner(new MockingFile[1] { (new MockingFile(stream: new MemoryStream())) }, param);
 
             // Assert
             Assert.False(result.IsSuccessful);
@@ -207,7 +206,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
             var service = CreateBannerListService(bannerValidationService: bannerValidationService.Object);
 
             // Action
-            var result = service.InsertBanner(new MockFile[1] { (new MockFile(stream: new MemoryStream(), fileName: "123test123test123test123test123test123test123test123test.png")) }, param);
+            var result = service.InsertBanner(new MockingFile[1] { (new MockingFile(stream: new MemoryStream(), fileName: "123test123test123test123test123test123test123test123test.png")) }, param);
 
             // Assert
             Assert.False(result.IsSuccessful);
@@ -226,7 +225,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
             var service = CreateBannerListService(bannerValidationService: bannerValidationService.Object, systemFile: systemFile.Object);
 
             // Action
-            var result = service.InsertBanner(new MockFile[1] { (new MockFile(stream: new MemoryStream(), fileName: "abc.png")) }, new InsertUpdateMultipleBannersParam { InputFileNames = "", Currencies = "USD" });
+            var result = service.InsertBanner(new MockingFile[1] { (new MockingFile(stream: new MemoryStream(), fileName: "abc.png")) }, new InsertUpdateMultipleBannersParam { InputFileNames = "", Currencies = "USD" });
 
             // Assert
             Assert.False(result.IsSuccessful);
@@ -245,7 +244,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
             var service = CreateBannerListService(bannerValidationService: bannerValidationService.Object, systemFile: systemFile.Object);
 
             // Action
-            var result = service.InsertBanner(new MockFile[1] { (new MockFile(stream: new MemoryStream(), fileName: "abc.png")) }, new InsertUpdateMultipleBannersParam { InputFileNames = "", Currencies = "USD" });
+            var result = service.InsertBanner(new MockingFile[1] { (new MockingFile(stream: new MemoryStream(), fileName: "abc.png")) }, new InsertUpdateMultipleBannersParam { InputFileNames = "", Currencies = "USD" });
 
             // Assert
             Assert.False(result.IsSuccessful);
@@ -268,7 +267,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
             var service = CreateBannerListService(bannerListRepository.Object, appSetting.Object, systemFile.Object, bannerValidationService.Object);
 
             // Action
-            var result = service.InsertBanner(new MockFile[1] { (new MockFile(stream: MemoryStream, fileName: "abc.png")) }, new InsertUpdateMultipleBannersParam { InputFileNames = "", Currencies = "USD" });
+            var result = service.InsertBanner(new MockingFile[1] { (new MockingFile(stream: MemoryStream, fileName: "abc.png")) }, new InsertUpdateMultipleBannersParam { InputFileNames = "", Currencies = "USD" });
 
             // Assert
             Assert.False(result.IsSuccessful);
@@ -290,7 +289,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
             var service = CreateBannerListService(bannerListRepository.Object, appSetting.Object, systemFile.Object, bannerValidationService.Object);
 
             // Action
-            var result = service.InsertBanner(new MockFile[1] { (new MockFile(stream: MemoryStream, fileName: "abc.png")) }, new InsertUpdateMultipleBannersParam { InputFileNames = "", Currencies = "USD" });
+            var result = service.InsertBanner(new MockingFile[1] { (new MockingFile(stream: MemoryStream, fileName: "abc.png")) }, new InsertUpdateMultipleBannersParam { InputFileNames = "", Currencies = "USD" });
 
             // Assert
             Assert.True(result.IsSuccessful);
@@ -305,7 +304,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
             var service = CreateBannerListService(bannerValidationService: bannerValidationService.Object);
 
             // Action
-            var result = service.UpdateBanner(new MockFile(), new InsertUpdateMultipleBannersParam { UserType = 1 });
+            var result = service.UpdateBanner(new MockingFile(), new InsertUpdateMultipleBannersParam { UserType = 1 });
 
             // Assert
             Assert.False(result.IsSuccessful);
@@ -324,7 +323,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
             var service = CreateBannerListService(bannerValidationService: bannerValidationService.Object, systemFile: systemFile.Object);
 
             // Action
-            var result = service.UpdateBanner(new MockFile(stream: new MemoryStream()), param);
+            var result = service.UpdateBanner(new MockingFile(stream: new MemoryStream()), param);
 
             // Assert
             Assert.False(result.IsSuccessful);
@@ -342,7 +341,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
             var service = CreateBannerListService(systemFile: systemFile.Object);
 
             // Action
-            var result = service.UpdateBanner(new MockFile(), param);
+            var result = service.UpdateBanner(new MockingFile(), param);
 
             // Assert
             Assert.False(result.IsSuccessful);
@@ -360,7 +359,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
             var service = CreateBannerListService(systemFile: systemFile.Object);
 
             // Action
-            var result = service.UpdateBanner(new MockFile(stream: new MemoryStream(), fileName: "123test123test123test123test123test123test123test123test.png"), param);
+            var result = service.UpdateBanner(new MockingFile(stream: new MemoryStream(), fileName: "123test123test123test123test123test123test123test123test.png"), param);
 
             // Assert
             Assert.False(result.IsSuccessful);
@@ -380,7 +379,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
             var service = CreateBannerListService(bannerListRepository.Object, null, systemFile.Object, bannerValidationService.Object);
 
             // Action
-            var result = service.UpdateBanner(new MockFile(), new InsertUpdateMultipleBannersParam { InputFileNames = "abc.png", UserType = 1, Currencies = "USD" });
+            var result = service.UpdateBanner(new MockingFile(), new InsertUpdateMultipleBannersParam { InputFileNames = "abc.png", UserType = 1, Currencies = "USD" });
 
             // Assert
             Assert.False(result.IsSuccessful);
@@ -402,7 +401,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
             var service = CreateBannerListService(bannerListRepository.Object, null, systemFile.Object, bannerValidationService.Object);
 
             // Action
-            var result = service.UpdateBanner(new MockFile(stream: MemoryStream, fileName: "abc.png"), new InsertUpdateMultipleBannersParam { InputFileNames = "abc.png", UserType = 1, Currencies = "USD" });
+            var result = service.UpdateBanner(new MockingFile(stream: MemoryStream, fileName: "abc.png"), new InsertUpdateMultipleBannersParam { InputFileNames = "abc.png", UserType = 1, Currencies = "USD" });
 
             // Assert
             Assert.False(result.IsSuccessful);
@@ -426,7 +425,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
             var service = CreateBannerListService(bannerListRepository.Object, appSetting.Object, systemFile.Object, bannerValidationService.Object);
 
             // Action
-            var result = service.UpdateBanner(new MockFile(stream: MemoryStream, fileName: "abc.png"), new InsertUpdateMultipleBannersParam { InputFileNames = "abc.png", UserType = 1, Currencies = "USD" });
+            var result = service.UpdateBanner(new MockingFile(stream: MemoryStream, fileName: "abc.png"), new InsertUpdateMultipleBannersParam { InputFileNames = "abc.png", UserType = 1, Currencies = "USD" });
 
             // Assert
             Assert.False(result.IsSuccessful);
@@ -449,7 +448,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
             var service = CreateBannerListService(bannerListRepository.Object, appSetting.Object, systemFile.Object, bannerValidationService.Object);
 
             // Action
-            var result = service.UpdateBanner(new MockFile(stream: MemoryStream, fileName: "abc.png"), new InsertUpdateMultipleBannersParam { InputFileNames = "abc.png", UserType = 1, Currencies = "USD" });
+            var result = service.UpdateBanner(new MockingFile(stream: MemoryStream, fileName: "abc.png"), new InsertUpdateMultipleBannersParam { InputFileNames = "abc.png", UserType = 1, Currencies = "USD" });
 
             // Assert
             Assert.True(result.IsSuccessful);

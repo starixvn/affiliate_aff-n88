@@ -1,5 +1,4 @@
-﻿
-namespace Fanex.Affiliate.Admin.Core.Constants
+﻿namespace Fanex.Affiliate.Admin.Core.Constants
 {
     public static class DefaultValue
     {

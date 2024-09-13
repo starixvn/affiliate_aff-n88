@@ -9,7 +9,7 @@ using System.Web.Mvc;
 namespace Fanex.Affiliate.Admin.Core.Controllers.UserPanel
 {
     [FunctionAuthorize(FunctionName = Function.Affiliate)]
-    public class PlayerDetailController : BaseController
+    public class PlayerDetailController : ReadOnlySessionBaseController
     {
         private readonly IPlayerDetailService _playerDetailService;
 
@@ -26,10 +26,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.UserPanel
         {
             if (ModelState.IsValid)
             {
-                return new JsonNetResult
-                {
-                    Data = _playerDetailService.GetPlayerDetailList(param)
-                };
+                return GenerateJsonNetResult(_playerDetailService.GetPlayerDetailList(param));
             }
 
             return new JsonNetResult();

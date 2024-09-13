@@ -1,8 +1,8 @@
 ﻿using Autofac;
 using Autofac.Integration.Mvc;
 using Fanex.Affiliate.Admin.Core.Apis;
-using Fanex.Affiliate.User.Core.Infrastructure;
 using Fanex.Caching;
+using Fanex.Infrastructure.Handlers;
 using ONEbook.UM.Configurations;
 using ONEbook.UM.Helpers;
 using ONEbook.UM.NETFramework;

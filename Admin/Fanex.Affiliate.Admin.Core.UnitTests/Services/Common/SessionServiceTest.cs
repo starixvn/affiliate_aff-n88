@@ -1,6 +1,6 @@
 ﻿using Fanex.Affiliate.Admin.Core.DTO.Common;
 using Fanex.Affiliate.Admin.Core.Services.Common;
-using Fanex.Affiliate.Admin.Core.UnitTests.Common;
+using Fanex.Affiliate.Admin.Core.UnitTests.TestHelper;
 using System.Collections.Generic;
 using Xunit;
 
@@ -11,7 +11,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Common
         [Fact]
         public void PropertyUserId_WhenCall_UserIdCorrectly()
         {
-            MockSession.SetUpHttpContextSession();
+            MockingHelper.SetUpHttpContextSession();
             var service = CreateService();
             var userId = 123;
 
@@ -23,7 +23,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Common
         [Fact]
         public void PropertyUserId_WhenCall_ReturnZero()
         {
-            MockSession.SetUpHttpContextSession();
+            MockingHelper.SetUpHttpContextSession();
             var service = CreateService();
 
             Assert.Equal(0, service.UserId);
@@ -32,7 +32,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Common
         [Fact]
         public void PropertyOnUserId_WhenCall_OnUserIdCorrectly()
         {
-            MockSession.SetUpHttpContextSession();
+            MockingHelper.SetUpHttpContextSession();
             var service = CreateService();
             var onUserId = 123;
 
@@ -44,7 +44,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Common
         [Fact]
         public void PropertyOnUserId_WhenCall_ReturnZero()
         {
-            MockSession.SetUpHttpContextSession();
+            MockingHelper.SetUpHttpContextSession();
             var service = CreateService();
 
             Assert.Equal(0, service.OnUserId);
@@ -53,7 +53,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Common
         [Fact]
         public void PropertyAffName_WhenCall_AffIdCorrectly()
         {
-            MockSession.SetUpHttpContextSession();
+            MockingHelper.SetUpHttpContextSession();
             var service = CreateService();
             var affName = "abc";
 
@@ -65,7 +65,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Common
         [Fact]
         public void PropertyAffName_WhenCall_ReturnEmpty()
         {
-            MockSession.SetUpHttpContextSession();
+            MockingHelper.SetUpHttpContextSession();
             var service = CreateService();
 
             Assert.Equal(string.Empty, service.AffName);
@@ -74,7 +74,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Common
         [Fact]
         public void PropertyUserPermissionList_WhenCall_UserPermissionListCorrectly()
         {
-            MockSession.SetUpHttpContextSession();
+            MockingHelper.SetUpHttpContextSession();
             var service = CreateService();
 
             service.UserPermissionList = new List<UserPermission> { new UserPermission() };
@@ -85,7 +85,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Common
         [Fact]
         public void PropertyUserPermissionList_WhenCall_ReturnEmpty()
         {
-            MockSession.SetUpHttpContextSession();
+            MockingHelper.SetUpHttpContextSession();
             var service = CreateService();
 
             Assert.Empty(service.UserPermissionList);

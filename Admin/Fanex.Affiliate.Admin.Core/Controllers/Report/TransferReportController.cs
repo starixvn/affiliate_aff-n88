@@ -2,7 +2,6 @@
 using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.Report;
-using Fanex.Affiliate.Admin.Core.Extensions;
 using Fanex.Affiliate.Admin.Core.MetaModels.Report;
 using Fanex.Affiliate.Admin.Core.Repository;
 using Fanex.Affiliate.Admin.Core.Services.Common;
@@ -14,7 +13,7 @@ using System.Web.Mvc;
 namespace Fanex.Affiliate.Admin.Core.Controllers.Report
 {
     [FunctionAuthorize(FunctionName = Function.TransferPlayerReport)]
-    public class TransferReportController : BaseController
+    public class TransferReportController : ReadOnlySessionBaseController
     {
         private readonly ICurrencyRepository _currencyRepository;
         private readonly ITransferReportService _transferReportService;
@@ -45,10 +44,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Report
         [ValidateAntiForgeryHeader]
         public ActionResult GetTransferReportData(TransferReportParam param)
         {
-            return new JsonNetResult
-            {
-                Data = ModelState.IsValid ? _transferReportService.GetTransferReportData(param) : new EntityResult<TransferReport> { MainData = new List<TransferReport>() }
-            };
+            return GenerateJsonNetResult(ModelState.IsValid ? _transferReportService.GetTransferReportData(param) : new EntityResult<TransferReport> { MainData = new List<TransferReport>() });
         }
     }
 }

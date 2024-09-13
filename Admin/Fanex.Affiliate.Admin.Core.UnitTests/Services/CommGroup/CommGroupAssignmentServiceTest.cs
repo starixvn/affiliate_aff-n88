@@ -2,6 +2,7 @@
 using Autofac.Integration.Mvc;
 using Fanex.Affiliate.Admin.Core.Configurations;
 using Fanex.Affiliate.Admin.Core.DTO;
+using Fanex.Affiliate.Admin.Core.DTO.Affiliate;
 using Fanex.Affiliate.Admin.Core.DTO.CommissionGroup;
 using Fanex.Affiliate.Admin.Core.DTO.Email;
 using Fanex.Affiliate.Admin.Core.MetaModels.Affiliate;
@@ -93,8 +94,10 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
             Assert.False(result.IsSuccessful);
         }
 
-        [Fact]
-        public async Task AssignGroup_WhenCallWithApprovedComm_ExcuteSuccessful()
+        [Theory]
+        [InlineData(false)]
+        [InlineData(true)]
+        public async Task AssignGroup_WhenCallWithApprovedComm_ExcuteSuccessful(bool isNull)
         {
             // Arrange
             var appSetting = new Mock<IAppSetting>();
@@ -118,8 +121,11 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
 
             var affiliateService = new Mock<IAffiliateService>();
             affiliateService.Setup(aff => aff.ApproveAffiliate(It.IsAny<ApproveAffiliateParam>())).Returns((expectedResult, "12345"));
+            affiliateService.Setup(aff => aff.GetAffiliateBasicInfo(It.IsAny<int?>(), null)).Returns(isNull ? null : new AffiliateBasicInfo());
+            var thirdPartyLicenseeService = new Mock<IThirdPartyLicenseeService>();
+            thirdPartyLicenseeService.Setup(comm => comm.SendAffiliateInfo(It.IsAny<AffiliateBasicInfo>())).Returns(Task.CompletedTask);
 
-            var service = CreateCommGroupAssignmentService(commGroupRepository.Object, affiliateService.Object);
+            var service = CreateCommGroupAssignmentService(commGroupRepository.Object, affiliateService.Object, thirdPartyLicenseeService: thirdPartyLicenseeService.Object);
 
             // Action
             var result = await service.AssignGroup(param, affInfo, emailParam);
@@ -238,6 +244,8 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
         public async Task AssignPrivateGroup_WhenCall_ExcuteCorrectWithCreateAndApprovedPrivateComm()
         {
             // Arrange
+            MockingHelper.SetUpHttpContextSession();
+            MockingHelper.SetUpLogEngineEnviroment();
             var appSetting = new Mock<IAppSetting>();
             appSetting.Setup(a => a.AsianAffSiteUrl).Returns("https://aff-b2c.nexdev.net/N88User");
 
@@ -263,8 +271,12 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
 
             var affiliateService = new Mock<IAffiliateService>();
             affiliateService.Setup(aff => aff.ApproveAffiliate(It.IsAny<ApproveAffiliateParam>())).Returns((expectedResult, "12345"));
+            affiliateService.Setup(aff => aff.GetAffiliateBasicInfo(It.IsAny<int?>(), null)).Returns(new AffiliateBasicInfo());
 
-            var service = CreateCommGroupAssignmentService(commGroupRepository.Object, affiliateService.Object, null, commGroupCommonService.Object);
+            var thirdPartyLicenseeService = new Mock<IThirdPartyLicenseeService>();
+            thirdPartyLicenseeService.Setup(comm => comm.SendAffiliateInfo(It.IsAny<AffiliateBasicInfo>())).Throws(new System.Exception());
+
+            var service = CreateCommGroupAssignmentService(commGroupRepository.Object, affiliateService.Object, null, commGroupCommonService.Object, thirdPartyLicenseeService.Object);
 
             // Action
             var result = await service.AssignPrivateGroup(param, affInfo, emailParam);

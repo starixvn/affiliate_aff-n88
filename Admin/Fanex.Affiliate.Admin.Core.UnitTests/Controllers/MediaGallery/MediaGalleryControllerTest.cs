@@ -7,7 +7,6 @@ using Fanex.Affiliate.Admin.Core.MetaModels.MediaGallery;
 using Fanex.Affiliate.Admin.Core.Services;
 using Fanex.Affiliate.Admin.Core.Services.Common;
 using Fanex.Affiliate.Admin.Core.Services.MediaGallery;
-using Fanex.Affiliate.Admin.Core.UnitTests.Common;
 using Fanex.Affiliate.Admin.Core.UnitTests.TestHelper;
 using Fanex.Affiliate.Admin.Core.ViewModels.MediaGallery;
 using Moq;
@@ -153,7 +152,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.MediaGallery
             var controller = CreateMediaGalleryController(bannerListService: bannerListService.Object);
 
             // Action
-            var result = controller.InsertBanner(new MockFile[1], new InsertUpdateMultipleBannersParam()) as JsonNetResult;
+            var result = controller.InsertBanner(new MockingFile[1], new InsertUpdateMultipleBannersParam()) as JsonNetResult;
             var resultInfo = result.Data as ResultInfo;
 
             // Assert
@@ -168,7 +167,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.MediaGallery
             controller.ModelState.AddModelError("Error01", string.Empty);
 
             // Action
-            var result = controller.InsertBanner(new MockFile[1], new InsertUpdateMultipleBannersParam()) as JsonNetResult;
+            var result = controller.InsertBanner(new MockingFile[1], new InsertUpdateMultipleBannersParam()) as JsonNetResult;
             var resultInfo = result.Data as ResultInfo;
 
             // Assert

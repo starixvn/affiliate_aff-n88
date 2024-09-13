@@ -2,8 +2,6 @@
 using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.Message;
-using Fanex.Affiliate.Admin.Core.Extensions;
-using Fanex.Affiliate.Admin.Core.MetaModels;
 using Fanex.Affiliate.Admin.Core.MetaModels.Message;
 using Fanex.Affiliate.Admin.Core.Resources;
 using Fanex.Affiliate.Admin.Core.Services;
@@ -15,7 +13,7 @@ using System.Web.Mvc;
 namespace Fanex.Affiliate.Admin.Core.Controllers
 {
     [FunctionAuthorize(FunctionName = Function.HotNews)]
-    public class MessageController : BaseController
+    public class MessageController : ReadOnlySessionBaseController
     {
         private const int threeMilliSecond = 3;
         private readonly IMessageService _messageSevice;
@@ -46,30 +44,21 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
             {
                 param.ToDate = param.ToDate.AddDays(1).AddMilliseconds(-threeMilliSecond);
 
-                return new JsonNetResult
-                {
-                    Data = _messageSevice.GetMessageList(param)
-                };
+                return GenerateJsonNetResult(_messageSevice.GetMessageList(param));
             }
 
-            return new JsonNetResult
+            return GenerateJsonNetResult(new EntityResult<MessageInfo>
             {
-                Data = new EntityResult<MessageInfo>
-                {
-                    MainData = new List<MessageInfo>(),
-                    TotalItem = 0
-                }
-            };
+                MainData = new List<MessageInfo>(),
+                TotalItem = 0
+            });
         }
 
         [HttpPost]
         [ValidateAntiForgeryHeader]
         public ActionResult GetMessageDetail(int selectedMessageId)
         {
-            return new JsonNetResult
-            {
-                Data = _messageSevice.GetMessageDetail(selectedMessageId)
-            };
+            return GenerateJsonNetResult(_messageSevice.GetMessageDetail(selectedMessageId));
         }
 
         [HttpPost]
@@ -80,22 +69,12 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
             if (param.IsValid())
             {
                 var encodeParam = EncodeParam(param);
-                GetUserInfoParam(encodeParam);
+                AssignUserInfoParam(encodeParam);
 
-                return new JsonNetResult
-                {
-                    Data = _messageSevice.InsertMessage(encodeParam)
-                };
+                return GenerateJsonNetResult(_messageSevice.InsertMessage(encodeParam));
             }
 
-            return new JsonNetResult
-            {
-                Data = new ResultInfo
-                {
-                    Code = ErrCode.GeneralErrorCode,
-                    Message = Lang.PleaseEnterContent
-                }
-            };
+            return GenerateErrResult(Lang.PleaseEnterContent);
         }
 
         [HttpPost]
@@ -107,22 +86,12 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
             if (param.IsValid() && isValidMessageId)
             {
                 var encodeParam = EncodeParam(param);
-                GetUserInfoParam(encodeParam);
+                AssignUserInfoParam(encodeParam);
 
-                return new JsonNetResult
-                {
-                    Data = _messageSevice.UpdateMessage(encodeParam)
-                };
+                return GenerateJsonNetResult(_messageSevice.UpdateMessage(encodeParam));
             }
 
-            return new JsonNetResult
-            {
-                Data = new ResultInfo
-                {
-                    Code = ErrCode.GeneralErrorCode,
-                    Message = !isValidMessageId ? Lang.MessageIdIsInvalid : Lang.PleaseEnterContent
-                }
-            };
+            return GenerateErrResult(!isValidMessageId ? Lang.MessageIdIsInvalid : Lang.PleaseEnterContent);
         }
 
         [HttpPost]
@@ -132,22 +101,12 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
         {
             if (ModelState.IsValid)
             {
-                GetUserInfoParam(param);
+                AssignUserInfoParam(param);
 
-                return new JsonNetResult
-                {
-                    Data = _messageSevice.DeleteMessages(param)
-                };
+                return GenerateJsonNetResult(_messageSevice.DeleteMessages(param));
             }
 
-            return new JsonNetResult
-            {
-                Data = new ResultInfo
-                {
-                    Code = ErrCode.GeneralErrorCode,
-                    Message = Lang.PleaseSelectMessage
-                }
-            };
+            return GenerateErrResult(Lang.PleaseSelectMessage);
         }
 
         private InsertUpdateMessageParam EncodeParam(InsertUpdateMessageParam param)

@@ -255,6 +255,7 @@
     <Compile Include="Controllers\Affiliate\AffiliateController.cs" />
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ReadOnlySessionBaseController.cs" />
     <Compile Include="Controllers\Affiliate\RevenueGroupController.cs" />
     <Compile Include="Controllers\Affiliate\CommGroupAssignmentController.cs" />
     <Compile Include="Controllers\ChangeAdminPasswordController.cs" />
@@ -335,7 +336,6 @@
     <Compile Include="Exceptions\LicenseePaymentException.cs" />
     <Compile Include="Extensions\HttpRequestExtension.cs" />
     <Compile Include="Extensions\StringExtension.cs" />
-    <Compile Include="Infrasstructures\AuthenticatedHttpClientHandler.cs" />
     <Compile Include="MetaModels\Administrator\ChangeStatusParam.cs" />
     <Compile Include="MetaModels\Administrator\DeleteDepartmentParam.cs" />
     <Compile Include="MetaModels\Administrator\InsertExistedUserParam.cs" />
@@ -361,9 +361,7 @@
     <Compile Include="MetaModels\MediaGallery\BannerParam.cs" />
     <Compile Include="MetaModels\MediaGallery\BannerParamFromHome.cs" />
     <Compile Include="MetaModels\MediaGallery\DeleteBannerParam.cs" />
-    <Compile Include="MetaModels\MediaGallery\DeleteTextParam.cs" />
     <Compile Include="MetaModels\MediaGallery\InsertUpdateMultipleBannersParam.cs" />
-    <Compile Include="MetaModels\MediaGallery\InsertUpdateTextParam.cs" />
     <Compile Include="DTO\MediaGallery\LandingPage.cs" />
     <Compile Include="DTO\Message\MessageDetail.cs" />
     <Compile Include="DTO\Message\MessageInfo.cs" />
@@ -407,12 +405,9 @@
     <Compile Include="MetaModels\Customer\UpdateAffTypeParam.cs" />
     <Compile Include="MetaModels\Customer\UpdateLanguageParam.cs" />
     <Compile Include="MetaModels\Customer\UpdateStatusParam.cs" />
-    <Compile Include="MetaModels\EmailHistory\DeleteEmailHistoryParam.cs" />
-    <Compile Include="MetaModels\EmailHistory\EmailHistoryParam.cs" />
     <Compile Include="MetaModels\MediaGallery\DeleteLandingPageParam.cs" />
     <Compile Include="MetaModels\MediaGallery\InsertUpdateLandingPageParam.cs" />
     <Compile Include="MetaModels\MediaGallery\SizeParam.cs" />
-    <Compile Include="MetaModels\MediaGallery\TextParam.cs" />
     <Compile Include="MetaModels\Member\MemberParam.cs" />
     <Compile Include="MetaModels\Member\UpdateMemberParam.cs" />
     <Compile Include="MetaModels\Message\DeleteMessageParam.cs" />
@@ -599,7 +594,6 @@
     <Compile Include="Utilities\CommGroup\CommGroupValidation.cs" />
     <Compile Include="Utilities\CommGroup\ICommGroupValidation.cs" />
     <Compile Include="Utilities\CryptographyHelper.cs" />
-    <Compile Include="Utilities\Generator.cs" />
     <Compile Include="Utilities\IMailProcessor.cs" />
     <Compile Include="Utilities\ISystemFile.cs" />
     <Compile Include="Utilities\LogHelper.cs" />
@@ -672,6 +666,12 @@
     <AdditionalFiles Include="..\..\.sonarlint\n88affadmin\CSharp\SonarLint.xml">
       <Link>SonarLint.xml</Link>
     </AdditionalFiles>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Affiliate.Infrastructure\Affiliate.Infrastructure.csproj">
+      <Project>{B9A60C3F-FC44-4BF7-B618-68F0118C9000}</Project>
+      <Name>Affiliate.Infrastructure</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\..\packages\Refit.5.0.23\build\net461\refit.targets" Condition="Exists('..\..\packages\Refit.5.0.23\build\net461\refit.targets')" />

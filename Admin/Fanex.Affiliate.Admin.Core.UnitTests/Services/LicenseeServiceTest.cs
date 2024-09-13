@@ -9,13 +9,26 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services
 {
     public class LicenseeServiceTest
     {
-
         [Fact]
         public void CheckCustomerIsValid_WhenCall_ReturnTrue()
         {
             // Arrange
             var lisenseeApi = new Mock<ILicenseeApi>();
-            lisenseeApi.Setup(l => l.GetCustomerInfoAsync(It.IsAny<string>(), It.IsAny<int>())).Returns(Task.FromResult(new MemberSiteCustomerInfo { Status = 1 }));
+            lisenseeApi.Setup(l => l.GetCustomerInfoAsync(It.IsAny<string>(), It.IsAny<int>())).Returns(Task.FromResult(
+                new MemberSiteCustomerInfo
+                {
+                    Status = 1,
+                    ActStatus = 1,
+                    AgentId = 1,
+                    AllAgentId = "123",
+                    CurrencyId = 123,
+                    CustId = 1,
+                    IsTest = true,
+                    SiteId = 1,
+                    UserLang = "en",
+                    UserLevel = 1,
+                    UserName = "Test"
+                }));
 
             var service = CreateLicenseeService(lisenseeApi.Object);
 
@@ -69,6 +82,21 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services
 
             // Assert
             Assert.False(result.IsSuccessful);
+        }
+
+        [Fact]
+        public void GetMemberSiteCustomerInfo_WhenCall_ReturnCorrectData()
+        {
+            // Arrange
+            var lisenseeApi = new Mock<ILicenseeApi>();
+            lisenseeApi.Setup(l => l.GetCustomerInfoAsync(It.IsAny<string>(), It.IsAny<int>())).Returns(Task.FromResult(new MemberSiteCustomerInfo()));
+            var service = CreateLicenseeService();
+
+            // Action
+            var result = service.GetMemberSiteCustomerInfo(string.Empty, 123);
+
+            // Assert
+            Assert.NotNull(result);
         }
 
         [Theory]

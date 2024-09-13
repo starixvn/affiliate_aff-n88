@@ -1,4 +1,5 @@
-﻿using Fanex.Affiliate.Admin.Core.Constants;
+﻿using Affiliate.Infrastructure.Helpers;
+using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.CommissionGroup;
 using Fanex.Affiliate.Admin.Core.DTO.Email;

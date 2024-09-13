@@ -1,8 +1,6 @@
 ﻿using Fanex.Affiliate.Admin.Core.Attributes;
 using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
-using Fanex.Affiliate.Admin.Core.Extensions;
-using Fanex.Affiliate.Admin.Core.MetaModels;
 using Fanex.Affiliate.Admin.Core.MetaModels.Administrator;
 using Fanex.Affiliate.Admin.Core.Resources;
 using Fanex.Affiliate.Admin.Core.Services.Administrator;
@@ -13,7 +11,7 @@ using System.Web.Mvc;
 namespace Fanex.Affiliate.Admin.Core.Controllers.Administrator
 {
     [FunctionAuthorize(FunctionName = Function.UserControl)]
-    public class DepartmentController : BaseController
+    public class DepartmentController : ReadOnlySessionBaseController
     {
         private readonly IDepartmentService _departmentService;
 
@@ -39,20 +37,14 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Administrator
         [ValidateAntiForgeryHeader]
         public ActionResult GetDepartmentList()
         {
-            return new JsonNetResult
-            {
-                Data = _departmentService.GetDepartmentList()
-            };
+            return GenerateJsonNetResult(_departmentService.GetDepartmentList());
         }
 
         [HttpPost]
         [ValidateAntiForgeryHeader]
         public ActionResult GetDepartmentDetail(int selectedDepartmentId)
         {
-            return new JsonNetResult
-            {
-                Data = _departmentService.GetDepartmentDetail(selectedDepartmentId)
-            };
+            return GenerateJsonNetResult(_departmentService.GetDepartmentDetail(selectedDepartmentId));
         }
 
         [HttpPost]
@@ -63,22 +55,12 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Administrator
             if (ModelState.IsValid)
             {
                 var encodeParam = EncodeParam(param);
-                GetUserInfoParam(encodeParam);
+                AssignUserInfoParam(encodeParam);
 
-                return new JsonNetResult
-                {
-                    Data = _departmentService.InsertDepartment(encodeParam)
-                };
+                return GenerateJsonNetResult(_departmentService.InsertDepartment(encodeParam));
             }
 
-            return new JsonNetResult
-            {
-                Data = new ResultInfo
-                {
-                    Code = ErrCode.GeneralErrorCode,
-                    Message = "Please input Department's name."
-                }
-            };
+            return GenerateErrResult("Please input Department's name.");
         }
 
         [HttpPost]
@@ -90,22 +72,12 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Administrator
             if (ModelState.IsValid && isValidDepartmentId)
             {
                 var encodeParam = EncodeParam(param);
-                GetUserInfoParam(encodeParam);
+                AssignUserInfoParam(encodeParam);
 
-                return new JsonNetResult
-                {
-                    Data = _departmentService.UpdateDepartment(encodeParam)
-                };
+                return GenerateJsonNetResult(_departmentService.UpdateDepartment(encodeParam));
             }
 
-            return new JsonNetResult
-            {
-                Data = new ResultInfo
-                {
-                    Code = ErrCode.GeneralErrorCode,
-                    Message = !isValidDepartmentId ? "Department Id is invalid." : "Please input Department's name."
-                }
-            };
+            return GenerateErrResult(isValidDepartmentId ? "Please input Department's name." : "Department Id is invalid.");
         }
 
         [HttpPost]
@@ -115,32 +87,19 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Administrator
         {
             if (ModelState.IsValid)
             {
-                GetUserInfoParam(param);
+                AssignUserInfoParam(param);
 
-                return new JsonNetResult
-                {
-                    Data = _departmentService.DeleteDepartment(param)
-                };
+                return GenerateJsonNetResult(_departmentService.DeleteDepartment(param));
             }
 
-            return new JsonNetResult
-            {
-                Data = new ResultInfo
-                {
-                    Code = ErrCode.GeneralErrorCode,
-                    Message = "Department id is incorrect."
-                }
-            };
+            return GenerateErrResult("Department id is incorrect.");
         }
 
         [HttpPost]
         [ValidateAntiForgeryHeader]
         public ActionResult GetRolePolicy(int departmentId)
         {
-            return new JsonNetResult
-            {
-                Data = _departmentService.GetRolePolicy(departmentId)
-            };
+            return GenerateJsonNetResult(_departmentService.GetRolePolicy(departmentId));
         }
 
         [HttpPost]
@@ -154,22 +113,12 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Administrator
                 {
                     GroupPolicies = Server.HtmlEncode(param.GroupPolicies.Trim())
                 };
-                GetUserInfoParam(encodeParam);
+                AssignUserInfoParam(encodeParam);
 
-                return new JsonNetResult
-                {
-                    Data = _departmentService.UpdateRolePolicy(encodeParam)
-                };
+                return GenerateJsonNetResult(_departmentService.UpdateRolePolicy(encodeParam));
             }
 
-            return new JsonNetResult
-            {
-                Data = new ResultInfo
-                {
-                    Code = ErrCode.GeneralErrorCode,
-                    Message = "The role policy is invalid."
-                }
-            };
+            return GenerateErrResult("The role policy is invalid.");
         }
 
         private InsertUpdateDepartmentParam EncodeParam(InsertUpdateDepartmentParam param)

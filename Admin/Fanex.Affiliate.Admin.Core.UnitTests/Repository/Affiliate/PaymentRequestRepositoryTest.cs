@@ -1,5 +1,4 @@
-﻿using Fanex.Affiliate.Admin.Core.DTO.Payment;
-using Fanex.Affiliate.Admin.Core.MetaModels.Payment;
+﻿using Fanex.Affiliate.Admin.Core.MetaModels.Payment;
 using Fanex.Affiliate.Admin.Core.Repository.Payment;
 using Fanex.Affiliate.Admin.Core.UnitTests.TestHelper;
 using Fanex.Data;

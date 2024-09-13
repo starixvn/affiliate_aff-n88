@@ -14,7 +14,7 @@ using System.Web.Mvc;
 namespace Fanex.Affiliate.Admin.Core.Controllers
 {
     [FunctionAuthorize(FunctionName = Function.UserControl)]
-    public class EmailTestingController : BaseController
+    public class EmailTestingController : ReadOnlySessionBaseController
     {
         private const int _transId = 123;
         private const int _amount = 100;
@@ -63,6 +63,8 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryHeader]
+        [FunctionAuthorize(FunctionName = Function.UserControl, IsHost = true)]
         public ActionResult SendEmail(string language, string function, string format, string emailAddress)
         {
             var success = true;
@@ -91,7 +93,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
                 Message = message
             };
 
-            return Json(result);
+            return GenerateJsonNetResult(result);
         }
 
         private string GetEmailContent(string language, string function, string format)
@@ -186,7 +188,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
                         DefaultCurrency = _appSetting.DefaultCurrency,
                         FirstName = _firstName,
                         TransId = _transId,
-                        TransDate = DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss"),
+                        TransDate = DateTimeHelper.NowDateTimeOffset.ToString("MM/dd/yyyy hh:mm:ss"),
                         Amount = _amount
                     };
                 case "PaymentRequest/Rejected":
@@ -197,7 +199,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
                         DefaultCurrency = _appSetting.DefaultCurrency,
                         FirstName = _firstName,
                         TransId = _transId,
-                        TransDate = DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss"),
+                        TransDate = DateTimeHelper.NowDateTimeOffset.ToString("MM/dd/yyyy hh:mm:ss"),
                         Amount = _amount
                     };
                 default:

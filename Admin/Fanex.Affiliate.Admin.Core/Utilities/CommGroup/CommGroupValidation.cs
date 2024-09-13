@@ -36,12 +36,12 @@ namespace Fanex.Affiliate.Admin.Core.Utilities.CommGroup
         {
             var affInfo = _affiliateService.GetAffiliateBasicInfo(affId);
 
-            if(string.IsNullOrEmpty(affInfo.AffCode))
+            if (string.IsNullOrEmpty(affInfo.AffCode))
             {
                 var permissionList = _authRepository.GetPermissionList(userId);
 
                 return permissionList.Any(i => i.FunctionName.MatchWith(Function.EditAffStatus) && i.IsHost);
-            }    
+            }
 
             return true;
         }

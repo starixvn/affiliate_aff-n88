@@ -18,7 +18,7 @@ using System.Web.Mvc;
 namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
 {
     [FunctionAuthorize(FunctionName = Function.RevenueGroup)]
-    public class CommGroupAssignmentController : BaseController
+    public class CommGroupAssignmentController : ReadOnlySessionBaseController
     {
         private const string PrivateGroupName = "[None]";
 
@@ -77,28 +77,25 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
         [ValidateAntiForgeryHeader]
         public async Task<ActionResult> AssignGroup(AssignGroupParam assignParam, AffInfoParam affInfo)
         {
-            if(!_commGroupValidation.HasPermissionAssignOnAff(SessionService.UserId, affInfo.AffId))
+            if (!_commGroupValidation.HasPermissionAssignOnAff(SessionService.UserId, affInfo.AffId))
             {
                 return CreateAccessDeniedResult();
             }
 
             if (!ModelState.IsValid || assignParam.GroupId < Validation.MinId)
             {
-                return CreateErrorResult();
+                return GenerateModelStateErrResult();
             }
 
-            GetUserInfoParam(assignParam);
             assignParam.AffId = affInfo.AffId;
+            AssignUserInfoParam(assignParam);
 
             var emailParam = new AffInformationEmail
             {
                 RootUrl = SiteDomainHelper.GetRootUrl(this)
             };
 
-            return new JsonNetResult
-            {
-                Data = await _commGroupAssignmentService.AssignGroup(assignParam, affInfo, emailParam)
-            };
+            return GenerateJsonNetResult(await _commGroupAssignmentService.AssignGroup(assignParam, affInfo, emailParam));
         }
 
         [HttpGet]
@@ -135,7 +132,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
 
             if (!ModelState.IsValid)
             {
-                return CreateErrorResult();
+                return GenerateModelStateErrResult();
             }
 
             var result = _commGroupValidation.ValidateCommGroup(commGroup);
@@ -164,32 +161,10 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
                     RootUrl = SiteDomainHelper.GetRootUrl(this)
                 };
 
-                return new JsonNetResult
-                {
-                    Data = await _commGroupAssignmentService.AssignPrivateGroup(assignParam, affInfo, emailParam)
-                };
+                return GenerateJsonNetResult(await _commGroupAssignmentService.AssignPrivateGroup(assignParam, affInfo, emailParam));
             }
 
-            return new JsonNetResult
-            {
-                Data = new ResultInfo
-                {
-                    Code = ErrCode.GeneralErrorCode,
-                    Message = result.Message
-                }
-            };
-        }
-
-        private ActionResult CreateErrorResult()
-        {
-            return new JsonNetResult
-            {
-                Data = new ResultInfo
-                {
-                    Code = ErrCode.GeneralErrorCode,
-                    Message = string.Join("<br />", ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage))
-                }
-            };
+            return GenerateErrResult(result.Message);
         }
 
         private ActionResult CreateAccessDeniedResult()

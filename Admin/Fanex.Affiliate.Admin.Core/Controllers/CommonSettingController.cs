@@ -1,17 +1,13 @@
 ﻿using Fanex.Affiliate.Admin.Core.Attributes;
 using Fanex.Affiliate.Admin.Core.Constants;
-using Fanex.Affiliate.Admin.Core.Extensions;
 using Fanex.Affiliate.Admin.Core.Repository.MediaGallery;
 using Fanex.Affiliate.Admin.Core.Services.UserPanel;
-using ONEbook.UM.AspNetMVC.Filters;
 using System.Web.Mvc;
 
 namespace Fanex.Affiliate.Admin.Core.Controllers
 {
-    [CustomAuthorize]
-    [CheckUMFilter]
     [FunctionAuthorize(FunctionName = Function.Affiliate)]
-    public class CommonSettingController : Controller
+    public class CommonSettingController : BaseController
     {
         private readonly ILandingPageRepository _landingPageRepository;
         private readonly ITrackingStatisticsService _trackingStatisticsService;
@@ -29,20 +25,14 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
         [ValidateAntiForgeryHeader]
         public ActionResult GetPageList()
         {
-            return new JsonNetResult
-            {
-                Data = _landingPageRepository.GetLandingPageList()
-            };
+            return GenerateJsonNetResult(_landingPageRepository.GetLandingPageList());
         }
 
         [HttpPost]
         [ValidateAntiForgeryHeader]
         public ActionResult GetTrackingCodeList(int affId)
         {
-            return new JsonNetResult
-            {
-                Data = _trackingStatisticsService.GetTrackingCodeList(affId)
-            };
+            return GenerateJsonNetResult(_trackingStatisticsService.GetTrackingCodeList(affId));
         }
     }
 }

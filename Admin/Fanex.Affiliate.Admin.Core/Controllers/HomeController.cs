@@ -1,11 +1,11 @@
-﻿using Fanex.Affiliate.Admin.Core.Extensions;
+﻿using Fanex.Affiliate.Admin.Core.Attributes;
 using Fanex.Affiliate.Admin.Core.Services.Common;
 using Fanex.Affiliate.Admin.Core.Services.Home;
 using System.Web.Mvc;
 
 namespace Fanex.Affiliate.Admin.Core.Controllers
 {
-    public class HomeController : BaseController
+    public class HomeController : ReadOnlySessionBaseController
     {
         private readonly IHomeService _homeService;
 
@@ -23,21 +23,17 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryHeader]
         public ActionResult GetGeneralInfo()
         {
-            return new JsonNetResult
-            {
-                Data = _homeService.GetGeneralInfo()
-            };
+            return GenerateJsonNetResult(_homeService.GetGeneralInfo());
         }
 
         [HttpPost]
+        [ValidateAntiForgeryHeader]
         public ActionResult GetOnlineList(int pageIndex = 1, int pageSize = 20)
         {
-            return new JsonNetResult
-            {
-                Data = _homeService.GetOnlineList(pageIndex, pageSize)
-            };
+            return GenerateJsonNetResult(_homeService.GetOnlineList(pageIndex, pageSize));
         }
     }
 }

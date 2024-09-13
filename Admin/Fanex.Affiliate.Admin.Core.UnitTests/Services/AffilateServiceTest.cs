@@ -86,7 +86,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services
                 ["PreferredLanguage"] = "vi-VN",
                 ["PlayerUsername"] = "123abc",
                 ["PlayerCustId"] = "1",
-                ["ParentAffName"] = "test",
+                ["ParentAffName"] = "N88Aff001",
                 ["AffType"] = "2",
                 ["IsPrivate"] = false
             };

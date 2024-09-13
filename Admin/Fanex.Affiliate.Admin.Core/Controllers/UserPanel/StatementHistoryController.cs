@@ -10,7 +10,7 @@ using System.Web.Mvc;
 namespace Fanex.Affiliate.Admin.Core.Controllers.UserPanel
 {
     [FunctionAuthorize(FunctionName = Function.Affiliate)]
-    public class StatementHistoryController : BaseController
+    public class StatementHistoryController : ReadOnlySessionBaseController
     {
         private readonly IStatementHistoryService _statementHistoryService;
 
@@ -27,10 +27,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.UserPanel
         {
             if (ModelState.IsValid)
             {
-                return new JsonNetResult
-                {
-                    Data = _statementHistoryService.GetStatementHistoryList(param)
-                };
+                return GenerateJsonNetResult(_statementHistoryService.GetStatementHistoryList(param));
             }
 
             return new JsonNetResult();
@@ -42,10 +39,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.UserPanel
         {
             if (ModelState.IsValid)
             {
-                return new JsonNetResult
-                {
-                    Data = _statementHistoryService.GetSubAffiliate(param)
-                };
+                return GenerateJsonNetResult(_statementHistoryService.GetSubAffiliate(param));
             }
 
             return new JsonNetResult();
@@ -57,10 +51,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.UserPanel
         {
             if (ModelState.IsValid)
             {
-                return new JsonNetResult
-                {
-                    Data = _statementHistoryService.GetDailyEarning(param)
-                };
+                return GenerateJsonNetResult(_statementHistoryService.GetDailyEarning(param));
             }
 
             return new JsonNetResult();
@@ -72,10 +63,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.UserPanel
         {
             if (ModelState.IsValid)
             {
-                return new JsonNetResult
-                {
-                    Data = _statementHistoryService.GetDailyEarningDetail(param)
-                };
+                return GenerateJsonNetResult(_statementHistoryService.GetDailyEarningDetail(param));
             }
 
             return new JsonNetResult();

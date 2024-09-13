@@ -1,4 +1,5 @@
-﻿using DNAide.Utils;
+﻿using Affiliate.Infrastructure.Helpers;
+using DNAide.Utils;
 using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.Affiliate;

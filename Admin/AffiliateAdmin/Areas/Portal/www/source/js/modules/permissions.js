@@ -1,5 +1,18 @@
 ﻿export const permissionResource = {
+    UserControl: "[UserControl]",
+    Affiliate: "[Affiliate]",
+    Payment: "[Payment]",
+    Media: "[Media]",
+    AffExRate: "[AffEx.Rate]",
+    HotNews: "[HotNews]",
+    RevenueGroup: "[RevenueGroup]",
     AffReport: "[AffReport]",
+    Domain: "[Domain]",
+    MemberEmail: "[MemberEmail]",
+    Note: "[Note]",
+    SecurityQA: "[SecurityQA]",
+    EditAffStatus: "[EditAffiliateStatus]",
+    EditAffDetails: "[EditAffiliateDetails]",
     TransferPlayerSetting: "[HideTransferPlayerSetting]", //Hide Transfer Player
     TransferPlayerReport: "[HideTransferPlayerReport]" //Hide Transfer Player
 }

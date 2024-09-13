@@ -9,7 +9,7 @@ using System.Web.Mvc;
 namespace Fanex.Affiliate.Admin.Core.Controllers.UserPanel
 {
     [FunctionAuthorize(FunctionName = Function.Affiliate)]
-    public class TrackingStatisticsController : BaseController
+    public class TrackingStatisticsController : ReadOnlySessionBaseController
     {
         private readonly ITrackingStatisticsService _trackingStatisticsService;
 
@@ -26,10 +26,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.UserPanel
         {
             if (ModelState.IsValid)
             {
-                return new JsonNetResult
-                {
-                    Data = _trackingStatisticsService.GetTrackingStatisticsList(param)
-                };
+                return GenerateJsonNetResult(_trackingStatisticsService.GetTrackingStatisticsList(param));
             }
 
             return new JsonNetResult();
@@ -41,10 +38,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.UserPanel
         {
             if (ModelState.IsValid)
             {
-                return new JsonNetResult
-                {
-                    Data = _trackingStatisticsService.GetTrackingStatisticsDetailList(param)
-                };
+                return GenerateJsonNetResult(_trackingStatisticsService.GetTrackingStatisticsDetailList(param));
             }
 
             return new JsonNetResult();

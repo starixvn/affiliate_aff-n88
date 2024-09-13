@@ -2,7 +2,6 @@
 using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.Extensions;
-using Fanex.Affiliate.Admin.Core.MetaModels;
 using Fanex.Affiliate.Admin.Core.MetaModels.Domain;
 using Fanex.Affiliate.Admin.Core.Resources;
 using Fanex.Affiliate.Admin.Core.Services.Common;
@@ -15,7 +14,7 @@ using System.Web.Mvc;
 namespace Fanex.Affiliate.Admin.Core.Controllers.Domain
 {
     [FunctionAuthorize(FunctionName = Function.Domain)]
-    public class SubAffDomainController : BaseController
+    public class SubAffDomainController : ReadOnlySessionBaseController
     {
         private readonly ISubAffDomainService _subAffDomainService;
 
@@ -62,22 +61,12 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Domain
             if (ModelState.IsValid)
             {
                 var encodeParam = EncodeParam(param);
-                GetUserInfoParam(encodeParam);
+                AssignUserInfoParam(encodeParam);
 
-                return new JsonNetResult
-                {
-                    Data = _subAffDomainService.InsertSubAffDomain(encodeParam)
-                };
+                return GenerateJsonNetResult(_subAffDomainService.InsertSubAffDomain(encodeParam));
             }
 
-            return new JsonNetResult
-            {
-                Data = new ResultInfo
-                {
-                    Code = ErrCode.GeneralErrorCode,
-                    Message = "Please input Sub-Affiliate Domain's name."
-                }
-            };
+            return GenerateErrResult("Please input Sub-Affiliate Domain's name.");
         }
 
         [HttpPost]
@@ -89,22 +78,12 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Domain
             if (ModelState.IsValid && isValidDomainId)
             {
                 var encodeParam = EncodeParam(param);
-                GetUserInfoParam(encodeParam);
+                AssignUserInfoParam(encodeParam);
 
-                return new JsonNetResult
-                {
-                    Data = _subAffDomainService.UpdateSubAffDomain(encodeParam)
-                };
+                return GenerateJsonNetResult(_subAffDomainService.UpdateSubAffDomain(encodeParam));
             }
 
-            return new JsonNetResult
-            {
-                Data = new ResultInfo
-                {
-                    Code = ErrCode.GeneralErrorCode,
-                    Message = !isValidDomainId ? "Sub-Affiliate Domain Id is invalid." : "Please input Sub-Affiliate Domain's name."
-                }
-            };
+            return GenerateErrResult(isValidDomainId ? "Please input Sub-Affiliate Domain's name." : "Sub-Affiliate Domain Id is invalid.");
         }
 
         [HttpPost]
@@ -114,22 +93,12 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Domain
         {
             if (ModelState.IsValid)
             {
-                GetUserInfoParam(param);
+                AssignUserInfoParam(param);
 
-                return new JsonNetResult
-                {
-                    Data = _subAffDomainService.DeleteSubAffDomain(param)
-                };
+                return GenerateJsonNetResult(_subAffDomainService.DeleteSubAffDomain(param));
             }
 
-            return new JsonNetResult
-            {
-                Data = new ResultInfo
-                {
-                    Code = ErrCode.GeneralErrorCode,
-                    Message = "Sub-Affiliate Domain Id is incorrect."
-                }
-            };
+            return GenerateErrResult("Sub-Affiliate Domain Id is incorrect.");
         }
 
         private InsertUpdateDomainParam EncodeParam(InsertUpdateDomainParam param)

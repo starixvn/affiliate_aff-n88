@@ -2,7 +2,6 @@
 using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.Affiliate;
-using Fanex.Affiliate.Admin.Core.Extensions;
 using Fanex.Affiliate.Admin.Core.MetaModels;
 using Fanex.Affiliate.Admin.Core.MetaModels.Affiliate;
 using Fanex.Affiliate.Admin.Core.MetaModels.CommissionGroup;
@@ -19,7 +18,7 @@ using System.Web.Mvc;
 namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
 {
     [FunctionAuthorize(FunctionName = Function.Affiliate)]
-    public class AffiliateController : BaseController
+    public class AffiliateController : ReadOnlySessionBaseController
     {
         private readonly IAffiliateInfoRepository _affiliateInfoRepository;
 
@@ -69,38 +68,29 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
                 param.UserId = SessionService.UserId;
                 var model = _affiliateInfoRepository.GetAffiliateList(param);
 
-                return new JsonNetResult
-                {
-                    Data = model
-                };
+                return GenerateJsonNetResult(model);
             }
 
-            return new JsonNetResult
+            return GenerateJsonNetResult(new EntityResult<AffiliateInfo>
             {
-                Data = new EntityResult<AffiliateInfo>
-                {
-                    MainData = new List<AffiliateInfo>(),
-                    TotalItem = 0
-                }
-            };
+                MainData = new List<AffiliateInfo>(),
+                TotalItem = 0
+            });
         }
 
         [HttpPost]
         [ValidateAntiForgeryHeader]
+        [FunctionAuthorize(FunctionName = Function.Affiliate, IsHost = true)]
         public ActionResult ToggleFavorite(FavoriteParam param)
         {
             if (ModelState.IsValid)
             {
-                GetUserInfoParam(param);
+                AssignUserInfoParam(param);
 
-                return Json(_affiliateInfoRepository.ToggleFavorite(param));
+                return GenerateJsonNetResult(_affiliateInfoRepository.ToggleFavorite(param));
             }
 
-            return Json(new ResultInfo
-            {
-                Code = ErrCode.GeneralErrorCode,
-                Message = "Update Favorite failed!"
-            });
+            return GenerateErrResult("Update Favorite failed!");
         }
 
         [HttpPost]
@@ -110,16 +100,12 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
         {
             if (ModelState.IsValid)
             {
-                GetUserInfoParam(param);
                 param.Password = CryptographyHelper.Encrypt(param.Password);
+                AssignUserInfoParam(param);
 
-                return Json(_affiliateInfoRepository.ChangePassword(param));
+                return GenerateJsonNetResult(_affiliateInfoRepository.ChangePassword(param));
             }
-            return Json(new ResultInfo
-            {
-                Code = ErrCode.GeneralErrorCode,
-                Message = "Change Password is failed!"
-            });
+            return GenerateErrResult("Change Password is failed!");
         }
     }
 }

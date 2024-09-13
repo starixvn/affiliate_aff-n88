@@ -1,17 +1,13 @@
 ﻿using Fanex.Affiliate.Admin.Core.Attributes;
-using Fanex.Affiliate.Admin.Core.Constants;
-using Fanex.Affiliate.Admin.Core.DTO;
-using Fanex.Affiliate.Admin.Core.Extensions;
 using Fanex.Affiliate.Admin.Core.MetaModels.ChangeAdminPassword;
 using Fanex.Affiliate.Admin.Core.Services.ChangeAdminPassword;
 using Fanex.Affiliate.Admin.Core.Services.Common;
 using Fanex.Affiliate.Admin.Core.Utilities;
-using System.Linq;
 using System.Web.Mvc;
 
 namespace Fanex.Affiliate.Admin.Core.Controllers
 {
-    public class ChangeAdminPasswordController : BaseController
+    public class ChangeAdminPasswordController : ReadOnlySessionBaseController
     {
         private readonly IChangeAdminPasswordService _changeAdminPasswordService;
 
@@ -34,24 +30,14 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
         {
             if (ModelState.IsValid)
             {
-                GetUserInfoParam(param);
                 param.OldPassword = CryptographyHelper.Encrypt(param.OldPassword.Trim());
                 param.NewPassword = CryptographyHelper.Encrypt(param.NewPassword.Trim());
+                AssignUserInfoParam(param);
 
-                return new JsonNetResult
-                {
-                    Data = _changeAdminPasswordService.ChangePassword(param)
-                };
+                return GenerateJsonNetResult(_changeAdminPasswordService.ChangePassword(param));
             }
 
-            return new JsonNetResult
-            {
-                Data = new ResultInfo
-                {
-                    Code = ErrCode.GeneralErrorCode,
-                    Message = string.Join("<br />", ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage))
-                }
-            };
+            return GenerateModelStateErrResult();
         }
     }
 }

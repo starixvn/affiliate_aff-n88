@@ -9,7 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace Fanex.Affiliate.User.Core.Infrastructure
+namespace Fanex.Infrastructure.Handlers
 {
     public class AuthenticatedHttpClientHandler : HttpClientHandler
     {
@@ -36,8 +36,8 @@ namespace Fanex.Affiliate.User.Core.Infrastructure
             string requestHttpMethod = request.Method.ToString();
 
             //Calculate UNIX time
-            DateTime epochStart = new DateTime(1970, 01, 01, 0, 0, 0, 0, DateTimeKind.Utc);
-            TimeSpan timeSpan = DateTime.UtcNow - epochStart;
+            DateTimeOffset epochStart = new DateTimeOffset(1970, 01, 01, 0, 0, 0, 0, TimeSpan.Zero);
+            TimeSpan timeSpan = DateTimeOffset.UtcNow - epochStart;
             string requestTimeStamp = Convert.ToUInt64(timeSpan.TotalSeconds).ToString();
 
             //create random nonce for each request

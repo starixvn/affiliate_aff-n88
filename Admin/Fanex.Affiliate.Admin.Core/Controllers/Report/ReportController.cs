@@ -1,6 +1,5 @@
 ﻿using Fanex.Affiliate.Admin.Core.Attributes;
 using Fanex.Affiliate.Admin.Core.Constants;
-using Fanex.Affiliate.Admin.Core.Extensions;
 using Fanex.Affiliate.Admin.Core.MetaModels.CommissionGroup;
 using Fanex.Affiliate.Admin.Core.MetaModels.Report;
 using Fanex.Affiliate.Admin.Core.Repository;
@@ -13,7 +12,7 @@ using System.Web.Mvc;
 namespace Fanex.Affiliate.Admin.Core.Controllers.Report
 {
     [FunctionAuthorize(FunctionName = Function.AffReport)]
-    public class ReportController : BaseController
+    public class ReportController : ReadOnlySessionBaseController
     {
         private readonly IProductRepository _productRepository;
 
@@ -65,20 +64,14 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Report
         [ValidateAntiForgeryHeader]
         public ActionResult GetMainData(AffiliateReportParam param)
         {
-            return new JsonNetResult
-            {
-                Data = _affiliateReportService.GetMainReportData(param)
-            };
+            return GenerateJsonNetResult(_affiliateReportService.GetMainReportData(param));
         }
 
         [HttpPost]
         [ValidateAntiForgeryHeader]
         public ActionResult GetDetailData(AffiliateReportParam param)
         {
-            return new JsonNetResult
-            {
-                Data = _affiliateReportService.GetDetailReportData(param)
-            };
+            return GenerateJsonNetResult(_affiliateReportService.GetDetailReportData(param));
         }
     }
 }

@@ -8,5 +8,6 @@
         public const int ErrCodeUserAlreadyHasIBCAccount = 102;
         public const int ErrTheFileNameAlreadyExists = 104;
         public const int ErrCanNotAccessFolder = -9999;
+        public const int ErrNoPermissionOnAnyFunctions = 1;
     }
 }

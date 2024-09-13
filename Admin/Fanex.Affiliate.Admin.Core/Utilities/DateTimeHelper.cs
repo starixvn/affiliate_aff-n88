@@ -15,5 +15,9 @@ namespace Fanex.Affiliate.Admin.Core.Utilities
         {
             return DateTime.Compare(from, to) <= 0;
         }
+
+        public static DateTimeOffset NowDateTimeOffset => DateTimeOffset.Now;
+
+        public static DateTimeOffset UtcNowDateTimeOffset => DateTimeOffset.UtcNow;
     }
 }

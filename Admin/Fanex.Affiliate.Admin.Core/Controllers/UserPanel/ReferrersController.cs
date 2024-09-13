@@ -9,7 +9,7 @@ using System.Web.Mvc;
 namespace Fanex.Affiliate.Admin.Core.Controllers.UserPanel
 {
     [FunctionAuthorize(FunctionName = Function.Affiliate)]
-    public class ReferrersController : BaseController
+    public class ReferrersController : ReadOnlySessionBaseController
     {
         private readonly IReferrersRepository _referrersRepository;
         public ReferrersController(
@@ -25,10 +25,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.UserPanel
         {
             if (ModelState.IsValid)
             {
-                return new JsonNetResult
-                {
-                    Data = _referrersRepository.GetReferrersList(param)
-                };
+                return GenerateJsonNetResult(_referrersRepository.GetReferrersList(param));
             }
 
             return new JsonNetResult();
@@ -40,10 +37,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.UserPanel
         {
             if (ModelState.IsValid)
             {
-                return new JsonNetResult
-                {
-                    Data = _referrersRepository.GetReferrersDetailList(param)
-                };
+                return GenerateJsonNetResult(_referrersRepository.GetReferrersDetailList(param));
             }
 
             return new JsonNetResult();

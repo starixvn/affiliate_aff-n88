@@ -101,7 +101,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
 
         private static bool CheckIfExistMonthlyTotal(DateTime monthDate, List<StatementHistory> vms)
         {
-            return vms.Any(m => m.Date == monthDate && m.TransType == TransType.MonthlyTotal);
+            return vms.Exists(m => m.Date == monthDate && m.TransType == TransType.MonthlyTotal);
         }
     }
 }

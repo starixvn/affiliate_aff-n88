@@ -1,19 +1,17 @@
 ﻿using Fanex.Affiliate.Admin.Core.Attributes;
 using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
-using Fanex.Affiliate.Admin.Core.Extensions;
 using Fanex.Affiliate.Admin.Core.MetaModels.MediaGallery;
 using Fanex.Affiliate.Admin.Core.Resources;
 using Fanex.Affiliate.Admin.Core.Services.Common;
 using Fanex.Affiliate.Admin.Core.Services.MediaGallery;
 using System.Collections.Generic;
-using System.Linq;
 using System.Web.Mvc;
 
 namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
 {
     [FunctionAuthorize(FunctionName = Function.Media)]
-    public class LandingPageListController : BaseController
+    public class LandingPageListController : ReadOnlySessionBaseController
     {
         private readonly ILandingPageService _landingPageService;
 
@@ -38,20 +36,14 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
         [ValidateAntiForgeryHeader]
         public ActionResult GetLandingPageList()
         {
-            return new JsonNetResult
-            {
-                Data = _landingPageService.GetLandingPageList()
-            };
+            return GenerateJsonNetResult(_landingPageService.GetLandingPageList());
         }
 
         [HttpPost]
         [ValidateAntiForgeryHeader]
         public ActionResult GetLandingPageItem(int pageId)
         {
-            return new JsonNetResult
-            {
-                Data = _landingPageService.GetLandingPageById(pageId)
-            };
+            return GenerateJsonNetResult(_landingPageService.GetLandingPageById(pageId));
         }
 
         [HttpPost]
@@ -62,22 +54,12 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
             if (ModelState.IsValid)
             {
                 var encodeParam = EncodeParam(param);
-                GetUserInfoParam(encodeParam);
+                AssignUserInfoParam(encodeParam);
 
-                return new JsonNetResult
-                {
-                    Data = _landingPageService.InsertLandingPage(encodeParam)
-                };
+                return GenerateJsonNetResult(_landingPageService.InsertLandingPage(encodeParam));
             }
 
-            return new JsonNetResult
-            {
-                Data = new ResultInfo
-                {
-                    Code = ErrCode.GeneralErrorCode,
-                    Message = string.Join("\n", ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage))
-                }
-            };
+            return GenerateModelStateErrResult();
         }
 
         [HttpPost]
@@ -88,22 +70,12 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
             if (ModelState.IsValid)
             {
                 var encodeParam = EncodeParam(param);
-                GetUserInfoParam(encodeParam);
+                AssignUserInfoParam(encodeParam);
 
-                return new JsonNetResult
-                {
-                    Data = _landingPageService.UpdateLandingPage(encodeParam)
-                };
+                return GenerateJsonNetResult(_landingPageService.UpdateLandingPage(encodeParam));
             }
 
-            return new JsonNetResult
-            {
-                Data = new ResultInfo
-                {
-                    Code = ErrCode.GeneralErrorCode,
-                    Message = string.Join("\n", ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage))
-                }
-            };
+            return GenerateModelStateErrResult();
         }
 
         [HttpPost]
@@ -113,22 +85,12 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
         {
             if (ModelState.IsValid)
             {
-                GetUserInfoParam(param);
+                AssignUserInfoParam(param);
 
-                return new JsonNetResult
-                {
-                    Data = _landingPageService.DeleteLandingPage(param)
-                };
+                return GenerateJsonNetResult(_landingPageService.DeleteLandingPage(param));
             }
 
-            return new JsonNetResult
-            {
-                Data = new ResultInfo
-                {
-                    Code = ErrCode.GeneralErrorCode,
-                    Message = string.Join("\n", ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage))
-                }
-            };
+            return GenerateModelStateErrResult();
         }
 
         private InsertUpdateLandingPageParam EncodeParam(InsertUpdateLandingPageParam param)

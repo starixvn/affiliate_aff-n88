@@ -3,6 +3,7 @@ using Autofac.Integration.Mvc;
 using Fanex.Affiliate.Admin.Core.Configurations;
 using Fanex.Affiliate.Admin.Core.Controllers;
 using Fanex.Affiliate.Admin.Core.DTO;
+using Fanex.Affiliate.Admin.Core.Extensions;
 using Fanex.Affiliate.Admin.Core.Services;
 using Fanex.Affiliate.Admin.Core.Services.Common;
 using Fanex.Affiliate.Admin.Core.UnitTests.TestHelper;
@@ -37,7 +38,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers
         public void Preview_WhenCallHasException_ReturnView()
         {
             // Arrange
-            var controller = new EmailTestingController(MockingHelper.GetSessionService(), Mock.Of<IMailProcessor>(), Mock.Of<IAppSetting>(), Mock.Of<ILanguageService>());
+            var controller = CreateEmailTestingController(MockingHelper.GetSessionService());
 
             // Action
             var viewResult = controller.Preview(string.Empty, string.Empty, string.Empty) as ViewResult;
@@ -193,18 +194,23 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers
         public void SendEmail_WhenCallHasException_ReturnFalse()
         {
             // Arrange
-            var controller = new EmailTestingController(MockingHelper.GetSessionService(), Mock.Of<IMailProcessor>(), Mock.Of<IAppSetting>(), Mock.Of<ILanguageService>());
+            var controller = CreateEmailTestingController(MockingHelper.GetSessionService());
 
             // Action
-            var jsonResult = controller.SendEmail(string.Empty, string.Empty, string.Empty, string.Empty) as JsonResult;
+            var jsonResult = controller.SendEmail(string.Empty, string.Empty, string.Empty, string.Empty) as JsonNetResult;
             var data = jsonResult.Data as dynamic;
 
             // Assert
             Assert.False(data.Success);
         }
 
-        [Fact]
-        public void SendEmail_WhenCall_ReturnTrue()
+        [Theory]
+        [InlineData("AffiliateDisapproved")]
+        [InlineData("AffiliateInformation")]
+        [InlineData("PaymentRequest/Approved")]
+        [InlineData("PaymentRequest/Rejected")]
+        [InlineData("")]
+        public void SendEmail_WhenCall_ReturnTrue(string function)
         {
             // Arrange
             var appSetting = new Mock<IAppSetting>();
@@ -224,7 +230,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers
             var controller = CreateEmailTestingController(appSetting: appSetting.Object);
 
             // Action
-            var jsonResult = controller.SendEmail(string.Empty, null, string.Empty, string.Empty) as JsonResult;
+            var jsonResult = controller.SendEmail(string.Empty, function, string.Empty, string.Empty) as JsonNetResult;
             var data = jsonResult.Data as dynamic;
 
             // Assert

@@ -199,7 +199,7 @@ export class Content extends PureComponent {
         const { gridData, shouldResetScrollPosition } = this.state;
 
         return (
-            <div className="data-content payment-request">
+            <div className="data-content statement-history">
                 <div className="table-responsive table-striped my-2">
                     <Table
                         maxWidth={maxWidth}

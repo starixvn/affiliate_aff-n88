@@ -2,8 +2,6 @@
 using Fanex.Affiliate.Admin.Core.Configurations;
 using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
-using Fanex.Affiliate.Admin.Core.Extensions;
-using Fanex.Affiliate.Admin.Core.MetaModels;
 using Fanex.Affiliate.Admin.Core.MetaModels.MediaGallery;
 using Fanex.Affiliate.Admin.Core.Resources;
 using Fanex.Affiliate.Admin.Core.Services;
@@ -19,7 +17,7 @@ using System.Web.Mvc;
 namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
 {
     [FunctionAuthorize(FunctionName = Function.Media)]
-    public class MediaGalleryController : BaseController
+    public class MediaGalleryController : ReadOnlySessionBaseController
     {
         private const int BannerListCategory = 1;
         private const string CasinoCategory = "Casino";
@@ -83,50 +81,35 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
         [ValidateAntiForgeryHeader]
         public ActionResult GetCategoryList(byte userType)
         {
-            return new JsonNetResult
-            {
-                Data = _commonMediaGalleryService.GetCategoryList(BannerListCategory, userType).Where(c => string.IsNullOrEmpty(c.SubCategoryName))
-            };
+            return GenerateJsonNetResult(_commonMediaGalleryService.GetCategoryList(BannerListCategory, userType).Where(c => string.IsNullOrEmpty(c.SubCategoryName)));
         }
 
         [HttpPost]
         [ValidateAntiForgeryHeader]
         public ActionResult GetBannerRootUrl()
         {
-            return new JsonNetResult
-            {
-                Data = _appSetting.BannerRootUrl
-            };
+            return GenerateJsonNetResult(_appSetting.BannerRootUrl);
         }
 
         [HttpPost]
         [ValidateAntiForgeryHeader]
         public ActionResult GetSizeList(SizeParam param)
         {
-            return new JsonNetResult
-            {
-                Data = _bannerListService.GetSizeList(param)
-            };
+            return GenerateJsonNetResult(_bannerListService.GetSizeList(param));
         }
 
         [HttpPost]
         [ValidateAntiForgeryHeader]
         public ActionResult GetBannerList(BannerParam param)
         {
-            return new JsonNetResult
-            {
-                Data = _bannerListService.GetBannerList(param)
-            };
+            return GenerateJsonNetResult(_bannerListService.GetBannerList(param));
         }
 
         [HttpPost]
         [ValidateAntiForgeryHeader]
         public ActionResult GetBannerDetail(int selectedBannerId, byte userType)
         {
-            return new JsonNetResult
-            {
-                Data = _bannerListService.GetBannerDetail(selectedBannerId, userType)
-            };
+            return GenerateJsonNetResult(_bannerListService.GetBannerDetail(selectedBannerId, userType));
         }
 
         [HttpPost]
@@ -137,22 +120,12 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
             if (ModelState.IsValid && files != null)
             {
                 var encodeParam = EncodeParam(param);
-                GetUserInfoParam(encodeParam);
+                AssignUserInfoParam(encodeParam);
 
-                return new JsonNetResult
-                {
-                    Data = _bannerListService.InsertBanner(files, encodeParam)
-                };
+                return GenerateJsonNetResult(_bannerListService.InsertBanner(files, encodeParam));
             }
 
-            return new JsonNetResult
-            {
-                Data = new ResultInfo
-                {
-                    Code = ErrCode.GeneralErrorCode,
-                    Message = Lang.InvalidBannerBrowser
-                }
-            };
+            return GenerateErrResult(Lang.InvalidBannerBrowser);
         }
 
         [HttpPost]
@@ -164,22 +137,12 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
             if (ModelState.IsValid && isValidBannerId && (!string.IsNullOrEmpty(param.InputFileNames) || files != null))
             {
                 var encodeParam = EncodeParam(param);
-                GetUserInfoParam(encodeParam);
+                AssignUserInfoParam(encodeParam);
 
-                return new JsonNetResult
-                {
-                    Data = _bannerListService.UpdateBanner(files, encodeParam)
-                };
+                return GenerateJsonNetResult(_bannerListService.UpdateBanner(files, encodeParam));
             }
 
-            return new JsonNetResult
-            {
-                Data = new ResultInfo
-                {
-                    Code = ErrCode.GeneralErrorCode,
-                    Message = !isValidBannerId ? "Banner Id is invalid." : Lang.PleaseEnterFileName
-                }
-            };
+            return GenerateErrResult(isValidBannerId ? Lang.PleaseEnterFileName : "Banner Id is invalid.");
         }
 
         [HttpPost]
@@ -189,22 +152,12 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
         {
             if (ModelState.IsValid)
             {
-                GetUserInfoParam(param);
+                AssignUserInfoParam(param);
 
-                return new JsonNetResult
-                {
-                    Data = _bannerListService.DeleteBanners(param)
-                };
+                return GenerateJsonNetResult(_bannerListService.DeleteBanners(param));
             }
 
-            return new JsonNetResult
-            {
-                Data = new ResultInfo
-                {
-                    Code = ErrCode.GeneralErrorCode,
-                    Message = "Please select Banner(s) to delete."
-                }
-            };
+            return GenerateErrResult("Please select Banner(s) to delete.");
         }
 
         private InsertUpdateMultipleBannersParam EncodeParam(InsertUpdateMultipleBannersParam param)

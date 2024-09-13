@@ -2,7 +2,6 @@
 using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.Report;
-using Fanex.Affiliate.Admin.Core.Extensions;
 using Fanex.Affiliate.Admin.Core.MetaModels.Report;
 using Fanex.Affiliate.Admin.Core.Repository;
 using Fanex.Affiliate.Admin.Core.Services.Common;
@@ -14,7 +13,7 @@ using System.Web.Mvc;
 namespace Fanex.Affiliate.Admin.Core.Controllers.Report
 {
     [FunctionAuthorize(FunctionName = Function.AffReport)]
-    public class PlayerGgrReportController : BaseController
+    public class PlayerGgrReportController : ReadOnlySessionBaseController
     {
         private readonly IProductRepository _productRepository;
         private readonly ICurrencyRepository _currencyRepository;
@@ -49,10 +48,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Report
         [ValidateAntiForgeryHeader]
         public ActionResult GetPlayerGgrReportData(PlayerGgrReportParam param)
         {
-            return new JsonNetResult
-            {
-                Data = ModelState.IsValid ? _playerGgrReportService.GetPlayerGgrReportData(param) : new EntityResult<PlayerGgrReport> { MainData = new List<PlayerGgrReport>() }
-            };
+            return GenerateJsonNetResult(ModelState.IsValid ? _playerGgrReportService.GetPlayerGgrReportData(param) : new EntityResult<PlayerGgrReport> { MainData = new List<PlayerGgrReport>() });
         }
     }
 }

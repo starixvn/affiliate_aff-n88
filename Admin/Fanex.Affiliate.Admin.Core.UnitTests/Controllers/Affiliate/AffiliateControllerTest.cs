@@ -94,7 +94,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
             var controller = CreateAffiliateController(affiliateInfoRepository: affiliateInfoRepository.Object);
 
             // Action
-            var result = controller.ToggleFavorite(param) as JsonResult;
+            var result = controller.ToggleFavorite(param) as JsonNetResult;
             var resultInfo = result.Data as ResultInfo;
 
             // Assert
@@ -110,7 +110,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
             controller.ModelState.AddModelError("Error01", string.Empty);
 
             // Action
-            var result = controller.ToggleFavorite(new FavoriteParam()) as JsonResult;
+            var result = controller.ToggleFavorite(new FavoriteParam()) as JsonNetResult;
             var resultInfo = result.Data as ResultInfo;
 
             // Assert
@@ -129,7 +129,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
             var controller = CreateAffiliateController(affiliateInfoRepository: affiliateInfoRepository.Object);
 
             // Action
-            var result = controller.ChangePassword(param) as JsonResult;
+            var result = controller.ChangePassword(param) as JsonNetResult;
             var resultInfo = result.Data as ResultInfo;
 
             // Assert
@@ -145,7 +145,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
             controller.ModelState.AddModelError("Error01", string.Empty);
 
             // Action
-            var result = controller.ChangePassword(new PasswordParam()) as JsonResult;
+            var result = controller.ChangePassword(new PasswordParam()) as JsonNetResult;
             var resultInfo = result.Data as ResultInfo;
 
             // Assert

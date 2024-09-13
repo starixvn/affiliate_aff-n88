@@ -126,11 +126,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Helpers\AntiForgeryHelper.cs" />
-    <Compile Include="Helpers\CacheHelper.cs" />
-    <Compile Include="Helpers\ConnectionStringHelper.cs" />
-    <Compile Include="Helpers\Cryptography.cs" />
-    <Compile Include="Helpers\TargetPage.cs" />
+    <Compile Include="Handlers\AuthenticatedHttpClientHandler.cs" />
+    <Compile Include="Helpers\Generator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

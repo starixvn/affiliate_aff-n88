@@ -8,7 +8,6 @@ using Fanex.Affiliate.Admin.Core.Services.UserPanel;
 using Fanex.Affiliate.Admin.Core.UnitTests.TestHelper;
 using Moq;
 using System.Collections.Generic;
-using System.Reflection;
 using Xunit;
 
 namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Customer
@@ -28,9 +27,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Customer
             // Action
             var result = controller.GetCustomerMember(param) as JsonNetResult;
 
-            var objType = result.Data.GetType();
-            PropertyInfo[] properties = objType.GetProperties(BindingFlags.Public | BindingFlags.Instance);
-            var entityResult = properties[0].GetValue(result.Data) as EntityResult<CustomerMember>;
+            var entityResult = result.Data as EntityResult<CustomerMember>;
 
             // Assert
             Assert.Single(entityResult.MainData);

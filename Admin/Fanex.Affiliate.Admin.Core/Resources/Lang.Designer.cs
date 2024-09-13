@@ -61,15 +61,6 @@ namespace Fanex.Affiliate.Admin.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Active Player.
-        /// </summary>
-        public static string ActivePlayer {
-            get {
-                return ResourceManager.GetString("ActivePlayer", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Admin List.
         /// </summary>
         public static string AdminList {
@@ -174,15 +165,6 @@ namespace Fanex.Affiliate.Admin.Core.Resources {
         public static string EmailAutoNotification {
             get {
                 return ResourceManager.GetString("EmailAutoNotification", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Email History.
-        /// </summary>
-        public static string EmailHistory {
-            get {
-                return ResourceManager.GetString("EmailHistory", resourceCulture);
             }
         }
         
@@ -426,15 +408,6 @@ namespace Fanex.Affiliate.Admin.Core.Resources {
         public static string TextB2CDomains {
             get {
                 return ResourceManager.GetString("TextB2CDomains", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Text List.
-        /// </summary>
-        public static string TextList {
-            get {
-                return ResourceManager.GetString("TextList", resourceCulture);
             }
         }
         

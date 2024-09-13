@@ -17,7 +17,7 @@ using System.Web.Mvc;
 namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
 {
     [FunctionAuthorize(FunctionName = Function.Payment)]
-    public class PaymentRequestController : BaseController
+    public class PaymentRequestController : ReadOnlySessionBaseController
     {
         private readonly IPaymentService _paymentRequestService;
         private readonly IAuthRepository _authRepo;
@@ -51,10 +51,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
         {
             if (ModelState.IsValid)
             {
-                return new JsonNetResult
-                {
-                    Data = _paymentRequestService.GetPaymentRequestList(param)
-                };
+                return GenerateJsonNetResult(_paymentRequestService.GetPaymentRequestList(param));
             }
 
             return new JsonNetResult();
@@ -66,10 +63,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
         {
             if (transId >= Validation.MinId)
             {
-                return new JsonNetResult
-                {
-                    Data = _paymentRequestService.GetPaymentRequestDetail(transId)
-                };
+                return GenerateJsonNetResult(_paymentRequestService.GetPaymentRequestDetail(transId));
             }
 
             return new JsonNetResult();
@@ -91,7 +85,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
                 var result = _authRepo.CheckPermission(permissionParam);
                 if (!result.IsSuccessful)
                 {
-                    return new JsonNetResult { Data = result };
+                    return GenerateJsonNetResult(result);
                 }
 
                 var paymentRequestUpdateParam = new PaymentRequestUpdateParam
@@ -101,27 +95,17 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
                     AdminDesc = Server.HtmlEncode(param.AdminDesc),
                     AffDesc = Server.HtmlEncode(param.AffDesc),
                 };
-                GetUserInfoParam(paymentRequestUpdateParam);
+                AssignUserInfoParam(paymentRequestUpdateParam);
 
                 var emailParam = new PaymentRequestUpdateEmail
                 {
                     RootUrl = SiteDomainHelper.GetRootUrl(this),
                 };
 
-                return new JsonNetResult
-                {
-                    Data = await _paymentRequestService.HandlePaymentRequest(paymentRequestUpdateParam, emailParam)
-                };
+                return GenerateJsonNetResult(await _paymentRequestService.HandlePaymentRequest(paymentRequestUpdateParam, emailParam));
             }
 
-            return new JsonNetResult
-            {
-                Data = new ResultInfo
-                {
-                    Code = ErrCode.GeneralErrorCode,
-                    Message = "Transaction not exists!"
-                }
-            };
+            return GenerateErrResult("Transaction not exists!");
         }
     }
 }

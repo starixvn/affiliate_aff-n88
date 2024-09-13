@@ -27,7 +27,37 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Member
             Assert.Single(result.MainData);
         }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Major Code Smell", "S125:Sections of code should not be commented out", Justification = "<Pending>")]
+        [Fact]
+        public void GetMemberDetail_WhenCall_ReturnCorrectData()
+        {
+            // Arrange
+            var memberRepository = new Mock<IMemberRepository>();
+            memberRepository.Setup(comm => comm.GetMemberDetail(It.IsAny<int>())).Returns(new PlayerActionInfo());
+            var service = CreateMemberService(memberRepository.Object);
+
+            // Action
+            var result = service.GetMemberDetail(123);
+
+            // Assert
+            Assert.NotNull(result);
+        }
+
+        [Fact]
+        public void UpdateMember_WhenCall_UpdateSuccessfully()
+        {
+            // Arrange
+            var param = new UpdateMemberParam();
+            var memberRepository = new Mock<IMemberRepository>();
+            memberRepository.Setup(comm => comm.UpdateMember(param)).Returns(ResultInfo.Success);
+            var service = CreateMemberService(memberRepository.Object);
+
+            // Action
+            var result = service.UpdateMember(param);
+
+            // Assert
+            Assert.True(result.IsSuccessful);
+        }
+
         private static MemberService CreateMemberService(IMemberRepository memberRepository = null)
         {
             var fakeMemberRepository = memberRepository ?? Mock.Of<IMemberRepository>();

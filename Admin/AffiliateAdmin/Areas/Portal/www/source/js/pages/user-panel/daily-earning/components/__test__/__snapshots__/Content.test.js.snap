@@ -152,7 +152,7 @@ exports[`customer member - components - Content render correctly with have data 
           <t
             asc={true}
             className="text-center"
-            colSpan={false}
+            colSpan={1}
             header={false}
             onClick={[Function]}
             sortable={false}
@@ -250,7 +250,7 @@ exports[`customer member - components - Content render correctly with have data 
           <t
             asc={true}
             className="text-center"
-            colSpan={false}
+            colSpan={1}
             header={false}
             onClick={[Function]}
             sortable={false}

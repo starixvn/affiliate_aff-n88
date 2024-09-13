@@ -1,7 +1,6 @@
 ﻿using Fanex.Affiliate.Admin.Core.Attributes;
 using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
-using Fanex.Affiliate.Admin.Core.Extensions;
 using Fanex.Affiliate.Admin.Core.MetaModels.Member;
 using Fanex.Affiliate.Admin.Core.Resources;
 using Fanex.Affiliate.Admin.Core.Services.Common;
@@ -13,7 +12,7 @@ using System.Web.Mvc;
 namespace Fanex.Affiliate.Admin.Core.Controllers.Player
 {
     [FunctionAuthorize(FunctionName = Function.Affiliate)]
-    public class PlayerController : BaseController
+    public class PlayerController : ReadOnlySessionBaseController
     {
         private readonly IMemberService _memberService;
         public PlayerController(
@@ -44,20 +43,14 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Player
         [ValidateAntiForgeryHeader]
         public ActionResult GetMemberList(MemberParam param)
         {
-            return new JsonNetResult
-            {
-                Data = _memberService.GetMemberList(param)
-            };
+            return GenerateJsonNetResult(_memberService.GetMemberList(param));
         }
 
         [HttpPost]
         [ValidateAntiForgeryHeader]
         public ActionResult GetMemberDetail(int memberId)
         {
-            return new JsonNetResult
-            {
-                Data = _memberService.GetMemberDetail(memberId)
-            };
+            return GenerateJsonNetResult(_memberService.GetMemberDetail(memberId));
         }
 
         [HttpPost]
@@ -65,12 +58,14 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Player
         [FunctionAuthorize(FunctionName = Function.Affiliate, IsHost = true)]
         public ActionResult UpdateMember(UpdateMemberParam param)
         {
-            GetUserInfoParam(param);
-
-            return new JsonNetResult
+            if (ModelState.IsValid)
             {
-                Data = _memberService.UpdateMember(param)
-            };
+                AssignUserInfoParam(param);
+
+                return GenerateJsonNetResult(_memberService.UpdateMember(param));
+            }
+
+            return GenerateModelStateErrResult();
         }
     }
 }

@@ -1,19 +1,20 @@
 ﻿using System.IO;
 using System.Web;
 
-namespace Fanex.Affiliate.Admin.Core.UnitTests.Common
+namespace Fanex.Affiliate.Admin.Core.UnitTests.TestHelper
 {
-    class MockFile : HttpPostedFileBase
+    internal class MockingFile : HttpPostedFileBase
     {
         public Stream stream;
         public string contentType;
         public string fileName;
 
-        public MockFile()
+        public MockingFile()
         {
         }
 
-        public MockFile(Stream stream, string contentType = "", string fileName = "")
+
+        public MockingFile(Stream stream, string contentType = "", string fileName = "")
         {
             this.stream = stream;
             this.contentType = contentType;

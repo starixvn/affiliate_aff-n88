@@ -9,7 +9,7 @@ using System.Web.Mvc;
 namespace Fanex.Affiliate.Admin.Core.Controllers
 {
     [FunctionAuthorize(FunctionName = Function.Affiliate)]
-    public class CustomerStatisticsController : BaseController
+    public class CustomerStatisticsController : ReadOnlySessionBaseController
     {
         private readonly ICustomerStatisticsService _customerStatisticsService;
 
@@ -26,10 +26,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
         {
             if (ModelState.IsValid)
             {
-                return new JsonNetResult
-                {
-                    Data = _customerStatisticsService.GetCustomerStatistics(param)
-                };
+                return GenerateJsonNetResult(_customerStatisticsService.GetCustomerStatistics(param));
             }
 
             return new JsonNetResult();

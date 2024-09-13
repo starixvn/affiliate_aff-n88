@@ -1,23 +1,19 @@
 ﻿using Fanex.Affiliate.Admin.Core.Attributes;
 using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
-using Fanex.Affiliate.Admin.Core.Extensions;
-using Fanex.Affiliate.Admin.Core.MetaModels;
 using Fanex.Affiliate.Admin.Core.MetaModels.Administrator;
 using Fanex.Affiliate.Admin.Core.Resources;
 using Fanex.Affiliate.Admin.Core.Services.Administrator;
 using Fanex.Affiliate.Admin.Core.Services.Common;
 using Fanex.Affiliate.Admin.Core.Utilities;
 using System.Collections.Generic;
-using System.Linq;
 using System.Web.Mvc;
 
 namespace Fanex.Affiliate.Admin.Core.Controllers.Administrator
 {
     [FunctionAuthorize(FunctionName = Function.UserControl)]
-    public class AdministratorController : BaseController
+    public class AdministratorController : ReadOnlySessionBaseController
     {
-        private const string BreakLine = "<br />";
         private readonly IAdministratorService _administratorService;
 
         public AdministratorController(
@@ -42,40 +38,28 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Administrator
         [ValidateAntiForgeryHeader]
         public ActionResult GetAccountPolicyList(int groupId)
         {
-            return new JsonNetResult
-            {
-                Data = _administratorService.GetAccountPolicyList(groupId)
-            };
+            return GenerateJsonNetResult(_administratorService.GetAccountPolicyList(groupId));
         }
 
         [HttpPost]
         [ValidateAntiForgeryHeader]
         public ActionResult GetPolicyListByGroupIds(string groupIds)
         {
-            return new JsonNetResult
-            {
-                Data = _administratorService.GetPolicyListByGroupIds(groupIds)
-            };
+            return GenerateJsonNetResult(_administratorService.GetPolicyListByGroupIds(groupIds));
         }
 
         [HttpPost]
         [ValidateAntiForgeryHeader]
         public ActionResult GetUserList(string userName, string firstLetter, int groupId = 0)
         {
-            return new JsonNetResult
-            {
-                Data = _administratorService.GetUserList(groupId, userName, firstLetter)
-            };
+            return GenerateJsonNetResult(_administratorService.GetUserList(groupId, userName, firstLetter));
         }
 
         [HttpPost]
         [ValidateAntiForgeryHeader]
         public ActionResult GetUserDetail(int selectedUserId)
         {
-            return new JsonNetResult
-            {
-                Data = _administratorService.GetUserDetail(selectedUserId)
-            };
+            return GenerateJsonNetResult(_administratorService.GetUserDetail(selectedUserId));
         }
 
         [HttpPost]
@@ -94,22 +78,12 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Administrator
                     GroupId = param.GroupId
                 };
 
-                GetUserInfoParam(encodeParam);
+                AssignUserInfoParam(encodeParam);
 
-                return new JsonNetResult
-                {
-                    Data = _administratorService.InsertUser(encodeParam)
-                };
+                return GenerateJsonNetResult(_administratorService.InsertUser(encodeParam));
             }
 
-            return new JsonNetResult
-            {
-                Data = new ResultInfo
-                {
-                    Code = ErrCode.GeneralErrorCode,
-                    Message = string.Join(BreakLine, ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage))
-                }
-            };
+            return GenerateModelStateErrResult();
         }
 
         [HttpPost]
@@ -125,22 +99,12 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Administrator
                     GroupId = param.GroupId
                 };
 
-                GetUserInfoParam(encodeParam);
+                AssignUserInfoParam(encodeParam);
 
-                return new JsonNetResult
-                {
-                    Data = _administratorService.InsertExistedUser(encodeParam)
-                };
+                return GenerateJsonNetResult(_administratorService.InsertExistedUser(encodeParam));
             }
 
-            return new JsonNetResult
-            {
-                Data = new ResultInfo
-                {
-                    Code = ErrCode.GeneralErrorCode,
-                    Message = string.Join(BreakLine, ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage))
-                }
-            };
+            return GenerateModelStateErrResult();
         }
 
         [HttpPost]
@@ -158,22 +122,12 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Administrator
                     GroupId = param.GroupId
                 };
 
-                GetUserInfoParam(encodeParam);
+                AssignUserInfoParam(encodeParam);
 
-                return new JsonNetResult
-                {
-                    Data = _administratorService.UpdateUser(encodeParam)
-                };
+                return GenerateJsonNetResult(_administratorService.UpdateUser(encodeParam));
             }
 
-            return new JsonNetResult
-            {
-                Data = new ResultInfo
-                {
-                    Code = ErrCode.GeneralErrorCode,
-                    Message = string.Join(BreakLine, ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage))
-                }
-            };
+            return GenerateModelStateErrResult();
         }
 
         [HttpPost]
@@ -183,22 +137,12 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Administrator
         {
             if (ModelState.IsValid)
             {
-                GetUserInfoParam(param);
+                AssignUserInfoParam(param);
 
-                return new JsonNetResult
-                {
-                    Data = _administratorService.ChangeStatus(param)
-                };
+                return GenerateJsonNetResult(_administratorService.ChangeStatus(param));
             }
 
-            return new JsonNetResult
-            {
-                Data = new ResultInfo
-                {
-                    Code = ErrCode.GeneralErrorCode,
-                    Message = "Account Id is invalid"
-                }
-            };
+            return GenerateErrResult("Account Id is invalid");
         }
 
         [HttpPost]
@@ -212,22 +156,12 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Administrator
                 {
                     GroupPolicies = Server.HtmlEncode(param.GroupPolicies.Trim())
                 };
-                GetUserInfoParam(encodeParam);
+                AssignUserInfoParam(encodeParam);
 
-                return new JsonNetResult
-                {
-                    Data = _administratorService.UpdateAccountPolicy(encodeParam)
-                };
+                return GenerateJsonNetResult(_administratorService.UpdateAccountPolicy(encodeParam));
             }
 
-            return new JsonNetResult
-            {
-                Data = new ResultInfo
-                {
-                    Code = ErrCode.GeneralErrorCode,
-                    Message = "The account policy is invalid."
-                }
-            };
+            return GenerateErrResult("The account policy is invalid.");
         }
 
         [HttpPost]
@@ -238,22 +172,12 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Administrator
             if (ModelState.IsValid)
             {
                 param.Password = CryptographyHelper.Encrypt(param.Password);
-                GetUserInfoParam(param);
+                AssignUserInfoParam(param);
 
-                return new JsonNetResult
-                {
-                    Data = _administratorService.ChangePassword(param)
-                };
+                return GenerateJsonNetResult(_administratorService.ChangePassword(param));
             }
 
-            return new JsonNetResult
-            {
-                Data = new ResultInfo
-                {
-                    Code = ErrCode.GeneralErrorCode,
-                    Message = string.Join(BreakLine, ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage))
-                }
-            };
+            return GenerateModelStateErrResult();
         }
     }
 }

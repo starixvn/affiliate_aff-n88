@@ -46,7 +46,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Customer
             var controller = CreateCustomerLeftPanelController();
 
             // Action
-            var result = controller.GetAffiliateInfo(string.Empty) as JsonResult;
+            var result = controller.GetAffiliateInfo(string.Empty) as JsonNetResult;
 
             // Assert
             Assert.Null(result.Data);
@@ -78,7 +78,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Customer
             var controller = CreateCustomerLeftPanelController();
 
             // Action
-            var result = controller.GetOnlineList(string.Empty) as JsonResult;
+            var result = controller.GetOnlineList(string.Empty) as JsonNetResult;
 
             // Assert
             Assert.Null(result.Data);
@@ -110,7 +110,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Customer
             var controller = CreateCustomerLeftPanelController();
 
             // Action
-            var result = controller.GetTransferLimitSetting(string.Empty) as JsonResult;
+            var result = controller.GetTransferLimitSetting(string.Empty) as JsonNetResult;
 
             // Assert
             Assert.Null(result.Data);
@@ -143,7 +143,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Customer
             controller.ModelState.AddModelError("Error01", "Amount is invalid!");
 
             // Action
-            var result = controller.UpdateTransferLimitSetting(new TransferLimitSettingParam()) as JsonResult;
+            var result = controller.UpdateTransferLimitSetting(new TransferLimitSettingParam()) as JsonNetResult;
             var data = result.Data as ResultInfo;
 
             // Assert
@@ -178,7 +178,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Customer
             controller.ModelState.AddModelError("Error01", string.Empty);
 
             // Action
-            var result = controller.UpdateLanguage(new UpdateLanguageParam()) as JsonResult;
+            var result = controller.UpdateLanguage(new UpdateLanguageParam()) as JsonNetResult;
             var data = result.Data as ResultInfo;
 
             // Assert
@@ -213,7 +213,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Customer
             controller.ModelState.AddModelError("Error01", string.Empty);
 
             // Action
-            var result = controller.UpdateAffType(new UpdateAffTypeParam()) as JsonResult;
+            var result = controller.UpdateAffType(new UpdateAffTypeParam()) as JsonNetResult;
             var data = result.Data as ResultInfo;
 
             // Assert
@@ -262,16 +262,17 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Customer
         public async Task UpdateStatus_WhenCallWithInvalidParam_ReturnError()
         {
             // Arrange
+            var errorMsg = "Update Status is failed!";
             var controller = CreateCustomerLeftPanelController();
-            controller.ModelState.AddModelError("Error01", string.Empty);
+            controller.ModelState.AddModelError("Error01", errorMsg);
 
             // Action
-            var result = await controller.UpdateStatus(new UpdateStatusParam()) as JsonResult;
+            var result = await controller.UpdateStatus(new UpdateStatusParam()) as JsonNetResult;
             var data = result.Data as ResultInfo;
 
             // Assert
             Assert.False(data.IsSuccessful);
-            Assert.Equal("Update Status is failed!", data.Message);
+            Assert.Equal(errorMsg, data.Message);
         }
 
         private CustomerLeftPanelController CreateCustomerLeftPanelController(

@@ -157,8 +157,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\MockFile.cs" />
-    <Compile Include="Common\MockSession.cs" />
+    <Compile Include="Repository\Tracker\JobTrackerRepositoryTest.cs" />
+    <Compile Include="TestHelper\MockingFile.cs" />
     <Compile Include="Controllers\AccessDeniedControllerTest.cs" />
     <Compile Include="Controllers\Administrator\AdministratorControllerTest.cs" />
     <Compile Include="Controllers\Administrator\DepartmentControllerTest.cs" />
@@ -253,7 +253,8 @@
     <Compile Include="Services\Payment\PaymentRequestServiceTest.cs" />
     <Compile Include="Services\Report\TransferServiceTest.cs" />
     <Compile Include="Services\Report\PlayerGgrServiceTest.cs" />
-    <Compile Include="Services\Report\ReportServiceTest.cs" />
+    <Compile Include="Services\Report\AffiliateReportServiceTest.cs" />
+    <Compile Include="Services\ThirdPartyLisencee\ThirdPartyLicenseeServiceTest.cs" />
     <Compile Include="TestHelper\Constant.cs" />
     <Compile Include="TestHelper\MockingHelper.cs" />
     <Compile Include="TestHelper\ReaderHelper.cs" />

@@ -30,7 +30,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
                             UserName = Convert.ToString(reader["UserName"]),
                             FirstName = reader["FirstName"] == DBNull.Value ? string.Empty : Convert.ToString(reader["FirstName"]),
                             LastName = reader["LastName"] == DBNull.Value ? string.Empty : Convert.ToString(reader["LastName"]),
-                            Email = (param.CanViewMemberEmail && reader["Email"] != DBNull.Value) ? Convert.ToString(reader["Email"]) : string.Empty,
+                            Email = reader["Email"] == DBNull.Value ? string.Empty : Convert.ToString(reader["Email"]),
                             CurrencyName = reader["Currency"] == DBNull.Value ? string.Empty : Convert.ToString(reader["Currency"]),
                             RegisteredDate = reader["RegisteredDate"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(reader["RegisteredDate"])
                         });

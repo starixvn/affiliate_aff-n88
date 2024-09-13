@@ -116,13 +116,11 @@ namespace Fanex.Affiliate.Admin.Core.Repository
             const string spName = "Aff_Con_CheckPermission";
             using (var objectDb = GetObjectDb(spName))
             {
+                AssignResultOutputParam(objectDb);
+
                 objectDb.ExecuteNonQuery(param);
 
-                return new ResultInfo
-                {
-                    Code = param.ErrCode,
-                    Message = param.ErrMsg
-                };
+                return GetResultInfo(objectDb);
             }
         }
     }

@@ -117,9 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ActivePlayer" xml:space="preserve">
-    <value>Active Player</value>
-  </data>
   <data name="AdminList" xml:space="preserve">
     <value>Admin List</value>
   </data>
@@ -150,9 +147,6 @@
   <data name="EmailAutoNotification" xml:space="preserve">
     <value>This is a system auto generated email, please do not reply to this email directly.</value>
   </data>
-  <data name="EmailHistory" xml:space="preserve">
-    <value>Email History</value>
-  </data>
   <data name="EmailSubjectAffInfor" xml:space="preserve">
     <value>B2C Affiliates - Your Affiliate Information</value>
   </data>
@@ -170,9 +164,6 @@
   </data>
   <data name="TextB2CDomains" xml:space="preserve">
     <value>B2C Domains</value>
-  </data>
-  <data name="TextList" xml:space="preserve">
-    <value>Text List</value>
   </data>
   <data name="EmailSubjectPaymentRequestApproved" xml:space="preserve">
     <value>B2C Affiliates - [{0}] - Your payment request has been processed and completed successfully</value>

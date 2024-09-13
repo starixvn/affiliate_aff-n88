@@ -1,5 +1,6 @@
 ﻿using Fanex.Affiliate.Admin.Core.Attributes;
 using Fanex.Affiliate.Admin.Core.Configurations;
+using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.Common;
 using Fanex.Affiliate.Admin.Core.Extensions;
@@ -93,7 +94,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
                 {
                     result = new ResultInfo
                     {
-                        Code = 1,
+                        Code = ErrCode.ErrNoPermissionOnAnyFunctions,
                         Message = "Your account is not configured to access any functions! Please contact your administrator"
                     };
                 }

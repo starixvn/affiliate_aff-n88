@@ -59,42 +59,60 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Player
         }
 
 
-        //[Fact]
-        //public void DeleteMember_WhenCallWithValidParam_DeleteSuccessful()
-        //{
-        //    // Arrange
-        //    var param = new DeleteMemberParam { MemberId = 123 };
-        //    DeleteMemberParam passedParam = null;
-        //    var memberService = new Mock<IMemberService>();
-        //    memberService.Setup(s => s.DeleteMember(param)).Returns(new ResultInfo()).Callback<DeleteMemberParam>(p => passedParam = p);
-        //    var controller = CreateMemberController(memberService: memberService.Object);
+        [Fact]
+        public void GetMemberDetail_WhenCall_ReturnCorrectData()
+        {
+            // Arrange
+            var memberId = 123;
+            var passedParam = 0;
+            var memberService = new Mock<IMemberService>();
+            memberService.Setup(t => t.GetMemberDetail(memberId)).Returns(new MemberInfo { MemberId = memberId }).Callback<int>(p => passedParam = p);
+            var controller = CreateMemberController(memberService: memberService.Object);
 
-        //    // Action
-        //    var result = controller.DeleteMember(param) as JsonNetResult;
-        //    var resultInfo = result.Data as ResultInfo;
+            // Action
+            var result = controller.GetMemberDetail(memberId) as JsonNetResult;
+            var item = result.Data as MemberInfo;
 
-        //    // Assert
-        //    Assert.True(resultInfo.IsSuccessful);
-        //    Assert.Equal(param, passedParam);
-        //}
+            // Assert
+            Assert.NotNull(item);
+            Assert.Equal(memberId, passedParam);
+        }
 
-        //[Fact]
-        //public void DeleteMember_WhenCallWithInvalidParam_ReturnError()
-        //{
-        //    // Arrange
-        //    var controller = CreateMemberController();
-        //    controller.ModelState.AddModelError("Error01", string.Empty);
+        [Fact]
+        public void UpdateMember_WhenCall_UpdateSuccessfully()
+        {
+            // Arrange
+            var param = new UpdateMemberParam();
+            UpdateMemberParam passedParam = null;
+            var memberService = new Mock<IMemberService>();
+            memberService.Setup(t => t.UpdateMember(param)).Returns(ResultInfo.Success).Callback<UpdateMemberParam>(p => passedParam = p);
+            var controller = CreateMemberController(memberService: memberService.Object);
 
-        //    // Action
-        //    var result = controller.DeleteMember(new DeleteMemberParam()) as JsonNetResult;
-        //    var resultInfo = result.Data as ResultInfo;
+            // Action
+            var result = controller.UpdateMember(param) as JsonNetResult;
+            var resultInfo = result.Data as ResultInfo;
 
-        //    // Assert
-        //    Assert.False(resultInfo.IsSuccessful);
-        //    Assert.Equal("No member specificed!", resultInfo.Message);
-        //}
+            // Assert
+            Assert.True(resultInfo.IsSuccessful);
+            Assert.Equal(param, passedParam);
+        }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Major Code Smell", "S125:Sections of code should not be commented out", Justification = "<Pending>")]
+        [Fact]
+        public void UpdateMember_WhenCallWithInvalidParam_ReturnError()
+        {
+            // Arrange
+            var controller = CreateMemberController();
+            controller.ModelState.AddModelError("Error01", "Error");
+
+            // Action
+            var result = controller.UpdateMember(new UpdateMemberParam()) as JsonNetResult;
+            var resultInfo = result.Data as ResultInfo;
+
+            // Assert
+            Assert.False(resultInfo.IsSuccessful);
+            Assert.Equal("Error", resultInfo.Message);
+        }
+
         private PlayerController CreateMemberController(
             ISessionService sessionService = null,
             IMemberService memberService = null

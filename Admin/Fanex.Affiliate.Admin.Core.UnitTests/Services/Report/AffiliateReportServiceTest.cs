@@ -10,7 +10,7 @@ using Xunit;
 
 namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Report
 {
-    public class ReportServiceTest
+    public class AffiliateReportServiceTest
     {
         [Fact]
         public void GetMainReportData_WhenCall_ReturnCorrectData()
@@ -59,6 +59,21 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Report
             // Assert
             Assert.Single(result.MainData);
             Assert.Equal(param, passedParam);
+        }
+
+        [Fact]
+        public void GetReportCutOffDate_WhenCall_ReturnCorrectData()
+        {
+            // Arrange
+            var repository = new Mock<IAffiliateReportRepository>();
+            repository.Setup(re => re.GetReportCutOffDate()).Returns(new DateTime(2023, 11, 01));
+            var service = CreateAffiliateReportService(repository.Object);
+
+            // Action
+            var result = service.GetReportCutOffDate();
+
+            // Assert
+            Assert.Equal("01/11/2023", result.ToString("dd/MM/yyyy"));
         }
 
         private static AffiliateReportService CreateAffiliateReportService(IAffiliateReportRepository affiliateReportRepository = null)

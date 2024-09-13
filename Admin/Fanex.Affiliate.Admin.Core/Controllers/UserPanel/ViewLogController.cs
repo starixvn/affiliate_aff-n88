@@ -9,7 +9,7 @@ using System.Web.Mvc;
 namespace Fanex.Affiliate.Admin.Core.Controllers.UserPanel
 {
     [FunctionAuthorize(FunctionName = Function.Affiliate)]
-    public class ViewLogController : BaseController
+    public class ViewLogController : ReadOnlySessionBaseController
     {
         private readonly IViewLogService _viewLogService;
         public ViewLogController(
@@ -23,10 +23,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.UserPanel
         [ValidateAntiForgeryHeader]
         public ActionResult GetLogTypeList()
         {
-            return new JsonNetResult
-            {
-                Data = _viewLogService.GetLogTypeList()
-            };
+            return GenerateJsonNetResult(_viewLogService.GetLogTypeList());
         }
 
         [HttpPost]
@@ -35,10 +32,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.UserPanel
         {
             if (ModelState.IsValid)
             {
-                return new JsonNetResult
-                {
-                    Data = _viewLogService.GetViewLogList(param)
-                };
+                return GenerateJsonNetResult(_viewLogService.GetViewLogList(param));
             }
 
             return new JsonNetResult();

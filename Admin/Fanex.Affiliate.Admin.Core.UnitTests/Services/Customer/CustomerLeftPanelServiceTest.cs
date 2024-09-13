@@ -263,6 +263,76 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
         }
 
         [Fact]
+        public async Task UpdateStatus_WhenCallWithApproved_ReturnCorrectData()
+        {
+            // Arrange
+            var appSetting = new Mock<IAppSetting>();
+            appSetting.Setup(a => a.AsianAffSiteUrl).Returns("https://aff-b2c.nexdev.net/N88User");
+
+            var builder = new ContainerBuilder();
+            builder.RegisterInstance(appSetting.Object).As<IAppSetting>();
+            var container = builder.Build();
+
+            this.scopeProvider = new SimpleLifetimeScopeProvider(container);
+            var resolver = new AutofacDependencyResolver(container, scopeProvider);
+            DependencyResolver.SetResolver(resolver);
+
+            var param = new UpdateStatusParam { AffId = 1271808, Status = "approved" };
+            UpdateStatusParam passedParam = null;
+            var repository = new Mock<ICustomerLeftPanelRepository>();
+            repository.Setup(comm => comm.UpdateStatus(param)).Returns(new ResultInfo()).Callback<UpdateStatusParam>(p => passedParam = p);
+            var affiliateService = new Mock<IAffiliateService>();
+            affiliateService.Setup(aff => aff.GetAffiliateBasicInfo(It.IsAny<int>(), null)).Returns(new AffiliateBasicInfo { AffId = 1271808, AffType = 2, PreferredLanguage = "vi-VN" });
+            var thirdPartyLicenseeService = new Mock<IThirdPartyLicenseeService>();
+            thirdPartyLicenseeService.Setup(comm => comm.SendAffiliateInfo(It.IsAny<AffiliateBasicInfo>())).Returns(Task.CompletedTask);
+
+            var service = CreateCustomerLeftPanelService(null, affiliateService.Object, repository.Object, thirdPartyLicenseeService.Object);
+
+            // Action
+            var result = await service.UpdateStatus(param, new AffInformationEmail());
+
+            // Assert
+            Assert.True(result.IsSuccessful);
+            Assert.Equal(param, passedParam);
+        }
+
+        [Fact]
+        public async Task UpdateStatus_WhenCallWithApprovedAndException_ReturnCorrectData()
+        {
+            // Arrange
+            MockingHelper.SetUpHttpContextSession();
+            MockingHelper.SetUpLogEngineEnviroment();
+            var appSetting = new Mock<IAppSetting>();
+            appSetting.Setup(a => a.AsianAffSiteUrl).Returns("https://aff-b2c.nexdev.net/N88User");
+
+            var builder = new ContainerBuilder();
+            builder.RegisterInstance(appSetting.Object).As<IAppSetting>();
+            var container = builder.Build();
+
+            this.scopeProvider = new SimpleLifetimeScopeProvider(container);
+            var resolver = new AutofacDependencyResolver(container, scopeProvider);
+            DependencyResolver.SetResolver(resolver);
+
+            var param = new UpdateStatusParam { AffId = 1271808, Status = "approved" };
+            UpdateStatusParam passedParam = null;
+            var repository = new Mock<ICustomerLeftPanelRepository>();
+            repository.Setup(comm => comm.UpdateStatus(param)).Returns(new ResultInfo()).Callback<UpdateStatusParam>(p => passedParam = p);
+            var affiliateService = new Mock<IAffiliateService>();
+            affiliateService.Setup(aff => aff.GetAffiliateBasicInfo(It.IsAny<int>(), null)).Returns(new AffiliateBasicInfo { AffId = 1271808, AffType = 2, PreferredLanguage = "vi-VN" });
+            var thirdPartyLicenseeService = new Mock<IThirdPartyLicenseeService>();
+            thirdPartyLicenseeService.Setup(comm => comm.SendAffiliateInfo(It.IsAny<AffiliateBasicInfo>())).Throws(new System.Exception());
+
+            var service = CreateCustomerLeftPanelService(null, affiliateService.Object, repository.Object, thirdPartyLicenseeService.Object);
+
+            // Action
+            var result = await service.UpdateStatus(param, new AffInformationEmail());
+
+            // Assert
+            Assert.True(result.IsSuccessful);
+            Assert.Equal(param, passedParam);
+        }
+
+        [Fact]
         public async Task UpdateStatus_WhenCallWithDisapprovedEmail_ReturnError()
         {
             // Arrange
