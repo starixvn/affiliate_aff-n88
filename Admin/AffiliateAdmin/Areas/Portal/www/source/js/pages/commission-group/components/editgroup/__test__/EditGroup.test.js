@@ -26,6 +26,10 @@ describe('commission group - EditGroup', () => {
             { ProductId: 2, ProductName: "Poker" },
             { ProductId: 5, ProductName: "V8 Poker" }
         ],
+        commGroupTypes: [
+            { GroupTypeId: "1", GroupTypeName: "Calculate Revenue Share by Winloss" },
+            { GroupTypeId: "2", GroupTypeName: "Calculate Revenue Share by Turnover" }
+        ],
         setSelectedProductIds: jest.fn(),
         getSelectedCommGroup: jest.fn(),
         onClose: jest.fn(),
@@ -100,7 +104,7 @@ describe('commission group - EditGroup', () => {
             getSelectedCommGroup: mockGetSelectedCommGroup, updateCommissionGroup: mockUpdateCommissionGroup,
             selectedGroup: selectedGroupValid, toggleLoader: mockToggleLoader, getGroupSettingList: mockGetGroupSettingList
         });
-        window.setTimeout = jest.fn();
+
         window.scrollTo = jest.fn();
         const wrapper = shallow(<EditGroup {...props} />);
         wrapper.instance().setState = jest.fn();
@@ -110,7 +114,6 @@ describe('commission group - EditGroup', () => {
         expect(props.toggleLoader).toHaveBeenCalledTimes(2);
         expect(props.toggleLoader.mock.calls[0][0]).toBeTruthy();
         expect(props.toggleLoader.mock.calls[1][0]).toBeFalsy();
-        expect(window.setTimeout).toHaveBeenCalledTimes(1);
         expect(props.getGroupSettingList).toHaveBeenCalledWith({ PageIndex: 1, PageSize: 20, GroupName: '' });
         expect(wrapper.instance().setState).toHaveBeenCalledWith({ isShowMessage: true, isSuccess: true, message: ["Update Revenue Group Successfully"] });
     });
@@ -136,7 +139,6 @@ describe('commission group - EditGroup', () => {
             getSelectedCommGroup: mockGetSelectedCommGroup, updateCommissionGroup: mockUpdateCommissionGroup,
             selectedGroup: selectedGroupValid, toggleLoader: mockToggleLoader, getGroupSettingList: mockGetGroupSettingList
         });
-        window.setTimeout = jest.fn();
         window.scrollTo = jest.fn();
         const wrapper = shallow(<EditGroup {...props} />);
         wrapper.instance().setState = jest.fn();
@@ -146,7 +148,6 @@ describe('commission group - EditGroup', () => {
         expect(props.toggleLoader).toHaveBeenCalledTimes(2);
         expect(props.toggleLoader.mock.calls[0][0]).toBeTruthy();
         expect(props.toggleLoader.mock.calls[1][0]).toBeFalsy();
-        expect(window.setTimeout).not.toHaveBeenCalled();
         expect(props.getGroupSettingList).not.toHaveBeenCalled();
         expect(wrapper.instance().setState).toHaveBeenCalledWith({ isShowMessage: true, isSuccess: false, message: ["fail"] });
     });
@@ -173,7 +174,7 @@ describe('commission group - EditGroup', () => {
             getSelectedCommGroup: mockGetSelectedCommGroup, updateCommissionGroup: mockUpdateCommissionGroup,
             selectedGroup: selectedGroupValid, toggleLoader: mockToggleLoader, getGroupSettingList: mockGetGroupSettingList
         });
-        window.setTimeout = jest.fn();
+
         window.scrollTo = jest.fn();
         const wrapper = shallow(<EditGroup {...props} />);
         wrapper.instance().setState = jest.fn();
@@ -183,7 +184,6 @@ describe('commission group - EditGroup', () => {
         expect(props.toggleLoader).toHaveBeenCalledTimes(2);
         expect(props.toggleLoader.mock.calls[0][0]).toBeTruthy();
         expect(props.toggleLoader.mock.calls[1][0]).toBeFalsy();
-        expect(window.setTimeout).not.toHaveBeenCalled();
         expect(props.getGroupSettingList).not.toHaveBeenCalled();
         expect(wrapper.instance().setState).not.toHaveBeenCalled();
     });

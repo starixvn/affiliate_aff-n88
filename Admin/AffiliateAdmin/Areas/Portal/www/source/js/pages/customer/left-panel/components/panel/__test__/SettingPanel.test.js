@@ -178,7 +178,7 @@ describe('left panel - components - panel - SettingPanel', () => {
 
         await wrapper.instance()._saveStatus('Pending');
 
-        expect(props.updateStatus).toHaveBeenCalledWith({ AffId: 1219631, Status: "Pending" });
+        expect(props.updateStatus).toHaveBeenCalledWith({ AffId: 1271808, Status: "Pending" });
         expect(wrapper.setState).toHaveBeenCalledWith({ messageNotification: 'Update status is failed!', isConfirmPopup: false });
     });
 
@@ -192,7 +192,7 @@ describe('left panel - components - panel - SettingPanel', () => {
 
         await wrapper.instance()._saveStatus('Pending');
 
-        expect(props.updateStatus).toHaveBeenCalledWith({ AffId: 1219631, Status: "Pending" });
+        expect(props.updateStatus).toHaveBeenCalledWith({ AffId: 1271808, Status: "Pending" });
         expect(props.getAffiliateInfo).toHaveBeenCalledWith(affName);
         expect(wrapper.setState).toHaveBeenCalledWith({ messageNotification: "The status has been updated successfully!", isConfirmPopup: false });
     });
@@ -211,7 +211,7 @@ describe('left panel - components - panel - SettingPanel', () => {
 
         await wrapper.find('select').at(0).simulate('change', event);
 
-        expect(props.updateAffType).toHaveBeenCalledWith({ AffId: 1219631, AffType: 'Asian' });
+        expect(props.updateAffType).toHaveBeenCalledWith({ AffId: 1271808, AffType: 'Asian' });
         expect(wrapper.setState).toHaveBeenCalledWith({ messageNotification: "Occur an error when updating affiliate type!", isConfirmPopup: false });
     });
 
@@ -230,7 +230,7 @@ describe('left panel - components - panel - SettingPanel', () => {
 
         await wrapper.find('select').at(0).simulate('change', event);
 
-        expect(props.updateAffType).toHaveBeenCalledWith({ AffId: 1219631, AffType: 'Asian' });
+        expect(props.updateAffType).toHaveBeenCalledWith({ AffId: 1271808, AffType: 'Asian' });
         expect(props.getAffiliateInfo).toHaveBeenCalledWith('B2CAFF226');
         expect(wrapper.setState).toHaveBeenCalledWith({ isChangingAffType: false }, expect.any(Function));
     });

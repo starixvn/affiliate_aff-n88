@@ -624,7 +624,7 @@ exports[`banner list - components - EditBannerForm  render correctly with insert
               tag="div"
             >
               <Label
-                htmlFor="inputFileName"
+                htmlFor="inputFileName0"
                 sm={3}
                 tag="label"
                 widths={
@@ -654,7 +654,7 @@ exports[`banner list - components - EditBannerForm  render correctly with insert
               >
                 <Input
                   id="inputFileName0"
-                  name="inputFileName"
+                  name="inputFileName0"
                   onChange={[Function]}
                   onKeyPress={[Function]}
                   type="text"
@@ -666,7 +666,6 @@ exports[`banner list - components - EditBannerForm  render correctly with insert
                   className="mr-3"
                   color="danger"
                   disabled={true}
-                  htmlFor="inputFileName"
                   onClick={[Function]}
                   tag="button"
                   type="button"
@@ -1325,7 +1324,7 @@ exports[`banner list - components - EditBannerForm  render correctly with not sh
               tag="div"
             >
               <Label
-                htmlFor="inputFileName"
+                htmlFor="inputFileName0"
                 sm={3}
                 tag="label"
                 widths={
@@ -1355,7 +1354,7 @@ exports[`banner list - components - EditBannerForm  render correctly with not sh
               >
                 <Input
                   id="inputFileName0"
-                  name="inputFileName"
+                  name="inputFileName0"
                   onChange={[Function]}
                   onKeyPress={[Function]}
                   type="text"
@@ -1367,7 +1366,6 @@ exports[`banner list - components - EditBannerForm  render correctly with not sh
                   className="mr-3"
                   color="danger"
                   disabled={true}
-                  htmlFor="inputFileName"
                   onClick={[Function]}
                   tag="button"
                   type="button"

@@ -76,7 +76,11 @@ describe('affiliate report - Filter ', () => {
             ToDate: '12/24/2018',
             SortType: 1,
             SortDirectionType: '',
-            ProductIds: '1,2'
+            ProductIds: '1,2',
+            BaseCurrencyId: "",
+            CurrencyIds: "",
+            PaymentCurrencyIds: "",
+            GroupIds: ""
         };
         const state = {
             userName: '',
@@ -86,7 +90,14 @@ describe('affiliate report - Filter ', () => {
             sortBy: 1,
             isSortAscending: false,
             selectedProductList: '1,2',
-            isGetAll: false
+            isGetAll: false,
+            isExcludeNegvBBF: false,
+            isExcludeNegvCurrentBBF: false,
+            isCheckedDatePicker: false,
+            selectedBaseCurrency: "",
+            selectedCurrencyList: "",
+            selectedPaymentCurrencyList: "",
+            selectedCommGroupList: ""
         };
 
         const props = Object.assign({}, defaultProps, { setParam: jest.fn() });
@@ -109,6 +120,7 @@ describe('affiliate report - Filter ', () => {
             userName: 'Month on Month view',
             sortBy: 1,
             isSortAscending: false,
+            isCheckedDatePicker: false,
             selectedEarning: 'all'
         };
         const selectedProductList = '1,2';
@@ -299,10 +311,11 @@ describe('affiliate report - Filter ', () => {
     });
 
     it('should call handleChangeSortAscending when checkbox Get All change with currentMainView is Main view', () => {
+        const event = { target: { name: "isGetAll" } };
         const wrapper = shallow(<Filter {...defaultProps} />);
         wrapper.setState({ isGetAll: true });
 
-        wrapper.find('Input[type="checkbox"]').at(0).simulate('change');
+        wrapper.find('Input[type="checkbox"]').at(0).simulate('change', event);
 
         expect(wrapper.state('isGetAll')).toEqual(false);
     });
@@ -320,10 +333,11 @@ describe('affiliate report - Filter ', () => {
     });
 
     it('should call handleChangeGetAll when checkbox A-Z change', () => {
+        const event = { target: { name: "isSortAscending" } };
         const wrapper = shallow(<Filter {...defaultProps} />);
         wrapper.setState({ isSortAscending: true });
 
-        wrapper.find('Input[type="checkbox"]').at(1).simulate('change');
+        wrapper.find('Input[type="checkbox"]').at(1).simulate('change', event);
 
         expect(wrapper.state('isSortAscending')).toEqual(false);
     });
@@ -358,11 +372,14 @@ describe('affiliate report - Filter ', () => {
             PageIndex: 1,
             PageSize: 20,
             GroupIds: 'all',
+            IsGetMonthly: true,
+            IsExcludeNegvBBF: false,
+            IsExcludeNegvCurrentBBF: false,
             PaymentCurrencyIds: "21",
             IsGetAll: false
         };
 
-        const props = Object.assign({}, defaultProps, { setParam: jest.fn() })
+        const props = Object.assign({}, defaultProps, { setParam: jest.fn(), setIsCheckedDatePicker: jest.fn() })
 
         const wrapper = shallow(<Filter {...props} />);
         const instance = wrapper.instance();
@@ -394,6 +411,9 @@ describe('affiliate report - Filter ', () => {
             PageIndex: 1,
             PageSize: 20,
             GroupIds: 'all',
+            IsGetMonthly: true,
+            IsExcludeNegvBBF: false,
+            IsExcludeNegvCurrentBBF: false,
             PaymentCurrencyIds: "21",
             IsGetAll: false
         };
@@ -434,6 +454,9 @@ describe('affiliate report - Filter ', () => {
             PageIndex: 1,
             PageSize: 20,
             GroupIds: 'all',
+            IsGetMonthly: true,
+            IsExcludeNegvBBF: false,
+            IsExcludeNegvCurrentBBF: false,
             PaymentCurrencyIds: "21",
             IsGetAll: false
         };

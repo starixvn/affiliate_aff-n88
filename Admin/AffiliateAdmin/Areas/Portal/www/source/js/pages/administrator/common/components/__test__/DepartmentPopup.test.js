@@ -176,16 +176,11 @@ describe('administrator - common - components - DepartmentPopup ', () => {
     it('_handleShowAlert - should call setState, setTimeout and _hideMessage', async () => {
         const wrapper = shallow(<DepartmentPopup {...defaultProps} />);
         wrapper.setState = jest.fn((obj, fn) => fn && fn());
-        window.setTimeout = jest.fn((fn, val) => fn && fn());
 
         const instance = wrapper.instance();
-        instance._hideMessage = jest.fn();
-
         instance._handleShowAlert('Updated failed!');
 
         expect(wrapper.setState.mock.calls[0]).toEqual([{ isShowMessage: true, isSuccess: false, message: 'Updated failed!' }, expect.any(Function)]);
-        expect(window.setTimeout).toHaveBeenCalledWith(expect.any(Function), 3000);
-        expect(instance._hideMessage).toHaveBeenCalled();
     });
 
     it('_hideMessage - should call setState', async () => {

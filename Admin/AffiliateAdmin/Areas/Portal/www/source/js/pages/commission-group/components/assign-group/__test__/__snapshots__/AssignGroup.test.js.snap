@@ -42,7 +42,16 @@ AssignGroup {
         "Name": "CG22124",
       },
     ],
-    "commGroupTypes": undefined,
+    "commGroupTypes": Array [
+      Object {
+        "GroupTypeId": "1",
+        "GroupTypeName": "Calculate Revenue Share by Winloss",
+      },
+      Object {
+        "GroupTypeId": "2",
+        "GroupTypeName": "Calculate Revenue Share by Turnover",
+      },
+    ],
     "isPrivateGroup": false,
     "isShowLoader": false,
     "isShowMessage": false,
@@ -165,7 +174,20 @@ exports[`commission group - AssignGroup Should render correctly with isSuccess s
           className="form-control"
           name="selectedGroupType"
           onChange={[Function]}
-        />
+        >
+          <option
+            key="comm-group-type-0"
+            value="1"
+          >
+            Calculate Revenue Share by Winloss
+          </option>
+          <option
+            key="comm-group-type-1"
+            value="2"
+          >
+            Calculate Revenue Share by Turnover
+          </option>
+        </select>
       </Col>
     </FormGroup>
     <FormGroup

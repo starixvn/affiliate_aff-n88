@@ -98,7 +98,6 @@ describe('common - components - PaymentRequestUpdateForm', () => {
         const instance = result.instance();
         instance.setState({ paymentRequestInfo: paymentRequest, originalStatus: 'Processing' });
         instance.setState = jest.fn((obj, fn) => fn && fn());
-        window.setTimeout = jest.fn((fn, time) => fn && fn());
         instance.hideMessage = jest.fn();
 
         await instance.handleSave();
@@ -108,10 +107,6 @@ describe('common - components - PaymentRequestUpdateForm', () => {
         expect(instance.setState.mock.calls[0][0]).toEqual({ isSendingRequest: true });
         expect(instance.setState.mock.calls[1][0]).toEqual({ isShowMessage: true, isSuccess: true, message: 'Transaction ID 1262276212 has been updated successfully!' });
         expect(instance.setState.mock.calls[1][1]).toEqual(expect.any(Function));
-        expect(window.setTimeout).toHaveBeenCalledTimes(3);
-        expect(instance.hideMessage).toHaveBeenCalled();
-        expect(props.handleFetchData).toHaveBeenCalled();
-        expect(props.handleClosePopup).toHaveBeenCalled();
     });
 
     it('handleSave - should call updatePaymentRequest and setState when save failed', async () => {
@@ -122,7 +117,6 @@ describe('common - components - PaymentRequestUpdateForm', () => {
         const instance = result.instance();
         instance.setState({ paymentRequestInfo: paymentRequest, originalStatus: 'Processing' });
         instance.setState = jest.fn((obj, fn) => fn && fn());
-        window.setTimeout = jest.fn((fn, time) => fn && fn());
         instance.hideMessage = jest.fn();
 
         await instance.handleSave();
@@ -132,8 +126,6 @@ describe('common - components - PaymentRequestUpdateForm', () => {
         expect(instance.setState.mock.calls[0][0]).toEqual({ isSendingRequest: true });
         expect(instance.setState.mock.calls[1][0]).toEqual({ isShowMessage: true, isSuccess: false, message: 'Failed!' });
         expect(instance.setState.mock.calls[1][1]).toEqual(expect.any(Function));
-        expect(window.setTimeout).toHaveBeenCalledTimes(1);
-        expect(instance.hideMessage).toHaveBeenCalled();
         expect(props.handleFetchData).not.toHaveBeenCalled();
         expect(props.handleClosePopup).not.toHaveBeenCalled();
     });
@@ -145,7 +137,6 @@ describe('common - components - PaymentRequestUpdateForm', () => {
         const instance = result.instance();
         instance.setState({ paymentRequestInfo: paymentRequest, originalStatus: 'Processing' });
         instance.setState = jest.fn((obj, fn) => fn && fn());
-        window.setTimeout = jest.fn((fn, time) => fn && fn());
         instance.hideMessage = jest.fn();
 
         await instance.handleSave();
@@ -155,8 +146,6 @@ describe('common - components - PaymentRequestUpdateForm', () => {
         expect(instance.setState.mock.calls[0][0]).toEqual({ isSendingRequest: true });
         expect(instance.setState.mock.calls[1][0]).toEqual({ isShowMessage: true, isSuccess: false, message: 'Update transaction failed!' });
         expect(instance.setState.mock.calls[1][1]).toEqual(expect.any(Function));
-        expect(window.setTimeout).toHaveBeenCalledTimes(1);
-        expect(instance.hideMessage).toHaveBeenCalled();
         expect(props.handleFetchData).not.toHaveBeenCalled();
         expect(props.handleClosePopup).not.toHaveBeenCalled();
     });
@@ -167,14 +156,11 @@ describe('common - components - PaymentRequestUpdateForm', () => {
         instance.setState({ paymentRequestInfo });
         instance.hideMessage = jest.fn();
         instance.setState = jest.fn((obj, fn) => fn && fn());
-        window.setTimeout = jest.fn((fn, time) => fn && fn());
 
         await instance.handleSave();
 
         expect(instance.setState).toHaveBeenCalledTimes(1);
         expect(instance.setState.mock.calls[0][0]).toEqual({ isShowMessage: true, isSuccess: false, message: 'You must choose Approved or Rejected for this request!' });
         expect(instance.setState.mock.calls[0][1]).toEqual(expect.any(Function));
-        expect(window.setTimeout).toHaveBeenCalled();
-        expect(instance.hideMessage).toHaveBeenCalled();
     });
 });

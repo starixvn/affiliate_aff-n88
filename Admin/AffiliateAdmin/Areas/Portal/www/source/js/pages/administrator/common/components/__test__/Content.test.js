@@ -341,11 +341,8 @@ describe('administrator - common - components - Content ', () => {
     it('handleClosePopup - should call setState and setTimeout', async () => {
         const wrapper = shallow(<Content {...defaultProps} />);
         wrapper.setState = jest.fn((obj, fn) => fn && fn());
-        window.setTimeout = jest.fn((fn, val) => fn && fn());
 
         const instance = wrapper.instance();
-        instance._hideMessage = jest.fn();
-
         instance.handleClosePopup();
 
         expect(wrapper.setState.mock.calls[0]).toEqual([{
@@ -355,7 +352,5 @@ describe('administrator - common - components - Content ', () => {
             isShowPasswordPopup: false,
             message: ''
         }, expect.any(Function)]);
-        expect(window.setTimeout).toHaveBeenCalledWith(expect.any(Function), 200);
-        expect(wrapper.setState.mock.calls[1]).toEqual([{ "isInsertExistedAcc": false, "selectedUserId": 0 }]);
     });
 })

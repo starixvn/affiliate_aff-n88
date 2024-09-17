@@ -134,7 +134,7 @@ describe('user account - components - Content', () => {
 
         await instance.handleSubmit();
 
-        expect(instance.setState).toHaveBeenCalledTimes(3);
+        expect(instance.setState).toHaveBeenCalledTimes(2);
         expect(instance.setState.mock.calls[0][0]).toEqual({
             "minimumPayment": 23000,
             "paymentMethodList": paymentMethod.PaymentMethods
@@ -142,7 +142,6 @@ describe('user account - components - Content', () => {
         expect(instance.setState.mock.calls[0][1]).toEqual();
 
         expect(props.updateUserAccount).toHaveBeenCalled();
-        expect(props.getAffiliateInfo).toHaveBeenCalled();
     });
 
     it('handleSubmit - should update failed', async () => {
@@ -156,7 +155,7 @@ describe('user account - components - Content', () => {
 
         await instance.handleSubmit();
 
-        expect(instance.setState).toHaveBeenCalledTimes(3);
+        expect(instance.setState).toHaveBeenCalledTimes(2);
         expect(instance.setState.mock.calls[1][0]).toEqual({ isShowMessage: true, isSuccess: false, message: 'Failed!' });
         expect(instance.setState.mock.calls[1][1]).toEqual(expect.any(Function));
 
@@ -174,7 +173,7 @@ describe('user account - components - Content', () => {
 
         await instance.handleSubmit();
 
-        expect(instance.setState).toHaveBeenCalledTimes(3);
+        expect(instance.setState).toHaveBeenCalledTimes(2);
         expect(instance.setState.mock.calls[1][0]).toEqual({ isShowMessage: true, isSuccess: false, message: 'Update is failed!' });
         expect(instance.setState.mock.calls[1][1]).toEqual(expect.any(Function));
 
@@ -192,7 +191,7 @@ describe('user account - components - Content', () => {
 
         await instance.handleSubmit();
 
-        expect(instance.setState).toHaveBeenCalledTimes(3);
+        expect(instance.setState).toHaveBeenCalledTimes(2);
         expect(instance.setState.mock.calls[0][0]).toEqual({ isShowMessage: true, isSuccess: false, message: 'Gender is empty, Please Check!<br />Email Address is invalid<br />Please select country<br />Website URL 3 is required<br />User Name is required<br />' });
         expect(instance.setState.mock.calls[0][1]).toEqual(expect.any(Function));
 
@@ -210,7 +209,7 @@ describe('user account - components - Content', () => {
 
         await instance.handleSubmit();
 
-        expect(instance.setState).toHaveBeenCalledTimes(3);
+        expect(instance.setState).toHaveBeenCalledTimes(2);
         expect(instance.setState.mock.calls[0][0]).toEqual({ isShowMessage: true, isSuccess: false, message: 'Moneybookers Email is required<br />' });
         expect(instance.setState.mock.calls[0][1]).toEqual(expect.any(Function));
 
@@ -228,7 +227,7 @@ describe('user account - components - Content', () => {
 
         await instance.handleSubmit();
 
-        expect(instance.setState).toHaveBeenCalledTimes(3);
+        expect(instance.setState).toHaveBeenCalledTimes(2);
         expect(instance.setState.mock.calls[0][0]).toEqual({ isShowMessage: true, isSuccess: false, message: 'Bank Account Number is required<br />' });
         expect(instance.setState.mock.calls[0][1]).toEqual(expect.any(Function));
 

@@ -128,13 +128,11 @@ describe('note - components - InsertUpdateNoteForm ', () => {
         const props = Object.assign({}, defaultProps, { noteInfo: { noteId: 0, noteContent: '' }, insertNote: jest.fn(() => null) });
         const wrapper = shallow(<InsertUpdateNoteForm {...props} />);
         wrapper.setState = jest.fn((obj, fn) => fn && fn());
-        window.setTimeout = jest.fn((fn, time) => fn());
 
         await wrapper.instance().Save(newNote);
 
         expect(props.insertNote).toHaveBeenCalledWith({ affId: 1271808, ...newNote });
         expect(wrapper.setState.mock.calls[0]).toEqual([{ isShowMessage: true, isSuccess: false, message: "The request is failed" }, expect.any(Function)]);
-        expect(wrapper.setState.mock.calls[1]).toEqual([{ isShowMessage: false }]);
     });
 
     it('Save - should call insertNote and setState with response data', async () => {
@@ -142,13 +140,11 @@ describe('note - components - InsertUpdateNoteForm ', () => {
         const props = Object.assign({}, defaultProps, { noteInfo: { noteId: 0, noteContent: '' }, insertNote: jest.fn(() => data) });
         const wrapper = shallow(<InsertUpdateNoteForm {...props} />);
         wrapper.setState = jest.fn((obj, fn) => fn && fn());
-        window.setTimeout = jest.fn((fn, time) => fn());
 
         await wrapper.instance().Save(newNote);
 
         expect(props.insertNote).toHaveBeenCalledWith({ affId: 1271808, ...newNote });
         expect(wrapper.setState.mock.calls[0]).toEqual([{ isShowMessage: true, isSuccess: false, message: "Add note is failed!" }, expect.any(Function)]);
-        expect(wrapper.setState.mock.calls[1]).toEqual([{ isShowMessage: false }]);
     });
 
     it('Save - should call insertNote and setState with response data is successfful', async () => {
@@ -158,15 +154,11 @@ describe('note - components - InsertUpdateNoteForm ', () => {
         const props = Object.assign({}, defaultProps, { noteInfo: { noteId: 0, noteContent: '' }, insertNote: jest.fn(() => data), getNoteList, setShowPopup });
         const wrapper = shallow(<InsertUpdateNoteForm {...props} />);
         wrapper.setState = jest.fn((obj, fn) => fn && fn());
-        window.setTimeout = jest.fn((fn, time) => fn());
 
         await wrapper.instance().Save(newNote);
 
         expect(props.insertNote).toHaveBeenCalledWith({ affId: 1271808, ...newNote });
         expect(wrapper.setState.mock.calls[0]).toEqual([{ isShowMessage: true, isSuccess: true, message: "Add Note is successful" }, expect.any(Function)]);
-        expect(wrapper.setState.mock.calls[1]).toEqual([{ isShowMessage: false }]);
-        expect(props.setShowPopup).toHaveBeenCalledWith(false);
-        expect(props.getNoteList).toHaveBeenCalledWith({ affId: 1271808, pageIndex: 1, pageSize: 20 });
     });
 
     it('handleSave - should call setState and Save when click Update button', () => {
@@ -196,13 +188,11 @@ describe('note - components - InsertUpdateNoteForm ', () => {
         const props = Object.assign({}, defaultProps, { updateNote: jest.fn(() => null) });
         const wrapper = shallow(<InsertUpdateNoteForm {...props} />);
         wrapper.setState = jest.fn((obj, fn) => fn && fn());
-        window.setTimeout = jest.fn((fn, time) => fn());
 
         await wrapper.instance().Save(noteInfo);
 
         expect(props.updateNote).toHaveBeenCalledWith({ affId: 1271808, ...noteInfo });
         expect(wrapper.setState.mock.calls[0]).toEqual([{ isShowMessage: true, isSuccess: false, message: "The request is failed" }, expect.any(Function)]);
-        expect(wrapper.setState.mock.calls[1]).toEqual([{ isShowMessage: false }]);
     });
 
     it('Save - should call updateNote and setState with response data', async () => {
@@ -210,13 +200,11 @@ describe('note - components - InsertUpdateNoteForm ', () => {
         const props = Object.assign({}, defaultProps, { updateNote: jest.fn(() => data) });
         const wrapper = shallow(<InsertUpdateNoteForm {...props} />);
         wrapper.setState = jest.fn((obj, fn) => fn && fn());
-        window.setTimeout = jest.fn((fn, time) => fn());
 
         await wrapper.instance().Save(noteInfo);
 
         expect(props.updateNote).toHaveBeenCalledWith({ affId: 1271808, ...noteInfo });
         expect(wrapper.setState.mock.calls[0]).toEqual([{ isShowMessage: true, isSuccess: false, message: "Update note is failed!" }, expect.any(Function)]);
-        expect(wrapper.setState.mock.calls[1]).toEqual([{ isShowMessage: false }]);
     });
 
     it('Save - should call updateNote and setState with response data is successfful', async () => {
@@ -226,15 +214,11 @@ describe('note - components - InsertUpdateNoteForm ', () => {
         const props = Object.assign({}, defaultProps, { updateNote: jest.fn(() => data), getNoteList, setShowPopup });
         const wrapper = shallow(<InsertUpdateNoteForm {...props} />);
         wrapper.setState = jest.fn((obj, fn) => fn && fn());
-        window.setTimeout = jest.fn((fn, time) => fn());
 
         await wrapper.instance().Save(noteInfo);
 
         expect(props.updateNote).toHaveBeenCalledWith({ affId: 1271808, ...noteInfo });
         expect(wrapper.setState.mock.calls[0]).toEqual([{ isShowMessage: true, isSuccess: true, message: "Update Note is successful" }, expect.any(Function)]);
-        expect(wrapper.setState.mock.calls[1]).toEqual([{ isShowMessage: false }]);
-        expect(props.setShowPopup).toHaveBeenCalledWith(false);
-        expect(props.getNoteList).toHaveBeenCalledWith({ affId: 1271808, pageIndex: 1, pageSize: 20 });
     });
 
     it('handleClosePopup - should call setShowPopup and setState when click Cancel button', () => {

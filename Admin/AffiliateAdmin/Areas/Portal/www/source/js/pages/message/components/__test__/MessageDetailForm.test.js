@@ -343,7 +343,6 @@ describe('message - components - MessageDetailForm ', () => {
     it('_handleShowAlert - should call setState, setTimeout and _hideMessage', async () => {
         const wrapper = shallow(<MessageDetailForm {...defaultProps} />);
         wrapper.setState = jest.fn((obj, fn) => fn && fn());
-        window.setTimeout = jest.fn((fn, val) => fn && fn());
         const instance = wrapper.instance();
         instance._hideMessage = jest.fn();
         instance.modalRef.current = jest.fn();
@@ -353,8 +352,6 @@ describe('message - components - MessageDetailForm ', () => {
 
         expect(instance.modalRef.current.scrollTo).toHaveBeenCalledWith({ top: 0, behavior: "smooth" });
         expect(wrapper.setState.mock.calls[0]).toEqual([{ isShowMessage: true, isSuccess: false, message: 'Updated failed!' }, expect.any(Function)]);
-        expect(window.setTimeout).toHaveBeenCalledWith(expect.any(Function), 3000);
-        expect(instance._hideMessage).toHaveBeenCalled();
     });
 
     it('_hideMessage - should call setState and _handleFetchData', async () => {

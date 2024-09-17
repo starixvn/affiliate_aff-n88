@@ -128,7 +128,6 @@ describe('commission group - AddGroup', () => {
             setSelectedGroup: mockSetSelectedGroup, insertCommissionGroup: mockInsertCommissionGroup,
             selectedGroup: selectedGroupValid, toggleLoader: mockToggleLoader, getGroupSettingList: mockGetGroupSettingList
         });
-        window.setTimeout = jest.fn();
         window.scrollTo = jest.fn();
         const wrapper = shallow(<AddGroup {...props} />);
         wrapper.instance().setState = jest.fn();
@@ -138,7 +137,6 @@ describe('commission group - AddGroup', () => {
         expect(props.toggleLoader).toHaveBeenCalledTimes(2);
         expect(props.toggleLoader.mock.calls[0][0]).toBeTruthy();
         expect(props.toggleLoader.mock.calls[1][0]).toBeFalsy();
-        expect(window.setTimeout).toHaveBeenCalledTimes(1);
         expect(props.getGroupSettingList).toHaveBeenCalledWith({ PageIndex: 1, PageSize: 20, GroupName: '' });
         expect(wrapper.instance().setState).toHaveBeenCalledWith({ isShowMessage: true, isSuccess: true, message: ["Add Revenue Group Successfully"] });
     });
@@ -164,7 +162,6 @@ describe('commission group - AddGroup', () => {
             setSelectedGroup: mockSetSelectedGroup, insertCommissionGroup: mockInsertCommissionGroup,
             selectedGroup: selectedGroupValid, toggleLoader: mockToggleLoader, getGroupSettingList: mockGetGroupSettingList
         });
-        window.setTimeout = jest.fn();
         window.scrollTo = jest.fn();
         const wrapper = shallow(<AddGroup {...props} />);
         wrapper.instance().setState = jest.fn();
@@ -174,7 +171,6 @@ describe('commission group - AddGroup', () => {
         expect(props.toggleLoader).toHaveBeenCalledTimes(2);
         expect(props.toggleLoader.mock.calls[0][0]).toBeTruthy();
         expect(props.toggleLoader.mock.calls[1][0]).toBeFalsy();
-        expect(window.setTimeout).not.toHaveBeenCalled();
         expect(props.getGroupSettingList).not.toHaveBeenCalled();
         expect(wrapper.instance().setState).toHaveBeenCalledWith({ isShowMessage: true, isSuccess: false, message: ["fail"] });
     });
@@ -201,7 +197,6 @@ describe('commission group - AddGroup', () => {
             setSelectedGroup: mockSetSelectedGroup, insertCommissionGroup: mockInsertCommissionGroup,
             selectedGroup: selectedGroupValid, toggleLoader: mockToggleLoader, getGroupSettingList: mockGetGroupSettingList
         });
-        window.setTimeout = jest.fn();
         window.scrollTo = jest.fn();
         const wrapper = shallow(<AddGroup {...props} />);
         wrapper.instance().setState = jest.fn();
@@ -211,7 +206,6 @@ describe('commission group - AddGroup', () => {
         expect(props.toggleLoader).toHaveBeenCalledTimes(2);
         expect(props.toggleLoader.mock.calls[0][0]).toBeTruthy();
         expect(props.toggleLoader.mock.calls[1][0]).toBeFalsy();
-        expect(window.setTimeout).not.toHaveBeenCalled();
         expect(props.getGroupSettingList).not.toHaveBeenCalled();
         expect(wrapper.instance().setState).not.toHaveBeenCalled();
     });

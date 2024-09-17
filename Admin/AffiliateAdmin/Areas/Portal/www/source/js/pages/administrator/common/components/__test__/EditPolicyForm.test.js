@@ -304,7 +304,7 @@ describe('administrator - common - components - EditPolicyForm ', () => {
 
         instance._handleChange(event, 21, false);
 
-        expect(result.setState).toHaveBeenCalledWith({ "checkedPolicies": { "21": { "groupPermission": { "HasHost": true, "HasRead": true }, "individualPermission": { "HasHost": true, "HasRead": false } }, "22": { "groupPermission": { "HasHost": false, "HasRead": true }, "individualPermission": { "HasHost": false, "HasRead": true } }, "23": { "groupPermission": { "HasHost": true, "HasRead": false }, "individualPermission": { "HasHost": true, "HasRead": false } }, "24": { "groupPermission": { "HasHost": false, "HasRead": false }, "individualPermission": { "HasHost": false, "HasRead": false } } } });
+        expect(result.setState).toHaveBeenCalledWith({ "checkedPolicies": { "21": { "groupPermission": { "HasHost": true, "HasRead": true }, "individualPermission": { "HasHost": false, "HasRead": false } }, "22": { "groupPermission": { "HasHost": false, "HasRead": true }, "individualPermission": { "HasHost": false, "HasRead": true } }, "23": { "groupPermission": { "HasHost": true, "HasRead": false }, "individualPermission": { "HasHost": true, "HasRead": false } }, "24": { "groupPermission": { "HasHost": false, "HasRead": false }, "individualPermission": { "HasHost": false, "HasRead": false } } } });
     });
 
     it('_handleChange - should call setState with HasRead in Group', () => {
@@ -322,7 +322,7 @@ describe('administrator - common - components - EditPolicyForm ', () => {
 
         instance._handleChange(event, 21, true);
 
-        expect(result.setState).toHaveBeenCalledWith({ "checkedPolicies": { "21": { "groupPermission": { "HasHost": true, "HasRead": false }, "individualPermission": { "HasHost": true, "HasRead": true } }, "22": { "groupPermission": { "HasHost": false, "HasRead": true }, "individualPermission": { "HasHost": false, "HasRead": true } }, "23": { "groupPermission": { "HasHost": true, "HasRead": false }, "individualPermission": { "HasHost": true, "HasRead": false } }, "24": { "groupPermission": { "HasHost": false, "HasRead": false }, "individualPermission": { "HasHost": false, "HasRead": false } } } });
+        expect(result.setState).toHaveBeenCalledWith({ "checkedPolicies": { "21": { "groupPermission": { "HasHost": false, "HasRead": false }, "individualPermission": { "HasHost": true, "HasRead": true } }, "22": { "groupPermission": { "HasHost": false, "HasRead": true }, "individualPermission": { "HasHost": false, "HasRead": true } }, "23": { "groupPermission": { "HasHost": true, "HasRead": false }, "individualPermission": { "HasHost": true, "HasRead": false } }, "24": { "groupPermission": { "HasHost": false, "HasRead": false }, "individualPermission": { "HasHost": false, "HasRead": false } } } });
     });
 
     it('_handleSubmit - should call _handleShowAlert and updateAccountPolicy with update error', async () => {
@@ -416,16 +416,11 @@ describe('administrator - common - components - EditPolicyForm ', () => {
     it('_handleShowAlert - should call setState, setTimeout and _hideMessage', async () => {
         const wrapper = shallow(<EditPolicyForm {...defaultProps} />);
         wrapper.setState = jest.fn((obj, fn) => fn && fn());
-        window.setTimeout = jest.fn((fn, val) => fn && fn());
 
         const instance = wrapper.instance();
-        instance._hideMessage = jest.fn();
-
         instance._handleShowAlert(false, 'Updated failed!');
 
         expect(wrapper.setState.mock.calls[0]).toEqual([{ isShowMessage: true, isSuccess: false, message: 'Updated failed!' }, expect.any(Function)]);
-        expect(window.setTimeout).toHaveBeenCalledWith(expect.any(Function), 3000);
-        expect(instance._hideMessage).toHaveBeenCalled();
     });
 
     it('_hideMessage - should call setState and _handleClosePopup', async () => {

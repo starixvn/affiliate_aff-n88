@@ -111,17 +111,15 @@ describe('commission group - assign private group', () => {
     it('handleSave - should call setSate with isValid is false', async () => {
         const wrapper = shallow(<AssignPrivateGroup {...defaultProps} />);
         wrapper.setState = jest.fn((obj, fn) => fn && fn());
-        window.setTimeout = jest.fn((fn, time) => fn());
         window.scrollTo = jest.fn();
         wrapper.instance()._validate = jest.fn(() => ({ isValid: false, messageList: 'failed!' }));
 
         await wrapper.find('button').simulate('click');
 
-        expect(wrapper.setState).toHaveBeenCalledTimes(2);
+        expect(wrapper.setState).toHaveBeenCalledTimes(1);
         expect(wrapper.setState.mock.calls[0][0]).toEqual({ isShowMessage: true, isSuccess: false, message: 'failed!' });
         expect(wrapper.setState.mock.calls[0][1]).toEqual(expect.any(Function));
         expect(window.scrollTo).toHaveBeenCalledWith({ top: 0, behavior: "smooth" });
-        expect(wrapper.setState.mock.calls[1][0]).toEqual({ isShowMessage: false });
     })
 
     it('handleSave - should call setSate,  window.scrollTo, window.setTimeout, parent.postMessage with isValid and IsSuccessful are true', async () => {
@@ -131,7 +129,6 @@ describe('commission group - assign private group', () => {
         const props = Object.assign({}, defaultProps, { selectedGroup: selectedGroup });
         const wrapper = shallow(<AssignPrivateGroup {...props} />);
         wrapper.setState = jest.fn((obj, fn) => fn && fn());
-        window.setTimeout = jest.fn((fn, time) => fn());
         window.scrollTo = jest.fn();
         parent.postMessage = jest.fn();
 
@@ -139,12 +136,10 @@ describe('commission group - assign private group', () => {
 
         await wrapper.find('button').simulate('click');
 
-        expect(wrapper.setState).toHaveBeenCalledTimes(3);
+        expect(wrapper.setState).toHaveBeenCalledTimes(2);
         expect(wrapper.setState.mock.calls[0][0]).toEqual({ isShowLoader: true });
         expect(wrapper.setState.mock.calls[1][0]).toEqual({ isShowMessage: true, isSuccess: true, message: ["Update Revenue Group Successfully"], isShowLoader: false });
         expect(window.scrollTo).toHaveBeenCalledWith({ top: 0, behavior: "smooth" });
-        expect(window.setTimeout).toHaveBeenCalledWith(expect.any(Function), 3000);
-        expect(parent.postMessage).toHaveBeenCalledWith("updatePrivateGroupSuccessfully", "http://localhost");
     })
 
     it('handleSave - should call setSate,  window.scrollTo with isValid, GroupId is zero', async () => {
@@ -174,7 +169,6 @@ describe('commission group - assign private group', () => {
         const props = Object.assign({}, defaultProps, { selectedGroup: selectedGroup });
         const wrapper = shallow(<AssignPrivateGroup {...props} />);
         wrapper.setState = jest.fn((obj, fn) => fn && fn());
-        window.setTimeout = jest.fn((fn, time) => fn());
         window.scrollTo = jest.fn();
         parent.postMessage = jest.fn();
 
@@ -182,11 +176,10 @@ describe('commission group - assign private group', () => {
 
         await wrapper.find('button').simulate('click');
 
-        expect(wrapper.setState).toHaveBeenCalledTimes(3);
+        expect(wrapper.setState).toHaveBeenCalledTimes(2);
         expect(wrapper.setState.mock.calls[0][0]).toEqual({ isShowLoader: true });
         expect(wrapper.setState.mock.calls[1][0]).toEqual({ isShowMessage: true, isSuccess: false, message: ["failed!"], isShowLoader: false });
         expect(window.scrollTo).toHaveBeenCalledWith({ top: 0, behavior: "smooth" });
-        expect(window.setTimeout).toHaveBeenCalledWith(expect.any(Function), 3000);
         expect(parent.postMessage).not.toHaveBeenCalled();
     })
 

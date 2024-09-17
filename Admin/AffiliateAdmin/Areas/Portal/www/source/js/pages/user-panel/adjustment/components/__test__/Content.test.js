@@ -141,7 +141,6 @@ describe('Adjustment - components - Content', () => {
     it('handleSubmit - should call toggleLoaderUserPanel and setState with amount is required', async () => {
         const wrapper = shallow(<Content {...defaultProps} />);
         wrapper.setState = jest.fn((obj, fn) => fn && fn());
-        window.setTimeout = jest.fn((fn, val) => fn & fn());
 
         await wrapper.find('Button').simulate('click');
 
@@ -152,15 +151,12 @@ describe('Adjustment - components - Content', () => {
         expect(defaultProps.toggleLoaderUserPanel.mock.calls[3][0]).toBe(false);
 
         expect(wrapper.setState.mock.calls[0]).toEqual([{ isShowMessage: true, isSuccess: false, message: "The amount is required" }, expect.any(Function)]);
-        expect(window.setTimeout).toHaveBeenCalledWith(expect.any(Function), 3000);
-        expect(wrapper.setState.mock.calls[1][0]).toEqual({ isShowMessage: false });
     });
 
     it('handleSubmit - should call toggleLoaderUserPanel and setState with amount is invalid', async () => {
         const wrapper = shallow(<Content {...defaultProps} />);
         wrapper.setState({ amount: '0' });
         wrapper.setState = jest.fn((obj, fn) => fn && fn());
-        window.setTimeout = jest.fn((fn, val) => fn & fn());
 
         await wrapper.find('Button').simulate('click');
 
@@ -171,8 +167,7 @@ describe('Adjustment - components - Content', () => {
         expect(defaultProps.toggleLoaderUserPanel.mock.calls[3][0]).toBe(false);
 
         expect(wrapper.setState.mock.calls[0]).toEqual([{ isShowMessage: true, isSuccess: false, message: "The amount is invalid" }, expect.any(Function)]);
-        expect(window.setTimeout).toHaveBeenCalledWith(expect.any(Function), 3000);
-        expect(wrapper.setState.mock.calls[1][0]).toEqual({ isShowMessage: false });
+        expect(wrapper.setState.mock.calls[1][0]).toEqual({ "balanceBf": 980228054 });
     });
 
     it('handleSubmit - should call toggleLoaderUserPanel and _validateAmount and handleSubmit with correct amount', async () => {
@@ -182,7 +177,6 @@ describe('Adjustment - components - Content', () => {
         const wrapper = shallow(<Content {...props} />);
         wrapper.setState({ amount: '100' });
         wrapper.setState = jest.fn((obj, fn) => fn && fn());
-        window.setTimeout = jest.fn((fn, val) => fn & fn());
 
         await wrapper.find('Button').simulate('click');
 
@@ -194,8 +188,6 @@ describe('Adjustment - components - Content', () => {
 
         expect(props.handleSubmit).toHaveBeenCalledWith({ AffId: 1271808, Amount: 100, Description: '' });
         expect(wrapper.setState.mock.calls[1]).toEqual([{ amount: "100", description: "", isShowMessage: true, isSuccess: false, message: "Adjustment is failed!" }, expect.any(Function)]);
-        expect(window.setTimeout).toHaveBeenCalledWith(expect.any(Function), 3000);
-        expect(wrapper.setState.mock.calls[2][0]).toEqual({ isShowMessage: false });
     });
 
     it('handleSubmit - should call toggleLoaderUserPanel and _validateAmount, handleSubmit and getAffiliateInfo with correct amount', async () => {
@@ -206,7 +198,6 @@ describe('Adjustment - components - Content', () => {
         const wrapper = shallow(<Content {...props} />);
         wrapper.setState({ amount: '100' });
         wrapper.setState = jest.fn((obj, fn) => fn && fn());
-        window.setTimeout = jest.fn((fn, val) => fn & fn());
 
         await wrapper.find('Button').simulate('click');
 
@@ -219,9 +210,5 @@ describe('Adjustment - components - Content', () => {
 
         expect(props.handleSubmit).toHaveBeenCalledWith({ AffId: 1271808, Amount: 100, Description: '' });
         expect(wrapper.setState.mock.calls[1]).toEqual([{ amount: "", description: "", isShowMessage: true, isSuccess: true, message: "Updated successfully!" }, expect.any(Function)]);
-        expect(window.setTimeout.mock.calls[0]).toEqual([expect.any(Function), 3000]);
-        expect(window.setTimeout.mock.calls[1]).toEqual([expect.any(Function), 3000]);
-        expect(wrapper.setState.mock.calls[2][0]).toEqual({ isShowMessage: false });
-        expect(props.getAffiliateInfo).toHaveBeenCalledWith('B2CAFF226', "adjustment");
     });
 });

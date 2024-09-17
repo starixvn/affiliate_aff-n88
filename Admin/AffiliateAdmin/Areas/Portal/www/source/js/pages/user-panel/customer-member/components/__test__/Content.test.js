@@ -6,7 +6,6 @@ import { defaultPagingOption } from '../../../../../modules/constants';
 describe('customer member - components - Content', () => {
     const defaultProps = {
         affId: 1271808,
-        canViewMemberEmail: false,
         pagingOption: defaultPagingOption,
         param: {
             fromDate: "7/01/2017",
@@ -79,7 +78,7 @@ describe('customer member - components - Content', () => {
     });
 
     it('fetchData - should call toggleLoaderUserPanel, setState and setPagingOption with correct parameter', async () => {
-        const data = { EntityResult: { MainData: [{ Id: 123 }], TotalItem: 1 } };
+        const data = { MainData: [{ Id: 123 }], TotalItem: 1 };
 
         const toggleLoaderUserPanel = jest.fn();
         const setPagingOption = jest.fn();

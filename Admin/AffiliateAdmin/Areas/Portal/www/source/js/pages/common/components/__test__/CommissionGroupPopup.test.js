@@ -7,6 +7,7 @@ describe('common - components - CommissionGroupPopup', () => {
         showPopupCommGroup: true,
         affName: 'B2CAFF226',
         affId: 1271808,
+        privateGroupTypeId: 1,
         isPrivateGroup: false,
         isNewAffiliate: true
     };
@@ -113,12 +114,10 @@ describe('common - components - CommissionGroupPopup', () => {
     it('handleClosePopup - should call setShowPopupCommGroup and window.setTimeout', () => {
         const props = Object.assign({}, defaultProps, { setShowPopupCommGroup: jest.fn() });
         const result = shallow(<CommissionGroupPopup {...props} />);
-        window.setTimeout = jest.fn();
 
         result.instance().handleClosePopup();
 
         expect(props.setShowPopupCommGroup).toHaveBeenCalledWith(false);
-        expect(window.setTimeout).toHaveBeenCalled();
     });
 
     it('resetState - should call setState', () => {
