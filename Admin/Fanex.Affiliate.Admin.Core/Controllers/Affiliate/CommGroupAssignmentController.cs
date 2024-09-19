@@ -54,7 +54,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
 
             if (affId >= Validation.MinId)
             {
-                var selectedGroupType = groupTypeId == 0 ? 1 : groupTypeId;
+                var selectedGroupType = groupTypeId == 0 ? GroupType.CalculateRevenueShareByWinloss : groupTypeId;
                 var param = new GetGroupListParam { AffId = affId };
                 var commGroupList = _commGroupAssignmentService.GetNormalCommGroupList(param);
                 var commGroupTypeList = _commGroupCommonService.GetCommGroupTypes();

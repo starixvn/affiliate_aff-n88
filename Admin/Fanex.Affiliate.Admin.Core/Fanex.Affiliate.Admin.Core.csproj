@@ -234,6 +234,7 @@
     <Compile Include="Constants\Apis\CustomerStatus.cs" />
     <Compile Include="Constants\Apis\PaymentType.cs" />
     <Compile Include="Constants\CalculatedType.cs" />
+    <Compile Include="Constants\GroupType.cs" />
     <Compile Include="Constants\DataTrackerStatus.cs" />
     <Compile Include="Constants\DataTrackerType.cs" />
     <Compile Include="Constants\ErrCode.cs" />
@@ -664,7 +665,7 @@
     <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.8.9.0.19135\analyzers\SonarAnalyzer.dll" />
   </ItemGroup>
   <ItemGroup>
-    <AdditionalFiles Include="..\..\.sonarlint\n88affadmin\CSharp\SonarLint.xml">
+    <AdditionalFiles Include="..\..\.sonarlint\b2caffadmin\CSharp\SonarLint.xml">
       <Link>SonarLint.xml</Link>
     </AdditionalFiles>
   </ItemGroup>

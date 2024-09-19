@@ -32,7 +32,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
         public void UpdateCommissionGroup_WhenCall_ExcuteSucceed()
         {
             // Arrange
-            var param = CreateValidCreateUpdateCommissionGroupParam();
+            var param = CreateValidCreateUpdateCommissionGroupParamHasKillRate();
             var commGroupRepository = new Mock<ICommissionGroupRepository>();
             commGroupRepository.Setup(comm => comm.UpdateCommissionGroup(param)).Returns(new ResultInfo());
 
@@ -62,6 +62,25 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
 
             // Action
             var result = service.GetDeductionList();
+
+            // Assert
+            Assert.Single(result);
+        }
+
+        [Fact]
+        public void GetCommGroupTypes_WhenCall_ReturnCorrectData()
+        {
+            // Arrange
+            var commGroupRepository = new Mock<ICommissionGroupRepository>();
+            var expectedResult = new List<CommGroupType>
+                    {
+                        new CommGroupType()
+                    };
+            commGroupRepository.Setup(comm => comm.GetCommissionGroupTypes()).Returns(expectedResult);
+            var service = CreateCommGroupCommonService(commGroupRepository.Object);
+
+            // Action
+            var result = service.GetCommGroupTypes();
 
             // Assert
             Assert.Single(result);
@@ -134,6 +153,14 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
                     }
                 }
             };
+        }
+
+        private static CreateUpdateCommissionGroupParam CreateValidCreateUpdateCommissionGroupParamHasKillRate()
+        {
+            var param = CreateValidCreateUpdateCommissionGroupParam();
+            param.KillRateFeeList = new List<TierDeductionSettingParam> { new TierDeductionSettingParam() };
+
+            return param;
         }
     }
 }

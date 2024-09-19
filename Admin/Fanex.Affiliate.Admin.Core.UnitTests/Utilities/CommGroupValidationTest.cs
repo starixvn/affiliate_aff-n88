@@ -1,5 +1,8 @@
-﻿using Fanex.Affiliate.Admin.Core.DTO;
+﻿using Fanex.Affiliate.Admin.Core.Constants;
+using Fanex.Affiliate.Admin.Core.DTO;
+using Fanex.Affiliate.Admin.Core.DTO.Affiliate;
 using Fanex.Affiliate.Admin.Core.DTO.CommissionGroup;
+using Fanex.Affiliate.Admin.Core.DTO.Common;
 using Fanex.Affiliate.Admin.Core.MetaModels.CommissionGroup;
 using Fanex.Affiliate.Admin.Core.Repository;
 using Fanex.Affiliate.Admin.Core.Services;
@@ -13,6 +16,41 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Utilities
 {
     public class CommGroupValidationTest
     {
+        [Fact]
+        public void HasPermissionAssignOnAff_WhenCallWithApprovedAff_ExcuteSucceed()
+        {
+            // Arrange
+            var affiliateService = new Mock<IAffiliateService>();
+            affiliateService.Setup(a => a.GetAffiliateBasicInfo(It.IsAny<int?>(), It.IsAny<string>())).Returns(new AffiliateBasicInfo { AffCode = "123456" });
+
+            var helper = CreateCommGroupValidationHelper(affiliateService: affiliateService.Object);
+
+            // Action
+            var result = helper.HasPermissionAssignOnAff(123, 234);
+
+            // Assert
+            Assert.True(result);
+        }
+
+        [Fact]
+        public void HasPermissionAssignOnAff_WhenCallWithPendingOrDisapprovedAff_ExcuteSucceed()
+        {
+            // Arrange
+            var affiliateService = new Mock<IAffiliateService>();
+            affiliateService.Setup(a => a.GetAffiliateBasicInfo(It.IsAny<int?>(), It.IsAny<string>())).Returns(new AffiliateBasicInfo());
+
+            var authRepository = new Mock<IAuthRepository>();
+            authRepository.Setup(a => a.GetPermissionList(It.IsAny<int>())).Returns(new List<UserPermission> { new UserPermission { FunctionName = Function.EditAffStatus, IsHost = true } });
+
+            var helper = CreateCommGroupValidationHelper(authRepository.Object, affiliateService.Object);
+
+            // Action
+            var result = helper.HasPermissionAssignOnAff(123, 234);
+
+            // Assert
+            Assert.True(result);
+        }
+
         [Fact]
         public void ValidateCommGroup_WhenCall_ExcuteSucceed()
         {
@@ -283,10 +321,10 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Utilities
             Assert.False(result.IsSuccessful);
         }
 
-        private static CommGroupValidation CreateCommGroupValidationHelper()
+        private static CommGroupValidation CreateCommGroupValidationHelper(IAuthRepository authRepository = null, IAffiliateService affiliateService = null)
         {
-            var authRepository = new Mock<IAuthRepository>();
-            var affiliateService = new Mock<IAffiliateService>();
+            var fakeIAuthRepository = authRepository ?? Mock.Of<IAuthRepository>();
+            var fakeIAffiliateService = affiliateService ?? Mock.Of<IAffiliateService>();
             var productRepository = new Mock<IProductRepository>();
             var commGroupCommonService = new Mock<ICommGroupCommonService>();
 
@@ -302,7 +340,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Utilities
                 new CommGroupType {GroupTypeId = 2}
             });
 
-            return new CommGroupValidation(authRepository.Object, affiliateService.Object, productRepository.Object, commGroupCommonService.Object);
+            return new CommGroupValidation(fakeIAuthRepository, fakeIAffiliateService, productRepository.Object, commGroupCommonService.Object);
         }
         private static CommGroupSettingParam CreateValidCommGroupSettingParam()
         {

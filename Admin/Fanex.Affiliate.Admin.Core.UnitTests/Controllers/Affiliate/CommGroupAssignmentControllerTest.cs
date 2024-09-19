@@ -44,11 +44,12 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
             Assert.Equal(0, model.SelectedGroup);
         }
 
-        [Fact]
-        public void AssignGroup_WhenCall_ReturnView()
+        [Theory]
+        [InlineData(1271808, 0)]
+        [InlineData(1271808, 1)]
+        public void AssignGroup_WhenCall_ReturnView(int affId, int groupTypeId)
         {
             // Arrange
-            const int affId = 1271808, groupTypeId = 1;
             GetGroupListParam passedParam = null;
             var commGroupList = new List<NormalCommGroup> { new NormalCommGroup { GroupId = 123, GroupName = "Test", GroupTypeId = groupTypeId } };
             var commGroupAssignmentService = new Mock<ICommGroupAssignmentService>();
@@ -66,6 +67,31 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
             Assert.Equal("~/Areas/Portal/Views/Affiliate/AssignGroup.cshtml", viewResult.ViewName);
             Assert.Equal(0, model.SelectedGroup);
             Assert.Equal(affId, passedParam.AffId);
+        }
+
+        [Fact]
+        public async Task AssignGroup_WhenCallPostWithInvalidPermission_ReturnError()
+        {
+            // Arrange
+            var assignParam = new AssignGroupParam { AffId = 1271808, GroupId = 133 };
+            var affInfo = new AffInfoParam();
+
+            var commGroupValidation = new Mock<ICommGroupValidation>();
+            commGroupValidation.Setup(e => e.HasPermissionAssignOnAff(It.IsAny<int>(), It.IsAny<int>())).Returns(false);
+            var controller = CreateCommGroupAssignmentController(commGroupValidation: commGroupValidation.Object);
+            var expectResult = new ResultInfo
+            {
+                Code = ErrCode.ErrCodeAccessDenied,
+                Message = "You are not authorized to approve affiliate."
+            };
+            // Action
+            var jsonNetResult = await controller.AssignGroup(assignParam, affInfo) as JsonNetResult;
+            var resultInfo = jsonNetResult.Data as ResultInfo;
+
+            // Assert
+            Assert.False(resultInfo.IsSuccessful);
+            Assert.Equal(expectResult.Code, resultInfo.Code);
+            Assert.Equal(expectResult.Message, resultInfo.Message);
         }
 
         [Fact]
@@ -188,6 +214,31 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
             Assert.Equal("~/Areas/Portal/Views/Affiliate/AssignPrivateGroup.cshtml", viewResult.ViewName);
             Assert.Equal(expectModel.ProductList, model.ProductList);
             Assert.Equal(expectModel.DeductionList, model.DeductionList);
+        }
+
+        [Fact]
+        public async Task AssignPrivateGroup_WhenCallPostWithInvalidPermission_ReturnError()
+        {
+            // Arrange
+            var commGroup = new CommGroupSettingParam();
+            var affInfo = new AffInfoParam();
+
+            var commGroupValidation = new Mock<ICommGroupValidation>();
+            commGroupValidation.Setup(e => e.HasPermissionAssignOnAff(It.IsAny<int>(), It.IsAny<int>())).Returns(false);
+            var controller = CreateCommGroupAssignmentController(commGroupValidation: commGroupValidation.Object);
+            var expectResult = new ResultInfo
+            {
+                Code = ErrCode.ErrCodeAccessDenied,
+                Message = "You are not authorized to approve affiliate."
+            };
+            // Action
+            var jsonNetResult = await controller.AssignPrivateGroup(commGroup, affInfo) as JsonNetResult;
+            var resultInfo = jsonNetResult.Data as ResultInfo;
+
+            // Assert
+            Assert.False(resultInfo.IsSuccessful);
+            Assert.Equal(expectResult.Code, resultInfo.Code);
+            Assert.Equal(expectResult.Message, resultInfo.Message);
         }
 
         [Fact]

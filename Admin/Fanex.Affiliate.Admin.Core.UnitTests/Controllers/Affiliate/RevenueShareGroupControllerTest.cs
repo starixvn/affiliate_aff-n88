@@ -49,7 +49,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
         }
 
         [Fact]
-        public void GetCommissionGroupList_GetData_ReturnCorrectData()
+        public void GetCommissionGroupList_GetDataWithKillRateFeeListIsNull_ReturnCorrectData()
         {
             // Arrange
             var param = new GetCommissionGroupParam { GroupName = "abc", PageIndex = 1, PageSize = 20 };
@@ -67,10 +67,52 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
         }
 
         [Fact]
-        public void GetCommissionGroup_GetData_ReturnCorrectData()
+        public void GetCommissionGroupList_GetDataWithEmptyKillRateFeeList_ReturnCorrectData()
         {
             // Arrange
             var param = new GetCommissionGroupParam { GroupId = 123 };
+            GetCommissionGroupParam passedParam = null;
+            var commissionGroupService = new Mock<ICommissionGroupService>();
+            commissionGroupService.Setup(c => c.GetCommissionGroupList(param))
+                .Returns(new List<CommissionGroupSetting> { new CommissionGroupSetting { GroupId = 123, KillRateFeeList = new List<DeductionSetting> { }, PlatformFeeList = new List<DeductionSetting> { new DeductionSetting() } } })
+                .Callback<GetCommissionGroupParam>(p => passedParam = p);
+            var controller = CreateCommissionGroupController(commissionGroupService: commissionGroupService.Object);
+
+            // Action
+            var result = controller.GetCommissionGroup(param) as JsonNetResult;
+            var model = result.Data as CommissionGroupSetting;
+
+            // Assert
+            Assert.Equal(param.GroupId, model.GroupId);
+            Assert.Equal(param, passedParam);
+        }
+
+        [Fact]
+        public void GetCommissionGroupList_GetDataWithKillRateFeeList_ReturnCorrectData()
+        {
+            // Arrange
+            var param = new GetCommissionGroupParam { GroupId = 123 };
+            GetCommissionGroupParam passedParam = null;
+            var commissionGroupService = new Mock<ICommissionGroupService>();
+            commissionGroupService.Setup(c => c.GetCommissionGroupList(param))
+                .Returns(new List<CommissionGroupSetting> { new CommissionGroupSetting { GroupId = 123, KillRateFeeList = new List<DeductionSetting> { new DeductionSetting() } } })
+                .Callback<GetCommissionGroupParam>(p => passedParam = p);
+            var controller = CreateCommissionGroupController(commissionGroupService: commissionGroupService.Object);
+
+            // Action
+            var result = controller.GetCommissionGroup(param) as JsonNetResult;
+            var model = result.Data as CommissionGroupSetting;
+
+            // Assert
+            Assert.Equal(param.GroupId, model.GroupId);
+            Assert.Equal(param, passedParam);
+        }
+
+        [Fact]
+        public void GetCommissionGroup_GetData_ReturnCorrectData()
+        {
+            // Arrange
+            var param = new GetCommissionGroupParam { GroupId = 123, GroupTypeId = GroupType.CalculateRevenueShareByTurnover };
             GetCommissionGroupParam passedParam = null;
             var commissionGroupService = new Mock<ICommissionGroupService>();
             commissionGroupService.Setup(c => c.GetCommissionGroupList(param))

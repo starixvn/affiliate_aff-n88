@@ -17,6 +17,21 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Report
         private const string _sp_GetDetailReportData = "Aff_Admin_AffiliateReport_Detail_Sel";
 
         [Fact]
+        public void GetReportCutOffDate_WhenCall_CallCorrectMethodOfObjectDb()
+        {
+            // Arrange
+            var objectDb = new Mock<IObjectDb>();
+            var repository = new Mock<AffiliateReportRepository> { CallBase = true };
+            repository.Setup(re => re.GetObjectDb("Task_Aff_GetSetting", It.IsAny<int>())).Returns(objectDb.Object);
+
+            // Action
+            repository.Object.GetReportCutOffDate();
+
+            // Assert
+            objectDb.Verify(obj => obj.QueryEntity<DateTime>(null, null), Times.Once);
+        }
+
+        [Fact]
         public void GetMainReportData_WhenCall_ReturnCorrectData()
         {
             // Arrange

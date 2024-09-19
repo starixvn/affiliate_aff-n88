@@ -1,4 +1,6 @@
-﻿using Fanex.Affiliate.Admin.Core.MetaModels.Login;
+﻿using Fanex.Affiliate.Admin.Core.Constants;
+using Fanex.Affiliate.Admin.Core.MetaModels;
+using Fanex.Affiliate.Admin.Core.MetaModels.Login;
 using Fanex.Affiliate.Admin.Core.Repository;
 using Fanex.Affiliate.Admin.Core.UnitTests.TestHelper;
 using Fanex.Data;
@@ -157,6 +159,25 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository
 
             // Assert
             objectDb.Verify(obj => obj.ExecuteNonQuery(null, null), Times.Once);
+        }
+
+        [Fact]
+        public void CheckPermission_WhenCall_ReturnCorrect()
+        {
+            // Arrange
+            var param = new CheckPermissionParam { CustId = 123, FuncName = Function.Affiliate };
+            var repository = new Mock<AuthRepository> { CallBase = true };
+            var objectDb = new Mock<IObjectDb>();
+            objectDb.Setup(obj => obj.ExecuteNonQuery(null, null));
+            objectDb.Setup(obj => obj.GetParameterValue("ErrCode")).Returns(0);
+            objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns("");
+            repository.Setup(re => re.GetObjectDb("Aff_Con_CheckPermission", 120)).Returns(objectDb.Object);
+
+            // Action
+            var result = repository.Object.CheckPermission(param);
+
+            // Assert
+            Assert.True(result.IsSuccessful);
         }
 
         private IDictionary<string, object> GetPermissionList()

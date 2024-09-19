@@ -23,6 +23,21 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository
         private const string SpKeyCommGroupAssign = "Aff_Admin_CommGroup_Assign";
 
         [Fact]
+        public void GetCommissionGroupTypes_WhenCall_CallCorrectMethodOfObjectDb()
+        {
+            // Arrange
+            var objectDb = new Mock<IObjectDb>();
+            var repository = new Mock<CommissionGroupRepository> { CallBase = true };
+            repository.Setup(re => re.GetObjectDb("Aff_Admin_CommGroup_GroupTypeSel", It.IsAny<int>())).Returns(objectDb.Object);
+
+            // Action
+            repository.Object.GetCommissionGroupTypes();
+
+            // Assert
+            objectDb.Verify(obj => obj.Query<CommGroupType>(null, null), Times.Once);
+        }
+
+        [Fact]
         public void GetCommissionSettingList_WhenCall_ReturnCorrectCommGroupData()
         {
             // Arrange

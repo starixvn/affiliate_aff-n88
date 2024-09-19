@@ -1,2 +1,2 @@
 @echo off
-coveragerunner.bat N88AffAdmin
+coveragerunner.bat B2CAffAdmin

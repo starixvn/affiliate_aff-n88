@@ -1,8 +1,8 @@
-﻿using System;
-using Fanex.Affiliate.Admin.Core.DTO;
+﻿using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.Report;
 using Fanex.Affiliate.Admin.Core.MetaModels.Report;
 using Fanex.Affiliate.Admin.Core.Repository.Report;
+using System;
 
 namespace Fanex.Affiliate.Admin.Core.Services.Report
 {

@@ -1,4 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<RuleSet Name="SonarQube - LEGION / Nova88 Nexcel CSharp" ToolsVersion="16.0">
-  <Include Path="..\..\sonarqube\n88affadmincsharp.ruleset" Action="Default" />
+<RuleSet Name="SonarQube - LEGION / B2C AFF ADMIN Nexcel CSharp" ToolsVersion="16.0">
+  <Include Path="..\..\sonarqube\b2caffadmincsharp.ruleset" Action="Default" />
 </RuleSet>

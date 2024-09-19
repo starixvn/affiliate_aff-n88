@@ -112,8 +112,8 @@ namespace Fanex.Affiliate.Admin.Core.Repository
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.SetParameterValue("AffId", param.AffId);
-                objectDb.SetParameterValue("GroupTypeId", param.GroupTypeId);
+                objectDb.SetParameterValue(Field.AffId, param.AffId);
+                objectDb.SetParameterValue(Field.GroupTypeId, param.GroupTypeId);
                 objectDb.SetParameterValue(Field.GroupId, DefaultValue.Int);
 
                 using (var reader = objectDb.ExecuteReader())
