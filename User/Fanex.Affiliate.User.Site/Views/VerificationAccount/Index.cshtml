@@ -2,6 +2,7 @@
     ViewBag.Title = Lang.AffiliateProgram;
     Layout = "~/Views/Shared/_LayoutBeforeLogin.cshtml";
 }
+@using Fanex.Affiliate.User.Core.Utilities;
 
 @model Fanex.Affiliate.User.Core.ViewModels.VerificationAccountViewModel
 
@@ -81,7 +82,7 @@
                             <span class="field-validation-valid help-block" data-valmsg-for="Captcha" data-valmsg-replace="true"></span>
                         </div>
                         <div class="validation-value">
-                            <img style="cursor:pointer" id="captchaVerificationAccount" src="@Url.Content("~/VerificationAccount/CaptchaImage?_v=" + DateTime.Now.ToLongTimeString())" alt="captcha" />
+                            <img style="cursor:pointer" id="captchaVerificationAccount" src="@Url.Content("~/VerificationAccount/CaptchaImage?_v=" + DateTimeHelper.NowDateTime.ToLongTimeString())" alt="captcha" />
                         </div>
                     </div>
 

@@ -34,6 +34,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             var model = new EmailTemplateViewModel();
 
             Assert.Equal("N8B", model.SiteName);
+            Assert.NotNull(model.Copyright);
         }
 
         [Fact]

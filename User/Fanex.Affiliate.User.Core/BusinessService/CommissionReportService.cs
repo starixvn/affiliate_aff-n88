@@ -43,21 +43,21 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                         }).ToList();
 
             var total = new AffiliateCommission();
-            foreach (var item in byMonth)
+            foreach (var affComm in byMonth.Select(item => item.Data))
             {
-                item.Data.CommissionRate *= PercentageUnit;
-                item.Data.SubCommRate *= PercentageUnit;
+                affComm.CommissionRate *= PercentageUnit;
+                affComm.SubCommRate *= PercentageUnit;
 
-                total.TurnOver += item.Data.TurnOver;
-                total.GGR += item.Data.GGR;
-                total.PlatformFee += item.Data.PlatformFee;
-                total.DepositFee += item.Data.DepositFee;
-                total.WithdrawalFee += item.Data.WithdrawalFee;
-                total.Bonus += item.Data.Bonus;
-                total.Rebate += item.Data.Rebate;
-                total.Commission += item.Data.Commission;
-                total.P2pCommission += item.Data.P2pCommission;
-                total.SubAffCommission += item.Data.SubAffCommission;
+                total.TurnOver += affComm.TurnOver;
+                total.GGR += affComm.GGR;
+                total.PlatformFee += affComm.PlatformFee;
+                total.DepositFee += affComm.DepositFee;
+                total.WithdrawalFee += affComm.WithdrawalFee;
+                total.Bonus += affComm.Bonus;
+                total.Rebate += affComm.Rebate;
+                total.Commission += affComm.Commission;
+                total.P2pCommission += affComm.P2pCommission;
+                total.SubAffCommission += affComm.SubAffCommission;
             }
 
             return new CommissionReportDataViewModel

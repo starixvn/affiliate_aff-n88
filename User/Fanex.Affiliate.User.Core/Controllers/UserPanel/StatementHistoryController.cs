@@ -35,6 +35,7 @@
             _statementHistoryRepository = statementHistoryRepository;
             _currencyRepository = currencyRepository;
         }
+
         [HttpGet]
         [AjaxOnly]
         public ActionResult Index(string baseCurrency)
@@ -125,7 +126,7 @@
                 .Where(s => s.TransType == TransType.SubAffBonus || s.TransType == TransType.Commission);
 
             var monthlyCom = transItems.FirstOrDefault(s => s.TransType == TransType.Commission);
-            var children = transItems.Select(s => CreateViewModelFromStatementHistoryItem(s));
+            var children = transItems.Select(CreateViewModelFromStatementHistoryItem);
 
             var monthlyTotal = new StatementHistoryViewModel
             {
@@ -141,7 +142,7 @@
 
         private static bool CheckIfExistMonthlyTotal(DateTime monthDate, List<StatementHistoryViewModel> vms)
         {
-            return vms.Any(m => m.MonthDate == monthDate && m.TransType == TransType.MonthlyTotal);
+            return vms.Exists(m => m.MonthDate == monthDate && m.TransType == TransType.MonthlyTotal);
         }
 
         private static StatementHistoryViewModel CreateViewModelFromStatementHistoryItem(StatementHistory item)

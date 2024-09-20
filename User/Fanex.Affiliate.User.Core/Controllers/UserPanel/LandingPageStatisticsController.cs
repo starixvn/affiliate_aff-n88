@@ -34,7 +34,6 @@
             MarketingService = marketingService;
         }
 
-
         [HttpGet]
         [AjaxOnly]
         public ActionResult Index()
@@ -42,12 +41,12 @@
             var userSession = SessionService.UserSession;
             var isInternal = SessionService.IsInternal;
 
-            var now = DateTimeOffset.Now.ToOffset(new TimeSpan(GMT.PlusEight, 0, 0));
+            var now = DateTimeHelper.NowDateTimeOffset.ToOffset(new TimeSpan(GMT.PlusEight, 0, 0));
             var landingPageParam = new LandingPageStatisticsParam
             {
                 AffId = userSession.AffId,
                 IsInternal = isInternal,
-                FromDate = new DateTime(now.Year, now.Month, 1),
+                FromDate = DateTimeHelper.CreateDateTime(now.Year, now.Month, 1),
                 ToDate = now.DateTime
             };
 

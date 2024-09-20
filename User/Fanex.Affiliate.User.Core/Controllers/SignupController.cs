@@ -160,7 +160,7 @@
             var cookie = new HttpCookie(ParentCodeCookieName)
             {
                 HttpOnly = true,
-                Expires = DateTime.Now.AddHours(CookieTimeOut),
+                Expires = DateTimeHelper.NowDateTime.AddHours(CookieTimeOut),
                 Value = parentAffCode
             };
 

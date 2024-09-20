@@ -7,7 +7,6 @@
     using Fanex.Affiliate.User.Core.Utilities;
     using Filters;
     using MetalModels.UserPanel;
-    using System;
     using System.Web.Mvc;
     using ViewModels.UserPanel;
 
@@ -37,7 +36,7 @@
             param.AffId = SessionService.UserSession.AffId;
             param.IsInternal = SessionService.IsInternal;
             param.ProductId = param.ProductId ?? Product.Sportsbook;
-            param.MonthDate = param.MonthDate ?? DateTime.Now.AddDays(-1);
+            param.MonthDate = param.MonthDate ?? DateTimeHelper.NowDateTime.AddDays(-1);
 
             var viewModel = new DailyEarningViewModel
             {

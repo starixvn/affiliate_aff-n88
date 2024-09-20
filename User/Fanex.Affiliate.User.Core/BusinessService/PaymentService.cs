@@ -4,7 +4,7 @@ using Fanex.Affiliate.User.Core.MetalModels.Email;
 using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
 using Fanex.Affiliate.User.Core.Repository.UserPanel;
 using Fanex.Affiliate.User.Core.Resources;
-using System;
+using Fanex.Affiliate.User.Core.Utilities;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -121,7 +121,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                 emailParam.MailTo = userInfo.Email;
                 emailParam.TransId = paymentCreationParam.TransId;
                 emailParam.Amount = paymentCreationParam.Amount;
-                emailParam.RequestDate = paymentCreationParam.TransDate ?? DateTime.Now;
+                emailParam.RequestDate = paymentCreationParam.TransDate ?? DateTimeHelper.NowDateTime;
             }
         }
 

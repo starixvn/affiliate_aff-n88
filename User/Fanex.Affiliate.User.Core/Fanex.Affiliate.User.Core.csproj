@@ -386,13 +386,13 @@
     <Compile Include="Repository\UserPanel\IPlayerTransferBalanceRepository.cs" />
     <Compile Include="Repository\UserPanel\PlayerTransferBalanceRespository.cs" />
     <Compile Include="Utilities\CurrencyHelper.cs" />
+    <Compile Include="Utilities\DateTimeHelper.cs" />
     <Compile Include="Utilities\FileSystem.cs" />
     <Compile Include="Utilities\IFileSystem.cs" />
     <Compile Include="Utilities\IImageHandler.cs" />
     <Compile Include="Utilities\LogHelper.cs" />
     <Compile Include="Utilities\PathHelper.cs" />
     <Compile Include="ViewModels\BaseLayoutViewModel.cs" />
-    <Compile Include="ViewModels\ContactUsViewModel.cs" />
     <Compile Include="ViewModels\RevenueSharingStructureViewModel.cs" />
     <Compile Include="ViewModels\UserPanel\AccountOverviewViewModel.cs" />
     <Compile Include="ViewModels\UserPanel\BreadcumViewModel.cs" />

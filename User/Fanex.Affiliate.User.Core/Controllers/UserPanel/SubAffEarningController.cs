@@ -5,7 +5,6 @@ using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
 using Fanex.Affiliate.User.Core.Repository.UserPanel;
 using Fanex.Affiliate.User.Core.Utilities;
 using Fanex.Affiliate.User.Core.ViewModels.UserPanel;
-using System;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -35,7 +34,7 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
         {
             param.AffId = SessionService.UserSession.AffId;
             param.IsInternal = SessionService.IsInternal;
-            param.MonthDate = param.MonthDate ?? DateTime.Now.AddDays(-1);
+            param.MonthDate = param.MonthDate ?? DateTimeHelper.NowDateTime.AddDays(-1);
 
             var subAffComs = _statementHistoryRepository.GetSubAffCommission(param);
             var requestPage = param.RequestPage;

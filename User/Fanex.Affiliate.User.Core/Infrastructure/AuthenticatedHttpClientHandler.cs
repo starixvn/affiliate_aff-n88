@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Fanex.Affiliate.User.Core.Utilities;
+using System;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -36,8 +37,8 @@ namespace Fanex.Affiliate.User.Core.Infrastructure
             string requestHttpMethod = request.Method.ToString();
 
             //Calculate UNIX time
-            DateTime epochStart = new DateTime(1970, 01, 01, 0, 0, 0, 0, DateTimeKind.Utc);
-            TimeSpan timeSpan = DateTime.UtcNow - epochStart;
+            DateTime epochStart = DateTimeHelper.CreateDateTime(1970, 01, 01);
+            TimeSpan timeSpan = DateTimeHelper.UtcNowDateTimeOffset.DateTime - epochStart;
             string requestTimeStamp = Convert.ToUInt64(timeSpan.TotalSeconds).ToString();
 
             //create random nonce for each request

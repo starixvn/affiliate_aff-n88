@@ -23,7 +23,6 @@
     [CustomAuthorize]
     public class MarketingController : BaseMarketingController
     {
-
         private readonly IQrCodeGeneratorService QrCodeGeneratorService;
         private readonly IFileSystem FileSystem;
 
@@ -100,11 +99,12 @@
                 result = GenerateQrCodeViewModel(param);
                 var usingLinks = MarketingService.GetUsingMarketingLinks(SessionService.UserSession.AffId)
                     .FirstOrDefault(l => l.Key == param.SelectedChannel);
-                if (usingLinks != null)
+
+                if (usingLinks != null && result != null)
                 {
-                    foreach (var item in result)
+                    foreach (var q in result.Values)
                     {
-                        item.Value.IsShow = usingLinks.Any(l => l.AffMediaLink.Equals(item.Value.Link, StringComparison.OrdinalIgnoreCase));
+                        q.IsShow = usingLinks.Any(l => l.AffMediaLink.Equals(q.Link, StringComparison.OrdinalIgnoreCase));
                     }
                 }
             }
@@ -115,7 +115,7 @@
             ViewBag.SelectedChannel = param.SelectedChannel;
             ViewBag.Language = param.SelectedLanguage;
 
-            return View("~/Views/UserPanel/AccountOverview/Partial/_GeneratedQrCode.cshtml", result.Values);
+            return View("~/Views/UserPanel/AccountOverview/Partial/_GeneratedQrCode.cshtml", result?.Values);
         }
 
         [HttpGet]

@@ -17,6 +17,7 @@
     {
         private readonly IAppSetting _appSetting;
         private readonly IStatisticsRepository _statisticsRepository;
+
         public ReferrersStatisticsController(
             IAppSetting appSetting,
             ISessionService sessionService,
@@ -28,17 +29,16 @@
             _statisticsRepository = statisticsRepository;
         }
 
-
         [HttpGet]
         [AjaxOnly]
         public ActionResult Index()
         {
-            var now = DateTimeOffset.Now.ToOffset(new TimeSpan(GMT.PlusEight, 0, 0));
+            var now = DateTimeHelper.NowDateTimeOffset.ToOffset(new TimeSpan(GMT.PlusEight, 0, 0));
             var referrerStatisticsParam = new ReferrerStatisticsParam
             {
                 AffId = SessionService.UserSession.AffId,
                 IsInternal = SessionService.IsInternal,
-                FromDate = new DateTime(now.Year, now.Month, 1),
+                FromDate = DateTimeHelper.CreateDateTime(now.Year, now.Month, 1),
                 ToDate = now.DateTime,
                 DeviceType = (byte)DeviceType.PCDevice
             };
@@ -69,7 +69,5 @@
             var viewPath = PathHelper.GetViewPath("UserPanel/Statistics/StatisticsPartial", "_ReferrersStatisticsContent", _appSetting.SiteName);
             return PartialView(viewPath, viewModel);
         }
-
-
     }
 }

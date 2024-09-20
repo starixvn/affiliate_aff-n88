@@ -241,7 +241,7 @@
                 SiteFriendlyName = _appSetting.SiteFriendlyName,
                 DefaultCurrency = _appSetting.DefaultCurrency,
                 TransId = TranId,
-                RequestDate = DateTime.Now.Date,
+                RequestDate = DateTimeHelper.NowDateTime.Date,
                 Amount = Amount,
                 RootDomain = SiteDomainHelper.GetRootUrl(this, _appSetting),
                 MailTo = _mailContact,

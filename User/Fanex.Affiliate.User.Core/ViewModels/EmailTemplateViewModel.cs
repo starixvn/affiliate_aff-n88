@@ -1,6 +1,5 @@
 ﻿using Fanex.Affiliate.User.Core.Resources;
 using Fanex.Affiliate.User.Core.Utilities;
-using System;
 using System.Diagnostics.CodeAnalysis;
 
 namespace Fanex.Affiliate.User.Core.ViewModels
@@ -18,7 +17,7 @@ namespace Fanex.Affiliate.User.Core.ViewModels
         public string Content { get; set; }
 
         [SuppressMessage("Minor Code Smell", "S2325:Methods and properties that don't access instance data should be static", Justification = "<Pending>")]
-        public string Copyright => string.Format(SiteFriendlyNameHelper.ReplaceB2C(Lang.Copyright), DateTime.Now.Year);
+        public string Copyright => string.Format(SiteFriendlyNameHelper.ReplaceB2C(Lang.Copyright), DateTimeHelper.CurrentYear);
 
         [SuppressMessage("Minor Code Smell", "S2325:Methods and properties that don't access instance data should be static", Justification = "<Pending>")]
         public string SiteName => AppSetting.Instance.SiteName;

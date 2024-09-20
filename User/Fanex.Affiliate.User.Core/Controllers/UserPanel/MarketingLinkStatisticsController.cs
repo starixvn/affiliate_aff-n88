@@ -31,8 +31,8 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
 
         public ActionResult Index()
         {
-            var now = DateTimeOffset.Now.ToOffset(new TimeSpan(GMT.PlusEight, 0, 0));
-            var startMonth = new DateTime(now.Year, now.Month, 1);
+            var now = DateTimeHelper.NowDateTimeOffset.ToOffset(new TimeSpan(GMT.PlusEight, 0, 0));
+            var startMonth = DateTimeHelper.CreateDateTime(now.Year, now.Month, 1);
             var languages = LanguageService.GetLanguageList(SessionService.IsInternal).Select(l => new SelectListItem
             {
                 Text = l.EnglishName,

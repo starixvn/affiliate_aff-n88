@@ -7,7 +7,6 @@ using Fanex.Affiliate.User.Core.Repository;
 using Fanex.Affiliate.User.Core.Repository.UserPanel;
 using Fanex.Affiliate.User.Core.Utilities;
 using OtpNet;
-using System;
 using System.Security.Cryptography;
 
 namespace Fanex.Affiliate.User.Core.BusinessService
@@ -158,7 +157,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         {
             var now = _wrapperUtility.GetNowDateTime();
 
-            return new DateTime(now.Year, now.Month, now.Day, now.Hour, now.Minute, now.Second).Ticks;
+            return DateTimeHelper.CreateDateTime(now.Year, now.Month, now.Day, now.Hour, now.Minute, now.Second).Ticks;
         }
 
         private static string CreateHashMessage(string message, string secret)

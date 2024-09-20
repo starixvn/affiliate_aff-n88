@@ -1,7 +1,9 @@
-﻿@{
+﻿@using Fanex.Affiliate.User.Core.Utilities;
+
+@{
     Layout = null;
 
-    var now = DateTime.Now;
+    var now = DateTimeHelper.NowDateTime;
     var fromDate = new DateTime(now.Year, now.Month, 1);
     var nowGmt8Plus = now.ToUniversalTime().AddHours(8);
     var fromDateGmt8Plus = fromDate.ToUniversalTime().AddHours(8);

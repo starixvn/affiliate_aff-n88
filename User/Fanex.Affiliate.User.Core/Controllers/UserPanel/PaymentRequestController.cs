@@ -9,7 +9,6 @@
     using MetalModels.Email;
     using MetalModels.UserPanel;
     using Resources;
-    using System;
     using System.Linq;
     using System.Threading.Tasks;
     using System.Web.Mvc;
@@ -34,14 +33,14 @@
         public ActionResult Index()
         {
             var viewPath = PathHelper.GetViewPath("UserPanel/PaymentRequest", "Index", _appSetting.SiteName);
-            return View(viewPath, GetViewModel(DateTime.Now.Year));
+            return View(viewPath, GetViewModel(DateTimeHelper.CurrentYear));
         }
 
         [HttpPost]
         [AjaxOnly]
         public ActionResult GetPaymentListByYear(int year)
         {
-            var viewModel = year >= 2009 && year <= DateTime.Now.Year ? GetViewModel(year) : GetViewModel(DateTime.Now.Year);
+            var viewModel = year >= 2009 && year <= DateTimeHelper.CurrentYear ? GetViewModel(year) : GetViewModel(DateTimeHelper.CurrentYear);
 
             var viewPath = PathHelper.GetViewPath("UserPanel/PaymentRequest/PaymentPartial", "_PaymentList", _appSetting.SiteName);
             return PartialView(viewPath, viewModel);
@@ -51,7 +50,7 @@
         public ActionResult PaymentRequestPartial()
         {
             var viewPath = PathHelper.GetViewPath("UserPanel/PaymentRequest/PaymentPartial", "_Main", _appSetting.SiteName);
-            return PartialView(viewPath, GetViewModel(DateTime.Now.Year));
+            return PartialView(viewPath, GetViewModel(DateTimeHelper.CurrentYear));
         }
 
         [HttpPost]
@@ -73,7 +72,7 @@
                 paymentCreationParam.Ip = Request.GetClientIP();
                 paymentCreationParam.IsInternal = SessionService.IsInternal;
                 paymentCreationParam.IsLocalTest = !_appSetting.IsProduction;
-                paymentCreationParam.TransDate = paymentCreationParam.TransDate ?? DateTime.Now;
+                paymentCreationParam.TransDate = paymentCreationParam.TransDate ?? DateTimeHelper.NowDateTime;
 
                 var emailParam = new PaymentEmailParam
                 {

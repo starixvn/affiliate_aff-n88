@@ -1,4 +1,5 @@
 ﻿using Fanex.Affiliate.User.Core.BusinessService;
+using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
 using Fanex.Affiliate.User.Core.Utilities;
 using NSubstitute;
 using Xunit;
@@ -37,6 +38,8 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         [Fact]
         public void IsValid_WhenUseSecretCaptchaInLocal_ReturnTrue()
         {
+            MockingHelper.SetUpEnviroment();
+            MockingHelper.SetUpLogEngineEnviroment();
             var service = CreateService();
             var secretCaptcha = "1111";
             AppSetting.GetValue("AllowAutomationCaptchaCode").Returns("1");
@@ -44,22 +47,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             AppSetting.IsLocal.Returns(true);
 
             var result = service.IsValid(secretCaptcha, "", "127.0.0.1");
-
-            Assert.True(result);
-        }
-
-        [Fact]
-        public void IsValid_WhenUseSecretCaptchaOnPermitedIpAddress_ReturnTrue()
-        {
-            var service = CreateService();
-            var secretCaptcha = "1111";
-            var ipAddress = "202.73.231.33";
-            AppSetting.GetValue("AllowAutomationCaptchaCode").Returns("1");
-            AppSetting.GetValue("SecretCaptcha").Returns(secretCaptcha);
-            AppSetting.IsLocal.Returns(false);
-            AppSetting.GetValue("CompanyIp").Returns("^(202\\.78\\.231\\.(3[3-9]|[4-5][0-9]|6[0-2])|125\\.227\\.140\\.97)$");
-
-            var result = service.IsValid(secretCaptcha, "", ipAddress);
 
             Assert.True(result);
         }

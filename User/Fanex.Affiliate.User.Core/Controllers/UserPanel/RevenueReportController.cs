@@ -7,7 +7,6 @@
     using Fanex.Affiliate.User.Core.Utilities;
     using Fanex.Affiliate.User.Core.ViewModels.UserPanel;
     using Filters;
-    using System;
     using System.Web.Mvc;
 
     [CustomAuthorize]
@@ -32,7 +31,6 @@
             _currencyRepository = currencyRepository;
         }
 
-
         [HttpGet]
         [AjaxOnly]
         public ActionResult Index(int? baseCurrency)
@@ -49,11 +47,11 @@
         public ActionResult Index(int year, int baseCurrency = 0)
         {
             var currency = baseCurrency == 0 ? SessionService.UserSession.BaseCurrency : baseCurrency;
-            var viewModel = year >= 2009 && year <= DateTime.Now.Year
+            var viewModel = year >= 2009 && year <= DateTimeHelper.CurrentYear
                 ? _commissionReportService.GenerateCommissionReportData(new CommissionReportParam
                 {
                     AffId = SessionService.UserSession.AffId,
-                    WinLostDate = new DateTime(year, 1, 1),
+                    WinLostDate = DateTimeHelper.CreateDateTime(year, 1, 1),
                     BaseCurrency = currency
                 })
                 : new CommissionReportDataViewModel();

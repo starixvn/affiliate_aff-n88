@@ -386,7 +386,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             _repo.GetPlayerTransferBalanceInfo(Arg.Compat.Any<int>(), Arg.Compat.Any<string>()).Returns(playerTransferBalanceInfo);
             _repo.InsertTransferBalanceRequest(Arg.Compat.Any<PlayerTransferBalanceInsParam>()).Returns((12, 0, ""));
             _repo.UpdateTransferBalanceRequest(Arg.Compat.Any<int>(), Arg.Compat.Any<string>()).Returns((0, ""));
-            _accountApi.ActiveCustActStatus(Arg.Compat.Any<AccountParam>()).Returns(new AccountApiResult { Data = false });
+            _accountApi.ActiveCustActStatus(Arg.Compat.Any<AccountParam>()).Returns(new AccountApiResult { Data = false, ErrorCode = 0, Message = string.Empty, RawErrorCode = "0", RawMessage = "" });
             _api.GetCustBalanceAsync(Arg.Any<int[]>()).Returns(custBalances);
             _api.TransferMoneyToPlayerAsync(Arg.Any<TransferMoneyParam>()).Returns(Task.FromResult(new ApiResultInfo { IsSuccess = true }));
             var service = CreateService();

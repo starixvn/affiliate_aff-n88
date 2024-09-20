@@ -1,4 +1,5 @@
 ﻿using Fanex.Affiliate.User.Core.BusinessService;
+using Fanex.Affiliate.User.Core.Constants;
 using Fanex.Affiliate.User.Core.DTO.UserPanel;
 using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
 using Fanex.Affiliate.User.Core.Repository.UserPanel;
@@ -44,6 +45,8 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
                     ProductId = 0,
                     ProductName = "test",
                     TurnOver = 1000,
+                    EarningBy = EarningByType.Turnover,
+                    IsMultiGroupProduct = true,
                     GGR = 300
                 },
                 new AffiliateCommission
@@ -57,6 +60,8 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
                     ProductId = 2,
                     ProductName = "test",
                     TurnOver = 1000,
+                    EarningBy = EarningByType.Turnover,
+                    IsMultiGroupProduct = false,
                     GGR = 300
                 },
                 new AffiliateCommission
@@ -70,6 +75,8 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
                     ProductId = 0,
                     ProductName = "test",
                     TurnOver = 1000,
+                    EarningBy = EarningByType.Winloss,
+                    IsMultiGroupProduct = true,
                     GGR = 300
                 },
                 new AffiliateCommission
@@ -83,6 +90,8 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
                     ProductId = 0,
                     ProductName = "test",
                     TurnOver = 1000,
+                    EarningBy = EarningByType.Winloss,
+                    IsMultiGroupProduct = false,
                     GGR = 300
                 }
             };
