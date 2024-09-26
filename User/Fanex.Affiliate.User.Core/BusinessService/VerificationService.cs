@@ -53,7 +53,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                     userInfo.SecretKey = TryCreateSecretKey(userInfo.AffId);
                 }
 
-                var counter = _wrapperUtility.GetRandomGenerator().Next(int.MinValue, int.MaxValue);
+                var counter = RandomHelper.GetInt32Random(int.MinValue, int.MinValue);
                 var otp = _twoFactorAuthService.GenerateHotp(userInfo.SecretKey, counter);
 
                 var emailParam = param.VerificationEmailParam;

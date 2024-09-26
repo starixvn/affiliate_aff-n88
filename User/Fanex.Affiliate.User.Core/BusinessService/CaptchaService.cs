@@ -1,12 +1,10 @@
 ﻿using Fanex.Affiliate.User.Core.Constants;
 using Fanex.Affiliate.User.Core.Utilities;
-using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.Drawing.Text;
 using System.IO;
-using System.Text.RegularExpressions;
 
 namespace Fanex.Affiliate.User.Core.BusinessService
 {
@@ -54,7 +52,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         }
 
         public string GenerateCaptcha()
-            => new Random().Next(RANDOM_BEGIN_NUMBER, RANDOM_END_NUMBER).ToString();
+            => RandomHelper.GetInt32Random(RANDOM_BEGIN_NUMBER, RANDOM_END_NUMBER).ToString();
 
         public bool IsValid(string inputCaptcha, string sessionCaptcha, string clientIp)
         {
@@ -73,8 +71,6 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             using (var bitmap = new Bitmap(width, height))
             using (var graphics = Graphics.FromImage(bitmap))
             {
-                var random = new Random();
-
                 graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
                 graphics.SmoothingMode = SmoothingMode.AntiAlias;
 
@@ -82,20 +78,20 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
                 if (isComplex)
                 {
-                    DrawComplexImage(captcha, width, height, graphics, random);
+                    DrawComplexImage(captcha, width, height, graphics);
                 }
                 else
                 {
                     // Add captcha
                     var font = new Font("Montserrat", Number.Fourteen);
-                    graphics.DrawString(captcha, font, Brushes.White, random.Next(Number.Two, Number.Ten), random.Next(Number.Zero, Number.Two));
+                    graphics.DrawString(captcha, font, Brushes.White, RandomHelper.GetInt32Random(Number.Two, Number.Ten), RandomHelper.GetInt32Random(Number.Two));
                 }
 
                 for (int i = 0; i < Number.Fifty; i++)
                 {
-                    int x = random.Next(bitmap.Width);
-                    int y = random.Next(bitmap.Height);
-                    bitmap.SetPixel(x, y, Color.FromArgb(random.Next()));
+                    int x = RandomHelper.GetInt32Random(bitmap.Width);
+                    int y = RandomHelper.GetInt32Random(bitmap.Height);
+                    bitmap.SetPixel(x, y, Color.FromArgb(RandomHelper.GetInt32Random()));
                 }
 
                 bitmap.Save(memoryStream, ImageFormat.Png);
@@ -106,12 +102,12 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             return buffer;
         }
 
-        private void DrawComplexImage(string captcha, int width, int height, Graphics graphics, Random random)
+        private void DrawComplexImage(string captcha, int width, int height, Graphics graphics)
         {
             var rectangleF = new RectangleF(0, 0, width, height);
             var brush = new HatchBrush(
-                hatchStyleList[random.Next(hatchStyleList.Length - 1)],
-                CreateRandomColor(random, Number.OneFiveZero, Number.TwoDoubleFive),
+                hatchStyleList[RandomHelper.GetInt32Random(hatchStyleList.Length - 1)],
+                CreateRandomColor(Number.OneFiveZero, Number.TwoDoubleFive),
                 Color.White);
             graphics.FillRectangle(brush, rectangleF);
             var matrix = new Matrix();
@@ -121,10 +117,10 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                 matrix.Reset();
                 int charLength = captcha.Length;
                 int x = (width / (charLength + 1) * i) + 5;
-                int y = random.Next(Number.Zero, Number.Two);
+                int y = RandomHelper.GetInt32Random(Number.Two);
 
                 //Rotate text Random
-                matrix.RotateAt(random.Next(Number.NegativeTwenty, Number.Fifteen), new PointF(x, y));
+                matrix.RotateAt(RandomHelper.GetInt32Random(Number.NegativeTwenty, Number.Fifteen), new PointF(x, y));
                 graphics.Transform = matrix;
 
                 //Draw the letters with Randon Font Type, Size and Color
@@ -132,9 +128,12 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                     //Text
                     captcha.Substring(i, 1),
                     //Random Font Name and Style
-                    new Font(fontNameList[random.Next(fontNameList.Length - 1)], fontEmSizeList[random.Next(fontEmSizeList.Length - 1)], fontStyleList[random.Next(fontStyleList.Length - 1)]),
+                    new Font(
+                        fontNameList[RandomHelper.GetInt32Random(fontNameList.Length - 1)],
+                        fontEmSizeList[RandomHelper.GetInt32Random(fontEmSizeList.Length - 1)],
+                        fontStyleList[RandomHelper.GetInt32Random(fontStyleList.Length - 1)]),
                     //Random Color (Darker colors RGB 0 to 100)
-                    new SolidBrush(CreateRandomColor(random, Number.Zero, Number.OneHundred)),
+                    new SolidBrush(CreateRandomColor(Number.Zero, Number.OneHundred)),
                     x,
                     y);
                 graphics.ResetTransform();
@@ -159,14 +158,14 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
             var companyIpRegex = _appSetting.GetValue("CompanyIP");
 
-            return _appSetting.IsLocal || Regex.IsMatch(clientIp, companyIpRegex);
+            return _appSetting.IsLocal || RegexHelper.IsMatch(clientIp, companyIpRegex);
         }
 
-        private static Color CreateRandomColor(Random random, int min, int max)
+        private static Color CreateRandomColor(int min, int max)
         {
-            var red = random.Next(min, max);
-            var green = random.Next(min, max);
-            var blue = random.Next(min, max);
+            var red = RandomHelper.GetInt32Random(min, max);
+            var green = RandomHelper.GetInt32Random(min, max);
+            var blue = RandomHelper.GetInt32Random(min, max);
 
             return Color.FromArgb(red, green, blue);
         }

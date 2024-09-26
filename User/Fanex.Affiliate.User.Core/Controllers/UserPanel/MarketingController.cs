@@ -16,7 +16,6 @@
     using System.Collections.Generic;
     using System.Drawing;
     using System.Linq;
-    using System.Text.RegularExpressions;
     using System.Web.Mvc;
     using ViewModels.UserPanel.Marketing;
 
@@ -45,7 +44,7 @@
             var newSub = subCategoryList.Select(i => new SelectListItem
             {
                 Value = i.SubCategory,
-                Text = Lang.ResourceManager.GetString(Regex.Replace(i.SubCategory, @"\s+", "")) ?? i.SubCategory
+                Text = Lang.ResourceManager.GetString(RegexHelper.Replace(i.SubCategory, @"\s+", "")) ?? i.SubCategory
             });
 
             return Json(newSub,

@@ -72,7 +72,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             var userInfo = CreateUserInfo();
             userInfo.SecretKey = null;
             WrapperUtility.GetNowDateTime().Returns(DateTime.Now);
-            WrapperUtility.GetRandomGenerator().Returns(new Random());
             AccountRepo.GetUserInfoById(1, false).ReturnsForAnyArgs(userInfo);
             TwoFactorAuthService.GenerateHotp(null, 0).ReturnsForAnyArgs("12345");
             AccountRepo.CreateSecretKey(0, null).ReturnsForAnyArgs(101, 102);
@@ -90,7 +89,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             var param = CreateSendCodeParam();
             var userInfo = CreateUserInfo();
             WrapperUtility.GetNowDateTime().Returns(DateTime.Now);
-            WrapperUtility.GetRandomGenerator().Returns(new Random());
             AccountRepo.GetUserInfoById(1, false).ReturnsForAnyArgs(userInfo);
             TwoFactorAuthService.GenerateHotp(null, 0).ReturnsForAnyArgs("12345");
 

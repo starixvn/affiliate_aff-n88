@@ -79,7 +79,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         [Fact]
         public async Task GetPlayerTransferBalanceInfoAsync_WhenCallWithInvalidPlayerWalletInfo_ReturnError()
         {
-            _repo.GetPlayerTransferBalanceInfo(123, "").Returns(playerTransferBalanceInfo);
+            _repo.GetPlayerTransferBalanceInfo(123, "").Returns(PlayerTransferBalanceInfoItem);
             _api.GetCustBalanceAsync(Arg.Any<int[]>()).Returns(new List<CustomerBalanceInfo> {
                 new CustomerBalanceInfo
                 {
@@ -102,7 +102,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         [Fact]
         public async Task GetPlayerTransferBalanceInfoAsync_WhenCallWithInvalidPlayerWalletInfoStatus_ReturnError()
         {
-            _repo.GetPlayerTransferBalanceInfo(123, "").Returns(playerTransferBalanceInfo);
+            _repo.GetPlayerTransferBalanceInfo(123, "").Returns(PlayerTransferBalanceInfoItem);
             _api.GetCustBalanceAsync(Arg.Any<int[]>()).Returns(new List<CustomerBalanceInfo> {
                 new CustomerBalanceInfo
                 {
@@ -125,7 +125,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         [Fact]
         public async Task GetPlayerTransferBalanceInfoAsync_WhenCallWithInvalidAffWalletInfo_ReturnError()
         {
-            _repo.GetPlayerTransferBalanceInfo(123, "").Returns(playerTransferBalanceInfo);
+            _repo.GetPlayerTransferBalanceInfo(123, "").Returns(PlayerTransferBalanceInfoItem);
             _api.GetCustBalanceAsync(Arg.Any<int[]>()).Returns(new List<CustomerBalanceInfo> {
                 new CustomerBalanceInfo
                 {
@@ -148,7 +148,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         [Fact]
         public async Task GetPlayerTransferBalanceInfoAsync_WhenCallWithInvalidAffWalletInfoStatus_ReturnError()
         {
-            _repo.GetPlayerTransferBalanceInfo(Arg.Compat.Any<int>(), Arg.Compat.Any<string>()).Returns(playerTransferBalanceInfo);
+            _repo.GetPlayerTransferBalanceInfo(Arg.Compat.Any<int>(), Arg.Compat.Any<string>()).Returns(PlayerTransferBalanceInfoItem);
             _api.GetCustBalanceAsync(Arg.Any<int[]>()).Returns(new List<CustomerBalanceInfo> {
                 new CustomerBalanceInfo
                 {
@@ -180,8 +180,8 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         [Fact]
         public async Task GetPlayerTransferBalanceInfoAsync_WhenCall_ReturnCorrectData()
         {
-            _repo.GetPlayerTransferBalanceInfo(123, "").Returns(playerTransferBalanceInfo);
-            _api.GetCustBalanceAsync(Arg.Any<int[]>()).Returns(custBalances);
+            _repo.GetPlayerTransferBalanceInfo(123, "").Returns(PlayerTransferBalanceInfoItem);
+            _api.GetCustBalanceAsync(Arg.Any<int[]>()).Returns(CustBalances);
             var service = CreateService();
 
             var result = await service.GetPlayerTransferBalanceInfoAsync(123, "");
@@ -230,7 +230,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         public async Task SubmitTransferBalanceRequestAsync_WhenCallWithInvalidPlayerWalletInfo_ReturnError()
         {
             _authRepository.GetUserInfo(Arg.Compat.Any<string>(), false).Returns(new AuthorizedUserInfo { DisabledTransfer = false });
-            _repo.GetPlayerTransferBalanceInfo(Arg.Compat.Any<int>(), Arg.Compat.Any<string>()).Returns(playerTransferBalanceInfo);
+            _repo.GetPlayerTransferBalanceInfo(Arg.Compat.Any<int>(), Arg.Compat.Any<string>()).Returns(PlayerTransferBalanceInfoItem);
             _api.GetCustBalanceAsync(Arg.Any<int[]>()).Returns(new List<CustomerBalanceInfo> {
                 new CustomerBalanceInfo
                 {
@@ -254,7 +254,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         public async Task SubmitTransferBalanceRequestAsync_WhenCallWithInvalidAffWalletInfo_ReturnError()
         {
             _authRepository.GetUserInfo(Arg.Compat.Any<string>(), false).Returns(new AuthorizedUserInfo { DisabledTransfer = false });
-            _repo.GetPlayerTransferBalanceInfo(Arg.Compat.Any<int>(), Arg.Compat.Any<string>()).Returns(playerTransferBalanceInfo);
+            _repo.GetPlayerTransferBalanceInfo(Arg.Compat.Any<int>(), Arg.Compat.Any<string>()).Returns(PlayerTransferBalanceInfoItem);
             _api.GetCustBalanceAsync(Arg.Any<int[]>()).Returns(new List<CustomerBalanceInfo> {
                 new CustomerBalanceInfo
                 {
@@ -280,8 +280,8 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         public async Task SubmitTransferBalanceRequestAsync_WhenCallWithInvalidRemainTransferLimit_ReturnError(decimal amount)
         {
             _authRepository.GetUserInfo(Arg.Compat.Any<string>(), false).Returns(new AuthorizedUserInfo { DisabledTransfer = false });
-            _repo.GetPlayerTransferBalanceInfo(Arg.Compat.Any<int>(), Arg.Compat.Any<string>()).Returns(playerTransferBalanceInfo);
-            _api.GetCustBalanceAsync(Arg.Any<int[]>()).Returns(custBalances);
+            _repo.GetPlayerTransferBalanceInfo(Arg.Compat.Any<int>(), Arg.Compat.Any<string>()).Returns(PlayerTransferBalanceInfoItem);
+            _api.GetCustBalanceAsync(Arg.Any<int[]>()).Returns(CustBalances);
             var service = CreateService();
 
             var result = await service.SubmitTransferBalanceRequestAsync(new TransMoneyRequestViewModel { Amount = amount, PlayerExRate = 0.5m });
@@ -298,9 +298,9 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         public async Task SubmitTransferBalanceRequestAsync_WhenCall_InsertFailed_ReturnError(int errCode, string message)
         {
             _authRepository.GetUserInfo(Arg.Compat.Any<string>(), false).Returns(new AuthorizedUserInfo { DisabledTransfer = false });
-            _repo.GetPlayerTransferBalanceInfo(Arg.Compat.Any<int>(), Arg.Compat.Any<string>()).Returns(playerTransferBalanceInfo);
+            _repo.GetPlayerTransferBalanceInfo(Arg.Compat.Any<int>(), Arg.Compat.Any<string>()).Returns(PlayerTransferBalanceInfoItem);
             _repo.InsertTransferBalanceRequest(Arg.Compat.Any<PlayerTransferBalanceInsParam>()).Returns((12, errCode, message));
-            _api.GetCustBalanceAsync(Arg.Any<int[]>()).Returns(custBalances);
+            _api.GetCustBalanceAsync(Arg.Any<int[]>()).Returns(CustBalances);
             var service = CreateService();
 
             var result = await service.SubmitTransferBalanceRequestAsync(new TransMoneyRequestViewModel { Amount = 100, PlayerExRate = 0.5m });
@@ -313,9 +313,9 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         public async Task SubmitTransferBalanceRequestAsync_WhenCall_TransferMoneyFailed_ReturnError()
         {
             _authRepository.GetUserInfo(Arg.Compat.Any<string>(), false).Returns(new AuthorizedUserInfo { DisabledTransfer = false });
-            _repo.GetPlayerTransferBalanceInfo(Arg.Compat.Any<int>(), Arg.Compat.Any<string>()).Returns(playerTransferBalanceInfo);
+            _repo.GetPlayerTransferBalanceInfo(Arg.Compat.Any<int>(), Arg.Compat.Any<string>()).Returns(PlayerTransferBalanceInfoItem);
             _repo.InsertTransferBalanceRequest(Arg.Compat.Any<PlayerTransferBalanceInsParam>()).Returns((12, 0, ""));
-            _api.GetCustBalanceAsync(Arg.Any<int[]>()).Returns(custBalances);
+            _api.GetCustBalanceAsync(Arg.Any<int[]>()).Returns(CustBalances);
             _api.TransferMoneyToPlayerAsync(Arg.Any<TransferMoneyParam>()).Returns(Task.FromResult(new ApiResultInfo { IsSuccess = false, ErrMsg = "Errored!" }));
             var service = CreateService();
 
@@ -330,9 +330,9 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         {
             MockingHelper.SetUpLogEngineEnviroment();
             _authRepository.GetUserInfo(Arg.Compat.Any<string>(), false).Returns(new AuthorizedUserInfo { DisabledTransfer = false });
-            _repo.GetPlayerTransferBalanceInfo(Arg.Compat.Any<int>(), Arg.Compat.Any<string>()).Returns(playerTransferBalanceInfo);
+            _repo.GetPlayerTransferBalanceInfo(Arg.Compat.Any<int>(), Arg.Compat.Any<string>()).Returns(PlayerTransferBalanceInfoItem);
             _repo.InsertTransferBalanceRequest(Arg.Compat.Any<PlayerTransferBalanceInsParam>()).Returns((12, 0, ""));
-            _api.GetCustBalanceAsync(Arg.Any<int[]>()).Returns(custBalances);
+            _api.GetCustBalanceAsync(Arg.Any<int[]>()).Returns(CustBalances);
             _api.TransferMoneyToPlayerAsync(Arg.Any<TransferMoneyParam>()).Returns(Task.FromResult(null as ApiResultInfo));
             var service = CreateService();
 
@@ -346,10 +346,10 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         public async Task SubmitTransferBalanceRequestAsync_WhenCall_UpdateTransferFailed_ReturnError()
         {
             _authRepository.GetUserInfo(Arg.Compat.Any<string>(), false).Returns(new AuthorizedUserInfo { DisabledTransfer = false });
-            _repo.GetPlayerTransferBalanceInfo(Arg.Compat.Any<int>(), Arg.Compat.Any<string>()).Returns(playerTransferBalanceInfo);
+            _repo.GetPlayerTransferBalanceInfo(Arg.Compat.Any<int>(), Arg.Compat.Any<string>()).Returns(PlayerTransferBalanceInfoItem);
             _repo.InsertTransferBalanceRequest(Arg.Compat.Any<PlayerTransferBalanceInsParam>()).Returns((12, 0, ""));
             _repo.UpdateTransferBalanceRequest(Arg.Compat.Any<int>(), Arg.Compat.Any<string>()).Returns((1, "Failed!"));
-            _api.GetCustBalanceAsync(Arg.Any<int[]>()).Returns(custBalances);
+            _api.GetCustBalanceAsync(Arg.Any<int[]>()).Returns(CustBalances);
             _api.TransferMoneyToPlayerAsync(Arg.Any<TransferMoneyParam>()).Returns(Task.FromResult(new ApiResultInfo { IsSuccess = true }));
             var service = CreateService();
 
@@ -369,7 +369,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         //    _repo.InsertTransferBalanceRequest(Arg.Compat.Any<PlayerTransferBalanceInsParam>()).Returns((12, 0, ""));
         //    _repo.UpdateTransferBalanceRequest(Arg.Compat.Any<int>(), Arg.Compat.Any<string>()).Returns((0, ""));
         //    _accountApi.ActiveCustActStatus(Arg.Compat.Any<AccountParam>()).Returns(null as AccountApiResult);
-        //    _api.GetCustBalanceAsync(Arg.Any<int[]>()).Returns(custBalances);
+        //    _api.GetCustBalanceAsync(Arg.Any<int[]>()).Returns(CustBalances);
         //    _api.TransferMoneyToPlayerAsync(Arg.Any<TransferMoneyParam>()).Returns(Task.FromResult(new ApiResultInfo { IsSuccess = true }));
         //    var service = CreateService();
 
@@ -383,11 +383,11 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         public async Task SubmitTransferBalanceRequestAsync_WhenCall_SubmitSuccessfully()
         {
             _authRepository.GetUserInfo(Arg.Compat.Any<string>(), false).Returns(new AuthorizedUserInfo { DisabledTransfer = false });
-            _repo.GetPlayerTransferBalanceInfo(Arg.Compat.Any<int>(), Arg.Compat.Any<string>()).Returns(playerTransferBalanceInfo);
+            _repo.GetPlayerTransferBalanceInfo(Arg.Compat.Any<int>(), Arg.Compat.Any<string>()).Returns(PlayerTransferBalanceInfoItem);
             _repo.InsertTransferBalanceRequest(Arg.Compat.Any<PlayerTransferBalanceInsParam>()).Returns((12, 0, ""));
             _repo.UpdateTransferBalanceRequest(Arg.Compat.Any<int>(), Arg.Compat.Any<string>()).Returns((0, ""));
             _accountApi.ActiveCustActStatus(Arg.Compat.Any<AccountParam>()).Returns(new AccountApiResult { Data = false, ErrorCode = 0, Message = string.Empty, RawErrorCode = "0", RawMessage = "" });
-            _api.GetCustBalanceAsync(Arg.Any<int[]>()).Returns(custBalances);
+            _api.GetCustBalanceAsync(Arg.Any<int[]>()).Returns(CustBalances);
             _api.TransferMoneyToPlayerAsync(Arg.Any<TransferMoneyParam>()).Returns(Task.FromResult(new ApiResultInfo { IsSuccess = true }));
             var service = CreateService();
 
@@ -400,7 +400,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         private PlayerTransferBalanceService CreateService()
             => new PlayerTransferBalanceService(_repo, _appSetting, _api, _accountApi, _sessionService, _authRepository);
 
-        private PlayerTransferBalanceInfo playerTransferBalanceInfo => new PlayerTransferBalanceInfo
+        private PlayerTransferBalanceInfo PlayerTransferBalanceInfoItem => new PlayerTransferBalanceInfo
         {
             PlayerId = 1,
             PaymentAccountId = 2,
@@ -408,7 +408,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             TransferedAmount = 1000
         };
 
-        private List<CustomerBalanceInfo> custBalances => new List<CustomerBalanceInfo> {
+        private List<CustomerBalanceInfo> CustBalances => new List<CustomerBalanceInfo> {
                 new CustomerBalanceInfo
                 {
                     CustId = 1,

@@ -8,10 +8,5 @@ namespace Fanex.Affiliate.User.Core.Utilities
         {
             return DateTimeHelper.NowDateTime;
         }
-
-        public Random GetRandomGenerator()
-        {
-            return new Random();
-        }
     }
 }
