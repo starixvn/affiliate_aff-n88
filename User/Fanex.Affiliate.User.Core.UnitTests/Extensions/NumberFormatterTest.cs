@@ -8,7 +8,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Extensions
         [Fact]
         public void FormatNumber_WhenCall_ReturnCorrect()
         {
-            var formattedNumber = 10.FormatNumber(2);
+            var formattedNumber = 10.FormatNumber();
 
             Assert.Equal("10", formattedNumber);
         }

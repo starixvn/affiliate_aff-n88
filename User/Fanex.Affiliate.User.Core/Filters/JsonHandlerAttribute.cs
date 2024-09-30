@@ -9,9 +9,7 @@ namespace Fanex.Affiliate.User.Core.Filters
     {
         public override void OnActionExecuted(ActionExecutedContext filterContext)
         {
-            var jsonResult = filterContext.Result as JsonResult;
-
-            if (jsonResult != null)
+            if (filterContext.Result is JsonResult jsonResult)
             {
                 filterContext.Result = new JsonNetResult
                 {

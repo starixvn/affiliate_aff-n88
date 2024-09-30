@@ -308,7 +308,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <AdditionalFiles Include="..\..\.sonarlint\aff.n88usersite\CSharp\SonarLint.xml">
+    <AdditionalFiles Include="..\..\.sonarlint\b2caffuser\CSharp\SonarLint.xml">
       <Link>SonarLint.xml</Link>
     </AdditionalFiles>
     <Content Include="HealthCheck.aspx" />

@@ -8,6 +8,7 @@ using Fanex.Affiliate.User.Core.Repository.UserPanel;
 using Fanex.Affiliate.User.Core.Resources;
 using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
 using Fanex.Affiliate.User.Core.Utilities;
+using Moq;
 using NSubstitute;
 using System.IO;
 using System.Web;
@@ -316,6 +317,26 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
         }
 
         private PasswordController CreateController()
-            => new PasswordController(SessionService, AppSetting, AccountRepo, CryptographyService, LanguageService, EmailService);
+        {
+            var controller = new PasswordController(SessionService, AppSetting, AccountRepo, CryptographyService, LanguageService, EmailService);
+            var request = MockingHelper.GetHttpRequest();
+            var response = new Mock<HttpResponseBase>();
+            response.Setup(p => p.Cookies).Returns(new HttpCookieCollection());
+
+            var server = new Mock<HttpServerUtilityBase>();
+            server.Setup(s => s.HtmlEncode(It.IsAny<string>())).Returns<string>(s => $"Encoded{s}");
+
+            controller.ControllerContext = Mock.Of<ControllerContext>(ctx =>
+                ctx.HttpContext.Request == request &&
+                ctx.HttpContext.Server == server.Object &&
+                ctx.HttpContext.Response == response.Object
+            );
+
+            var context = Mock.Of<HttpContextBase>(ctx => ctx.Request == request);
+            var requestContext = new RequestContext(context, new RouteData());
+            controller.Url = new UrlHelper(requestContext);
+
+            return controller;
+        }
     }
 }

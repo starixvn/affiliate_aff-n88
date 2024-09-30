@@ -33,10 +33,8 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             Assert.Contains("Views/TermAndCondition/Index.cshtml", result.ViewName);
         }
 
-        [Theory]
-        [InlineData(null)]
-        [InlineData("darkmode")]
-        public void Popup_WhenCall_ReturnCorrectView(string mode)
+        [Fact]
+        public void Popup_WhenCall_ReturnCorrectView()
         {
             var controller = CreateController();
 

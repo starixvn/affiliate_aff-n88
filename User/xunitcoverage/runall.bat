@@ -1,2 +1,2 @@
 @echo off
-coveragerunner.bat N88AffUser
+coveragerunner.bat B2CAffUser

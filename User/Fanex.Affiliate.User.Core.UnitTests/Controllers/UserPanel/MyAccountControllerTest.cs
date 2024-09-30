@@ -227,7 +227,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
                 MoreSiteUrls = "EncodedMoreSiteUrls",
                 NoSiteDesc = "EncodedNoSiteDesc",
                 AffId = Constant.DefaultAffId,
-                Ip = "::1",
+                Ip = "127.0.0.1",
                 Language = Constant.DefaultLanguage,
                 ContactApps = JsonConvert.SerializeObject(appContactList)
             };

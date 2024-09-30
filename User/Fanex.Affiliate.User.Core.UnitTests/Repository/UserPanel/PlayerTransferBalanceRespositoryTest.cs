@@ -75,7 +75,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Repository.UserPanel
             db.GetOutputParams()[Arg.Any<string>()].ReturnsForAnyArgs("123");
             var repo = CreateRepo();
 
-            var result = repo.InsertTransferBalanceRequest(new PlayerTransferBalanceInsParam
+            var (TransId, _, _) = repo.InsertTransferBalanceRequest(new PlayerTransferBalanceInsParam
             {
                 AffId = 123,
                 PaymentAccountCurrencyId = 1,
@@ -87,7 +87,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Repository.UserPanel
                 PlayerId = 1
             });
 
-            Assert.Equal(123, result.TransId);
+            Assert.Equal(123, TransId);
         }
 
         [Fact]
@@ -98,9 +98,9 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Repository.UserPanel
             db.GetOutputParams()[Arg.Any<string>()].ReturnsForAnyArgs("123");
             var repo = CreateRepo();
 
-            var result = repo.UpdateTransferBalanceRequest(1, "pending");
+            var (ErrCode, _) = repo.UpdateTransferBalanceRequest(1, "pending");
 
-            Assert.Equal(123, result.ErrCode);
+            Assert.Equal(123, ErrCode);
         }
     }
 }

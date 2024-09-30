@@ -1,7 +1,7 @@
 {
   "ServerUri": "https://sonarqube.nexdev.net/",
   "Organization": null,
-  "ProjectKey": "AFF.N88USERSITE",
+  "ProjectKey": "B2CAFFUSER",
   "ProjectName": "Legion / B2C Aff User",
   "Profiles": {
     "CSharp": {

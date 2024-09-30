@@ -136,8 +136,10 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Repository.UserPanel
         [InlineData(false)]
         public void GetBannerList_WhenCall_QueryBanner(bool isInternal)
         {
-            var param = new MarketingBannerParam();
-            param.IsInternal = isInternal;
+            var param = new MarketingBannerParam
+            {
+                IsInternal = isInternal
+            };
             const string uSpKey = "Aff_Admin_Banner_Sel";
             var dbMode = isInternal ? DBMode.View : DBMode.Main;
             var key = uSpKey + dbMode;
@@ -156,8 +158,10 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Repository.UserPanel
         [InlineData(false)]
         public void GetTextList_WhenCall_QueryTextList(bool isInternal)
         {
-            var param = new MarketingTextParam();
-            param.IsInternal = isInternal;
+            var param = new MarketingTextParam
+            {
+                IsInternal = isInternal
+            };
             const string uSpKey = "Aff_Admin_Text_Sel";
             var dbMode = isInternal ? DBMode.View : DBMode.Main;
             var key = uSpKey + dbMode;
