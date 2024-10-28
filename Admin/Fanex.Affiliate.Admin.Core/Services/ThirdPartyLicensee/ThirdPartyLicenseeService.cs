@@ -34,24 +34,29 @@ namespace Fanex.Affiliate.Admin.Core.Services.ThirdPartyLicensee
                 AffiliateCode = affInfo.AffCode,
                 AffiliateName = affInfo.UserName,
                 UserName = affInfo.PlayerUsername,
+                FirstName = affInfo.FirstName,
+                LastName = affInfo.LastName,
+                ContactNumber = affInfo.ContactNumber,
+                Email = affInfo.Email,
+                Status = affInfo.Status,
                 CustId = affInfo.PlayerCustId,
                 ParentAffiliate = affInfo.ParentAffiliateName,
                 SiteId = _appSetting.MemberSiteId
             };
-            var insertTrackerResult = _trackerRepository.InsertDataTracker(new InsertDataTrackerDTO
+            var (Id, Result) = _trackerRepository.InsertDataTracker(new InsertDataTrackerDTO
             {
                 PushDataInfo = JsonConvert.SerializeObject(affiliateInfo),
                 PushDataType = DataTrackerType.ApproveAffiliate
             });
             try
             {
-                if (insertTrackerResult.Result.IsSuccessful)
+                if (Result.IsSuccessful)
                 {
                     await SendAffiliateInfoToLicensee(affiliateInfo);
 
                     _trackerRepository.UpdateDataTracker(new UpdateDataTrackerDTO
                     {
-                        PushTrackerId = insertTrackerResult.Id,
+                        PushTrackerId = Id,
                         StatusId = DataTrackerStatus.Success
                     });
                 }
@@ -61,7 +66,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.ThirdPartyLicensee
                 LogHelper.WriteError(ex);
                 _trackerRepository.UpdateDataTracker(new UpdateDataTrackerDTO
                 {
-                    PushTrackerId = insertTrackerResult.Id,
+                    PushTrackerId = Id,
                     StatusId = DataTrackerStatus.Failure
                 });
             }

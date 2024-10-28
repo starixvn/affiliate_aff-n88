@@ -29,7 +29,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.UserPanel
             };
         }
 
-        [HttpPostAttribute]
+        [HttpPost]
         [ValidateAntiForgeryHeader]
         public ActionResult GetViewLogList(ViewLogParam param)
         {
