@@ -279,6 +279,8 @@ namespace Affiliate.N88.Jobs.Middlewares
             RegisterTask<IFetchEventDrawDataTask>($"{typeof(IFetchEventDrawDataTask).Name}", appSettings.PullEventDrawSetting.PullInfoCron, job => job.FetchDataAsync());
 
             RegisterTask<IFetchVipUpgradeReviewDataTask>($"{typeof(IFetchVipUpgradeReviewDataTask).Name}", appSettings.PullVipUpgradeReviewSetting.PullInfoCron, job => job.FetchDataAsync());
+            
+            RegisterTask<IFetchVipUpgradeReviewDataTask>($"{typeof(IFetchVipUpgradeReviewDataTask).Name}-Monthly", Cron.Monthly(7, 2, 0), job => job.FetchLastMonthDataAsync());
 
             RegisterTask<IFetchLogAdminAdjustWalletDataTask>($"{typeof(IFetchLogAdminAdjustWalletDataTask).Name}", appSettings.PullLogAdminAdjustWalletSetting.PullInfoCron, job => job.FetchDataAsync());
 

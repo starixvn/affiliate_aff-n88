@@ -1,5 +1,4 @@
-﻿using Affiliate.N88.DTOs;
-using Affiliate.N88.Jobs.Apis;
+﻿using Affiliate.N88.Jobs.Apis;
 using Affiliate.N88.Jobs.Configurations;
 using Affiliate.N88.Jobs.Constants;
 using Affiliate.N88.Jobs.RecurringTasks.Interfaces;

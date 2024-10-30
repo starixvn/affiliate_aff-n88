@@ -6,6 +6,7 @@ using Affiliate.N88.Repository;
 using Affiliate.N88.Services;
 using Affiliate.N88.Utitlities;
 using Fanex.Logging;
+using Hangfire;
 using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,11 @@ using System.Threading.Tasks;
 namespace Affiliate.N88.Jobs.RecurringTasks
 {
     public interface IFetchVipUpgradeReviewDataTask : IFetchDataTask
-    { }
+    {
+        [DisableConcurrentExecution(60)]
+        [AutomaticRetry(OnAttemptsExceeded = AttemptsExceededAction.Delete, Attempts = 1)]
+        Task FetchLastMonthDataAsync();
+    }
 
     public class FetchVipUpgradeReviewDataTask : FetchDataForMultipleRepositoryTaskBase<VipUpgradeReviewInfo>, IFetchVipUpgradeReviewDataTask
     {
@@ -33,6 +38,15 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _licenseeApi = licenseeApi ?? throw new ArgumentNullException(nameof(licenseeApi));
             _timeTrackerService = timeTrackerService ?? throw new ArgumentNullException(nameof(timeTrackerService));
+        }
+
+        public async Task FetchLastMonthDataAsync()
+        {
+            var now = DateTime.Now;
+            var lastMonth = now.AddMonths(-1);
+            var lastMonthDate = new DateTime(lastMonth.Year, lastMonth.Month, 1);
+
+            await FetchDataAsync(lastMonthDate);
         }
 
         public override async Task FetchDataAsync()
