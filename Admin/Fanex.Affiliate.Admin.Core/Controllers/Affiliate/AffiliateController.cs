@@ -91,8 +91,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
         {
             if (ModelState.IsValid)
             {
-                param.UserId = SessionService.UserId;
-                param.Ip = Request.UserHostAddress;
+                GetUserInfoParam(param);
 
                 return Json(_affiliateInfoRepository.ToggleFavorite(param));
             }
@@ -111,9 +110,8 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
         {
             if (ModelState.IsValid)
             {
+                GetUserInfoParam(param);
                 param.Password = CryptographyHelper.Encrypt(param.Password);
-                param.UserId = SessionService.UserId;
-                param.Ip = Request.UserHostAddress;
 
                 return Json(_affiliateInfoRepository.ChangePassword(param));
             }

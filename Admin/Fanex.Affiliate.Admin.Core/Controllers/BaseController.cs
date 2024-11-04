@@ -1,4 +1,6 @@
 ﻿using Fanex.Affiliate.Admin.Core.Attributes;
+using Fanex.Affiliate.Admin.Core.Extensions;
+using Fanex.Affiliate.Admin.Core.MetaModels;
 using Fanex.Affiliate.Admin.Core.Services.Common;
 using ONEbook.UM.AspNetMVC.Filters;
 using System.Web.Mvc;
@@ -19,5 +21,11 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
         }
 
         protected ISessionService SessionService => _sessionService;
+
+        protected void GetUserInfoParam(UserInfoParam param)
+        {
+            param.UserId = SessionService.UserId;
+            param.Ip = Request.GetClientIP();
+        }
     }
 }

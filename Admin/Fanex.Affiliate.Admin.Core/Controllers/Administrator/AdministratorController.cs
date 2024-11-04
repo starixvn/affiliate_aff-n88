@@ -255,11 +255,5 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Administrator
                 }
             };
         }
-
-        private void GetUserInfoParam(UserInfoParam param)
-        {
-            param.UserId = SessionService.UserId;
-            param.Ip = Request.UserHostAddress;
-        }
     }
 }

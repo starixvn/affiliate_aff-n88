@@ -258,6 +258,7 @@
     <Compile Include="Constants\EarningByType.cs" />
     <Compile Include="Constants\ErrCodes.cs" />
     <Compile Include="Constants\GMT.cs" />
+    <Compile Include="Constants\HeaderKey.cs" />
     <Compile Include="Constants\Menu.cs" />
     <Compile Include="Constants\TransferBalanceStatus.cs" />
     <Compile Include="Controllers\BaseLayoutController.cs" />
@@ -336,6 +337,7 @@
     <Compile Include="DTO\AuthorizedUserInfo.cs" />
     <Compile Include="DTO\MarketingChannel.cs" />
     <Compile Include="Enum\TransType.cs" />
+    <Compile Include="Extensions\HttpRequestExtension.cs" />
     <Compile Include="MetalModels\Api\AccountParam.cs" />
     <Compile Include="MetalModels\Api\TransferMoneyParam.cs" />
     <Compile Include="MetalModels\MarketingLinkParam.cs" />
@@ -571,7 +573,6 @@
     <Compile Include="CoreService\MemoryCacheService.cs" />
     <Compile Include="Utilities\MarketingHelper.cs" />
     <Compile Include="Utilities\Parser.cs" />
-    <Compile Include="Utilities\RequestHelper.cs" />
     <Compile Include="Utilities\SiteDomainHelper.cs" />
     <Compile Include="DTO\UserPanel\AccountInformation.cs" />
     <Compile Include="Utilities\SymmetricEncryptionUtility.cs" />

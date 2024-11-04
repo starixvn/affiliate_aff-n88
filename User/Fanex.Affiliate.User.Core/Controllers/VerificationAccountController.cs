@@ -2,6 +2,7 @@
 using Fanex.Affiliate.User.Core.CoreService;
 using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.DTO.VerificationAccount;
+using Fanex.Affiliate.User.Core.Extensions;
 using Fanex.Affiliate.User.Core.Filters;
 using Fanex.Affiliate.User.Core.MetalModels;
 using Fanex.Affiliate.User.Core.MetalModels.Email;
@@ -160,7 +161,7 @@ namespace Fanex.Affiliate.User.Core.Controllers
                 {
                     MailContact = AppSetting.GetMailContactByLanguageCode(verificationSession.PreferredLanguage ?? SessionService.CurrentLanguage),
                     RootDomain = SiteDomainHelper.GetRootUrl(this, AppSetting),
-                    Ip = RequestHelper.GetClientIPAddress(Request)
+                    Ip = Request.GetClientIP()
                 }
             };
         }
@@ -170,7 +171,7 @@ namespace Fanex.Affiliate.User.Core.Controllers
             return new UserLoginParam
             {
                 LoginInfo = loginInfo,
-                LoginIp = RequestHelper.GetClientIPAddress(Request),
+                LoginIp = Request.GetClientIP(),
                 Language = SessionService.CurrentLanguage,
                 UserAgent = Request.UserAgent,
                 IsVerifyingAccount = true
@@ -192,7 +193,7 @@ namespace Fanex.Affiliate.User.Core.Controllers
                 Captcha = param.Captcha,
                 LoginInfo = param.LoginInfo,
                 AffId = verificationSession.AffId,
-                IpAddress = RequestHelper.GetClientIPAddress(Request),
+                IpAddress = Request.GetClientIP(),
                 Language = SessionService.CurrentLanguage,
                 UserAgent = Request.UserAgent
             };
