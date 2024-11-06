@@ -222,11 +222,5 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
                 UserType = param.UserType
             };
         }
-
-        private void GetUserInfoParam(UserInfoParam param)
-        {
-            param.UserId = SessionService.UserId;
-            param.Ip = Request.UserHostAddress;
-        }
     }
 }

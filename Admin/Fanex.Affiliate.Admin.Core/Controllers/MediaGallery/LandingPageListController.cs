@@ -62,7 +62,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
             if (ModelState.IsValid)
             {
                 var encodeParam = EncodeParam(param);
-                AssignCommonParam(encodeParam);
+                GetUserInfoParam(encodeParam);
 
                 return new JsonNetResult
                 {
@@ -88,7 +88,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
             if (ModelState.IsValid)
             {
                 var encodeParam = EncodeParam(param);
-                AssignCommonParam(encodeParam);
+                GetUserInfoParam(encodeParam);
 
                 return new JsonNetResult
                 {
@@ -113,8 +113,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
         {
             if (ModelState.IsValid)
             {
-                param.UserId = SessionService.UserId;
-                param.Ip = Request.UserHostAddress;
+                GetUserInfoParam(param);
 
                 return new JsonNetResult
                 {
@@ -140,12 +139,6 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
                 PageName = Server.HtmlEncode(param.PageName),
                 PageCode = Server.HtmlEncode(param.PageCode)
             };
-        }
-
-        private void AssignCommonParam(InsertUpdateLandingPageParam param)
-        {
-            param.UserId = SessionService.UserId;
-            param.Ip = Request.UserHostAddress;
         }
     }
 }

@@ -8,6 +8,7 @@ namespace Fanex.Affiliate.Link.Controllers
     using System.Text;
     using System.Web.Mvc;
     using Commands;
+    using Fanex.Affiliate.Link.Extensions;
     using Fanex.Logging;
     using Helpers;
     using ONEbook.UM.AspNetMVC.Filters;
@@ -102,7 +103,7 @@ namespace Fanex.Affiliate.Link.Controllers
                     PageCode = pageId,
                     LanguageCode = lang,
                     DeviceType = GetDeviceType(),
-                    IP = Common.GetIPAddressOfClient(),
+                    IP = Request.GetClientIP(),
                     Browser = Request.Browser.Browser,
                     URLReferrer = urlReferrer,
                     DomainReferrer = domainReferrer,

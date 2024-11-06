@@ -311,7 +311,7 @@
     <AdditionalFiles Include="..\..\.sonarlint\aff.n88usersite\CSharp\SonarLint.xml">
       <Link>SonarLint.xml</Link>
     </AdditionalFiles>
-    <Content Include="12monitor.aspx" />
+    <Content Include="HealthCheck.aspx" />
     <Content Include="App_Data\SpConfig\SpName.n88user-n88.local.xml">
       <DependentUpon>_SpName.tt</DependentUpon>
     </Content>

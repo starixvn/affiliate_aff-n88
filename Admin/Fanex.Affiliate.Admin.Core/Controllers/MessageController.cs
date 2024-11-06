@@ -167,11 +167,5 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
                 MessageContentkh = Server.HtmlEncode(param.MessageContentkh),
             };
         }
-
-        private void GetUserInfoParam(UserInfoParam param)
-        {
-            param.UserId = SessionService.UserId;
-            param.Ip = Request.UserHostAddress;
-        }
     }
 }

@@ -111,14 +111,16 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.UserPanel
 
         private InsertUpdateNoteParam AssignCommonParam(InsertUpdateNoteParam param)
         {
-            return new InsertUpdateNoteParam
+            var noteParam = new InsertUpdateNoteParam
             {
                 AffId = param.AffId,
-                UserId = SessionService.UserId,
-                Ip = Request.UserHostAddress,
                 NoteId = param.NoteId,
                 NoteContent = Server.HtmlEncode(param.NoteContent)
             };
+
+            GetUserInfoParam(noteParam);
+
+            return noteParam;
         }
     }
 }

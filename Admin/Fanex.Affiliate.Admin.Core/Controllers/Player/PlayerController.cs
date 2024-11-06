@@ -65,8 +65,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Player
         [FunctionAuthorize(FunctionName = Function.Affiliate, IsHost = true)]
         public ActionResult UpdateMember(UpdateMemberParam param)
         {
-            param.UserId = SessionService.UserId;
-            param.Ip = Request.UserHostAddress;
+            GetUserInfoParam(param);
 
             return new JsonNetResult
             {

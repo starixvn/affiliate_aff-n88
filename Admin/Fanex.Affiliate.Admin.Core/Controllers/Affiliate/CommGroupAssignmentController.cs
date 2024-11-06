@@ -87,8 +87,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
                 return CreateErrorResult();
             }
 
-            assignParam.UserId = SessionService.UserId;
-            assignParam.Ip = Request.UserHostAddress;
+            GetUserInfoParam(assignParam);
             assignParam.AffId = affInfo.AffId;
 
             var emailParam = new AffInformationEmail
@@ -157,7 +156,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
                     WithdrawalFee = commGroup.WithdrawalFee,
                     SubAffCommRate = commGroup.SubAffCommRate,
                     IsActivePlayerSum = commGroup.IsActivePlayerSum,
-                    Ip = Request.UserHostAddress
+                    Ip = Request.GetClientIP()
                 };
 
                 var emailParam = new AffInformationEmail
