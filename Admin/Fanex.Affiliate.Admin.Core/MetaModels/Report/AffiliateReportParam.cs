@@ -45,5 +45,7 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.Report
         public bool IsExcludeNegvBBF { get; set; }
 
         public bool IsExcludeNegvCurrentBBF { get; set; }
+
+        public bool IsGetMonthly { get; set; }
     }
 }

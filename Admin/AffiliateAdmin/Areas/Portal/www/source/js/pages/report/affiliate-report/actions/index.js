@@ -53,6 +53,13 @@ export const setPaymentCurrencyList = (data) => {
     }
 }
 
+export const setIsCheckedDatePicker = (data) => {
+    return {
+        type: types.SET_IS_CHECKED_DATE_PICKER,
+        data
+    }
+}
+
 export const fetchData = (param, isMainView) => async () => {
     const url = `Portal/Report/${isMainView ? 'GetMainData' : 'GetDetailData'}`;
     const response = await post(url, param);

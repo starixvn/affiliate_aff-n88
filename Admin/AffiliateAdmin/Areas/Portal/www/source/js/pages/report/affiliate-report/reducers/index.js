@@ -60,6 +60,12 @@ export const currentViewLevel = createReducer(viewLevel.main, {
     }
 })
 
+export const isCheckedDatePicker = createReducer(false, {
+    [types.SET_IS_CHECKED_DATE_PICKER](prevState, action) {
+        return action.data;
+    }
+})
+
 export default combineReducers({
     isN8B,
     param,
@@ -76,5 +82,6 @@ export default combineReducers({
     paymentCurrencyList,
     isProduction,
     today,
-    currentViewLevel
+    currentViewLevel,
+    isCheckedDatePicker
 });

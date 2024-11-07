@@ -7,8 +7,9 @@ import ReportTitle from '../../../../components/ReportTitle';
 
 import { setViewLevel, fetchData } from '../actions';
 import { toggleLoader } from '../../../../actions/loaderAction';
-import { viewLevel } from '../libs/constants';
+import { headerConfig, viewLevel } from '../libs/constants';
 import ReportExcel from '../libs/reportExcel';
+import { AggregateHeaderColumn, HeaderRow, SingleHeaderColumn } from "../libs/headerConfigs";
 
 export class Content extends Component {
     constructor(props) {
@@ -30,13 +31,14 @@ export class Content extends Component {
 
     handleExportExcel = async () => {
         this.props.toggleLoader(true);
-        const { param, reportTitle, currentViewLevel } = this.props;
+        const { param, reportTitle, currentViewLevel, isCheckedDatePicker } = this.props;
         const isMainView = currentViewLevel === viewLevel.main;
         const newParam = Object.assign({}, param, { IsExportExcel: true });
         const data = await this.props.fetchData(newParam, isMainView);
+        const header = this._buildHeader();
 
         if (data) {
-            const reportExcel = new ReportExcel(data, reportTitle, isMainView);
+            const reportExcel = new ReportExcel(data, reportTitle, isMainView, header);
             reportExcel.export();
         }
         this.props.toggleLoader(false);
@@ -63,8 +65,51 @@ export class Content extends Component {
         )
     }
 
+    _buildHeader() {
+        const headerKeys = Object.keys(headerConfig);
+        const cols = [];
+
+        headerKeys.forEach(key => {
+            if (!!headerConfig[key].cols) {
+                cols.push(this._buildAggregateHeaderCol(key, headerConfig[key]));
+            } else {
+                cols.push(this._buildSingleHeaderCol(key, headerConfig[key]));
+            }
+        });
+
+        return new HeaderRow(cols);
+    }
+
+    _buildSingleHeaderCol(key, item) {
+        const { currentViewLevel, isCheckedDatePicker } = this.props;
+        const isMainView = currentViewLevel === viewLevel.main;
+
+        if (!!item.isShowable && typeof item.isShowable === 'function') {
+            return new SingleHeaderColumn(key, item.label, item.isShowable(null, isMainView, isCheckedDatePicker));
+        } else {
+            return new SingleHeaderColumn(key, item.label, true);
+        }
+    }
+
+    _buildAggregateHeaderCol(key, header) {
+        const cols = [];
+        const headerCols = header.cols;
+        const headerKeys = Object.keys(headerCols);
+
+        headerKeys.forEach(key => {
+            if (!!headerCols[key].cols) {
+                cols.push(this._buildAggregateHeaderCol(key, headerCols[key]));
+            } else {
+                cols.push(this._buildSingleHeaderCol(key, headerCols[key]));
+            }
+        });
+
+        return new AggregateHeaderColumn(key, header.label, cols);
+    }
+
     render() {
         const { reportTitle, isN8B } = this.props;
+        const headerRow = this._buildHeader();
 
         return (
             <div className="data-content my-2 report-content-container">
@@ -82,14 +127,14 @@ export class Content extends Component {
                         </React.Fragment>
                     )
                 }
-                <GridData ref={this.gridDataRef} />
+                <GridData headerRow={headerRow} ref={this.gridDataRef} />
             </div>
         );
     }
 }
 
-function mapStateToProps({ reportTitle, currentViewLevel, param, isN8B }) {
-    return Object.assign({}, { reportTitle, currentViewLevel, param, isN8B });
+function mapStateToProps({ reportTitle, currentViewLevel, param, isN8B, isCheckedDatePicker }) {
+    return Object.assign({}, { reportTitle, currentViewLevel, param, isN8B, isCheckedDatePicker });
 }
 
 function mapDispatchToProps(dispatch) {
