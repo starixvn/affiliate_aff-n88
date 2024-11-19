@@ -1,12 +1,12 @@
-﻿using Fanex.Affiliate.Admin.Core.Constants;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.Report;
 using Fanex.Affiliate.Admin.Core.MetaModels.Report;
 using Fanex.Common.Extensions;
 using Fanex.Data;
-using System;
-using System.Collections.Generic;
-using System.Data;
 
 namespace Fanex.Affiliate.Admin.Core.Repository.Report
 {
@@ -40,6 +40,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
                 objectDb.SetParameterValue("PaymentCurrencies", param.PaymentCurrencyIds);
                 objectDb.SetParameterValue("IsExcludeNegvBBF", param.IsExcludeNegvBBF);
                 objectDb.SetParameterValue("IsExcludeNegvCurrentBBF", param.IsExcludeNegvCurrentBBF);
+                objectDb.SetParameterValue("IsGetMonthly", param.IsGetMonthly);
 
                 using (var reader = objectDb.ExecuteReader())
                 {
@@ -149,7 +150,8 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
                 BalanceBf = reader.ToDecimal("BFF"),
                 NoOfSubAff = reader.ToInt("NoOfSubAff"),
                 SubAffEarning = reader.ToDecimal("SubAffEarning"),
-                P2pEarning = reader.ToDecimal("P2PEarning")
+                P2pEarning = reader.ToDecimal("P2PEarning"),
+                TotalDeposit = reader.ToInt("TotalDeposit")
             };
         }
     }

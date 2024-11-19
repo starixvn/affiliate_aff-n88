@@ -1,81 +1,185 @@
 ﻿import Excel from '../../../../modules/excel';
-import { titleCellStyle, headerCellStyle, bodyCellStyle, totalCellStyle, mergedHeaderCellByRowspanStyle } from '../../../../modules/excelStyleConstant';
-import { headerText, totalText, resource } from './constants';
+import { titleCellStyle, headerCellStyle, bodyCellStyle, totalCellStyle } from '../../../../modules/excelStyleConstant';
+import { totalText, resource, reportKey as fields } from './constants';
 import { formatDecimal } from '../../../../modules/numberFormat';
 import { formatDateTime } from '../../../../modules/utils';
+import { AggregateHeaderColumn } from './headerConfigs';
 
 const TITLE_ROW_INDEX = 0;
 const HEADER_ROW_INDEX = 1;
 const DATA_ROW_INDEX = 3;
 
-const MAIN_VIEW = {
-    TOTAL_COLUMN: 27,
-    INDEX_PLAYER_STATISTICS_COLUMN: 8,
-    INDEX_AFFILIATE_STATISTICS_COLUMN: 9,
-    INDEX_DEPOSIT_COLUMN: 8,
-    INDEX_COMM_COLUMN: 18,
-    COLSPAN_PLAYER_STATISTICS: 10,
-    COLSPAN_AFFILIATE_STATISTICS: 9
-}
-
-const DETAIL_VIEW = {
-    TOTAL_COLUMN: 25,
-    INDEX_PLAYER_STATISTICS_COLUMN: 7,
-    INDEX_AFFILIATE_STATISTICS_COLUMN: 8,
-    INDEX_DEPOSIT_COLUMN: 7,
-    INDEX_COMM_COLUMN: 17,
-    COLSPAN_PLAYER_STATISTICS: 10,
-    COLSPAN_AFFILIATE_STATISTICS: 8
-}
-
 const MAIN_SECTION_STYLE = 'mainSectionStyle';
 const MULTI_COMM_GROUP_SECTION_STYLE = 'multiCommGroupSectionStyle';
 const TOTAL_SECTION_STYLE = 'totalSectionStyle';
+const COL_WIDTH = 'wpx';
 
-const fields = {
-    UserName: 'UserName',
-    Description: 'Description',
-    MonthDateString: 'MonthDateString',
-    PaymentCurrency: 'PaymentCurrency',
-    TotalClick: 'TotalClick',
-    UniqueClick: 'UniqueClick',
-    Signup: 'Signup',
-    Fdm: 'Fdm',
-    ActiveMember: 'ActiveMember',
-    NoOfSubAff: 'NoOfSubAff',
-    Deposit: 'Deposit',
-    Withdrawal: 'Withdrawal',
-    Turnover: 'Turnover',
-    Ggr: 'Ggr',
-    Bonus: 'Bonus',
-    Rebate: 'Rebate',
-    PlatformFee: 'PlatformFee',
-    DepositFee: 'DepositFee',
-    WithdrawalFee: 'WithdrawalFee',
-    TotalFee: 'TotalFee',
-    CommissionRate: 'CommissionRate',
-    Earning: 'Earning',
-    EarningBy: 'EarningBy',
-    P2pEarning: 'P2pEarning',
-    SubAffEarning: 'SubAffEarning',
-    TotalEarning: 'TotalEarning',
-    AffWithdrawal: 'AffWithdrawal',
-    AffAdjustment: 'AffAdjustment',
-    BalanceBf: 'BalanceBf',
-    CurrentBBF: 'CurrentBBF'
-}
+const colConfig =
+{
+    [fields.UserName]: {
+        [MAIN_SECTION_STYLE]: bodyCellStyle.left,
+        [TOTAL_SECTION_STYLE]: totalCellStyle.default,
+        [COL_WIDTH]: 150
+    },
+    [fields.MonthDateString]: {
+        [MAIN_SECTION_STYLE]: bodyCellStyle.left,
+        [TOTAL_SECTION_STYLE]: totalCellStyle.default,
+        [COL_WIDTH]: 150
+    },
+    [fields.PaymentCurrency]: {
+        [MAIN_SECTION_STYLE]: bodyCellStyle.center,
+        [TOTAL_SECTION_STYLE]: totalCellStyle.center,
+        [COL_WIDTH]: 120
+    },
+    [fields.TotalClick]: {
+        [MAIN_SECTION_STYLE]: bodyCellStyle.number,
+        [TOTAL_SECTION_STYLE]: totalCellStyle.number,
+        [COL_WIDTH]: 120
+    },
+    [fields.UniqueClick]: {
+        [MAIN_SECTION_STYLE]: bodyCellStyle.number,
+        [TOTAL_SECTION_STYLE]: totalCellStyle.number,
+        [COL_WIDTH]: 120
+    },
+    [fields.Signup]: {
+        [MAIN_SECTION_STYLE]: bodyCellStyle.number,
+        [TOTAL_SECTION_STYLE]: totalCellStyle.number,
+        [COL_WIDTH]: 120
+    },
+    [fields.Fdm]: {
+        [MAIN_SECTION_STYLE]: bodyCellStyle.number,
+        [TOTAL_SECTION_STYLE]: totalCellStyle.number,
+        [COL_WIDTH]: 120
+    },
+    [fields.ActiveMember]: {
+        [MAIN_SECTION_STYLE]: bodyCellStyle.number,
+        [TOTAL_SECTION_STYLE]: totalCellStyle.number,
+        [COL_WIDTH]: 120
+    },
+    [fields.NoOfSubAff]: {
+        [MAIN_SECTION_STYLE]: bodyCellStyle.number,
+        [TOTAL_SECTION_STYLE]: totalCellStyle.number,
+        [COL_WIDTH]: 120
+    },
+    [fields.TotalDeposit]: {
+        [MAIN_SECTION_STYLE]: bodyCellStyle.number,
+        [TOTAL_SECTION_STYLE]: totalCellStyle.number,
+        [COL_WIDTH]: 120
+    },
+    [fields.Deposit]: {
+        [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
+        [TOTAL_SECTION_STYLE]: totalCellStyle.decimal,
+        [COL_WIDTH]: 120
+    },
+    [fields.Withdrawal]: {
+        [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
+        [TOTAL_SECTION_STYLE]: totalCellStyle.decimal,
+        [COL_WIDTH]: 120
+    },
+    [fields.Turnover]: {
+        [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
+        [TOTAL_SECTION_STYLE]: totalCellStyle.decimal,
+        [COL_WIDTH]: 120
+    },
+    [fields.Ggr]: {
+        [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
+        [TOTAL_SECTION_STYLE]: totalCellStyle.decimal,
+        [COL_WIDTH]: 120
+    },
+    [fields.Bonus]: {
+        [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
+        [TOTAL_SECTION_STYLE]: totalCellStyle.decimal,
+        [COL_WIDTH]: 120
+    },
+    [fields.Rebate]: {
+        [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
+        [TOTAL_SECTION_STYLE]: totalCellStyle.decimal
+    },
+    [fields.PlatformFee]: {
+        [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
+        [TOTAL_SECTION_STYLE]: totalCellStyle.decimal,
+        [COL_WIDTH]: 120
+    },
+    [fields.DepositFee]: {
+        [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
+        [TOTAL_SECTION_STYLE]: totalCellStyle.decimal,
+        [COL_WIDTH]: 120
+    },
+    [fields.WithdrawalFee]: {
+        [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
+        [TOTAL_SECTION_STYLE]: totalCellStyle.decimal,
+        [COL_WIDTH]: 120
+    },
+    [fields.TotalFee]: {
+        [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
+        [TOTAL_SECTION_STYLE]: totalCellStyle.decimal,
+        [COL_WIDTH]: 120
+    },
+    [fields.CommissionRate]: {
+        [MAIN_SECTION_STYLE]: bodyCellStyle.right,
+        [MULTI_COMM_GROUP_SECTION_STYLE]: bodyCellStyle.rightHighlight,
+        [TOTAL_SECTION_STYLE]: totalCellStyle.right,
+        [COL_WIDTH]: 120
+    },
+    [fields.Earning]: {
+        [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
+        [TOTAL_SECTION_STYLE]: totalCellStyle.decimal,
+        [COL_WIDTH]: 120
+    },
+    [fields.EarningBy]: {
+        [MAIN_SECTION_STYLE]: bodyCellStyle.right,
+        [TOTAL_SECTION_STYLE]: totalCellStyle.right,
+        [COL_WIDTH]: 120
+    },
+    [fields.P2pEarning]: {
+        [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
+        [TOTAL_SECTION_STYLE]: totalCellStyle.decimal,
+        [COL_WIDTH]: 140
+    },
+    [fields.SubAffEarning]: {
+        [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
+        [TOTAL_SECTION_STYLE]: totalCellStyle.decimal,
+        [COL_WIDTH]: 140
+    },
+    [fields.TotalEarning]: {
+        [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
+        [TOTAL_SECTION_STYLE]: totalCellStyle.decimal,
+        [COL_WIDTH]: 120
+    },
+    [fields.AffWithdrawal]: {
+        [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
+        [TOTAL_SECTION_STYLE]: totalCellStyle.decimal,
+        [COL_WIDTH]: 120
+    },
+    [fields.AffAdjustment]: {
+        [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
+        [TOTAL_SECTION_STYLE]: totalCellStyle.decimal,
+        [COL_WIDTH]: 120
+    },
+    [fields.BalanceBf]: {
+        [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
+        [TOTAL_SECTION_STYLE]: totalCellStyle.decimal,
+        [COL_WIDTH]: 150
+    },
+    [fields.CurrentBBF]: {
+        [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
+        [TOTAL_SECTION_STYLE]: totalCellStyle.decimal,
+        [COL_WIDTH]: 150
+    }
+};
 
 export default class ReportExcel {
-    constructor(data, title, isMainView) {
+    constructor(data, title, isMainView, header) {
         this.worksheet = {};
         this.title = isMainView ? title : resource.reportName + ' > ' + title;
         this.data = data;
         this.isMainView = isMainView;
+        this.header = header;
 
         this.currentRowIndex = DATA_ROW_INDEX;
         this.mergeConfig = [];
-        this.columnConfigs = this._getcolumnConfigs(isMainView);
-        this.viewInfo = isMainView ? MAIN_VIEW : DETAIL_VIEW;
+        this.columnConfigs = this._getColumnConfigs(header);
+        this.totalColumn = this.columnConfigs.length;
     }
 
     export() {
@@ -99,7 +203,7 @@ export default class ReportExcel {
             },
             e: {
                 r: TITLE_ROW_INDEX,
-                c: this.viewInfo.TOTAL_COLUMN - 1
+                c: this.totalColumn - 1
             }
         });
         const address = Excel.getCellAddress({
@@ -114,57 +218,51 @@ export default class ReportExcel {
     }
 
     _createHeader() {
-        const colspanPlayerStatistics = this.viewInfo.COLSPAN_PLAYER_STATISTICS;
-        const colspanAffiliateStatistics = this.viewInfo.COLSPAN_AFFILIATE_STATISTICS;
-        const length = this.columnConfigs.length - (colspanPlayerStatistics - 1) - (colspanAffiliateStatistics - 1);
-        for (let i = 0; i < length; i++) {
-            if (i === this.viewInfo.INDEX_PLAYER_STATISTICS_COLUMN) {
-                this._buildColspanColumn(HEADER_ROW_INDEX, this.viewInfo.INDEX_DEPOSIT_COLUMN, colspanPlayerStatistics, headerText.MemberStatistics);
-            } else if (i === this.viewInfo.INDEX_AFFILIATE_STATISTICS_COLUMN) {
-                this._buildColspanColumn(HEADER_ROW_INDEX, this.viewInfo.INDEX_COMM_COLUMN, colspanAffiliateStatistics, headerText.AffiliateStatistics);
-            } else {
-                const fieldName = this.columnConfigs[i].field;
+        const showableCells = this.header.childHeader.filter(c => c.isShowable);
+        let curColIndex = 0;
+        showableCells.forEach(cell => {
+            if (cell instanceof AggregateHeaderColumn) {
+                this._buildColspanColumn(HEADER_ROW_INDEX, curColIndex, cell);
+                curColIndex += cell.totalShowableCol;
+            }
+            else {
                 let address = Excel.getCellAddress({
-                    c: i,
+                    c: curColIndex,
                     r: HEADER_ROW_INDEX
                 });
                 this.worksheet[address] = {
                     t: "s",
-                    v: headerText[fieldName],
+                    v: cell.text,
                     s: headerCellStyle
-                }
-
-                let nextRowAddress = Excel.getCellAddress({
-                    c: i,
-                    r: HEADER_ROW_INDEX + 1
-                });
-                this.worksheet[nextRowAddress] = {
-                    t: "s",
-                    s: mergedHeaderCellByRowspanStyle
                 }
 
                 this.mergeConfig.push({
                     s: {
                         r: HEADER_ROW_INDEX,
-                        c: i
+                        c: curColIndex
                     },
                     e: {
                         r: HEADER_ROW_INDEX + 1,
-                        c: i
+                        c: curColIndex
                     }
                 });
+
+                curColIndex++;
             }
-        }
+        })
     }
 
-    _buildColspanColumn(rowIndex, colIndex, colSpan, colSpanheaderText) {
+    _buildColspanColumn(rowIndex, colIndex, headerCell) {
+        let childCells = headerCell.childHeader.filter(c => c.isShowable);
+        const colSpan = childCells.length;
+
         const colSpanCellAddress = Excel.getCellAddress({
             c: colIndex,
             r: rowIndex
         });
         this.worksheet[colSpanCellAddress] = {
             t: "s",
-            v: colSpanheaderText,
+            v: headerCell.text,
             s: headerCellStyle
         }
 
@@ -180,23 +278,25 @@ export default class ReportExcel {
             }
         });
 
-        for (let i = colIndex; i < totalColumn; i++) {
+        let curIndex = colIndex;
+        childCells.forEach(cell => {
             const address = Excel.getCellAddress({
-                c: i,
+                c: curIndex,
                 r: rowIndex + 1
             });
 
-            const fieldName = this.columnConfigs[i].field;
             this.worksheet[address] = {
                 t: "s",
-                v: headerText[fieldName] || '',
+                v: cell.text || '',
                 s: headerCellStyle
             }
-        }
+            curIndex++;
+        });
     }
 
     _createBodyData() {
         const mainData = this.data.MainData;
+        console.log(mainData);
 
         for (let item of mainData) {
             item.CommissionRate = formatDecimal(item.CommissionRate) + '%';
@@ -209,8 +309,7 @@ export default class ReportExcel {
                 item.MonthDateString = Description ? `${MonthDateString} (${Description})` : MonthDateString;
             }
 
-            const totalColumn = this.viewInfo.TOTAL_COLUMN;
-            for (let j = 0; j < totalColumn; j++) {
+            for (let j = 0; j < this.totalColumn; j++) {
                 const address = Excel.getCellAddress({
                     c: j,
                     r: this.currentRowIndex
@@ -237,8 +336,7 @@ export default class ReportExcel {
             }
             const total = Object.assign({}, totalData, customTotalData);
 
-            const totalColumn = this.viewInfo.TOTAL_COLUMN;
-            for (let j = 0; j < totalColumn; j++) {
+            for (let j = 0; j < this.totalColumn; j++) {
                 const address = Excel.getCellAddress({
                     c: j,
                     r: this.currentRowIndex
@@ -256,7 +354,7 @@ export default class ReportExcel {
         return {
             t: Excel.getCellType(value),
             v: value,
-            s: columnConfig.field == fields.CommissionRate && item.IsMultiGroupProduct ? columnConfig[MULTI_COMM_GROUP_SECTION_STYLE] : columnConfig[sectionStyleName]
+            s: columnConfig.field === fields.CommissionRate && item.IsMultiGroupProduct ? bodyCellStyle.rightHighlight : columnConfig[sectionStyleName]
         }
     }
 
@@ -267,222 +365,25 @@ export default class ReportExcel {
         });
         const cellEnd = Excel.getCellAddress({
             r: this.currentRowIndex,
-            c: this.viewInfo.TOTAL_COLUMN
+            c: this.totalColumn
         });
 
         this.worksheet["!merges"] = this.mergeConfig;
         this.worksheet["!ref"] = `${cellStart}:${cellEnd}`;
-        this.worksheet['!cols'] = [{
-            wpx: 150
-        }, {
-            wpx: 150
-        }, {
-            wpx: 120
-        }, {
-            wpx: 120
-        }, {
-            wpx: 120
-        }, {
-            wpx: 120
-        }, {
-            wpx: 120
-        }, {
-            wpx: 120
-        },
-        {
-            wpx: 120
-        }, {
-            wpx: 120
-        }, {
-            wpx: 120
-        }, {
-            wpx: 120
-        }, {
-            wpx: 120
-        }, {
-            wpx: 120
-        }, {
-            wpx: 120
-        }, {
-            wpx: 120
-        }, {
-            wpx: 120
-        }, {
-            wpx: 120
-        },
-        {
-            wpx: 120
-        }, {
-            wpx: 120
-        }, {
-            wpx: 140
-        }, {
-            wpx: 140
-        }, {
-            wpx: 120
-        }, {
-            wpx: 120
-        }, {
-            wpx: 120
-        },{
-            wpx: 150
-        }, {
-            wpx: 150
-        }
-        ];
+        this.worksheet['!cols'] = this.columnConfigs.map(item => {
+            return { [COL_WIDTH]: item[COL_WIDTH] }
+        })
     }
 
-    _getcolumnConfigs(isMainView) {
-        const columnConfigList = [{
-            field: isMainView ? fields.UserName : fields.MonthDateString,
-            [MAIN_SECTION_STYLE]: bodyCellStyle.left,
-            [TOTAL_SECTION_STYLE]: totalCellStyle.default
-        },
-        {
-            field: fields.PaymentCurrency,
-            [MAIN_SECTION_STYLE]: bodyCellStyle.center,
-            [TOTAL_SECTION_STYLE]: totalCellStyle.center
-        },
-        {
-            field: fields.TotalClick,
-            [MAIN_SECTION_STYLE]: bodyCellStyle.number,
-            [TOTAL_SECTION_STYLE]: totalCellStyle.number
-        },
-        {
-            field: fields.UniqueClick,
-            [MAIN_SECTION_STYLE]: bodyCellStyle.number,
-            [TOTAL_SECTION_STYLE]: totalCellStyle.number
-        },
-        {
-            field: fields.Signup,
-            [MAIN_SECTION_STYLE]: bodyCellStyle.number,
-            [TOTAL_SECTION_STYLE]: totalCellStyle.number
-        },
-        {
-            field: fields.Fdm,
-            [MAIN_SECTION_STYLE]: bodyCellStyle.number,
-            [TOTAL_SECTION_STYLE]: totalCellStyle.number
-        },
-        {
-            field: fields.ActiveMember,
-            [MAIN_SECTION_STYLE]: bodyCellStyle.number,
-            [TOTAL_SECTION_STYLE]: totalCellStyle.number
-        },
-        {
-            field: fields.NoOfSubAff,
-            [MAIN_SECTION_STYLE]: bodyCellStyle.number,
-            [TOTAL_SECTION_STYLE]: totalCellStyle.number
-        },
-        {
-            field: fields.Deposit,
-            [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
-            [TOTAL_SECTION_STYLE]: totalCellStyle.decimal
-        },
-        {
-            field: fields.Withdrawal,
-            [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
-            [TOTAL_SECTION_STYLE]: totalCellStyle.decimal
-        },
-        {
-            field: fields.Turnover,
-            [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
-            [TOTAL_SECTION_STYLE]: totalCellStyle.decimal
-        },
-        {
-            field: fields.Ggr,
-            [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
-            [TOTAL_SECTION_STYLE]: totalCellStyle.decimal
-        },
-        {
-            field: fields.Bonus,
-            [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
-            [TOTAL_SECTION_STYLE]: totalCellStyle.decimal
-        },
-        {
-            field: fields.Rebate,
-            [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
-            [TOTAL_SECTION_STYLE]: totalCellStyle.decimal
-        },
-        {
-            field: fields.PlatformFee,
-            [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
-            [TOTAL_SECTION_STYLE]: totalCellStyle.decimal
-        },
-        {
-            field: fields.DepositFee,
-            [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
-            [TOTAL_SECTION_STYLE]: totalCellStyle.decimal
-        },
-        {
-            field: fields.WithdrawalFee,
-            [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
-            [TOTAL_SECTION_STYLE]: totalCellStyle.decimal
-        },
-        {
-            field: fields.TotalFee,
-            [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
-            [TOTAL_SECTION_STYLE]: totalCellStyle.decimal
-        },
-        {
-            field: fields.CommissionRate,
-            [MAIN_SECTION_STYLE]: bodyCellStyle.right,
-            [MULTI_COMM_GROUP_SECTION_STYLE]: bodyCellStyle.rightHighlight,
-            [TOTAL_SECTION_STYLE]: totalCellStyle.right
-        },
-        {
-            field: fields.Earning,
-            [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
-            [TOTAL_SECTION_STYLE]: totalCellStyle.decimal
-        },
-        {
-            field: fields.P2pEarning,
-            [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
-            [TOTAL_SECTION_STYLE]: totalCellStyle.decimal
-        },
-        {
-            field: fields.SubAffEarning,
-            [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
-            [TOTAL_SECTION_STYLE]: totalCellStyle.decimal
-        },
-        {
-            field: fields.TotalEarning,
-            [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
-            [TOTAL_SECTION_STYLE]: totalCellStyle.decimal
-        },
-        {
-            field: fields.AffWithdrawal,
-            [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
-            [TOTAL_SECTION_STYLE]: totalCellStyle.decimal
-        },
-        {
-            field: fields.AffAdjustment,
-            [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
-            [TOTAL_SECTION_STYLE]: totalCellStyle.decimal
-        },
-        {
-            field: fields.BalanceBf,
-            [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
-            [TOTAL_SECTION_STYLE]: totalCellStyle.decimal
-        },
-        {
-            field: fields.CurrentBBF,
-            [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
-            [TOTAL_SECTION_STYLE]: totalCellStyle.decimal
-        }
-        ];
-
-        const earningByField = {
-            field: fields.EarningBy,
-            [MAIN_SECTION_STYLE]: bodyCellStyle.right,
-            [TOTAL_SECTION_STYLE]: totalCellStyle.right
-        }
-
-        if (!isMainView) {
-            columnConfigList.splice(1, 1);
-            columnConfigList.splice(19, 0, earningByField);
-            columnConfigList.splice(24, 1);
-        }
-
-        return columnConfigList;
+    _getColumnConfigs(header) {
+        const showableCols = header.getCols().filter(item => item.isShowable);
+        return showableCols.map(col => {
+            return {
+                field: col.key,
+                [MAIN_SECTION_STYLE]: colConfig[col.key][MAIN_SECTION_STYLE],
+                [TOTAL_SECTION_STYLE]: colConfig[col.key][TOTAL_SECTION_STYLE],
+                [COL_WIDTH]: colConfig[col.key][COL_WIDTH]
+            };
+        });
     }
 }

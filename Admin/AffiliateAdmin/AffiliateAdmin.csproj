@@ -255,6 +255,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Portal\www\source\js\pages\report\affiliate-report\libs\headerConfigs.js" />
     <Content Include="HealthCheck.aspx" />
     <Content Include="App_Data\SpConfig\SpName.n88admin-n88.local.xml">
       <DependentUpon>_SpName.tt</DependentUpon>

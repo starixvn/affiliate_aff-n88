@@ -1,9 +1,8 @@
-﻿using Fanex.Affiliate.Admin.Core.DTO;
+﻿using System;
+using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.Report;
 using Fanex.Affiliate.Admin.Core.MetaModels.Report;
 using Fanex.Affiliate.Admin.Core.Repository.Report;
-using Fanex.Affiliate.Admin.Core.Utilities;
-using System;
 
 namespace Fanex.Affiliate.Admin.Core.Services.Report
 {
@@ -38,8 +37,14 @@ namespace Fanex.Affiliate.Admin.Core.Services.Report
 
         private static bool IsValidParam(AffiliateReportParam param)
         {
-            const int ValidMonthArrange = 5;
-            return !string.IsNullOrEmpty(param.ProductIds) && DateTimeHelper.IsValidDateRange(param.FromDate, param.ToDate, ValidMonthArrange);
+            return !string.IsNullOrEmpty(param.ProductIds) && IsValidDateRange(param.FromDate, param.ToDate, param.IsGetMonthly);
+        }
+
+        private static bool IsValidDateRange(DateTime from, DateTime to, bool isGetMonthly = true)
+        {
+            var maxMonth = from.AddMonths(isGetMonthly ? 5 : 6);
+
+            return DateTime.Compare(maxMonth, to) >= 0;
         }
     }
 }

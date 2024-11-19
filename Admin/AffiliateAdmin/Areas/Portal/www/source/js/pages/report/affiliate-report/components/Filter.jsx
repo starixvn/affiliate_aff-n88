@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -6,9 +6,11 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import MultipleSelect from '../../../../components/multiple-select';
 import MonthPicker from '@9softstudio/react-monthpicker';
 import { defaultSortBy, sortByMainView, sortByMonthOnMonthView, viewLevel, sortDirectionType, defaultBaseCurrency, minMonthDate, resource } from '../libs/constants';
-import { setReportTitle, setParam, setCurrencyList, setCommGroupList, setProductList, setPaymentCurrencyList } from '../actions';
-import { formatUnit, handleChangeMultipleSelected } from '../../../../modules/utils';
+import { setReportTitle, setParam, setCurrencyList, setCommGroupList, setProductList, setPaymentCurrencyList, setIsCheckedDatePicker } from '../actions';
+import { formatUnit, handleAfterChangeFromDate, handleAfterChangeToDate, handleChangeMultipleSelected } from '../../../../modules/utils';
 import { globalResource } from '../../../../modules/globalResource';
+import { minDate, sixMonth } from '../../../../modules/constants';
+import { DatePicker } from '@9softstudio/react-datepicker';
 
 export class Filter extends Component {
     constructor(props) {
@@ -16,7 +18,13 @@ export class Filter extends Component {
 
         const { today, productList, baseCurrencyList, currencyList, paymentCurrencyList } = this.props;
         this.now = new Date(today);
-        const defaultMonth = { month: this.now.getMonth() + 1, year: this.now.getFullYear() };
+        const currentMonth = this.now.getMonth() + 1;
+        const currentMonthString = formatUnit(currentMonth);
+        const currentYear = this.now.getFullYear();
+        this.nowString = `${currentMonthString}/${formatUnit(this.now.getDate())}/${currentYear}`;
+
+        const defaultMonth = { month: currentMonth, year: currentYear };
+
 
         this.state = {
             userName: '',
@@ -33,7 +41,10 @@ export class Filter extends Component {
             selectedBaseCurrency: baseCurrencyList.length && baseCurrencyList[0].ExchangeId || defaultBaseCurrency,
             selectedCurrencyList: currencyList.filter(item => item.checked).map(item => item.key).join(',') || '',
             selectedPaymentCurrencyList: paymentCurrencyList.filter(item => item.checked).map(item => item.key).join(',') || '',
-            selectedEarning: 'all'
+            selectedEarning: 'all',
+            isCheckedDatePicker: false,
+            fromDate: `${currentMonthString}/01/${currentYear}`,
+            toDate: this.nowString,
         }
 
         this.cachedMainReportParam = null;
@@ -67,6 +78,7 @@ export class Filter extends Component {
                     isGetAll: false,
                     isExcludeNegvBBF: false,
                     IsExcludeNegvCurrentBBF: false,
+                    isCheckedDatePicker: false
                 }, callback);
 
                 this.props.setParam(this.cachedMainReportParam);
@@ -81,7 +93,8 @@ export class Filter extends Component {
                     userName: param.UserName,
                     sortBy: sortByMonthOnMonthView.Month,
                     selectedEarning: 'all',
-                    isSortAscending: false
+                    isSortAscending: false,
+                    isCheckedDatePicker: false
                 }, callback);
             }
         }
@@ -129,6 +142,14 @@ export class Filter extends Component {
         this.setState({ toMonth: { month, year } });
     }
 
+    handleChangeFromDate = (momentDate) => {
+        this.setState(prevState => handleAfterChangeFromDate(momentDate, prevState.toDate, sixMonth));
+    }
+
+    handleChangeToDate = (momentDate) => {
+        this.setState(prevState => handleAfterChangeToDate(momentDate, prevState.fromDate, sixMonth));
+    }
+
     handleChangeCurrency = (item, selectedCurrencyList) => {
         this.setState({ selectedCurrencyList });
 
@@ -174,15 +195,34 @@ export class Filter extends Component {
         }
 
         this._updateReportTitle();
-        const { selectedLanguage, selectedEarning, selectedCommGroupList, selectedBaseCurrency, selectedCurrencyList, selectedPaymentCurrencyList, fromMonth, toMonth, sortBy, isSortAscending, userName, isGetAll, isExcludeNegvBBF, isExcludeNegvCurrentBBF } = this.state;
+        const {
+            selectedLanguage,
+            selectedEarning,
+            selectedCommGroupList,
+            selectedBaseCurrency,
+            selectedCurrencyList,
+            selectedPaymentCurrencyList,
+            fromMonth,
+            toMonth,
+            sortBy,
+            isSortAscending,
+            userName,
+            isGetAll,
+            isExcludeNegvBBF,
+            isExcludeNegvCurrentBBF,
+            fromDate,
+            toDate,
+            isCheckedDatePicker
+        } = this.state;
         const { pagingOption } = this.props;
 
         const isSelectAllCommGroup = this.props.commGroupList.every(c => c.checked);
 
         const param = {
             UserName: userName,
-            FromDate: `${fromMonth.month}/1/${fromMonth.year}`,
-            ToDate: `${toMonth.month}/1/${toMonth.year}`,
+            IsGetMonthly: !isCheckedDatePicker,
+            FromDate: isCheckedDatePicker ? fromDate : `${fromMonth.month}/1/${fromMonth.year}`,
+            ToDate: isCheckedDatePicker ? toDate : `${toMonth.month}/1/${toMonth.year}`,
             PreferredLanguage: selectedLanguage,
             EarningBy: selectedEarning,
             BaseCurrencyId: Number(selectedBaseCurrency),
@@ -200,6 +240,7 @@ export class Filter extends Component {
         }
 
         if (this._isMainView()) {
+            this.props.setIsCheckedDatePicker(isCheckedDatePicker);
             this.cachedMainReportParam = Object.assign({}, param);
         }
 
@@ -217,7 +258,7 @@ export class Filter extends Component {
 
     _buildMainReportTitle(isCheckedAllProduct) {
         const { productList, languageList, baseCurrencyList, commGroupList, paymentCurrencyList } = this.props;
-        const { selectedLanguage, fromMonth, toMonth, userName, selectedBaseCurrency } = this.state;
+        const { selectedLanguage, fromMonth, toMonth, userName, selectedBaseCurrency, fromDate, toDate, isCheckedDatePicker } = this.state;
 
         const userNameTitle = `${userName && ' - Affiliate contains \'' + userName + '\''}`;
         const language = languageList[selectedLanguage] || 'All languages';
@@ -226,7 +267,7 @@ export class Filter extends Component {
 
         const productName = isCheckedAllProduct ? 'All Products' : productList.filter(p => p.checked).map(p => p.name).join(',');
 
-        const fromToTitle = `FROM ${formatUnit(fromMonth.month)}/${fromMonth.year} TO ${formatUnit(toMonth.month)}/${toMonth.year}`;
+        const fromToTitle = isCheckedDatePicker ? `FROM ${fromDate} TO ${toDate}` : `FROM ${formatUnit(fromMonth.month)}/${fromMonth.year} TO ${formatUnit(toMonth.month)}/${toMonth.year}`;
         const baseCurrency = baseCurrencyList.filter(x => x.ExchangeId == selectedBaseCurrency).map(b => b.Code).join(',');
 
         return `${resource.reportName}${userNameTitle} - Base Currency ${baseCurrency} - ${paymentCurrency} - ${language} - ${productName} - ${commGroup} - ${fromToTitle}`;
@@ -280,8 +321,31 @@ export class Filter extends Component {
     }
 
     render() {
-        const { selectedLanguage, selectedEarning, selectedBaseCurrency, fromMonth, toMonth, sortBy, isSortAscending, selectedProductList, userName, isGetAll, isExcludeNegvBBF, isExcludeNegvCurrentBBF } = this.state;
-        const { productList, languageList, currencyList, baseCurrencyList, paymentCurrencyList, isProduction, commGroupList, earningByList } = this.props;
+        const {
+            selectedLanguage,
+            selectedEarning,
+            selectedBaseCurrency,
+            fromMonth, toMonth,
+            sortBy, isSortAscending,
+            selectedProductList,
+            userName, isGetAll,
+            isExcludeNegvBBF,
+            isExcludeNegvCurrentBBF,
+            fromDate,
+            toDate,
+            isCheckedDatePicker
+        } = this.state;
+
+        const {
+            productList,
+            languageList,
+            currencyList,
+            baseCurrencyList,
+            paymentCurrencyList,
+            isProduction,
+            commGroupList,
+            earningByList
+        } = this.props;
 
         const isValidSelectedProduct = !!selectedProductList;
 
@@ -397,26 +461,58 @@ export class Filter extends Component {
                                 onChange={this.handleChangeCommGroup} />
                         </FormGroup>
                     }
-                    <FormGroup className="my-sm-1 mr-sm-2">
-                        <Label className="mr-sm-2">From</Label>
-                        <MonthPicker minMonth={minMonthDate.month} minYear={minMonthDate.year}
-                            selectedDropdownYear={fromMonth.year}
-                            selectedMonth={fromMonth.month}
-                            onSelect={this.handleSelectFromMonth}
-                            iconElement={(<span className="oi oi-calendar icon-calendar ml-1"></span>)}
-                            enable={!isGetAll} />
-                    </FormGroup>
-                    <FormGroup className="my-sm-1 mr-sm-2">
-                        <Label className="mr-sm-2">To</Label>
-                        <MonthPicker minMonth={toMonthRange.min.month} minYear={toMonthRange.min.year}
-                            maxMonth={toMonthRange.max.month} maxYear={toMonthRange.max.year}
-                            selectedDropdownYear={toMonth.year}
-                            selectedYear={toMonth.year}
-                            selectedMonth={toMonth.month}
-                            onSelect={this.handleSelectToMonth}
-                            iconElement={(<span className="oi oi-calendar icon-calendar ml-1"></span>)}
-                            enable={!isGetAll} />
-                    </FormGroup>
+                    {
+                        isMainView ? (
+                            <FormGroup check>
+                                <Label check>
+                                    Date Picker
+                                    <Input name="isCheckedDatePicker" className="ml-1 mr-2" type="checkbox" checked={isCheckedDatePicker} onChange={this.handleCheck} />
+                                </Label>
+                            </FormGroup>
+                        ) : null
+                    }
+                    {
+                        isCheckedDatePicker ? (
+                            <Fragment>
+                                <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+                                    <Label className="mr-sm-2">{globalResource.From}</Label>
+                                    <DatePicker minDate={minDate} maxDate={this.nowString} date={fromDate}
+                                        iconElement={(<span className="oi oi-calendar icon-calendar ml-1"></span>)}
+                                        onChange={this.handleChangeFromDate} />
+                                </FormGroup>
+                                <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+                                    <Label className="mr-sm-2">{globalResource.To}</Label>
+                                    <DatePicker minDate={fromDate} maxDate={this.nowString} date={toDate}
+                                        iconElement={(<span className="oi oi-calendar icon-calendar ml-1"></span>)}
+                                        onChange={this.handleChangeToDate} />
+                                </FormGroup>
+                            </Fragment>
+                        ) : (
+                            <Fragment>
+                                <FormGroup className="my-sm-1 mr-sm-2">
+                                    <Label className="mr-sm-2">From</Label>
+                                    <MonthPicker minMonth={minMonthDate.month} minYear={minMonthDate.year}
+                                        selectedDropdownYear={fromMonth.year}
+                                        selectedMonth={fromMonth.month}
+                                        onSelect={this.handleSelectFromMonth}
+                                        iconElement={(<span className="oi oi-calendar icon-calendar ml-1"></span>)}
+                                        enable={!isGetAll} />
+                                </FormGroup>
+                                <FormGroup className="my-sm-1 mr-sm-2">
+                                    <Label className="mr-sm-2">To</Label>
+                                    <MonthPicker minMonth={toMonthRange.min.month} minYear={toMonthRange.min.year}
+                                        maxMonth={toMonthRange.max.month} maxYear={toMonthRange.max.year}
+                                        selectedDropdownYear={toMonth.year}
+                                        selectedYear={toMonth.year}
+                                        selectedMonth={toMonth.month}
+                                        onSelect={this.handleSelectToMonth}
+                                        iconElement={(<span className="oi oi-calendar icon-calendar ml-1"></span>)}
+                                        enable={!isGetAll} />
+                                </FormGroup>
+                            </Fragment>
+                        )
+                    }
+
                     {
                         !isMainView && (
                             <FormGroup check>
@@ -427,21 +523,23 @@ export class Filter extends Component {
                             </FormGroup>
                         )
                     }
-                    <FormGroup className="my-sm-1 mr-sm-2">
-                        <Label htmlFor="SortBy" className="mr-sm-2">Sort By</Label>
-                        <Input type="select" name="sortBy" id="SortBy" value={sortBy} onChange={this.handleChange}>
-                            {
-                                Object.keys(sortByData).map(k => {
-                                    return (<option key={'sortBy-' + k} value={sortByData[k]}>{k}</option>);
-                                })
-                            }
-                        </Input>
-                    </FormGroup>
-                    <FormGroup className="my-sm-1 mr-sm-2">
-                        <Label check>
-                            A-Z
-                            <Input name="isSortAscending" className="ml-1" type="checkbox" checked={isSortAscending} onChange={this.handleCheck} />
-                        </Label>
+                    <FormGroup>
+                        <FormGroup className="my-sm-1 mr-sm-2">
+                            <Label htmlFor="SortBy" className="mr-sm-2">Sort By</Label>
+                            <Input type="select" name="sortBy" id="SortBy" value={sortBy} onChange={this.handleChange}>
+                                {
+                                    Object.keys(sortByData).map(k => {
+                                        return (<option key={'sortBy-' + k} value={sortByData[k]}>{k}</option>);
+                                    })
+                                }
+                            </Input>
+                        </FormGroup>
+                        <FormGroup className="my-sm-1 mr-sm-2">
+                            <Label check>
+                                A-Z
+                                <Input name="isSortAscending" className="ml-1" type="checkbox" checked={isSortAscending} onChange={this.handleCheck} />
+                            </Label>
+                        </FormGroup>
                     </FormGroup>
                     {
                         isMainView && (
@@ -490,7 +588,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ setReportTitle, setParam, setCurrencyList, setCommGroupList, setProductList, setPaymentCurrencyList }, dispatch);
+    return bindActionCreators({ setReportTitle, setParam, setCurrencyList, setCommGroupList, setProductList, setPaymentCurrencyList, setIsCheckedDatePicker }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filter);
