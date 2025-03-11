@@ -1,12 +1,17 @@
 ﻿using Affiliate.N88.Core;
 using Affiliate.N88.DTO;
+using Affiliate.N88.Exceptions;
 using Affiliate.N88.Jobs.Apis;
 using Affiliate.N88.Jobs.Configurations;
+using Affiliate.N88.Jobs.Constants;
 using Affiliate.N88.Jobs.RecurringTasks.Interfaces;
 using Affiliate.N88.Models;
 using Affiliate.N88.Repository;
+using Affiliate.N88.SpParams.Commands;
+using Affiliate.N88.Utitlities;
 using Fanex.Athena.CronJobs.App.Helpers;
 using Fanex.Logging;
+using Hangfire;
 using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
@@ -20,29 +25,40 @@ namespace Affiliate.N88.Jobs.RecurringTasks
     public interface IFetchAffCustomerDataTask : IFetchDataTask
     {
         Task FetchDataAsync(DateTime fromDate);
+
+        Task FetchDataByDateRangeTask();
     }
 
     public sealed class FetchAffCustomerDataTask : IFetchAffCustomerDataTask
     {
+        private const int BATCH_COUNT = 2000;
+        private const int DATE_RANGE = 1440;
+
         private readonly IMemberImportRepository _importerRepository;
         private readonly ILicenseeApi _licenseeApi;
         private readonly ILogger _logger;
-        private readonly LicenseeSiteSetting _setting;
 
-        private IEnumerable<string> SupportedSites => _setting?.SupportedSites;
+        private readonly FetchServiceSetting _fetchServiceSetting;
+        private readonly LicenseeSiteSetting _licenseeSiteSetting;
+
+        private IEnumerable<string> SupportedSites => _licenseeSiteSetting?.SupportedSites;
 
 
         public FetchAffCustomerDataTask(ILicenseeApi licenseeApi
             , IMemberImportRepository memberImportRepository
             , ILogger logger
-            , IOptions<LicenseeSiteSetting> config)
+            , IOptions<LicenseeSiteSetting> config
+            , IOptionsSnapshot<FetchServiceSetting> configuration)
         {
             _importerRepository = memberImportRepository;
             _licenseeApi = licenseeApi;
             _logger = logger;
-            _setting = config.Value ?? throw new NullReferenceException(nameof(_setting));
+            _fetchServiceSetting = configuration.Get(ServiceConfigName.PULL_AFF_CUSTOMER_SETTING);
+            _licenseeSiteSetting = config.Value ?? throw new NullReferenceException(nameof(_licenseeSiteSetting));
         }
 
+        [DisableConcurrentExecution(60)]
+        [AutomaticRetry(OnAttemptsExceeded = AttemptsExceededAction.Fail, Attempts = 1)]
         public async Task FetchDataAsync()
         {
             if (SupportedSites == null
@@ -55,39 +71,98 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             await FetchDataAsync(date);
         }
 
-        public async Task FetchDataAsync(DateTime regTime)
+        [DisableConcurrentExecution(60)]
+        [AutomaticRetry(OnAttemptsExceeded = AttemptsExceededAction.Fail, Attempts = 1)]
+        public async Task FetchDataByDateRangeTask()
         {
-            var customerData = await _licenseeApi.GetAffCustomerAsync(regTime);
-
-            if (customerData == null
-                || !customerData.Any())
+            if (SupportedSites == null
+                || !SupportedSites.Any())
             {
-                await _logger.InfoAsync($"No Data on date {regTime}");
-
                 return;
             }
 
-            var insertMemberCommands = GetImportingData(customerData);
-            foreach (var command in insertMemberCommands)
-            {
+            var fromDate = await GetMinLastedTimeAsync();
 
-                if (SupportedSites.Any(supportSiteCode => string.Compare(supportSiteCode, command.SiteName, StringComparison.OrdinalIgnoreCase) == 0))
+            var now = DateTimeHelper.GetApiServerDateTime();
+            var maxTimeRange = TimeSpan.FromMinutes(DATE_RANGE);
+            var dateRanges = DateTimeHelper.GetProportionTimeRange(fromDate, now, maxTimeRange);
+
+            await HandleFetchDataAsync(dateRanges);
+        }
+
+        public async Task FetchDataAsync(DateTime fromDate)
+        {
+            var timeRange = GetApiMaxTimeRange();
+            var apiServerNow = DateTimeHelper.GetApiServerDateTime();
+            var dateRanges = DateTimeHelper.GetProportionTimeRange(fromDate, apiServerNow, timeRange);
+
+            await HandleFetchDataAsync(dateRanges);
+        }
+
+        public async Task HandleFetchDataAsync(IEnumerable<(DateTime FromDate, DateTime ToDate)> dateRanges)
+        {
+            foreach (var range in dateRanges)
+            {
+                int pageIndex = 0;
+                while (true)
                 {
-                    await InsertMembers(regTime, command);
+                    var data = await _licenseeApi.GetAffCustomerAsync(range.FromDate, range.ToDate, pageIndex, BATCH_COUNT);
+                    if (!data.Any())
+                    {
+                        break;
+                    }
+
+                    var insertMemberCommands = GetImportingData(data);
+                    foreach (var command in insertMemberCommands)
+                    {
+                        if (SupportedSites.Any(supportSiteCode => string.Compare(supportSiteCode, command.SiteName, StringComparison.OrdinalIgnoreCase) == 0))
+                        {
+                            await InsertMembers(command, range.FromDate, range.ToDate);
+                        }
+                        else
+                        {
+                            await _logger.WarnAsync($"No Import Setting for Prefix: {command.SettingPrefix} Site: {command.SiteName}, Imported Data  from {range.FromDate} to {range.ToDate}");
+                        }
+                    }
+
+                    pageIndex++;
+                    if (data.Count() < BATCH_COUNT)
+                    {
+                        break;
+                    }
                 }
-                else
+
+                await SaveInsertAffMemberTimeTrackerAsync(range.ToDate);
+            }
+        }
+
+        private async Task SaveInsertAffMemberTimeTrackerAsync(DateTime toDate)
+        {
+            foreach (var site in SupportedSites)
+            {
+                var sitePrefixProvider = _licenseeSiteSetting.GetCodePrefix(site);
+
+                var param = new InsertAffMemberTimeTrackerCommand(new PrefixProvider(sitePrefixProvider))
                 {
-                    await _logger.InfoAsync($"No Import Setting for Prefix: {command.SettingPrefix} Site: {command.SiteName}, Imported Data {regTime}");
+                    LastImportedTime = toDate,
+                    ErrCode = SqlResponseCode.Success,
+                    ErrMsg = string.Empty
+                };
+
+                await _importerRepository.InsertAffMemberTimeTrackerAsync(param);
+                if (param.ErrCode != SqlResponseCode.Success)
+                {
+                    throw new ImporterException(param.ErrCode, param.ErrMsg);
                 }
             }
         }
 
-        private async Task InsertMembers(DateTime regTime, InsertMemberInfoCommand command)
+        private async Task InsertMembers(InsertMemberInfoCommand command, DateTime fromDate, DateTime toDate)
         {
             try
             {
                 await _importerRepository.ImportMemberAsync(command);
-                await _logger.InfoAsync($"Prefix: {command.SettingPrefix} Site: {command.SiteName}, Imported Data {regTime} by SP {command.GetSettingKey()}: {command.XmlData}");
+                await _logger.InfoAsync($"Prefix: {command.SettingPrefix} Site: {command.SiteName}, Imported Data from {fromDate} to {toDate} by SP {command.GetSettingKey()}: {command.XmlData}");
             }
             catch (Exception ex)
             {
@@ -113,7 +188,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
 
         private InsertMemberInfoCommand GenerateImportedDataBySiteName(string siteName, List<AffCustomerModel> customers)
         {
-            var prefixSettingCode = _setting.GetCodePrefix(siteName);
+            var prefixSettingCode = _licenseeSiteSetting.GetCodePrefix(siteName);
             var xml = BuildXml(customers);
 
             return new InsertMemberInfoCommand(new PrefixProvider(prefixSettingCode))
@@ -142,6 +217,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
                             , $"status=\"{HttpUtility.HtmlEncode(customer?.Status)}\""
                             , $"istest=\"{HttpUtility.HtmlEncode(customer?.IsTest)}\""
                             , $"affcode=\"{HttpUtility.HtmlEncode(customer?.AffCode)}\""
+                            , $"affmedialinkid=\"{HttpUtility.HtmlEncode(customer?.AffMediaLinkId)}\""
                             , "/>");
                         return builder.ToString();
                     }));
@@ -156,7 +232,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             {
                 try
                 {
-                    var siteCode = _setting.GetCodePrefix(site);
+                    var siteCode = _licenseeSiteSetting.GetCodePrefix(site);
                     var siteNameInStore = await GetSiteNameAsync(siteCode);
                     if (string.Compare(site, siteNameInStore, StringComparison.OrdinalIgnoreCase) != 0)
                     {
@@ -194,5 +270,8 @@ namespace Affiliate.N88.Jobs.RecurringTasks
 
             return await _importerRepository.GetSiteNameAsync(new SiteNameInfo(prefixProvider));
         }
+
+        private TimeSpan GetApiMaxTimeRange()
+            => TimeSpan.FromMinutes(_fetchServiceSetting.MaxTimeRange);
     }
 }

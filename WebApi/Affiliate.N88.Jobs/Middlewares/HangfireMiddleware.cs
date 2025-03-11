@@ -39,10 +39,13 @@ namespace Affiliate.N88.Jobs.Middlewares
             var appSettings = new AppSettings();
             configuration.GetSection(APPSETTING_ROOT).Bind(appSettings);
 
-            //FetchCustomerDataTask
+            //FetchAffCustomerDataTask
             services.AddScoped<IMemberImportRepository, MemberImportRepository>();
-            services.AddScoped<IFetchAffCustomerDataTask, FetchAffCustomerDataTask>();
             services.Configure<LicenseeSiteSetting>(configuration.GetSection($"{APPSETTING_ROOT}:LicenseeSetting"));
+
+            services.AddScoped<IFetchAffCustomerDataTask, FetchAffCustomerDataTask>().Configure<FetchServiceSetting>(
+                    ServiceConfigName.PULL_AFF_CUSTOMER_SETTING,
+                    configuration.GetSection($"{APPSETTING_ROOT}:{ServiceConfigName.PULL_AFF_CUSTOMER_SETTING}"));
 
             //TimeTrackerService
             services.AddScoped<ITrackerRepository, TrackerRespository>();
@@ -234,6 +237,7 @@ namespace Affiliate.N88.Jobs.Middlewares
         private static void RegisterFetchDataTask(AppSettings appSettings)
         {
             RegisterTask<IFetchAffCustomerDataTask>(typeof(IFetchAffCustomerDataTask).Name, appSettings.PullCustomerInfoCron, job => job.FetchDataAsync());
+            RegisterTask<IFetchAffCustomerDataTask>($"{typeof(IFetchAffCustomerDataTask).Name}-DATE_RANGE", Cron.Never(), job => job.FetchDataByDateRangeTask());
 
             RegisterTask<IFetchBetRecordDataTask>($"{typeof(IFetchBetRecordDataTask).Name}", appSettings.PullBetRecordSetting.PullInfoCron, job => job.FetchDataAsync());
             RegisterTask<IFetchBetRecordDataTask>($"{typeof(IFetchBetRecordDataTask).Name}-2HourInterval", "30 0/2 ? * *", job => job.FetchAllDay(2));

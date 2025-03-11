@@ -1,4 +1,4 @@
-﻿using Affiliate.N88.DTO;
+﻿using Affiliate.N88.Models;
 using Affiliate.N88.SpParams.Criteria;
 using Fanex.Data.Repository;
 using System;
@@ -21,7 +21,7 @@ namespace Affiliate.N88.WebApi.Controllers
             var connectedMessage = "Database connects successfully";
             try
             {
-                dynamicRepository.Fetch<AffCustomerInfo>(new GetAffCustomersCriteria(DateTime.Now, "Slave"));
+                dynamicRepository.Fetch<ServerInfo>(new GetServerInfoCriteria("Slave"));
             }
             catch (Exception ex)
             {

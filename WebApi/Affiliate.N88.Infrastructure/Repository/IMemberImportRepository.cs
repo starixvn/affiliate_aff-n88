@@ -1,4 +1,5 @@
 ﻿using Affiliate.N88.DTO;
+using Affiliate.N88.SpParams.Commands;
 using System;
 using System.Threading.Tasks;
 
@@ -11,5 +12,7 @@ namespace Affiliate.N88.Repository
         Task<DateTime> GetLastedMemberImportedTimeAsync(MemberImportedTimeInfo settingInfo);
 
         Task<string> GetSiteNameAsync(SiteNameInfo settingInfo);
+
+        Task InsertAffMemberTimeTrackerAsync(InsertAffMemberTimeTrackerCommand timeTracker);
     }
 }
