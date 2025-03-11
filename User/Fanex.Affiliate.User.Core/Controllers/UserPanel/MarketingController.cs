@@ -23,6 +23,7 @@
     [CustomAuthorize]
     public class MarketingController : BaseMarketingController
     {
+        private const string CHANNEL_NAME_REGEX = "^[a-zA-Z0-9]+$";
 
         private readonly IQrCodeGeneratorService QrCodeGeneratorService;
         private readonly IFileSystem FileSystem;
@@ -46,7 +47,7 @@
             var newSub = subCategoryList.Select(i => new SelectListItem
             {
                 Value = i.SubCategory,
-                Text = Lang.ResourceManager.GetString(Regex.Replace(i.SubCategory, @"\s+", "")) ?? i.SubCategory
+                Text = Lang.ResourceManager.GetString(RegexHelper.Replace(i.SubCategory, @"\s+", "")) ?? i.SubCategory
             });
 
             return Json(newSub,
@@ -135,16 +136,31 @@
         [AjaxOnly]
         public ActionResult AddChannel(string channelName)
         {
-            if (channelName.Length > Number.Twenty)
+            if (!string.IsNullOrEmpty(channelName))
             {
-                return Json(new ResultInfo
+                var channelTrim = channelName.Trim();
+                if (channelTrim.Length > Number.Twenty)
                 {
-                    IsOk = false,
-                    Message = Error.NameToLong20
-                });
+                    return Json(new ResultInfo
+                    {
+                        IsOk = false,
+                        Message = Error.NameToLong20
+                    });
+                }
+
+                if (RegexHelper.IsMatch(channelTrim, CHANNEL_NAME_REGEX))
+                {
+                    var userId = SessionService.UserSession.AffId;
+
+                    return Json(MarketingService.AddMarketingChannel(userId, channelTrim));
+                }
             }
-            var userId = SessionService.UserSession.AffId;
-            return Json(MarketingService.AddMarketingChannel(userId, channelName));
+
+            return Json(new ResultInfo
+            {
+                IsOk = false,
+                Message = Error.InvalidChannelName
+            });
         }
 
         [HttpGet]

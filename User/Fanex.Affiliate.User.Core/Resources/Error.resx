@@ -183,4 +183,7 @@
   <data name="PaymentAccNotActive" xml:space="preserve">
     <value>The payment player account is not active, please check with your account manager.</value>
   </data>
+  <data name="InvalidChannelName" xml:space="preserve">
+    <value>Channel Name can only contain ENGLISH letters and numbers. No spaces or special characters allowed. </value>
+  </data>
 </root>

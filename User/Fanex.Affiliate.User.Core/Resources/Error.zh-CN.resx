@@ -168,4 +168,7 @@
   <data name="PaymentAmountInvalid" xml:space="preserve">
     <value>无效的申请金额</value>
   </data>
+  <data name="InvalidChannelName" xml:space="preserve">
+    <value>渠道名称只能使用英文字母和数字，请勿使用空格或特殊字符。</value>
+  </data>
 </root>

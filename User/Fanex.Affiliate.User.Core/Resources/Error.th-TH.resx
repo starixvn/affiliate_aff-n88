@@ -168,4 +168,7 @@
   <data name="PaymentAmountInvalid" xml:space="preserve">
     <value>จำนวนเงินที่ร้องขอไม่ถูกต้อง</value>
   </data>
+  <data name="InvalidChannelName" xml:space="preserve">
+    <value>ชื่อช่องสามารถมีได้เฉพาะตัวอักษรและตัวเลขภาษาอังกฤษเท่านั้น ไม่อนุญาตให้มีช่องว่างหรืออักขระพิเศษ</value>
+  </data>
 </root>

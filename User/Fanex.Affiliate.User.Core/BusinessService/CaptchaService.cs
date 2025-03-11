@@ -6,7 +6,6 @@ using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.Drawing.Text;
 using System.IO;
-using System.Text.RegularExpressions;
 
 namespace Fanex.Affiliate.User.Core.BusinessService
 {
@@ -159,7 +158,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
             var companyIpRegex = _appSetting.GetValue("CompanyIP");
 
-            return _appSetting.IsLocal || Regex.IsMatch(clientIp, companyIpRegex);
+            return _appSetting.IsLocal || RegexHelper.IsMatch(clientIp, companyIpRegex);
         }
 
         private static Color CreateRandomColor(Random random, int min, int max)
