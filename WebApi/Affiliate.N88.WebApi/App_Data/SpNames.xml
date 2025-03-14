@@ -12,7 +12,7 @@
     <Setting Key="API_CustRegInfo_Get" SpName="API_CustRegInfo_Get" DbName="N88Licensee_Read"/>
     <Setting Key="N88_Get_ServerInfo" SpName="N88_Get_ServerInfo" DbName="N88Licensee_Read"/>
     <Setting Key="N88_Get_TpTransferInfo" SpName="API_TpTransferInfo_Get" DbName="N88Licensee_Read"/>
-    <Setting Key="N88_Get_DepositInfo" SpName="API_DepositInfo_Get" DbName="N88Licensee_Read"/>
+    <Setting Key="N88_Get_DepositInfo" SpName="API_DepositInfo_Get_YB" DbName="N88Licensee_Read"/>
     <Setting Key="Affiliate_LoginCustInfo_Get" SpName="Affiliate_LoginCustInfo_Get" DbName="N88Licensee_Read"/>
     <Setting Key="API_BonusInfo_Get" SpName="API_BonusInfo_Get" DbName="N88Licensee_Read"/>
     <Setting Key="API_BonusInfoByDate_Get" SpName="API_BonusInfoByDate_Get" DbName="N88Licensee_Read"/>
