@@ -68,7 +68,8 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             }
 
             var date = await GetMinLastedTimeAsync();
-            await FetchDataAsync(date);
+            var fromDate = GetAdjustmentTime(date);
+            await FetchDataAsync(fromDate);
         }
 
         [DisableConcurrentExecution(60)]
@@ -256,6 +257,9 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             dates.Sort();
             return dates.First();
         }
+
+        private DateTime GetAdjustmentTime(DateTime fromDate)
+            => fromDate.AddMinutes(_fetchServiceSetting.AdjustmentValue);
 
         private async Task<DateTime> GetLastedImportDate(string settingPrefixCode)
         {
