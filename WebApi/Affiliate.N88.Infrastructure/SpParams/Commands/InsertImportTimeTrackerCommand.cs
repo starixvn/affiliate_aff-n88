@@ -16,10 +16,10 @@ namespace Affiliate.N88.SpParams.Commands
 
         public bool IsReset { get; set; }
 
-        public string KeyValue { get; set; } = String.Empty;
+        public string KeyValue { get; set; }
 
-        public int ErrCode { get; set; } = 0;
+        public int ErrCode { get; set; }
 
-        public string ErrMsg { get; set; } = String.Empty;
+        public string ErrMsg { get; set; }
     }
 }

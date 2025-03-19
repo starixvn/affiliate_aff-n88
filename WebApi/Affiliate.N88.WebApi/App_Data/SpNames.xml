@@ -1,8 +1,10 @@
 ﻿<Functions>
   <Function Name="N88Licensee">
-    <Setting Key="Aff_CustomerSel" SpName="Aff_CustomerSel" DbName="N88Licensee_Read" />
-    <Setting Key="Slave_Aff_CustomerSel" SpName="Aff_CustomerSel" DbName="N88Licensee_Read" />
-    <Setting Key="Master_Aff_CustomerSel" SpName="Aff_CustomerSel" DbName="N88Licensee_Write" />
+    <Setting Key="Aff_CustomerSel" SpName="Aff_CustomerSel_V2" DbName="N88Licensee_Read" >
+      <Mapping DataField="FirstDepositTime" ObjectProperty="FirstDepositDate" />
+    </Setting>
+    <Setting Key="Slave_N88_Get_ServerInfo" SpName="N88_Get_ServerInfo" DbName="N88Licensee_Read" />
+    <Setting Key="Master_N88_Get_ServerInfo" SpName="N88_Get_ServerInfo" DbName="N88Licensee_Write" />
     <Setting Key="N88_Get_TpBetRecord" SpName="N88_Get_TpBetRecord_Dynamic" DbName="N88Licensee_Read" />
     <Setting Key="N88_Get_TpGameType" SpName="N88_Get_TpGameType" DbName="N88Licensee_Read"/>
     <Setting Key="N88_Get_Customer" SpName="N88_Get_Customer" DbName="N88Licensee_Read"/>
@@ -10,7 +12,7 @@
     <Setting Key="API_CustRegInfo_Get" SpName="API_CustRegInfo_Get" DbName="N88Licensee_Read"/>
     <Setting Key="N88_Get_ServerInfo" SpName="N88_Get_ServerInfo" DbName="N88Licensee_Read"/>
     <Setting Key="N88_Get_TpTransferInfo" SpName="API_TpTransferInfo_Get" DbName="N88Licensee_Read"/>
-    <Setting Key="N88_Get_DepositInfo" SpName="API_DepositInfo_Get" DbName="N88Licensee_Read"/>
+    <Setting Key="N88_Get_DepositInfo" SpName="API_DepositInfo_Get_YB" DbName="N88Licensee_Read"/>
     <Setting Key="Affiliate_LoginCustInfo_Get" SpName="Affiliate_LoginCustInfo_Get" DbName="N88Licensee_Read"/>
     <Setting Key="API_BonusInfo_Get" SpName="API_BonusInfo_Get" DbName="N88Licensee_Read"/>
     <Setting Key="API_BonusInfoByDate_Get" SpName="API_BonusInfoByDate_Get" DbName="N88Licensee_Read"/>

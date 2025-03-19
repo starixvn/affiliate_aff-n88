@@ -1,9 +1,11 @@
 ﻿using Affiliate.N88.DTO;
 using Affiliate.N88.Jobs.Apis;
 using Affiliate.N88.Jobs.Configurations;
+using Affiliate.N88.Jobs.Constants;
 using Affiliate.N88.Jobs.RecurringTasks;
 using Affiliate.N88.Models;
 using Affiliate.N88.Repository;
+using Affiliate.N88.SpParams.Commands;
 using Fanex.Logging;
 using Microsoft.Extensions.Options;
 using NSubstitute;
@@ -21,6 +23,7 @@ namespace Affiliate.N88.Jobs.UnitTests
         private readonly ILicenseeApi Api;
         private readonly ILogger Logger;
         private readonly IOptions<LicenseeSiteSetting> Config;
+        private readonly IOptionsSnapshot<FetchServiceSetting> Configuration;
 
         public FetchAffCustomerDataTaskTests()
         {
@@ -28,12 +31,13 @@ namespace Affiliate.N88.Jobs.UnitTests
             Api = Substitute.For<ILicenseeApi>();
             Logger = Substitute.For<ILogger>();
             Config = Substitute.For<IOptions<LicenseeSiteSetting>>();
+            Configuration = Substitute.For<IOptionsSnapshot<FetchServiceSetting>>();
         }
 
         private FetchAffCustomerDataTask CreateFetchTask()
         {
             Config.Value.Returns(FetchCustomerDataTaskTestsHelper.Setting);
-            return new FetchAffCustomerDataTask(Api, Repo, Logger, Config);
+            return new FetchAffCustomerDataTask(Api, Repo, Logger, Config, Configuration);
         }
 
         private void SetUpRepoReturnSiteName(LicenseeSiteSetting setting)
@@ -101,7 +105,7 @@ namespace Affiliate.N88.Jobs.UnitTests
 
             await Repo.ReceivedWithAnyArgs(3).GetLastedMemberImportedTimeAsync(Arg.Any<MemberImportedTimeInfo>());
             await Logger.ReceivedWithAnyArgs(2).ErrorAsync(Arg.Any<string>(), Arg.Any<Exception>());
-            await Api.Received(1).GetAffCustomerAsync(date);
+            await Api.Received(1).GetAffCustomerAsync(date, Arg.Any<DateTime>(), Arg.Any<int>(), Arg.Any<int>());
         }
 
         [Fact]
@@ -114,7 +118,7 @@ namespace Affiliate.N88.Jobs.UnitTests
 
             await fetchTask.FetchDataAsync();
 
-            await Api.Received().GetAffCustomerAsync(minDate);
+            await Api.Received().GetAffCustomerAsync(minDate, Arg.Any<DateTime>(), Arg.Any<int>(), Arg.Any<int>());
         }
 
         [Fact]
@@ -122,7 +126,7 @@ namespace Affiliate.N88.Jobs.UnitTests
         {
             var date = new DateTime(2020, 2, 2);
             var fetchTask = CreateFetchTask();
-            Api.GetAffCustomerAsync(Arg.Any<DateTime>()).Returns(new List<AffCustomerModel>());
+            Api.GetAffCustomerAsync(Arg.Any<DateTime>(), Arg.Any<DateTime>(), Arg.Any<int>(), Arg.Any<int>()).Returns(new List<AffCustomerModel>());
             await fetchTask.FetchDataAsync(date);
 
             await Logger.Received().InfoAsync(Arg.Is<string>(s => s.Contains($"No Data on date {date}")));
@@ -135,7 +139,7 @@ namespace Affiliate.N88.Jobs.UnitTests
             var siteNotInConfig = FetchCustomerDataTaskTestsHelper.SiteNotInConfigSetting;
             var fetchTask = CreateFetchTask();
             var customers = FetchCustomerDataTaskTestsHelper.GetSiteCustomer(siteNotInConfig);
-            Api.GetAffCustomerAsync(Arg.Any<DateTime>()).Returns(customers);
+            Api.GetAffCustomerAsync(Arg.Any<DateTime>(), Arg.Any<DateTime>(), Arg.Any<int>(), Arg.Any<int>()).Returns(customers);
 
             await fetchTask.FetchDataAsync(date);
 

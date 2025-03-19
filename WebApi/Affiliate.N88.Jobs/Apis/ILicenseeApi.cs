@@ -13,7 +13,7 @@ namespace Affiliate.N88.Jobs.Apis
         Task<string> CheckConnection();
 
         [Get("/customer/GetAffCustomers")]
-        Task<IEnumerable<AffCustomerModel>> GetAffCustomerAsync(DateTime fromDate);
+        Task<IEnumerable<AffCustomerModel>> GetAffCustomerAsync(DateTime fromDate, DateTime toDate, int pageIndex, int pageSize = 2000);
 
         [Get("/customer/GetCustomers")]
         Task<IEnumerable<CustomerInfo>> GetCustomersAsync(DateTime fromDate, DateTime toDate, int pageIndex, int pageSize = 2000);
@@ -40,7 +40,7 @@ namespace Affiliate.N88.Jobs.Apis
         Task<IEnumerable<TpTransferInfo>> GetTpTransferInfo(int id, int totalRow);
 
         [Get("/betreport/GetDepositInfo")]
-        Task<IEnumerable<DepositInfo>> GetDepositInfo(DateTime updatedTime, int id, int totalRow);
+        Task<IEnumerable<DepositInfo>> GetDepositInfo(DateTime fromDate, DateTime toDate, int pageIndex, int pageSize = 2000);
 
         [Get("/Customer/GetCustomerRegInfo")]
         Task<IEnumerable<CustRegModel>> GetCustomerRegInfo(long unixTime);

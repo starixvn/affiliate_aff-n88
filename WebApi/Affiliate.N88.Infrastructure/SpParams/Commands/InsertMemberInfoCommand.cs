@@ -1,7 +1,6 @@
 ﻿using Affiliate.N88.Core;
 using Affiliate.N88.SpParams.Commands;
 using Fanex.Data;
-using System;
 
 namespace Affiliate.N88.DTO
 {
@@ -18,9 +17,9 @@ namespace Affiliate.N88.DTO
 
         public string XmlData { get; set; }
 
-        public int ErrCode { get; set; } = 0;
+        public int ErrCode { get; set; }
 
-        public string ErrMsg { get; set; } = String.Empty;
+        public string ErrMsg { get; set; }
 
         protected override string SuffixSettingKey => "Task_Aff_MemberInfo_Import";
 

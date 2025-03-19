@@ -61,7 +61,7 @@ namespace Affiliate.N88.Jobs.Services
                     IsReset = tracker.IsReset,
                     DataSource = source,
                     ErrCode = SqlResponseCode.Success,
-                    ErrMsg = String.Empty
+                    ErrMsg = string.Empty
                 };
                 await _timeTrackerRepository.ImportTimeTrackerAsync(param);
                 if (param.ErrCode != SqlResponseCode.Success)

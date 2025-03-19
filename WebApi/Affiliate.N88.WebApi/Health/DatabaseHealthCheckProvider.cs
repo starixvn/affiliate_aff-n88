@@ -27,7 +27,7 @@ namespace Affiliate.N88.WebApi.Health
         public async Task<HealthCheckItemResult> GetHealthCheckAsync()
         {
             var dataBaseServerName = DatabaseServerType.ToString();
-            var criteria = new GetAffCustomersCriteria(DateTime.Now, dataBaseServerName);
+            var criteria = new GetServerInfoCriteria(dataBaseServerName);
             var result = new HealthCheckItemResult($"{nameof(DatabaseHealthCheckProvider)}"
                 , SortOrder
                 , "Checks the database"

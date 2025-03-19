@@ -26,25 +26,9 @@ namespace Affiliate.N88.WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<AffCustomerModel>> GetAffCustomers(DateTime fromDate)
+        public async Task<IEnumerable<AffCustomerModel>> GetAffCustomers(DateTime fromDate, DateTime toDate, int pageIndex, int pageSize = 2000)
         {
-            var customerList = await dynamicRepository.FetchAsync<AffCustomerInfo>(new GetAffCustomersCriteria(fromDate));
-
-            return customerList.Select(c => new AffCustomerModel
-            {
-                ActStatus = c.ActStatus,
-                SiteName = c.SiteName,
-                CurrencyId = c.CurrencyId,
-                CustId = c.CustId,
-                RegTime = c.RegTime,
-                SiteId = c.SiteId,
-                Status = c.Status,
-                UserName = c.UserName,
-                AffId = c.AffId,
-                FirstDepositDate = c.FirstDepositTime,
-                IsTest = c.IsTest,
-                AffCode = c.AffCode
-            });
+            return await dynamicRepository.FetchAsync<AffCustomerModel>(new GetAffCustomersCriteria(fromDate, toDate, pageIndex, pageSize));
         }
 
         [HttpGet]

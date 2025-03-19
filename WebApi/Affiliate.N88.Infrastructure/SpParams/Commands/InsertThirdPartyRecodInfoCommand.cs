@@ -1,5 +1,4 @@
 ﻿using Affiliate.N88.Core;
-using System;
 
 namespace Affiliate.N88.SpParams.Commands
 {
@@ -16,8 +15,8 @@ namespace Affiliate.N88.SpParams.Commands
 
         public string XmlData { get; set; }
 
-        public int ErrCode { get; set; } = 0;
+        public int ErrCode { get; set; }
 
-        public string ErrMsg { get; set; } = String.Empty;
+        public string ErrMsg { get; set; }
     }
 }
