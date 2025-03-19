@@ -3,9 +3,13 @@ using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.Customer;
 using Fanex.Affiliate.Admin.Core.DTO.UserPanel;
+using Fanex.Affiliate.Admin.Core.Extensions;
 using Fanex.Affiliate.Admin.Core.MetaModels.UserPanel;
 using Fanex.Affiliate.Admin.Core.Repository.UserPanel;
 using Fanex.Affiliate.Admin.Core.Resources;
+using Fanex.Affiliate.Admin.Core.Services.ThirdPartyLicensee;
+using Fanex.Affiliate.Admin.Core.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -16,16 +20,22 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
         private readonly IUserAccountRepository _userAccountRepository;
         private readonly ILicenseeService _licenseeService;
         private readonly IAppSetting _appSetting;
+        private readonly IAffiliateService _affiliateService;
+        private readonly IThirdPartyLicenseeService _thirdPartyLicenseeService;
 
         private const int TEST_CURRENCY_ID = 20;
 
         public UserAccountService(IUserAccountRepository userAccountRepository,
             ILicenseeService licenseeService,
-            IAppSetting appSetting)
+            IAppSetting appSetting,
+            IAffiliateService affiliateService,
+            IThirdPartyLicenseeService thirdPartyLicenseeService)
         {
             _userAccountRepository = userAccountRepository;
             _licenseeService = licenseeService;
             _appSetting = appSetting;
+            _affiliateService = affiliateService;
+            _thirdPartyLicenseeService = thirdPartyLicenseeService;
         }
 
         public UserAccount GetUserAccountInfo(int affId)
@@ -68,7 +78,14 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
                     param.Player_Currency = memberSiteCust.IsTest.GetValueOrDefault() ? TEST_CURRENCY_ID : memberSiteCust.CurrencyId.GetValueOrDefault();
                 }
 
-                return _userAccountRepository.UpdateUserAccount(param);
+                var updateResult = _userAccountRepository.UpdateUserAccount(param);
+
+                if(updateResult.IsSuccessful)
+                {
+                    await SendAffiliateInfoToLicensee(param.AffId, curUserAccInfo);
+                }
+
+                return updateResult;
             }
 
             return new ResultInfo
@@ -115,6 +132,33 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
         {
             return !(string.IsNullOrEmpty(param.BankName) || string.IsNullOrEmpty(param.BankAddress) ||
                 string.IsNullOrEmpty(param.BankAccountName) || string.IsNullOrEmpty(param.BankAccountNumber));
+        }
+
+        private async Task SendAffiliateInfoToLicensee(int affId, UserAccount curInfo)
+        {
+            try
+            {
+                var affInfo = _affiliateService.GetAffiliateBasicInfo(affId);
+
+                if (affInfo != null)
+                {
+                    bool isSameAffInfo = affInfo.FirstName.MatchWith(curInfo.FirstName)
+                        && affInfo.LastName.MatchWith(curInfo.LastName)
+                        && affInfo.Email.MatchWith(curInfo.Email)
+                        && affInfo.ContactNumber.MatchWith(curInfo.Phone);
+
+                    bool isUpdatedSensitiveInfo = !isSameAffInfo || !affInfo.PlayerUsername.MatchWith(curInfo.PlayerUsername);
+
+                    if (isUpdatedSensitiveInfo)
+                    {
+                        await _thirdPartyLicenseeService.SendAffiliateInfo(affInfo);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                LogHelper.WriteError(ex);
+            }
         }
     }
 }

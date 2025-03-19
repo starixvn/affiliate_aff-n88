@@ -31,6 +31,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.ThirdPartyLicensee
         {
             var affiliateInfo = new ApiAffiliateInfo
             {
+                AffiliateId = affInfo.AffId,
                 AffiliateCode = affInfo.AffCode,
                 AffiliateName = affInfo.UserName,
                 UserName = affInfo.PlayerUsername,
