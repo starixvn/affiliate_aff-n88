@@ -391,6 +391,7 @@
     <Compile Include="Utilities\IImageHandler.cs" />
     <Compile Include="Utilities\LogHelper.cs" />
     <Compile Include="Utilities\PathHelper.cs" />
+    <Compile Include="Utilities\RegexHelper.cs" />
     <Compile Include="ViewModels\BaseLayoutViewModel.cs" />
     <Compile Include="ViewModels\ContactUsViewModel.cs" />
     <Compile Include="ViewModels\RevenueSharingStructureViewModel.cs" />

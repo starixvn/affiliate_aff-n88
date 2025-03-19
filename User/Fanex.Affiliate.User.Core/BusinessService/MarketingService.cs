@@ -327,7 +327,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
         private static string NormalizeName(string channelName)
         {
-            return channelName.Replace(" ", String.Empty).ToLowerInvariant();
+            return channelName.ToLowerInvariant();
         }
     }
 }

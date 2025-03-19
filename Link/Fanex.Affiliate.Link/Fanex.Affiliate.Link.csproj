@@ -216,14 +216,17 @@
     <Compile Include="App_Start\LoggingConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\UMConfig.cs" />
+    <Compile Include="Constants\CacheKey.cs" />
     <Compile Include="Constants\HeaderKey.cs" />
+    <Compile Include="Constants\Language.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Commands\TrackingSystemCommand.cs" />
     <Compile Include="Controllers\UnderMaintenanceController.cs" />
-    <Compile Include="DataAccess\Impl\GeneralAffiliateInfoDataAccess.cs" />
+    <Compile Include="Criterias\GeneralAffInfoCriteria.cs" />
     <Compile Include="DataAccess\Impl\TrackingSystemDataAccess.cs" />
-    <Compile Include="DataAccess\Interface\IGeneralAffiliateInfoDataAccess.cs" />
     <Compile Include="DataAccess\Interface\ITrackingSystemDataAccess.cs" />
+    <Compile Include="DTOs\AffInfo.cs" />
+    <Compile Include="DTOs\CfVisitorInfo.cs" />
     <Compile Include="Extensions\HttpRequestExtension.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />
     <Compile Include="Global.asax.cs">
@@ -232,10 +235,12 @@
     <Compile Include="Helpers\Common.cs" />
     <Compile Include="Helpers\LogHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\Impl\GeneralAffiliateInfoService.cs" />
+    <Compile Include="Services\Impl\AffInfoService.cs" />
+    <Compile Include="Services\Impl\MemoryCacheService.cs" />
     <Compile Include="Services\Impl\TrackingSystemService.cs" />
     <Compile Include="Services\Impl\UnderMaintenanceService.cs" />
-    <Compile Include="Services\Interface\IGeneralAffiliateInfoService.cs" />
+    <Compile Include="Services\Interface\IAffInfoService.cs" />
+    <Compile Include="Services\Interface\IMemoryCacheService.cs" />
     <Compile Include="Services\Interface\ITrackingSystemService.cs" />
     <Compile Include="Services\Interface\IUnderMaintenanceService.cs" />
   </ItemGroup>

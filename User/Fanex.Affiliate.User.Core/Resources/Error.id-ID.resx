@@ -168,4 +168,7 @@
   <data name="PaymentAmountInvalid" xml:space="preserve">
     <value>Jumlah permintaan tidak valid</value>
   </data>
+  <data name="InvalidChannelName" xml:space="preserve">
+    <value>Nama saluran hanya boleh berisi huruf dan angka. Tidak diperbolehkan menggunakan spasi atau karakter khusus.</value>
+  </data>
 </root>
