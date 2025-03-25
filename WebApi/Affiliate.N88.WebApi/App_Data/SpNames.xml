@@ -1,6 +1,6 @@
 ﻿<Functions>
   <Function Name="N88Licensee">
-    <Setting Key="Aff_CustomerSel" SpName="Aff_CustomerSel_V2" DbName="N88Licensee_Read" >
+    <Setting Key="Aff_CustomerSel" SpName="Aff_CustomerSel_V3" DbName="N88Licensee_Read" >
       <Mapping DataField="FirstDepositTime" ObjectProperty="FirstDepositDate" />
     </Setting>
     <Setting Key="Slave_N88_Get_ServerInfo" SpName="N88_Get_ServerInfo" DbName="N88Licensee_Read" />
