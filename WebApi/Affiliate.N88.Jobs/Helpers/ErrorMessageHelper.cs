@@ -38,7 +38,7 @@ namespace Fanex.Athena.CronJobs.App.Helpers
         {
             messageBuilder.AppendLine();
             messageBuilder.AppendLine("API INFO");
-            messageBuilder.AppendLine($"Url: {apiException.Uri.ToString()}");
+            messageBuilder.AppendLine($"Url: {apiException.Uri}");
             messageBuilder.AppendLine($"Method: {apiException.HttpMethod.Method}");
             messageBuilder.AppendLine($"Content: { apiException.Content}");
         }

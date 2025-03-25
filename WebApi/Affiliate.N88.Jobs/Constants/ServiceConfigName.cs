@@ -6,7 +6,11 @@
 
         public const string PULL_AFF_CUSTOMER_SETTING = "PullAffCustomerSetting";
 
+        public const string PULL_REAL_AFF_CUSTOMER_SETTING = "PullRealAffCustomerSetting";
+
         public const string PULL_CUSTOMER_SETTING = "PullCustomerSetting";
+
+        public const string PULL_REAL_CUSTOMER_SETTING = "PullRealCustomerSetting";
 
         public const string PULL_GAME_TYPE_SETTING = "PullGameTypeSetting";
 
@@ -17,6 +21,8 @@
         public const string PULL_CUST_WALLET_SETTING = "PullCustWalletSetting";
 
         public const string PULL_DEPOSIT_INFO_SETTING = "PullDepositInfoSetting";
+
+        public const string PULL_REAL_DEPOSIT_INFO_SETTING = "PullRealDepositInfoSetting";
 
         public const string PULL_CUST_REG_INFO_SETTING = "PullCustRegInfoSetting";
 

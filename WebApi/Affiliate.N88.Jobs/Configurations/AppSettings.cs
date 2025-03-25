@@ -12,7 +12,9 @@
 
         public string AuthenticationKey { get; set; }
 
-        public string PullCustomerInfoCron { get; set; }
+        public FetchServiceSetting PullAffCustomerSetting { get; set; }
+
+        public FetchServiceSetting PullRealAffCustomerSetting { get; set; }
 
         public FetchServiceSetting PullBetRecordSetting { get; set; }
 

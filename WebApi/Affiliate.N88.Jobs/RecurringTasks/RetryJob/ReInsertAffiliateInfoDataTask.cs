@@ -22,7 +22,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks.RetryJob
         private readonly ILicenseeApi _liceseeApi;
         private readonly ILogger _logger;
 
-        private static IEnumerable<int> ListPullStatusId = new int[] { DataTrackerStatus.InProcess, DataTrackerStatus.Failure };
+        private static readonly IEnumerable<int> ListPullStatusId = new int[] { DataTrackerStatus.InProcess, DataTrackerStatus.Failure };
         
         private FetchServiceSetting Setting { get; }
 
