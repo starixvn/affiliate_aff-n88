@@ -20,6 +20,7 @@ using Affiliate.N88.Jobs.Filter;
 using Affiliate.N88.Jobs.RecurringTasks.Bonus;
 using Affiliate.N88.Jobs.RecurringTasks.RetryJob;
 using Affiliate.N88.Jobs.RecurringTasks.AffCustomer;
+using Affiliate.N88.Jobs.RecurringTasks.Customer;
 
 namespace Affiliate.N88.Jobs.Middlewares
 {
@@ -73,6 +74,11 @@ namespace Affiliate.N88.Jobs.Middlewares
                 .Configure<FetchServiceSetting>(
                     ServiceConfigName.PULL_CUSTOMER_SETTING,
                     configuration.GetSection($"{APPSETTING_ROOT}:{ServiceConfigName.PULL_CUSTOMER_SETTING}"));
+
+            services.AddScoped<IFetchRealCustomerDataTask, FetchRealCustomerDataTask>()
+                .Configure<FetchServiceSetting>(
+                    ServiceConfigName.PULL_REAL_CUSTOMER_SETTING,
+                    configuration.GetSection($"{APPSETTING_ROOT}:{ServiceConfigName.PULL_REAL_CUSTOMER_SETTING}"));
 
             //FetchServerInfoDataTask
             services.AddScoped<IFetchServerInfoDataTask, FetchServerInfoDataTask>()
@@ -250,8 +256,9 @@ namespace Affiliate.N88.Jobs.Middlewares
             RegisterTask<IFetchBetRecordDataTask>($"{typeof(IFetchBetRecordDataTask).Name}-Daily", Cron.Daily(7), job => job.FetchFromAdjusmentDayAsync(3));
             RegisterTask<IFetchBetRecordDataTask>($"{typeof(IFetchBetRecordDataTask).Name}-Monthly", Cron.Monthly(4, 12, 0), job => job.FetchLastMonthAsync());
 
-            RegisterTask<IFetchCustomerDataTask>($"{typeof(IFetchCustomerDataTask).Name}", appSettings.PullCustomerSetting.PullInfoCron, job => job.FetchDataAsync());
-            RegisterTask<IFetchCustomerDataTask>($"{typeof(IFetchCustomerDataTask).Name}-Daily", Cron.Daily(5), job => job.FetchDataDailyTask());
+            RegisterTask<IFetchRealCustomerDataTask>("Fetch Customer Data -- Real", appSettings.PullRealCustomerSetting.PullInfoCron, job => job.FetchDataAsync());
+            RegisterTask<IFetchCustomerDataTask>("Fetch Customer Data -- Normal", appSettings.PullCustomerSetting.PullInfoCron, job => job.FetchDataAsync());
+            RegisterTask<IFetchCustomerDataTask>("Fetch Customer Data -- Daily", Cron.Daily(5), job => job.FetchDataDailyTask());
 
             RegisterTask<IFetchServerInfoDataTask>($"{typeof(IFetchServerInfoDataTask).Name}", appSettings.PullServerInfoSetting.PullInfoCron, job => job.FetchDataAsync());
 

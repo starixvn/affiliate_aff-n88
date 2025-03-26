@@ -20,11 +20,15 @@
 
         public FetchServiceSetting PullCustomerSetting { get; set; }
 
+        public FetchServiceSetting PullRealCustomerSetting { get; set; }
+
         public FetchServiceSetting PullServerInfoSetting { get; set; }
 
         public FetchServiceSetting PullGameTypeSetting { get; set; }
 
         public FetchServiceSetting PullDepositInfoSetting { get; set; }
+
+        public FetchServiceSetting PullRealDepositInfoSetting { get; set; }
 
         public FetchServiceSetting PullTpTransferInfoSetting { get; set; }
 
