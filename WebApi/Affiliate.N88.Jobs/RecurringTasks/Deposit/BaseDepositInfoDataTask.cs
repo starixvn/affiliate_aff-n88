@@ -1,37 +1,33 @@
 ﻿using Affiliate.N88.Jobs.Apis;
 using Affiliate.N88.Jobs.Configurations;
-using Affiliate.N88.Jobs.Constants;
-using Affiliate.N88.Jobs.RecurringTasks.Interfaces;
 using Affiliate.N88.Models;
 using Affiliate.N88.Repository;
 using Affiliate.N88.Services;
 using Affiliate.N88.Utitlities;
 using Fanex.Logging;
-using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Affiliate.N88.Jobs.RecurringTasks
+namespace Affiliate.N88.Jobs.RecurringTasks.Deposit
 {
-    public interface IFetchDepositInfoDataTask : IFetchDataTask { }
-
-    public class FetchDepositInfoDataTask : FetchDataForMultipleRepositoryTaskBase<DepositInfo>, IFetchDepositInfoDataTask
+    public abstract class BaseDepositInfoDataTask : FetchDataForMultipleRepositoryTaskBase<DepositInfo>
     {
         private readonly ILicenseeApi _licenseeApi;
         private readonly ILogger _logger;
         private readonly ITrackerService _trackerService;
 
         private const int MAX_ROW_COUNT = 2000;
+        protected virtual bool IsNeedRealData => false;
 
-        public FetchDepositInfoDataTask(IThirdPartyImportRepository thirdPartyImportRepository
+        public BaseDepositInfoDataTask(IThirdPartyImportRepository thirdPartyImportRepository
             , ILicenseeApi licenseeApi
             , ILogger logger
             , ITrackerService trackerService
-            , IOptionsSnapshot<FetchServiceSetting> setting)
-            :base(thirdPartyImportRepository, setting.Get(ServiceConfigName.PULL_DEPOSIT_INFO_SETTING))
+            , FetchServiceSetting fetchServiceSetting)
+            : base(thirdPartyImportRepository, fetchServiceSetting)
         {
             _licenseeApi = licenseeApi;
             _logger = logger;
@@ -49,23 +45,52 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             var timeRange = GetApiMaxTimeRange();
             var apiServerNow = DateTimeHelper.GetApiServerDateTime();
             var dateRanges = DateTimeHelper.GetProportionTimeRange(fromDate, apiServerNow, timeRange);
+
+            await HandleFetchDataAsync(dateRanges);
+
+            if (IsNeedRealData)
+            {
+                await HandleFetchRealDataAsync(dateRanges, apiServerNow);
+            }
+        }
+
+        private async Task HandleFetchDataAsync(IEnumerable<(DateTime FromDate, DateTime ToDate)> dateRanges)
+        {
             foreach (var range in dateRanges)
             {
-                int pageIndex = 0;
-                while (true)
-                {
-                    var data = await _licenseeApi.GetDepositInfo(range.FromDate, range.ToDate, pageIndex, MAX_ROW_COUNT);
-                    if (!data.Any())
-                    {
-                        break;
-                    }
-                    await ImportDataToMultipleRepoAsync(data);
-                    pageIndex++;
+                await HandleImportDataAsync(range.FromDate, range.ToDate);
+            }
+        }
 
+        protected async Task HandleFetchRealDataAsync(IEnumerable<(DateTime FromDate, DateTime ToDate)> dateRanges, DateTime apiServerNow)
+        {
+            var lastDateRange = dateRanges.LastOrDefault();
+
+            if (lastDateRange.ToDate != default(DateTime))
+            {
+                await HandleImportDataAsync(lastDateRange.ToDate, apiServerNow.AddSeconds(-5), false);
+            }
+        }
+
+        private async Task HandleImportDataAsync(DateTime fromDate, DateTime toDate, bool isNeedImportTracker = true)
+        {
+            int pageIndex = 0;
+            while (true)
+            {
+                var data = await _licenseeApi.GetDepositInfo(fromDate, toDate, pageIndex, MAX_ROW_COUNT);
+                if (!data.Any())
+                {
+                    break;
+                }
+                await ImportDataToMultipleRepoAsync(data);
+                pageIndex++;
+
+                if (isNeedImportTracker)
+                {
                     var trackerItem = new TrackerItem
                     {
-                        Id = data.Max(d => d.DepositId),
-                        UpdateTime = data.Max(d => d.UpdateTime.Value),
+                        Id = data.Max(_ => _.DepositId),
+                        UpdateTime = data.Max(_ => _.UpdateTime.Value),
                     };
                     await _trackerService.SaveTrackerAsync(TableName,
                         new TrackerInfo
@@ -73,11 +98,11 @@ namespace Affiliate.N88.Jobs.RecurringTasks
                             CalledTime = DateTime.Now,
                             KeyValue = JsonConvert.SerializeObject(trackerItem)
                         });
+                }
 
-                    if (data.Count() < MAX_ROW_COUNT)
-                    {
-                        break;
-                    }
+                if (data.Count() < MAX_ROW_COUNT)
+                {
+                    break;
                 }
             }
         }
