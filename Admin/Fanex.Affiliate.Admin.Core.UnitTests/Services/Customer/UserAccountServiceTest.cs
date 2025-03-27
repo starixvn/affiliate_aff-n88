@@ -6,6 +6,7 @@ using Fanex.Affiliate.Admin.Core.DTO.UserPanel;
 using Fanex.Affiliate.Admin.Core.MetaModels.UserPanel;
 using Fanex.Affiliate.Admin.Core.Repository.UserPanel;
 using Fanex.Affiliate.Admin.Core.Services;
+using Fanex.Affiliate.Admin.Core.Services.ThirdPartyLicensee;
 using Fanex.Affiliate.Admin.Core.Services.UserPanel;
 using Moq;
 using System.Collections.Generic;
@@ -156,13 +157,17 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
         private static UserAccountService CreateUserAccountService(
             IUserAccountRepository userAccountRepository = null,
             ILicenseeService licenseeService = null,
-            IAppSetting appSeting = null)
+            IAppSetting appSeting = null,
+            IAffiliateService affiliateService = null,
+            IThirdPartyLicenseeService thirdPartyLicenseeService = null)
         {
             var fakeUserAccountRepository = userAccountRepository ?? Mock.Of<IUserAccountRepository>();
             var fakeAppSetting = appSeting ?? Mock.Of<IAppSetting>();
             var fakeLicenseeService = licenseeService ?? Mock.Of<ILicenseeService>();
+            var fakeIAffiliateService = affiliateService ?? Mock.Of<IAffiliateService>();
+            var fakeIThirdPartyLicenseeService = thirdPartyLicenseeService ?? Mock.Of<IThirdPartyLicenseeService>();
 
-            return new UserAccountService(fakeUserAccountRepository, fakeLicenseeService, fakeAppSetting);
+            return new UserAccountService(fakeUserAccountRepository, fakeLicenseeService, fakeAppSetting, fakeIAffiliateService, fakeIThirdPartyLicenseeService);
         }
 
         private static UserAccountParam GetUserAccountParam()

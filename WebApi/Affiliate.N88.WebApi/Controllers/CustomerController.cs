@@ -127,17 +127,18 @@ namespace Affiliate.N88.WebApi.Controllers
             {
                 await dynamicRepository.ExecuteAsync(new InsertAffiliateInfoCommand
                 {
+                    AffiliateId = affiliate.AffiliateId,
                     AffiliateCode = affiliate.AffiliateCode,
                     AffiliateName = affiliate.AffiliateName,
                     CustId = affiliate.CustId,
-                    ParentAffiliate = affiliate.ParentAffiliate,
+                    ParentAffiliate = affiliate.ParentAffiliate ?? string.Empty,
                     SiteId = affiliate.SiteId,
                     UserName = affiliate.UserName,
-                    FirstName = affiliate.FirstName,
-                    LastName = affiliate.LastName,
-                    ContactNumber = affiliate.ContactNumber,
-                    Email = affiliate.Email,
-                    Status = affiliate.Status
+                    FirstName = affiliate.FirstName ?? string.Empty,
+                    LastName = affiliate.LastName ?? string.Empty,
+                    ContactNumber = affiliate.ContactNumber ?? string.Empty,
+                    Email = affiliate.Email ?? string.Empty,
+                    Status = affiliate.Status ?? string.Empty
                 });
                 return new ResultInfo { IsSuccess = true };
             }
