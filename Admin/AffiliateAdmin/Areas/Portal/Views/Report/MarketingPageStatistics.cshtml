@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Fanex.Affiliate.Admin.Core.DTO.Language>
+@section pagecss{
+    <link href="@Url.VersionedLink("~/Areas/Portal/www/dist/style/pages/report.css")" rel="stylesheet" />
+}
+
+@section pagejs{
+    <script type="text/javascript">
+        window.initialState = {
+            languageList: @Html.Raw(Json.Encode(Model))
+        }
+    </script>
+    <script type="text/javascript" src="@Url.VersionedLink("~/Areas/Portal/www/dist/js/pages/report.js")"></script>
+}
