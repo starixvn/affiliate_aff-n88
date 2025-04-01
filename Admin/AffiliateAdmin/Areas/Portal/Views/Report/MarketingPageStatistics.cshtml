@@ -6,7 +6,8 @@
 @section pagejs{
     <script type="text/javascript">
         window.initialState = {
-            languageList: @Html.Raw(Json.Encode(Model))
+            languageList: @Html.Raw(Json.Encode(Model)),
+            today: '@DateTimeOffset.Now.ToOffset(new TimeSpan(8, 0, 0)).ToString("MM/dd/yyyy")'
         }
     </script>
     <script type="text/javascript" src="@Url.VersionedLink("~/Areas/Portal/www/dist/js/pages/report.js")"></script>
