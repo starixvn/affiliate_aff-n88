@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState, useMemo, Fragment } from 'react';
+﻿import React, { useEffect, useState, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Table } from 'reactstrap';
@@ -10,42 +10,54 @@ import { headerText } from '../libs/constants';
 import { globalResource } from '../../../../modules/globalResource';
 
 export const GridData = (props) => {
-    const [data, setData] = useState(null);
     const [total, setTotal] = useState(null);
+    const [gridData, setGridData] = useState(null);
+    const [expandedState, setExpandedState] = useState({});
 
     useEffect(() => {
         _fetchData(props.param);
     }, [props.param]);
 
+    useEffect(() => {
+        if (gridData) {
+            _toggleExpandAll();
+        }
+    }, [props.expandAffChannel]);
+
     const _fetchData = async (param) => {
+        if (!param) return;
+
         props.toggleLoader(true);
+
         const rawData = await props.fetchData(param);
         if (rawData) {
             const { MainData, Total, TotalItem } = rawData;
 
-            props.setPagingOption({ TotalItem: TotalItem, PageIndex: param.PageIndex, PageSize: param.PageSize })
-
-            const processedData = MainData && MainData.map(item => ({
-                ...item,
-                Expanded: props.expandAffChannel || false
-            }));
+            props.setPagingOption({ TotalItem, PageIndex: param.PageIndex, PageSize: param.PageSize })
 
             setTotal(Total);
-            setData(processedData);
+
+            const processedGridData = _processGridData(MainData);
+            setGridData(processedGridData);
+
+            const initialExpandedState = {};
+            processedGridData?.forEach(item => {
+                initialExpandedState[item.AffUserName] = true;
+            });
+            setExpandedState(initialExpandedState);
         }
         props.toggleLoader(false);
     }
 
-    const _handleMainData = useMemo(() => {
-        if (!data) return null;
+    const _processGridData = (rawData) => {
+        if (!rawData) return null;
 
-        const groupByAffiliate = data.reduce((acc, item) => {
-            const { AffUserName, ChannelName, TotalClick, UniqueClick, SignUps, Fdm, Expanded, ChannelLink } = item;
+        return Object.values(rawData.reduce((acc, item) => {
+            const { AffUserName, ChannelName, TotalClick, UniqueClick, SignUps, Fdm, ChannelLink } = item;
 
             if (!acc[AffUserName]) {
                 acc[AffUserName] = {
                     AffUserName,
-                    Expanded: Expanded,
                     TotalClick: 0,
                     UniqueClick: 0,
                     SignUps: 0,
@@ -70,72 +82,66 @@ export const GridData = (props) => {
             });
 
             return acc;
-        }, {});
-
-        return Object.values(groupByAffiliate);
-    }, [JSON.stringify(data)]);
-
-    useEffect(() => {
-        if (data) {
-            _toggleExpandAll();
-        }
-    }, [props.expandAffChannel]);
-
-    const _toggleExpandAll = () => {
-        const newExpandState = props.expandAffChannel;
-        setData(prevData => {
-            if (!prevData) return null;
-
-            return prevData.map(item => ({
-                ...item,
-                Expanded: newExpandState
-            }));
-        });
+        }, {}));
     }
 
-    const _handleDetailGridData = (data, affUserName, channelName) => {
-        const { LanguageCode } = props.param;
-        const rawData = data?.find(item => item.AffUserName === affUserName && item.ChannelName === channelName);
+    const _toggleExpandAll = () => {
+        if (!gridData) return;
 
-        if (!rawData?.ChannelLink) return;
+        const newExpandedState = {};
+        gridData.forEach(item => {
+            newExpandedState[item.AffUserName] = props.expandAffChannel;
+        });
+
+        setExpandedState(newExpandedState);
+    }
+
+    const _handleDetailGridData = (affUserName, channelName) => {
+        const { LanguageCode } = props.param;
+
+        const affiliate = gridData?.find(item => item.AffUserName === affUserName);
+        const channel = affiliate?.Channels.find(item => item.ChannelName === channelName);
+
+        if (!channel?.ChannelLink) {
+            return props.setDetailGridData([]);
+        }
 
         const links = LanguageCode.includes(',')
-            ? rawData.ChannelLink
-            : rawData.ChannelLink.filter(item => item.MarketName === props.languageCodeList[LanguageCode]);
+            ? channel.ChannelLink
+            : channel.ChannelLink.filter(item => item.MarketName === props.languageCodeList[LanguageCode]);
 
         props.setDetailGridData(links);
     }
 
-    const _renderHeader = () => {
-        return (
-            <tr>
-                <th title={headerText.Affiliate} width='50%'>{headerText.Affiliate}</th>
-                <th title={headerText.TotalClick} width='12.5%'>{headerText.TotalClick}</th>
-                <th title={headerText.UniqueClick} width='12.5%'>{headerText.UniqueClick}</th>
-                <th title={headerText.SignUps} width='12.5%'>{headerText.SignUps}</th>
-                <th title={headerText.Fdm} width='12.5%'>{headerText.Fdm}</th>
-            </tr>
-        );
-    }
-
     const _toggleAffiliate = (affUserName) => {
-        setData(prevData => {
-            if (!prevData) return null;
-
-            const targetAff = prevData.find(item => item.AffUserName === affUserName);
-            if (!targetAff) return prevData;
-
-            return prevData.map(item => {
-                if (item.AffUserName === affUserName) {
-                    return {
-                        ...item,
-                        Expanded: !item.Expanded
-                    };
-                }
-                return item;
-            });
-        });
+        setExpandedState(prevState => ({
+            ...prevState,
+            [affUserName]: !prevState[affUserName]
+        }));
     }
+
+    const _renderTableCell = (value, className = "text-right") => (
+        <td title={value} className={className}>{format(value)}</td>
+    );
+
+    const _renderCommonCells = (item) => (
+        <>
+            {_renderTableCell(item.TotalClick)}
+            {_renderTableCell(item.UniqueClick)}
+            {_renderTableCell(item.SignUps)}
+            {_renderTableCell(item.Fdm)}
+        </>
+    );
+
+    const _renderHeader = () => (
+        <tr>
+            <th title={headerText.Affiliate} width='50%'>{headerText.Affiliate}</th>
+            <th title={headerText.TotalClick} width='12.5%'>{headerText.TotalClick}</th>
+            <th title={headerText.UniqueClick} width='12.5%'>{headerText.UniqueClick}</th>
+            <th title={headerText.SignUps} width='12.5%'>{headerText.SignUps}</th>
+            <th title={headerText.Fdm} width='12.5%'>{headerText.Fdm}</th>
+        </tr>
+    );
 
     const _renderNoData = () => (
         <tr>
@@ -143,81 +149,48 @@ export const GridData = (props) => {
         </tr>
     );
 
-    const _renderAffiliateRow = (affiliate, onToggle) => {
-        const isExpanded = affiliate.Expanded;
-        const totalClick = format(affiliate.TotalClick);
-        const uniqueClick = format(affiliate.UniqueClick);
-        const signUps = format(affiliate.SignUps);
-        const fdm = format(affiliate.Fdm);
-
-        return (
-            <tr key={`aff-${affiliate.AffUserName}`}
-                className="affiliate-row">
-                <td title={affiliate.AffUserName} onClick={() => onToggle(affiliate.AffUserName)}>
-                    <div className="p-0 th-wrapper">
-                        <strong>{affiliate.AffUserName}</strong>
-                        <div className="icon-container">
-                            <span className={`caret ${isExpanded ? 'expand current' : 'collapsed'}`}></span>
-                        </div>
+    const _renderAffiliateRow = (affiliate, onToggle) => (
+        <tr key={`aff-${affiliate.AffUserName}`} className="affiliate-row">
+            <td title={affiliate.AffUserName} onClick={() => onToggle(affiliate.AffUserName)}>
+                <div className="p-0 th-wrapper">
+                    <strong>{affiliate.AffUserName}</strong>
+                    <div className="icon-container">
+                        <span className={`caret ${expandedState[affiliate.AffUserName] ? 'expand current' : 'collapsed'}`}></span>
                     </div>
-                </td>
-                <td title={totalClick} className="text-right">{totalClick}</td>
-                <td title={uniqueClick} className="text-right">{uniqueClick}</td>
-                <td title={signUps} className="text-right">{signUps}</td>
-                <td title={fdm} className="text-right">{fdm}</td>
-            </tr>
-        )
-    };
+                </div>
+            </td>
+            {_renderCommonCells(affiliate)}
+        </tr>
+    );
 
-    const _renderChannelRow = (channel, affiliate, channelIndex) => {
-        const channelName = channel.ChannelName;
-        const totalClick = format(channel.TotalClick);
-        const uniqueClick = format(channel.UniqueClick);
-        const signUps = format(channel.SignUps);
-        const fdm = format(channel.Fdm);
+    const _renderChannelRow = (channel, affiliate, channelIndex) => (
+        <tr key={`channel-${affiliate}-${channelIndex}`} className="channel-row">
+            <td title={channel.ChannelName} className="pl-4">
+                <span className="channel-name"
+                    onClick={() => _handleDetailGridData(affiliate, channel.ChannelName)}>
+                    {channel.ChannelName}
+                </span>
+            </td>
+            {_renderCommonCells(channel)}
+        </tr>
+    );
 
-        return (
-            <tr key={`channel-${affiliate}-${channelIndex}`} className="channel-row">
-                <td title={channelName} className="pl-4 channel-name"
-                    onClick={() => _handleDetailGridData(data, affiliate, channelName)}>
-                    {channelName}
-                </td>
-                <td title={totalClick} className="text-right">{totalClick}</td>
-                <td title={uniqueClick} className="text-right">{uniqueClick}</td>
-                <td title={signUps} className="text-right">{signUps}</td>
-                <td title={fdm} className="text-right">{fdm}</td>
-            </tr>
-        )
-    };
+    const _renderTotalRow = (totalData) => (
+        <tr key="total" className="total-row">
+            <td title={headerText.Total}>{headerText.Total}</td>
+            {_renderCommonCells(totalData)}
+        </tr>
+    );
 
-    const _renderTotalRow = (totalData) => {
-        const totalClick = format(totalData.TotalClick);
-        const uniqueClick = format(totalData.UniqueClick);
-        const signUps = format(totalData.SignUps);
-        const fdm = format(totalData.Fdm);
-
-        return (
-            <tr key="total" className="total-row">
-                <td title={headerText.Total}>{headerText.Total}</td>
-                <td title={totalClick} className="text-right">{totalClick}</td>
-                <td title={uniqueClick} className="text-right">{uniqueClick}</td>
-                <td title={signUps} className="text-right">{signUps}</td>
-                <td title={fdm} className="text-right">{fdm}</td>
-            </tr>
-        )
-    };
-
-    const _renderChannelRows = (affiliate) => {
-        if (!affiliate.Expanded) return [];
-        return affiliate.Channels.map((channel, channelIndex) =>
-            _renderChannelRow(channel, affiliate.AffUserName, channelIndex)
-        );
-    };
+    const _renderChannelRows = (affiliate) => (
+        expandedState[affiliate.AffUserName]
+            ? affiliate.Channels.map((channel, idx) =>
+                _renderChannelRow(channel, affiliate.AffUserName, idx)
+            ) : []
+    );
 
     const _renderDataSection = (dataList) => {
-        if (!dataList || !dataList.length) {
-            return _renderNoData();
-        }
+        if (!dataList?.length) return _renderNoData();
 
         const rows = [];
         dataList.forEach(affiliate => {
@@ -229,29 +202,18 @@ export const GridData = (props) => {
     }
 
     const _handlePaging = (index, size) => {
-        const newPaging = {
-            PageIndex: index,
-            PageSize: size
-        };
-        const newParam = Object.assign({}, props.param, newPaging);
-
-        props.setPagingOption(newParam);
-        props.setParam(newParam);
+        const newPaging = { PageIndex: index, PageSize: size };
+        props.setPagingOption(newPaging);
+        props.setParam({ ...props.param, ...newPaging });
     }
 
-    return data && (
+    return gridData && (
         <Fragment>
-            <div className="table-responsive marketing-statistics-report-table-container">
+            <div className="table-responsive">
                 <Table className="freeze-table">
-                    <thead>
-                        {_renderHeader()}
-                    </thead>
-                    <tbody>
-                        {_renderDataSection(_handleMainData)}
-                    </tbody>
-                    <tfoot>
-                        {total && _renderTotalRow(total)}
-                    </tfoot>
+                    <thead>{_renderHeader()}</thead>
+                    <tbody>{_renderDataSection(gridData)}</tbody>
+                    <tfoot>{total && _renderTotalRow(total)}</tfoot>
                 </Table>
             </div>
             <Pager
@@ -263,7 +225,7 @@ export const GridData = (props) => {
 }
 
 function mapStateToProps({ param, pagingOption, expandAffChannel, languageCodeList }) {
-    return Object.assign({}, { param, pagingOption, expandAffChannel, languageCodeList });
+    return { param, pagingOption, expandAffChannel, languageCodeList };
 }
 
 function mapDispatchToProps(dispatch) {

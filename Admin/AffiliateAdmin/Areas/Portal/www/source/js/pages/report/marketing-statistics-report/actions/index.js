@@ -13,13 +13,6 @@ export const setParam = (data) => {
     }
 }
 
-export const setLanguageCodeList = (data) => {
-    return {
-        type: types.SET_LANGUAGE_CODE_LIST,
-        data
-    }
-}
-
 export const setExpandAffChannel = (data) => {
     return {
         type: types.SET_EXPAND_AFF_CHANNEL,
@@ -27,9 +20,12 @@ export const setExpandAffChannel = (data) => {
     }
 }
 
-export const fetchData = (param) => async () => {
+export const fetchData = (param) => async (dispatch) => {
     const url = 'Portal/MarketingStatisticsReport/GetReport';
     const response = await post(url, param);
+
+    dispatch(setExpandAffChannel(true));
+    dispatch(setDetailGridData(null));
 
     return response && response.status === 200 ? response.data : null;
 }

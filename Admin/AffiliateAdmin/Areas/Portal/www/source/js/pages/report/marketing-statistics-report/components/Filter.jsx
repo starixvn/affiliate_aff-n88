@@ -9,7 +9,7 @@ import { formatUnit, handleAfterChangeFromDate, handleAfterChangeToDate } from '
 import { setParam, setExpandAffChannel, setDetailGridData } from '../actions';
 
 export const Filter = (props) => {
-    const { today, languageList } = props;
+    const { today, languageCodeList } = props;
 
     const now = new Date(today);
     const nowMonth = now.getMonth() + 1;
@@ -52,7 +52,6 @@ export const Filter = (props) => {
         });
 
         props.setParam(param);
-        props.setDetailGridData(null);
     }
 
     const _handleChangeDate = (momentDate, type) => {
@@ -73,7 +72,7 @@ export const Filter = (props) => {
     }
 
     const _getAllLanguageCode = () => {
-        const languageCodes = languageList.map(item => item.LanguageCode);
+        const languageCodes = Object.keys(languageCodeList).map(key => key);
         return languageCodes.join(',');
     }
 
@@ -106,8 +105,8 @@ export const Filter = (props) => {
                         onChange={(e) => setLanguageCode(e.target.value)}>
                         <option value="">All Language</option>
                         {
-                            languageList.map(item => {
-                                return (<option key={`language-${item.ShortedLanguageCode}`} value={item.LanguageCode}>{item.LanguageName}</option>)
+                            Object.keys(languageCodeList).map(key => {
+                                return (<option key={`language-${key}`} value={key}>{languageCodeList[key]}</option>)
                             })
                         }
                     </Input>
@@ -136,8 +135,8 @@ export const Filter = (props) => {
     )
 }
 
-function mapStateToProps({ pagingOption, languageList, today, expandAffChannel }) {
-    return Object.assign({}, { pagingOption, languageList, today, expandAffChannel });
+function mapStateToProps({ pagingOption, languageCodeList, today, expandAffChannel }) {
+    return Object.assign({}, { pagingOption, languageCodeList, today, expandAffChannel });
 }
 
 function mapDispatchToProps(dispatch) {

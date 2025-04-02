@@ -41,8 +41,8 @@ export const Detail = ({ detailGridData }) => {
 
                     return (
                         <tr key={index}>
-                            <td title={item.AffMediaLink}>{item.AffMediaLink}</td>
-                            <td title={item.MarketName}>{item.MarketName}</td>
+                            <td title={item.AffMediaLink}>{item.AffMediaLink || 'none'}</td>
+                            <td title={item.MarketName}>{item.MarketName || 'none'}</td>
                             <td title={totalClick} className="text-right">{totalClick}</td>
                             <td title={uniqueClick} className="text-right">{uniqueClick}</td>
                             <td title={signUps} className="text-right">{signUps}</td>
@@ -55,7 +55,7 @@ export const Detail = ({ detailGridData }) => {
     };
 
     return detailGridData && (
-        <div>
+        <div className="marketing-report-container">
             <Table className="freeze-table table-striped my-2">
                 {_renderHeader()}
                 {_renderDetailGridData()}
