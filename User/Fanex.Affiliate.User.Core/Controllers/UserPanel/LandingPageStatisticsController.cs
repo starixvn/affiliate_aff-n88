@@ -4,6 +4,7 @@
     using DTO.UserPanel;
     using Fanex.Affiliate.User.Core.BusinessService;
     using Fanex.Affiliate.User.Core.CoreService;
+    using Fanex.Affiliate.User.Core.Enum;
     using Fanex.Affiliate.User.Core.Repository.UserPanel;
     using Filters;
     using MetalModels.UserPanel;
@@ -48,6 +49,7 @@
                 AffId = userSession.AffId,
                 IsInternal = isInternal,
                 FromDate = new DateTime(now.Year, now.Month, 1),
+                DeviceType = (short)DeviceTypeHasAll.All,
                 ToDate = now.DateTime
             };
 
