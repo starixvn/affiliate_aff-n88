@@ -1,5 +1,6 @@
 ﻿using Affiliate.N88.DTO;
 using Affiliate.N88.Models;
+using Affiliate.N88.Params;
 using Affiliate.N88.SpParams.Commands;
 using Affiliate.N88.SpParams.Criteria;
 using Affiliate.N88.WebApi.DTO;
@@ -121,7 +122,7 @@ namespace Affiliate.N88.WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<ResultInfo> InsertAffiliateInfo(AffiliateInfo affiliate)
+        public async Task<ResultInfo> InsertAffiliateInfo(AffiliateInfoParam affiliate)
         {
             try
             {

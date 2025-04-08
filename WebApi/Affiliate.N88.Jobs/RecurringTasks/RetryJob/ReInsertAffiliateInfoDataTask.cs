@@ -51,9 +51,13 @@ namespace Affiliate.N88.Jobs.RecurringTasks.RetryJob
             {
                 var affiliateInfo = JsonConvert.DeserializeObject<AffiliateInfoParam>(item.PushDataInfo);
                 var result = await _liceseeApi.InsertAffiliateInfo(affiliateInfo);
+
                 if (result.IsSuccess)
                 {
                     await _trackerService.UpdateTrackerStatusAsync(item, DataTrackerStatus.Success);
+                    await _logger.InfoAsync($"Insert affiliate {affiliateInfo.AffiliateName}, SiteId {affiliateInfo.SiteId} to B2C DB:\n" +
+                        $"Item tracker: {JsonConvert.SerializeObject(item)}\n" +
+                        $"Affiliate Info: {JsonConvert.SerializeObject(affiliateInfo)}");
                 }
                 else
                 {
