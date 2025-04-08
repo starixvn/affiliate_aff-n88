@@ -42,3 +42,10 @@ export const deviceTypes = {
     [pcLaptop]: 0,
     [mobile]: 1
 }
+
+export const AllDevices = -1;
+
+export const deviceTypesHasAll = {
+    'All': AllDevices,
+    ...deviceTypes
+}
