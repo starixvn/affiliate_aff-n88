@@ -29,5 +29,7 @@ namespace Affiliate.N88.Models
         public string AffCode { get; set; }
 
         public int? AffMediaLinkId { get; set; }
+
+        public int? ClickId { get; set; }
     }
 }
