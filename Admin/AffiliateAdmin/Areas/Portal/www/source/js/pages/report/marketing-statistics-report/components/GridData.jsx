@@ -106,7 +106,7 @@ export const GridData = (props) => {
             return props.setDetailGridData([]);
         }
 
-        const links = LanguageCode.includes(',')
+        const links = LanguageCode === ''
             ? channel.ChannelLink
             : channel.ChannelLink.filter(item => item.MarketName === props.languageCodeList[LanguageCode]);
 

@@ -45,7 +45,7 @@ export const Filter = (props) => {
             AffUserName: affUserName,
             FromDate: fromDate,
             ToDate: toDate,
-            LanguageCode: languageCode || _getAllLanguageCode(),
+            LanguageCode: languageCode,
             IncludedInActive: includedInActive,
             PageIndex: 1,
             PageSize: pagingOption.PageSize
@@ -69,11 +69,6 @@ export const Filter = (props) => {
 
     const _handleExpand = () => {
         props.setExpandAffChannel(!props.expandAffChannel)
-    }
-
-    const _getAllLanguageCode = () => {
-        const languageCodes = Object.keys(languageCodeList).map(key => key);
-        return languageCodes.join(',');
     }
 
     return (
