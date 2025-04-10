@@ -174,13 +174,12 @@ namespace Fanex.Affiliate.Link.Controllers
             if (!string.IsNullOrEmpty(redirectPattern))
             {
                 var redirectUri = new Uri(redirectUrl);
-                var pathAndQueryString = redirectPattern.Replace("#language#", mappingCode).Replace("#affCode#", affCode);
-                return $"{redirectUri.Scheme}://{redirectUri.Host}{pathAndQueryString}";
+                var path = redirectPattern.Replace("#language#", mappingCode);
+                return $"{redirectUri.Scheme}://{redirectUri.Host}{path}{redirectUri.Query}";
             }
             else
             {
-                var url = redirectUrl.Replace($"/{languageCode}/", $"/{mappingCode}/").Split('?');
-                return $"{url[0]}?affCode={affCode}";
+                return redirectUrl.Replace($"/{languageCode}/", $"/{mappingCode}/");
             }
         }
 
