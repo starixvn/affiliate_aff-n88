@@ -4,12 +4,14 @@ export const menuKey = {
     affiliateReport: 'affiliateReport',
     playerGgrReport: 'playerGgrReport',
     transferReport: 'transferReport',
+    marketingStatisticsReport: 'marketingStatisticsReport'
 }
 
 export const relativePath = {
     affiliateReport: resolveClientUrl('Portal/Report'),
     playerGgrReport: resolveClientUrl('Portal/PlayerGgrReport'),
     transferReport: resolveClientUrl('Portal/TransferReport'),
+    marketingStatisticsReport: resolveClientUrl('Portal/MarketingStatisticsReport')
 }
 
 export const getMaxHeight = () => {

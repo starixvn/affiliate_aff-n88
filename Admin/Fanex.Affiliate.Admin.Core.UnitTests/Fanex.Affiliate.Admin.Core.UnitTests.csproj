@@ -192,6 +192,7 @@
     <Compile Include="Controllers\MediaGallery\MediaGalleryControllerTest.cs" />
     <Compile Include="Controllers\Player\PlayerControllerTest.cs" />
     <Compile Include="Controllers\Message\MessageControllerTest.cs" />
+    <Compile Include="Controllers\Report\MarketingStatisticsReportControllerTest.cs" />
     <Compile Include="Controllers\Report\TransferReportControllerTest.cs" />
     <Compile Include="Controllers\Report\PlayerGgrReportControllerTest.cs" />
     <Compile Include="Controllers\Report\ReportControllerTest.cs" />
@@ -215,6 +216,7 @@
     <Compile Include="Repository\Member\MemberRepositoryTest.cs" />
     <Compile Include="Repository\CurrencyRepositoryTest.cs" />
     <Compile Include="Repository\ProductRepositoryTest.cs" />
+    <Compile Include="Repository\Report\MarketingStatisticsRepositoryTest.cs" />
     <Compile Include="Repository\Report\TransferReportRepositoryTest.cs" />
     <Compile Include="Repository\Report\PlayerGgrReportRepositoryTest.cs" />
     <Compile Include="Repository\Report\ReportRepositoryTest.cs" />
@@ -251,6 +253,7 @@
     <Compile Include="Services\Member\MemberServiceTest.cs" />
     <Compile Include="Services\Message\MessageServiceTest.cs" />
     <Compile Include="Services\Payment\PaymentRequestServiceTest.cs" />
+    <Compile Include="Services\Report\MarketingStatisticsServiceTest.cs" />
     <Compile Include="Services\Report\TransferServiceTest.cs" />
     <Compile Include="Services\Report\PlayerGgrServiceTest.cs" />
     <Compile Include="Services\Report\ReportServiceTest.cs" />

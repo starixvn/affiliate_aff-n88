@@ -256,6 +256,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Portal\www\source\js\pages\report\affiliate-report\libs\headerConfigs.js" />
+    <Content Include="Areas\Portal\www\source\js\pages\report\marketing-statistics-report\actions\index.js" />
+    <Content Include="Areas\Portal\www\source\js\pages\report\marketing-statistics-report\actions\types.js" />
+    <Content Include="Areas\Portal\www\source\js\pages\report\marketing-statistics-report\components\AppContainer.jsx" />
+    <Content Include="Areas\Portal\www\source\js\pages\report\marketing-statistics-report\components\Content.jsx" />
+    <Content Include="Areas\Portal\www\source\js\pages\report\marketing-statistics-report\components\Detail.jsx" />
+    <Content Include="Areas\Portal\www\source\js\pages\report\marketing-statistics-report\components\Filter.jsx" />
+    <Content Include="Areas\Portal\www\source\js\pages\report\marketing-statistics-report\components\GridData.jsx" />
+    <Content Include="Areas\Portal\www\source\js\pages\report\marketing-statistics-report\index.jsx" />
+    <Content Include="Areas\Portal\www\source\js\pages\report\marketing-statistics-report\libs\constants.js" />
+    <Content Include="Areas\Portal\www\source\js\pages\report\marketing-statistics-report\reducers\index.js" />
     <Content Include="HealthCheck.aspx" />
     <Content Include="App_Data\SpConfig\SpName.n88admin-n88.local.xml">
       <DependentUpon>_SpName.tt</DependentUpon>
@@ -1356,6 +1366,8 @@
     <Content Include="Areas\Portal\www\source\style\pages\report\index.scss" />
     <Content Include="Areas\Portal\www\source\style\pages\report\player-ggr-report.scss" />
     <Content Include="Areas\Portal\www\source\style\pages\member\member-list.scss" />
+    <Content Include="Areas\Portal\Views\Report\MarketingPageStatistics.cshtml" />
+    <Content Include="Areas\Portal\www\source\style\pages\report\marketing-statistics-report.scss" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -273,6 +273,7 @@
     <Compile Include="Controllers\Player\PlayerController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\Affiliate\PaymentRequestController.cs" />
+    <Compile Include="Controllers\Report\MarketingStatisticsReportController.cs" />
     <Compile Include="Controllers\Report\ReportController.cs" />
     <Compile Include="Controllers\Report\PlayerGgrReportController.cs" />
     <Compile Include="Controllers\Report\TransferReportController.cs" />
@@ -325,6 +326,7 @@
     <Compile Include="DTO\Member\MemberInfo.cs" />
     <Compile Include="DTO\Member\PlayerActionInfo.cs" />
     <Compile Include="DTO\Customer\PaymentMethod.cs" />
+    <Compile Include="DTO\Report\MarketingStatistics.cs" />
     <Compile Include="DTO\Report\PlayerGgrProductInfo.cs" />
     <Compile Include="DTO\Report\PlayerGgrReport.cs" />
     <Compile Include="DTO\Report\TransferReport.cs" />
@@ -423,6 +425,7 @@
     <Compile Include="MetaModels\Payment\PaymentRequestUpdateParam.cs" />
     <Compile Include="MetaModels\Payment\PaymentRequestParamFromHome.cs" />
     <Compile Include="MetaModels\Report\AffiliateReportParam.cs" />
+    <Compile Include="MetaModels\Report\MarketingStatisticsParam.cs" />
     <Compile Include="MetaModels\Report\PlayerGgrReportParam.cs" />
     <Compile Include="MetaModels\Report\TransferReportParam.cs" />
     <Compile Include="MetaModels\UserInfoParam.cs" />
@@ -475,8 +478,10 @@
     <Compile Include="Repository\MediaGallery\ILandingPageRepository.cs" />
     <Compile Include="Repository\MediaGallery\LandingPageRepository.cs" />
     <Compile Include="Repository\ProductRepository.cs" />
+    <Compile Include="Repository\Report\IMarketingStatisticsRepository.cs" />
     <Compile Include="Repository\Report\ITransferReportRepository.cs" />
     <Compile Include="Repository\Report\IPlayerGgrReportRepository.cs" />
+    <Compile Include="Repository\Report\MarketingStatisticsRepository.cs" />
     <Compile Include="Repository\Report\TransferReportRepository.cs" />
     <Compile Include="Repository\Report\PlayerGgrReportRepository.cs" />
     <Compile Include="Repository\Tracker\IJobTrackerRepository.cs" />
@@ -572,8 +577,10 @@
     <Compile Include="Services\Payment\PaymentRequestService.cs" />
     <Compile Include="Services\Report\AffiliateReportService.cs" />
     <Compile Include="Services\Report\IAffiliateReportService.cs" />
+    <Compile Include="Services\Report\IMarketingStatisticsService.cs" />
     <Compile Include="Services\Report\ITransferReportService.cs" />
     <Compile Include="Services\Report\IPlayerGgrReportService.cs" />
+    <Compile Include="Services\Report\MarketingStatisticsService.cs" />
     <Compile Include="Services\Report\TransferReportService.cs" />
     <Compile Include="Services\Report\PlayerGgrReportService.cs" />
     <Compile Include="Services\ThirdPartyLicensee\IThirdPartyLicenseeService.cs" />

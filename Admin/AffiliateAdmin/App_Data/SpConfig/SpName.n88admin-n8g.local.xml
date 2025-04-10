@@ -37,6 +37,8 @@
     <Setting Key="Aff_Admin_PlayerReport_GGR" SpName="Aff_Admin_PlayerReport_GGR" DbName="DBAFFN8G.Affiliate_N8G.wsv_afinet" />
     <Setting Key="Aff_TransferBalanceHistory_Sel" SpName="Aff_TransferBalanceHistory_Sel" DbName="DBAFFN8G.Affiliate_N8G.wsv_afinet" />
     <Setting Key="Task_Aff_GetSetting" SpName="Task_Aff_GetSetting" DbName="DBAFFN8G.Affiliate_N8G.wsv_afinet" />
+
+    <Setting Key="Aff_Admin_Rpt_MarketingPage_Statistics" SpName="Aff_Admin_Rpt_MarketingPage_Statistics" DbName="DBAFFN8G.Affiliate_N8G.wsv_afinet" />
   </Function>
   <Function Name="Info">
     <Setting Key="Aff_Admin_Affiliate_Sel" SpName="Aff_Admin_Affiliate_Sel" DbName="DBAFFN8G.Affiliate_N8G.wsv_afinet" />

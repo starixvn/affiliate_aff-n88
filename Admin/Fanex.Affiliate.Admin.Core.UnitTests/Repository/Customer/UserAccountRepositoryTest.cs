@@ -106,7 +106,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Customer
             var (paymentMethods, minAmount) = repository.Object.GetPaymentMethod();
 
             // Assert
-            objectDb.Verify(obj => obj.Query<UserAccountRepository>(null, null), Times.Once);
+            objectDb.Verify(obj => obj.Query<PaymentMethodInfo>(null, null), Times.Once);
             Assert.Equal(0, minAmount);
         }
 
