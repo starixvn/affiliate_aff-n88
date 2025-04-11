@@ -28,10 +28,10 @@
                                 <a href="javascript:;" class="statisticsItem" data-domain="@item.DomainReferrer">@item.DomainReferrer</a>
                             }
                         </td>
-                        <td class="text-right">@item.TotalClick</td>
-                        <td class="text-right">@item.UniqueClick</td>
-                        <td class="text-right">@item.SignUps</td>
-                        <td class="text-right">@item.Fdm</td>
+                        <td class="text-right">@item.TotalClick.FormatNumber()</td>
+                        <td class="text-right">@item.UniqueClick.FormatNumber()</td>
+                        <td class="text-right">@item.SignUps.FormatNumber()</td>
+                        <td class="text-right">@item.Fdm.FormatNumber()</td>
                     </tr>
                 }
             }

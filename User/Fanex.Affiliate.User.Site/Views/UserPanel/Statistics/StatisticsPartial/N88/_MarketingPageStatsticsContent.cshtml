@@ -20,10 +20,10 @@
             </div>
         </td>
         <td class="text-center">-</td>
-        <td class="text-right">@item.Sum(l => l.TotalClick) </td>
-        <td class="text-right">@item.Sum(l => l.UniqueClick) </td>
-        <td class="text-right">@item.Sum(l => l.SignUps) </td>
-        <td class="text-right">@item.Sum(l => l.Fdm) </td>
+        <td class="text-right">@item.Sum(l => l.TotalClick).FormatNumber() </td>
+        <td class="text-right">@item.Sum(l => l.UniqueClick).FormatNumber() </td>
+        <td class="text-right">@item.Sum(l => l.SignUps).FormatNumber() </td>
+        <td class="text-right">@item.Sum(l => l.Fdm).FormatNumber() </td>
     </tr>
     foreach (var link in item)
     {
@@ -35,12 +35,12 @@
 {
     <tr data-parent="@link.ChannelName" class="display-none parent-tr">
         <td></td>
-        <td>@(string.IsNullOrEmpty(link.AffMediaLink) ? "N/A" : link.AffMediaLink)</td>
-        <td class="text-center">@(string.IsNullOrEmpty(link.MarketName) ? "N/A" : link.MarketName)</td>
-        <td class="text-right">@link.TotalClick</td>
-        <td class="text-right">@link.UniqueClick</td>
-        <td class="text-right">@link.SignUps</td>
-        <td class="text-right">@link.Fdm</td>
+        <td>@(string.IsNullOrEmpty(link.AffMediaLink) ? "none" : link.AffMediaLink)</td>
+        <td class="text-center">@(string.IsNullOrEmpty(link.MarketName) ? "none" : link.MarketName)</td>
+        <td class="text-right">@link.TotalClick.FormatNumber()</td>
+        <td class="text-right">@link.UniqueClick.FormatNumber()</td>
+        <td class="text-right">@link.SignUps.FormatNumber()</td>
+        <td class="text-right">@link.Fdm.FormatNumber()</td>
     </tr>
 }
 

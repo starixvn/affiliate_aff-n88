@@ -7,7 +7,7 @@
     {
         private static readonly CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-        public static string FormatNumber(this int value, byte digit = 2)
+        public static string FormatNumber(this int value)
         {
             return value.ToString("#,##0");
         }
