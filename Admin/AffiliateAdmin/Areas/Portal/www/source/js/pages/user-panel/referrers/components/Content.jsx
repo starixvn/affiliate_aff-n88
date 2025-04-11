@@ -7,6 +7,7 @@ import { Button } from 'reactstrap';
 import { headerText, globalResource, maxWidth } from '../modules/constants';
 import { setSelectedSiteUrl, toggleLoaderUserPanel, fetchData } from '../actions';
 import { htmlDecode } from '../../../../modules/htmlHelper';
+import { format } from '../../../../modules/numberFormat';
 
 export class Content extends Component {
     constructor(props) {
@@ -70,6 +71,11 @@ export class Content extends Component {
 
     _buildDataRow(dataItem, index) {
         const siteUrl = htmlDecode(dataItem.SiteUrl);
+        const totalClick = format(dataItem.TotalClick);
+        const uniqueClick = format(dataItem.UniqueClick);
+        const signups = format(dataItem.Signups);
+        const fdm = format(dataItem.Fdm);
+
         return (
             <Row key={`dataRow-${index}`}>
                 <Cell title={siteUrl}>
@@ -77,10 +83,10 @@ export class Content extends Component {
                         {siteUrl}
                     </Button>)}
                 </Cell>
-                <Cell title={dataItem.TotalClick} className="text-right">{dataItem.TotalClick}</Cell>
-                <Cell title={dataItem.UniqueClick} className="text-right">{dataItem.UniqueClick}</Cell>
-                <Cell title={dataItem.Signups} className="text-right">{dataItem.Signups}</Cell>
-                <Cell title={dataItem.Fdm} className="text-right">{dataItem.Fdm}</Cell>
+                <Cell title={totalClick} className="text-right">{totalClick}</Cell>
+                <Cell title={uniqueClick} className="text-right">{uniqueClick}</Cell>
+                <Cell title={signups} className="text-right">{signups}</Cell>
+                <Cell title={fdm} className="text-right">{fdm}</Cell>
             </Row>
         )
     }
