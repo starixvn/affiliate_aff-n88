@@ -5,6 +5,7 @@ import { Table, Row, Cell } from '@9softstudio/react-fixed-table-header';
 
 import { headerText, globalResource, maxWidth } from '../modules/constants';
 import { fetchDetailData, toggleLoaderUserPanel } from '../actions';
+import { format } from '../../../../modules/numberFormat';
 
 export class Detail extends PureComponent {
     constructor(props) {
@@ -67,12 +68,15 @@ export class Detail extends PureComponent {
     }
 
     _buildDataRow(dataItem, index) {
+        const totalClick = format(dataItem.TotalClick);
+        const uniqueClick = format(dataItem.UniqueClick);
+
         return (
             <Row key={`dataRow-${index}`}>
                 <Cell title={index} className="text-center">{index}</Cell>
                 <Cell title={dataItem.DateText} className="text-center">{dataItem.DateText}</Cell>
-                <Cell title={dataItem.TotalClick} className="text-center">{dataItem.TotalClick}</Cell>
-                <Cell title={dataItem.UniqueClick} className="text-center">{dataItem.UniqueClick}</Cell>
+                <Cell title={totalClick} className="text-right">{totalClick}</Cell>
+                <Cell title={uniqueClick} className="text-right">{uniqueClick}</Cell>
             </Row>
         )
     }

@@ -21,8 +21,10 @@
             </div>
         </td>
         <td class="text-center">-</td>
-        <td class="text-right">@item.Sum(l => l.TotalClick) </td>
-        <td class="text-right">@item.Sum(l => l.UniqueClick) </td>
+        <td class="text-right">@item.Sum(l => l.TotalClick).FormatNumber() </td>
+        <td class="text-right">@item.Sum(l => l.UniqueClick).FormatNumber() </td>
+        <td class="text-right">@item.Sum(l => l.SignUps).FormatNumber() </td>
+        <td class="text-right">@item.Sum(l => l.Fdm).FormatNumber() </td>
     </tr>
     foreach (var link in item)
     {
@@ -34,21 +36,25 @@
 {
     <tr data-parent="@link.ChannelName" class="display-none">
         <td></td>
-        <td>@link.AffMediaLink</td>
-        <td class="text-center">@link.MarketName</td>
-        <td class="text-right">@link.TotalClick</td>
-        <td class="text-right">@link.UniqueClick</td>
+        <td>@(string.IsNullOrEmpty(link.AffMediaLink) ? "none" : link.AffMediaLink)</td>
+        <td class="text-center">@(string.IsNullOrEmpty(link.MarketName) ? "none" : link.MarketName)</td>
+        <td class="text-right">@link.TotalClick.FormatNumber()</td>
+        <td class="text-right">@link.UniqueClick.FormatNumber()</td>
+        <td class="text-right">@link.SignUps.FormatNumber()</td>
+        <td class="text-right">@link.Fdm.FormatNumber()</td>
     </tr>
 }
 
 <table style="table-layout: fixed; width: 100%" class="row-toogleable-table">
     <thead>
         <tr>
-            <th width="5%"></th>
-            <th width="50%">@Lang.PageName</th>
-            <th width="15%">@Lang.Language</th>
-            <th width="15%">@Lang.TotalClick</th>
-            <th width="15%">@Lang.UniqueClick</th>
+            <th width="4%"></th>
+            <th width="46%">@Lang.Channel</th>
+            <th width="12%">@Lang.Language</th>
+            <th width="10%">@Lang.TotalClick</th>
+            <th width="10%">@Lang.UniqueClick</th>
+            <th width="10%">@Lang.Signup</th>
+            <th width="8%">@Lang.FDM</th>
         </tr>
     </thead>
     <tbody>
@@ -65,7 +71,7 @@
             else
             {
                 <tr>
-                    <td class="text-center" colspan="5">@Lang.NoInfo</td>
+                    <td class="text-center" colspan="7">@Lang.NoInfo</td>
                 </tr>
             }
         }

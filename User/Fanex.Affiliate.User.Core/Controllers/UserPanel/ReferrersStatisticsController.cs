@@ -40,7 +40,7 @@
                 IsInternal = SessionService.IsInternal,
                 FromDate = new DateTime(now.Year, now.Month, 1),
                 ToDate = now.DateTime,
-                DeviceType = (byte)DeviceType.PCDevice
+                DeviceType = (short)DeviceType.PCDevice
             };
 
             var viewModel = new ReferrerStatisticsViewModel

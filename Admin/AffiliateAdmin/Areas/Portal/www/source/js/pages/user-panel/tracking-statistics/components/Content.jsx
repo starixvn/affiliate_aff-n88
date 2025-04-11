@@ -6,6 +6,7 @@ import { Button } from 'reactstrap';
 
 import { headerText, maxWidth, globalResource } from '../modules/constants';
 import { setSelectedMonth, fetchData, toggleLoaderUserPanel } from '../actions';
+import { format } from '../../../../modules/numberFormat';
 
 export class Content extends PureComponent {
     constructor(props) {
@@ -64,6 +65,9 @@ export class Content extends PureComponent {
     }
 
     _buildDataRow(dataItem, index) {
+        const totalClick = format(dataItem.TotalClick);
+        const uniqueClick = format(dataItem.UniqueClick);
+
         return (
             <Row key={`dataRow-${index}`}>
                 <Cell title={index} className="text-center">{index}</Cell>
@@ -72,8 +76,8 @@ export class Content extends PureComponent {
                         {dataItem.MonthText}
                     </Button>
                 </Cell>
-                <Cell title={dataItem.TotalClick} className="text-center">{dataItem.TotalClick}</Cell>
-                <Cell title={dataItem.UniqueClick} className="text-center">{dataItem.UniqueClick}</Cell>
+                <Cell title={totalClick} className="text-right">{totalClick}</Cell>
+                <Cell title={uniqueClick} className="text-right">{uniqueClick}</Cell>
             </Row>
         )
     }
