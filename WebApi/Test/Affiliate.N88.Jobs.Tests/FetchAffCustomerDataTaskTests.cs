@@ -1,11 +1,9 @@
 ﻿using Affiliate.N88.DTO;
 using Affiliate.N88.Jobs.Apis;
 using Affiliate.N88.Jobs.Configurations;
-using Affiliate.N88.Jobs.Constants;
 using Affiliate.N88.Jobs.RecurringTasks;
 using Affiliate.N88.Models;
 using Affiliate.N88.Repository;
-using Affiliate.N88.SpParams.Commands;
 using Fanex.Logging;
 using Microsoft.Extensions.Options;
 using NSubstitute;
@@ -19,7 +17,7 @@ namespace Affiliate.N88.Jobs.UnitTests
 {
     public class FetchAffCustomerDataTaskTests
     {
-        private readonly IMemberImportRepository Repo;
+        private readonly IAffMemberRepository Repo;
         private readonly ILicenseeApi Api;
         private readonly ILogger Logger;
         private readonly IOptions<LicenseeSiteSetting> Config;
@@ -27,7 +25,7 @@ namespace Affiliate.N88.Jobs.UnitTests
 
         public FetchAffCustomerDataTaskTests()
         {
-            Repo = Substitute.For<IMemberImportRepository>();
+            Repo = Substitute.For<IAffMemberRepository>();
             Api = Substitute.For<ILicenseeApi>();
             Logger = Substitute.For<ILogger>();
             Config = Substitute.For<IOptions<LicenseeSiteSetting>>();
@@ -124,7 +122,7 @@ namespace Affiliate.N88.Jobs.UnitTests
         [Fact]
         public async Task FetchDataAsync_WhenApiReturnNothing_LogNoData()
         {
-            var date = new DateTime(2020, 2, 2);
+            var date = TimeSpan.FromMinutes(30);
             var fetchTask = CreateFetchTask();
             Api.GetAffCustomerAsync(Arg.Any<DateTime>(), Arg.Any<DateTime>(), Arg.Any<int>(), Arg.Any<int>()).Returns(new List<AffCustomerModel>());
             await fetchTask.FetchDataAsync(date);
@@ -135,7 +133,7 @@ namespace Affiliate.N88.Jobs.UnitTests
         [Fact]
         public async Task FetchDataAsync_WhenApiReturnCustomersThatNotBelongConfigurableSite_LogError()
         {
-            var date = new DateTime(2020, 2, 2);
+            var date = TimeSpan.FromMinutes(30);
             var siteNotInConfig = FetchCustomerDataTaskTestsHelper.SiteNotInConfigSetting;
             var fetchTask = CreateFetchTask();
             var customers = FetchCustomerDataTaskTestsHelper.GetSiteCustomer(siteNotInConfig);

@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace Affiliate.N88.Repository
 {
-    public class MemberImportRepository : IMemberImportRepository
+    public class AffImportRepository : IAffMemberRepository
     {
         private readonly IDynamicRepository _dynamicRepository;
 
-        public MemberImportRepository(IDynamicRepository dynamicRepository)
+        public AffImportRepository(IDynamicRepository dynamicRepository)
         {
             _dynamicRepository = dynamicRepository;
         }

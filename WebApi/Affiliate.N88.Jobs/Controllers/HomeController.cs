@@ -1,5 +1,6 @@
 ﻿using Affiliate.N88.Jobs.Apis;
 using Affiliate.N88.Jobs.RecurringTasks;
+using Affiliate.N88.Jobs.RecurringTasks.Customer;
 using Affiliate.N88.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;

@@ -7,11 +7,12 @@ namespace Affiliate.N88.SpParams.Commands
     {
         public DateTime LastImportedTime { get; set; }
 
-        public InsertAffMemberTimeTrackerCommand(IPrefixProvider prefixProvider) : base(prefixProvider)
+        public InsertAffMemberTimeTrackerCommand(IPrefixProvider prefixProvider, string spName) : base(prefixProvider)
         {
+            SName = spName;
         }
 
-        public string SName => "MemberInfoLastImportedTime";
+        public string SName { get; }
 
         protected override string SuffixSettingKey => "Task_Aff_MemberInfo_ImportedTime";
 

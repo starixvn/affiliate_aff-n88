@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Affiliate.N88.Repository
 {
-    public interface IMemberImportRepository
+    public interface IAffMemberRepository
     {
         Task ImportMemberAsync(InsertMemberInfoCommand memberInfo);
 
