@@ -3,7 +3,6 @@
 namespace Fanex.Affiliate.Link.Controllers
 {
     using System;
-    using System.Collections.Specialized;
     using System.Text;
     using System.Web.Mvc;
     using Commands;
@@ -60,7 +59,7 @@ namespace Fanex.Affiliate.Link.Controllers
             return View();
         }
 
-        public ActionResult Link(string pageCode, string affCode, string lang)
+        public ActionResult Link(string pageCode, string affCode, string lang, string channel)
         {
             try
             {
@@ -72,10 +71,7 @@ namespace Fanex.Affiliate.Link.Controllers
                     return View("Link");
                 }
 
-                var affMediaLink = GetOriginalUrl();
-                var affDomain = GetFullAffDomain(affMediaLink, pageCode);
-
-                return InsertAffiliate(affInfo.AffId, affInfo.AffCode, pageCode, lang, affDomain, affMediaLink);
+                return InsertAffiliate(affInfo.AffId, affInfo.AffCode, pageCode, lang, channel);
             }
             catch (Exception ex)
             {
@@ -85,7 +81,7 @@ namespace Fanex.Affiliate.Link.Controllers
             }
         }
 
-        private ActionResult InsertAffiliate(int affId, string affCode, string pageCode, string lang, string affDomain, string affMediaLink)
+        private ActionResult InsertAffiliate(int affId, string affCode, string pageCode, string lang, string channel)
         {
             if (Request.Url != null)
             {
@@ -98,12 +94,16 @@ namespace Fanex.Affiliate.Link.Controllers
                     domainReferrer = Common.GetDomainReferrer(urlReferrer);
                 }
 
+                var affMediaLink = GetOriginalUrl();
+                var affDomain = GetFullAffDomain(affMediaLink, pageCode);
+
                 var command = new TrackingSystemCommand
                 {
                     AffDomain = affDomain,
                     AffId = affId,
                     PageCode = pageCode,
                     LanguageCode = lang,
+                    ChannelCode = channel,
                     DeviceType = GetDeviceType(),
                     IP = Request.GetClientIP(),
                     Browser = Request.Browser.Browser,
@@ -123,11 +123,11 @@ namespace Fanex.Affiliate.Link.Controllers
 
                 var redirectUrl = _trackingSystemService.InsertStatistic(command);
 
-                LogService.Info(GetAllHeader(Request.ServerVariables, command, affCode));
-
                 if (!string.IsNullOrEmpty(redirectUrl))
                 {
-                    var result = HandleRedirectUrl(redirectUrl, pageCode, command.LanguageCode, affCode);
+                    WriteLogInfo(command, affCode);
+
+                    var result = HandleRedirectUrl(redirectUrl, pageCode, command.LanguageCode);
 
                     return Redirect(result);
                 }
@@ -166,7 +166,7 @@ namespace Fanex.Affiliate.Link.Controllers
             return (byte)(Common.IsMobile() ? 1 : 0);
         }
 
-        private string HandleRedirectUrl(string redirectUrl, string pageCode, string languageCode, string affCode)
+        private string HandleRedirectUrl(string redirectUrl, string pageCode, string languageCode)
         {
             var mappingCode = MappingLanguageCodeOnMemberSite(languageCode);
 
@@ -193,31 +193,30 @@ namespace Fanex.Affiliate.Link.Controllers
             return languageCode;
         }
 
-        private string GetAllHeader(NameValueCollection headers, TrackingSystemCommand command, string affCode)
+        private void WriteLogInfo(TrackingSystemCommand command, string affCode)
         {
-            var builder = new StringBuilder().AppendLine($"Link Go Info: {Request.Url}").AppendLine();
-            builder.AppendLine("REQUEST INFO")
-                   .AppendLine("RawUrl: " + Request.RawUrl)
-                   .AppendLine("AffMediaLink: " + command.AffMediaLink)
-                   .AppendLine("RedirectPage: " + command.RedirectPage)
-                   .AppendLine("AffId: " + command.AffId)
-                   .AppendLine("AffDomain: " + command.AffDomain)
-                   .AppendLine("AffCode: " + affCode)
-                   .AppendLine("PageCode: " + command.PageCode)
-                   .AppendLine("LanguageCode: " + command.LanguageCode)
-                   .AppendLine("DeviceType: " + command.DeviceType)
-                   .AppendLine("IP: " + command.IP)
-                   .AppendLine("Browser: " + command.Browser)
-                   .AppendLine("Country: " + command.Country)
-                   .AppendLine("Referrer: " + command.URLReferrer)
-                   .AppendLine("DomainReferrer: " + command.DomainReferrer);
-
-            foreach (var key in headers.AllKeys)
+            if (!command.RedirectPage.Contains(affCode))
             {
-                builder.AppendLine($"{key}: {headers[key]}");
-            }
+                var builder = new StringBuilder().AppendLine($"Link Go Info: {Request.Url}").AppendLine();
+                builder.AppendLine("REQUEST INFO")
+                       .AppendLine("RawUrl: " + Request.RawUrl)
+                       .AppendLine("AffMediaLink: " + command.AffMediaLink)
+                       .AppendLine("RedirectPage: " + command.RedirectPage)
+                       .AppendLine("AffId: " + command.AffId)
+                       .AppendLine("AffDomain: " + command.AffDomain)
+                       .AppendLine("AffCode: " + affCode)
+                       .AppendLine("PageCode: " + command.PageCode)
+                       .AppendLine("ChannelCode: " + command.ChannelCode)
+                       .AppendLine("LanguageCode: " + command.LanguageCode)
+                       .AppendLine("DeviceType: " + command.DeviceType)
+                       .AppendLine("IP: " + command.IP)
+                       .AppendLine("Browser: " + command.Browser)
+                       .AppendLine("Country: " + command.Country)
+                       .AppendLine("Referrer: " + command.URLReferrer)
+                       .AppendLine("DomainReferrer: " + command.DomainReferrer);
 
-            return builder.ToString();
+                LogService.Info(builder.ToString());
+            }
         }
 
         private string GetOriginalProtocol()
