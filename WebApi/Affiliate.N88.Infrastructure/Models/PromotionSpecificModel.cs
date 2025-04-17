@@ -6,7 +6,7 @@ namespace Affiliate.N88.Models
     {
         public string BonusCode { get; set; }
 
-        public byte CurrencyId { get; set; }
+        public int CurrencyId { get; set; }
 
         public int SiteId { get; set; }
 
