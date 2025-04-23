@@ -129,7 +129,7 @@
 
 @helper RenderAppContact(string language)
 {
-    const string firstAppName = "Skype";
+    const string firstAppName = "Telegram";
     var secondAppContactList = new Dictionary<string, string>
     {
         ["en-US"] = "Facebook",
@@ -143,7 +143,9 @@
         ["ko-KR"] = "Telegram",
         ["ja-JP"] = "Facebook"
     };
-    var hasTwoContactApp = secondAppContactList.ContainsKey(language);
+
+    var secondAppContactName = secondAppContactList[language];
+    var hasTwoContactApp = secondAppContactList.ContainsKey(language) && secondAppContactName != firstAppName;
 
     <div class="form-group">
         <label class="col-sm-3 control-label @(hasTwoContactApp ? string.Empty : "require")">@firstAppName</label>
@@ -170,11 +172,10 @@
         <input type="hidden" name="ContactAppList[0].Order" value="1" />
     </div>
 
-    if (secondAppContactList.ContainsKey(language))
+    if (hasTwoContactApp)
     {
-        var secondAppName = secondAppContactList[language];
         <div class="form-group">
-            <label class="col-sm-3 control-label">@secondAppName</label>
+            <label class="col-sm-3 control-label">@secondAppContactName</label>
             <div class="col-sm-4">
                 <input type="text" name="ContactAppList[1].Value" id="ContactAppList[1].Value" class="form-control" value=""
                        data-val="true" data-val-requiredifnullorempty-dependentprop="ContactAppList[0].Value"
@@ -184,7 +185,7 @@
                 <span class="field-validation-valid help-block hide"
                       data-valmsg-for="ContactAppList[1].Value" data-valmsg-replace="true"></span>
             </div>
-            <input type="hidden" name="ContactAppList[1].Name" value="@secondAppName" />
+            <input type="hidden" name="ContactAppList[1].Name" value="@secondAppContactName" />
             <input type="hidden" name="ContactAppList[1].Order" value="2" />
         </div>
     }
