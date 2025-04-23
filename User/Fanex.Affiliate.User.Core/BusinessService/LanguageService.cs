@@ -57,6 +57,22 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             return languageList ?? new List<Language>();
         }
 
+        public IEnumerable<Language> GetSupportedUILanguageList(bool? isInternal = null)
+        {
+            var isForInternal = isInternal ?? _sessionService.IsInternal;
+            var uiLanguageList = _cacheService.Get<IEnumerable<Language>>(CacheKey.SupportedUiLanguageList);
+
+            if (uiLanguageList == null)
+            {
+                var languageList = _languageRepository.GetLanguageList(isForInternal) ?? new List<Language>();
+                uiLanguageList = languageList.Where(l => !l.Code.Equals("ko-KR") && !l.Code.Equals("pt-BR"));
+
+                _cacheService.Set(CacheKey.SupportedUiLanguageList, uiLanguageList);
+            }
+
+            return uiLanguageList;
+        }
+
         public bool IsValid(string langCode)
             => !string.IsNullOrWhiteSpace(langCode) && GetLanguageList().Any(l => Equals(l.Code, langCode));
         public void SetCulture(string languageCode)
