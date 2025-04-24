@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+﻿import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Col, Form, FormGroup, Label, Input } from 'reactstrap';
@@ -12,8 +12,37 @@ export class Personal extends PureComponent {
         super(props);
 
         const { userAccountInfo } = this.props;
+        this.TELEGRAM_APP = { Name: 'Telegram', Value: '', Order: 0 };
 
-        this.arrayContactApps = userAccountInfo && userAccountInfo.ContactAppList;
+        this.arrayContactApps = userAccountInfo && this.handleContactApps(userAccountInfo.ContactAppList);
+    }
+
+    componentDidMount() {
+        const input = document.querySelector('input[name="Telegram"]');
+        if (input) {
+            input.setAttribute('placeholder', '@xxxxxxxx');
+        }
+    }
+
+    handleContactApps = (contactApps) => {
+        if (!Array.isArray(contactApps)) {
+            return [this.TELEGRAM_APP];
+        }
+
+        const result = [...contactApps];
+        const hasTelegram = result.some(item => item.Name === this.TELEGRAM_APP.Name);
+        if (!hasTelegram) {
+            result.push(this.TELEGRAM_APP);
+        }
+
+        return result.sort((a, b) => {
+            const priority = (name) => {
+                if (name === 'Skype') return 0;
+                if (name === 'Telegram') return 1;
+                return 2;
+            };
+            return priority(a.Name) - priority(b.Name);
+        });
     }
 
     handleChange = (event) => {
@@ -43,7 +72,7 @@ export class Personal extends PureComponent {
     _renderGenderForm(isMale) {
         return (
             <FormGroup row>
-                <Label for={name} sm={3} xl={2} className="required">Gender</Label>
+                <Label sm={3} xl={2} className="required">Gender</Label>
                 <Col sm={9} xl={10}>
                     <FormGroup check className="d-inline-block mr-3">
                         <Label check>
@@ -62,6 +91,8 @@ export class Personal extends PureComponent {
 
     render() {
         const { userAccountInfo } = this.props;
+        const contactApps = this.arrayContactApps.filter(item => item.Name !== 'Skype');
+        const contactLength = contactApps.length;
 
         return userAccountInfo && (
             <Form tag="div">
@@ -71,13 +102,11 @@ export class Personal extends PureComponent {
                 {this._renderGenderForm(userAccountInfo.Gender)}
                 {renderInputForm('email', 'Email Address', userAccountInfo.Email, false, true, this.handleChange)}
                 {renderInputForm('phone', 'Contact Number', userAccountInfo.Phone, false, true, this.handleChange)}
-                {
-                    this.arrayContactApps && this.arrayContactApps.map(contactApp => {
-                        return (
-                            renderInputForm(contactApp.Name, contactApp.Name, contactApp.Value, false, false, this.handleChangeContactApps)
-                        )
-                    })
-                }
+                {contactApps && contactApps.map(contactApp => {
+                    return (
+                        renderInputForm(contactApp.Name, contactApp.Name, contactApp.Value, false, contactLength === 1, this.handleChangeContactApps)
+                    )
+                })}
             </Form>
         )
     }

@@ -51,6 +51,33 @@ const validatePaymentMethod = (userAccountInfo) => {
     };
 }
 
+const validateContactApps = (contactApps) => {
+    const getValue = name => contactApps.find(a => a.Name === name)?.Value?.trim() || '';
+
+    if (contactApps.length === 2 && contactApps[0].Name === 'Skype') {
+        if (!contactApps[1].Value?.trim()) {
+            return { message: `${contactApps[1].Name} is required`, isValid: false };
+        }
+    } else {
+        const contactNotSkype = contactApps.filter(a => a.Name !== 'Skype');
+
+        const allEmpty = contactNotSkype.every(a => !a.Value?.trim());
+        if (allEmpty) {
+            const names = contactNotSkype.map(a => a.Name).join(', ');
+            return { message: `Contact Apps (${names}): At least one IM account is required`, isValid: false };
+        }
+
+        const telegram = getValue('Telegram');
+        if (telegram && (!telegram.startsWith('@') || telegram.length <= 1)) {
+            return { message: 'Telegram is invalid', isValid: false };
+        }
+    }
+
+    return { message: '', isValid: true };
+};
+
+
+
 export const validateUserAccount = (userAccountInfo, moreSiteUrlsList, licenseeName) => {
     let message = '';
     const checkEmail = new RegExp(regexEmail);
@@ -64,6 +91,9 @@ export const validateUserAccount = (userAccountInfo, moreSiteUrlsList, licenseeN
     message = isValidEmail ? message : message + messageList.Email + "<br />";
     message += getMessage('Country', country);
 
+    const resultValidateContactApps = validateContactApps(userAccountInfo.ContactAppList);
+    message += resultValidateContactApps.isValid ? '' : resultValidateContactApps.message + '<br />';
+
     message += newRequiredFieldList.reduce((accumulator, field) => { return accumulator + getMessage(field, userAccountInfo[field]) }, '');
 
     let isValid = isValidGender && isValidEmail && userAccountInfo.FirstName !== '' && userAccountInfo.LastName !== '' &&
@@ -75,6 +105,6 @@ export const validateUserAccount = (userAccountInfo, moreSiteUrlsList, licenseeN
 
     return {
         message: message + resultValidateMoreSiteUrls.message + resultValidatePaymentMethod.message,
-        isValid: isValid && resultValidateMoreSiteUrls.isValid && resultValidatePaymentMethod.isValid
+        isValid: isValid && resultValidateMoreSiteUrls.isValid && resultValidatePaymentMethod.isValid && resultValidateContactApps.isValid
     };
 }
