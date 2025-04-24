@@ -2126,4 +2126,16 @@
   <data name="Winloss" xml:space="preserve">
     <value>Winloss</value>
   </data>
+  <data name="TitleUpdateTelegram" xml:space="preserve">
+    <value>Update Your Telegram Contact</value>
+  </data>
+  <data name="ContentUpdateTelegram" xml:space="preserve">
+    <value>Starting in May, Skype will no longer be available. Please update your Telegram contact information to ensure continued support and communication.</value>
+  </data>
+  <data name="RemindMeLater" xml:space="preserve">
+    <value>Remind Me Later</value>
+  </data>
+  <data name="UpdateNow" xml:space="preserve">
+    <value>Update Now</value>
+  </data>
 </root>

@@ -2018,4 +2018,16 @@ B2C सहयोगी की टीम&lt;br/&gt;&lt;br/&gt;
   <data name="AdvantPlay" xml:space="preserve">
     <value>Advant Play</value>
   </data>
+  <data name="TitleUpdateTelegram" xml:space="preserve">
+    <value>अपना टेलीग्राम संपर्क अपडेट करें</value>
+  </data>
+  <data name="ContentUpdateTelegram" xml:space="preserve">
+    <value>मई से Skype उपलब्ध नहीं रहेगा। कृपया समर्थन और संचार बनाए रखने के लिए अपना टेलीग्राम संपर्क विवरण अपडेट करें।</value>
+  </data>
+  <data name="RemindMeLater" xml:space="preserve">
+    <value>बाद में याद दिलाएँ</value>
+  </data>
+  <data name="UpdateNow" xml:space="preserve">
+    <value>अभी अपडेट करें</value>
+  </data>
 </root>

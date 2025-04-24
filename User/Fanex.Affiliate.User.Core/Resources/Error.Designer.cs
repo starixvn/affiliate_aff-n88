@@ -142,6 +142,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Invalid.
+        /// </summary>
+        public static string InvalidTelegramFormat {
+            get {
+                return ResourceManager.GetString("InvalidTelegramFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Wrong username or password..
         /// </summary>
         public static string LoginWrongInfo {

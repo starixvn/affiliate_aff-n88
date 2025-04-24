@@ -1767,4 +1767,16 @@
   <data name="AdvantPlay" xml:space="preserve">
     <value>Advant Play</value>
   </data>
+  <data name="TitleUpdateTelegram" xml:space="preserve">
+    <value>Perbarui Kontak Telegram Anda</value>
+  </data>
+  <data name="ContentUpdateTelegram" xml:space="preserve">
+    <value>Mulai bulan Mei, Skype tidak akan tersedia lagi. Harap perbarui informasi kontak Telegram Anda untuk memastikan dukungan dan komunikasi yang berkelanjutan.</value>
+  </data>
+  <data name="RemindMeLater" xml:space="preserve">
+    <value>Ingatkan Saya Nanti</value>
+  </data>
+  <data name="UpdateNow" xml:space="preserve">
+    <value>Perbarui Sekarang</value>
+  </data>
 </root>

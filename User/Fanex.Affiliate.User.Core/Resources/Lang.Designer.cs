@@ -1249,6 +1249,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Starting in May, Skype will no longer be available. Please update your Telegram contact information to ensure continued support and communication..
+        /// </summary>
+        public static string ContentUpdateTelegram {
+            get {
+                return ResourceManager.GetString("ContentUpdateTelegram", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cook Islands.
         /// </summary>
         public static string CookIslands {
@@ -4138,6 +4147,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Remind Me Later.
+        /// </summary>
+        public static string RemindMeLater {
+            get {
+                return ResourceManager.GetString("RemindMeLater", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Remove.
         /// </summary>
         public static string Remove {
@@ -5083,6 +5101,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Update Your Telegram Contact.
+        /// </summary>
+        public static string TitleUpdateTelegram {
+            get {
+                return ResourceManager.GetString("TitleUpdateTelegram", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to To.
         /// </summary>
         public static string To {
@@ -5421,6 +5448,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string UpdateAccSuccess {
             get {
                 return ResourceManager.GetString("UpdateAccSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update Now.
+        /// </summary>
+        public static string UpdateNow {
+            get {
+                return ResourceManager.GetString("UpdateNow", resourceCulture);
             }
         }
         
