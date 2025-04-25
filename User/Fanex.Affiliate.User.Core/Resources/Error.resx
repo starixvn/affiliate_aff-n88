@@ -186,7 +186,7 @@
   <data name="InvalidChannelName" xml:space="preserve">
     <value>Channel Name can only contain ENGLISH letters and numbers. No spaces or special characters allowed. </value>
   </data>
-  <data name="InvalidTelegramFormat" xml:space="preserve">
-    <value>Invalid</value>
+  <data name="AccountInvalidFormat" xml:space="preserve">
+    <value>{0} is invalid</value>
   </data>
 </root>

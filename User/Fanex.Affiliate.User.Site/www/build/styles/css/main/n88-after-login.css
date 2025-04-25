@@ -159,7 +159,7 @@
 }
 
 #telegramUpdateModal .modal-dialog {
-  max-width: 550px;
+  max-width: 440px;
   margin: 1.75rem auto;
 }
 #telegramUpdateModal .modal-content {
@@ -169,27 +169,43 @@
 #telegramUpdateModal .modal-body {
   padding: 24px;
 }
-#telegramUpdateModal .d-flex {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
 #telegramUpdateModal .modal-text-content {
   margin-bottom: 24px;
+  color: #001942;
   width: 100%;
 }
-#telegramUpdateModal .modal-text-content h4 {
-  color: #001942;
-  font-size: 20px;
+#telegramUpdateModal .modal-text-content.N88 h4 {
+  font-size: 14px;
   font-weight: 700;
   margin-bottom: 12px;
 }
-#telegramUpdateModal .modal-text-content p {
-  color: #333;
-  font-size: 16px;
-  line-height: 1.5;
-  margin-bottom: 0;
-  width: 100%;
+#telegramUpdateModal .modal-text-content.N88 p {
+  color: #333333;
+  font-size: 13px;
+  font-weight: 400;
+  text-align: justify;
+}
+#telegramUpdateModal .modal-text-content.N8B h4 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+#telegramUpdateModal .modal-text-content.N8B p {
+  color: #333333;
+  font-size: 1.4rem;
+  font-weight: 400;
+  text-align: justify;
+}
+#telegramUpdateModal .modal-text-content.N8G h4 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+#telegramUpdateModal .modal-text-content.N8G p {
+  color: #333333;
+  font-size: 1.3rem;
+  font-weight: 500;
+  text-align: justify;
 }
 #telegramUpdateModal .modal-button-group {
   display: flex;
@@ -198,11 +214,24 @@
   justify-content: flex-end;
   width: 100%;
 }
-#telegramUpdateModal .modal-button-group .btn-submit {
-  padding: 10px;
-  font-size: 16px;
+#telegramUpdateModal .modal-button-group .btn-login, #telegramUpdateModal .modal-button-group .btn-signup {
+  padding: 5px !important;
   height: auto;
   line-height: normal;
+  text-transform: unset !important;
+}
+#telegramUpdateModal .modal-button-group #btnUpdateNow {
+  margin-right: 0;
+}
+#telegramUpdateModal .modal-button-group .N88 {
+  background: #FFF;
+  color: #EA5500;
+  border: 1px solid #FF5D00;
+}
+#telegramUpdateModal .modal-button-group .N88:hover {
+  color: #FFF;
+  background: #EA5500;
+  border-color: #EA5500;
 }
 
 .after-login-container {

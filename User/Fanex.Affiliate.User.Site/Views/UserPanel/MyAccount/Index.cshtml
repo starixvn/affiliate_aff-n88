@@ -162,7 +162,7 @@
                                            data-val="true"
                                            data-val-requiredifnullorempty-dependentprop="ContactAppList[0].Value,ContactAppList[1].Value"
                                            data-val-requiredifnullorempty="@Error.RequireIMAccount"
-                                           @(item.Name == telegramName ? $"data-val-telegramformat={Error.InvalidTelegramFormat}" : "") />
+                                           @(item.Name == telegramName ? $"data-val-telegramformat={Error.AccountInvalidFormat.Replace("{0}", item.Name)}" : "") />
                                 </div>
                             }
                             else
@@ -173,7 +173,7 @@
                                            value="@Html.Raw(item.Value)"
                                            data-val="true"
                                            data-val-required="@Error.RequireIMAccount"
-                                           @(item.Name == telegramName ? $"data-val-telegramformat={Error.InvalidTelegramFormat}" : "") />
+                                           @(item.Name == telegramName ? $"data-val-telegramformat={Error.AccountInvalidFormat.Replace("{0}", item.Name)}" : "") />
                                 </div>
                             }
                             <div class="col-sm-offset-3 col-sm-9">

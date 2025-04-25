@@ -1,6 +1,6 @@
 ﻿#telegramUpdateModal {
     .modal-dialog {
-        max-width: 550px;
+        max-width: 440px;
         margin: 1.75rem auto;
     }
 
@@ -13,29 +13,56 @@
         padding: 24px;
     }
 
-    .d-flex {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-
     .modal-text-content {
         margin-bottom: 24px;
+        color: #001942;
         width: 100%;
 
-        h4 {
-            color: #001942;
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 12px;
+        &.N88 {
+            h4 {
+                font-size: 14px;
+                font-weight: 700;
+                margin-bottom: 12px;
+            }
+
+            p {
+                color: #333333;
+                font-size: 13px;
+                font-weight: 400;
+                text-align: justify;
+            }
         }
 
-        p {
-            color: #333;
-            font-size: 16px;
-            line-height: 1.5;
-            margin-bottom: 0;
-            width: 100%;
+        &.N8B {
+
+            h4 {
+                font-size: 1.4rem;
+                font-weight: 700;
+                margin-bottom: 12px;
+            }
+
+            p {
+                color: #333333;
+                font-size: 1.4rem;
+                font-weight: 400;
+                text-align: justify;
+            }
+        }
+
+        &.N8G {
+
+            h4 {
+                font-size: 1.4rem;
+                font-weight: 700;
+                margin-bottom: 12px;
+            }
+
+            p {
+                color: #333333;
+                font-size: 1.3rem;
+                font-weight: 500;
+                text-align: justify;
+            }
         }
     }
 
@@ -46,11 +73,27 @@
         justify-content: flex-end;
         width: 100%;
 
-        .btn-submit {
-            padding: 10px;
-            font-size: 16px;
+        .btn-login, .btn-signup {
+            padding: 5px !important;
             height: auto;
             line-height: normal;
+            text-transform: unset !important;
+        }
+
+        #btnUpdateNow {
+            margin-right: 0;
+        }
+
+        .N88 {
+            background: #FFF;
+            color: #EA5500;
+            border: 1px solid #FF5D00;
+
+            &:hover {
+                color: #FFF;
+                background: #EA5500;
+                border-color: #EA5500;
+            }
         }
     }
 }
