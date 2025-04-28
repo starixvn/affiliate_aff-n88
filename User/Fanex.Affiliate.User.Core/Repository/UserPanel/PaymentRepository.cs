@@ -97,7 +97,7 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
                 TransId = reader.ToLong("TransID"),
                 RefId = reader.ToLong("RefID"),
                 TransDate = reader.ToDateTime("TransDate"),
-                CompletedDate = reader.ToDateTime("CompletedDate"),
+                CompletedDate = reader.ToDateTime2("CompletedDate"),
                 Status = reader.ToString("Status"),
                 Amount = reader.ToDecimal("Amount"),
                 AffDesc = reader.ToString("AffDesc")
