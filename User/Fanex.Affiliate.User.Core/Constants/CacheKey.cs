@@ -8,6 +8,8 @@
 
         public const string LanguageList = "Affiliate.B2C.Languages";
 
+        public const string SupportedUiLanguageList = "Affiliate.B2C.SupportedUi.Languages";
+
         public const string CurrencyList = "Affiliate.B2C.CurrencyList";
 
         public const string DomainList = "Affiliate.B2C.DomainList";
