@@ -183,4 +183,7 @@
   <data name="PaymentAccNotActive" xml:space="preserve">
     <value>Akaun pembayaran pemain  tidak aktif, sila semak dengan pengurus akaun anda.</value>
   </data>
+  <data name="AccountInvalidFormat" xml:space="preserve">
+    <value>{0} tidak sah</value>
+  </data>
 </root>

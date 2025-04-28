@@ -66,19 +66,6 @@
         }
     );
 
-    $.validator.unobtrusive.adapters.add('telegramformat', [],
-        function (options) {
-            options.rules['telegramformat'] = true;
-            options.messages['telegramformat'] = options.message;
-        });
-
-    $.validator.addMethod('telegramformat',
-        function (value, element) {
-            const trimmed = value.trim();
-            return !trimmed || (trimmed.length > 1 && trimmed.startsWith('@'));
-        }
-    );
-
     function setupRequiredIfNullOrEmptyAutoValidate(formSelector) {
         const $form = $(formSelector);
         $form.find('[data-val-requiredifnullorempty]').each(function () {

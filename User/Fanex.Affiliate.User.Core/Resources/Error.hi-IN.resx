@@ -183,4 +183,7 @@
   <data name="PaymentAccNotActive" xml:space="preserve">
     <value>भुगतान खिलाड़ी खाता सक्रिय नहीं है, कृपया अपने खाता प्रबंधक से संपर्क करें।</value>
   </data>
+  <data name="AccountInvalidFormat" xml:space="preserve">
+    <value>{0} अमान्य है</value>
+  </data>
 </root>

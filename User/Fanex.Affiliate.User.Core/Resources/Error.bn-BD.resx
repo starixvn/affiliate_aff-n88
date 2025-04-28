@@ -183,4 +183,7 @@
   <data name="YourAccountHasBeenSuspended" xml:space="preserve">
     <value>আপনার অ্যাকাউন্ট স্থগিত করা হয়েছে। আরও তথ্যের জন্য অনুগ্রহ করে আপনার অ্যাকাউন্ট ম্যানেজারের সাথে যোগাযোগ করুন।</value>
   </data>
+  <data name="AccountInvalidFormat" xml:space="preserve">
+    <value>{0} অবৈধ</value>
+  </data>
 </root>

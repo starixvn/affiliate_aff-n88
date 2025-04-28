@@ -3,6 +3,8 @@
 
     var sessionService = DependencyResolver.Current.GetService<ISessionService>();
     var groupName = sessionService.UserSession.GroupName;
+
+    // TODO: Need removed after 06/30/2025
     var today = DateTimeOffset.Now.DateTime;
     var cutOfDateUpdateTelegramNotify = DateTime.Parse("06/30/2025");
 

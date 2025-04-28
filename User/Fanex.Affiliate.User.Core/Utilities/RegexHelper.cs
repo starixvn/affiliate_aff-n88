@@ -1,8 +1,8 @@
-﻿using System;
-using System.Text.RegularExpressions;
-
-namespace Fanex.Affiliate.User.Core.Utilities
+﻿namespace Fanex.Affiliate.User.Core.Utilities
 {
+    using System;
+    using System.Text.RegularExpressions;
+
     public static class RegexHelper
     {
         private const int TimeOutSecond = 2;
@@ -25,6 +25,18 @@ namespace Fanex.Affiliate.User.Core.Utilities
         public static bool IsMatch(string input, string pattern, RegexOptions regexOptions)
         {
             return Regex.IsMatch(input, pattern, regexOptions, TimeSpan.FromSeconds(TimeOutSecond));
+        }
+
+        public static string RegexContactApps(string name)
+        {
+            var regex = @".*";
+
+            if (name == "Telegram")
+            {
+                regex = @"^(?!\s*$)(@.+)$";
+            }
+
+            return regex;
         }
     }
 }
