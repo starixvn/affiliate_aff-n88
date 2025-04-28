@@ -1,13 +1,21 @@
 ﻿var MyAccount = (function ($) {
-    function setFocusForLastInput() {
-        $("#websiteInfo .urlInput").last().focus();
-    }
-
     var _isClickSubmit = false;
+
+    function focusTelegramInput() {
+        const isFocus = sessionStorage.getItem('focusTelegram');
+
+        if (isFocus === '1') {
+            sessionStorage.setItem('focusTelegram', '0');
+
+            $('.Telegram').first().trigger('focus');
+        }
+    }
 
     var _me = {
         initialize: function () {
             _me.initEvent();
+            focusTelegramInput();
+
         },
         initEvent: function () {
             $("#btnAddUrl").on("click", function () {

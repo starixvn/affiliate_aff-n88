@@ -2023,4 +2023,16 @@
   <data name="TcGaming" xml:space="preserve">
     <value>TC-GAMING</value>
   </data>
+  <data name="TitleUpdateTelegram" xml:space="preserve">
+    <value>আপনার টেলিগ্রাম কনট্যাক্ট আপডেট করুন</value>
+  </data>
+  <data name="ContentUpdateTelegram" xml:space="preserve">
+    <value>মে মাস থেকে স্কাইপ আর ব্যবহার করা যাবে না। সহায়তা ও যোগাযোগ চালিয়ে যাওয়ার জন্য দয়া করে আপনার টেলিগ্রাম কনট্যাক্ট তথ্য আপডেট করুন।</value>
+  </data>
+  <data name="RemindMeLater" xml:space="preserve">
+    <value>পরে মনে করিয়ে দিন</value>
+  </data>
+  <data name="UpdateNow" xml:space="preserve">
+    <value>এখনই আপডেট করুন</value>
+  </data>
 </root>

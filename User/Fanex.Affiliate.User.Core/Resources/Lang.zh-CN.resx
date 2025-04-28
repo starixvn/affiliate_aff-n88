@@ -1784,4 +1784,16 @@ B2C合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
   <data name="AdvantPlay" xml:space="preserve">
     <value>Advant Play</value>
   </data>
+  <data name="TitleUpdateTelegram" xml:space="preserve">
+    <value>更新您的 Telegram 联系方式</value>
+  </data>
+  <data name="ContentUpdateTelegram" xml:space="preserve">
+    <value>从五月开始，Skype 将不再使用。请更新您的 Telegram 联系方式，以确保持续获得支持与沟通。</value>
+  </data>
+  <data name="RemindMeLater" xml:space="preserve">
+    <value>稍后提醒我</value>
+  </data>
+  <data name="UpdateNow" xml:space="preserve">
+    <value>立即更新</value>
+  </data>
 </root>

@@ -2009,4 +2009,16 @@ Jika anda mempunyai sebarang soalan dan memerlukan sebarang bantuan, sila jangan
   <data name="AdvantPlay" xml:space="preserve">
     <value>Advant Play</value>
   </data>
+  <data name="TitleUpdateTelegram" xml:space="preserve">
+    <value>Kemas Kini Maklumat Telegram Anda</value>
+  </data>
+  <data name="ContentUpdateTelegram" xml:space="preserve">
+    <value>Bermula bulan Mei, Skype tidak lagi akan digunakan. Sila kemas kini maklumat Telegram anda untuk memastikan sokongan dan komunikasi berterusan.</value>
+  </data>
+  <data name="RemindMeLater" xml:space="preserve">
+    <value>Ingatkan Saya Kemudian</value>
+  </data>
+  <data name="UpdateNow" xml:space="preserve">
+    <value>Kemas Kini Sekarang</value>
+  </data>
 </root>

@@ -186,4 +186,7 @@
   <data name="InvalidChannelName" xml:space="preserve">
     <value>Tên kênh chỉ bao gồm các ký tự Latin và số. Không được có dấu cách hoặc ký tự đặc biệt.</value>
   </data>
+  <data name="AccountInvalidFormat" xml:space="preserve">
+    <value>{0} không hợp lệ</value>
+  </data>
 </root>

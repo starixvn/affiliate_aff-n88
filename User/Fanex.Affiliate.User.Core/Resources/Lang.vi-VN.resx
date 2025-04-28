@@ -2043,4 +2043,16 @@
   <data name="AdvantPlay" xml:space="preserve">
     <value>Advant Play</value>
   </data>
+  <data name="TitleUpdateTelegram" xml:space="preserve">
+    <value>Cập Nhật Thông Tin Liên Hệ Telegram Của Bạn</value>
+  </data>
+  <data name="ContentUpdateTelegram" xml:space="preserve">
+    <value>Bắt đầu từ tháng 5, Skype sẽ chính thức ngừng hoạt động. Vui lòng cập nhật thông tin liên hệ Telegram của bạn để đảm bảo quá trình hỗ trợ và trao đổi thông tin không bị gián đoạn.</value>
+  </data>
+  <data name="RemindMeLater" xml:space="preserve">
+    <value>Nhắc lại sau</value>
+  </data>
+  <data name="UpdateNow" xml:space="preserve">
+    <value>Cập nhật ngay</value>
+  </data>
 </root>

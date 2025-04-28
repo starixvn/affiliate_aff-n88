@@ -171,4 +171,7 @@
   <data name="InvalidChannelName" xml:space="preserve">
     <value>Nama saluran hanya boleh berisi huruf dan angka. Tidak diperbolehkan menggunakan spasi atau karakter khusus.</value>
   </data>
+  <data name="AccountInvalidFormat" xml:space="preserve">
+    <value>{0} tidak valid</value>
+  </data>
 </root>

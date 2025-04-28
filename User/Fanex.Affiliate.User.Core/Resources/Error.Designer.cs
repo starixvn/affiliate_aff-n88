@@ -61,6 +61,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} is invalid.
+        /// </summary>
+        public static string AccountInvalidFormat {
+            get {
+                return ResourceManager.GetString("AccountInvalidFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The channel already exists. Please check again..
         /// </summary>
         public static string ErrChannelExisted {

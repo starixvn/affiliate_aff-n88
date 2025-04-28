@@ -2,9 +2,26 @@
     Layout = null;
 }
 @using Fanex.Affiliate.User.Core.CoreService
+@using Fanex.Affiliate.User.Core.DTO
 @model Fanex.Affiliate.User.Core.ViewModels.UserPanel.MyAccountViewModel
 
 @Html.InlineStyles(PathHelper.GetFilePathInBuildFolder("styles/css", "my-account.css"))
+
+@{
+    const string skypeName = "Skype";
+    const string telegramName = "Telegram";
+    var contactApps = Model.AccountInformation.ContactAppList;
+    var skype = contactApps?.FirstOrDefault(a => a.Name == skypeName);
+    var telegram = contactApps.FirstOrDefault(a => a.Name == telegramName) ?? new ContactApp { Name = telegramName, Order = 1 };
+
+    var supportedApps = contactApps?.Where(a => a.Name != skypeName).ToList();
+
+    if (supportedApps.Contains(telegram))
+    {
+        supportedApps.Remove(telegram);
+    }
+    supportedApps.Insert(0, telegram);
+}
 
 <div class="account-information sub-content">
     <div class="page-title">
@@ -115,36 +132,56 @@
                     </div>
                 </div>
 
-                @if (Model.AccountInformation.ContactAppList != null && Model.AccountInformation.ContactAppList.Any())
+                @if (contactApps != null && contactApps.Any())
                 {
-                    var contactAppCount = Model.AccountInformation.ContactAppList.Count();
+                    var contactAppCount = supportedApps.Count;
                     var index = 0;
-                    foreach (var item in Model.AccountInformation.ContactAppList)
+
+                    if (skype != null)
                     {
-                        var dependentField = $"ContactAppList[{(index == 0 ? 1 : 0)}].Value";
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">@skype.Name</label>
+                            <div class="col-sm-4">
+                                <input readonly type="text" name="ContactAppList[2].Value" id="ContactAppList[2].Value" class="form-control" value="@Html.Raw(skype.Value)" />
+                            </div>
+                            <input type="hidden" name="ContactAppList[2].Name" value="@skypeName" />
+                            <input type="hidden" name="ContactAppList[2].Order" value="0" />
+                        </div>
+                    }
+
+                    foreach (var item in supportedApps)
+                    {
                         <div class="form-group">
                             <label class="col-sm-3 control-label @(contactAppCount == 1 ? "require" : string.Empty)">@item.Name</label>
                             @if (contactAppCount == 2)
                             {
                                 <div class="col-sm-4">
-                                    <input type="text" name="ContactAppList[@index].Value" id="ContactAppList[@index].Value" class="form-control"
+                                    <input type="text" name="ContactAppList[@index].Value" id="ContactAppList[@index].Value"
+                                           placeholder="@RegexHelper.AddPlaceHolders(item.Name)"
+                                           class="form-control @item.Name"
                                            value="@Html.Raw(item.Value)"
-                                           data-val="true" data-val-requiredifnullorempty-dependentprop="@dependentField"
-                                           data-val-requiredifnullorempty="@Error.RequireIMAccount" />
+                                           data-val="true"
+                                           data-val-requiredifnullorempty-dependentprop="ContactAppList[0].Value,ContactAppList[1].Value"
+                                           data-val-requiredifnullorempty="@Error.RequireIMAccount"
+                                           data-val-regex="@Error.AccountInvalidFormat.Replace("{0}", item.Name)" 
+                                           data-val-regex-pattern="@RegexHelper.RegexContactApps(item.Name)"/>
                                 </div>
                             }
                             else
                             {
                                 <div class="col-sm-4">
-                                    <input type="text" name="ContactAppList[@index].Value" id="ContactAppList[@index].Value" class="form-control"
+                                    <input type="text" name="ContactAppList[@index].Value" id="ContactAppList[@index].Value"
+                                           class="form-control @item.Name"
                                            value="@Html.Raw(item.Value)"
                                            data-val="true"
-                                           data-val-required="@Error.RequireIMAccount" />
+                                           data-val-required="@Error.RequireIMAccount"
+                                           data-val-regex="@Error.AccountInvalidFormat.Replace("{0}", item.Name)" 
+                                           data-val-regex-pattern="@RegexHelper.RegexContactApps(item.Name)"/>
                                 </div>
                             }
                             <div class="col-sm-offset-3 col-sm-9">
                                 <span class="field-validation-valid help-block hide"
-                                      data-valmsg-for="@(contactAppCount == 2 ? dependentField : $"ContactAppList[{index}].Value")"
+                                      data-valmsg-for="ContactAppList[@index].Value"
                                       data-valmsg-replace="true"></span>
                             </div>
                             <input type="hidden" name="ContactAppList[@index].Name" value="@item.Name" />
@@ -350,7 +387,8 @@
         webSiteUrl: '@Lang.WebsiteURL',
         deleteLabel: '@Lang.Del',
         requiredMoreWebSiteUrl: '@Lang.WebsiteUrli',
-        updateSuccessfully: '@Lang.UpdateAccSuccess'
+        updateSuccessfully: '@Lang.UpdateAccSuccess',
+        invalidTelegram: 'Test'
     }
 </script>
 

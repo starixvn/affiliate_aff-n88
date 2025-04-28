@@ -1767,4 +1767,16 @@
   <data name="AdvantPlay" xml:space="preserve">
     <value>Advant Play</value>
   </data>
+  <data name="TitleUpdateTelegram" xml:space="preserve">
+    <value>อัปเดตข้อมูลติดต่อ Telegram ของคุณ</value>
+  </data>
+  <data name="ContentUpdateTelegram" xml:space="preserve">
+    <value>เริ่มตั้งแต่เดือนพฤษภาคม จะไม่มีการให้บริการผ่าน Skype อีกต่อไป กรุณาอัปเดตข้อมูลติดต่อ Telegram ของคุณ เพื่อให้สามารถรับการสนับสนุนและการสื่อสารได้อย่างต่อเนื่อง</value>
+  </data>
+  <data name="RemindMeLater" xml:space="preserve">
+    <value>เตือนฉันภายหลัง</value>
+  </data>
+  <data name="UpdateNow" xml:space="preserve">
+    <value>อัปเดตตอนนี้</value>
+  </data>
 </root>

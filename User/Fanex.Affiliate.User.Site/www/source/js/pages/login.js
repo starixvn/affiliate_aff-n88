@@ -124,6 +124,8 @@
                     contentType: "application/x-www-form-urlencoded; charset=UTF-8",
                     success: function (response) {
                         if (response.IsOk) {
+                            sessionStorage.setItem('isShowNotiDialog', '1');
+
                             var isRedirectToMediaPage = $('#isCLickedBannerLink').val() === "1";
                             if (onDialog && isRedirectToMediaPage) {
                                 PageTracking.addTrackingForMediaPage();

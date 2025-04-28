@@ -9,33 +9,33 @@
 (function ($) {
     $.validator.setDefaults({
         highlight: function (element) {
-            var $container = $(element).closest(".form-group");
-            $container.addClass("has-error");
-            $container.find(".help-block").removeClass("hide");
+            var $container = $(element).closest('.form-group');
+            $container.addClass('has-error');
+            $container.find('.help-block').removeClass('hide');
         },
         unhighlight: function (element) {
-            var $container = $(element).closest(".form-group");
-            $container.removeClass("has-error");
-            $container.find(".help-block").addClass("hide");
+            var $container = $(element).closest('.form-group');
+            $container.removeClass('has-error');
+            $container.find('.help-block').addClass('hide');
         },
         errorElement: 'span',
         errorClass: 'help-block hide'
     });
 
-    $.validator.unobtrusive.adapters.add("requiredbychecked", ["dependentprop", "checked"],
-    function (options) {
-        options.rules["requiredbychecked"] = {
-            dependentprop: options.params.dependentprop,
-            checked: options.params.checked === "True"
-        };
-        options.messages["requiredbychecked"] = options.message;
-    });
+    $.validator.unobtrusive.adapters.add('requiredbychecked', ['dependentprop', 'checked'],
+        function (options) {
+            options.rules['requiredbychecked'] = {
+                dependentprop: options.params.dependentprop,
+                checked: options.params.checked === 'True'
+            };
+            options.messages['requiredbychecked'] = options.message;
+        });
 
-    $.validator.addMethod("requiredbychecked",
+    $.validator.addMethod('requiredbychecked',
         function (value, element, params) {
             var isValid = true;
 
-            var isChecked = $("[name='" + params.dependentprop + "']:checked").val().trim() === "True";
+            var isChecked = $("[name='" + params.dependentprop + "']:checked").val().trim() === 'True';
             if (isChecked === params.checked && $.trim(value).length === 0) {
                 isValid = false;
             }
@@ -44,29 +44,54 @@
         }
     );
 
-    $.validator.unobtrusive.adapters.add("requiredifnullorempty", ["dependentprop"],
-    function (options) {
-        options.rules["requiredifnullorempty"] = {
-            dependentprop: options.params.dependentprop
-        };
-        options.messages["requiredifnullorempty"] = options.message;
-    });
+    $.validator.unobtrusive.adapters.add('requiredifnullorempty', ['dependentprop'],
+        function (options) {
+            options.rules['requiredifnullorempty'] = {
+                dependentprop: options.params.dependentprop
+            };
+            options.messages['requiredifnullorempty'] = options.message;
+        });
 
-    $.validator.addMethod("requiredifnullorempty",
+    $.validator.addMethod('requiredifnullorempty',
         function (value, element, params) {
-            var dependenPropList = params.dependentprop.split(',').filter(function (p) { return !!p });
+            var dependentPropList = params.dependentprop
+                .split(',')
+                .map(function (p) { return p.trim(); })
+                .filter(Boolean);
 
-            var invalidPropCount = 0;
-            var dependentPropCount = dependenPropList.length;
-            for (var i = 0; i < dependentPropCount; i++) {
-                var propName = dependenPropList[i];
-                var dependentValue = $("[name='" + propName + "']").val().trim();
-                if (!$.trim(dependentValue)) {
-                    invalidPropCount++;
-                }
+            var allDependentsEmpty = dependentPropList.every(function (propName) {
+                var inputValue = $("[name='" + propName + "']").val();
+                return $.trim(inputValue).length === 0;
+            });
+
+            var valueEmpty = $.trim(value).length === 0;
+
+            if (allDependentsEmpty && valueEmpty) {
+                return false;
             }
 
-            return !!$.trim(value) || invalidPropCount < dependentPropCount;
+            return true;
         }
     );
+
+    function setupRequiredIfNullOrEmptyAutoValidate(formSelector) {
+        const $form = $(formSelector);
+        $form.find('[data-val-requiredifnullorempty]').each(function () {
+            const $field = $(this);
+            const props = $field.attr('data-val-requiredifnullorempty-dependentprop');
+
+            if (!props) return;
+
+            const propList = props.split(',').map(p => p.trim()).filter(Boolean);
+
+            propList.forEach(propName => {
+                const $dependent = $form.find(`[name='${propName}']`);
+                $dependent.on('input', function () {
+                    $form.validate().element($field[0]);
+                });
+            });
+        });
+    }
+
+    setupRequiredIfNullOrEmptyAutoValidate('form');
 })(jQuery)

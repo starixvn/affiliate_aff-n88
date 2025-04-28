@@ -125,21 +125,21 @@
   //    "www/source/js/pages/signup.js"
   //  ]
   //},
-  //{
-  //  "outputFileName": "www/build/js/myaccount.js",
-  //  "inputFiles": [
-  //    "www/source/js/components/website.js",
-  //    "www/source/js/pages/myaccount.js"
-  //  ]
-  //},
-  //{
-  //  "outputFileName": "www/build/js/validation.js",
-  //  "inputFiles": [
-  //    "www/source/js/lib/jquery.validate.min.js",
-  //    "www/source/js/lib/jquery.validate.unobtrusive.min.js",
-  //    "www/source/js/components/validation.custom.js"
-  //  ]
-  //},
+  {
+    "outputFileName": "www/build/js/myaccount.js",
+    "inputFiles": [
+      "www/source/js/components/website.js",
+      "www/source/js/pages/myaccount.js"
+    ]
+  },
+  {
+    "outputFileName": "www/build/js/validation.js",
+    "inputFiles": [
+      "www/source/js/lib/jquery.validate.min.js",
+      "www/source/js/lib/jquery.validate.unobtrusive.min.js",
+      "www/source/js/components/validation.custom.js"
+    ]
+  },
   //{
   //  "outputFileName": "www/build/js/lib/jsencrypt-2.3.1.min.js",
   //  "inputFiles": [
@@ -172,13 +172,13 @@
   //    "www/source/js/pages/verification-account.js"
   //  ]
   //},
-  //{
-  //  "outputFileName": "www/build/js/pages/login.js",
-  //  "inputFiles": [
-  //    "www/source/js/components/authhelper.js",
-  //    "www/source/js/pages/login.js"
-  //  ]
-  //},
+  {
+    "outputFileName": "www/build/js/pages/login.js",
+    "inputFiles": [
+      "www/source/js/components/authhelper.js",
+      "www/source/js/pages/login.js"
+    ]
+  },
   //{
   //  "outputFileName": "www/build/js/pages/changepassword.js",
   //  "inputFiles": [
@@ -189,7 +189,7 @@
   {
     "outputFileName": "www/build/js/pages/commission-report.js",
     "inputFiles": [ "www/source/js/pages/commission-report.js" ]
-  }
+  },
   //{
   //  "outputFileName": "www/build/styles/css/bootstrap-3.3.7.min.css",
   //  "inputFiles": [ "www/source/styles/scss/vendors/bootstrap-3.3.7.min.css" ]
@@ -211,5 +211,11 @@
   //  "inputFiles": [
   //    "www/source/js/pages/PlayerTransferBalance/player-transfer-balance.js"
   //  ]
-  //}
+  //},
+  {
+    "outputFileName": "www/build/js/telegram-update-dialog.js",
+    "inputFiles": [
+      "www/source/js/pages/telegram-update-dialog.js"
+    ]
+  }
 ]
