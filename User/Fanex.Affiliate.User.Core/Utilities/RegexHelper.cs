@@ -38,5 +38,16 @@
 
             return regex;
         }
+
+        public static string AddPlaceHolders(string name)
+        {
+            var placeholder = string.Empty;
+            if (name == "Telegram")
+            {
+                placeholder = "@xxxxxxxx";
+            }
+
+            return placeholder;
+        }
     }
 }

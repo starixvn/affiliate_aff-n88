@@ -154,7 +154,7 @@
         @if (hasTwoContactApp)
         {
             <div class="col-sm-4">
-                <input placeholder="@("@xxxxxxxx")" type="text" name="ContactAppList[0].Value" id="ContactAppList[0].Value" class="form-control" value=""
+                <input placeholder="@RegexHelper.AddPlaceHolders(firstAppName)" type="text" name="ContactAppList[0].Value" id="ContactAppList[0].Value" class="form-control" value=""
                        data-val="true" data-val-requiredifnullorempty-dependentprop="ContactAppList[1].Value"
                        data-val-requiredifnullorempty="@Error.RequireIMAccount"
                        data-val-regex="@Error.AccountInvalidFormat.Replace("{0}", firstAppName)" 

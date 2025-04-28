@@ -131,10 +131,6 @@ var WebSite = (function ($) {
 var MyAccount = (function ($) {
     var _isClickSubmit = false;
 
-    function setPlaceholder($input, prefix) {
-        $input.attr('placeholder', `${prefix}xxxxxxxx`);
-    }
-
     function focusTelegramInput() {
         const isFocus = sessionStorage.getItem('focusTelegram');
 
@@ -152,8 +148,6 @@ var MyAccount = (function ($) {
 
         },
         initEvent: function () {
-            setPlaceholder($('.Telegram').first(), '@');
-
             $("#btnAddUrl").on("click", function () {
                 _me.addUrl();
             });
