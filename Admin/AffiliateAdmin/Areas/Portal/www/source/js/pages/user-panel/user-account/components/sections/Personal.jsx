@@ -17,13 +17,6 @@ export class Personal extends PureComponent {
         this.arrayContactApps = userAccountInfo && this.handleContactApps(userAccountInfo.ContactAppList);
     }
 
-    componentDidMount() {
-        const input = document.querySelector('input[name="Telegram"]');
-        if (input) {
-            input.setAttribute('placeholder', '@xxxxxxxx');
-        }
-    }
-
     handleContactApps = (contactApps) => {
         if (!Array.isArray(contactApps)) {
             return [this.TELEGRAM_APP];
@@ -89,10 +82,41 @@ export class Personal extends PureComponent {
         )
     }
 
-    render() {
-        const { userAccountInfo } = this.props;
+    _renderContactAppInput(name, value, isRequired, placeholder = '') {
+        return (
+            <FormGroup row key={name}>
+                <Label for={name} sm={3} xl={2} className={isRequired ? "required" : ""}>{name}</Label>
+                <Col sm={9} xl={10}>
+                    <Input
+                        type="text"
+                        id={name}
+                        name={name}
+                        value={value || ''}
+                        onChange={this.handleChangeContactApps}
+                        placeholder={placeholder}
+                    />
+                </Col>
+            </FormGroup>
+        );
+    }
+
+    _renderContactApps() {
         const contactApps = this.arrayContactApps.filter(item => item.Name !== 'Skype');
         const contactLength = contactApps.length;
+
+        return contactApps.map(contactApp => {
+            const placeholder = contactApp.Name === 'Telegram' ? '@xxxxxxxx' : '';
+            return this._renderContactAppInput(
+                contactApp.Name,
+                contactApp.Value,
+                contactLength === 1,
+                placeholder
+            );
+        });
+    }
+
+    render() {
+        const { userAccountInfo } = this.props;
 
         return userAccountInfo && (
             <Form tag="div">
@@ -102,11 +126,7 @@ export class Personal extends PureComponent {
                 {this._renderGenderForm(userAccountInfo.Gender)}
                 {renderInputForm('email', 'Email Address', userAccountInfo.Email, false, true, this.handleChange)}
                 {renderInputForm('phone', 'Contact Number', userAccountInfo.Phone, false, true, this.handleChange)}
-                {contactApps && contactApps.map(contactApp => {
-                    return (
-                        renderInputForm(contactApp.Name, contactApp.Name, contactApp.Value, false, contactLength === 1, this.handleChangeContactApps)
-                    )
-                })}
+                {this._renderContactApps()}
             </Form>
         )
     }
