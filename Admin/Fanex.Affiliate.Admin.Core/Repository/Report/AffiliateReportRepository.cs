@@ -41,6 +41,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
                 objectDb.SetParameterValue("IsExcludeNegvBBF", param.IsExcludeNegvBBF);
                 objectDb.SetParameterValue("IsExcludeNegvCurrentBBF", param.IsExcludeNegvCurrentBBF);
                 objectDb.SetParameterValue("IsGetMonthly", param.IsGetMonthly);
+                objectDb.SetParameterValue("IsByApprovalMonth", param.IsByApprovalMonth);
 
                 using (var reader = objectDb.ExecuteReader())
                 {
