@@ -136,6 +136,7 @@
     {
         ["en-US"] = "Facebook",
         ["ms-MY"] = "Facebook",
+        ["bn-BD"] = "WhatsApp",
         ["zh-CN"] = "QQ",
         ["zh-TW"] = "QQ",
         ["vi-VN"] = "Zalo",
@@ -146,8 +147,7 @@
         ["ja-JP"] = "Facebook"
     };
 
-    var secondAppContactName = secondAppContactList[language];
-    var hasTwoContactApp = secondAppContactList.ContainsKey(language) && secondAppContactName != firstAppName;
+    var hasTwoContactApp = secondAppContactList.ContainsKey(language) && secondAppContactList[language] != firstAppName;
 
     <div class="form-group">
         <label class="col-sm-3 control-label @(hasTwoContactApp ? string.Empty : "require")">@firstAppName</label>
@@ -180,6 +180,8 @@
 
     if (hasTwoContactApp)
     {
+        var secondAppContactName = secondAppContactList[language];
+
         <div class="form-group">
             <label class="col-sm-3 control-label">@secondAppContactName</label>
             <div class="col-sm-4">
