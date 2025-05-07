@@ -16,13 +16,18 @@ export default class Excel {
         }
     }
 
-    static
-        export(worksheet, fileName, sheetName = 'Sheet 1') {
+    static export(worksheet, fileName, sheetName = 'Sheet 1') {
         const option = { bookType: EXCEL_TYPE, bookSST: false, type: 'binary' };
         const workbook = { SheetNames: [sheetName], Sheets: {}, Props: {} };
         workbook.Sheets[sheetName] = worksheet;
 
         var workbookOutput = _XLSX.write(workbook, option);
+        this.download(workbookOutput, fileName);
+    }
+
+    static exportWithWorkbook(workbook, fileName) {
+        const option = { bookType: EXCEL_TYPE, bookSST: false, type: 'binary' };
+        const workbookOutput = _XLSX.write(workbook, option);
         this.download(workbookOutput, fileName);
     }
 

@@ -326,6 +326,9 @@
     <Compile Include="DTO\Member\MemberInfo.cs" />
     <Compile Include="DTO\Member\PlayerActionInfo.cs" />
     <Compile Include="DTO\Customer\PaymentMethod.cs" />
+    <Compile Include="DTO\Report\AffiliateReportBase.cs" />
+    <Compile Include="DTO\Report\AffiliateReportDaily.cs" />
+    <Compile Include="DTO\Report\AffiliateReportResult.cs" />
     <Compile Include="DTO\Report\MarketingStatistics.cs" />
     <Compile Include="DTO\Report\PlayerGgrProductInfo.cs" />
     <Compile Include="DTO\Report\PlayerGgrReport.cs" />

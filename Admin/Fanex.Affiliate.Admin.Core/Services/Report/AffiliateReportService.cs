@@ -1,11 +1,11 @@
-﻿using System;
-using Fanex.Affiliate.Admin.Core.DTO;
-using Fanex.Affiliate.Admin.Core.DTO.Report;
-using Fanex.Affiliate.Admin.Core.MetaModels.Report;
-using Fanex.Affiliate.Admin.Core.Repository.Report;
-
-namespace Fanex.Affiliate.Admin.Core.Services.Report
+﻿namespace Fanex.Affiliate.Admin.Core.Services.Report
 {
+    using System;
+    using DTO;
+    using Fanex.Affiliate.Admin.Core.DTO.Report;
+    using Fanex.Affiliate.Admin.Core.MetaModels.Report;
+    using Fanex.Affiliate.Admin.Core.Repository.Report;
+
     public class AffiliateReportService : IAffiliateReportService
     {
         private readonly IAffiliateReportRepository _affiliateReportRepository;
@@ -15,14 +15,15 @@ namespace Fanex.Affiliate.Admin.Core.Services.Report
             _affiliateReportRepository = affiliateReportRepository;
         }
 
-        public EntityResult<AffiliateReport> GetMainReportData(AffiliateReportParam param)
+        public AffiliateReportResult GetMainReportData(AffiliateReportParam param)
         {
             if (!IsValidParam(param))
             {
-                return new EntityResult<AffiliateReport>();
+                return new AffiliateReportResult();
             }
 
-            return _affiliateReportRepository.GetMainReportData(param);
+            var data = _affiliateReportRepository.GetMainReportData(param);
+            return data;
         }
 
         public EntityResult<AffiliateReport> GetDetailReportData(AffiliateReportParam param)

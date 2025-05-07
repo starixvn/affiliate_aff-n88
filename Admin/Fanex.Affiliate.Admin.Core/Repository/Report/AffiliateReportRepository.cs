@@ -26,10 +26,11 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
             }
         }
 
-        public EntityResult<AffiliateReport> GetMainReportData(AffiliateReportParam param)
+        public AffiliateReportResult GetMainReportData(AffiliateReportParam param)
         {
             const string SpKey = "Aff_Admin_AffiliateReport_Sel";
-            var result = new EntityResult<AffiliateReport>();
+            var result = new AffiliateReportResult();
+            var dailyList = new List<AffiliateReportDaily>();
             var dataList = new List<AffiliateReport>();
 
             using (var objectDb = GetObjectDb(SpKey))
@@ -45,6 +46,17 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
 
                 using (var reader = objectDb.ExecuteReader())
                 {
+                    if (param.IsExportExcel)
+                    {
+                        while (reader.Read())
+                        {
+                            var item = BuildDailyItem(reader);
+                            dailyList.Add(item);
+                        }
+
+                        reader.NextResult();
+                    }
+
                     while (reader.Read())
                     {
                         var item = BuildDataItem(reader);
@@ -64,6 +76,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
                     }
                 }
 
+                result.Details = dailyList;
                 result.MainData = dataList;
                 result.TotalItem = GetTotalRows(objectDb);
             }
@@ -125,35 +138,56 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
             objectDb.SetParameterValue("NRows", DefaultValue.Int);
         }
 
+        private static void MapBaseFields(IDataReader reader, AffiliateReportBase report)
+        {
+            report.TotalClick = reader.ToInt("TotalClick");
+            report.UniqueClick = reader.ToInt("UniqueClick");
+            report.Signup = reader.ToInt("Signup");
+            report.Fdm = reader.ToInt("FDM");
+            report.ActiveMember = reader.ToInt("ActivePlayer");
+            report.NoOfSubAff = reader.ToInt("NoOfSubAff");
+            report.Deposit = reader.ToDecimal("Deposit");
+        }
+
         private static AffiliateReport BuildDataItem(IDataReader reader)
         {
-            return new AffiliateReport
-            {
-                TotalClick = reader.ToInt("TotalClick"),
-                UniqueClick = reader.ToInt("UniqueClick"),
-                Signup = reader.ToInt("Signup"),
-                Fdm = reader.ToInt("FDM"),
-                ActiveMember = reader.ToInt("ActivePlayer"),
-                Deposit = reader.ToDecimal("Deposit"),
-                Withdrawal = reader.ToDecimal("Withdrawal"),
-                Turnover = reader.ToDecimal("Turnover"),
-                Ggr = reader.ToDecimal("Ggr"),
-                Bonus = reader.ToDecimal("Bonus"),
-                Rebate = reader.ToDecimal("Rebate"),
-                PlatformFee = reader.ToDecimal("PlatformFee"),
-                DepositFee = reader.ToDecimal("DepositFee"),
-                WithdrawalFee = reader.ToDecimal("WithdrawalFee"),
-                TotalFee = reader.ToDecimal("TotalFee"),
-                CommissionRate = PercentageUnit * reader.ToDecimal("CommissionRate"),
-                Earning = reader.ToDecimal("Earning"),
-                AffWithdrawal = reader.ToDecimal("AffWithdrawal"),
-                AffAdjustment = reader.ToDecimal("AffAdjustment"),
-                BalanceBf = reader.ToDecimal("BFF"),
-                NoOfSubAff = reader.ToInt("NoOfSubAff"),
-                SubAffEarning = reader.ToDecimal("SubAffEarning"),
-                P2pEarning = reader.ToDecimal("P2PEarning"),
-                TotalDeposit = reader.ToInt("TotalDeposit")
-            };
+            var report = new AffiliateReport();
+            MapBaseFields(reader, report);
+
+            report.Withdrawal = reader.ToDecimal("Withdrawal");
+            report.Turnover = reader.ToDecimal("Turnover");
+            report.Ggr = reader.ToDecimal("Ggr");
+            report.Bonus = reader.ToDecimal("Bonus");
+            report.Rebate = reader.ToDecimal("Rebate");
+            report.PlatformFee = reader.ToDecimal("PlatformFee");
+            report.DepositFee = reader.ToDecimal("DepositFee");
+            report.WithdrawalFee = reader.ToDecimal("WithdrawalFee");
+            report.TotalFee = reader.ToDecimal("TotalFee");
+            report.CommissionRate = PercentageUnit * reader.ToDecimal("CommissionRate");
+            report.Earning = reader.ToDecimal("Earning");
+            report.AffWithdrawal = reader.ToDecimal("AffWithdrawal");
+            report.AffAdjustment = reader.ToDecimal("AffAdjustment");
+            report.BalanceBf = reader.ToDecimal("BFF");
+            report.SubAffEarning = reader.ToDecimal("SubAffEarning");
+            report.P2pEarning = reader.ToDecimal("P2PEarning");
+            report.TotalDeposit = reader.ToLong("TotalDeposit");
+
+            return report;
         }
+
+        private static AffiliateReportDaily BuildDailyItem(IDataReader reader)
+        {
+            var report = new AffiliateReportDaily();
+            MapBaseFields(reader, report);
+
+            report.WinLostDate = reader.ToDateTime("WinLostDate");
+            report.AffId = reader.ToInt("AffId");
+            report.UserName = reader.ToString("Username");
+            report.PaymentCurrency = reader.ToString("PaymentCurrency");
+            report.DepositAmount = reader.ToDecimal("DepositAmount");
+
+            return report;
+        }
+
     }
 }

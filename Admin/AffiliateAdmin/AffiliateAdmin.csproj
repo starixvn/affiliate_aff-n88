@@ -255,6 +255,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Portal\www\source\js\pages\report\affiliate-report\libs\dailyReportExcel.js" />
     <Content Include="Areas\Portal\www\source\js\pages\report\affiliate-report\libs\headerConfigs.js" />
     <Content Include="Areas\Portal\www\source\js\pages\report\marketing-statistics-report\actions\index.js" />
     <Content Include="Areas\Portal\www\source\js\pages\report\marketing-statistics-report\actions\types.js" />

@@ -4,6 +4,7 @@ import { totalText, resource, reportKey as fields } from './constants';
 import { formatDecimal } from '../../../../modules/numberFormat';
 import { formatDateTime } from '../../../../modules/utils';
 import { AggregateHeaderColumn } from './headerConfigs';
+import DailyReportExcel from './dailyReportExcel';
 
 const TITLE_ROW_INDEX = 0;
 const HEADER_ROW_INDEX = 1;
@@ -191,7 +192,23 @@ export default class ReportExcel {
             this._createExcelConfig();
 
             const fileName = resource.reportName + (this.isMainView ? '' : resource.space + resource.reportDetailName) + resource.space + formatDateTime(new Date(), 'MM.dd.yyyy hh.mm.ss');
-            Excel.export(this.worksheet, fileName);
+
+            if (this.isMainView) {
+                const dailyReport = new DailyReportExcel(this.data.Details, this.title);
+                const dailyWorksheet = dailyReport.createWorksheet();
+
+                const workbook = {
+                    SheetNames: ['Affiliate Report', 'Details'],
+                    Sheets: {
+                        'Affiliate Report': this.worksheet,
+                        'Details': dailyWorksheet
+                    }
+                };
+
+                Excel.exportWithWorkbook(workbook, fileName);
+            } else {
+                Excel.export(this.worksheet, fileName);
+            }
         })
     }
 
@@ -296,7 +313,6 @@ export default class ReportExcel {
 
     _createBodyData() {
         const mainData = this.data.MainData;
-        console.log(mainData);
 
         for (let item of mainData) {
             item.CommissionRate = formatDecimal(item.CommissionRate) + '%';

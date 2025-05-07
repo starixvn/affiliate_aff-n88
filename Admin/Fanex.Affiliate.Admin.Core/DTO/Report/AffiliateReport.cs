@@ -3,32 +3,14 @@ using System;
 
 namespace Fanex.Affiliate.Admin.Core.DTO.Report
 {
-    public class AffiliateReport
+    public class AffiliateReport : AffiliateReportBase
     {
-        public int AffId { get; set; }
-
-        public string UserName { get; set; }
-
-        public string PaymentCurrency { get; set; }
-
         [JsonIgnore]
         public DateTime? MonthDate { get; set; }
 
         public string Description { get; set; }
 
         public string MonthDateString => MonthDate?.ToString("MM/yyyy") ?? string.Empty;
-
-        public int TotalClick { get; set; }
-
-        public int UniqueClick { get; set; }
-
-        public int Signup { get; set; }
-
-        public int Fdm { get; set; }
-
-        public int ActiveMember { get; set; }
-
-        public decimal Deposit { get; set; }
 
         public decimal Withdrawal { get; set; }
 
@@ -62,8 +44,6 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Report
 
         public decimal CurrentBBF { get; set; }
 
-        public int NoOfSubAff { get; set; }
-
         public decimal SubAffEarning { get; set; }
 
         public decimal P2pEarning { get; set; }
@@ -72,6 +52,6 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Report
 
         public bool IsMultiGroupProduct { get; set; }
 
-        public int TotalDeposit { get; set; }
+        public long TotalDeposit { get; set; }
     }
 }
