@@ -6,6 +6,7 @@ import { isShowLoader } from '../../../../reducers/loaderReducer';
 import * as types from '../actions/types';
 
 const today = createReducer(null, {})
+const latestBillingDate = createReducer(null, {})
 const affName = createReducer(null, {})
 
 export const param = createReducer(null, {
@@ -40,6 +41,7 @@ export const gridData = createReducer(null, {
 
 export default combineReducers({
     today,
+    latestBillingDate,
     param,
     affName,
     selectedMemberId,

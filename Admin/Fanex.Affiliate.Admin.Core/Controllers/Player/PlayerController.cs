@@ -34,7 +34,8 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Player
             var model = new MemberListViewModel
             {
                 SubMenuList = subMenu,
-                AffName = affName
+                AffName = affName,
+                LatestBillingDate = _memberService.GetLatestBillingDate()
             };
 
             return View(model);

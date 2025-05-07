@@ -70,6 +70,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
             objectDb.SetParameterValue("SortById", param.SortById);
             objectDb.SetParameterValue("BaseCurrency", param.BaseCurrencyId);
             objectDb.SetParameterValue("Currencies", param.CurrencyIds);
+            objectDb.SetParameterValue("IsIncludeRemovedPlayer", param.IsIncludeRemovedPlayer);
 
             objectDb.SetParameterValue("NRows", DefaultValue.Int);
         }
