@@ -1,5 +1,6 @@
 ﻿using Fanex.Affiliate.Admin.Core.DTO.Common;
 using System.Collections.Generic;
+using System.Security.Claims;
 using System.Web;
 
 namespace Fanex.Affiliate.Admin.Core.Services.Common
@@ -7,6 +8,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Common
     public class SessionService : ISessionService
     {
         private const string UserPermissionSessionKey = "__UserPermissionSessionKey";
+        public const string ClaimSessionKey = "_ClaimIdentitiesSessionKey";
 
         private const string UserIdKey = "__CustID";
         private const string OnUserIDKey = "__OnUserIDKey";
@@ -65,5 +67,13 @@ namespace Fanex.Affiliate.Admin.Core.Services.Common
                 HttpContext.Current.Session[UserPermissionSessionKey] = value;
             }
         }
+
+        public IEnumerable<ClaimsIdentity> ClaimIdentities
+        {
+            get => HttpContext.Current.Session[ClaimSessionKey] as IEnumerable<ClaimsIdentity>;
+            set => HttpContext.Current.Session[ClaimSessionKey] = value;
+        }
+
+        public ClaimsPrincipal UserClaim => HttpContext.Current.User as ClaimsPrincipal;
     }
 }

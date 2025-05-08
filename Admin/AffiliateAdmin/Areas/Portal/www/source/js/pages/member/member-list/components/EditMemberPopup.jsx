@@ -14,7 +14,7 @@ const initialState = {
     lastActionDate: '',
     fromDate: '',
     removedFromDate: '',
-    isModifiable: false,
+    isCanUpdate: false,
     isClickedSubmit: false,
     isShowMessage: false,
     isSuccess: true,
@@ -31,7 +31,7 @@ export class EditMemberPopup extends PureComponent {
 
         const latestBillingDate = new Date(props.latestBillingDate);
         this.latestBillingDate = latestBillingDate;
-        
+
         const minDate = new Date(latestBillingDate.getFullYear(), latestBillingDate.getMonth(), latestBillingDate.getDate() + 1);
         this.minDateString = `${minDate.getMonth() + 1}/${minDate.getDate()}/${minDate.getFullYear()}`;
 
@@ -55,20 +55,20 @@ export class EditMemberPopup extends PureComponent {
         if (!!memberInfo) {
             let fromDate = this.minDateString;
             let removedFromDateString = '';
-            let isModifiable = false;
+            let isCanUpdate = false;
 
             if (memberInfo.IsRemoved && memberInfo.FromDate) {
                 const removedFromDate = new Date(memberInfo.FromDate);
                 removedFromDateString = `${removedFromDate.getMonth() + 1}/${removedFromDate.getDate()}/${removedFromDate.getFullYear()}`;
                 fromDate = removedFromDateString;
-                isModifiable = removedFromDate > this.latestBillingDate;
+                isCanUpdate = removedFromDate > this.latestBillingDate;
             }
 
             this.setState(prevState => Object.assign({}, prevState, {
                 memberName: memberInfo.UserName,
                 affUserName: memberInfo.AffUserName,
                 lastActionDate: memberInfo.LastAction,
-                isModifiable: isModifiable || fromDate !== removedFromDateString,
+                isCanUpdate: isCanUpdate || fromDate !== removedFromDateString,
                 fromDate,
                 removedFromDate: removedFromDateString
             }))
@@ -84,12 +84,21 @@ export class EditMemberPopup extends PureComponent {
     }
 
     handleChangeFromDate = (momentDate) => {
-        console.log(momentDate);
         this.setState({ fromDate: momentDate.format("MM/DD/YYYY") });
     }
 
     handleSubmit = async () => {
-        const { selectedMemberId } = this.props;
+        const { selectedMemberId, isModifiable } = this.props;
+        if (!isModifiable) {
+            this.setState({
+                isSuccess: false,
+                isShowMessage: true,
+                message: "You do not have permission to perform this action."
+            }, () => window.setTimeout(this.hideMessage, 3000));
+
+            return;
+        }
+
         const { fromDate } = this.state;
 
         const result = await this.props.updateMember({ memberId: selectedMemberId, fromDate });
@@ -128,7 +137,7 @@ export class EditMemberPopup extends PureComponent {
 
     render() {
         const { selectedMemberId } = this.props;
-        const { memberName, affUserName, isShowMessage, isSuccess, message, fromDate, isModifiable, removedFromDate } = this.state;
+        const { memberName, affUserName, isShowMessage, isSuccess, message, fromDate, isCanUpdate, removedFromDate } = this.state;
 
         const isShowPopup = !!selectedMemberId;
         const noteMessage = this.getNoteMesssage();
@@ -152,7 +161,7 @@ export class EditMemberPopup extends PureComponent {
                                     <Label htmlFor="fromDate" sm={3} className="required">From Date:</Label>
                                     <Col sm={5}>
                                         <DatePicker
-                                            isEnable={isModifiable}
+                                            isEnable={isCanUpdate}
                                             minDate={this.minDateString}
                                             maxDate={this.nextMonthString}
                                             date={fromDate}
@@ -177,8 +186,8 @@ export class EditMemberPopup extends PureComponent {
     }
 }
 
-function mapStateToProps({ selectedMemberId, today, param, latestBillingDate }) {
-    return { selectedMemberId, today, param, latestBillingDate };
+function mapStateToProps({ selectedMemberId, today, param, latestBillingDate, isModifiable }) {
+    return { selectedMemberId, today, param, latestBillingDate, isModifiable };
 }
 
 function mapDispatchToProps(dispatch) {

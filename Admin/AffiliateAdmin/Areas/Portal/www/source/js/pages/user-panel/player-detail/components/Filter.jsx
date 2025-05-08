@@ -41,7 +41,7 @@ export class Filter extends PureComponent {
         })
     }
 
-    handleCheckIncludeRemovedPlayers = (isIncludeRemovedPlayer) => {
+    handleCheckIncludeRemovedPlayer = (isIncludeRemovedPlayer) => {
         this.setState({
             isIncludeRemovedPlayer
         })
@@ -181,7 +181,7 @@ export class Filter extends PureComponent {
                     <FormGroup className="mr-sm-3">
                         <Label checked>
                             Include removed Players
-                            <Input className="ml-2 mt-1" type="checkbox" id="isIncludeRemovedPlayer" name="isIncludeRemovedPlayer" checked={isIncludeRemovedPlayer} onChange={(e) => this.handleCheckIncludeRemovedPlayers(!isIncludeRemovedPlayer)} />
+                            <Input className="ml-2 mt-1" type="checkbox" id="isIncludeRemovedPlayer" name="isIncludeRemovedPlayer" checked={isIncludeRemovedPlayer} onChange={(e) => this.handleCheckIncludeRemovedPlayer(!isIncludeRemovedPlayer)} />
                         </Label>
                     </FormGroup>
                     <Button outline color="primary" type="button" onClick={() => this.handleSearch(monthDate)}>

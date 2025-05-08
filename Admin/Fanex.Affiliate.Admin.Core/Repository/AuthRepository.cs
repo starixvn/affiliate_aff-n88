@@ -1,6 +1,7 @@
 ﻿using DNAide.Utils;
 using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
+using Fanex.Affiliate.Admin.Core.DTO.Administrator;
 using Fanex.Affiliate.Admin.Core.DTO.Common;
 using Fanex.Affiliate.Admin.Core.MetaModels;
 using Fanex.Affiliate.Admin.Core.MetaModels.Login;
@@ -124,6 +125,31 @@ namespace Fanex.Affiliate.Admin.Core.Repository
                     Message = param.ErrMsg
                 };
             }
+        }
+
+        public AdministratorInfo GetUserInfo(int userId)
+        {
+            const string SpKey = "Aff_Con_AdminSelByCustID";
+
+            using (var objectDb = GetObjectDb(SpKey))
+            {
+                objectDb.SetParameterValue(Field.CustId, userId);
+
+                using (var reader = objectDb.ExecuteReader())
+                {
+                    if (!reader.Read())
+                    {
+                        return new AdministratorInfo
+                        {
+                            UserId = reader.ToInt(Field.CustId),
+                            UserName = reader.ToString(Field.UserName),
+                            GroupId = reader.ToInt(Field.GroupId)
+                        };
+                    }
+                }
+            }
+
+            return new AdministratorInfo();
         }
     }
 }

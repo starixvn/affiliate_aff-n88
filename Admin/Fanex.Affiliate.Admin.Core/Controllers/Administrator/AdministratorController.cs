@@ -6,24 +6,34 @@ using Fanex.Affiliate.Admin.Core.MetaModels;
 using Fanex.Affiliate.Admin.Core.MetaModels.Administrator;
 using Fanex.Affiliate.Admin.Core.Resources;
 using Fanex.Affiliate.Admin.Core.Services.Administrator;
+using Fanex.Affiliate.Admin.Core.Services.Auth;
 using Fanex.Affiliate.Admin.Core.Services.Common;
 using Fanex.Affiliate.Admin.Core.Utilities;
+using ONEbook.UM.AspNetMVC.Filters;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Web.Mvc;
 
 namespace Fanex.Affiliate.Admin.Core.Controllers.Administrator
 {
+    [CustomAuthorize]
+    [CheckUMFilter]
     [FunctionAuthorize(FunctionName = Function.UserControl)]
-    public class AdministratorController : BaseController
+    public class AdministratorController : Controller
     {
         private const string BreakLine = "<br />";
+        private readonly IAuthService _authService;
+        private readonly ISessionService _sessionService;
         private readonly IAdministratorService _administratorService;
 
         public AdministratorController(
             ISessionService sessionService,
-            IAdministratorService administratorService) : base(sessionService)
+            IAdministratorService administratorService,
+            IAuthService authService)
         {
+            _authService = authService;
+            _sessionService = sessionService;
             _administratorService = administratorService;
         }
 
@@ -214,9 +224,16 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Administrator
                 };
                 GetUserInfoParam(encodeParam);
 
+                var result = _administratorService.UpdateAccountPolicy(encodeParam);
+
+                if (result.IsSuccessful)
+                {
+                    HandleChangePermissions(encodeParam.UserId);
+                }
+
                 return new JsonNetResult
                 {
-                    Data = _administratorService.UpdateAccountPolicy(encodeParam)
+                    Data = result
                 };
             }
 
@@ -254,6 +271,20 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Administrator
                     Message = string.Join(BreakLine, ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage))
                 }
             };
+        }
+
+        private void HandleChangePermissions(int userId)
+        {
+            var permissionList = _authService.GetPermissionList(userId);
+
+            _sessionService.UserPermissionList = permissionList;
+            _sessionService.ClaimIdentities = new List<ClaimsIdentity> { new ClaimsIdentity(_authService.GetClaims(userId, permissionList)) };
+        }
+
+        private void GetUserInfoParam(UserInfoParam param)
+        {
+            param.UserId = _sessionService.UserId;
+            param.Ip = Request.GetClientIP();
         }
     }
 }

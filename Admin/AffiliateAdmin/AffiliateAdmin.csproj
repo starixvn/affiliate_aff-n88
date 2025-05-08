@@ -256,6 +256,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Portal\www\source\js\pages\report\affiliate-report\libs\dailyReportExcel.js" />
+    <Content Include="Areas\Portal\www\source\js\modules\claim.js" />
     <Content Include="Areas\Portal\www\source\js\pages\report\affiliate-report\libs\headerConfigs.js" />
     <Content Include="Areas\Portal\www\source\js\pages\report\affiliate-report\libs\headerFake.js" />
     <Content Include="Areas\Portal\www\source\js\pages\report\marketing-statistics-report\actions\index.js" />
@@ -268,6 +269,7 @@
     <Content Include="Areas\Portal\www\source\js\pages\report\marketing-statistics-report\index.jsx" />
     <Content Include="Areas\Portal\www\source\js\pages\report\marketing-statistics-report\libs\constants.js" />
     <Content Include="Areas\Portal\www\source\js\pages\report\marketing-statistics-report\reducers\index.js" />
+    <Content Include="Areas\Portal\www\source\js\reducers\claimReducer.js" />
     <Content Include="HealthCheck.aspx" />
     <Content Include="App_Data\SpConfig\SpName.n88admin-n88.local.xml">
       <DependentUpon>_SpName.tt</DependentUpon>
@@ -340,7 +342,6 @@
     <Content Include="Areas\Portal\www\source\js\components\select\components\__tests__\SelectOptionList.test.js" />
     <Content Include="Areas\Portal\www\source\js\components\select\components\__tests__\Option.test.js" />
     <Content Include="Areas\Portal\www\source\js\components\select\index.jsx" />
-    <Content Include="Areas\Portal\www\source\js\modules\permissions.js" />
     <Content Include="Areas\Portal\www\source\js\modules\__test__\utils.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\administrator\administrator\components\__test__\redux\AppContainer.redux.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\administrator\department\components\__test__\redux\Content.redux.test.js" />
