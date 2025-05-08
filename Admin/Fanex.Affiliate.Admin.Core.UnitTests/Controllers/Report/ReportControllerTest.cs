@@ -47,7 +47,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Report
             var param = new AffiliateReportParam();
             AffiliateReportParam passedParam = null;
             var affiliateReportService = new Mock<IAffiliateReportService>();
-            affiliateReportService.Setup(s => s.GetMainReportData(param)).Returns(new EntityResult<AffiliateReport> { MainData = new List<AffiliateReport> { new AffiliateReport() }, TotalItem = 1 }).Callback<AffiliateReportParam>(p => passedParam = p);
+            affiliateReportService.Setup(s => s.GetMainReportData(param)).Returns(new AffiliateReportResult() { MainData = new List<AffiliateReport> { new AffiliateReport() }, TotalItem = 1 }).Callback<AffiliateReportParam>(p => passedParam = p);
             var controller = CreateReportController(affiliateReportService: affiliateReportService.Object);
 
             // Action
