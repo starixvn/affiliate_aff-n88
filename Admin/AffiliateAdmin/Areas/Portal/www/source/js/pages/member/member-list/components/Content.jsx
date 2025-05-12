@@ -1,7 +1,7 @@
 ﻿import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Button, Input } from 'reactstrap';
+import { Button } from 'reactstrap';
 import { Table, Row, Cell } from '@9softstudio/react-fixed-table-header';
 
 import { formatDateTime } from '../../../../modules/utils';
@@ -94,7 +94,7 @@ export class Content extends PureComponent {
                 <Cell className="text-center" title={firstName}>{firstName}</Cell>
                 <Cell className="text-center" title={lastName}>{lastName}</Cell>
                 <Cell className="text-center" title={createdDate}>{createdDate}</Cell>
-                <Cell className="text-center" title={dataItem.AffName}>{dataItem.AffName}</Cell>
+                <Cell className="text-center" title={dataItem.AffUserName}>{dataItem.AffUserName}</Cell>
                 <Cell className="text-center">
                     <input className="mt-1" type="checkbox" checked={dataItem.IsRemoved} disabled />
                 </Cell>

@@ -43,7 +43,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Member
                             CreatedDate = reader.GetVal<DateTime?>("RegisteredDate"),
                             LastActionDate = reader.GetVal<DateTime?>("LastAction"),
                             IsRemoved = reader.GetVal<bool>("IsRemoved"),
-                            AffName = reader.ToString("AffUserName")
+                            AffUserName = reader.ToString("AffUserName")
                         });
                     }
                 }
@@ -70,6 +70,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Member
                         return new PlayerActionInfo
                         {
                             UserName = reader.ToString("UserName"),
+                            AffUserName = reader.ToString("AffUserName"),
                             IsRemoved = reader.GetVal<bool>("IsRemoved"),
                             FromDate = reader.GetVal<DateTime?>("FromDate"),
                             LastActionDate = reader.GetVal<DateTime?>("LastAction"),
