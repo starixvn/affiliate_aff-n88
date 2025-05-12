@@ -42,23 +42,23 @@ exports[`tracking statistics - components - Content render correctly 1`] = `
           </t>
           <t
             asc={true}
-            className="text-center"
+            className="text-right"
             header={false}
             onClick={[Function]}
             sortable={false}
             sorting={false}
-            title={0}
+            title="0"
           >
             0
           </t>
           <t
             asc={true}
-            className="text-center"
+            className="text-right"
             header={false}
             onClick={[Function]}
             sortable={false}
             sorting={false}
-            title={0}
+            title="0"
           >
             0
           </t>
@@ -95,23 +95,23 @@ exports[`tracking statistics - components - Content render correctly 1`] = `
           </t>
           <t
             asc={true}
-            className="text-center"
+            className="text-right"
             header={false}
             onClick={[Function]}
             sortable={false}
             sorting={false}
-            title={487}
+            title="487"
           >
             487
           </t>
           <t
             asc={true}
-            className="text-center"
+            className="text-right"
             header={false}
             onClick={[Function]}
             sortable={false}
             sorting={false}
-            title={342}
+            title="342"
           >
             342
           </t>
@@ -148,23 +148,23 @@ exports[`tracking statistics - components - Content render correctly 1`] = `
           </t>
           <t
             asc={true}
-            className="text-center"
+            className="text-right"
             header={false}
             onClick={[Function]}
             sortable={false}
             sorting={false}
-            title={414}
+            title="414"
           >
             414
           </t>
           <t
             asc={true}
-            className="text-center"
+            className="text-right"
             header={false}
             onClick={[Function]}
             sortable={false}
             sorting={false}
-            title={291}
+            title="291"
           >
             291
           </t>

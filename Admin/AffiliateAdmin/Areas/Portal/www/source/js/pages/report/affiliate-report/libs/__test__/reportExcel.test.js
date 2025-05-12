@@ -1,5 +1,6 @@
 ﻿import ReportExcel from '../reportExcel';
 import Excel from '../../../../../modules/excel';
+import { headerFake } from '../headerFake';
 
 describe('affiliate report - Report Excel ', () => {
     const TITLE_ROW_INDEX = 0;
@@ -70,7 +71,7 @@ describe('affiliate report - Report Excel ', () => {
     const data = { MainData: [itemHaveDescription, itemHaveNotDescription], Total: 2 };
     const title = 'Report Excel';
     it('contrustor - should call _getcolumnConfigs with Main view', () => {
-        const instance = new ReportExcel(data, title, isMainView);
+        const instance = new ReportExcel(data, title, isMainView, headerFake);
         instance._getcolumnConfigs = jest.fn();
 
         instance.constructor(data, title, isMainView);
@@ -79,7 +80,7 @@ describe('affiliate report - Report Excel ', () => {
     });
 
     it('contrustor - should call _getcolumnConfigs with Month on Month view', () => {
-        const instance = new ReportExcel(data, title, !isMainView);
+        const instance = new ReportExcel(data, title, !isMainView, headerFake);
         instance._getcolumnConfigs = jest.fn();
 
         instance.constructor(data, title, !isMainView);
@@ -88,7 +89,7 @@ describe('affiliate report - Report Excel ', () => {
     });
 
     it('export - should call Excel.process', () => {
-        const instance = new ReportExcel(data, title, !isMainView);
+        const instance = new ReportExcel(data, title, !isMainView, headerFake);
         instance._createTitle = jest.fn();
         instance._createHeader = jest.fn();
         instance._createBodyData = jest.fn();
@@ -111,7 +112,7 @@ describe('affiliate report - Report Excel ', () => {
     });
 
     it('_createTitle - should call Excel.getCellAddress', () => {
-        const instance = new ReportExcel(data, title, !isMainView);
+        const instance = new ReportExcel(data, title, !isMainView, headerFake);
         Excel.getCellAddress = jest.fn();
 
         instance._createTitle();
@@ -120,7 +121,7 @@ describe('affiliate report - Report Excel ', () => {
     });
 
     it('_createHeader - should call _buildColspanColumn with Main view', () => {
-        const instance = new ReportExcel(data, title, isMainView);
+        const instance = new ReportExcel(data, title, isMainView, headerFake);
         instance._buildColspanColumn = jest.fn();
         Excel.getCellAddress = jest.fn();
 
@@ -149,7 +150,7 @@ describe('affiliate report - Report Excel ', () => {
     });
 
     it('_createHeader - should call _buildColspanColumn with Month on Month view', () => {
-        const instance = new ReportExcel(data, title, !isMainView);
+        const instance = new ReportExcel(data, title, !isMainView, headerFake);
         instance._buildColspanColumn = jest.fn();
         Excel.getCellAddress = jest.fn();
 
@@ -170,7 +171,7 @@ describe('affiliate report - Report Excel ', () => {
     });
 
     it('_buildColspanColumn - should call Excel.getCellAddress with headerText not exist column', () => {
-        const instance = new ReportExcel(data, title, isMainView);
+        const instance = new ReportExcel(data, title, isMainView, headerFake);
         instance.columnConfigs.push({
             field: "abc",
             mainSectionStyle: { numFmt: '#,##0.00' },
@@ -201,7 +202,7 @@ describe('affiliate report - Report Excel ', () => {
     });
 
     it('_buildColspanColumn - should call Excel.getCellAddress', () => {
-        const instance = new ReportExcel(data, title, isMainView);
+        const instance = new ReportExcel(data, title, isMainView, headerFake);
         Excel.getCellAddress = jest.fn();
 
         instance._buildColspanColumn(HEADER_ROW_INDEX, INDEX_DEPOSIT_COLUMN, COLSPAN_MEMBER_STATISTICS, 'Member Statistics');
@@ -220,7 +221,7 @@ describe('affiliate report - Report Excel ', () => {
     });
 
     it('_createBodyData - should call _buildDataRow, Excel.getCellAddress with Main view', () => {
-        const instance = new ReportExcel(data, title, isMainView);
+        const instance = new ReportExcel(data, title, isMainView, headerFake);
 
         instance._buildDataRow = jest.fn();
         Excel.getCellAddress = jest.fn();
@@ -246,7 +247,7 @@ describe('affiliate report - Report Excel ', () => {
     });
 
     it('_createBodyData - should call _buildDataRow, Excel.getCellAddress with Month on Month view', () => {
-        const instance = new ReportExcel(data, title, !isMainView);
+        const instance = new ReportExcel(data, title, !isMainView, headerFake);
 
         instance._buildDataRow = jest.fn();
         Excel.getCellAddress = jest.fn();
@@ -273,7 +274,7 @@ describe('affiliate report - Report Excel ', () => {
 
     it('_createTotalRow - should call _buildDataRow, Excel.getCellAddress with Main view', () => {
         const customTotalData = { CommissionRate: "N/A", PaymentCurrency: '', UserName: "Total (all pages)" };
-        const instance = new ReportExcel(data, title, isMainView);
+        const instance = new ReportExcel(data, title, isMainView, headerFake);
         instance._buildDataRow = jest.fn();
         Excel.getCellAddress = jest.fn();
 
@@ -299,7 +300,7 @@ describe('affiliate report - Report Excel ', () => {
 
     it('_createTotalRow - should call _buildDataRow, Excel.getCellAddress with Month on Month view', () => {
         const customTotalData = { CommissionRate: "N/A", EarningBy: "N/A", MonthDateString: "Total (all pages)" };
-        const instance = new ReportExcel(data, title, !isMainView);
+        const instance = new ReportExcel(data, title, !isMainView, headerFake);
         instance._buildDataRow = jest.fn();
         Excel.getCellAddress = jest.fn();
 
@@ -324,7 +325,7 @@ describe('affiliate report - Report Excel ', () => {
     });
 
     it('_buildDataRow - should call Excel.getCellType', () => {
-        const instance = new ReportExcel(data, title, isMainView);
+        const instance = new ReportExcel(data, title, isMainView, headerFake);
 
         Excel.getCellType = jest.fn();
 
@@ -335,7 +336,7 @@ describe('affiliate report - Report Excel ', () => {
     });
 
     it('_createExcelConfig - should call Excel.getCellAddress', () => {
-        const instance = new ReportExcel(data, title, isMainView);
+        const instance = new ReportExcel(data, title, isMainView, headerFake);
 
         Excel.getCellAddress = jest.fn();
 
@@ -374,7 +375,7 @@ describe('affiliate report - Report Excel ', () => {
             { field: "AffWithdrawal", mainSectionStyle: { numFmt: "#,##0.00" }, totalSectionStyle: { fill: { fgColor: { rgb: "ffc4a8" }, patternType: "solid" }, font: { "bold": true }, numFmt: "#,##0.00" } },
             { field: "AffAdjustment", mainSectionStyle: { numFmt: "#,##0.00" }, totalSectionStyle: { fill: { fgColor: { rgb: "ffc4a8" }, patternType: "solid" }, font: { "bold": true }, numFmt: "#,##0.00" } },
             { field: "BalanceBf", mainSectionStyle: { numFmt: "#,##0.00" }, totalSectionStyle: { fill: { fgColor: { rgb: "ffc4a8" }, patternType: "solid" }, font: { "bold": true }, numFmt: "#,##0.00" } }]
-        const instance = new ReportExcel(data, title, isMainView);
+        const instance = new ReportExcel(data, title, isMainView, headerFake);
 
         const result = instance._getcolumnConfigs(isMainView);
 

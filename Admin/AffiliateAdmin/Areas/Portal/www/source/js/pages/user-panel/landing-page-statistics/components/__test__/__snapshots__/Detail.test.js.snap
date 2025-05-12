@@ -30,7 +30,7 @@ exports[`landing page statistics - components - Detail render correctly with hav
             onClick={[Function]}
             sortable={false}
             sorting={false}
-            title={8}
+            title="8"
           >
             8
           </t>
@@ -41,7 +41,7 @@ exports[`landing page statistics - components - Detail render correctly with hav
             onClick={[Function]}
             sortable={false}
             sorting={false}
-            title={4}
+            title="4"
           >
             4
           </t>
@@ -52,7 +52,7 @@ exports[`landing page statistics - components - Detail render correctly with hav
             onClick={[Function]}
             sortable={false}
             sorting={false}
-            title={0}
+            title="0"
           >
             0
           </t>
@@ -63,7 +63,7 @@ exports[`landing page statistics - components - Detail render correctly with hav
             onClick={[Function]}
             sortable={false}
             sorting={false}
-            title={0}
+            title="0"
           >
             0
           </t>
@@ -86,7 +86,7 @@ exports[`landing page statistics - components - Detail render correctly with hav
             onClick={[Function]}
             sortable={false}
             sorting={false}
-            title={1}
+            title="1"
           >
             1
           </t>
@@ -97,7 +97,7 @@ exports[`landing page statistics - components - Detail render correctly with hav
             onClick={[Function]}
             sortable={false}
             sorting={false}
-            title={1}
+            title="1"
           >
             1
           </t>
@@ -108,7 +108,7 @@ exports[`landing page statistics - components - Detail render correctly with hav
             onClick={[Function]}
             sortable={false}
             sorting={false}
-            title={0}
+            title="0"
           >
             0
           </t>
@@ -119,7 +119,7 @@ exports[`landing page statistics - components - Detail render correctly with hav
             onClick={[Function]}
             sortable={false}
             sorting={false}
-            title={0}
+            title="0"
           >
             0
           </t>

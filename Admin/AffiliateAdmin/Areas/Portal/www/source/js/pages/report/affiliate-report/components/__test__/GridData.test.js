@@ -1,6 +1,7 @@
 ﻿import React from 'react';
 import { shallow } from 'enzyme';
 import { GridData } from '../GridData';
+import { headerFake } from '../../libs/headerFake';
 
 describe('affiliate report - GridData ', () => {
     const mainView = 1;
@@ -20,7 +21,8 @@ describe('affiliate report - GridData ', () => {
         param: {},
         productList,
         reportCutOffDate: "06/01/2023",
-        currentViewLevel: mainView
+        currentViewLevel: mainView,
+        headerRow: headerFake
     };
 
     it('componentDidUpdate - should call setState, setPagingOption when param changed, cachedMainReport not null and currentViewLevel is Main view', () => {

@@ -16,6 +16,10 @@ exports[`report - App Should render correctly 1`] = `
           "href": "/Portal/PlayerGgrReport",
           "label": "Player GGR",
         },
+        Object {
+          "href": "/Portal/MarketingStatisticsReport",
+          "label": "Marketing Statistics",
+        },
       ]
     }
   />
@@ -46,6 +50,18 @@ exports[`report - App Should render correctly 1`] = `
         }
         key="route_1"
         path="/Portal/PlayerGgrReport"
+      />
+      <Route
+        component={
+          Object {
+            "$$typeof": Symbol(react.lazy),
+            "_ctor": [Function],
+            "_result": null,
+            "_status": -1,
+          }
+        }
+        key="route_2"
+        path="/Portal/MarketingStatisticsReport"
       />
       <Redirect
         from="/"
