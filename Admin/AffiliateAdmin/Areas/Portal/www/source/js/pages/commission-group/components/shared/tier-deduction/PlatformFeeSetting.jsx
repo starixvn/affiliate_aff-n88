@@ -128,13 +128,10 @@ export class PlatformFeeSetting extends PureComponent {
     }
 
     render() {
-        const { productList, selectedGroup, selectedProductIds } = this.props;
+        const { productList, selectedGroup } = this.props;
         const { IsActivePlayerSum } = selectedGroup;
-        const selectProducts = productList.filter(p => !selectedProductIds.find(i => i === p.ProductId));
 
-        const productGroupsDeductionData = this.handleProductGroupsDeductionData(selectProducts);
-
-
+        const productGroupsDeductionData = this.handleProductGroupsDeductionData(productList);
         const isOnlyOnePlatformFeeRow = productGroupsDeductionData.length === ONLY_ONE_ITEM;
         const isTurnover = selectedGroup.GroupTypeId === groupTypeList.Turnover;
 
@@ -173,8 +170,8 @@ export class PlatformFeeSetting extends PureComponent {
     }
 }
 
-function mapStateToProp({ deductionList, productList, selectedGroup, selectedProductIds }) {
-    return { deductionList, productList, selectedGroup, selectedProductIds };
+function mapStateToProp({ deductionList, productList, selectedGroup }) {
+    return { deductionList, productList, selectedGroup };
 }
 
 function mapDispatchToProps(dispatch) {

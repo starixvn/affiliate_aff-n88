@@ -12,7 +12,6 @@ describe('commission group - EditGroup', () => {
             GroupId: 0,
             GroupName: "",
             PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4", IsDeductedPercent: true, DeductedAmount: "" }],
-            P2pDeductionList: [{ DeductedPercentage: 0.15, DeductionId: 15, ProductIds: "2,5", Commission: 0.1 }],
             TierSettingList: []
         },
         productList: [
@@ -22,11 +21,6 @@ describe('commission group - EditGroup', () => {
             { ProductId: 4, ProductName: "Number Game" },
             { ProductId: 5, ProductName: "V8 Poker" }
         ],
-        p2pProductList: [
-            { ProductId: 2, ProductName: "Poker" },
-            { ProductId: 5, ProductName: "V8 Poker" }
-        ],
-        setSelectedProductIds: jest.fn(),
         getSelectedCommGroup: jest.fn(),
         onClose: jest.fn(),
         onSave: jest.fn(),
@@ -85,11 +79,7 @@ describe('commission group - EditGroup', () => {
             GroupId: 0,
             GroupName: "test",
             PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4", IsDeductedPercent: true, DeductedAmount: "" }],
-            P2pDeductionList: [
-                { DeductedPercentage: 0.15, DeductionId: 15, ProductIds: "2", Commission: 0.1 },
-                { DeductedPercentage: 0.1, DeductionId: 15, ProductIds: "5", Commission: 0.15 }
-            ],
-            TierSettingList: [{ TierId: 1, MinAmount: 0, MaxAmount: 100000000000, MinAp: 0, MaxAp: 1000000000, Commission: 0 }]
+            TierSettingList: [{ TierId: 1, MinAmount: 0, MaxAmount: 100000000000, MinQm: 0, MaxQm: 1000000000, Commission: 0 }]
         }
         const mockGetSelectedCommGroup = jest.fn();
         const mockToggleLoader = jest.fn();
@@ -124,8 +114,7 @@ describe('commission group - EditGroup', () => {
             GroupId: 0,
             GroupName: "test",
             PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4", IsDeductedPercent: true, DeductedAmount: "" }],
-            P2pDeductionList: [{ DeductedPercentage: 0.15, DeductionId: 15, ProductIds: "2,5", Commission: 0.1 }],
-            TierSettingList: [{ TierId: 1, MinAmount: 0, MaxAmount: 100000000000, MinAp: 0, MaxAp: 1000000000, Commission: 0 }]
+            TierSettingList: [{ TierId: 1, MinAmount: 0, MaxAmount: 100000000000, MinQm: 0, MaxQm: 1000000000, Commission: 0 }]
         }
         const mockGetSelectedCommGroup = jest.fn();
         const mockToggleLoader = jest.fn();
@@ -161,8 +150,7 @@ describe('commission group - EditGroup', () => {
             GroupId: 0,
             GroupName: "test",
             PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4", IsDeductedPercent: true, DeductedAmount: "" }],
-            P2pDeductionList: [{ DeductedPercentage: 0.15, DeductionId: 15, ProductIds: "2,5", Commission: 0.1 }],
-            TierSettingList: [{ TierId: 1, MinAmount: 0, MaxAmount: 100000000000, MinAp: 0, MaxAp: 1000000000, Commission: 0 }]
+            TierSettingList: [{ TierId: 1, MinAmount: 0, MaxAmount: 100000000000, MinQm: 0, MaxQm: 1000000000, Commission: 0 }]
         }
         const mockGetSelectedCommGroup = jest.fn();
         const mockToggleLoader = jest.fn();

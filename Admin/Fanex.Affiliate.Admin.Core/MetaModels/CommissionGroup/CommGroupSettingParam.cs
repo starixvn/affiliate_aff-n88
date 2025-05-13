@@ -15,6 +15,9 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.CommissionGroup
         [Range(Validation.Zero, Validation.MaxPercentage, ErrorMessage = "Sub-Affiliate Commission Rate is incorrect!")]
         public decimal SubAffCommRate { get; set; }
 
+        [Range(Validation.Zero, Money.AllowedMaxValue, ErrorMessage = "QpTurnover not valid!")]
+        public decimal QmTurnover { get; set; }
+
         public bool IsActivePlayerSum { get; set; }
 
         [MaxLength(Validation.MaxLengthCommGroupDescription, ErrorMessage = "Description should shorter than 100 characters!")]
@@ -22,9 +25,6 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.CommissionGroup
 
         [Required]
         public IEnumerable<TierSettingParam> TierSettingList { get; set; }
-
-        [Required]
-        public IEnumerable<P2PDeductionSettingParam> P2pDeductionList { get; set; }
 
         [Required]
         public IEnumerable<TierDeductionSettingParam> PlatformFeeList { get; set; }

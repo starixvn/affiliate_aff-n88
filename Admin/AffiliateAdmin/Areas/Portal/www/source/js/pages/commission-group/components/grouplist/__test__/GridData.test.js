@@ -8,9 +8,9 @@ describe('commission group - GridData ', () => {
         Commission: 0.02,
         GroupId: 153,
         MaxAmount: 100000000000,
-        MaxAp: 1000000000,
+        MaxQm: 1000000000,
         MinAmount: 0,
-        MinAp: 0,
+        MinQm: 0,
         TierId: 1
     };
     const dataItem = {
@@ -48,16 +48,6 @@ describe('commission group - GridData ', () => {
                 ProductIds: "1,3,4,5,6,7,8,13,14,15,16,17,18"
             }
         ],
-        P2pDeductionList: [
-            {
-                DeductedPercentage: 0.15,
-                DeductionId: 15,
-                DeductionName: "P2P Fee",
-                GroupId: 153,
-                ProductIds: "2,5,9,10,11,12",
-                Commission: 0.1
-            }
-        ],
         RowIdx: 6,
         TierSettingList: [
             tierSettingItem
@@ -69,10 +59,6 @@ describe('commission group - GridData ', () => {
             { ProductId: 2, ProductName: "Poker" },
             { ProductId: 3, ProductName: "Playtech Casino" },
             { ProductId: 4, ProductName: "Number Game" },
-            { ProductId: 5, ProductName: "V8 Poker" }
-        ],
-        p2pProductList: [
-            { ProductId: 2, ProductName: "Poker" },
             { ProductId: 5, ProductName: "V8 Poker" }
         ],
         gridData: [
@@ -163,8 +149,8 @@ describe('commission group - GridData ', () => {
         expect(renderGroupData).toMatchSnapshot();
     });
 
-    it('_renderGroupData - render correctly with groupId > 1000, MaxAmount and MaxAp is not max value', () => {
-        const tierSetting = Object.assign({}, tierSettingItem, { MaxAmount: 100, MaxAp: 10 });
+    it('_renderGroupData - render correctly with groupId > 1000, MaxAmount and MaxQm is not max value', () => {
+        const tierSetting = Object.assign({}, tierSettingItem, { MaxAmount: 100, MaxQm: 10 });
         const data = Object.assign({}, dataItem, { GroupId: 927841, TierSettingList: [tierSetting] })
         const props = Object.assign({}, defaultProps, { gridData: [data] });
         const componentInstance = new GridData(props);
@@ -239,16 +225,6 @@ describe('commission group - GridData ', () => {
                     ProductIds: "1,3,4,5,6,7,8,13,14,15,16,17,18"
                 }
             ],
-            P2pDeductionList: [
-                {
-                    DeductedPercentage: 0.15,
-                    DeductionId: 15,
-                    DeductionName: "P2P Fee",
-                    GroupId: 153,
-                    ProductIds: "2,5,9,10,11,12",
-                    Commission: 0.1
-                }
-            ],
             RowIdx: 6,
             TierSettingList: [
                 tierSettingItem
@@ -295,16 +271,6 @@ describe('commission group - GridData ', () => {
                     DeductionName: "Platform Fee",
                     GroupId: 153,
                     ProductIds: "1,3,4,5,6,7,8,13,14,15,16,17,18"
-                }
-            ],
-            P2pDeductionList: [
-                {
-                    DeductedPercentage: 0.15,
-                    DeductionId: 15,
-                    DeductionName: "P2P Fee",
-                    GroupId: 153,
-                    ProductIds: "2,5,9,10,11,12",
-                    Commission: 0.1
                 }
             ],
             RowIdx: 6,

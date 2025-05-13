@@ -54,7 +54,6 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
             }
 
             param.TierDeductionsXml = BuildTierDeductionSettingXml(tierDeductionSettingList);
-            param.P2pDeductionsXml = BuildP2pDeductionSettingXml(param.P2pDeductionList);
         }
 
         private static string BuildTierSettingXml(IEnumerable<TierSettingParam> tierSettingParamList, IEnumerable<TierDeductionSettingParam> platformFeeList)
@@ -71,7 +70,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
                     var productIds = platformFeeList.FirstOrDefault(p => p.GroupProductId == item.GroupProductId).ProductIds;
 
                     var row = $"<row id=\"{item.TierId}\" minamount=\"{item.MinAmount}\"" +
-                        $" minam=\"{item.MinAp}\" commission=\"{item.Commission}\" productids=\"{productIds}\" />";
+                        $" minam=\"{item.MinQm}\" commission=\"{item.Commission}\" productids=\"{productIds}\" />";
                     result.Append(row);
                 }
             }
@@ -90,23 +89,6 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
             {
                 var row = $"<row id=\"{item.DeductionId}\" productids=\"{item.ProductIds}\" percent=\"{item.DeductedPercentage}\"" +
                     $" amount=\"{item.DeductedAmount}\" isdeductedpercent=\"{item.IsDeductedPercent}\" />";
-                result.Append(row);
-            }
-
-            result.Append("</root>");
-
-            return result.ToString();
-        }
-
-        private static string BuildP2pDeductionSettingXml(IEnumerable<P2PDeductionSettingParam> p2pDeductionSettingList)
-        {
-            var result = new StringBuilder();
-            result.Append("<root>");
-
-            foreach (var item in p2pDeductionSettingList)
-            {
-                var row = $"<row id=\"{item.DeductionId}\" productids=\"{item.ProductIds}\" percent=\"{item.DeductedPercentage}\"" +
-                    $" commission=\"{item.Commission}\" />";
                 result.Append(row);
             }
 

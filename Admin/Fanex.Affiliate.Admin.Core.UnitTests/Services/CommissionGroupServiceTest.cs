@@ -32,18 +32,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services
                         NoAffs = 2
                     }
                 },
-                P2pDeductionSettingList = new List<DeductionSetting>
-                {
-                    new DeductionSetting
-                    {
-                        GroupId = 101,
-                        DeductionId = 1,
-                        DeductionName = "DeductionName",
-                        ProductIds = "1,2,3",
-                        DeductedPercentage = 0.7m,
-                        Commission = 0.1m
-                    }
-                },
                 TierDeductionSettingList = new List<DeductionSetting>
                 {
                     new DeductionSetting
@@ -78,7 +66,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services
                         GroupId = 101,
                         TierId = 1,
                         MinAmount = 0m,
-                        MinAp = 0,
+                        MinQm = 0,
                         Commission = 0.2m
                     }
                 }

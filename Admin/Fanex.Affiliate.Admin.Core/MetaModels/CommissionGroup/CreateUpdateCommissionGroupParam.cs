@@ -7,8 +7,6 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.CommissionGroup
 
         public string TierDeductionsXml { get; set; }
 
-        public string P2pDeductionsXml { get; set; }
-
         public string TierSettingXml { get; set; }
 
         public string Ip { get; set; }
