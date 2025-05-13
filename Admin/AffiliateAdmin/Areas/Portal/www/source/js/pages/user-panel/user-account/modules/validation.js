@@ -52,31 +52,53 @@ const validatePaymentMethod = (userAccountInfo) => {
 }
 
 const validateContactApps = (contactApps) => {
+    const isTelegramInvalid = (value) => value && (!value.startsWith('@') || value.length <= 1);
+
+    if (!Array.isArray(contactApps)
+        || contactApps.length === 0
+        || (contactApps.length === 1 && contactApps[0].Name === 'Skype')) {
+        return {
+            message: 'At least one IM account is required',
+            isValid: false
+        };
+    }
+
     const getValue = name => contactApps.find(a => a.Name === name)?.Value?.trim() || '';
+    const contactNotSkype = contactApps.filter(a => a.Name !== 'Skype');
 
-    if (contactApps.length === 2 && contactApps[0].Name === 'Skype') {
-        if (!contactApps[1].Value?.trim()) {
-            return { message: `${contactApps[1].Name} is required`, isValid: false };
-        }
-    } else {
-        const contactNotSkype = contactApps.filter(a => a.Name !== 'Skype');
+    if (contactNotSkype.length === 1) {
+        const { Name } = contactNotSkype[0];
+        const value = getValue(Name);
 
-        const allEmpty = contactNotSkype.every(a => !a.Value?.trim());
-        if (allEmpty) {
-            const names = contactNotSkype.map(a => a.Name).join(', ');
-            return { message: `Contact Apps (${names}): At least one IM account is required`, isValid: false };
-        }
-
-        const telegram = getValue('Telegram');
-        if (telegram && (!telegram.startsWith('@') || telegram.length <= 1)) {
-            return { message: 'Telegram is invalid', isValid: false };
+        if (!value) {
+            return {
+                message: `${Name} is required`,
+                isValid: false
+            };
         }
     }
 
-    return { message: '', isValid: true };
+    if (contactNotSkype.every(a => !a.Value?.trim())) {
+        const names = contactNotSkype.map(a => a.Name).join(', ');
+        return {
+            message: `Contact Apps (${names}): At least one IM account is required`,
+            isValid: false
+        };
+    }
+
+    const telegramValue = getValue('Telegram');
+    if (isTelegramInvalid(telegramValue)) {
+        return {
+            message: 'Telegram is invalid',
+            isValid: false
+        };
+    }
+
+    return {
+        message: '',
+        isValid: true
+    };
 };
-
-
 
 export const validateUserAccount = (userAccountInfo, moreSiteUrlsList, licenseeName) => {
     let message = '';
