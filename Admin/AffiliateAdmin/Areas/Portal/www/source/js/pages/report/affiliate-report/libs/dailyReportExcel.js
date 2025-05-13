@@ -42,8 +42,8 @@ const detailColConfig = {
         [MAIN_SECTION_STYLE]: bodyCellStyle.number,
         [COL_WIDTH]: 120
     },
-    [reportKey.Deposit]: {
-        [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
+    [reportKey.TotalDeposit]: {
+        [MAIN_SECTION_STYLE]: bodyCellStyle.number,
         [COL_WIDTH]: 120
     },
     ['DepositAmount']: {
@@ -61,7 +61,7 @@ const detailHeaderConfig = {
     [reportKey.Fdm]: headerText[reportKey.Fdm],
     [reportKey.ActiveMember]: headerText[reportKey.ActiveMember],
     [reportKey.NoOfSubAff]: headerText[reportKey.NoOfSubAff],
-    [reportKey.Deposit]: headerText[reportKey.Deposit],
+    [reportKey.TotalDeposit]: headerText[reportKey.TotalDeposit],
     ['DepositAmount']: 'Deposit Amount'
 };
 
@@ -108,7 +108,7 @@ export default class DailyReportExcel {
                     Fdm: 0,
                     ActiveMember: 0,
                     NoOfSubAff: 0,
-                    Deposit: 0,
+                    TotalDeposit: 0,
                     DepositAmount: 0
                 };
                 totals.push(total);
@@ -120,7 +120,7 @@ export default class DailyReportExcel {
             total.Fdm += item.Fdm;
             total.ActiveMember += item.ActiveMember;
             total.NoOfSubAff += item.NoOfSubAff;
-            total.Deposit += item.Deposit;
+            total.TotalDeposit += item.TotalDeposit;
             total.DepositAmount += item.DepositAmount;
         });
 

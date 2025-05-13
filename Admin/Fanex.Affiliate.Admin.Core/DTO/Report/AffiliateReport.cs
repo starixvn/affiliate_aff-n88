@@ -52,6 +52,6 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Report
 
         public bool IsMultiGroupProduct { get; set; }
 
-        public long TotalDeposit { get; set; }
+        public decimal Deposit { get; set; }
     }
 }

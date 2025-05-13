@@ -146,7 +146,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
             report.Fdm = reader.ToInt("FDM");
             report.ActiveMember = reader.ToInt("ActivePlayer");
             report.NoOfSubAff = reader.ToInt("NoOfSubAff");
-            report.Deposit = reader.ToDecimal("Deposit");
+            report.TotalDeposit = reader.ToLong("TotalDeposit");
         }
 
         private static AffiliateReport BuildDataItem(IDataReader reader)
@@ -170,7 +170,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
             report.BalanceBf = reader.ToDecimal("BFF");
             report.SubAffEarning = reader.ToDecimal("SubAffEarning");
             report.P2pEarning = reader.ToDecimal("P2PEarning");
-            report.TotalDeposit = reader.ToLong("TotalDeposit");
+            report.Deposit = reader.ToDecimal("Deposit");
 
             return report;
         }

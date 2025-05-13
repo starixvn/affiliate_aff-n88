@@ -20,6 +20,6 @@
 
         public int NoOfSubAff { get; set; }
 
-        public decimal Deposit { get; set; }
+        public long TotalDeposit { get; set; }
     }
 }
