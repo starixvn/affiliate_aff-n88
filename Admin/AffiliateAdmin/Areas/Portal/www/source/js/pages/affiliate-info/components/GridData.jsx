@@ -14,6 +14,7 @@ import { updateObjectInArray } from '../../../modules/dataHandler';
 import { resolveClientUrl, clearUserPanelMenuCookie } from '../../../modules/utils';
 import { convertSelectedColumnList } from '../libs/utils';
 import { htmlDecode } from '../../../modules/htmlHelper';
+import { claimResource } from '../../../modules/claim';
 import NotificationPopup from '../../common/components/NotificationPopup';
 
 export class GridData extends Component {
@@ -89,29 +90,29 @@ export class GridData extends Component {
     _renderHeader(selectedColumnList) {
         return (
             <tr className="freeze-row" key="theard">
-                <th className="freeze-column-header freeze-column-header-0" width={50} title={headerText.Index}>{headerText.Index}</th>
-                <th className="freeze-column-header freeze-column-header-1" width={90} title={headerText.ParentAffName}>{headerText.ParentAffName}</th>
-                <th className="freeze-column-header freeze-column-header-2" width={125} title={headerText.UserName}>{headerText.UserName}</th>
-                {selectedColumnList['AffCode'] && <th width={75} title={headerText.AffCode}>{headerText.AffCode}</th>}
-                {selectedColumnList['Status'] && <th width={75} title={headerText.Status}>{headerText.Status}</th>}
-                {selectedColumnList['FirstName'] && <th width={75} title={headerText.FirstName}>{headerText.FirstName}</th>}
-                {selectedColumnList['LastName'] && <th width={75} title={headerText.LastName}>{headerText.LastName}</th>}
-                {selectedColumnList['Language'] && <th width={75} title={headerText.Language}>{headerText.Language}</th>}
-                {selectedColumnList['Phone'] && <th width={100} title={headerText.Phone}>{headerText.Phone}</th>}
-                {selectedColumnList['Email'] && <th width={175} title={headerText.Email}>{headerText.Email}</th>}
-                {selectedColumnList['RegistrationDateText'] && <th width={100} title={headerText.RegistrationDateText}>{headerText.RegistrationDateText}</th>}
-                {selectedColumnList['ApprovalDateText'] && <th width={100} title={headerText.ApprovalDateText}>{headerText.ApprovalDateText}</th>}
-                {selectedColumnList['ApprovedByText'] && <th width={100} title={headerText.ApprovedByText}>{headerText.ApprovedByText}</th>}
-                {selectedColumnList['CommissionGroup'] && <th width={100} title={headerText.CommissionGroup}>{headerText.CommissionGroup}</th>}
-                {selectedColumnList['BalanceBf'] && <th width={100} title={headerText.BalanceBf}>{headerText.BalanceBf}</th>}
-                {selectedColumnList['Currency'] && <th width={75} title={headerText.Currency}>{headerText.Currency}</th>}
-                {selectedColumnList['PlayerUserName'] && <th width={100} title={headerText.PlayerUserName}>{headerText.PlayerUserName}</th>}
-                {selectedColumnList['PlayerCurrency'] && <th width={75} title={headerText.PlayerCurrency}>{headerText.PlayerCurrency}</th>}
-                {selectedColumnList['Member'] && <th width={50} title={headerText.Member}>{headerText.Member}</th>}
-                {selectedColumnList['NoOfSubAff'] && <th width={90} title={headerText.NoOfSubAff}>{headerText.NoOfSubAff}</th>}
-                <th width={70} title={headerText.Password}>{headerText.Password}</th>
+                <th className="freeze-column-header freeze-column-header-0" width={50} title={headerText.Index.label}>{headerText.Index.label}</th>
+                <th className="freeze-column-header freeze-column-header-1" width={90} title={headerText.ParentAffName.label}>{headerText.ParentAffName.label}</th>
+                <th className="freeze-column-header freeze-column-header-2" width={125} title={headerText.UserName.label}>{headerText.UserName.label}</th>
+                {selectedColumnList['AffCode'] && <th width={75} title={headerText.AffCode.label}>{headerText.AffCode.label}</th>}
+                {selectedColumnList['Status'] && <th width={75} title={headerText.Status.label}>{headerText.Status.label}</th>}
+                {selectedColumnList['FirstName'] && <th width={75} title={headerText.FirstName.label}>{headerText.FirstName.label}</th>}
+                {selectedColumnList['LastName'] && <th width={75} title={headerText.LastName.label}>{headerText.LastName.label}</th>}
+                {selectedColumnList['Language'] && <th width={75} title={headerText.Language.label}>{headerText.Language.label}</th>}
+                {selectedColumnList['Phone'] && <th width={100} title={headerText.Phone.label}>{headerText.Phone.label}</th>}
+                {selectedColumnList['Email'] && <th width={175} title={headerText.Email.label}>{headerText.Email.label}</th>}
+                {selectedColumnList['RegistrationDateText'] && <th width={100} title={headerText.RegistrationDateText.label}>{headerText.RegistrationDateText.label}</th>}
+                {selectedColumnList['ApprovalDateText'] && <th width={100} title={headerText.ApprovalDateText.label}>{headerText.ApprovalDateText.label}</th>}
+                {selectedColumnList['ApprovedByText'] && <th width={100} title={headerText.ApprovedByText.label}>{headerText.ApprovedByText.label}</th>}
+                {selectedColumnList['CommissionGroup'] && <th width={100} title={headerText.CommissionGroup.label}>{headerText.CommissionGroup.label}</th>}
+                {selectedColumnList['BalanceBf'] && <th width={100} title={headerText.BalanceBf.label}>{headerText.BalanceBf.label}</th>}
+                {selectedColumnList['Currency'] && <th width={75} title={headerText.Currency.label}>{headerText.Currency.label}</th>}
+                {selectedColumnList['PlayerUserName'] && <th width={100} title={headerText.PlayerUserName.label}>{headerText.PlayerUserName.label}</th>}
+                {selectedColumnList['PlayerCurrency'] && <th width={75} title={headerText.PlayerCurrency.label}>{headerText.PlayerCurrency.label}</th>}
+                {selectedColumnList['Member'] && <th width={50} title={headerText.Member.label}>{headerText.Member.label}</th>}
+                {selectedColumnList['NoOfSubAff'] && <th width={90} title={headerText.NoOfSubAff.label}>{headerText.NoOfSubAff.label}</th>}
+                <th width={70} title={headerText.Password.label}>{headerText.Password.label}</th>
             </tr>
-        );
+        )
     }
 
     _renderDataSection(dataList, selectedColumnList) {
@@ -138,7 +139,7 @@ export class GridData extends Component {
     }
 
     _buildDataRow(dataItem, index, selectedColumnList) {
-        const { languageList } = this.props;
+        const { languageList, isShowMemberLink } = this.props;
         const status = dataItem.Status && htmlDecode(dataItem.Status).toLowerCase();
         const isApproved = status == "approved";
         const commissionGroupName = htmlDecode(dataItem.CommissionGroup);
@@ -153,9 +154,11 @@ export class GridData extends Component {
         const formattedMemberValue = dataItem.Member === null ? resource.NA : format(dataItem.Member);
         const formattedSubAffValue = dataItem.NoOfSubAff === null ? resource.NA : format(dataItem.NoOfSubAff);
         const member = dataItem.Member === null ? resource.NA : (
-            <a href={resolveClientUrl(`Portal/Player?AffName=${dataItem.UserName}`)} target="_top">
-                {formattedMemberValue}
-            </a>);
+            isShowMemberLink ? (
+                <a href={resolveClientUrl(`Portal/Player?AffName=${dataItem.UserName}`)} target="_top">
+                    {formattedMemberValue}
+                </a>) : formattedMemberValue
+        );
         const noOfSubAff = dataItem.NoOfSubAff === null ? resource.NA : (
             <Button color="link" className="p-0" onClick={() => this._handleViewSubAff(dataItem.UserName)}>
                 {formattedSubAffValue}
@@ -331,8 +334,10 @@ export class GridData extends Component {
     }
 }
 
-function mapStateToProps({ pagingOption, languageList, param, columnList }) {
-    return Object.assign({}, { pagingOption, languageList, param, columnList });
+function mapStateToProps({ pagingOption, languageList, param, columnList, claimsPrincipal }) {
+    const isShowMemberLink = claimsPrincipal.hasReadClaim(claimResource.Player);
+
+    return Object.assign({}, { pagingOption, languageList, param, columnList, isShowMemberLink });
 }
 
 function mapDispatchToProps(dispatch) {

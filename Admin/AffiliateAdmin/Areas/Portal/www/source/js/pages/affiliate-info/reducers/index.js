@@ -6,6 +6,7 @@ import * as types from '../actions/types';
 import { pagingOption } from '../../../reducers/pagingReducer';
 import { isShowLoader } from '../../../reducers/loaderReducer';
 import { showPopupPassword } from '../../common/reducers';
+import { claimsPrincipal } from '../../../reducers/claimReducer';
 
 const commGroupList = createReducer(null, {
     [types.SET_COMM_GROUP_LIST](prevState, action) {
@@ -74,6 +75,7 @@ export default combineReducers({
     isShowLoader,
     showPopupPassword,
     showPopupCommGroup,
+    claimsPrincipal,
     affId,
     parentAffName,
     commGroup,
