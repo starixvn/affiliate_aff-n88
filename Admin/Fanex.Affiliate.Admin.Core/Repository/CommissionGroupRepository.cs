@@ -212,7 +212,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository
                         GroupId = reader.ToInt(Field.GroupId),
                         TierId = reader.ToInt("TierId"),
                         MinAmount = reader.ToDecimal("MinAmount"),
-                        MinQm = reader.ToInt("MinAm"),
+                        MinQm = reader.ToInt("MinQm"),
                         Commission = reader.ToDecimal("Commission"),
                         GroupProductId = reader.ToInt("GroupProductId")
                     });

@@ -78,11 +78,11 @@ export class GridData extends Component {
                 <Cell header={true} rowSpan="2" colWidth={150}>Name</Cell>
                 <Cell header={true} rowSpan="2" colWidth={50}>No.Aff</Cell>
                 <Cell header={true} rowSpan="2" colWidth={150}>Description</Cell>
-                <Cell header={true} rowSpan="2" colWidth={100}>Creation</Cell>
+                <Cell header={true} rowSpan="2" colWidth={90}>Creation</Cell>
                 <Cell header={true} colSpan="5">Group Details</Cell>
-                <Cell header={true} rowSpan="2" colWidth={120}>Deposit Fee</Cell>
-                <Cell header={true} rowSpan="2" colWidth={120}>Withdrawal Fee</Cell>
-                <Cell header={true} rowSpan="2" colWidth={120}>Sub-Affiliate Comm Rate</Cell>
+                <Cell header={true} rowSpan="2" colWidth={90}>Deposit Fee</Cell>
+                <Cell header={true} rowSpan="2" colWidth={90}>Withdrawal Fee</Cell>
+                <Cell header={true} rowSpan="2" colWidth={90}>Sub-Affiliate Comm Rate</Cell>
                 <Cell header={true} rowSpan="2" colWidth={70}>QP Turnover</Cell>
                 <Cell header={true} rowSpan="2" colWidth={50}>Action</Cell>
             </Row>,
@@ -176,7 +176,7 @@ export class GridData extends Component {
                                 </Cell>
                                 <Cell className="font-weight-bold text-center cell-deduction">Tier</Cell>
                                 <Cell className="font-weight-bold text-center cell-deduction">{isTurnover ? MinNetTurnover : MinNetWin}</Cell>
-                                <Cell className="font-weight-bold text-center cell-deduction">Min Active Player</Cell>
+                                <Cell className="font-weight-bold text-center cell-deduction">Min Qualified Player</Cell>
                                 <Cell className="font-weight-bold text-center cell-deduction">Rev. Share%</Cell>
                                 {isFirstItem && (
                                     <Fragment>

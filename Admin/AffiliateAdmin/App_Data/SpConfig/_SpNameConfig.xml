@@ -1,10 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Root>
   <item LicenseeName="N88" Environment="DEV,LOCAL,UAT" SpName="Test" Suffix="_xtest"></item>
-  <!--<item LicenseeName="N88" Environment="DEV,LOCAL,UAT" SpName="Aff_Admin_MemberList_Sel" Suffix="_UAT2"></item>
-  <item LicenseeName="N88" Environment="DEV,LOCAL,UAT" SpName="Aff_Admin_Member_RemoveStatus_Upd" Suffix="_UAT2"></item>
-  <item LicenseeName="N88" Environment="DEV,LOCAL,UAT" SpName="Aff_Admin_Member_Sel" Suffix="_UAT2"></item>
-  <item LicenseeName="N88" Environment="DEV,LOCAL,UAT" SpName="Aff_Admin_PlayersDetail_Sel" Suffix="_UAT2"></item>
-  <item LicenseeName="N88" Environment="DEV,LOCAL,UAT" SpName="Aff_Admin_Player_Sel" Suffix="_UAT2"></item>-->
+  <item LicenseeName="N88" Environment="DEV,LOCAL,UAT" SpName="Aff_Admin_CommGroup_Ins" Suffix="_xtest"></item>
+  <item LicenseeName="N88" Environment="DEV,LOCAL,UAT" SpName="Aff_Admin_CommGroup_Sel" Suffix="_xtest"></item>
+  <item LicenseeName="N88" Environment="DEV,LOCAL,UAT" SpName="Aff_Admin_CommGroup_Upd" Suffix="_xtest"></item>
 
 </Root>

@@ -96,7 +96,7 @@ export class TierSetting extends Component {
                                 <tr>
                                     <th style={{ width: 40 }}>Tier</th>
                                     <th>{isTurnover ? MinNetTurnover : MinNetWin}</th>
-                                    <th>Min Active Player</th>
+                                    <th>Min Qualified Player</th>
                                     <th style={{ width: 85 }}>Rev. Share%</th>
                                     <th style={{ width: 50 }}>Action</th>
                                 </tr>
