@@ -12,7 +12,7 @@ using System.Web.Mvc;
 
 namespace Fanex.Affiliate.Admin.Core.Controllers.Player
 {
-    [FunctionAuthorize(FunctionName = Function.Affiliate)]
+    [FunctionAuthorize(FunctionName = Function.Player)]
     public class PlayerController : BaseController
     {
         private readonly IMemberService _memberService;
@@ -34,7 +34,8 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Player
             var model = new MemberListViewModel
             {
                 SubMenuList = subMenu,
-                AffName = affName
+                AffName = affName,
+                LatestBillingDate = _memberService.GetLatestBillingDate()
             };
 
             return View(model);
@@ -62,7 +63,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Player
 
         [HttpPost]
         [ValidateAntiForgeryHeader]
-        [FunctionAuthorize(FunctionName = Function.Affiliate, IsHost = true)]
+        [FunctionAuthorize(FunctionName = Function.Player, IsHost = true)]
         public ActionResult UpdateMember(UpdateMemberParam param)
         {
             GetUserInfoParam(param);

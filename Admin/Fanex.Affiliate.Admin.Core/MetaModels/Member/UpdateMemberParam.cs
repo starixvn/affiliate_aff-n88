@@ -1,11 +1,11 @@
-﻿namespace Fanex.Affiliate.Admin.Core.MetaModels.Member
+﻿using System;
+
+namespace Fanex.Affiliate.Admin.Core.MetaModels.Member
 {
     public class UpdateMemberParam : UserInfoParam
     {
         public int MemberId { get; set; }
 
-        public bool IsRemoved { get; set; }
-
-        public bool IsInclude { get; set; }
+        public DateTime FromDate { get; set; }
     }
 }

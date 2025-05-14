@@ -14,6 +14,8 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.UserPanel
         [Required]
         public DateTime MonthDate { get; set; }
 
+        public bool IsIncludeRemovedPlayer { get; set; }
+
         public bool IsExportExcel { get; set; }
 
         public bool IsSortAsc { get; set; }

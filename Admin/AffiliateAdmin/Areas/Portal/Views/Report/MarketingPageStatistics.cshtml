@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Fanex.Affiliate.Admin.Core.DTO.Language>
+﻿@using Fanex.Affiliate.Admin.Core.Utilities
+@model IEnumerable<Fanex.Affiliate.Admin.Core.DTO.Language>
 @section pagecss{
     <link href="@Url.VersionedLink("~/Areas/Portal/www/dist/style/pages/report.css")" rel="stylesheet" />
 }
@@ -7,7 +8,7 @@
     <script type="text/javascript">
         window.initialState = {
             languageList: @Html.Raw(Json.Encode(Model)),
-            today: '@DateTimeOffset.Now.ToOffset(new TimeSpan(8, 0, 0)).ToString("MM/dd/yyyy")'
+            today: '@DateTimeHelper.DateTimeGMT8String'
         }
     </script>
     <script type="text/javascript" src="@Url.VersionedLink("~/Areas/Portal/www/dist/js/pages/report.js")"></script>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { userPanelMenuKey as menuKey } from '../../common/modules/constants';
 import { withUserPanel } from '../modules/withUserPanel';
+import { Claim, claimResource } from '../../../../modules/claim';
 
 const StatementHistory = React.lazy(() =>
     import( /* webpackChunkName: "statementHistory" */ '../../../user-panel/statement-history/components/AppContainer'));
@@ -39,7 +40,7 @@ export const userPanelMenuList = [
     { key: menuKey.playerDetail, name: 'Players Detail', component: withUserPanel(PlayerDetail, menuKey.playerDetail), parent: null },
     { key: menuKey.adjustment, name: 'Adjustment', component: withUserPanel(Adjustment, menuKey.adjustment), parent: null },
     //{ key: menuKey.trackingStatistics, name: 'Tracking Statistics', component: withUserPanel(TrackingStatistics, menuKey.trackingStatistics), parent: null },
-    { key: menuKey.member, name: 'Player', component: withUserPanel(Member, menuKey.member), parent: null },
+    { key: menuKey.member, name: 'Player', component: withUserPanel(Member, menuKey.member), parent: null, renderClaim: new Claim(claimResource.Player) },
     { key: menuKey.viewLog, name: 'View Log', component: withUserPanel(ViewLog, menuKey.viewLog), parent: null },
     { key: menuKey.clickStatistics, name: 'Click Statistics', component: withUserPanel(ReferrerStatistics, menuKey.clickStatistics), parent: null },
     { key: menuKey.landingPageStatistics, name: '', component: withUserPanel(LandingPageStatistics, menuKey.landingPageStatistics), parent: menuKey.clickStatistics }

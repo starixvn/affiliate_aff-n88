@@ -102,6 +102,7 @@
     <Setting Key="Aff_Admin_MemberList_Sel" SpName="Aff_Admin_MemberList_Sel" DbName="DBAFFN8G.Affiliate_N8G.wsv_afinet" />
     <Setting Key="Aff_Admin_Player_Sel" SpName="Aff_Admin_Player_Sel" DbName="DBAFFN8G.Affiliate_N8G.wsv_afinet" />
     <Setting Key="Aff_Admin_Member_RemoveStatus_Upd" SpName="Aff_Admin_Member_RemoveStatus_Upd" DbName="DBAFFN8G.Affiliate_N8G.wsv_afinet" />
+    <Setting Key="Task_Aff_GetSetting" SpName="Task_Aff_GetSetting" DbName="DBAFFN8G.Affiliate_N8G.wsv_afinet" />
   </Function>
   <Function Name="ChangeAdminPassword">
     <Setting Key="Aff_Admin_ChangePassword" SpName="Aff_Admin_ChangePassword" DbName="DBAFFN8G.Affiliate_N8G.wsv_afinet" />

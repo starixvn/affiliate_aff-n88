@@ -1,5 +1,6 @@
 ﻿using Fanex.Affiliate.Admin.Core.DTO.Common;
 using System.Collections.Generic;
+using System.Security.Claims;
 
 namespace Fanex.Affiliate.Admin.Core.Services.Common
 {
@@ -12,5 +13,9 @@ namespace Fanex.Affiliate.Admin.Core.Services.Common
         string AffName { get; set; }
 
         IList<UserPermission> UserPermissionList { get; set; }
+
+        IEnumerable<ClaimsIdentity> ClaimIdentities { get; set; }
+
+        ClaimsPrincipal UserClaim { get; }
     }
 }

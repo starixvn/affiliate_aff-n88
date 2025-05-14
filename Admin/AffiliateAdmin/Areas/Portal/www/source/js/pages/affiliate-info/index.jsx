@@ -7,12 +7,14 @@ import AppContainer from './components/AppContainer';
 import { configureStore } from '../../modules/store';
 import { headerText, defaultColumns } from './libs/constants';
 import { convertListToMutilpleSelected, handleChangeMultipleSelected } from '../../modules/utils';
+import ClaimPrincipal from '../../modules/claim';
 
 export default class App extends Component {
     constructor(props) {
         super(props);
 
         const { commGroupList, languageList, groupId, param } = window.initialState;
+        const claimsPrincipal = ClaimPrincipal.currentClaimPrincipal;
 
         let newCommGroupList = convertListToMutilpleSelected(commGroupList, 'GroupId', 'GroupName');
 
@@ -25,16 +27,16 @@ export default class App extends Component {
             language[languageItem.LanguageCode] = languageItem.LanguageName;
         }
 
-        const filteredColumnList = Object.keys(headerText).filter(c => !defaultColumns.includes(c))
+        const filteredColumnList = Object.keys(headerText).filter(c => !defaultColumns.includes(c)).filter(c => !headerText[c].renderClaim || claimsPrincipal.hasClaim(headerText[c].renderClaim));
         const columnList = filteredColumnList.map(item => {
             return {
                 columnKey: item,
-                columnName: headerText[item],
+                columnName: headerText[item].label,
                 checked: true
             }
         });
 
-        this.store = configureStore({ languageList: language, commGroupList: newCommGroupList, groupId, param, columnList }, reducer);
+        this.store = configureStore({ languageList: language, commGroupList: newCommGroupList, groupId, param, columnList, claimsPrincipal }, reducer);
 
     }
 
