@@ -39,6 +39,7 @@ exports[`customer - mainpage - components - AppContainer Should render correctly
         >
           <Connect(Component)
             isPending={false}
+            onClickMenu={[Function]}
             selectedUserPanel="statementHistory"
           />
         </div>
@@ -81,6 +82,7 @@ exports[`customer - mainpage - components - AppContainer Should render correctly
         >
           <Connect(Component)
             isPending={true}
+            onClickMenu={[Function]}
             selectedUserPanel="statementHistory"
           />
         </div>

@@ -37,7 +37,7 @@ exports[`referrers - components - Content render correctly with have data 1`] = 
             onClick={[Function]}
             sortable={false}
             sorting={false}
-            title={28}
+            title="28"
           >
             28
           </t>
@@ -48,7 +48,7 @@ exports[`referrers - components - Content render correctly with have data 1`] = 
             onClick={[Function]}
             sortable={false}
             sorting={false}
-            title={18}
+            title="18"
           >
             18
           </t>
@@ -59,7 +59,7 @@ exports[`referrers - components - Content render correctly with have data 1`] = 
             onClick={[Function]}
             sortable={false}
             sorting={false}
-            title={0}
+            title="0"
           >
             0
           </t>
@@ -70,7 +70,7 @@ exports[`referrers - components - Content render correctly with have data 1`] = 
             onClick={[Function]}
             sortable={false}
             sorting={false}
-            title={0}
+            title="0"
           >
             0
           </t>
@@ -93,7 +93,7 @@ exports[`referrers - components - Content render correctly with have data 1`] = 
             onClick={[Function]}
             sortable={false}
             sorting={false}
-            title={1}
+            title="1"
           >
             1
           </t>
@@ -104,7 +104,7 @@ exports[`referrers - components - Content render correctly with have data 1`] = 
             onClick={[Function]}
             sortable={false}
             sorting={false}
-            title={1}
+            title="1"
           >
             1
           </t>
@@ -115,7 +115,7 @@ exports[`referrers - components - Content render correctly with have data 1`] = 
             onClick={[Function]}
             sortable={false}
             sorting={false}
-            title={0}
+            title="0"
           >
             0
           </t>
@@ -126,7 +126,7 @@ exports[`referrers - components - Content render correctly with have data 1`] = 
             onClick={[Function]}
             sortable={false}
             sorting={false}
-            title={0}
+            title="0"
           >
             0
           </t>
@@ -149,7 +149,7 @@ exports[`referrers - components - Content render correctly with have data 1`] = 
             onClick={[Function]}
             sortable={false}
             sorting={false}
-            title={0}
+            title="0"
           >
             0
           </t>
@@ -160,7 +160,7 @@ exports[`referrers - components - Content render correctly with have data 1`] = 
             onClick={[Function]}
             sortable={false}
             sorting={false}
-            title={0}
+            title="0"
           >
             0
           </t>
@@ -171,7 +171,7 @@ exports[`referrers - components - Content render correctly with have data 1`] = 
             onClick={[Function]}
             sortable={false}
             sorting={false}
-            title={0}
+            title="0"
           >
             0
           </t>
@@ -182,7 +182,7 @@ exports[`referrers - components - Content render correctly with have data 1`] = 
             onClick={[Function]}
             sortable={false}
             sorting={false}
-            title={0}
+            title="0"
           >
             0
           </t>

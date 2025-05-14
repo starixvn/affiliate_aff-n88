@@ -7,9 +7,10 @@ namespace Fanex.Affiliate.Admin.Core.Services.Report
 {
     public interface IAffiliateReportService
     {
-        EntityResult<AffiliateReport> GetMainReportData(AffiliateReportParam param);
+        AffiliateReportResult GetMainReportData(AffiliateReportParam param);
 
         EntityResult<AffiliateReport> GetDetailReportData(AffiliateReportParam param);
+
         DateTime GetReportCutOffDate();
     }
 }

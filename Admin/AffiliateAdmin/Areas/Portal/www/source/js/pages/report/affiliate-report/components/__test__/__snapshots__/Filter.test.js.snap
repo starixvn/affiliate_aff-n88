@@ -241,135 +241,7 @@ exports[`affiliate report - Filter  should render correctly when currentMainView
       />
     </FormGroup>
     <FormGroup
-      className="my-sm-1 mr-sm-2"
-      tag="div"
-    >
-      <Label
-        className="mr-sm-2"
-        tag="label"
-        widths={
-          Array [
-            "xs",
-            "sm",
-            "md",
-            "lg",
-            "xl",
-          ]
-        }
-      >
-        From
-      </Label>
-      <t
-        enable={true}
-        iconElement={
-          <span
-            className="oi oi-calendar icon-calendar ml-1"
-          />
-        }
-        isReadonly={true}
-        minMonth={1}
-        minYear={2020}
-        onFormat={[Function]}
-        onSelect={[Function]}
-        open={false}
-        selectedDropdownYear={2018}
-        selectedMonth={11}
-      />
-    </FormGroup>
-    <FormGroup
-      className="my-sm-1 mr-sm-2"
-      tag="div"
-    >
-      <Label
-        className="mr-sm-2"
-        tag="label"
-        widths={
-          Array [
-            "xs",
-            "sm",
-            "md",
-            "lg",
-            "xl",
-          ]
-        }
-      >
-        To
-      </Label>
-      <t
-        enable={true}
-        iconElement={
-          <span
-            className="oi oi-calendar icon-calendar ml-1"
-          />
-        }
-        isReadonly={true}
-        maxMonth={11}
-        maxYear={2018}
-        minMonth={11}
-        minYear={2018}
-        onFormat={[Function]}
-        onSelect={[Function]}
-        open={false}
-        selectedDropdownYear={2018}
-        selectedMonth={11}
-        selectedYear={2018}
-      />
-    </FormGroup>
-    <FormGroup
-      className="my-sm-1 mr-sm-2"
-      tag="div"
-    >
-      <Label
-        className="mr-sm-2"
-        htmlFor="SortBy"
-        tag="label"
-        widths={
-          Array [
-            "xs",
-            "sm",
-            "md",
-            "lg",
-            "xl",
-          ]
-        }
-      >
-        Sort By
-      </Label>
-      <Input
-        id="SortBy"
-        name="sortBy"
-        onChange={[Function]}
-        type="select"
-        value={1}
-      >
-        <option
-          key="sortBy-Affiliate"
-          value={1}
-        >
-          Affiliate
-        </option>
-        <option
-          key="sortBy-Turnover"
-          value={2}
-        >
-          Turnover
-        </option>
-        <option
-          key="sortBy-GGR"
-          value={3}
-        >
-          GGR
-        </option>
-        <option
-          key="sortBy-Earning"
-          value={4}
-        >
-          Earning
-        </option>
-      </Input>
-    </FormGroup>
-    <FormGroup
-      className="my-sm-1 mr-sm-2"
+      check={true}
       tag="div"
     >
       <Label
@@ -385,15 +257,205 @@ exports[`affiliate report - Filter  should render correctly when currentMainView
           ]
         }
       >
-        A-Z
+        By Approval Month
         <Input
-          checked={true}
-          className="ml-1"
-          name="isSortAscending"
+          checked={false}
+          className="ml-1 mr-2"
+          name="isByApprovalMonth"
           onChange={[Function]}
           type="checkbox"
         />
       </Label>
+    </FormGroup>
+    <FormGroup
+      tag="div"
+    >
+      <FormGroup
+        check={true}
+        tag="div"
+      >
+        <Label
+          check={true}
+          tag="label"
+          widths={
+            Array [
+              "xs",
+              "sm",
+              "md",
+              "lg",
+              "xl",
+            ]
+          }
+        >
+          Date Picker
+          <Input
+            checked={false}
+            className="ml-1 mr-2"
+            name="isCheckedDatePicker"
+            onChange={[Function]}
+            type="checkbox"
+          />
+        </Label>
+      </FormGroup>
+      <FormGroup
+        className="my-sm-1 mr-sm-2"
+        tag="div"
+      >
+        <Label
+          className="mr-sm-2"
+          tag="label"
+          widths={
+            Array [
+              "xs",
+              "sm",
+              "md",
+              "lg",
+              "xl",
+            ]
+          }
+        >
+          From
+        </Label>
+        <t
+          enable={true}
+          iconElement={
+            <span
+              className="oi oi-calendar icon-calendar ml-1"
+            />
+          }
+          isReadonly={true}
+          minMonth={1}
+          minYear={2020}
+          onFormat={[Function]}
+          onSelect={[Function]}
+          open={false}
+          selectedDropdownYear={2018}
+          selectedMonth={11}
+        />
+      </FormGroup>
+      <FormGroup
+        className="my-sm-1 mr-sm-2"
+        tag="div"
+      >
+        <Label
+          className="mr-sm-2"
+          tag="label"
+          widths={
+            Array [
+              "xs",
+              "sm",
+              "md",
+              "lg",
+              "xl",
+            ]
+          }
+        >
+          To
+        </Label>
+        <t
+          enable={true}
+          iconElement={
+            <span
+              className="oi oi-calendar icon-calendar ml-1"
+            />
+          }
+          isReadonly={true}
+          maxMonth={11}
+          maxYear={2018}
+          minMonth={11}
+          minYear={2018}
+          onFormat={[Function]}
+          onSelect={[Function]}
+          open={false}
+          selectedDropdownYear={2018}
+          selectedMonth={11}
+          selectedYear={2018}
+        />
+      </FormGroup>
+    </FormGroup>
+    <FormGroup
+      tag="div"
+    >
+      <FormGroup
+        className="my-sm-1 mr-sm-2"
+        tag="div"
+      >
+        <Label
+          className="mr-sm-2"
+          htmlFor="SortBy"
+          tag="label"
+          widths={
+            Array [
+              "xs",
+              "sm",
+              "md",
+              "lg",
+              "xl",
+            ]
+          }
+        >
+          Sort By
+        </Label>
+        <Input
+          id="SortBy"
+          name="sortBy"
+          onChange={[Function]}
+          type="select"
+          value={1}
+        >
+          <option
+            key="sortBy-Affiliate"
+            value={1}
+          >
+            Affiliate
+          </option>
+          <option
+            key="sortBy-Turnover"
+            value={2}
+          >
+            Turnover
+          </option>
+          <option
+            key="sortBy-GGR"
+            value={3}
+          >
+            GGR
+          </option>
+          <option
+            key="sortBy-Earning"
+            value={4}
+          >
+            Earning
+          </option>
+        </Input>
+      </FormGroup>
+      <FormGroup
+        className="my-sm-1 mr-sm-2"
+        tag="div"
+      >
+        <Label
+          check={true}
+          tag="label"
+          widths={
+            Array [
+              "xs",
+              "sm",
+              "md",
+              "lg",
+              "xl",
+            ]
+          }
+        >
+          A-Z
+          <Input
+            checked={true}
+            className="ml-1"
+            name="isSortAscending"
+            onChange={[Function]}
+            type="checkbox"
+          />
+        </Label>
+      </FormGroup>
     </FormGroup>
     <FormGroup
       className="my-sm-1 mr-sm-2"
@@ -661,79 +723,83 @@ exports[`affiliate report - Filter  should render correctly when currentMainView
       </div>
     </FormGroup>
     <FormGroup
-      className="my-sm-1 mr-sm-2"
       tag="div"
     >
-      <Label
-        className="mr-sm-2"
-        tag="label"
-        widths={
-          Array [
-            "xs",
-            "sm",
-            "md",
-            "lg",
-            "xl",
-          ]
-        }
+      <FormGroup
+        className="my-sm-1 mr-sm-2"
+        tag="div"
       >
-        From
-      </Label>
-      <t
-        enable={true}
-        iconElement={
-          <span
-            className="oi oi-calendar icon-calendar ml-1"
-          />
-        }
-        isReadonly={true}
-        minMonth={1}
-        minYear={2020}
-        onFormat={[Function]}
-        onSelect={[Function]}
-        open={false}
-        selectedDropdownYear={2018}
-        selectedMonth={11}
-      />
-    </FormGroup>
-    <FormGroup
-      className="my-sm-1 mr-sm-2"
-      tag="div"
-    >
-      <Label
-        className="mr-sm-2"
-        tag="label"
-        widths={
-          Array [
-            "xs",
-            "sm",
-            "md",
-            "lg",
-            "xl",
-          ]
-        }
+        <Label
+          className="mr-sm-2"
+          tag="label"
+          widths={
+            Array [
+              "xs",
+              "sm",
+              "md",
+              "lg",
+              "xl",
+            ]
+          }
+        >
+          From
+        </Label>
+        <t
+          enable={true}
+          iconElement={
+            <span
+              className="oi oi-calendar icon-calendar ml-1"
+            />
+          }
+          isReadonly={true}
+          minMonth={1}
+          minYear={2020}
+          onFormat={[Function]}
+          onSelect={[Function]}
+          open={false}
+          selectedDropdownYear={2018}
+          selectedMonth={11}
+        />
+      </FormGroup>
+      <FormGroup
+        className="my-sm-1 mr-sm-2"
+        tag="div"
       >
-        To
-      </Label>
-      <t
-        enable={true}
-        iconElement={
-          <span
-            className="oi oi-calendar icon-calendar ml-1"
-          />
-        }
-        isReadonly={true}
-        maxMonth={11}
-        maxYear={2018}
-        minMonth={11}
-        minYear={2018}
-        onFormat={[Function]}
-        onSelect={[Function]}
-        open={false}
-        selectedDropdownYear={2018}
-        selectedMonth={11}
-        selectedYear={2018}
-      />
+        <Label
+          className="mr-sm-2"
+          tag="label"
+          widths={
+            Array [
+              "xs",
+              "sm",
+              "md",
+              "lg",
+              "xl",
+            ]
+          }
+        >
+          To
+        </Label>
+        <t
+          enable={true}
+          iconElement={
+            <span
+              className="oi oi-calendar icon-calendar ml-1"
+            />
+          }
+          isReadonly={true}
+          maxMonth={11}
+          maxYear={2018}
+          minMonth={11}
+          minYear={2018}
+          onFormat={[Function]}
+          onSelect={[Function]}
+          open={false}
+          selectedDropdownYear={2018}
+          selectedMonth={11}
+          selectedYear={2018}
+        />
+      </FormGroup>
     </FormGroup>
     <FormGroup
       check={true}
@@ -763,84 +829,88 @@ exports[`affiliate report - Filter  should render correctly when currentMainView
       </Label>
     </FormGroup>
     <FormGroup
-      className="my-sm-1 mr-sm-2"
       tag="div"
     >
-      <Label
-        className="mr-sm-2"
-        htmlFor="SortBy"
-        tag="label"
-        widths={
-          Array [
-            "xs",
-            "sm",
-            "md",
-            "lg",
-            "xl",
-          ]
-        }
+      <FormGroup
+        className="my-sm-1 mr-sm-2"
+        tag="div"
       >
-        Sort By
-      </Label>
-      <Input
-        id="SortBy"
-        name="sortBy"
-        onChange={[Function]}
-        type="select"
-        value={1}
-      >
-        <option
-          key="sortBy-Month"
+        <Label
+          className="mr-sm-2"
+          htmlFor="SortBy"
+          tag="label"
+          widths={
+            Array [
+              "xs",
+              "sm",
+              "md",
+              "lg",
+              "xl",
+            ]
+          }
+        >
+          Sort By
+        </Label>
+        <Input
+          id="SortBy"
+          name="sortBy"
+          onChange={[Function]}
+          type="select"
           value={1}
         >
-          Month
-        </option>
-        <option
-          key="sortBy-Turnover"
-          value={2}
-        >
-          Turnover
-        </option>
-        <option
-          key="sortBy-GGR"
-          value={3}
-        >
-          GGR
-        </option>
-        <option
-          key="sortBy-Earning"
-          value={4}
-        >
-          Earning
-        </option>
-      </Input>
-    </FormGroup>
-    <FormGroup
-      className="my-sm-1 mr-sm-2"
-      tag="div"
-    >
-      <Label
-        check={true}
-        tag="label"
-        widths={
-          Array [
-            "xs",
-            "sm",
-            "md",
-            "lg",
-            "xl",
-          ]
-        }
+          <option
+            key="sortBy-Month"
+            value={1}
+          >
+            Month
+          </option>
+          <option
+            key="sortBy-Turnover"
+            value={2}
+          >
+            Turnover
+          </option>
+          <option
+            key="sortBy-GGR"
+            value={3}
+          >
+            GGR
+          </option>
+          <option
+            key="sortBy-Earning"
+            value={4}
+          >
+            Earning
+          </option>
+        </Input>
+      </FormGroup>
+      <FormGroup
+        className="my-sm-1 mr-sm-2"
+        tag="div"
       >
-        A-Z
-        <Input
-          checked={true}
-          className="ml-1"
-          name="isSortAscending"
-          onChange={[Function]}
-          type="checkbox"
-        />
-      </Label>
+        <Label
+          check={true}
+          tag="label"
+          widths={
+            Array [
+              "xs",
+              "sm",
+              "md",
+              "lg",
+              "xl",
+            ]
+          }
+        >
+          A-Z
+          <Input
+            checked={true}
+            className="ml-1"
+            name="isSortAscending"
+            onChange={[Function]}
+            type="checkbox"
+          />
+        </Label>
+      </FormGroup>
     </FormGroup>
     <Button
       color="primary"

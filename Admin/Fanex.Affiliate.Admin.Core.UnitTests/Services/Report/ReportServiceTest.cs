@@ -19,7 +19,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Report
             var param = new AffiliateReportParam { ProductIds = "123", FromDate = new DateTime(2019, 10, 24), ToDate = new DateTime(2019, 11, 24) };
             AffiliateReportParam passedParam = null;
             var repository = new Mock<IAffiliateReportRepository>();
-            repository.Setup(re => re.GetMainReportData(param)).Returns(new EntityResult<AffiliateReport> { MainData = new List<AffiliateReport> { new AffiliateReport() }, TotalItem = 1 }).Callback<AffiliateReportParam>(p => passedParam = p);
+            repository.Setup(re => re.GetMainReportData(param)).Returns(new AffiliateReportResult() { MainData = new List<AffiliateReport> { new AffiliateReport() }, TotalItem = 1 }).Callback<AffiliateReportParam>(p => passedParam = p);
             var service = CreateAffiliateReportService(repository.Object);
 
             // Action

@@ -43,6 +43,7 @@ export class Filter extends Component {
             selectedPaymentCurrencyList: paymentCurrencyList.filter(item => item.checked).map(item => item.key).join(',') || '',
             selectedEarning: 'all',
             isCheckedDatePicker: false,
+            isByApprovalMonth: false,
             fromDate: `${currentMonthString}/01/${currentYear}`,
             toDate: this.nowString,
         }
@@ -59,7 +60,23 @@ export class Filter extends Component {
             }
 
             if (this._isMainView()) {
-                const { UserName, GroupIds, PreferredLanguage, FromDate, ToDate, SortType, SortDirectionType, ProductIds, CurrencyIds, PaymentCurrencyIds, BaseCurrencyId } = this.cachedMainReportParam;
+                const {
+                    UserName,
+                    GroupIds,
+                    PreferredLanguage,
+                    FromDate,
+                    ToDate,
+                    SortType,
+                    SortDirectionType,
+                    ProductIds,
+                    CurrencyIds,
+                    PaymentCurrencyIds,
+                    BaseCurrencyId,
+                    IsExcludeNegvBBF,
+                    IsExcludeNegvCurrentBBF,
+                    IsByApprovalMonth
+                } = this.cachedMainReportParam;
+
                 const from = new Date(FromDate);
                 const to = new Date(ToDate);
 
@@ -76,9 +93,10 @@ export class Filter extends Component {
                     selectedCurrencyList: CurrencyIds,
                     selectedPaymentCurrencyList: PaymentCurrencyIds,
                     isGetAll: false,
-                    isExcludeNegvBBF: false,
-                    IsExcludeNegvCurrentBBF: false,
-                    isCheckedDatePicker: false
+                    isExcludeNegvBBF: IsExcludeNegvBBF,
+                    isExcludeNegvCurrentBBF: IsExcludeNegvCurrentBBF,
+                    isCheckedDatePicker: false,
+                    isByApprovalMonth: IsByApprovalMonth
                 }, callback);
 
                 this.props.setParam(this.cachedMainReportParam);
@@ -212,7 +230,8 @@ export class Filter extends Component {
             isExcludeNegvCurrentBBF,
             fromDate,
             toDate,
-            isCheckedDatePicker
+            isCheckedDatePicker,
+            isByApprovalMonth
         } = this.state;
         const { pagingOption } = this.props;
 
@@ -237,6 +256,7 @@ export class Filter extends Component {
             IsGetAll: isGetAll,
             IsExcludeNegvBBF: isExcludeNegvBBF,
             IsExcludeNegvCurrentBBF: isExcludeNegvCurrentBBF,
+            IsByApprovalMonth: isByApprovalMonth
         }
 
         if (this._isMainView()) {
@@ -328,12 +348,14 @@ export class Filter extends Component {
             fromMonth, toMonth,
             sortBy, isSortAscending,
             selectedProductList,
-            userName, isGetAll,
+            userName,
+            isGetAll,
             isExcludeNegvBBF,
             isExcludeNegvCurrentBBF,
             fromDate,
             toDate,
-            isCheckedDatePicker
+            isCheckedDatePicker,
+            isByApprovalMonth
         } = this.state;
 
         const {
@@ -465,54 +487,65 @@ export class Filter extends Component {
                         isMainView ? (
                             <FormGroup check>
                                 <Label check>
-                                    Date Picker
-                                    <Input name="isCheckedDatePicker" className="ml-1 mr-2" type="checkbox" checked={isCheckedDatePicker} onChange={this.handleCheck} />
+                                    By Approval Month
+                                    <Input name="isByApprovalMonth" className="ml-1 mr-2" type="checkbox" checked={isByApprovalMonth} onChange={this.handleCheck} />
                                 </Label>
                             </FormGroup>
                         ) : null
                     }
-                    {
-                        isCheckedDatePicker ? (
-                            <Fragment>
-                                <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                                    <Label className="mr-sm-2">{globalResource.From}</Label>
-                                    <DatePicker minDate={minDate} maxDate={this.nowString} date={fromDate}
-                                        iconElement={(<span className="oi oi-calendar icon-calendar ml-1"></span>)}
-                                        onChange={this.handleChangeFromDate} />
+                    <FormGroup>
+                        {
+                            isMainView ? (
+                                <FormGroup check>
+                                    <Label check>
+                                        Date Picker
+                                        <Input name="isCheckedDatePicker" className="ml-1 mr-2" type="checkbox" checked={isCheckedDatePicker} onChange={this.handleCheck} />
+                                    </Label>
                                 </FormGroup>
-                                <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                                    <Label className="mr-sm-2">{globalResource.To}</Label>
-                                    <DatePicker minDate={fromDate} maxDate={this.nowString} date={toDate}
-                                        iconElement={(<span className="oi oi-calendar icon-calendar ml-1"></span>)}
-                                        onChange={this.handleChangeToDate} />
-                                </FormGroup>
-                            </Fragment>
-                        ) : (
-                            <Fragment>
-                                <FormGroup className="my-sm-1 mr-sm-2">
-                                    <Label className="mr-sm-2">From</Label>
-                                    <MonthPicker minMonth={minMonthDate.month} minYear={minMonthDate.year}
-                                        selectedDropdownYear={fromMonth.year}
-                                        selectedMonth={fromMonth.month}
-                                        onSelect={this.handleSelectFromMonth}
-                                        iconElement={(<span className="oi oi-calendar icon-calendar ml-1"></span>)}
-                                        enable={!isGetAll} />
-                                </FormGroup>
-                                <FormGroup className="my-sm-1 mr-sm-2">
-                                    <Label className="mr-sm-2">To</Label>
-                                    <MonthPicker minMonth={toMonthRange.min.month} minYear={toMonthRange.min.year}
-                                        maxMonth={toMonthRange.max.month} maxYear={toMonthRange.max.year}
-                                        selectedDropdownYear={toMonth.year}
-                                        selectedYear={toMonth.year}
-                                        selectedMonth={toMonth.month}
-                                        onSelect={this.handleSelectToMonth}
-                                        iconElement={(<span className="oi oi-calendar icon-calendar ml-1"></span>)}
-                                        enable={!isGetAll} />
-                                </FormGroup>
-                            </Fragment>
-                        )
-                    }
-
+                            ) : null
+                        }
+                        {
+                            isCheckedDatePicker ? (
+                                <Fragment>
+                                    <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+                                        <Label className="mr-sm-2">{globalResource.From}</Label>
+                                        <DatePicker minDate={minDate} maxDate={this.nowString} date={fromDate}
+                                            iconElement={(<span className="oi oi-calendar icon-calendar ml-1"></span>)}
+                                            onChange={this.handleChangeFromDate} />
+                                    </FormGroup>
+                                    <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+                                        <Label className="mr-sm-2">{globalResource.To}</Label>
+                                        <DatePicker minDate={fromDate} maxDate={this.nowString} date={toDate}
+                                            iconElement={(<span className="oi oi-calendar icon-calendar ml-1"></span>)}
+                                            onChange={this.handleChangeToDate} />
+                                    </FormGroup>
+                                </Fragment>
+                            ) : (
+                                <Fragment>
+                                    <FormGroup className="my-sm-1 mr-sm-2">
+                                        <Label className="mr-sm-2">From</Label>
+                                        <MonthPicker minMonth={minMonthDate.month} minYear={minMonthDate.year}
+                                            selectedDropdownYear={fromMonth.year}
+                                            selectedMonth={fromMonth.month}
+                                            onSelect={this.handleSelectFromMonth}
+                                            iconElement={(<span className="oi oi-calendar icon-calendar ml-1"></span>)}
+                                            enable={!isGetAll} />
+                                    </FormGroup>
+                                    <FormGroup className="my-sm-1 mr-sm-2">
+                                        <Label className="mr-sm-2">To</Label>
+                                        <MonthPicker minMonth={toMonthRange.min.month} minYear={toMonthRange.min.year}
+                                            maxMonth={toMonthRange.max.month} maxYear={toMonthRange.max.year}
+                                            selectedDropdownYear={toMonth.year}
+                                            selectedYear={toMonth.year}
+                                            selectedMonth={toMonth.month}
+                                            onSelect={this.handleSelectToMonth}
+                                            iconElement={(<span className="oi oi-calendar icon-calendar ml-1"></span>)}
+                                            enable={!isGetAll} />
+                                    </FormGroup>
+                                </Fragment>
+                            )
+                        }
+                    </FormGroup>
                     {
                         !isMainView && (
                             <FormGroup check>

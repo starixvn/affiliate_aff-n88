@@ -51,7 +51,8 @@ describe('affiliate report - Filter - connect', () => {
             setProductList: actions['setProductList'],
             setReportTitle: actions['setReportTitle'],
             setParam: actions['setParam'],
-            setCurrencyList: actions['setCurrencyList']
+            setCurrencyList: actions['setCurrencyList'],
+            setIsCheckedDatePicker: actions['setIsCheckedDatePicker']
         }
 
         const dispatch = {};

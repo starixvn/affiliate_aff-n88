@@ -65,7 +65,11 @@ describe('affiliate report - Filter ', () => {
         commGroupList,
         baseCurrencyList,
         paymentCurrencyList,
-        earningByList
+        earningByList,
+        IsByApprovalMonth: false,
+        IsExcludeNegvBBF: false,
+        IsExcludeNegvCurrentBBF: false,
+        isCheckedDatePicker: false
     };
 
     it('componentDidUpdate - should call setParam, setState and setReportTitle when currentViewLevel change to Main view', () => {
@@ -76,7 +80,11 @@ describe('affiliate report - Filter ', () => {
             ToDate: '12/24/2018',
             SortType: 1,
             SortDirectionType: '',
-            ProductIds: '1,2'
+            ProductIds: '1,2',
+            IsByApprovalMonth: false,
+            IsCheckedDatePicker: false,
+            IsExcludeNegvBBF: false,
+            IsExcludeNegvCurrentBBF: false,
         };
         const state = {
             userName: '',
@@ -86,7 +94,11 @@ describe('affiliate report - Filter ', () => {
             sortBy: 1,
             isSortAscending: false,
             selectedProductList: '1,2',
-            isGetAll: false
+            isGetAll: false,
+            isByApprovalMonth: false,
+            isCheckedDatePicker: false,
+            isExcludeNegvBBF: false,
+            isExcludeNegvCurrentBBF: false,
         };
 
         const props = Object.assign({}, defaultProps, { setParam: jest.fn() });
@@ -109,6 +121,7 @@ describe('affiliate report - Filter ', () => {
             userName: 'Month on Month view',
             sortBy: 1,
             isSortAscending: false,
+            isCheckedDatePicker: false,
             selectedEarning: 'all'
         };
         const selectedProductList = '1,2';
@@ -302,7 +315,9 @@ describe('affiliate report - Filter ', () => {
         const wrapper = shallow(<Filter {...defaultProps} />);
         wrapper.setState({ isGetAll: true });
 
-        wrapper.find('Input[type="checkbox"]').at(0).simulate('change');
+        wrapper.find('Input[type="checkbox"]').at(0).simulate('change', {
+            target: { name: 'isGetAll' }
+        });
 
         expect(wrapper.state('isGetAll')).toEqual(false);
     });
@@ -323,7 +338,9 @@ describe('affiliate report - Filter ', () => {
         const wrapper = shallow(<Filter {...defaultProps} />);
         wrapper.setState({ isSortAscending: true });
 
-        wrapper.find('Input[type="checkbox"]').at(1).simulate('change');
+        wrapper.find('Input[type="checkbox"]').at(1).simulate('change', {
+            target: { name: 'isSortAscending' }
+        });
 
         expect(wrapper.state('isSortAscending')).toEqual(false);
     });
@@ -359,10 +376,14 @@ describe('affiliate report - Filter ', () => {
             PageSize: 20,
             GroupIds: 'all',
             PaymentCurrencyIds: "21",
-            IsGetAll: false
+            IsGetAll: false,
+            IsByApprovalMonth: false,
+            IsExcludeNegvBBF: false,
+            IsExcludeNegvCurrentBBF: false,
+            IsGetMonthly: true
         };
 
-        const props = Object.assign({}, defaultProps, { setParam: jest.fn() })
+        const props = Object.assign({}, defaultProps, { setParam: jest.fn(), setIsCheckedDatePicker: jest.fn() })
 
         const wrapper = shallow(<Filter {...props} />);
         const instance = wrapper.instance();
@@ -395,7 +416,11 @@ describe('affiliate report - Filter ', () => {
             PageSize: 20,
             GroupIds: 'all',
             PaymentCurrencyIds: "21",
-            IsGetAll: false
+            IsGetAll: false,
+            IsByApprovalMonth: false,
+            IsExcludeNegvBBF: false,
+            IsExcludeNegvCurrentBBF: false,
+            IsGetMonthly: true
         };
         const selectedProductList = '1,2';
         const productList = [
@@ -435,7 +460,11 @@ describe('affiliate report - Filter ', () => {
             PageSize: 20,
             GroupIds: 'all',
             PaymentCurrencyIds: "21",
-            IsGetAll: false
+            IsGetAll: false,
+            IsByApprovalMonth: false,
+            IsExcludeNegvBBF: false,
+            IsExcludeNegvCurrentBBF: false,
+            IsGetMonthly: true
         };
         const selectedProductList = '1,2';
         const productList = [
