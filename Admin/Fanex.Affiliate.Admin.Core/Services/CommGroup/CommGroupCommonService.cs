@@ -70,7 +70,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
                     var productIds = platformFeeList.FirstOrDefault(p => p.GroupProductId == item.GroupProductId).ProductIds;
 
                     var row = $"<row id=\"{item.TierId}\" minamount=\"{item.MinAmount}\"" +
-                        $" minam=\"{item.MinQm}\" commission=\"{item.Commission}\" productids=\"{productIds}\" />";
+                        $" minqm=\"{item.MinQm}\" commission=\"{item.Commission}\" productids=\"{productIds}\" />";
                     result.Append(row);
                 }
             }

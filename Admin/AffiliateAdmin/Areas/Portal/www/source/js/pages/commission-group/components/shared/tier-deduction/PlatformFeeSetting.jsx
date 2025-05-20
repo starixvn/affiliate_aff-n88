@@ -7,7 +7,7 @@ import { setSelectedGroup } from '../../../actions';
 
 import PlatformFeeItem from "./PlatformFeeItem";
 import { deepClone, updateObjectInArray } from "../../../../../modules/dataHandler";
-import { FIRST_ITEM_INDEX, ONLY_ONE_ITEM, groupTypeList } from '../../../modules/constant';
+import { FIRST_ITEM_INDEX, ONLY_ONE_ITEM, groupTypeList, tierSettingDefault } from '../../../modules/constant';
 import { convertProductList, createDefaultProductGroupsDeductionFee, getDeductionSetting } from '../../../modules/service';
 
 export class PlatformFeeSetting extends PureComponent {
@@ -32,22 +32,27 @@ export class PlatformFeeSetting extends PureComponent {
     }
 
     handleAdd = () => {
-        const { PlatformFeeList, KillRateFeeList } = this.props.selectedGroup;
-        const groupProductId = Date.now();
+        const { PlatformFeeList, KillRateFeeList, TierSettingList } = this.props.selectedGroup;
+        const lastPlatformFee = PlatformFeeList.slice(-1)[0];
+        const groupProductId = lastPlatformFee.GroupProductId + 1;
+
         const platformFeeList = [...PlatformFeeList, { ...this.defaultPlatformItem, GroupProductId: groupProductId }];
         const killRateFeeList = [...KillRateFeeList, { ...this.defaultKillRateItem, GroupProductId: groupProductId }];
+        const tierSettingList = [...TierSettingList, { ...tierSettingDefault, GroupProductId: groupProductId }];
 
-        this.props.setSelectedGroup({ PlatformFeeList: platformFeeList, KillRateFeeList: killRateFeeList });
+        this.props.setSelectedGroup({ PlatformFeeList: platformFeeList, KillRateFeeList: killRateFeeList, TierSettingList: tierSettingList });
     }
 
     handleRemove = (index) => {
-        const { PlatformFeeList, KillRateFeeList } = this.props.selectedGroup;
+        const { PlatformFeeList, KillRateFeeList, TierSettingList } = this.props.selectedGroup;
 
         const platformFeeList = deepClone(PlatformFeeList);
         const killRateFeeList = deepClone(KillRateFeeList);
+        const tierSettingList = deepClone(TierSettingList);
 
         const rootProductIds = platformFeeList[0].ProductIds.split(',').filter(p => !!p);
-        const checkedProductIds = platformFeeList[index].ProductIds.split(',').filter(p => !!p);
+        const platformFeeRemoved = platformFeeList[index];
+        const checkedProductIds = platformFeeRemoved.ProductIds.split(',').filter(p => !!p);
 
         for (let productId of checkedProductIds) {
             rootProductIds.push(productId);
@@ -58,7 +63,8 @@ export class PlatformFeeSetting extends PureComponent {
         platformFeeList.splice(index, 1);
         killRateFeeList.splice(index, 1);
 
-        this.props.setSelectedGroup({ PlatformFeeList: platformFeeList, KillRateFeeList: killRateFeeList });
+        const groupIdRemoved = platformFeeRemoved.GroupProductId;
+        this.props.setSelectedGroup({ PlatformFeeList: platformFeeList, KillRateFeeList: killRateFeeList, TierSettingList: tierSettingList.filter(t => t.GroupProductId != groupIdRemoved) });
     }
 
     handleSelect = (index, selectedItem) => {
@@ -143,7 +149,7 @@ export class PlatformFeeSetting extends PureComponent {
                         <FormGroup check>
                             <Label check>
                                 <Input type="checkbox" name="IsActivePlayerSum" checked={IsActivePlayerSum}
-                                    onChange={() => this.handleCheck(!IsActivePlayerSum)} />Count Active Player across all products(exclude Free Bet)
+                                    onChange={() => this.handleCheck(!IsActivePlayerSum)} />Count Qualified Player across all products(exclude Free Bet)
                             </Label>
                         </FormGroup>
                     </Form>
