@@ -17,7 +17,8 @@
                 <th width="10%">@Lang.Date</th>
                 <th width="10%">@Lang.NewSignup</th>
                 <th width="12%">@Lang.DepositedPlayers</th>
-                <th width="12%">@Html.Raw(Lang.ActivePlayers)</th>
+                <th width="10%">@Lang.ActivePlayers</th>
+                <th width="10%">@Lang.QualifiedPlayers</th>
                 <th width="10%">@Html.Raw(Lang.Deposit + currencyLabel)</th>
                 <th width="10%">@Html.Raw(Lang.Turnover + currencyLabel)</th>
                 <th width="10%">@Html.Raw(Lang.Withdrawal + currencyLabel)</th>
@@ -31,6 +32,7 @@
                         <th class="text-center">@itemTotal.Signups</th>
                         <th class="text-center">@itemTotal.DepositedMembers</th>
                         <th class="text-center">@itemTotal.ActiveMembers</th>
+                        <th class="text-center">@itemTotal.QualifiedMember</th>
                         <th class="text-center">@itemTotal.Deposit.FormatDecimal()</th>
                         <th class="text-center">@itemTotal.Turnover.FormatDecimal()</th>
                         <th class="text-center">@itemTotal.Withdrawal.FormatDecimal()</th>
@@ -51,6 +53,7 @@
                             <td class="text-center">@item.Signups</td>
                             <td class="text-center">@item.DepositedMembers</td>
                             <td class="text-center">@item.ActiveMembers</td>
+                            <td class="text-center">@item.QualifiedMember</td>
                             <td class="text-center">@item.Deposit.FormatDecimal()</td>
                             <td class="text-center">@item.Turnover.FormatDecimal()</td>
                             <td class="text-center">@item.Withdrawal.FormatDecimal()</td>

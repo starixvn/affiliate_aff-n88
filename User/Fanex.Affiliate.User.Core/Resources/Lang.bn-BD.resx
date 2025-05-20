@@ -1549,9 +1549,6 @@
   <data name="Deposit" xml:space="preserve">
     <value>জমা হয়েছে</value>
   </data>
-  <data name="ActivePlayers" xml:space="preserve">
-    <value>সক্রিয় খেলোয়াড়ের সংখ্যা&lt;br/&gt;(মিনিট প্রয়োজন)</value>
-  </data>
   <data name="P2pIncluded" xml:space="preserve">
     <value>রাজস্ব ভাগ (P2P অন্তর্ভুক্ত)</value>
   </data>

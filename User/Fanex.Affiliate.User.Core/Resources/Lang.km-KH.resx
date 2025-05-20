@@ -1542,9 +1542,6 @@
   <data name="Deposit" xml:space="preserve">
     <value>ដាក់លុយ</value>
   </data>
-  <data name="ActivePlayers" xml:space="preserve">
-    <value>ចំនួនអ្នកលេងសកម្ម&lt;br/&gt;(ទាមទារអប្បបរមា)</value>
-  </data>
   <data name="P2pIncluded" xml:space="preserve">
     <value>ការបែងចែកប្រាក់ចំណូល (រួមបញ្ចូល P2P)</value>
   </data>
