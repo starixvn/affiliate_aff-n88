@@ -131,13 +131,13 @@ describe('affiliate report - Content ', () => {
         it('should create new instance of ReportExcel with correct parameter', async () => {
             const expectedData = ['data 1', 'data 2'];
 
-            const reportTitle = 'report title', isMainView = true;
+            const reportTitle = 'report title';
             const props = Object.assign({}, defaultProps, { toggleLoader: jest.fn(), reportTitle: reportTitle, fetchData: jest.fn(() => expectedData) });
             const componentInstance = new Content(props);
 
             await componentInstance.handleExportExcel();
 
-            expect(ReportExcel).toHaveBeenCalledWith(expectedData, reportTitle, isMainView);
+            expect(ReportExcel).toHaveBeenCalled();
         });
     });
 

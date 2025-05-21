@@ -171,6 +171,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
             report.SubAffEarning = reader.ToDecimal("SubAffEarning");
             report.P2pEarning = reader.ToDecimal("P2PEarning");
             report.Deposit = reader.ToDecimal("Deposit");
+            report.QualifiedMember = reader.ToInt("QualifiedMember");
 
             return report;
         }

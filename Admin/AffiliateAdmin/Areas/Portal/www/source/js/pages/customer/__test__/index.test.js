@@ -6,8 +6,13 @@ jest.mock('react-dom', () => ({ render: jest.fn() }))
 
 describe('Customer - App', () => {
     beforeEach(() => {
+        window.globalVariables = {
+            claims: {}
+        },
+
         window.initialState = {
-            currencyList: [{ ExchangeId: 1, Code: 'USD' }]
+            currencyList: [{ ExchangeId: 1, Code: 'USD' }],
+            claims: {}
         }
     });
 

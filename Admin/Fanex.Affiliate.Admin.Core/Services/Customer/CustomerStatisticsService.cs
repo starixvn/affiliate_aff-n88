@@ -39,7 +39,8 @@ namespace Fanex.Affiliate.Admin.Core.Services.Customer
                             UniqueClickMobileByMonth = Convert.ToInt32(reader["UniqueClickMobileByMonth"]),
                             TotalClickMobileByMonth = Convert.ToInt32(reader["TotalClickMobileByMonth"]),
                             NoOfSubAffByMonth = Convert.ToInt32(reader["NoOfSubAffByMonth"]),
-                            NoOfSubAffTotal = Convert.ToInt32(reader["NoOfSubAffTotal"])
+                            NoOfSubAffTotal = Convert.ToInt32(reader["NoOfSubAffTotal"]),
+                            QualifiedMembersByMonth = Convert.ToInt32(reader["QualifiedMembersByMonth"])
                         };
                     }
                 }
