@@ -30,19 +30,17 @@ const _killRateValueList = generateCommissionValues(MAX_KILL_RATE_PERCENT);
 
 export const commissionValueList = _commValueList;
 export const killRateValueList = _killRateValueList;
-export const firstMinNetTurnoverValueList = {
-    "0": "0"
-}
+
 export const firstMinNetWinValueList = {
-    ...firstMinNetTurnoverValueList,
+    "0": "0",
     [NEGATIVE_INFINITY_SYMBOL]: NEGATIVE_INFINITY_SYMBOL
 }
 
 function generateSubAffCommRateValues() {
-    let min = 10.0,
+    let min = 0.0,
         max = 20.0;
 
-    const subAffCommRateList = { 0.1: '10.0%' };
+    const subAffCommRateList = { 0.0: '0.0%' };
 
     while (min < max) {
         min = min + 10;
@@ -54,7 +52,7 @@ function generateSubAffCommRateValues() {
 const _subAffCommRateValueList = generateSubAffCommRateValues();
 
 export const subAffCommRateValueList = _subAffCommRateValueList;
-export const defaultSubAffCommRate = 0.1;
+export const defaultSubAffCommRate = 0.0;
 
 export const GGR = '| Gross Game Revenue |';
 export const Turnover = '| Turnover |';

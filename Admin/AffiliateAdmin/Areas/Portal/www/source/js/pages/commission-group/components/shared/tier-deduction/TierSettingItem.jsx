@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Input } from 'reactstrap';
-import { commissionValueList, format, money, firstMinNetWinValueList, firstMinNetTurnoverValueList, NEGATIVE_INFINITY_SYMBOL, regexAcceptNegativeAmountFormat, regexValidNegativeAmount } from '../../../modules/constant';
+import { commissionValueList, format, money, firstMinNetWinValueList, NEGATIVE_INFINITY_SYMBOL, regexAcceptNegativeAmountFormat, regexValidNegativeAmount } from '../../../modules/constant';
 
 export default class TierSettingItem extends React.PureComponent {
     constructor(props) {
@@ -60,7 +60,6 @@ export default class TierSettingItem extends React.PureComponent {
 
         const isValidAmount = regexValidNegativeAmount.test(MinAmount);
         const isNegativeInfinity = MinAmount == money.AllowedMinValue;
-        const firstMinNetValueList = isTurnover ? firstMinNetTurnoverValueList : firstMinNetWinValueList;
 
         return (
             <tr>
@@ -68,14 +67,19 @@ export default class TierSettingItem extends React.PureComponent {
                 <td>
                     {
                         isFirst ? (
-                            <select className="form-control" name="MinAmount" id={"MinAmount" + TierId}
-                                onChange={this.handleChangeFirstMinNet} value={isNegativeInfinity ? NEGATIVE_INFINITY_SYMBOL : this.handleGetMinAmount(MinAmount, isValidAmount)}>
-                                {
-                                    Object.keys(firstMinNetValueList).map(key => {
-                                        return (<option key={`MinAmount-${key}`} value={key}>{firstMinNetValueList[key]}</option>);
-                                    })
-                                }
-                            </select>
+                            isTurnover ? (
+                                <Input type="text" disabled name="MinAmount" id={"MinAmount" + TierId}
+                                    value={this.handleGetMinAmount(MinAmount, isValidAmount)} />
+                            ) : (
+                                <select className="form-control" name="MinAmount" id={"MinAmount" + TierId}
+                                    onChange={this.handleChangeFirstMinNet} value={isNegativeInfinity ? NEGATIVE_INFINITY_SYMBOL : this.handleGetMinAmount(MinAmount, isValidAmount)}>
+                                    {
+                                        Object.keys(firstMinNetWinValueList).map(key => {
+                                            return (<option key={`MinAmount-${key}`} value={key}>{firstMinNetWinValueList[key]}</option>);
+                                        })
+                                    }
+                                </select>
+                            )
                         ) : (
                             <Input className={isValidAmount ? "" : "has-error"} type="text" name="MinAmount" id={"MinAmount" + TierId}
                                 value={this.handleGetMinAmount(MinAmount, isValidAmount)} onChange={this.handleChangeAmount} />

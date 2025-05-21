@@ -192,6 +192,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
                     KillRateFeeList = commGroup.KillRateFeeList,
                     DepositFee = commGroup.DepositFee,
                     WithdrawalFee = commGroup.WithdrawalFee,
+                    SubAffCommRate = commGroup.SubAffCommRate,
                     QmTurnover = commGroup.QmTurnover,
                     IsActivePlayerSum = commGroup.IsActivePlayerSum
                 };
