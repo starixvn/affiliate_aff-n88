@@ -14,9 +14,9 @@
     <Setting Key="Aff_ProductList_Sel" SpName="Aff_ProductList_Sel" DbName="DBAFFN88.Affiliate_N88.wsv_afinet" />
     <Setting Key="Aff_Admin_CommGroup_Deductions_Sel" SpName="Aff_Admin_CommGroup_Deductions_Sel" DbName="DBAFFN88.Affiliate_N88.wsv_afinet" />
     <Setting Key="Aff_CommGroup_Sel" SpName="Aff_CommGroup_Sel" DbName="DBAFFN88.Affiliate_N88.wsv_afinet" />
-    <Setting Key="Aff_Admin_CommGroup_Sel" SpName="Aff_Admin_CommGroup_Sel_xtest" DbName="DBAFFN88.Affiliate_N88.wsv_afinet" />
-    <Setting Key="Aff_Admin_CommGroup_Ins" SpName="Aff_Admin_CommGroup_Ins_xtest" DbName="DBAFFN88.Affiliate_N88.wsv_afinet" />
-    <Setting Key="Aff_Admin_CommGroup_Upd" SpName="Aff_Admin_CommGroup_Upd_xtest" DbName="DBAFFN88.Affiliate_N88.wsv_afinet" />
+    <Setting Key="Aff_Admin_CommGroup_Sel" SpName="Aff_Admin_CommGroup_Sel" DbName="DBAFFN88.Affiliate_N88.wsv_afinet" />
+    <Setting Key="Aff_Admin_CommGroup_Ins" SpName="Aff_Admin_CommGroup_Ins" DbName="DBAFFN88.Affiliate_N88.wsv_afinet" />
+    <Setting Key="Aff_Admin_CommGroup_Upd" SpName="Aff_Admin_CommGroup_Upd" DbName="DBAFFN88.Affiliate_N88.wsv_afinet" />
     <Setting Key="Aff_Admin_CommGroup_Del" SpName="Aff_Admin_CommGroup_Del" DbName="DBAFFN88.Affiliate_N88.wsv_afinet" />
     <Setting Key="Aff_Admin_CommGroupNormal_Sel" SpName="Aff_Admin_CommGroupNormal_Sel" DbName="DBAFFN88.Affiliate_N88.wsv_afinet" />
     <Setting Key="Aff_Admin_CommGroup_Assign" SpName="Aff_Admin_CommGroup_Assign" DbName="DBAFFN88.Affiliate_N88.wsv_afinet" />

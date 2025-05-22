@@ -46,7 +46,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
                              NoAffs = c.NoAffs,
                              IsActivePlayerSum = c.IsActivePlayerSum,
                              TierSettingList = groupTierSetting,
-                             PlatformFeeList = groupTierDeductionSetting.Where(p => p.DeductionId == Constants.Deduction.PlatformFeeId),
+                             PlatformFeeList = groupTierDeductionSetting.Where(p => p.DeductionId == Constants.Deduction.PlatformFeeId).OrderBy(p => p.GroupProductId),
                              DepositFee = groupTierDeductionSetting.FirstOrDefault(p => p.DeductionId == Constants.Deduction.DepositFeeId),
                              WithdrawalFee = groupTierDeductionSetting.FirstOrDefault(p => p.DeductionId == Constants.Deduction.WithdrawalFeeId),
                              KillRateFeeList = groupTierDeductionSetting.Where(p => p.DeductionId == Constants.Deduction.KillRateFeeId),
