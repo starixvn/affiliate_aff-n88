@@ -108,6 +108,17 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                 return GetResultInfo(Lang.AmountMustNotExceedLimit);
             }
 
+            return await TransferBalanceRequest(affId, baseAmount, param, summaryInfo, playerWalletInfo);
+        }
+
+        private async Task<ResultInfo> TransferBalanceRequest(int affId, decimal baseAmount,
+            TransMoneyRequestViewModel param, PlayerTransferBalanceInfo summaryInfo, CustomerBalanceInfo playerWalletInfo)
+        {
+            if (!_appSetting.IsApiDataModifiable)
+            {
+                GetResultInfo(Lang.ErrAuthorized);
+            }
+
             var (TransId, ErrCode, ErrMsg) = _repo.InsertTransferBalanceRequest(new PlayerTransferBalanceInsParam
             {
                 AffId = affId,
@@ -152,7 +163,6 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                 return GetResultInfo(Error.ErrInternalError);
             }
 
-
             var updResult = _repo.UpdateTransferBalanceRequest(TransId, TransferBalanceStatus.Completed);
             if (updResult.ErrCode == 0)
             {
@@ -164,7 +174,6 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                 return GetResultInfo(Lang.TransferSuccessful, true);
             }
             return GetResultInfo(updResult.ErrMsg);
-
         }
 
         private ResultInfo ValidateAmountAndPermission(decimal amount)
@@ -204,7 +213,6 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             {
                 await LogHelper.WriteErrorAsync($"Failed active deposit ActStatus of player {custId}", ex);
             }
-
         }
 
         private static string TranslateInsTransferRequestErrCodeToErrMsg(int errCode, string defaultErrMsg)

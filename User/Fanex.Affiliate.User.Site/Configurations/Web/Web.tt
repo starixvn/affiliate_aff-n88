@@ -5,7 +5,7 @@
 <#@ output extension=".txt" #>
 <#
 string projectPath = Host.ResolveAssemblyReference("$(SolutionDir)") + @"\User\Fanex.Affiliate.User.Site\";
-var environments = new string[] {"local", "uat", "production" };
+var environments = new string[] {"local", "uat", "production", "kldr" };
 var sites = new string[] {"n8b", "n8g", "n88"};
 foreach(var environment in environments)
 {
@@ -17,7 +17,7 @@ foreach(var environment in environments)
 			var document = new XmlDocument();
 			document.Load(projectPath + "Web.config");
 			transform.Apply(document);
-			document.Save(projectPath + @"Configurations\Web\Web.n88user-" + fileName);
+			document.Save(projectPath + @"Configurations\Web\" + string.Format("Web.{0}-user.{1}.config", site, environment));
 		}
  }
 }
