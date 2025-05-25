@@ -2079,4 +2079,10 @@
   <data name="PleaseReviewTheUpdatedDetails" xml:space="preserve">
     <value>Vui lòng xem chi tiết trong mục "{0}" hoặc liên hệ bộ phận hỗ trợ để biết thêm thông tin.</value>
   </data>
+  <data name="QualifiedPlayers" xml:space="preserve">
+    <value>Người chơi đủ điều kiện</value>
+  </data>
+  <data name="ActivePlayers" xml:space="preserve">
+    <value>Người chơi đủ điều kiện</value>
+  </data>
 </root>

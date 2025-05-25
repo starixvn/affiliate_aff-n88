@@ -1806,4 +1806,10 @@
   <data name="PleaseReviewTheUpdatedDetails" xml:space="preserve">
     <value>Silakan tinjau detail yang diperbarui di bagian "{0}" atau hubungi tim dukungan untuk informasi lebih lanjut.</value>
   </data>
+  <data name="QualifiedPlayers" xml:space="preserve">
+    <value>Pemain yang memenuhi syarat</value>
+  </data>
+  <data name="ActivePlayers" xml:space="preserve">
+    <value>Pemain Aktif</value>
+  </data>
 </root>
