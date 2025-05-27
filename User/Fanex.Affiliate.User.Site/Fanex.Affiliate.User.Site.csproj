@@ -1655,6 +1655,7 @@
     <Content Include="Views\Shared\Email\VerificationAccount\Content.km-KH.cshtml" />
     <Content Include="www\source\styles\scss\components\_telegram-update-dialog.scss" />
     <Content Include="www\source\styles\scss\components\_revenue-notice-dialog.scss" />
+    <Content Include="Views\Test\AccessApi.cshtml" />
     <Content Include="www\build\styles\Images\home\n8g\main.desktop.en-US.webp" />
     <Content Include="www\build\styles\Images\home\n8g\main.desktop.vi-VN.webp" />
     <Content Include="www\build\styles\Images\home\n8g\main.mobile.en-US.webp" />

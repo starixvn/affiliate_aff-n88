@@ -112,14 +112,14 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             userParam.Password = loginInfo["p"];
             var isMatchPassword = IsMatchPassword(userParam.Password, user.Password);
             var loginResultParam = CreateLoginResultParam(userParam, isMatchPassword, user.AffId, hashedDeviceInfo);
-            var loginResultInfo = _authRepository.UpdateLoginResult(loginResultParam);
+            //var loginResultInfo = _authRepository.UpdateLoginResult(loginResultParam);
 
-            var isSuccessful = loginResultInfo.IsOk && isMatchPassword;
+            //var isSuccessful = loginResultInfo.IsOk && isMatchPassword;
 
             return new LoginResultViewModel
             {
                 UserInfo = user,
-                Result = new LoginResultInfo { IsOk = isSuccessful, Message = isSuccessful ? string.Empty : Error.LoginWrongInfo }
+                Result = new LoginResultInfo { IsOk = isMatchPassword, Message = isMatchPassword ? string.Empty : Error.LoginWrongInfo }
             };
         }
 

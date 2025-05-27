@@ -19,5 +19,8 @@ namespace Fanex.Affiliate.User.Core.Apis
 
         [Post("/api/Customer/TransferMoneyToPlayer")]
         Task<ApiResultInfo> TransferMoneyToPlayerAsync(TransferMoneyParam param);
+
+        [Get("/")]
+        Task<string> AccessApi();
     }
 }
