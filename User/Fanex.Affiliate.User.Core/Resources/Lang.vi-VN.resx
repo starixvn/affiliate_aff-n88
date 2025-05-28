@@ -1054,7 +1054,7 @@
     <value>Đây là email tự động, vui lòng không trả lời email này.</value>
   </data>
   <data name="Tier" xml:space="preserve">
-    <value>Cấp</value>
+    <value>Hạng</value>
   </data>
   <data name="TitelForgetPass" xml:space="preserve">
     <value>Mật khẩu mới sẽ được gửi tới địa chỉ email mà bạn đã cung cấp. &lt;br /&gt;Nếu cần hỗ trợ thêm, vui lòng &lt;a href="{0}"&gt;liên hệ với chúng tôi&lt;/a&gt;.</value>
@@ -1340,9 +1340,6 @@
   </data>
   <data name="UsernameSignUp" xml:space="preserve">
     <value>Tên đăng nhập B2C</value>
-  </data>
-  <data name="QualifyingMembers" xml:space="preserve">
-    <value>&gt;= 5</value>
   </data>
   <data name="ProductType" xml:space="preserve">
     <value>Loại sản phẩm</value>
@@ -1792,7 +1789,7 @@
     <value>Tổng số thành viên hoạt động</value>
   </data>
   <data name="CommissionRate" xml:space="preserve">
-    <value>Tỷ lệ hoa hồng</value>
+    <value>Hoa hồng</value>
   </data>
   <data name="CompanyNetProfitN88" xml:space="preserve">
     <value>Tiền lãi ròng của công ty (đ)</value>
@@ -2054,5 +2051,26 @@
   </data>
   <data name="UpdateNow" xml:space="preserve">
     <value>Cập nhật ngay</value>
+  </data>
+  <data name="ByInvitationOnly" xml:space="preserve">
+    <value>Dành Cho Khách Mời</value>
+  </data>
+  <data name="RevenueShare" xml:space="preserve">
+    <value>Hoa hồng theo doanh thu</value>
+  </data>
+  <data name="Flat" xml:space="preserve">
+    <value>65% cố định</value>
+  </data>
+  <data name="AllProducts" xml:space="preserve">
+    <value>Tất Cả Sản Phẩm</value>
+  </data>
+  <data name="CompanyNetWinN88" xml:space="preserve">
+    <value>Tổng doanh thu của hệ thống trong tháng (cnw) ($)</value>
+  </data>
+  <data name="QualifyingMem" xml:space="preserve">
+    <value>Thành viên hợp lệ</value>
+  </data>
+  <data name="CompanyNetWin" xml:space="preserve">
+    <value>Tổng doanh thu của hệ thống trong tháng (cnw) (₫)</value>
   </data>
 </root>

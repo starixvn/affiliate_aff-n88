@@ -193,7 +193,7 @@
     <value>Pengagihan Keuntungan</value>
   </data>
   <data name="Tier" xml:space="preserve">
-    <value>Peringkat</value>
+    <value>Tahap</value>
   </data>
   <data name="NetWinLoss" xml:space="preserve">
     <value>Keuntungan Bersih Syarikat ({0})</value>
@@ -1229,9 +1229,6 @@ Jika anda mempunyai sebarang soalan dan memerlukan sebarang bantuan, sila jangan
   <data name="HowWePay" xml:space="preserve">
     <value>Kaedah Pembayaran</value>
   </data>
-  <data name="QualifyingMembers" xml:space="preserve">
-    <value>&gt;= 5</value>
-  </data>
   <data name="CompanyNetProfitN88" xml:space="preserve">
     <value>Keuntungan Bersih (USD)</value>
   </data>
@@ -2020,5 +2017,26 @@ Jika anda mempunyai sebarang soalan dan memerlukan sebarang bantuan, sila jangan
   </data>
   <data name="UpdateNow" xml:space="preserve">
     <value>Kemas Kini Sekarang</value>
+  </data>
+  <data name="RevenueShare" xml:space="preserve">
+    <value>Perkongsian Hasil</value>
+  </data>
+  <data name="CompanyNetWinN88" xml:space="preserve">
+    <value>Keuntungan Bersih (CNW) ($)</value>
+  </data>
+  <data name="QualifyingMem" xml:space="preserve">
+    <value>Jumlah Pemain Aktif</value>
+  </data>
+  <data name="AllProducts" xml:space="preserve">
+    <value>Semua Produk</value>
+  </data>
+  <data name="ByInvitationOnly" xml:space="preserve">
+    <value>Hanya Melalui Jemputan</value>
+  </data>
+  <data name="Flat" xml:space="preserve">
+    <value>Tetap 65%</value>
+  </data>
+  <data name="CompanyNetWin" xml:space="preserve">
+    <value>Keuntungan Bersih (CNW) (VND)</value>
   </data>
 </root>

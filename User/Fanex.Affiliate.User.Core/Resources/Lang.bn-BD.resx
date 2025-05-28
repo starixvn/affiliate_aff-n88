@@ -352,7 +352,7 @@
     <value>মোট সক্রিয় খেলোয়াড় </value>
   </data>
   <data name="CommissionRate" xml:space="preserve">
-    <value>কমিশন হার </value>
+    <value>কমিশন</value>
   </data>
   <data name="TwentyFiveThousandAndAbove" xml:space="preserve">
     <value>250 আর বেশি </value>
@@ -1993,9 +1993,6 @@
   <data name="Habanero" xml:space="preserve">
     <value>Habanero</value>
   </data>
-  <data name="QualifyingMembers" xml:space="preserve">
-    <value>&gt;= 5</value>
-  </data>
   <data name="MyAccount" xml:space="preserve">
     <value>আমার অ্যাকাউন্ট</value>
   </data>
@@ -2034,5 +2031,26 @@
   </data>
   <data name="UpdateNow" xml:space="preserve">
     <value>এখনই আপডেট করুন</value>
+  </data>
+  <data name="RevenueShare" xml:space="preserve">
+    <value>রাজস্ব ভাগ</value>
+  </data>
+  <data name="Flat" xml:space="preserve">
+    <value>সমতল 65%</value>
+  </data>
+  <data name="AllProducts" xml:space="preserve">
+    <value>সকল পণ্য</value>
+  </data>
+  <data name="CompanyNetWinN88" xml:space="preserve">
+    <value>মাসিক কোম্পানির নিট লাভ ($)</value>
+  </data>
+  <data name="QualifyingMem" xml:space="preserve">
+    <value>যোগ্য সদস্য</value>
+  </data>
+  <data name="ByInvitationOnly" xml:space="preserve">
+    <value>শুধুমাত্র আমন্ত্রণের ভিত্তিতে</value>
+  </data>
+  <data name="CompanyNetWin" xml:space="preserve">
+    <value>মাসিক কোম্পানির নিট লাভ (VND)</value>
   </data>
 </root>

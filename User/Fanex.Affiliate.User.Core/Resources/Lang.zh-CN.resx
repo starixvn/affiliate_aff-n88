@@ -1053,7 +1053,7 @@ B2C合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
     <value>这是一封由系统自动发送的电子邮件，请勿直接回复此电子邮件。</value>
   </data>
   <data name="Tier" xml:space="preserve">
-    <value>层级</value>
+    <value>等级</value>
   </data>
   <data name="TitelForgetPass" xml:space="preserve">
     <value>新密码将发送到您提供的电子邮件地址。&lt;br /&gt;如果您遇到任何其他疑问，&lt;a href="{0}"&gt;请与我们联系&lt;/a&gt;。</value>
@@ -1324,9 +1324,6 @@ B2C合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
   </data>
   <data name="UsernameSignUp" xml:space="preserve">
     <value>B2C玩家账号</value>
-  </data>
-  <data name="QualifyingMembers" xml:space="preserve">
-    <value>&gt;= 5</value>
   </data>
   <data name="ProductType" xml:space="preserve">
     <value>产品</value>
@@ -1795,5 +1792,26 @@ B2C合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
   </data>
   <data name="UpdateNow" xml:space="preserve">
     <value>立即更新</value>
+  </data>
+  <data name="ByInvitationOnly" xml:space="preserve">
+    <value>仅限受邀</value>
+  </data>
+  <data name="RevenueShare" xml:space="preserve">
+    <value>分成比例</value>
+  </data>
+  <data name="Flat" xml:space="preserve">
+    <value>固定65%</value>
+  </data>
+  <data name="AllProducts" xml:space="preserve">
+    <value>所有产品</value>
+  </data>
+  <data name="CompanyNetWinN88" xml:space="preserve">
+    <value>公司当月净盈利（CNW）（美元）</value>
+  </data>
+  <data name="QualifyingMem" xml:space="preserve">
+    <value>符合条件的会员</value>
+  </data>
+  <data name="CompanyNetWin" xml:space="preserve">
+    <value>公司当月净盈利（CNW）（VND）</value>
   </data>
 </root>
