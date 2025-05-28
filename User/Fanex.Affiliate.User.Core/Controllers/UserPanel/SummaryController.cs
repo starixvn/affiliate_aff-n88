@@ -62,6 +62,7 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
                 Signups = model.Sum(item => item.Signups),
                 Deposit = model.Sum(item => item.Deposit),
                 ActiveMembers = model.Sum(item => item.ActiveMembers),
+                QualifiedMember = model.Sum(item => item.QualifiedMember),
                 Turnover = model.Sum(item => item.Turnover),
                 GGR = model.Sum(item => item.GGR),
                 Withdrawal = model.Sum(item => item.Withdrawal),
