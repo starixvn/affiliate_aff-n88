@@ -2048,4 +2048,13 @@ B2C सहयोगी की टीम&lt;br/&gt;&lt;br/&gt;
   <data name="CompanyNetWin" xml:space="preserve">
     <value>माह के लिए कंपनी की शुद्ध जीत (CNW) (VND)</value>
   </data>
+  <data name="ImportantUpdateToCommStructure" xml:space="preserve">
+    <value>कमिशन संरचना में महत्वपूर्ण अपडेट!</value>
+  </data>
+  <data name="WeAreUpgradingOurCommission" xml:space="preserve">
+    <value>हम जून से आपकी कमाई क्षमता बढ़ाने के लिए अपनी कमिशन पैकेज का उन्नयन कर रहे हैं। पुरानी संरचना को नई और बेहतर संरचना से प्रतिस्थापित किया जाएगा।</value>
+  </data>
+  <data name="PleaseReviewTheUpdatedDetails" xml:space="preserve">
+    <value>कृपया “{0}” में अपडेटेड विवरण देखें या अधिक जानकारी के लिए सपोर्ट से संपर्क करें।</value>
+  </data>
 </root>

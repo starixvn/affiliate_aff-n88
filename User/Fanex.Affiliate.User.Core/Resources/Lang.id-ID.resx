@@ -1797,4 +1797,13 @@
   <data name="CompanyNetWin" xml:space="preserve">
     <value>Pendapatan Bersih Dalam Sebulan (cnw) (vnd)</value>
   </data>
+  <data name="ImportantUpdateToCommStructure" xml:space="preserve">
+    <value>Pembaruan Penting pada Struktur Komisi!</value>
+  </data>
+  <data name="WeAreUpgradingOurCommission" xml:space="preserve">
+    <value>Kami akan meningkatkan paket komisi kami mulai bulan Juni untuk memberikan potensi penghasilan yang lebih baik bagi Anda. Struktur lama akan digantikan dengan struktur baru yang telah diperbarui dan ditingkatkan.</value>
+  </data>
+  <data name="PleaseReviewTheUpdatedDetails" xml:space="preserve">
+    <value>Silakan tinjau detail yang diperbarui di bagian "{0}" atau hubungi tim dukungan untuk informasi lebih lanjut.</value>
+  </data>
 </root>

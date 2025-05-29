@@ -2262,7 +2262,7 @@ label.require:after {
 }
 .info-group .info {
   line-height: 3rem;
-  background: hsl(20, 50%, 95%);
+  background: hsl(20deg, 50%, 95%);
   background-image: linear-gradient(#fff 50%, #f0f0f0 0);
   background-size: auto 6rem;
   background-origin: content-box;
@@ -3059,6 +3059,93 @@ input[type=radio], input[type=checkbox] {
   color: #C80013;
   background: #FFE9EB;
   border: 1px solid #C80013;
+}
+
+#revenueNoticeModal .modal-dialog {
+  max-width: 455px;
+}
+#revenueNoticeModal .modal-content {
+  border-radius: 10px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+}
+#revenueNoticeModal .modal-content.n88 {
+  border: 2px solid #EA5500;
+}
+#revenueNoticeModal .modal-content.n88 .modal-header {
+  background: linear-gradient(90deg, #FF5D00 60%, #EA5500 100%);
+}
+#revenueNoticeModal .modal-content.n8b {
+  background: #111;
+  border: 2px solid #3391f6;
+}
+#revenueNoticeModal .modal-content.n8b .modal-header {
+  background: linear-gradient(90deg, #3391f6 60%, #3391f6 100%);
+}
+#revenueNoticeModal .modal-content.n8g {
+  background: #152849;
+  border: 2px solid #dab078;
+}
+#revenueNoticeModal .modal-content.n8g .modal-header {
+  background: linear-gradient(90deg, #f8b500 60%, #fab617 100%);
+}
+#revenueNoticeModal .modal-content .modal-header {
+  color: #fff;
+  padding: 16px 20px;
+  border-radius: 8px 8px 0 0;
+  border-bottom: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+#revenueNoticeModal .modal-content .modal-icon {
+  background: #fff;
+  color: #b71c1c;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 22px;
+  margin-left: -10px;
+}
+#revenueNoticeModal .modal-content .modal-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+#revenueNoticeModal .modal-content .close-btn {
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  line-height: 1;
+  transition: all 0.2s;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#revenueNoticeModal .modal-content .close-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+#revenueNoticeModal .modal-content .modal-body {
+  padding: 20px;
+  font-weight: 450;
+  line-height: 22px;
+}
+#revenueNoticeModal .modal-content .modal-body .modal-redirect-revenue {
+  cursor: pointer;
+}
+#revenueNoticeModal .modal-content .modal-body.vi-VN .modal-redirect-revenue {
+  text-transform: uppercase;
 }
 
 #statementPager {

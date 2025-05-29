@@ -2159,4 +2159,13 @@
   <data name="CompanyNetWin" xml:space="preserve">
     <value>Company Net Win For The Month (CNW) (VND)</value>
   </data>
+  <data name="ImportantUpdateToCommStructure" xml:space="preserve">
+    <value>Important Update to Commission Structure!</value>
+  </data>
+  <data name="WeAreUpgradingOurCommission" xml:space="preserve">
+    <value>We're upgrading our commission package starting June to give you better earning potential. The old structure will be replaced with a new and improved structure.</value>
+  </data>
+  <data name="PleaseReviewTheUpdatedDetails" xml:space="preserve">
+    <value>Please review the updated details in "{0}" or contact support for more information.</value>
+  </data>
 </root>

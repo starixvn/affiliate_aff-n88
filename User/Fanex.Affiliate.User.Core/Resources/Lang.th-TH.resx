@@ -1797,4 +1797,13 @@
   <data name="CompanyNetWin" xml:space="preserve">
     <value>ยอดเล่นสุทธิ/เดือน (ดอลลาร์ฯ) (VND)</value>
   </data>
+  <data name="ImportantUpdateToCommStructure" xml:space="preserve">
+    <value>การอัปเดตที่สำคัญสำหรับโครงสร้างคอมมิชชัน!</value>
+  </data>
+  <data name="WeAreUpgradingOurCommission" xml:space="preserve">
+    <value>เรากำลังอัปเกรดแพ็คเกจคอมมิชชันของเราตั้งแต่เดือนมิถุนายนเป็นต้นไป เพื่อให้คุณมีโอกาสสร้างรายได้ที่ดีขึ้น โครงสร้างเดิมจะถูกแทนที่ด้วยโครงสร้างใหม่ที่ได้รับการปรับปรุง</value>
+  </data>
+  <data name="PleaseReviewTheUpdatedDetails" xml:space="preserve">
+    <value>โปรดตรวจสอบรายละเอียดที่อัปเดตใน "{0}" หรือติดต่อฝ่ายสนับสนุนเพื่อขอข้อมูลเพิ่มเติม</value>
+  </data>
 </root>

@@ -2073,4 +2073,13 @@
   <data name="CompanyNetWin" xml:space="preserve">
     <value>Tổng doanh thu của hệ thống trong tháng (cnw) (₫)</value>
   </data>
+  <data name="ImportantUpdateToCommStructure" xml:space="preserve">
+    <value>THÔNG BÁO QUAN TRỌNG VỀ VIỆC CẬP NHẬT CẤU TRÚC HOA HỒNG!</value>
+  </data>
+  <data name="WeAreUpgradingOurCommission" xml:space="preserve">
+    <value>Chúng tôi sẽ nâng cấp cấu trúc hoa hồng trong chương trình đại lý kể từ tháng 6 nhằm giúp bạn gia tăng tiềm năng thu nhập. Cấu trúc hiện tại sẽ được thay thế bằng phiên bản mới, tối ưu và cạnh tranh hơn.</value>
+  </data>
+  <data name="PleaseReviewTheUpdatedDetails" xml:space="preserve">
+    <value>Vui lòng xem chi tiết trong mục "{0}" hoặc liên hệ bộ phận hỗ trợ để biết thêm thông tin.</value>
+  </data>
 </root>

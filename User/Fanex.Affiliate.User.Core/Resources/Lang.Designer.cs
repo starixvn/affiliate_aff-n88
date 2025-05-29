@@ -19,7 +19,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Lang {
@@ -2491,6 +2491,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Important Update to Commission Structure!.
+        /// </summary>
+        public static string ImportantUpdateToCommStructure {
+            get {
+                return ResourceManager.GetString("ImportantUpdateToCommStructure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to In {baseCurrency}.
         /// </summary>
         public static string InBaseCurrency {
@@ -3936,6 +3945,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string PleaseDirectAnyComment {
             get {
                 return ResourceManager.GetString("PleaseDirectAnyComment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please review the updated details in &quot;{0}&quot; or contact support for more information..
+        /// </summary>
+        public static string PleaseReviewTheUpdatedDetails {
+            get {
+                return ResourceManager.GetString("PleaseReviewTheUpdatedDetails", resourceCulture);
             }
         }
         
@@ -5682,6 +5700,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string VirtualSports {
             get {
                 return ResourceManager.GetString("VirtualSports", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to We&apos;re upgrading our commission package starting June to give you better earning potential. The old structure will be replaced with a new and improved structure..
+        /// </summary>
+        public static string WeAreUpgradingOurCommission {
+            get {
+                return ResourceManager.GetString("WeAreUpgradingOurCommission", resourceCulture);
             }
         }
         

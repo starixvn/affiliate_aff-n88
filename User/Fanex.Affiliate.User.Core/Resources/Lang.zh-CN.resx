@@ -1814,4 +1814,13 @@ B2C合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
   <data name="CompanyNetWin" xml:space="preserve">
     <value>公司当月净盈利（CNW）（VND）</value>
   </data>
+  <data name="ImportantUpdateToCommStructure" xml:space="preserve">
+    <value>佣金结构重要更新！</value>
+  </data>
+  <data name="WeAreUpgradingOurCommission" xml:space="preserve">
+    <value>我司将于6月升级佣金方案，为您带来更佳的盈利潜力。旧结构将被全新升级的结构取代。</value>
+  </data>
+  <data name="PleaseReviewTheUpdatedDetails" xml:space="preserve">
+    <value>请查看“{0}”中的更新详情，或联系客服了解更多信息。</value>
+  </data>
 </root>

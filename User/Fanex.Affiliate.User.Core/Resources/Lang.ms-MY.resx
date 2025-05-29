@@ -2039,4 +2039,13 @@ Jika anda mempunyai sebarang soalan dan memerlukan sebarang bantuan, sila jangan
   <data name="CompanyNetWin" xml:space="preserve">
     <value>Keuntungan Bersih (CNW) (VND)</value>
   </data>
+  <data name="ImportantUpdateToCommStructure" xml:space="preserve">
+    <value>Kemas Kini Penting kepada Struktur Suruhanjaya!</value>
+  </data>
+  <data name="WeAreUpgradingOurCommission" xml:space="preserve">
+    <value>Kami sedang menaik taraf pakej komisen kami mulai bulan Jun untuk memberi anda potensi pendapatan yang lebih baik. Struktur lama akan digantikan dengan struktur baru dan lebih baik.</value>
+  </data>
+  <data name="PleaseReviewTheUpdatedDetails" xml:space="preserve">
+    <value>Sila semak butiran yang dikemas kini dalam "{0}" atau hubungi sokongan untuk mendapatkan maklumat lanjut</value>
+  </data>
 </root>

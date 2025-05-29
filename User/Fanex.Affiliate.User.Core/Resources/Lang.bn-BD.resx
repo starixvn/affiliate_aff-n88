@@ -2053,4 +2053,13 @@
   <data name="CompanyNetWin" xml:space="preserve">
     <value>মাসিক কোম্পানির নিট লাভ (VND)</value>
   </data>
+  <data name="ImportantUpdateToCommStructure" xml:space="preserve">
+    <value>কমিশন কাঠামোতে গুরুত্বপূর্ণ আপডেট!</value>
+  </data>
+  <data name="WeAreUpgradingOurCommission" xml:space="preserve">
+    <value>জুন মাস থেকে আপনার উপার্জনের সম্ভাবনা আরও বাড়াতে আমরা আমাদের কমিশন প্যাকেজ আপগ্রেড করছি। পুরানো কাঠামোর জায়গায় একটি নতুন ও উন্নত কাঠামো চালু করা হবে।</value>
+  </data>
+  <data name="PleaseReviewTheUpdatedDetails" xml:space="preserve">
+    <value>অনুগ্রহ করে "{0}" বিভাগে আপডেট করা বিবরণ পর্যালোচনা করুন অথবা আরও তথ্যের জন্য সাপোর্ট টিমের সাথে যোগাযোগ করুন।</value>
+  </data>
 </root>
