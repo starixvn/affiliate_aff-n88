@@ -3062,7 +3062,7 @@ input[type=radio], input[type=checkbox] {
 }
 
 #revenueNoticeModal .modal-dialog {
-  max-width: 455px;
+  max-width: 480px;
 }
 #revenueNoticeModal .modal-content {
   border-radius: 10px;
@@ -3074,6 +3074,11 @@ input[type=radio], input[type=checkbox] {
 #revenueNoticeModal .modal-content.n88 .modal-header {
   background: linear-gradient(90deg, #FF5D00 60%, #EA5500 100%);
 }
+#revenueNoticeModal .modal-content.n88 .modal-body {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+}
 #revenueNoticeModal .modal-content.n8b {
   background: #111;
   border: 2px solid #3391f6;
@@ -3081,12 +3086,19 @@ input[type=radio], input[type=checkbox] {
 #revenueNoticeModal .modal-content.n8b .modal-header {
   background: linear-gradient(90deg, #3391f6 60%, #3391f6 100%);
 }
+#revenueNoticeModal .modal-content.n8b .modal-body {
+  line-height: 22px;
+}
 #revenueNoticeModal .modal-content.n8g {
   background: #152849;
   border: 2px solid #dab078;
 }
 #revenueNoticeModal .modal-content.n8g .modal-header {
   background: linear-gradient(90deg, #f8b500 60%, #fab617 100%);
+}
+#revenueNoticeModal .modal-content.n8g .modal-body {
+  font-size: 1.6rem;
+  line-height: 24px;
 }
 #revenueNoticeModal .modal-content .modal-header {
   color: #fff;
@@ -3111,7 +3123,7 @@ input[type=radio], input[type=checkbox] {
   margin-left: -10px;
 }
 #revenueNoticeModal .modal-content .modal-title {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: bold;
   margin: 0;
 }
@@ -3138,8 +3150,6 @@ input[type=radio], input[type=checkbox] {
 }
 #revenueNoticeModal .modal-content .modal-body {
   padding: 20px;
-  font-weight: 450;
-  line-height: 22px;
 }
 #revenueNoticeModal .modal-content .modal-body .modal-redirect-revenue {
   cursor: pointer;

@@ -1,6 +1,6 @@
 ﻿#revenueNoticeModal {
     .modal-dialog {
-        max-width: 455px;
+        max-width: 480px;
     }
 
     .modal-content {
@@ -13,6 +13,12 @@
             .modal-header {
                 background: linear-gradient(90deg, #FF5D00 60%, #EA5500 100%);
             }
+
+            .modal-body {
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 22px;
+            }
         }
 
         &.n8b {
@@ -22,6 +28,10 @@
             .modal-header {
                 background: linear-gradient(90deg, #3391f6 60%, #3391f6 100%);
             }
+
+            .modal-body {
+                line-height: 22px;
+            }
         }
 
         &.n8g {
@@ -30,6 +40,11 @@
 
             .modal-header {
                 background: linear-gradient(90deg, #f8b500 60%, #fab617 100%);
+            }
+
+            .modal-body {
+                font-size: 1.6rem;
+                line-height: 24px;
             }
         }
 
@@ -58,7 +73,7 @@
         }
 
         .modal-title {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: bold;
             margin: 0;
         }
@@ -88,8 +103,6 @@
 
         .modal-body {
             padding: 20px;
-            font-weight: 450;
-            line-height: 22px;
 
             .modal-redirect-revenue {
                 cursor: pointer;
