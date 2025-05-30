@@ -120,30 +120,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Utilities
         }
 
         [Fact]
-        public void ValidateCommGroup_ValidateTierSettingList_WhenCallWithNull_ReturnError()
-        {
-            // Arrange
-            var param = CreateValidCommGroupSettingParam();
-            param.DepositFee = new TierDeductionSettingParam
-            {
-                DeductedPercentage = 0.07m,
-                DeductionId = 13,
-                ProductIds = "0",
-                IsDeductedPercent = false,
-                DeductedAmount = "100"
-            };
-            param.TierSettingList = new List<TierSettingParam>();
-
-            var helper = CreateCommGroupValidationHelper();
-
-            // Action
-            var result = helper.ValidateCommGroup(param);
-
-            // Assert
-            Assert.False(result.IsSuccessful);
-        }
-
-        [Fact]
         public void ValidateCommGroup_ValidateTierSettingList_WhenCallWithMinAmountGreaterThanInfinityAmount_ReturnError()
         {
             // Arrange

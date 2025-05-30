@@ -1,4 +1,9 @@
-﻿using Fanex.Affiliate.User.Core.BusinessService;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
+using Fanex.Affiliate.User.Core.BusinessService;
+using Fanex.Affiliate.User.Core.Constants;
 using Fanex.Affiliate.User.Core.Controllers;
 using Fanex.Affiliate.User.Core.CoreService;
 using Fanex.Affiliate.User.Core.DTO;
@@ -10,10 +15,6 @@ using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
 using Fanex.Affiliate.User.Core.Utilities;
 using Fanex.Affiliate.User.Core.ViewModels.UserPanel.Statistics;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Mvc;
 using Xunit;
 
 namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
@@ -36,7 +37,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
             var landingPageStisticsList = CreateFakeLandingPageStatisticsList();
             statisticsRepository.Setup(m => m.GetLandingPageStatistics(It.IsAny<LandingPageStatisticsParam>())).Returns(landingPageStisticsList);
 
-            var today = DateTime.Today;
+            var today = DateTimeOffset.Now.ToOffset(new TimeSpan(GMT.PlusEight, 0, 0));
             var controller = CreateController(null, languageService.Object, statisticsRepository.Object, marketingService.Object);
 
             // Action
@@ -47,8 +48,8 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
             Assert.Equal(2, model.LanguageList.Count());
             Assert.Equal(2, model.DataList.Count());
             Assert.False(model.IsDetail);
-            Assert.Equal(new DateTime(today.Year, today.Month, 1), model.FromDate.Date);
-            Assert.Equal(today, model.ToDate.Date);
+            Assert.Equal(new DateTime(today.Year, today.Month, 1).Date, model.FromDate.Date);
+            Assert.Equal(today.Date, model.ToDate.Date);
             Assert.Equal(0, model.RowNumber);
         }
 
@@ -69,7 +70,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
                 .Returns(landingPageStisticsList)
                 .Callback<LandingPageStatisticsParam>(p => passedParam = p);
 
-            var today = DateTime.Today;
+            var today = DateTimeOffset.Now.ToOffset(new TimeSpan(GMT.PlusEight, 0, 0));
             var controller = CreateController(null, languageService.Object, statisticsRepository.Object, marketingService.Object);
 
             // Action
@@ -78,8 +79,8 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
             // Assert
             Assert.Equal(Constant.DefaultAffId, passedParam.AffId);
             Assert.Equal(IsInternal, passedParam.IsInternal);
-            Assert.Equal(new DateTime(today.Year, today.Month, 1), passedParam.FromDate.Date);
-            Assert.Equal(today, passedParam.ToDate.Date);
+            Assert.Equal(new DateTime(today.Year, today.Month, 1).Date, passedParam.FromDate.Date);
+            Assert.Equal(today.Date, passedParam.ToDate.Date);
         }
 
         [Theory]
