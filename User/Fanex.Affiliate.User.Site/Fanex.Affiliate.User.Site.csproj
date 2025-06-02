@@ -955,6 +955,7 @@
     <Content Include="www\build\styles\Images\contact-us\n88\whatsapp.png" />
     <Content Include="www\build\styles\Images\contact-us\phone.png" />
     <Content Include="www\build\styles\Images\contact-us\telegram.png" />
+    <Content Include="www\build\styles\Images\contact-us\whatsapp.png" />
     <Content Include="www\build\styles\Images\copy-link.png" />
     <Content Include="www\build\styles\Images\gift.svg" />
     <Content Include="www\build\styles\Images\header-bg.png" />

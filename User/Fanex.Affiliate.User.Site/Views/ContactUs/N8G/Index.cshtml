@@ -18,7 +18,7 @@
             <p>@Html.Raw(Lang.PleaseDirectAnyComment)</p>
         </div>
         <div class="row contact-icon-group">
-            <div class="col-xs-12 col-sm-4">
+            <div class="col-xs-12 col-sm-6 col-lg-3">
                 <div class="contact-icon">
                     <img class="img-responsive" src="~/www/build/styles/Images/contact-us/email.png" alt="email icon" />
                 </div>
@@ -27,7 +27,7 @@
                     <p class="intro"><a href=@("mailto:" + Model)>@Model</a></p>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-4">
+            <div class="col-xs-12 col-sm-6 col-lg-3">
                 <div class="contact-icon">
                     <img class="img-responsive" src="~/www/build/styles/Images/contact-us/telegram.png" alt="telegram icon" />
                 </div>
@@ -36,7 +36,16 @@
                     <p class="intro"><a href="https://t.me/goal123_aff">https://t.me/goal123_aff</a></p>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-4">
+            <div class="col-xs-12 col-sm-6 col-lg-3">
+                <div class="contact-icon">
+                    <img class="img-responsive" src=@Url.Content("~/www/build/styles/Images/contact-us/whatsapp.png") alt="whatsapp icon" />
+                </div>
+                <div class="text-center">
+                    <strong>@Lang.Whatsapp</strong>
+                    <p class="intro"><a href="https://cli.re/goal123daily">https://cli.re/goal123daily</a></p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-lg-3">
                 <div class="contact-icon">
                     <img class="img-responsive" src=@Url.Content("~/www/build/styles/Images/contact-us/goal123.jpg?v=179") alt="zalo icon" />
                 </div>
