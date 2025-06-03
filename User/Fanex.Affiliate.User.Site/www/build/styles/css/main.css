@@ -585,7 +585,7 @@ input[type=checkbox], input[type=radio] {
   margin-left: 8px;
   position: relative;
 }
-.language-container #selectedLanguage {
+.language-container .select-language {
   height: 100%;
   background: transparent;
   color: #fff;
@@ -598,19 +598,19 @@ input[type=checkbox], input[type=radio] {
   padding: 0 25px 0 28px;
   line-height: 25px;
 }
-.language-container #selectedLanguage:hover {
+.language-container .select-language:hover {
   text-decoration: none;
 }
-.language-container #selectedLanguage:focus, .language-container #selectedLanguage:active {
+.language-container .select-language:focus, .language-container .select-language:active, .language-container .select-language.active {
   outline: none;
 }
-.language-container #selectedLanguage:focus + .language-list-wrapper, .language-container #selectedLanguage:active + .language-list-wrapper {
+.language-container .select-language:focus + .language-list-wrapper, .language-container .select-language:active + .language-list-wrapper, .language-container .select-language.active + .language-list-wrapper {
   display: block;
 }
-.language-container #selectedLanguage + .language-list-wrapper {
+.language-container .select-language + .language-list-wrapper {
   display: none;
 }
-.language-container #selectedLanguage + .language-list-wrapper:hover, .language-container #selectedLanguage + .language-list-wrapper:focus {
+.language-container .select-language + .language-list-wrapper:hover, .language-container .select-language + .language-list-wrapper:focus {
   display: block;
 }
 .language-container .language-selection {
@@ -804,13 +804,6 @@ body {
   padding-bottom: 15px;
   margin-top: 5px;
 }
-.main .banner-side {
-  flex-basis: 200px;
-  max-width: 200px;
-}
-.main .banner-side img {
-  width: 100%;
-}
 
 .hot-news {
   display: flex;
@@ -989,12 +982,6 @@ body {
   width: 100%;
   padding: 10px 0;
 }
-.carousel.slide .carousel-inner {
-  height: 350px;
-  /*        @media (min-width: 1300px) and (max-width: 1599px) {
-              height: 250px;
-          }*/
-}
 .carousel.slide .carousel-inner > .item {
   height: 100%;
 }
@@ -1002,135 +989,6 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-@media (min-width: 1850px) {
-  .carousel.slide .carousel-inner {
-    height: 500px;
-  }
-}
-@media (min-width: 1600px) and (max-width: 1850px) {
-  .carousel.slide .carousel-inner {
-    height: 400px;
-  }
-}
-@media (min-width: 993px) and (max-width: 1299px) {
-  .carousel.slide .carousel-inner {
-    height: 300px;
-  }
-}
-@media (min-width: 768px) and (max-width: 992px) {
-  .carousel.slide .carousel-inner {
-    height: 200px;
-  }
-}
-@media (max-width: 767px) {
-  .carousel.slide .carousel-inner {
-    height: 200px !important;
-  }
-  .carousel.slide .carousel-inner > .item .img-responsive {
-    object-fit: fill;
-  }
-}
-
-.banner-text {
-  position: absolute;
-  top: 50%;
-  transform: translate(0, -50%);
-  max-width: 650px;
-}
-.banner-text .txt-lang {
-  color: #fff;
-  margin: 0;
-  line-height: 1.2;
-}
-.banner-text .text-logo {
-  color: #EB7816;
-}
-.banner-text h2 {
-  font-size: 56px;
-  margin-bottom: 11px !important;
-}
-.banner-text h3 {
-  font-size: 36px;
-  font-weight: 900;
-  text-transform: uppercase;
-  margin: 0;
-  color: #fff;
-}
-.banner-text h5 {
-  font-size: 20px;
-  font-weight: normal;
-  letter-spacing: 0.02em;
-  margin-bottom: 12px;
-}
-.banner-text .nounderline {
-  text-transform: uppercase;
-  font-weight: 900;
-  text-align: center;
-  display: inline-block;
-  color: #000;
-}
-
-.casino-banner-text {
-  max-width: 35rem;
-  padding-bottom: 1.5rem;
-}
-.casino-banner-btn {
-  width: 20.6rem;
-  height: 5.05rem;
-  display: inline-block;
-  background-size: cover;
-  text-align: center;
-  padding-top: 1.5rem;
-}
-.casino-banner-btn .btn-text {
-  width: 12rem;
-  height: 2rem;
-}
-@media screen and (max-width: 767px) {
-  .casino-banner-text {
-    max-width: 24rem;
-  }
-  .casino-banner-btn {
-    width: 12.25rem;
-    height: 3rem;
-    padding-top: 0.5rem;
-  }
-  .casino-banner-btn .btn-text {
-    width: 7.5rem;
-    height: 1.2rem;
-  }
-}
-@media screen and (max-width: 530px) {
-  .casino-banner-text {
-    max-width: 16rem;
-  }
-}
-@media screen and (max-width: 374px) {
-  .casino-banner-text {
-    max-width: 14rem;
-  }
-}
-
-.no-webp .casino-banner-btn {
-  background-image: url("../Images/casino-banners/n88/btn-background.png");
-}
-.no-webp .casino-banner-btn:hover {
-  background-image: url("../Images/casino-banners/n88/btn-background-hover.png");
-}
-
-.webp .casino-banner-btn {
-  background-image: url("../Images/casino-banners/n88/btn-background.webp");
-}
-.webp .casino-banner-btn:hover {
-  background-image: url("../Images/casino-banners/n88/btn-background-hover.webp");
-}
-
-.banner-side {
-  background: #010187;
-}
-.banner-side > img {
-  margin: 0;
 }
 
 .no-webp .banner-product-sport {
@@ -2039,22 +1897,12 @@ input[type=radio], input[type=checkbox] {
   }
 }
 @media (min-width: 1024px) and (max-width: 1199px) {
-  .main .banner-side {
-    flex-basis: 150px;
-    max-width: 18%;
-  }
-  .main .banner-side img {
-    width: 150px;
-  }
   .page-container {
     max-width: 100%;
     flex-basis: 100%;
   }
 }
 @media (min-width: 768px) and (max-width: 1023px) {
-  .banner-side.banner-left, .banner-side.banner-right {
-    display: none;
-  }
   .page-container {
     max-width: 100%;
     flex-basis: 100%;
@@ -2077,9 +1925,6 @@ input[type=radio], input[type=checkbox] {
   }
 }
 @media (max-width: 767px) {
-  .banner-side.banner-left, .banner-side.banner-right {
-    display: none;
-  }
   .page-container {
     max-width: 100%;
     flex-basis: 100%;

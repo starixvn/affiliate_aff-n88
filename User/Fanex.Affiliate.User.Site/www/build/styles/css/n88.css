@@ -615,7 +615,7 @@ select.form-control:focus {
 }
 .btn-submit:hover, .btn-submit:focus {
   color: #fff;
-  background-color: rgb(229.5, 83.7, 0);
+  background-color: #e65400;
 }
 .btn-submit .icon {
   color: #fff;
@@ -841,17 +841,6 @@ select.form-control:focus {
   color: #0B71DF;
 }
 
-.carousel.slide .carousel-control {
-  width: 2.5rem;
-  background: transparent;
-  text-shadow: 0 0 #fff;
-}
-.carousel.slide .carousel-control .chevron {
-  background: rgba(255, 255, 255, 0.5);
-  top: calc(50% - 24px);
-  width: 100%;
-  padding: 10px 0;
-}
 @media (max-width: 480px) {
   .carousel.slide .carousel-inner {
     height: auto;

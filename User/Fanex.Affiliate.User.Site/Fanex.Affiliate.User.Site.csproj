@@ -1602,14 +1602,14 @@
     <Content Include="www\build\styles\Images\promotion\n8g\main.desktop.vi-VN.webp" />
     <Content Include="www\build\styles\Images\promotion\n8g\main.mobile.en-US.webp" />
     <Content Include="www\build\styles\Images\promotion\n8g\main.mobile.vi-VN.webp" />
-    <Content Include="www\build\styles\Images\home\n8b\main.mobile.en-US.webp" />
+    <Content Include="www\build\styles\Images\promotion\n8b\main.mobile.en-US.webp" />
+    <Content Include="www\build\styles\Images\promotion\n8b\main.mobile.vi-VN.webp" />
+    <Content Include="www\build\styles\Images\promotion\n8b\main.desktop.en-US.webp" />
+    <Content Include="www\build\styles\Images\promotion\n8b\main.desktop.vi-VN.webp" />
     <Content Include="www\build\styles\Images\home\n8b\main.mobile.vi-VN.webp" />
     <Content Include="www\build\styles\Images\home\n8b\main.desktop.en-US.webp" />
     <Content Include="www\build\styles\Images\home\n8b\main.desktop.vi-VN.webp" />
-    <Content Include="www\build\styles\Images\promotion\n8b\main.desktop.en-US.webp" />
-    <Content Include="www\build\styles\Images\promotion\n8b\main.desktop.vi-VN.webp" />
-    <Content Include="www\build\styles\Images\promotion\n8b\main.mobile.en-US.webp" />
-    <Content Include="www\build\styles\Images\promotion\n8b\main.mobile.vi-VN.webp" />
+    <Content Include="www\build\styles\Images\home\n8b\main.mobile.en-US.webp" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
