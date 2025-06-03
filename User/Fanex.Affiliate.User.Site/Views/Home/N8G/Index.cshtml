@@ -6,7 +6,9 @@
 @model Fanex.Affiliate.User.Core.ViewModels.HomeViewModel
 
 @{
-    var advFileName = Url.Content($"~/www/build/styles/Images/apply/N8G/3step." + Model.Language);
+    var advFileName = Url.Content($"~/www/build/styles/Images/apply/n8g/3step." + Model.Language);
+    var desktopBannerFileName = Url.Content($"~/www/build/styles/Images/home/n8g/main.desktop.{Model.Language}");
+    var modbileBannerFileName = Url.Content($"~/www/build/styles/Images/home/n8g/main.mobile.{Model.Language}");
 }
 
 @section styles{
@@ -20,7 +22,15 @@
 <div class="content home-page">
     <div id="mainBanner" class="carousel slide banner-center" data-ride="carousel">
         <div class="carousel-inner" role="listbox">
-            @Html.RenderPartialByLanguage($"~/Views/Home/N8G/_CarouselItems", Model.Language, Model)
+            <div class="item active">
+                <picture>
+                    <source media="(max-width:480px)" srcset="@(modbileBannerFileName + ".webp?v=229378v001")" type="image/webp" />
+                    <source media="(max-width:480px)" srcset="@(modbileBannerFileName + ".jpg?v=229378v001")" type="image/jpeg" />
+                    <source srcset="@(desktopBannerFileName + ".webp?v=229378v001")" type="image/webp" />
+                    <source srcset="@(desktopBannerFileName + ".jpg?v=229378v001")" type="image/jpeg" />
+                    <img class="img-item img-responsive" src="@(desktopBannerFileName + ".jpg?v=229378v001")" alt="Main Banner" />
+                </picture>
+            </div>
         </div>
         @*<a class="left carousel-control" href="#mainBanner" role="button" data-slide="prev">
                 <span class="chevron left" aria-hidden="true"></span>
