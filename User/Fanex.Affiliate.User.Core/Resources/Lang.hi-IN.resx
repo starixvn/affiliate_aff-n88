@@ -223,13 +223,10 @@
     <value>अभी साइन अप करें B2C एफिलिएट प्रोग्राम!</value>
   </data>
   <data name="Tier" xml:space="preserve">
-    <value>टीयर</value>
+    <value>स्तर</value>
   </data>
   <data name="NetWinLoss" xml:space="preserve">
     <value>कंपनी नेट विन ({0})</value>
-  </data>
-  <data name="QualifyingMembers" xml:space="preserve">
-    <value>&gt;= 5</value>
   </data>
   <data name="Total" xml:space="preserve">
     <value>कुल</value>
@@ -1818,7 +1815,7 @@ B2C सहयोगी की टीम&lt;br/&gt;&lt;br/&gt;
     <value>कुल सक्रिय खिलाड़ी</value>
   </data>
   <data name="CommissionRate" xml:space="preserve">
-    <value>आयोग दर</value>
+    <value>कमीशन</value>
   </data>
   <data name="TwentyFiveThousandAndAbove" xml:space="preserve">
     <value>250 और ऊपर</value>
@@ -2029,5 +2026,35 @@ B2C सहयोगी की टीम&lt;br/&gt;&lt;br/&gt;
   </data>
   <data name="UpdateNow" xml:space="preserve">
     <value>अभी अपडेट करें</value>
+  </data>
+  <data name="RevenueShare" xml:space="preserve">
+    <value>राजस्व हिस्सा</value>
+  </data>
+  <data name="Flat" xml:space="preserve">
+    <value>निश्चित 65%</value>
+  </data>
+  <data name="AllProducts" xml:space="preserve">
+    <value>सभी उत्पाद</value>
+  </data>
+  <data name="CompanyNetWinN88" xml:space="preserve">
+    <value>माह के लिए कंपनी की शुद्ध जीत (CNW) ($)</value>
+  </data>
+  <data name="QualifyingMem" xml:space="preserve">
+    <value>पात्र सदस्य</value>
+  </data>
+  <data name="ByInvitationOnly" xml:space="preserve">
+    <value>केवल निमंत्रण द्वारा</value>
+  </data>
+  <data name="CompanyNetWin" xml:space="preserve">
+    <value>माह के लिए कंपनी की शुद्ध जीत (CNW) (VND)</value>
+  </data>
+  <data name="ImportantUpdateToCommStructure" xml:space="preserve">
+    <value>कमिशन संरचना में महत्वपूर्ण अपडेट!</value>
+  </data>
+  <data name="WeAreUpgradingOurCommission" xml:space="preserve">
+    <value>हम जून से आपकी कमाई क्षमता बढ़ाने के लिए अपनी कमिशन पैकेज का उन्नयन कर रहे हैं। पुरानी संरचना को नई और बेहतर संरचना से प्रतिस्थापित किया जाएगा।</value>
+  </data>
+  <data name="PleaseReviewTheUpdatedDetails" xml:space="preserve">
+    <value>कृपया “{0}” में अपडेटेड विवरण देखें या अधिक जानकारी के लिए सपोर्ट से संपर्क करें।</value>
   </data>
 </root>

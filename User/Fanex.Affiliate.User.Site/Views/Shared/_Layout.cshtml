@@ -171,6 +171,28 @@
         </div>
     </div>
 
+    <div class="modal fade" id="revenueNoticeModal" tabindex="-1" aria-labelledby="revenueNoticeModalLabel">
+        <div class="modal-dialog">
+            <div class="modal-content @siteName">
+                <div class="modal-header">
+                    <span class="modal-icon">!</span>
+                    <h5 class="modal-title" id="revenueNoticeModalLabel">
+                        @Lang.ImportantUpdateToCommStructure
+                    </h5>
+                    <button type="button" class="close-btn" id="closeModal">×</button>
+                </div>
+                <div class="modal-body @sessionService.CurrentLanguage">
+                    <p>
+                        @Lang.WeAreUpgradingOurCommission
+                    </p>
+                    <p>
+                        @Html.Raw(string.Format(Lang.PleaseReviewTheUpdatedDetails, $"<strong class=\"text-red modal-redirect-revenue\">{Lang.CommissionStructure}</strong>"))
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <input type="hidden" id="RootUrl" value="@Url.Content("~")" />
     <input type="hidden" id="Language" value="@sessionService.CurrentLanguage" />
     @Html.Raw(Fanex.Logging.LogManager.RenderJavascriptLogger())
@@ -186,6 +208,7 @@
     @Html.InlineScripts("~/www/build/js/jquery.extension.js")
     <script src="@Url.RenderLink("~/www/build/js/site.js")"></script>
     <script src="@Url.RenderLink("~/www/build/js/layout.js")"></script>
+    <script src="@Url.RenderLink("~/www/build/js/revenue-notice-dialog.js")"></script>
 
     @if (userSession != null && !settingService.IsLocal)
     {

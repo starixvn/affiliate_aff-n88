@@ -1045,7 +1045,7 @@
     <value>อีเมลล์นี้ได้ถูกส่งโดยระบบ   กรุณาอย่าตอบกลับอีเมลล์นี้โดยตรง</value>
   </data>
   <data name="Tier" xml:space="preserve">
-    <value>ระดับ</value>
+    <value>เลเวล</value>
   </data>
   <data name="TitelForgetPass" xml:space="preserve">
     <value>รหัสใหม่จะส่งไปยังอีเมลที่คุณระบุ &lt;br /&gt;ถ้าคุณมีปัญหาในการใช้งาน&lt;a href="{0}"&gt; ได้โปรดติดต่อเรา&lt;/a&gt;.</value>
@@ -1317,9 +1317,6 @@
   <data name="UsernameSignUp" xml:space="preserve">
     <value>ยูสเซอร์เนมรับค่าคอมมิชชั่น</value>
   </data>
-  <data name="QualifyingMembers" xml:space="preserve">
-    <value>&gt;= 5</value>
-  </data>
   <data name="ProductType" xml:space="preserve">
     <value>ประเภทการเดิมพัน</value>
   </data>
@@ -1564,7 +1561,7 @@
     <value>จำนวนสมาชิกที่ใช้งาน</value>
   </data>
   <data name="CommissionRate" xml:space="preserve">
-    <value>อัตราเปอร์เซ็น คอมมิชชั่น</value>
+    <value>คอมมิชชั่น</value>
   </data>
   <data name="TwentyFiveThousandAndAbove" xml:space="preserve">
     <value>250 ขึ้นไป</value>
@@ -1778,5 +1775,35 @@
   </data>
   <data name="UpdateNow" xml:space="preserve">
     <value>อัปเดตตอนนี้</value>
+  </data>
+  <data name="ByInvitationOnly" xml:space="preserve">
+    <value>สำหรับผู้ได้รับเชิญเท่านั้น</value>
+  </data>
+  <data name="RevenueShare" xml:space="preserve">
+    <value>ส่วนแบ่งรายได้</value>
+  </data>
+  <data name="Flat" xml:space="preserve">
+    <value>คอมมิชชั่นเริ่มต้น 65%</value>
+  </data>
+  <data name="AllProducts" xml:space="preserve">
+    <value>ทุกเกมการเดิมพัน</value>
+  </data>
+  <data name="CompanyNetWinN88" xml:space="preserve">
+    <value>ยอดเล่นสุทธิ/เดือน (ดอลลาร์ฯ)</value>
+  </data>
+  <data name="QualifyingMem" xml:space="preserve">
+    <value>ผู้เล่นที่เข้าเกณฑ์</value>
+  </data>
+  <data name="CompanyNetWin" xml:space="preserve">
+    <value>ยอดเล่นสุทธิ/เดือน (ดอลลาร์ฯ) (VND)</value>
+  </data>
+  <data name="ImportantUpdateToCommStructure" xml:space="preserve">
+    <value>การอัปเดตที่สำคัญสำหรับโครงสร้างคอมมิชชัน!</value>
+  </data>
+  <data name="WeAreUpgradingOurCommission" xml:space="preserve">
+    <value>เรากำลังอัปเกรดแพ็คเกจคอมมิชชันของเราตั้งแต่เดือนมิถุนายนเป็นต้นไป เพื่อให้คุณมีโอกาสสร้างรายได้ที่ดีขึ้น โครงสร้างเดิมจะถูกแทนที่ด้วยโครงสร้างใหม่ที่ได้รับการปรับปรุง</value>
+  </data>
+  <data name="PleaseReviewTheUpdatedDetails" xml:space="preserve">
+    <value>โปรดตรวจสอบรายละเอียดที่อัปเดตใน "{0}" หรือติดต่อฝ่ายสนับสนุนเพื่อขอข้อมูลเพิ่มเติม</value>
   </data>
 </root>

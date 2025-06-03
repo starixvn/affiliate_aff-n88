@@ -352,7 +352,7 @@
     <value>মোট সক্রিয় খেলোয়াড় </value>
   </data>
   <data name="CommissionRate" xml:space="preserve">
-    <value>কমিশন হার </value>
+    <value>কমিশন</value>
   </data>
   <data name="TwentyFiveThousandAndAbove" xml:space="preserve">
     <value>250 আর বেশি </value>
@@ -1993,9 +1993,6 @@
   <data name="Habanero" xml:space="preserve">
     <value>Habanero</value>
   </data>
-  <data name="QualifyingMembers" xml:space="preserve">
-    <value>&gt;= 5</value>
-  </data>
   <data name="MyAccount" xml:space="preserve">
     <value>আমার অ্যাকাউন্ট</value>
   </data>
@@ -2034,5 +2031,35 @@
   </data>
   <data name="UpdateNow" xml:space="preserve">
     <value>এখনই আপডেট করুন</value>
+  </data>
+  <data name="RevenueShare" xml:space="preserve">
+    <value>রাজস্ব ভাগ</value>
+  </data>
+  <data name="Flat" xml:space="preserve">
+    <value>সমতল 65%</value>
+  </data>
+  <data name="AllProducts" xml:space="preserve">
+    <value>সকল পণ্য</value>
+  </data>
+  <data name="CompanyNetWinN88" xml:space="preserve">
+    <value>মাসিক কোম্পানির নিট লাভ ($)</value>
+  </data>
+  <data name="QualifyingMem" xml:space="preserve">
+    <value>যোগ্য সদস্য</value>
+  </data>
+  <data name="ByInvitationOnly" xml:space="preserve">
+    <value>শুধুমাত্র আমন্ত্রণের ভিত্তিতে</value>
+  </data>
+  <data name="CompanyNetWin" xml:space="preserve">
+    <value>মাসিক কোম্পানির নিট লাভ (VND)</value>
+  </data>
+  <data name="ImportantUpdateToCommStructure" xml:space="preserve">
+    <value>কমিশন কাঠামোতে গুরুত্বপূর্ণ আপডেট!</value>
+  </data>
+  <data name="WeAreUpgradingOurCommission" xml:space="preserve">
+    <value>জুন মাস থেকে আপনার উপার্জনের সম্ভাবনা আরও বাড়াতে আমরা আমাদের কমিশন প্যাকেজ আপগ্রেড করছি। পুরানো কাঠামোর জায়গায় একটি নতুন ও উন্নত কাঠামো চালু করা হবে।</value>
+  </data>
+  <data name="PleaseReviewTheUpdatedDetails" xml:space="preserve">
+    <value>অনুগ্রহ করে "{0}" বিভাগে আপডেট করা বিবরণ পর্যালোচনা করুন অথবা আরও তথ্যের জন্য সাপোর্ট টিমের সাথে যোগাযোগ করুন।</value>
   </data>
 </root>

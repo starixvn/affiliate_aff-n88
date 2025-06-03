@@ -1048,7 +1048,7 @@
     <value>Ini adalah email yang dibuat otomatis oleh sistem, jangan membalas email ini secara langsung.</value>
   </data>
   <data name="Tier" xml:space="preserve">
-    <value>Tingkat</value>
+    <value>Level</value>
   </data>
   <data name="TitelForgetPass" xml:space="preserve">
     <value>Password baru akan di kirim ke email yang anda daftarkan. &lt;br /&gt;Jika mengalami kendala selama di sini, &lt;a href="{0}"&gt;silahkan hubungi kami&lt;/a&gt;.</value>
@@ -1319,9 +1319,6 @@
   </data>
   <data name="UsernameSignUp" xml:space="preserve">
     <value>Username</value>
-  </data>
-  <data name="QualifyingMembers" xml:space="preserve">
-    <value>&gt;= 5</value>
   </data>
   <data name="ProductType" xml:space="preserve">
     <value>Tipe Permainan</value>
@@ -1778,5 +1775,35 @@
   </data>
   <data name="UpdateNow" xml:space="preserve">
     <value>Perbarui Sekarang</value>
+  </data>
+  <data name="ByInvitationOnly" xml:space="preserve">
+    <value>Khusus Undangan</value>
+  </data>
+  <data name="RevenueShare" xml:space="preserve">
+    <value>Bagi Hasil</value>
+  </data>
+  <data name="Flat" xml:space="preserve">
+    <value>Flat 65%</value>
+  </data>
+  <data name="AllProducts" xml:space="preserve">
+    <value>Semua Produk</value>
+  </data>
+  <data name="CompanyNetWinN88" xml:space="preserve">
+    <value>Pendapatan Bersih Dalam Sebulan (cnw) ($)</value>
+  </data>
+  <data name="QualifyingMem" xml:space="preserve">
+    <value>Member Yang Memenuhi Syarat</value>
+  </data>
+  <data name="CompanyNetWin" xml:space="preserve">
+    <value>Pendapatan Bersih Dalam Sebulan (cnw) (vnd)</value>
+  </data>
+  <data name="ImportantUpdateToCommStructure" xml:space="preserve">
+    <value>Pembaruan Penting pada Struktur Komisi!</value>
+  </data>
+  <data name="WeAreUpgradingOurCommission" xml:space="preserve">
+    <value>Kami akan meningkatkan paket komisi kami mulai bulan Juni untuk memberikan potensi penghasilan yang lebih baik bagi Anda. Struktur lama akan digantikan dengan struktur baru yang telah diperbarui dan ditingkatkan.</value>
+  </data>
+  <data name="PleaseReviewTheUpdatedDetails" xml:space="preserve">
+    <value>Silakan tinjau detail yang diperbarui di bagian "{0}" atau hubungi tim dukungan untuk informasi lebih lanjut.</value>
   </data>
 </root>

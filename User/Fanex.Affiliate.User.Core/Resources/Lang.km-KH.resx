@@ -1983,9 +1983,6 @@
   <data name="UsernameIsRequired" xml:space="preserve">
     <value>ឈ្មោះគណនីអ្នកប្រើត្រូវបានទាមទារ</value>
   </data>
-  <data name="QualifyingMembers" xml:space="preserve">
-    <value>&gt;= 5</value>
-  </data>
   <data name="MyAccount" xml:space="preserve">
     <value>គណនី​របស់អ្នក</value>
   </data>
