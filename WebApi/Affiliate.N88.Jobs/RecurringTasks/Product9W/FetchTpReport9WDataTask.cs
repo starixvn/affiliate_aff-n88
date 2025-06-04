@@ -9,6 +9,7 @@ using Affiliate.N88.Repository;
 using Affiliate.N88.Services;
 using Fanex.Logging;
 using Microsoft.Extensions.Options;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,7 +31,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks.Product9W
              ILogger logger,
              ITrackerService timeTrackerService,
              IOptionsSnapshot<FetchServiceSetting> configuration)
-            : base(_thirdPartyRepo, configuration.Get(Constants.ServiceConfigName.PULL_TPREPORT_9W_SETTING), timeTrackerService)
+            : base(_thirdPartyRepo, configuration.Get(ServiceConfigName.PULL_TPREPORT_9W_SETTING), timeTrackerService)
         {
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _licenseeApi = licenseeApi ?? throw new ArgumentNullException(nameof(licenseeApi));
@@ -38,30 +39,37 @@ namespace Affiliate.N88.Jobs.RecurringTasks.Product9W
 
         protected override async Task<IEnumerable<TpReport9W>> GetDataAsync(string trackValue, int batchCount)
         {
-            var fromDate = DateTime.Parse(trackValue);
+            var trackerInfo = JsonConvert.DeserializeObject<SQTrackerInfo>(trackValue);
             var toDate = DateTime.Now;
-            return await _licenseeApi.GetTpReportAsync(new BaseParam {
-                FromDate = fromDate,
-                ToDate  = toDate,
+
+            return await _licenseeApi.GetTpReportAsync(new BaseParam
+            {
+                SQ = trackerInfo.SQ,
+                FromDate = trackerInfo.UpdateTime,
+                ToDate = toDate,
                 PageIndex = 0,
                 PageSize = batchCount
             });
         }
 
         protected override string GetInsertTrackingValue(IEnumerable<TpReport9W> data)
-            => data.Max(d => d.UpdateTime).Value.ToString(Format.DateTimeFormat);
+        {
+            var sqTrackerInfo = new SQTrackerInfo
+            {
+                SQ = data.Max(_ => _.SQ),
+                UpdateTime = data.Max(_ => _.UpdateTime.Value),
+            };
+
+            return JsonConvert.SerializeObject(sqTrackerInfo);
+        }
 
         protected override async Task<string> GetLastTrackingValueAsync()
         {
-            var tracker = await _timeTrackerService.GetTrackerAsync(TableName, t => t.KeyValue, new StringToDateTimeComparer());
-            var date = string.IsNullOrWhiteSpace(tracker.KeyValue) 
-                ? throw new ArgumentException($"Not valid DateTime Tracker Value {tracker.KeyValue}") 
-                : DateTime.Parse(tracker.KeyValue);
-            var adjustDate = GetAdjustmentDate(date);
-            return adjustDate.ToString(Format.DateTimeFormat);
-        }
+            var tracker = await _timeTrackerService.GetTrackerAsync(TableName, t => t.CalledTime);
+            var sqTrackerInfo = JsonConvert.DeserializeObject<SQTrackerInfo>(tracker.KeyValue);
+            sqTrackerInfo.UpdateTime = sqTrackerInfo.UpdateTime.AddMinutes(Settings.AdjustmentValue);
 
-        private DateTime GetAdjustmentDate(DateTime date)
-            => date.AddMinutes(Settings.AdjustmentValue);
+            return JsonConvert.SerializeObject(sqTrackerInfo);
+        }
     }
 }

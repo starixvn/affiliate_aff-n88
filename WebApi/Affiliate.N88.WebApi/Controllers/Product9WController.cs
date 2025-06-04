@@ -22,6 +22,7 @@ namespace Affiliate.N88.WebApi.Controllers
         public async Task<IEnumerable<TpReport9W>> GetTpReport([FromUri] BaseParam param)
             => await dynamicRepository.FetchAsync<TpReport9W>(new GetTpReport9WCriteria
             {
+                SQ = param.SQ,
                 FromDate = param.FromDate,
                 ToDate = param.ToDate,
                 PageIndex = param.PageIndex,
