@@ -44,7 +44,7 @@
     </p>
     <ol type="i">
         <li class="text-block">
-            <strong>Chia sẻ doanh thu cố định:</strong>
+            <strong>Cấu Trúc Hoa Hồng Tiêu Chuẩn:</strong>
             @{ Html.RenderPartial("~/Views/CommissionStructure/N88/_RevenueShareTable.cshtml", Model.MaxCommission); }
             <ul>
                 <li class="text" style="margin-top: 15px;">
@@ -78,23 +78,23 @@
             <p class="text">Ví dụ:</p>
             <p class="text"><i><strong>Doanh thu dương</strong></i></p>
             <div style="padding-left: 25px;">
-                <p class="text">Lợi nhuận gộp = 200,000,000₫</p>
-                <p class="text">Khuyến mãi: 20,000,000₫</p>
-                <p class="text">Phí giao dịch: 12,000,000₫</p>
-                <p class="text">Phí bản quyền : 20,000,000₫</p>
+                <p class="text">Lợi nhuận gộp = $55,000</p>
+                <p class="text">Khuyến mãi: $5,000</p>
+                <p class="text">Phí giao dịch: $500</p>
+                <p class="text">Phí bản quyền : $2,500</p>
                 <p class="text">Hoa hồng = </p>
                 <p class="text">(Lợi nhuận gộp – Khuyến mãi – Phí giao dịch - Phí bản quyền) x Tỷ lệ % hoa hồng</p>
-                <p class="text">(200,000,000₫ - 20,000,000₫ - 12,000,000₫ - 20,000,000₫) x 45% = 74,000,000₫</p>
+                <p class="text">(55,000 − 5,000 − 550 − 2,500) x 45% = $21,127.50</p>
             </div>
 
             <p class="text"><i><strong>Doanh thu âm</strong></i></p>
             <div style="padding-left: 25px;">
-                <p class="text">Lợi nhuận gộp = - 100,000,000₫</p>
-                <p class="text">Khuyến mãi thành viên: 10,000,000₫</p>
-                <p class="text">Phí giao dịch: 6,000,000₫</p>
+                <p class="text">Lợi nhuận gộp = -$5,000 ₫</p>
+                <p class="text">Khuyến mãi thành viên: $500</p>
+                <p class="text">Phí giao dịch: $150</p>
                 <p class="text">Hoa hồng = </p>
                 <p class="text">(Lợi nhuận gộp – Khuyến mãi – Phí giao dịch) x Tỷ lệ % hoa hồng</p>
-                <p class="text">(-100,000,000₫ - 10,000,000₫ - 6,000,000₫) x 45% = -58,000,000₫ (Chuyển sang tháng sau)</p>
+                <p class="text">(-5,000 - 500 - 150) × 25% = -$1,412.50 (Chuyển sang tháng sau)</p>
             </div>
         </li>
         <li class="text-block">
@@ -116,7 +116,7 @@
         <i>Hình 2:</i> ví dụ về cách tính tiền hoa hồng bạn nhận được từ Đại Lý được bạn giới thiệu, và từ Đại Lý Cấp Dưới của họ
     </p>
     <div class="img-support" style="max-width: 600px; margin: 15px auto;">
-        <img class="img-responsive" src="~/www/build/styles/Images/revenue-share-structure/@(Model.SiteName)/revenue_share_hierarchy.@(Model.CurrentLanguage).png?v=174504" alt="hierarchy banner" />
+        <img class="img-responsive" src="~/www/build/styles/Images/revenue-share-structure/@(Model.SiteName)/revenue_share_hierarchy.@(Model.CurrentLanguage).png?v=269365" alt="hierarchy banner" />
     </div>
     <p class="text">
         Tiền hoa hồng bạn nhận được:
@@ -126,14 +126,14 @@
             = [B1+ ((C1 + C2) * 10%)]*10% + [B2 * 10%]
         </p>
         <p class="text">
-            = [0 + (1,150,000,000 + 690,000,000) * 10%)]*10% + [1,610,000,000 * 10%]
+            = [0 + (50,000 + 30,000) * 10%)]*10% + [70,000 * 10%]
         </p>
         <p class="text">
-            = 179,400,000₫
+            = $7,800
         </p>
     </div>
     <p class="text">
-        <strong>=></strong> Tổng tiền hoa hồng trong tháng bạn nhận được: 1,015,425,000 + 179,400,000 = <strong>1,194,285,000₫</strong>
+        <strong>=></strong> Tổng tiền hoa hồng trong tháng bạn nhận được: 69,500 + 7,800 = <strong>$77,300</strong>
     </p>
 </section>
 <section class="info-group" id="HowWePay">

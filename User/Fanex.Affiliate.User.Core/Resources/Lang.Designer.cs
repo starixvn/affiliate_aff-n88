@@ -3643,7 +3643,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 45,000.
+        ///   Looks up a localized string similar to 55,000.
         /// </summary>
         public static string P4N88 {
             get {
@@ -5272,7 +5272,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 129,000.
+        ///   Looks up a localized string similar to 139,000.
         /// </summary>
         public static string TotalN88 {
             get {
@@ -5965,7 +5965,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 58,050.
+        ///   Looks up a localized string similar to 69,500.
         /// </summary>
         public static string YourRevenueShareN88 {
             get {

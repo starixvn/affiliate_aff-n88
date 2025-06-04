@@ -44,7 +44,7 @@
     </p>
     <ol type="i">
         <li class="text-block">
-            <strong>ส่วนแบ่งรายได้คงที่:</strong>
+            <strong>โครงสร้างค่าคอมมิชชันปกติ:</strong>
             @{ Html.RenderPartial("~/Views/CommissionStructure/N88/_RevenueShareTable.cshtml", Model.MaxCommission); }
             <ul>
                 <li class="text" style="margin-top: 15px;">
@@ -78,23 +78,23 @@
             <p class="text">ตัวอย่าง:</p>
             <p class="text"><i><strong>รายได้บวก</strong></i></p>
             <div style="padding-left: 25px;">
-                <p class="text">กำไร/ขาดทุนของสมาชิก = USD 18,000</p>
-                <p class="text">โบนัสของสมาชิก = USD 1,000</p>
-                <p class="text">ค่าธรรมเนียมทางการเงิน = USD 180</p>
-                <p class="text">ค่าภาคหลวงค่าธรรมเนียม = USD 1,100</p>
+                <p class="text">กำไร/ขาดทุนของสมาชิก = USD 55,000</p>
+                <p class="text">โบนัสของสมาชิก = USD 5,000</p>
+                <p class="text">ค่าธรรมเนียมทางการเงิน = USD 550</p>
+                <p class="text">ค่าภาคหลวงค่าธรรมเนียม = USD 2,500</p>
                 <p class="text">คอมมิชชั่น = </p>
                 <p class="text">(กำไร/ขาดทุนของสมาชิก - โบนัสของสมาชิก - ค่าธรรมเนียมทางการเงิน - ค่าภาคหลวงค่าธรรมเนียม) x อัตราเปอร์เซ็น คอมมิชชั่น %</p>
-                <p class="text">(18,000 - 1,000 - 180 - 1,100) x 45% = USD 7,074</p>
+                <p class="text">(55,000 − 5,000 − 550 − 2,500) x 45% = USD 21,127.50</p>
             </div>
 
             <p class="text"><i><strong>รายได้ติดลบ</strong></i></p>
             <div style="padding-left: 25px;">
-                <p class="text">กำไร/ขาดทุนของสมาชิก = - USD 8,000</p>
-                <p class="text">โบนัสของสมาชิก = USD 698</p>
-                <p class="text">ค่าภาคหลวงค่าธรรมเนียม = USD 127</p>
+                <p class="text">กำไร/ขาดทุนของสมาชิก = -USD 5,000</p>
+                <p class="text">โบนัสของสมาชิก = USD 500</p>
+                <p class="text">ค่าภาคหลวงค่าธรรมเนียม = USD 150</p>
                 <p class="text">คอมมิชชั่น = </p>
                 <p class="text">(กำไร/ขาดทุนของสมาชิก - โบนัสของสมาชิก - ค่าธรรมเนียมทางการเงิน) x อัตราเปอร์เซ็น คอมมิชชั่น %</p>
-                <p class="text">(-8,000 - 698 - 127) x 45% = USD -3,971.25 (ยกยอดไปเดือนหน้า)</p>
+                <p class="text">(-5,000 - 500 - 150) × 25% = USD -1,412.50 (ยกยอดไปเดือนหน้า)</p>
             </div>
         </li>
         <li class="text-block">
@@ -115,7 +115,7 @@
         <i>รูปที่ 2:</i> ตัวอย่างเพื่อแสดงให้เห็นว่าการคำนวณส่วนแบ่งรายได้ของคุณจากพันธมิตร Affiliates ของคุณ (และ บริษัท ในเครือย่อย sub-affiliates) คำนวณอย่างไร
     </p>
     <div class="img-support" style="max-width: 600px; margin: 15px auto;">
-        <img class="img-responsive" src="~/www/build/styles/Images/revenue-share-structure/@(Model.SiteName)/revenue_share_hierarchy.@(Model.CurrentLanguage).png?v=174504" alt="hierarchy banner" />
+        <img class="img-responsive" src="~/www/build/styles/Images/revenue-share-structure/@(Model.SiteName)/revenue_share_hierarchy.@(Model.CurrentLanguage).png?v=269365" alt="hierarchy banner" />
     </div>
     <p class="text">
         ส่วนแบ่งรายได้ของคุณได้รับจากพันธมิตรที่ได้รับการแนะนำ:
@@ -132,7 +132,7 @@
         </p>
     </div>
     <p class="text">
-        <strong>=></strong> ส่วนแบ่งรายได้รวมของคุณสำหรับเดือนนั้นคือ: 58,050 + 7,800 = <strong>USD 65,850</strong>
+        <strong>=></strong> ส่วนแบ่งรายได้รวมของคุณสำหรับเดือนนั้นคือ: 69,500 + 7,800 = <strong>USD 77,300</strong>
     </p>
 </section>
 <section class="info-group" id="HowWePay">
