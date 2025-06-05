@@ -15,7 +15,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks.Log
 {
     public interface IFetchDrawLogDataTask: IFetchDataTask { }
 
-    public class FetchDrawLogDataTask : FetchDataByBatchForMultiRepoTaskBase<DrawLogInfo>, IFetchDrawLogDataTask
+    public class FetchDrawLogDataTask : FetchDataByBatchForMultiRepoTaskBase<DrawLogInfo, string>, IFetchDrawLogDataTask
     {
         private readonly ILicenseeApi _licenseeApi;
         private readonly ILogger _logger;

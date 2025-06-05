@@ -15,11 +15,8 @@ namespace Affiliate.N88.SpParams.Criteria
         [SpParam(SqlParamName = "_ToDate")]
         public DateTime ToDate { get; set; }
 
-        [SpParam(SqlParamName = "_PageIndex")]
-        public int PageIndex { get; set; }
-
-        [SpParam(SqlParamName = "_PageSize")]
-        public int PageSize { get; set; }
+        [SpParam(SqlParamName = "_BatchCount")]
+        public int BatchCount { get; set; }
 
         public override string GetSettingKey()
             => "API_TpReport9W_Get";

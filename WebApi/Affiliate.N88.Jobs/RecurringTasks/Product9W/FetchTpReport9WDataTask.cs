@@ -1,5 +1,4 @@
-﻿using Affiliate.N88.Comparer;
-using Affiliate.N88.Jobs.Apis;
+﻿using Affiliate.N88.Jobs.Apis;
 using Affiliate.N88.Jobs.Configurations;
 using Affiliate.N88.Jobs.Constants;
 using Affiliate.N88.Jobs.RecurringTasks.Interfaces;
@@ -21,7 +20,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks.Product9W
     {
     }
 
-    public class FetchTpReport9WDataTask : FetchDataByBatchForMultiRepoTaskBase<TpReport9W>, IFetchTpReport9WDataTask
+    public class FetchTpReport9WDataTask : FetchDataByBatchForMultiRepoTaskBase<TpReport9W, SQTrackerInfo>, IFetchTpReport9WDataTask
     {
         private readonly IProduct9WApi _licenseeApi;
         private readonly ILogger _logger;
@@ -37,39 +36,35 @@ namespace Affiliate.N88.Jobs.RecurringTasks.Product9W
             _licenseeApi = licenseeApi ?? throw new ArgumentNullException(nameof(licenseeApi));
         }
 
-        protected override async Task<IEnumerable<TpReport9W>> GetDataAsync(string trackValue, int batchCount)
+        protected override async Task<IEnumerable<TpReport9W>> GetDataAsync(SQTrackerInfo trackValue, int batchCount)
         {
-            var trackerInfo = JsonConvert.DeserializeObject<SQTrackerInfo>(trackValue);
             var toDate = DateTime.Now;
 
-            return await _licenseeApi.GetTpReportAsync(new BaseParam
+            return await _licenseeApi.GetTpReportAsync(new BatchCountParam
             {
-                SQ = trackerInfo.SQ,
-                FromDate = trackerInfo.UpdateTime,
+                SQ = trackValue.SQ,
+                FromDate = trackValue.UpdateTime,
                 ToDate = toDate,
-                PageIndex = 0,
-                PageSize = batchCount
+                BatchCount = batchCount
             });
         }
 
-        protected override string GetInsertTrackingValue(IEnumerable<TpReport9W> data)
+        protected override SQTrackerInfo GetInsertTrackingValue(IEnumerable<TpReport9W> data)
         {
-            var sqTrackerInfo = new SQTrackerInfo
+            return new SQTrackerInfo
             {
                 SQ = data.Max(_ => _.SQ),
                 UpdateTime = data.Max(_ => _.UpdateTime.Value),
             };
-
-            return JsonConvert.SerializeObject(sqTrackerInfo);
         }
 
-        protected override async Task<string> GetLastTrackingValueAsync()
+        protected override async Task<SQTrackerInfo> GetLastTrackingValueAsync()
         {
             var tracker = await _timeTrackerService.GetTrackerAsync(TableName, t => t.CalledTime);
             var sqTrackerInfo = JsonConvert.DeserializeObject<SQTrackerInfo>(tracker.KeyValue);
             sqTrackerInfo.UpdateTime = sqTrackerInfo.UpdateTime.AddMinutes(Settings.AdjustmentValue);
 
-            return JsonConvert.SerializeObject(sqTrackerInfo);
+            return sqTrackerInfo;
         }
     }
 }
