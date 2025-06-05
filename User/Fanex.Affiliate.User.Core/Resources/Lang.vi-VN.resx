@@ -1888,7 +1888,7 @@
     <value>Tỷ lệ hoa hồng cao nhất của nhiều nhóm sản phẩm</value>
   </data>
   <data name="NetWinLossN88" xml:space="preserve">
-    <value>Lợi nhuận ròng của công ty (₫)</value>
+    <value>Lợi nhuận ròng của công ty ({0})</value>
   </data>
   <data name="Day" xml:space="preserve">
     <value>Ngày</value>
@@ -1945,25 +1945,25 @@
     <value>Vui lòng điền mã xác thực!</value>
   </data>
   <data name="P1N88" xml:space="preserve">
-    <value>123,000,000</value>
+    <value>15,000</value>
   </data>
   <data name="P2N88" xml:space="preserve">
-    <value>456,000,000</value>
+    <value>29,000</value>
   </data>
   <data name="P3N88" xml:space="preserve">
-    <value>789,000,000</value>
+    <value>17,000</value>
   </data>
   <data name="P4N88" xml:space="preserve">
-    <value>234,500,000</value>
+    <value>55,000</value>
   </data>
   <data name="P5N88" xml:space="preserve">
-    <value>654,000,000</value>
+    <value>23,000</value>
   </data>
   <data name="TotalN88" xml:space="preserve">
-    <value>2,256,500,000</value>
+    <value>139,000</value>
   </data>
   <data name="YourRevenueShareN88" xml:space="preserve">
-    <value>1,015,425,000</value>
+    <value>$69,500</value>
   </data>
   <data name="GetAll" xml:space="preserve">
     <value>Lấy tất cả</value>

@@ -44,7 +44,7 @@
     </p>
     <ol type="i">
         <li class="text-block">
-            <strong>Bahagian Hasil Tetap:</strong>
+            <strong>Struktur Komisen Biasa:</strong>
             @{ Html.RenderPartial("~/Views/CommissionStructure/N88/_RevenueShareTable.cshtml", Model.MaxCommission); }
             <ul>
                 <li class="text" style="margin-top: 15px;">
@@ -78,23 +78,23 @@
             <p class="text">Contoh:</p>
             <p class="text"><i><strong>Hasil Positif</strong></i></p>
             <div style="padding-left: 25px;">
-                <p class="text">Keuntungan Bersih = USD 18,000</p>
-                <p class="text">Bonus Member = USD 1,000</p>
-                <p class="text">Caj Transaksi = USD 180</p>
-                <p class="text">Caj Royalti = USD 1,100</p>
+                <p class="text">Keuntungan Bersih = USD 55,000</p>
+                <p class="text">Bonus Member = USD 5,000</p>
+                <p class="text">Caj Transaksi = USD 550</p>
+                <p class="text">Caj Royalti = USD 2,500</p>
                 <p class="text">Komisen:</p>
                 <p class="text">(Keuntungan Bersih - Bonus Member - Caj Transaksi - Caj Royalti) x Komisen %</p>
-                <p class="text">(18,000 - 1,000 - 180 - 1,100) x 45% = USD 7,074</p>
+                <p class="text">(55,000 − 5,000 − 550 − 2,500) x 45% = USD 21,127.50</p>
             </div>
 
             <p class="text"><i><strong>Hasil Negatif</strong></i></p>
             <div style="padding-left: 25px;">
-                <p class="text">Keuntungan Bersih = - USD 8,000</p>
-                <p class="text">Bonus Member = USD 698</p>
-                <p class="text">Biaya Royalti = USD 127</p>
+                <p class="text">Keuntungan Bersih = -USD 5,000</p>
+                <p class="text">Bonus Member = USD 500</p>
+                <p class="text">Biaya Royalti = USD 150</p>
                 <p class="text">Komisen:</p>
                 <p class="text">(Keuntungan Bersih - Bonus Member - Caj Transaksi) x Komisen%</p>
-                <p class="text">(-8,000 - 698 - 127) x 45% = USD -3,971.25 (Diteruskan ke bulan berikutnya)</p>
+                <p class="text">(-5,000 - 500 - 150) × 25% = USD -1,412.50 (Diteruskan ke bulan berikutnya)</p>
             </div>
         </li>
         <li class="text-block">
@@ -115,7 +115,7 @@
         <i>Rajah 2:</i> Contoh untuk tunjukkan pengiraan kepada anda cara pengagihan keuntungan anda yang diperoleh daripada ahli affliate yang dirujuk anda (dan ahli affliate mereka)
     </p>
     <div class="img-support" style="max-width: 600px; margin: 15px auto;">
-        <img class="img-responsive" src="~/www/build/styles/Images/revenue-share-structure/@(Model.SiteName)/revenue_share_hierarchy.@(Model.CurrentLanguage).png?v=174504" alt="hierarchy banner" />
+        <img class="img-responsive" src="~/www/build/styles/Images/revenue-share-structure/@(Model.SiteName)/revenue_share_hierarchy.@(Model.CurrentLanguage).png?v=269365" alt="hierarchy banner" />
     </div>
     <p class="text">
         Pengagihan keuntungan anda yang diperoleh daripada ahli affliate yang dirujuk:
@@ -132,7 +132,7 @@
         </p>
     </div>
     <p class="text">
-        <strong>=></strong> Jumlah pengagihan keuntungan anda untuk bulan ini ialah: 58,050 + 7,800 = <strong>USD 65,850</strong>
+        <strong>=></strong> Jumlah pengagihan keuntungan anda untuk bulan ini ialah: 69,500 + 7,800 = <strong>USD 77,300</strong>
     </p>
 </section>
 <section class="info-group" id="HowWePay">

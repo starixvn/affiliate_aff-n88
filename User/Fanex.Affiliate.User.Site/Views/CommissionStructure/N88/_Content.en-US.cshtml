@@ -44,7 +44,7 @@
     </p>
     <ol type="i">
         <li class="text-block">
-            <strong>Fixed Revenue Share:</strong>
+            <strong>Regular Commission Structure:</strong>
             @{ Html.RenderPartial("~/Views/CommissionStructure/N88/_RevenueShareTable.cshtml", Model.MaxCommission); }
             <ul>
                 <li class="text" style="margin-top: 15px;">
@@ -78,23 +78,23 @@
             <p class="text">Example:</p>
             <p class="text"><i><strong>Positive Revenue</strong></i></p>
             <div style="padding-left: 25px;">
-                <p class="text">Gross Revenue = USD 18,000</p>
-                <p class="text">Bonus Expenses = USD 1,000</p>
-                <p class="text">Transaction Fees = USD 180</p>
-                <p class="text">Royalty Fees = USD 1,100</p>
+                <p class="text">Gross Revenue = USD 55,000</p>
+                <p class="text">Bonus Expenses = USD 5,000</p>
+                <p class="text">Transaction Fees = USD 550</p>
+                <p class="text">Royalty Fees = USD 2,500</p>
                 <p class="text">Commission = </p>
                 <p class="text">(Gross Revenue - Bonus Expenses - Transaction Fees - Royalty Fees) x Revenue Share %</p>
-                <p class="text">(18,000 - 1,000 - 180 - 1,100) x 45% = USD 7,074</p>
+                <p class="text">(55,000 − 5,000 − 550 − 2,500) x 45% = USD 21,127.50</p>
             </div>
 
             <p class="text"><i><strong>Negative Revenue</strong></i></p>
             <div style="padding-left: 25px;">
-                <p class="text">Gross revenue = - USD 8,000</p>
-                <p class="text">Member’s bonus = USD 698</p>
-                <p class="text">Transaction Fees = USD 127</p>
+                <p class="text">Gross revenue = -USD 5,000</p>
+                <p class="text">Member’s bonus = USD 500</p>
+                <p class="text">Transaction Fees = USD 150</p>
                 <p class="text">Commission = </p>
                 <p class="text">(Gross Revenue - Bonus Expenses - Transaction Fees) x Revenue Share %</p>
-                <p class="text">(-8,000 - 698 - 127) x 45% = USD -3,971.25 (Carry forward to following month)</p>
+                <p class="text">(-5,000 - 500 - 150) × 25% = USD -1,412.50 (Carry forward to following month)</p>
             </div>
         </li>
         <li class="text-block">
@@ -115,7 +115,7 @@
         <i>Figure 2:</i> An example to show you how your revenue share earned from your referred affiliates (and their sub-affiliates) is calculated
     </p>
     <div class="img-support" style="max-width: 600px; margin: 15px auto;">
-        <img class="img-responsive" src="~/www/build/styles/Images/revenue-share-structure/@(Model.SiteName)/revenue_share_hierarchy.@(Model.CurrentLanguage).png?v=174504" alt="hierarchy banner" />
+        <img class="img-responsive" src="~/www/build/styles/Images/revenue-share-structure/@(Model.SiteName)/revenue_share_hierarchy.@(Model.CurrentLanguage).png?v=269365" alt="hierarchy banner" />
     </div>
     <p class="text">
         Your revenue share earned from the referred affiliates:
@@ -132,7 +132,7 @@
         </p>
     </div>
     <p class="text">
-        <strong>=></strong> Your total revenue share for the month would be: 58,050 + 7,800 = <strong>USD 65,850</strong>
+        <strong>=></strong> Your total revenue share for the month would be: 69,500 + 7,800 = <strong>USD 77,300</strong>
     </p>
 </section>
 <section class="info-group" id="HowWePay">

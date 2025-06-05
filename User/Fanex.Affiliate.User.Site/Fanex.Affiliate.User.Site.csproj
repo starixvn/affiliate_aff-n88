@@ -902,23 +902,21 @@
     <Content Include="www\build\styles\Images\account-overview\total-deposit-n88.png" />
     <Content Include="www\build\styles\Images\account-overview\total-deposit.png" />
     <Content Include="www\build\styles\Images\apply\n88\3step.desktop.bn-BD.svg" />
-    <Content Include="www\build\styles\Images\apply\n88\3step.desktop.km-KH.svg" />
-    <Content Include="www\build\styles\Images\apply\n88\3step.desktop.vi-VN.svg" />
-    <Content Include="www\build\styles\Images\apply\n88\3step.desktop.zh-CN.svg" />
     <Content Include="www\build\styles\Images\apply\n88\3step.desktop.en-US.svg" />
     <Content Include="www\build\styles\Images\apply\n88\3step.desktop.hi-IN.svg" />
     <Content Include="www\build\styles\Images\apply\n88\3step.desktop.id-ID.svg" />
     <Content Include="www\build\styles\Images\apply\n88\3step.desktop.ms-MY.svg" />
     <Content Include="www\build\styles\Images\apply\n88\3step.desktop.th-TH.svg" />
+    <Content Include="www\build\styles\Images\apply\n88\3step.desktop.vi-VN.svg" />
+    <Content Include="www\build\styles\Images\apply\n88\3step.desktop.zh-CN.svg" />
     <Content Include="www\build\styles\Images\apply\n88\3step.mobile.bn-BD.svg" />
-    <Content Include="www\build\styles\Images\apply\n88\3step.mobile.km-KH.svg" />
-    <Content Include="www\build\styles\Images\apply\n88\3step.mobile.vi-VN.svg" />
-    <Content Include="www\build\styles\Images\apply\n88\3step.mobile.zh-CN.svg" />
     <Content Include="www\build\styles\Images\apply\n88\3step.mobile.en-US.svg" />
     <Content Include="www\build\styles\Images\apply\n88\3step.mobile.hi-IN.svg" />
     <Content Include="www\build\styles\Images\apply\n88\3step.mobile.id-ID.svg" />
     <Content Include="www\build\styles\Images\apply\n88\3step.mobile.ms-MY.svg" />
     <Content Include="www\build\styles\Images\apply\n88\3step.mobile.th-TH.svg" />
+    <Content Include="www\build\styles\Images\apply\n88\3step.mobile.vi-VN.svg" />
+    <Content Include="www\build\styles\Images\apply\n88\3step.mobile.zh-CN.svg" />
     <Content Include="www\build\styles\Images\apply\n8b\3step.en-US.png" />
     <Content Include="www\build\styles\Images\apply\n8b\3step.vi-VN.png" />
     <Content Include="www\build\styles\Images\apply\n8g\3step.en-US.png" />
@@ -1054,15 +1052,14 @@
     <Content Include="www\build\styles\Images\promotion\n8g\main.desktop.vi-VN.jpg" />
     <Content Include="www\build\styles\Images\promotion\n8g\main.mobile.en-US.jpg" />
     <Content Include="www\build\styles\Images\promotion\n8g\main.mobile.vi-VN.jpg" />
-    <Content Include="www\build\styles\Images\revenue-share-structure\n88\revenue_share_hierarchy.vi-VN.png" />
-    <Content Include="www\build\styles\Images\revenue-share-structure\n88\revenue_share_hierarchy.km-KH.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\n88\revenue_share_hierarchy.bn-BD.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\n88\revenue_share_hierarchy.en-US.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\n88\revenue_share_hierarchy.hi-IN.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\n88\revenue_share_hierarchy.id-ID.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\n88\revenue_share_hierarchy.ms-MY.png" />
-    <Content Include="www\build\styles\Images\revenue-share-structure\n88\revenue_share_hierarchy.zh-CN.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\n88\revenue_share_hierarchy.th-TH.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\n88\revenue_share_hierarchy.vi-VN.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\n88\revenue_share_hierarchy.zh-CN.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\n8b\revenue_share_hierarchy.en-US.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\n8b\revenue_share_hierarchy.vi-VN.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\n8g\revenue_share_hierarchy.en-US.png" />
@@ -1447,10 +1444,6 @@
     <Content Include="Views\Shared\Email\PaymentRequest\Content.ms-MY.cshtml" />
     <Content Include="Views\Shared\Email\RecoverPassword\Content.ms-MY.cshtml" />
     <Content Include="Views\Shared\Email\VerificationAccount\Content.ms-MY.cshtml" />
-    <Content Include="www\build\styles\Images\apply\n8b\3step.en-US.webp" />
-    <Content Include="www\build\styles\Images\apply\n8b\3step.vi-VN.webp" />
-    <Content Include="www\build\styles\Images\apply\n8g\3step.en-US.webp" />
-    <Content Include="www\build\styles\Images\apply\n8g\3step.vi-VN.webp" />
     <Content Include="Views\Promotion\N88\_Content.en-US.cshtml" />
     <Content Include="Views\Promotion\N88\_Content.id-ID.cshtml" />
     <Content Include="Views\Promotion\N88\_Content.th-TH.cshtml" />
@@ -1608,6 +1601,10 @@
     <Content Include="www\build\styles\Images\home\n8b\main.desktop.en-US.webp" />
     <Content Include="www\build\styles\Images\home\n8b\main.desktop.vi-VN.webp" />
     <Content Include="www\build\styles\Images\home\n8b\main.mobile.en-US.webp" />
+    <Content Include="www\build\styles\Images\apply\n8g\3step.en-US.webp" />
+    <Content Include="www\build\styles\Images\apply\n8g\3step.vi-VN.webp" />
+    <Content Include="www\build\styles\Images\apply\n8b\3step.en-US.webp" />
+    <Content Include="www\build\styles\Images\apply\n8b\3step.vi-VN.webp" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
