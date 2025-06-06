@@ -14,7 +14,7 @@
 
 .grid-contact-info {
     display: grid;
-    grid-template-columns: repeat(3, 28.4rem);
+    grid-template-columns: repeat(4, 28.4rem);
     grid-gap: 2.4rem;
     margin-top: 1.1rem;
     justify-content: center;
@@ -24,8 +24,12 @@
         margin-top: .3rem;
     }
 
+    @include landscapeTablet {
+        grid-template-columns: repeat(2,22rem);
+    }
+
     @include Tablet {
-        grid-template-columns: repeat(3,22rem);
+        grid-template-columns: repeat(2,22rem);
     }
 
     .contact-items {
@@ -85,6 +89,49 @@
                         font-size: 1.2rem;
                         line-height: 1.8rem;
                         max-width: 19rem;
+                    }
+                }
+            }
+
+            &.info-zalo {
+                display: flex;
+                justify-content: space-between;
+                padding-top: 0;
+                padding-bottom: 0;
+                padding-right: 0;
+                height: 100%;
+
+                li {
+                    margin-bottom: 0;
+                    display: block;
+                    align-self: center;
+
+                    .zalo-group {
+                        display: inline-flex;
+                    }
+
+                    &.zalo-qrcode {
+                        img {
+                            width: 100%;
+                            max-width: 115px;
+                            border-radius: 8px;
+
+                            @include landscapeTablet {
+                                max-width: 95px;
+                            }
+
+                            @include TableAndMobile {
+                                max-width: 95px;
+                            }
+
+                            @include Tablet {
+                                max-width: 93px;
+                            }
+
+                            @include Mobile {
+                                max-width: 83px;
+                            }
+                        }
                     }
                 }
             }

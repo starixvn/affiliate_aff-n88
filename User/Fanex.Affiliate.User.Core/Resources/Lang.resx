@@ -1321,7 +1321,7 @@
     <comment>87923</comment>
   </data>
   <data name="SupportTimeN88" xml:space="preserve">
-    <value>&lt;strong&gt;Monday - Saturday&lt;/strong&gt;&lt;br&gt;11:00 am - 08:00 pm (GMT +8)</value>
+    <value>&lt;strong&gt;Monday - Friday&lt;/strong&gt;&lt;br&gt;10:00 am - 08:00 pm (GMT +8)</value>
     <comment>87923</comment>
   </data>
   <data name="SignUpAffiliateProgramNow" xml:space="preserve">
@@ -1700,7 +1700,7 @@
     <value>Rebate</value>
   </data>
   <data name="SupportTime" xml:space="preserve">
-    <value>Working Time:&lt;br/&gt;Monday - Saturday | &lt;strong&gt;10:00h-19:00h&lt;/strong&gt;&lt;br&gt;GMT +7</value>
+    <value>Working Time:&lt;br/&gt;Monday - Friday | &lt;strong&gt;09:00-19:00&lt;/strong&gt;&lt;br&gt;GMT +7</value>
     <comment>87923</comment>
   </data>
   <data name="PleaseDirectAnyComment" xml:space="preserve">
