@@ -11,6 +11,7 @@
         public const int MaxSearchBy = int.MaxValue;
 
         public const long InfinityAmount = 100_000_000_000;
+        public const long NegativeInfinityAmount = -100_000_000_000;
         public const int InfinityQualifiedMember = 1_000_000_000;
 
         public const int MinAffType = 1;

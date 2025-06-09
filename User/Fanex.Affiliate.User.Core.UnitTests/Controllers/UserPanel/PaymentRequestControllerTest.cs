@@ -251,7 +251,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
                 AffId = Constant.DefaultAffId,
                 Language = Constant.DefaultLanguage,
                 TransId = TransId,
-                Ip = "::1"
+                Ip = "127.0.0.1"
             });
 
             // Action
@@ -390,7 +390,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             {
                 AffId = Constant.DefaultAffId,
                 Amount = creationParam.Amount,
-                Ip = "::1",
+                Ip = "127.0.0.1",
                 Language = Constant.DefaultLanguage,
                 MinAmount = 100m,
                 BalBroughtForward = 150m,

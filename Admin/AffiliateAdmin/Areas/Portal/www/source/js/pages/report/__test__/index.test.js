@@ -12,7 +12,8 @@ describe('report - App', () => {
                 {
                     FunctionName: "[AffReport]"
                 }
-            ]
+            ],
+            claims: {}
         }
     })
 

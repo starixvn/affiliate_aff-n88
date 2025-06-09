@@ -26,12 +26,10 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
             var commGroupList = rawData.CommGroupList;
             var tierSettingList = rawData.TierSettingList;
             var tierDeductionSettingList = rawData.TierDeductionSettingList;
-            var p2pDeductionSettingList = rawData.P2pDeductionSettingList;
 
             var result = from c in commGroupList
                          join t in tierSettingList on c.GroupId equals t.GroupId into groupTierSetting
                          join d in tierDeductionSettingList on c.GroupId equals d.GroupId into groupTierDeductionSetting
-                         join p in p2pDeductionSettingList on c.GroupId equals p.GroupId into groupP2pDeductionSetting
                          select new CommissionGroupSetting
                          {
                              RowIdx = c.RowIdx,
@@ -41,14 +39,14 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
                              GroupTypeName = c.GroupTypeName,
                              GroupTypeBy = c.GroupTypeBy,
                              SubAffCommRate = c.SubAffCommRate,
+                             QmTurnover = c.QmTurnover,
                              CreatedDate = c.CreatedDate,
                              Creator = c.Creator,
                              Description = c.Description,
                              NoAffs = c.NoAffs,
                              IsActivePlayerSum = c.IsActivePlayerSum,
                              TierSettingList = groupTierSetting,
-                             P2pDeductionList = groupP2pDeductionSetting,
-                             PlatformFeeList = groupTierDeductionSetting.Where(p => p.DeductionId == Constants.Deduction.PlatformFeeId),
+                             PlatformFeeList = groupTierDeductionSetting.Where(p => p.DeductionId == Constants.Deduction.PlatformFeeId).OrderBy(p => p.GroupProductId),
                              DepositFee = groupTierDeductionSetting.FirstOrDefault(p => p.DeductionId == Constants.Deduction.DepositFeeId),
                              WithdrawalFee = groupTierDeductionSetting.FirstOrDefault(p => p.DeductionId == Constants.Deduction.WithdrawalFeeId),
                              KillRateFeeList = groupTierDeductionSetting.Where(p => p.DeductionId == Constants.Deduction.KillRateFeeId),

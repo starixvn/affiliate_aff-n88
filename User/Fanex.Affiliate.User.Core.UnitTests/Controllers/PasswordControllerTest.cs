@@ -1,4 +1,8 @@
-﻿using Fanex.Affiliate.User.Core.BusinessService;
+﻿using System.IO;
+using System.Web;
+using System.Web.Mvc;
+using System.Web.Routing;
+using Fanex.Affiliate.User.Core.BusinessService;
 using Fanex.Affiliate.User.Core.Controllers;
 using Fanex.Affiliate.User.Core.CoreService;
 using Fanex.Affiliate.User.Core.DTO;
@@ -8,11 +12,8 @@ using Fanex.Affiliate.User.Core.Repository.UserPanel;
 using Fanex.Affiliate.User.Core.Resources;
 using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
 using Fanex.Affiliate.User.Core.Utilities;
+using Moq;
 using NSubstitute;
-using System.IO;
-using System.Web;
-using System.Web.Mvc;
-using System.Web.Routing;
 using Xunit;
 
 namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
@@ -263,8 +264,8 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             var param = new UpdatePasswordParam();
             SessionService.IsInternal.Returns(false);
             SetupHttpContext();
-            CryptographyService.EncryptPassword(default(string), default(string)).ReturnsForAnyArgs("12345");
-            AccountRepo.UpdatePassword(default(UpdatePasswordParam)).ReturnsForAnyArgs(new ResultInfo { IsOk = false, Message = "error" });
+            CryptographyService.EncryptPassword(Arg.Any<string>(), Arg.Any<string>()).ReturnsForAnyArgs("12345");
+            AccountRepo.UpdatePassword(Arg.Any<UpdatePasswordParam>()).ReturnsForAnyArgs(new ResultInfo { IsOk = false, Message = "error" });
 
             var result = controller.Update(param) as JsonResult;
             var data = result.Data as ResultInfo;
@@ -282,8 +283,8 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             var param = new UpdatePasswordParam();
             SessionService.IsInternal.Returns(false);
             SetupHttpContext();
-            CryptographyService.EncryptPassword(default(string), default(string)).ReturnsForAnyArgs("12345");
-            AccountRepo.UpdatePassword(default(UpdatePasswordParam)).ReturnsForAnyArgs(new ResultInfo { IsOk = true });
+            CryptographyService.EncryptPassword(Arg.Any<string>(), Arg.Any<string>()).ReturnsForAnyArgs("12345");
+            AccountRepo.UpdatePassword(Arg.Any<UpdatePasswordParam>()).ReturnsForAnyArgs(new ResultInfo { IsOk = true });
 
             var result = controller.Update(param) as JsonResult;
             var data = result.Data as ResultInfo;
@@ -316,6 +317,23 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
         }
 
         private PasswordController CreateController()
-            => new PasswordController(SessionService, AppSetting, AccountRepo, CryptographyService, LanguageService, EmailService);
+        {
+            var controller = new PasswordController(SessionService, AppSetting, AccountRepo, CryptographyService, LanguageService, EmailService);
+
+            var requestMock = new Mock<HttpRequestBase>();
+            var contextMock = new Mock<HttpContextBase>();
+
+            requestMock.Setup(r => r.UserHostAddress).Returns("192.168.1.99");
+            requestMock.Setup(r => r.ServerVariables).Returns(new System.Collections.Specialized.NameValueCollection());
+
+            contextMock.Setup(c => c.Request).Returns(requestMock.Object);
+            controller.ControllerContext = new ControllerContext(
+                contextMock.Object,
+                new RouteData(),
+                controller
+            );
+
+            return controller;
+        }
     }
 }

@@ -29,82 +29,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Utilities
         }
 
         [Fact]
-        public void ValidateCommGroup_ValidateP2pDeductionList_WhenCallWithNull_ReturnError()
-        {
-            // Arrange
-            var param = CreateValidCommGroupSettingParam();
-            param.P2pDeductionList = new List<P2PDeductionSettingParam>();
-
-            var helper = CreateCommGroupValidationHelper();
-
-            // Action
-            var result = helper.ValidateCommGroup(param);
-
-            // Assert
-            Assert.False(result.IsSuccessful);
-        }
-
-        [Fact]
-        public void ValidateCommGroup_ValidateP2pDeductionList_WhenCallWithInvalidProductIds_ReturnError()
-        {
-            // Arrange
-            var param = CreateValidCommGroupSettingParam();
-            param.P2pDeductionList = new List<P2PDeductionSettingParam>
-            {
-                new P2PDeductionSettingParam
-                {
-                    DeductedPercentage = 0.17m,
-                    DeductionId = 10,
-                    ProductIds = "1,2,4",
-                    IsDeductedPercent = true,
-                    DeductedAmount = ""
-                }
-            };
-
-            var helper = CreateCommGroupValidationHelper();
-
-            // Action
-            var result = helper.ValidateCommGroup(param);
-
-            // Assert
-            Assert.False(result.IsSuccessful);
-        }
-
-        [Fact]
-        public void ValidateCommGroup_ValidateP2pDeductionList_WhenCallWithEmptyProductIds_ReturnError()
-        {
-            // Arrange
-            var param = CreateValidCommGroupSettingParam();
-            param.P2pDeductionList = new List<P2PDeductionSettingParam>
-            {
-                new P2PDeductionSettingParam
-                {
-                    DeductedPercentage = 0.17m,
-                    DeductionId = 10,
-                    ProductIds = "",
-                    IsDeductedPercent = true,
-                    DeductedAmount = ""
-                },
-                new P2PDeductionSettingParam
-                {
-                    DeductedPercentage = 0.17m,
-                    DeductionId = 10,
-                    ProductIds = "1",
-                    IsDeductedPercent = true,
-                    DeductedAmount = ""
-                }
-            };
-
-            var helper = CreateCommGroupValidationHelper();
-
-            // Action
-            var result = helper.ValidateCommGroup(param);
-
-            // Assert
-            Assert.False(result.IsSuccessful);
-        }
-
-        [Fact]
         public void ValidateCommGroup_ValidatePlatformFeeList_WhenCallWithNull_ReturnError()
         {
             // Arrange
@@ -196,30 +120,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Utilities
         }
 
         [Fact]
-        public void ValidateCommGroup_ValidateTierSettingList_WhenCallWithNull_ReturnError()
-        {
-            // Arrange
-            var param = CreateValidCommGroupSettingParam();
-            param.DepositFee = new TierDeductionSettingParam
-            {
-                DeductedPercentage = 0.07m,
-                DeductionId = 13,
-                ProductIds = "0",
-                IsDeductedPercent = false,
-                DeductedAmount = "100"
-            };
-            param.TierSettingList = new List<TierSettingParam>();
-
-            var helper = CreateCommGroupValidationHelper();
-
-            // Action
-            var result = helper.ValidateCommGroup(param);
-
-            // Assert
-            Assert.False(result.IsSuccessful);
-        }
-
-        [Fact]
         public void ValidateCommGroup_ValidateTierSettingList_WhenCallWithMinAmountGreaterThanInfinityAmount_ReturnError()
         {
             // Arrange
@@ -230,14 +130,14 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Utilities
                 {
                     Commission = 0.01m,
                     MinAmount = 101,
-                    MinAp = 0,
+                    MinQm = 0,
                     TierId = 1
                 },
                 new TierSettingParam
                 {
                     Commission = 0.10m,
                     MinAmount = 100_000_000_001,
-                    MinAp = 101,
+                    MinQm = 101,
                     TierId = 2
                 }
             };
@@ -252,7 +152,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Utilities
         }
 
         [Fact]
-        public void ValidateCommGroup_ValidateTierSettingList_WhenCallWithMinApGreaterThanInfinityQualifiedMember_ReturnError()
+        public void ValidateCommGroup_ValidateTierSettingList_WhenCallWithMinQmGreaterThanInfinityQualifiedMember_ReturnError()
         {
             // Arrange
             var param = CreateValidCommGroupSettingParam();
@@ -262,14 +162,14 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Utilities
                 {
                     Commission = 0.01m,
                     MinAmount = 0,
-                    MinAp = 101,
+                    MinQm = 101,
                     TierId = 1
                 },
                 new TierSettingParam
                 {
                     Commission = 0.10m,
                     MinAmount = 101,
-                    MinAp = 1_000_000_001,
+                    MinQm = 1_000_000_001,
                     TierId = 2
                 }
             };
@@ -325,16 +225,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Utilities
                     IsDeductedPercent = true,
                     DeductedAmount = ""
                 },
-                P2pDeductionList = new List<P2PDeductionSettingParam>
-                {
-                    new P2PDeductionSettingParam
-                    {
-                        DeductedPercentage = 0.17m,
-                        DeductionId = 10,
-                        ProductIds = "",
-                        Commission = 0.1m
-                    }
-                },
                 PlatformFeeList = new List<TierDeductionSettingParam>
                 {
                     new TierDeductionSettingParam
@@ -352,14 +242,14 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Utilities
                     {
                         Commission = 0.01m,
                         MinAmount = 0,
-                        MinAp = 0,
+                        MinQm = 0,
                         TierId = 1
                     },
                     new TierSettingParam
                     {
                         Commission = 0.10m,
                         MinAmount = 101,
-                        MinAp = 101,
+                        MinQm = 101,
                         TierId = 2
                     }
                 }

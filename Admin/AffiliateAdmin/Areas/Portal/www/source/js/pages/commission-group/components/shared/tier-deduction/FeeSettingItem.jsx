@@ -9,7 +9,7 @@ const regexCheckAmount = new RegExp(regExp.checkAmount);
 const regexValidAmount = new RegExp(regExp.validAmount);
 const regexShouldFormatAmount = new RegExp(regExp.shouldFormatAmount);
 
-export default class FeeSettingItem extends React.Component {
+export default class FeeSettingItem extends React.PureComponent {
     constructor(props) {
         super(props);
     }
@@ -63,24 +63,24 @@ export default class FeeSettingItem extends React.Component {
                             </Col>
                         </Fragment>
                     ) : (
-                            <Fragment>
-                                <Col sm={4}>
-                                    <Form inline>
-                                        <FormGroup className="label-group">
-                                            <Label className="label-amount">Amount</Label>
-                                        </FormGroup>
-                                        <FormGroup>
-                                            <Input type="text" name="DeductedAmount" className="form-control"
-                                                value={deductionAmount || (data && data.DeductedAmount) || ''}
-                                                onChange={this.handleChangeAmount} style={{ width: 120 }} />
-                                        </FormGroup>
-                                    </Form>
-                                </Col>
-                                <Col sm={1}>
-                                    <p className="deducted-amount"><span className="text-danger required">*</span>{` (${defaultCurrency})`}</p>
-                                </Col>
-                            </Fragment>
-                        )
+                        <Fragment>
+                            <Col sm={4}>
+                                <Form inline>
+                                    <FormGroup className="label-group">
+                                        <Label className="label-amount">Amount</Label>
+                                    </FormGroup>
+                                    <FormGroup>
+                                        <Input type="text" name="DeductedAmount" className="form-control"
+                                            value={deductionAmount || (data && data.DeductedAmount) || ''}
+                                            onChange={this.handleChangeAmount} style={{ width: 120 }} />
+                                    </FormGroup>
+                                </Form>
+                            </Col>
+                            <Col sm={1}>
+                                <p className="deducted-amount"><span className="text-danger required">*</span>{` (${defaultCurrency})`}</p>
+                            </Col>
+                        </Fragment>
+                    )
                 }
                 <Col sm={3}>
                     <Form inline>

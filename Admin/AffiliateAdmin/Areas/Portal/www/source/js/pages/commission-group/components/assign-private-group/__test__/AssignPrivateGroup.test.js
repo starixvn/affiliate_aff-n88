@@ -14,7 +14,6 @@ describe('commission group - assign private group', () => {
         SubAffCommRate: 0.1,
         IsActivePlayerSum: true,
         PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4", GroupProductId: 0, IsDeductedPercent: true, DeductedAmount: "" }],
-        P2pDeductionList: [{ DeductedPercentage: 0.02, DeductionId: 15, ProductIds: "2,5", Commission: 0.01 }],
         TierSettingList: [],
         KillRateFeeList: [{ DeductedPercentage: 0.03, DeductionId: 16, ProductIds: "", GroupProductId: 0, IsDeductedPercent: true, DeductedAmount: "" }],
     };
@@ -26,12 +25,9 @@ describe('commission group - assign private group', () => {
         GroupId: 0,
         GroupName: "",
         PlatformFeeList: [{ GroupProductId: 123, DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4" }],
-        P2pDeductionList: [{ DeductedPercentage: 0.15, DeductionId: 15, ProductIds: "2,5", Commission: 0.1 }],
-        TierSettingList: [{ GroupProductId: 123, TierId: 1, MinAmount: 0, MinAp: 5, Commission: 0 }],
+        TierSettingList: [{ GroupProductId: 123, TierId: 1, MinAmount: 0, MinQm: 5, Commission: 0 }],
         KillRateFeeList: [{ GroupProductId: 123, DeductedPercentage: 0.17, DeductionId: 16, ProductIds: "" }],
     };
-
-    const selectedProductIds = [2, 5];
 
     const defaultProps = {
         selectedGroup: { GroupId: 102 },
@@ -52,7 +48,6 @@ describe('commission group - assign private group', () => {
             { DeductionId: 10, DeductionName: "Platform Fee", DeductedPercentage: 0.17, IsDeductedPercent: true, DeductedAmount: "" },
             { DeductionId: 13, DeductionName: "Deposit Fee", DeductedPercentage: 0.02, IsDeductedPercent: true, DeductedAmount: "" },
             { DeductionId: 14, DeductionName: "Withdrawal Fee", DeductedPercentage: 0.02, IsDeductedPercent: true, DeductedAmount: "" },
-            { DeductionId: 15, DeductionName: "P2P Fee", DeductedPercentage: 0.02, Commission: 0.01 },
             { DeductionId: 16, DeductionName: "Kill Rate", DeductedPercentage: 0.03, IsDeductedPercent: true, DeductedAmount: "" },
         ],
         productList: [
@@ -62,13 +57,7 @@ describe('commission group - assign private group', () => {
             { ProductId: 4, ProductName: "Number Game" },
             { ProductId: 5, ProductName: "V8 Poker" }
         ],
-        p2pProductList: [
-            { ProductId: 2, ProductName: "Poker" },
-            { ProductId: 5, ProductName: "V8 Poker" }
-        ],
         setSelectedGroup: jest.fn(),
-        selectedProductIds,
-        setSelectedProductIds: jest.fn(),
         getSelectedCommGroup: jest.fn()
     };
 
@@ -218,7 +207,7 @@ describe('commission group - assign private group', () => {
     })
 
     it('_validate - TierSettingList has MinAmount > MaxAmount', () => {
-        const selected_Group = Object.assign({}, selectedGroup, { TierSettingList: [{ TierId: 1, MinAmount: 1000000000000, MaxAmount: 100000000000, MinAp: 0, MaxAp: 1000000000, Commission: 0 }] });
+        const selected_Group = Object.assign({}, selectedGroup, { TierSettingList: [{ TierId: 1, MinAmount: 1000000000000, MaxAmount: 100000000000, MinQm: 0, MaxQm: 1000000000, Commission: 0 }] });
         const props = Object.assign({}, defaultProps, { selectedGroup: selected_Group });
         const wrapper = shallow(<AssignPrivateGroup {...props} />);
 
@@ -226,14 +215,14 @@ describe('commission group - assign private group', () => {
 
         expect(result).toEqual({ isValid: false, messageList: ["Min Net Win must be lesser than or equal to 1,000,000,000!"] });
     })
-    it('_validate - TierSettingList has MinAp > MaxAp', () => {
-        const selected_Group = Object.assign({}, selectedGroup, { TierSettingList: [{ TierId: 1, MinAmount: 10, MaxAmount: 100000000000, MinAp: 10000000000, MaxAp: 1000000000, Commission: 0 }] });
+    it('_validate - TierSettingList has MinQm > MaxQm', () => {
+        const selected_Group = Object.assign({}, selectedGroup, { TierSettingList: [{ TierId: 1, MinAmount: 10, MaxAmount: 100000000000, MinQm: 10000000000, MaxQm: 1000000000, Commission: 0 }] });
         const props = Object.assign({}, defaultProps, { selectedGroup: selected_Group });
         const wrapper = shallow(<AssignPrivateGroup {...props} />);
 
         const result = wrapper.instance()._validate();
 
-        expect(result).toEqual({ isValid: false, messageList: ["Min Active Player must be lesser than or equal to 100,000,000,000!"] });
+        expect(result).toEqual({ isValid: false, messageList: ["Min Qualified Player must be lesser than or equal to 100,000,000,000!"] });
     })
 
     it('_validate - PlatformFeeList has ProductId is null', () => {

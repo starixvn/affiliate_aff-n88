@@ -1823,4 +1823,10 @@ B2C合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
   <data name="PleaseReviewTheUpdatedDetails" xml:space="preserve">
     <value>请查看“{0}”中的更新详情，或联系客服了解更多信息。</value>
   </data>
+  <data name="QualifiedPlayers" xml:space="preserve">
+    <value>合格玩家</value>
+  </data>
+  <data name="ActivePlayers" xml:space="preserve">
+    <value>活跃玩家</value>
+  </data>
 </root>

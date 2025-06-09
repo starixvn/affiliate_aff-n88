@@ -100,6 +100,7 @@ export class Content extends PureComponent {
                         `${format(data.NewSignUpTotal)}/${format(data.NewFdmTotal)}`)
                 }
                 {this._buildRow(rowTitle.TotalActive, format(data.ActivePlayerByMonth), resource.NA)}
+                {this._buildRow(rowTitle.TotalQualified, format(data.QualifiedMembersByMonth), resource.NA)}
                 {this._buildRow(rowTitle.TotalSubAff, format(data.NoOfSubAffByMonth), format(data.NoOfSubAffTotal))}
                 {this._buildRow(rowTitle.TotalDeposits, DepositByMonth, DepositTotal)}
                 {this._buildRow(rowTitle.Turnover, TurnoverByMonth, TurnoverTotal)}

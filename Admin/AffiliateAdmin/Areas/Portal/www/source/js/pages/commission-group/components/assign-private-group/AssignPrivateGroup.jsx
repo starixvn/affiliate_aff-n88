@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Alert } from 'reactstrap';
 
-import { getSelectedCommGroup, setSelectedGroup, setSelectedProductIds } from '../../actions';
+import { getSelectedCommGroup, setSelectedGroup } from '../../actions';
 import { buildDefaultCommGroup, validateTierSettingList, validateItemMustHaveAProduct, validateDeductedFees, handleKillRateListData } from '../../modules/service';
 import { groupTypeList, messages } from '../../modules/constant';
 
@@ -11,8 +11,8 @@ import DeductionSetting from '../shared/tier-deduction';
 import Loader from '../../../../components/Loader';
 import { post } from '../../../../modules/ajaxRequest';
 import { popupEventNames } from '../../../common/modules/constants/commissionGroup';
-import P2pProductSetting from '../shared/p2p-deduction';
 import SubAffCommRateSetting from '../shared/sub-aff-comm-rate';
+import QmTurnoverSetting from '../shared/QmTurnoverSetting';
 
 export class AssignPrivateGroup extends React.Component {
     constructor(props) {
@@ -40,11 +40,9 @@ export class AssignPrivateGroup extends React.Component {
             }
         }
         else {
-            const { deductionList, productList, p2pProductList } = this.props;
-            const productIds = p2pProductList.map(p => p.ProductId);
-            this.props.setSelectedProductIds(productIds);
+            const { deductionList, productList } = this.props;
 
-            const commGroup = buildDefaultCommGroup(deductionList, productList, p2pProductList);
+            const commGroup = buildDefaultCommGroup(deductionList, productList);
             commGroup.GroupTypeId = selectedGroupType;
 
             this.props.setSelectedGroup(commGroup);
@@ -110,9 +108,9 @@ export class AssignPrivateGroup extends React.Component {
     }
 
     _validate() {
-        const { TierSettingList, P2pDeductionList, PlatformFeeList, DepositFee, WithdrawalFee } = this.props.selectedGroup;
+        const { TierSettingList, PlatformFeeList, DepositFee, WithdrawalFee } = this.props.selectedGroup;
         const tierSettingValidation = validateTierSettingList(TierSettingList);
-        const selectedProductValidation = validateItemMustHaveAProduct(P2pDeductionList, PlatformFeeList);
+        const selectedProductValidation = validateItemMustHaveAProduct(PlatformFeeList);
         const depositFeeValidation = validateDeductedFees(DepositFee, messages.requireDepositAmount, messages.invalidDepositAmount);
         const withdrawalFeeValidation = validateDeductedFees(WithdrawalFee, messages.requireWithdrawalAmount, messages.invalidWithdrawalAmount);
 
@@ -133,7 +131,7 @@ export class AssignPrivateGroup extends React.Component {
                     <div dangerouslySetInnerHTML={{ __html: message.join('<br>') }}></div>
                 </Alert>
                 <SubAffCommRateSetting />
-                <P2pProductSetting />
+                <QmTurnoverSetting />
                 <DeductionSetting />
                 <p className="text-danger">{messages.note}</p>
                 <button type="button" className="my-2 btn btn-success btn-save" onClick={this.handleSave}>SAVE</button>
@@ -142,12 +140,12 @@ export class AssignPrivateGroup extends React.Component {
     }
 }
 
-function mapStateToProp({ deductionList, productList, p2pProductList, selectedGroup, selectedGroupType, affInfo }) {
-    return { deductionList, productList, p2pProductList, selectedGroup, selectedGroupType, affInfo };
+function mapStateToProp({ deductionList, productList, selectedGroup, selectedGroupType, affInfo }) {
+    return { deductionList, productList, selectedGroup, selectedGroupType, affInfo };
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ getSelectedCommGroup, setSelectedGroup, setSelectedProductIds }, dispatch);
+    return bindActionCreators({ getSelectedCommGroup, setSelectedGroup }, dispatch);
 }
 
 export default connect(mapStateToProp, mapDispatchToProps)(AssignPrivateGroup);

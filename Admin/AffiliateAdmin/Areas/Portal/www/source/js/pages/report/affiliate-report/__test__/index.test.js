@@ -5,6 +5,11 @@ import { shallow } from 'enzyme';
 describe('aff report - App', () => {
 
     it('Should render correctly', () => {
+
+        window.globalVariables = {
+            claims: {}
+        };
+
         window.initialState = {
             commGroupTypes: [{ GroupTypeId: 1, GroupTypeName: 'Winloss', GroupTypeBy: 'Winloss' }, { GroupTypeId: 2, GroupTypeName: 'Turnover', GroupTypeBy: 'Turnover' }],
             languageList: [
@@ -40,7 +45,8 @@ describe('aff report - App', () => {
             baseCurrencyList: [],
             isProduction: false,
             isN8B: false,
-            today: '10/28/2021'
+            today: '10/28/2021',
+            claims: {}
         }
 
         const wrapper = shallow(<App />);

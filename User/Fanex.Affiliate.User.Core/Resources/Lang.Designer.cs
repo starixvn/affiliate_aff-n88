@@ -97,7 +97,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Number of Active Players&lt;br/&gt;(Min required).
+        ///   Looks up a localized string similar to Active Players.
         /// </summary>
         public static string ActivePlayers {
             get {
@@ -4089,6 +4089,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string Qatar {
             get {
                 return ResourceManager.GetString("Qatar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Qualified Players.
+        /// </summary>
+        public static string QualifiedPlayers {
+            get {
+                return ResourceManager.GetString("QualifiedPlayers", resourceCulture);
             }
         }
         

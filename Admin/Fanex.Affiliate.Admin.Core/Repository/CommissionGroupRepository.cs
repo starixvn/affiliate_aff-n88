@@ -1,6 +1,7 @@
 ﻿using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.CommissionGroup;
+using Fanex.Affiliate.Admin.Core.Extensions;
 using Fanex.Affiliate.Admin.Core.MetaModels.CommissionGroup;
 using Fanex.Common.Extensions;
 using Fanex.Data;
@@ -35,7 +36,6 @@ namespace Fanex.Affiliate.Admin.Core.Repository
                     result.CommGroupList = GetCommGroupList(reader);
                     result.TierSettingList = GetTierSettingList(reader);
                     result.TierDeductionSettingList = GetFeeDeductionSettingList(reader);
-                    result.P2pDeductionSettingList = GetP2pDeductionSettingList(reader);
                 }
 
                 param.Nrows = GetTotalRows(objectDb);
@@ -192,6 +192,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository
                     Description = reader.ToString("Description"),
                     NoAffs = reader.ToInt("NoAffs"),
                     SubAffCommRate = reader.ToDecimal("SubCommRate"),
+                    QmTurnover = reader.HasColumn("QmTurnover") ? reader.ToDecimal("QmTurnover") : DefaultValue.Decimal,
                     IsActivePlayerSum = reader.ToBool("IsActivePlayerSum")
                 });
             }
@@ -211,7 +212,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository
                         GroupId = reader.ToInt(Field.GroupId),
                         TierId = reader.ToInt("TierId"),
                         MinAmount = reader.ToDecimal("MinAmount"),
-                        MinAp = reader.ToInt("MinAm"),
+                        MinQm = reader.ToInt("MinQm"),
                         Commission = reader.ToDecimal("Commission"),
                         GroupProductId = reader.ToInt("GroupProductId")
                     });
@@ -245,36 +246,14 @@ namespace Fanex.Affiliate.Admin.Core.Repository
             return deductionSettingList;
         }
 
-        private static IEnumerable<DeductionSetting> GetP2pDeductionSettingList(IDataReader reader)
-        {
-            var p2pDeductionSettingList = new List<DeductionSetting>();
-            if (reader.NextResult())
-            {
-                while (reader.Read())
-                {
-                    p2pDeductionSettingList.Add(new DeductionSetting
-                    {
-                        GroupId = reader.ToInt(Field.GroupId),
-                        DeductionId = Deduction.P2pDeductionId,
-                        DeductionName = Deduction.P2pDeductionName,
-                        ProductIds = reader.ToString("ProductIds"),
-                        DeductedPercentage = reader.ToDecimal("DeductedPercentage"),
-                        Commission = reader.ToDecimal("Commission")
-                    });
-                }
-            }
-
-            return p2pDeductionSettingList;
-        }
-
         private static void AssignCreateUpdateCommissionGroupParam(IObjectDb objectDb, CreateUpdateCommissionGroupParam param)
         {
             objectDb.SetParameterValue(Field.UserId, param.UserId);
             objectDb.SetParameterValue(Field.GroupName, param.GroupName);
             objectDb.SetParameterValue("SubCommRate", param.SubAffCommRate);
+            objectDb.SetParameterValue("QmTurnover", param.QmTurnover);
             objectDb.SetParameterValue("Description", param.Description);
             objectDb.SetParameterValue("DeductionList", param.TierDeductionsXml);
-            objectDb.SetParameterValue("StraightList", param.P2pDeductionsXml);
             objectDb.SetParameterValue("TierList", param.TierSettingXml);
             objectDb.SetParameterValue("IP", param.Ip);
             objectDb.SetParameterValue("IsActivePlayerSum", param.IsActivePlayerSum);

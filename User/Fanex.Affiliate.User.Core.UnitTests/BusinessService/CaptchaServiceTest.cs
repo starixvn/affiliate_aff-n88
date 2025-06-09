@@ -1,4 +1,5 @@
 ﻿using Fanex.Affiliate.User.Core.BusinessService;
+using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
 using Fanex.Affiliate.User.Core.Utilities;
 using NSubstitute;
 using Xunit;
@@ -58,6 +59,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             AppSetting.GetValue("SecretCaptcha").Returns(secretCaptcha);
             AppSetting.IsLocal.Returns(false);
             AppSetting.GetValue("CompanyIp").Returns("^(202\\.78\\.231\\.(3[3-9]|[4-5][0-9]|6[0-2])|125\\.227\\.140\\.97)$");
+            MockingHelper.SetUpLogEngineEnviroment();
 
             var result = service.IsValid(secretCaptcha, "", ipAddress);
 

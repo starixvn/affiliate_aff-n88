@@ -1,4 +1,8 @@
-﻿using Fanex.Affiliate.User.Core.BusinessService;
+﻿using System;
+using System.Collections.Generic;
+using System.Web.Mvc;
+using Fanex.Affiliate.User.Core.BusinessService;
+using Fanex.Affiliate.User.Core.Constants;
 using Fanex.Affiliate.User.Core.Controllers;
 using Fanex.Affiliate.User.Core.CoreService;
 using Fanex.Affiliate.User.Core.DTO.UserPanel;
@@ -8,9 +12,6 @@ using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
 using Fanex.Affiliate.User.Core.Utilities;
 using Fanex.Affiliate.User.Core.ViewModels.UserPanel.Statistics;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Web.Mvc;
 using Xunit;
 
 namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
@@ -28,12 +29,12 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
 
             var controller = CreateController(staticticsRepository: statisticsRepository.Object);
 
-            var today = DateTime.Today;
+            var today = DateTimeOffset.Now.ToOffset(new TimeSpan(GMT.PlusEight, 0, 0));
             var expectedViewModel = new ReferrerStatisticsViewModel
             {
                 DataList = referrerStatisticsList,
                 FromDate = new DateTime(today.Year, today.Month, 1),
-                ToDate = today
+                ToDate = today.DateTime
             };
 
             // Action
@@ -44,8 +45,8 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
             // Assert
             Assert.Equal("~/Views/UserPanel/Statistics/ReferrersStatistics/Index.cshtml", viewName);
             Assert.Equal(expectedViewModel.DataList, model.DataList);
-            Assert.Equal(expectedViewModel.FromDate, model.FromDate);
-            Assert.Equal(expectedViewModel.ToDate, model.ToDate.Date);
+            Assert.Equal(expectedViewModel.FromDate.Date, model.FromDate.Date);
+            Assert.Equal(expectedViewModel.ToDate.Date, model.ToDate.Date);
         }
 
         [Fact]

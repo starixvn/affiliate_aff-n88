@@ -57,6 +57,11 @@ const colConfig =
         [TOTAL_SECTION_STYLE]: totalCellStyle.number,
         [COL_WIDTH]: 120
     },
+    [fields.QualifiedMember]: {
+        [MAIN_SECTION_STYLE]: bodyCellStyle.number,
+        [TOTAL_SECTION_STYLE]: totalCellStyle.number,
+        [COL_WIDTH]: 120
+    },
     [fields.NoOfSubAff]: {
         [MAIN_SECTION_STYLE]: bodyCellStyle.number,
         [TOTAL_SECTION_STYLE]: totalCellStyle.number,
@@ -94,7 +99,8 @@ const colConfig =
     },
     [fields.Rebate]: {
         [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
-        [TOTAL_SECTION_STYLE]: totalCellStyle.decimal
+        [TOTAL_SECTION_STYLE]: totalCellStyle.decimal,
+        [COL_WIDTH]: 120
     },
     [fields.PlatformFee]: {
         [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,

@@ -1,11 +1,32 @@
 import React from 'react';
 
 import { Input } from 'reactstrap';
-import { commissionValueList, format } from '../../../modules/constant';
+import { commissionValueList, format, money, firstMinNetWinValueList, NEGATIVE_INFINITY_SYMBOL, regexAcceptNegativeAmountFormat, regexValidNegativeAmount } from '../../../modules/constant';
 
-export default class TierSettingItem extends React.Component {
+export default class TierSettingItem extends React.PureComponent {
     constructor(props) {
         super(props);
+    }
+
+    handleChangeAmount = (event) => {
+        const { name, value } = event.target;
+        const amount = value.replace(/,/g, '');
+
+        if (regexAcceptNegativeAmountFormat.test(amount)) {
+            if (regexValidNegativeAmount.test(amount)) {
+                const amountNumber = Number(amount);
+
+                if (amountNumber < money.AllowedMinValue || amountNumber > money.AllowedMaxValue) {
+                    return;
+                }
+            }
+
+            const { data, onChange } = this.props;
+
+            const newItem = { [name]: amount };
+
+            onChange && onChange(data.TierId, newItem);
+        }
     }
 
     handleChange = (event) => {
@@ -20,19 +41,53 @@ export default class TierSettingItem extends React.Component {
         onChange && onChange(data.TierId, newItem);
     }
 
+    handleGetMinAmount = (minAmount, isValidAmount) => {
+        return isValidAmount ? format(Number(minAmount)) : minAmount;
+    }
+
+    handleChangeFirstMinNet = (event) => {
+        const isNegativeInfinity = event.target.value === NEGATIVE_INFINITY_SYMBOL;
+        const { data, onChange } = this.props;
+
+        const newItem = isNegativeInfinity ? { MinAmount: money.AllowedMinValue } : { MinAmount: 0 };
+
+        onChange && onChange(data.TierId, newItem);
+    }
+
     render() {
-        const { data, handleClick, btnText } = this.props;
-        const { TierId, MinAmount, MinAp, Commission } = data;
+        const { index, data, handleClick, btnText, isFirst, isTurnover } = this.props;
+        const { TierId, MinAmount, MinQm, Commission } = data;
+
+        const isValidAmount = regexValidNegativeAmount.test(MinAmount);
+        const isNegativeInfinity = MinAmount == money.AllowedMinValue;
 
         return (
             <tr>
-                <td className="text-center">{TierId}</td>
+                <td className="text-center">{index}</td>
                 <td>
-                    <Input type="text" name="MinAmount" id={"MinAmount" + TierId}
-                        value={format(MinAmount)} onChange={this.handleChange} />
+                    {
+                        isFirst ? (
+                            isTurnover ? (
+                                <Input type="text" disabled name="MinAmount" id={"MinAmount" + TierId}
+                                    value={this.handleGetMinAmount(MinAmount, isValidAmount)} />
+                            ) : (
+                                <select className="form-control" name="MinAmount" id={"MinAmount" + TierId}
+                                    onChange={this.handleChangeFirstMinNet} value={isNegativeInfinity ? NEGATIVE_INFINITY_SYMBOL : this.handleGetMinAmount(MinAmount, isValidAmount)}>
+                                    {
+                                        Object.keys(firstMinNetWinValueList).map(key => {
+                                            return (<option key={`MinAmount-${key}`} value={key}>{firstMinNetWinValueList[key]}</option>);
+                                        })
+                                    }
+                                </select>
+                            )
+                        ) : (
+                            <Input className={isValidAmount ? "" : "has-error"} type="text" name="MinAmount" id={"MinAmount" + TierId}
+                                value={this.handleGetMinAmount(MinAmount, isValidAmount)} onChange={this.handleChangeAmount} />
+                        )
+                    }
                 </td>
                 <td>
-                    <Input type="text" name="MinAp" id={"MinAp" + TierId} value={format(MinAp)} onChange={this.handleChange} />
+                    <Input type="text" name="MinQm" id={"MinQm" + TierId} value={format(MinQm)} onChange={this.handleChange} />
                 </td>
                 <td>
                     <select className="form-control" name="Commission"

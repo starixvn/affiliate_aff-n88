@@ -1259,9 +1259,6 @@ B2C सहयोगी की टीम&lt;br/&gt;&lt;br/&gt;
   <data name="Deposit" xml:space="preserve">
     <value>जमा</value>
   </data>
-  <data name="ActivePlayers" xml:space="preserve">
-    <value>सक्रिय खिलाड़ियों की संख्या&lt;br/&gt;(न्यूनतम आवश्यक)</value>
-  </data>
   <data name="P2pIncluded" xml:space="preserve">
     <value>आय का हिस्सा (P2P शामिल)</value>
   </data>
@@ -2056,5 +2053,11 @@ B2C सहयोगी की टीम&lt;br/&gt;&lt;br/&gt;
   </data>
   <data name="PleaseReviewTheUpdatedDetails" xml:space="preserve">
     <value>कृपया “{0}” में अपडेटेड विवरण देखें या अधिक जानकारी के लिए सपोर्ट से संपर्क करें।</value>
+  </data>
+  <data name="QualifiedPlayers" xml:space="preserve">
+    <value>योग्य खिलाड़ी</value>
+  </data>
+  <data name="ActivePlayers" xml:space="preserve">
+    <value>सक्रिय खिलाड़ी</value>
   </data>
 </root>

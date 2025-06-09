@@ -19,5 +19,7 @@ namespace Fanex.Affiliate.User.Core.DTO.UserPanel
         public decimal Turnover { get; set; }
 
         public decimal GGR { get; set; }
+
+        public int QualifiedMember { get; set; }
     }
 }

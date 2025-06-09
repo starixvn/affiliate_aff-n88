@@ -43,7 +43,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository
             Assert.Single(result.CommGroupList);
             Assert.Empty(result.TierSettingList);
             Assert.Empty(result.TierDeductionSettingList);
-            Assert.Empty(result.P2pDeductionSettingList);
             Assert.Equal("07/11/2018 00:00:00", commGroupItem.CreatedDateText);
         }
 
@@ -68,7 +67,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository
             Assert.Empty(result.CommGroupList);
             Assert.Single(result.TierSettingList);
             Assert.Empty(result.TierDeductionSettingList);
-            Assert.Empty(result.P2pDeductionSettingList);
         }
 
         [Fact]
@@ -92,31 +90,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository
             Assert.Empty(result.CommGroupList);
             Assert.Empty(result.TierSettingList);
             Assert.Single(result.TierDeductionSettingList);
-            Assert.Empty(result.P2pDeductionSettingList);
-        }
-
-        [Fact]
-        public void GetCommissionSettingList_WhenCall_ReturnCorrectP2pDeductionSetting()
-        {
-            // Arrange
-            var repository = new Mock<CommissionGroupRepository> { CallBase = true };
-            var objectDb = new Mock<IObjectDb>();
-            var dataReader = new Mock<IDataReader>();
-            dataReader.SetupSequence(d => d.Read()).Returns(false).Returns(false).Returns(false).Returns(true);
-            dataReader.SetupSequence(d => d.NextResult()).Returns(true).Returns(true).Returns(true).Returns(false);
-
-            ReaderHelper.MapReaderData(dataReader, GetExpectedP2pDeductionSetting());
-            objectDb.Setup(obj => obj.ExecuteReader(It.IsAny<GetCommissionGroupParam>(), null)).Returns(dataReader.Object);
-            repository.Setup(re => re.GetObjectDb(SpKeyCommGroupSel, 120)).Returns(objectDb.Object);
-
-            // Action
-            var result = repository.Object.GetCommissionGroupList(new GetCommissionGroupParam());
-
-            // Assert
-            Assert.Empty(result.CommGroupList);
-            Assert.Empty(result.TierSettingList);
-            Assert.Empty(result.TierDeductionSettingList);
-            Assert.Single(result.P2pDeductionSettingList);
         }
 
         [Fact]
@@ -379,8 +352,8 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository
                 ["TierId"] = 1,
                 ["MinAmount"] = 0m,
                 ["MaxAmount"] = 100m,
-                ["MinAp"] = 0,
-                ["MaxAp"] = 50,
+                ["MinQm"] = 0,
+                ["MaxQm"] = 50,
                 ["Commission"] = 0.2m
             };
         }
@@ -396,19 +369,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository
                 ["DeductedPercentage"] = 0.7m,
                 ["IsDeductedPercent"] = true,
                 ["DeductedAmount"] = "0"
-            };
-        }
-
-        private IDictionary<string, object> GetExpectedP2pDeductionSetting()
-        {
-            return new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase)
-            {
-                ["GroupId"] = 101,
-                ["DeductionId"] = 1,
-                ["DeductionName"] = "DeductionName",
-                ["ProductIds"] = "1,2,3",
-                ["DeductedPercentage"] = 0.7m,
-                ["Commission"] = 0.1m
             };
         }
 

@@ -22,6 +22,8 @@ namespace Fanex.Affiliate.Admin.Core.DTO.CommissionGroup
 
         public decimal SubAffCommRate { get; set; }
 
+        public decimal QmTurnover { get; set; }
+
         public bool IsActivePlayerSum { get; set; }
 
         public string CreatedDateText => CreatedDate.ToString("MM/dd/yyyy HH:mm:ss");

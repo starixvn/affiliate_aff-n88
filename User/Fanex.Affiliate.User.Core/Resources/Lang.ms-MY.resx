@@ -758,9 +758,6 @@ Jika anda mempunyai sebarang soalan dan memerlukan sebarang bantuan, sila jangan
   <data name="Deposit" xml:space="preserve">
     <value>Terdeposit</value>
   </data>
-  <data name="ActivePlayers" xml:space="preserve">
-    <value>Bilangan Pemain Aktif&lt;br/&gt;(Min diperlukan)</value>
-  </data>
   <data name="P2pIncluded" xml:space="preserve">
     <value>Bahagian Hasil (termasuk P2P)</value>
   </data>
@@ -2047,5 +2044,11 @@ Jika anda mempunyai sebarang soalan dan memerlukan sebarang bantuan, sila jangan
   </data>
   <data name="PleaseReviewTheUpdatedDetails" xml:space="preserve">
     <value>Sila semak butiran yang dikemas kini dalam "{0}" atau hubungi sokongan untuk mendapatkan maklumat lanjut</value>
+  </data>
+  <data name="QualifiedPlayers" xml:space="preserve">
+    <value>Pemain yang layak</value>
+  </data>
+  <data name="ActivePlayers" xml:space="preserve">
+    <value>Pemain Aktif</value>
   </data>
 </root>

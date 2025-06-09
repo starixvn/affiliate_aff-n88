@@ -56,7 +56,6 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
             var viewModel = new CommissionGroupViewModel
             {
                 ProductList = productList,
-                P2pProductList = productList.Where(p => p.IsP2P),
                 DeductionList = _commGroupCommonService.GetDeductionList(),
                 SubMenuList = subMenu,
                 CommGroupTypeList = _commGroupCommonService.GetCommGroupTypes()
@@ -141,12 +140,12 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
                     GroupTypeId = commGroup.GroupTypeId,
                     Description = Server.HtmlEncode(commGroup.Description?.Trim()),
                     TierSettingList = commGroup.TierSettingList,
-                    P2pDeductionList = commGroup.P2pDeductionList,
                     PlatformFeeList = commGroup.PlatformFeeList,
                     KillRateFeeList = commGroup.KillRateFeeList,
                     DepositFee = commGroup.DepositFee,
                     WithdrawalFee = commGroup.WithdrawalFee,
                     SubAffCommRate = commGroup.SubAffCommRate,
+                    QmTurnover = commGroup.QmTurnover,
                     IsActivePlayerSum = commGroup.IsActivePlayerSum
                 };
 
@@ -189,12 +188,12 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
                     Ip = Request.GetClientIP(),
                     Description = Server.HtmlEncode(commGroup.Description?.Trim()),
                     TierSettingList = commGroup.TierSettingList,
-                    P2pDeductionList = commGroup.P2pDeductionList,
                     PlatformFeeList = commGroup.PlatformFeeList,
                     KillRateFeeList = commGroup.KillRateFeeList,
                     DepositFee = commGroup.DepositFee,
                     WithdrawalFee = commGroup.WithdrawalFee,
                     SubAffCommRate = commGroup.SubAffCommRate,
+                    QmTurnover = commGroup.QmTurnover,
                     IsActivePlayerSum = commGroup.IsActivePlayerSum
                 };
 

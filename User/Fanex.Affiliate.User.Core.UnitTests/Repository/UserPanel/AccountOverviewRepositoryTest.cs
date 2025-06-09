@@ -103,7 +103,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Repository.UserPanel
                 Commission = 10,
                 Deposit = 100,
                 DepositedMembers = 2,
-                QualifiedActivePlayers = 1,
+                QualifiedMember = 1,
                 Signups = 2,
                 Turnover = 100,
                 NoOfSubAff = 0,
