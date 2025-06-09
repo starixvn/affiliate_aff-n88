@@ -9,7 +9,6 @@ using Affiliate.N88.Repository;
 using Affiliate.N88.Services;
 using Hangfire;
 using Hangfire.Dashboard;
-using Hangfire.MemoryStorage;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -22,6 +21,8 @@ using Affiliate.N88.Jobs.RecurringTasks.RetryJob;
 using Affiliate.N88.Jobs.RecurringTasks.AffCustomer;
 using Affiliate.N88.Jobs.RecurringTasks.Customer;
 using Affiliate.N88.Jobs.RecurringTasks.Deposit;
+using Hangfire.Redis.StackExchange;
+using StackExchange.Redis;
 
 namespace Affiliate.N88.Jobs.Middlewares
 {
@@ -32,11 +33,27 @@ namespace Affiliate.N88.Jobs.Middlewares
         public static void RegisterHangfire(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddOptions();
-            services.AddHangfire(config =>
+            services.AddSingleton<GlobalHangfireJobExceptionFilterAttribute>();
+            services.AddSingleton<UMHangfireFilterAttribute>();
+
+            var redisConfig = configuration.GetSection($"Redis").Get<RedisSetting>();
+            var configString = $"{redisConfig.Server}:{redisConfig.Port},password={redisConfig.Pass},keepAlive={180},abortConnect={false},defaultDatabase={redisConfig.Database}";
+            var redis = ConnectionMultiplexer.Connect(ConfigurationOptions.Parse(configString));
+
+            services.AddHangfire((serviceProvider, config) =>
             {
-                var memoryOption = new MemoryStorageOptions() { FetchNextJobTimeout = TimeSpan.FromHours(2) };
-                config.UseMemoryStorage(memoryOption);
-                config.UseFilter(new GlobalHangfireJobExceptionFilterAttribute());
+                config.UseRedisStorage(redis, new RedisStorageOptions
+                {
+                    Prefix = redisConfig.AppName,
+                    Db = redisConfig.Database
+                }).WithJobExpirationTimeout(TimeSpan.FromHours(2));
+                config.UseFilter(serviceProvider.GetService<GlobalHangfireJobExceptionFilterAttribute>());
+                config.UseFilter(serviceProvider.GetService<UMHangfireFilterAttribute>());
+            });
+
+            services.AddHangfireServer(options =>
+            {
+                options.SchedulePollingInterval = TimeSpan.FromSeconds(1);
             });
 
             var appSettings = new AppSettings();
@@ -240,9 +257,10 @@ namespace Affiliate.N88.Jobs.Middlewares
         {
             app.UseHangfireDashboard("/hangfire", new DashboardOptions
             {
+                DisplayStorageConnectionString = false,
+                IgnoreAntiforgeryToken = true,
                 Authorization = new[] { new AllowedAnonymouseAuthorizationFilter() }
             });
-            app.UseHangfireServer();
 
             if (appSettings.IsRunFetchTask)
             {

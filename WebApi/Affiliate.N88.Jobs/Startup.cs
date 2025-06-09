@@ -1,10 +1,12 @@
 ﻿using Affiliate.N88.Jobs.Configurations;
+using Affiliate.N88.Jobs.Extensions;
 using Affiliate.N88.Jobs.Middlewares;
 using Fanex.Logging;
 using Hangfire;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -30,6 +32,12 @@ namespace Affiliate.N88.Jobs
             Configuration.GetSection("AppSettings").Bind(appSettings);
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddHttpContextAccessor();
+            services.AddHttpClient();
+
+            services.AddUnderMaintenance(Configuration);
+            services.AddSiteHealthChecks(Configuration);
             services.RegisterHangfire(Configuration);
             services.RegisterServices(Configuration, appSettings);
 
@@ -39,13 +47,26 @@ namespace Affiliate.N88.Jobs
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             // Add This
-            app.UseHangfire(appSettings);
-            GlobalJobFilters.Filters.Add(new AutomaticRetryAttribute { Attempts = 0 });
-
+            app.UsePing();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.UseExceptionHandler("/Error");
+                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                app.UseHsts();
+            }
+            app.UseMiddleware<ErrorHandler>();
+            app.UseSiteHealthChecks(Configuration);
+            app.UseForwardedHeaders(new ForwardedHeadersOptions
+            {
+                ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+            });
+
+            app.UseHangfire(appSettings);
+            ///GlobalJobFilters.Filters.Add(new AutomaticRetryAttribute { Attempts = 0 });
 
             app.UseMvc();
 
