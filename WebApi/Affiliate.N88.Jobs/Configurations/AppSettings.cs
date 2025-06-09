@@ -6,10 +6,6 @@
 
         public string LicenseeDataAPI { get; set; }
 
-        public string SpPath { get; set; }
-
-        public string SaveConfigPath { get; set; }
-
         public string AuthenticationKey { get; set; }
 
         public FetchServiceSetting PullAffCustomerSetting { get; set; }

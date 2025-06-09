@@ -24,8 +24,8 @@ namespace Affiliate.N88.Jobs.Extensions
 
             return services.AddHealthChecks()
                 .AddCheck<WhoAmIHealthCheck>("WhoAmI")
-                .AddRedis($"{redisSetting.Server}:{redisSetting.Port},password={redisSetting.Pass}", "Redis")
-                .AddMultiSqlServer(configuration);
+                .AddRedis($"{redisSetting.Server}:{redisSetting.Port},password={redisSetting.Pass}", "Redis");
+                //.AddMultiSqlServer(configuration);
         }
 
         public static void UseSiteHealthChecks(this IApplicationBuilder app, IConfiguration configuration)
@@ -59,15 +59,15 @@ namespace Affiliate.N88.Jobs.Extensions
             await context.Response.WriteAsync(result);
         }
 
-        private static IHealthChecksBuilder AddMultiSqlServer(this IHealthChecksBuilder services, IConfiguration configuration)
-        {
-            var connectionStrings = configuration.GetSection("ConnectionStrings").GetChildren();
-            foreach (var connectionString in connectionStrings)
-            {
-                var rawConnectionstring = Cryptography.DecryptConnectionString(connectionString.GetSection("ConnectionString").Value);
-                services.AddSqlServer(rawConnectionstring, name: connectionString.GetSection("Name").Value);
-            }
-            return services;
-        }
+        //private static IHealthChecksBuilder AddMultiSqlServer(this IHealthChecksBuilder services, IConfiguration configuration)
+        //{
+        //    var connectionStrings = configuration.GetSection("ConnectionStrings").GetChildren();
+        //    foreach (var connectionString in connectionStrings)
+        //    {
+        //        var rawConnectionstring = Cryptography.DecryptConnectionString(connectionString.GetSection("ConnectionString").Value);
+        //        services.AddSqlServer(rawConnectionstring, name: connectionString.GetSection("Name").Value);
+        //    }
+        //    return services;
+        //}
     }
 }

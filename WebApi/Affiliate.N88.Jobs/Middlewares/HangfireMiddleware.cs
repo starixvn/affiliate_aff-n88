@@ -23,6 +23,8 @@ using Affiliate.N88.Jobs.RecurringTasks.Customer;
 using Affiliate.N88.Jobs.RecurringTasks.Deposit;
 using Hangfire.Redis.StackExchange;
 using StackExchange.Redis;
+using System.Net;
+using Fanex.Logging;
 
 namespace Affiliate.N88.Jobs.Middlewares
 {
@@ -255,15 +257,18 @@ namespace Affiliate.N88.Jobs.Middlewares
 
         public static void UseHangfire(this IApplicationBuilder app, AppSettings appSettings)
         {
-            app.UseHangfireDashboard("/hangfire", new DashboardOptions
+            app.UseHangfireDashboard("/jobs", new DashboardOptions
             {
                 DisplayStorageConnectionString = false,
                 IgnoreAntiforgeryToken = true,
                 Authorization = new[] { new AllowedAnonymouseAuthorizationFilter() }
             });
+            Logger.Log.Info($"AFF NV CronJobs on {Dns.GetHostName()}");
 
             if (appSettings.IsRunFetchTask)
             {
+                Logger.Log.Info($"AFF NV CronJobs are registered on {Dns.GetHostName()}");
+
                 RegisterFetchDataTask(appSettings);
                 RegisterRetryDataTask(appSettings);
             }
