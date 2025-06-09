@@ -51,10 +51,12 @@ namespace Affiliate.N88.Jobs.RecurringTasks.Product9W
 
         protected override SQTrackerInfo GetInsertTrackingValue(IEnumerable<TpReport9W> data)
         {
+            var lastItem = data.LastOrDefault();
+
             return new SQTrackerInfo
             {
-                SQ = data.Max(_ => _.SQ),
-                UpdateTime = data.Max(_ => _.UpdateTime.Value),
+                SQ = lastItem.SQ,
+                UpdateTime = lastItem.UpdateTime.Value,
             };
         }
 
