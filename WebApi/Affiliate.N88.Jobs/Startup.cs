@@ -42,11 +42,11 @@ namespace Affiliate.N88.Jobs
             services.AddUnderMaintenance(Configuration);
             services.AddSiteHealthChecks(Configuration);
             services.RegisterHangfire(Configuration);
-            //services.AddHttpsRedirection(options =>
-            //{
-            //    const int httpsPort = 443;
-            //    options.HttpsPort = httpsPort;
-            //});
+            services.AddHttpsRedirection(options =>
+            {
+                const int httpsPort = 443;
+                options.HttpsPort = httpsPort;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,9 +60,9 @@ namespace Affiliate.N88.Jobs
             {
                 app.UseDeveloperExceptionPage();
                 app.UseHsts();
-                //app.UseWhen(
-                //    context => !Dns.GetHostName().Contains(context.Request.Host.Host, StringComparison.OrdinalIgnoreCase),
-                //    builder => builder.UseHttpsRedirection());
+                app.UseWhen(
+                    context => !Dns.GetHostName().Contains(context.Request.Host.Host, StringComparison.OrdinalIgnoreCase),
+                    builder => builder.UseHttpsRedirection());
             }
             else
             {

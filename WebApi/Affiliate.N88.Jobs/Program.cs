@@ -38,7 +38,7 @@ namespace Affiliate.N88.Jobs
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                    webBuilder.UseUrls($"https://*:{configuration["Port"]}");
+                    //webBuilder.UseUrls($"https://*:{configuration["Port"]}");
                 });
         }
     }
