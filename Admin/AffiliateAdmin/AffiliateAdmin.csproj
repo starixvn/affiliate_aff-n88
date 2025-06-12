@@ -255,6 +255,15 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\SpConfig\SpName.n88-admin.klprod.xml">
+      <DependentUpon>_SpName.tt</DependentUpon>
+    </Content>
+    <Content Include="App_Data\SpConfig\SpName.n8b-admin.klprod.xml">
+      <DependentUpon>_SpName.tt</DependentUpon>
+    </Content>
+    <Content Include="App_Data\SpConfig\SpName.n8g-admin.klprod.xml">
+      <DependentUpon>_SpName.tt</DependentUpon>
+    </Content>
     <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\QmTurnoverSetting.jsx" />
     <Content Include="App_Data\SpConfig\SpName.n88-admin.kldr.xml">
       <DependentUpon>_SpName.tt</DependentUpon>
@@ -1108,6 +1117,9 @@
     <Content Include="AppSettings.ini">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Web.n88-admin.klprod.config">
+      <DependentUpon>Web.n88-admin.local.config</DependentUpon>
+    </Content>
     <Content Include="Web.n88-admin.uat.config">
       <DependentUpon>Web.n88-admin.local.config</DependentUpon>
     </Content>
@@ -1118,8 +1130,14 @@
       <SubType>Designer</SubType>
       <DependentUpon>Web.n88-admin.local.config</DependentUpon>
     </Content>
+    <Content Include="Web.n8b-admin.klprod.config">
+      <DependentUpon>Web.n8b-admin.local.config</DependentUpon>
+    </Content>
     <Content Include="Web.n8g-admin.kldr.config">
       <SubType>Designer</SubType>
+      <DependentUpon>Web.n8g-admin.local.config</DependentUpon>
+    </Content>
+    <Content Include="Web.n8g-admin.klprod.config">
       <DependentUpon>Web.n8g-admin.local.config</DependentUpon>
     </Content>
     <Content Include="Web.n8g-admin.production.config">

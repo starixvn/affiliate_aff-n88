@@ -317,6 +317,15 @@
       <DependentUpon>Web.n88-go.local.config</DependentUpon>
     </Content>
     <Content Include="Views\UnderMaintenance\Index.cshtml" />
+    <Content Include="Web.n88-go.klprod.config">
+      <DependentUpon>Web.n88-go.local.config</DependentUpon>
+    </Content>
+    <Content Include="Web.n8b-go.klprod.config">
+      <DependentUpon>Web.n8b-go.local.config</DependentUpon>
+    </Content>
+    <Content Include="Web.n8g-go.klprod.config">
+      <DependentUpon>Web.n8g-go.local.config</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.6.7.1.4347\analyzers\Google.Protobuf.dll" />

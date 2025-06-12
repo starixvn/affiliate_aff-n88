@@ -314,6 +314,9 @@
     <Content Include="App_Data\SpConfig\SpName.n88-user.kldr.xml">
       <DependentUpon>_SpName.tt</DependentUpon>
     </Content>
+    <Content Include="App_Data\SpConfig\SpName.n88-user.klprod.xml">
+      <DependentUpon>_SpName.tt</DependentUpon>
+    </Content>
     <Content Include="App_Data\SpConfig\SpName.n88-user.local.xml">
       <DependentUpon>_SpName.tt</DependentUpon>
     </Content>
@@ -324,6 +327,9 @@
       <DependentUpon>_SpName.tt</DependentUpon>
     </Content>
     <Content Include="App_Data\SpConfig\SpName.n8b-user.kldr.xml">
+      <DependentUpon>_SpName.tt</DependentUpon>
+    </Content>
+    <Content Include="App_Data\SpConfig\SpName.n8b-user.klprod.xml">
       <DependentUpon>_SpName.tt</DependentUpon>
     </Content>
     <Content Include="App_Data\SpConfig\SpName.n8b-user.local.xml">
@@ -338,6 +344,9 @@
     <Content Include="App_Data\SpConfig\SpName.n8g-user.kldr.xml">
       <DependentUpon>_SpName.tt</DependentUpon>
     </Content>
+    <Content Include="App_Data\SpConfig\SpName.n8g-user.klprod.xml">
+      <DependentUpon>_SpName.tt</DependentUpon>
+    </Content>
     <Content Include="App_Data\SpConfig\SpName.n8g-user.local.xml">
       <DependentUpon>_SpName.tt</DependentUpon>
     </Content>
@@ -348,6 +357,9 @@
       <DependentUpon>_SpName.tt</DependentUpon>
     </Content>
     <Content Include="Configurations\AppSetting\AppSetting.n88-user.kldr.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\AppSetting.n88-user.klprod.config">
       <DependentUpon>AppSetting.tt</DependentUpon>
     </Content>
     <Content Include="Configurations\AppSetting\AppSetting.n88-user.local.config">
@@ -362,6 +374,9 @@
     <Content Include="Configurations\AppSetting\AppSetting.n8b-user.kldr.config">
       <DependentUpon>AppSetting.tt</DependentUpon>
     </Content>
+    <Content Include="Configurations\AppSetting\AppSetting.n8b-user.klprod.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
     <Content Include="Configurations\AppSetting\AppSetting.n8b-user.local.config">
       <DependentUpon>AppSetting.tt</DependentUpon>
     </Content>
@@ -372,6 +387,9 @@
       <DependentUpon>AppSetting.tt</DependentUpon>
     </Content>
     <Content Include="Configurations\AppSetting\AppSetting.n8g-user.kldr.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\AppSetting.n8g-user.klprod.config">
       <DependentUpon>AppSetting.tt</DependentUpon>
     </Content>
     <Content Include="Configurations\AppSetting\AppSetting.n8g-user.local.config">
@@ -389,10 +407,22 @@
     <None Include="Configurations\AppSetting\Transform\n8b.kldr.config">
       <DependentUpon>n8b.local.config</DependentUpon>
     </None>
+    <Content Include="Configurations\AppSetting\Transform\n88.klprod.config">
+      <DependentUpon>n88.local.config</DependentUpon>
+    </Content>
     <None Include="Configurations\AppSetting\Transform\n8g.kldr.config">
       <DependentUpon>n8g.local.config</DependentUpon>
     </None>
+    <Content Include="Configurations\AppSetting\Transform\n8b.klprod.config">
+      <DependentUpon>n8b.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\Transform\n8g.klprod.config">
+      <DependentUpon>n8g.local.config</DependentUpon>
+    </Content>
     <Content Include="Configurations\ConnectionString\ConnectionString.n88-user.kldr.config">
+      <DependentUpon>ConnectionString.n88-user.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88-user.klprod.config">
       <DependentUpon>ConnectionString.n88-user.local.config</DependentUpon>
     </Content>
     <Content Include="Configurations\ConnectionString\ConnectionString.n88-user.production.config">
@@ -404,6 +434,9 @@
     <Content Include="Configurations\ConnectionString\ConnectionString.n8b-user.kldr.config">
       <DependentUpon>ConnectionString.n8b-user.local.config</DependentUpon>
     </Content>
+    <Content Include="Configurations\ConnectionString\ConnectionString.n8b-user.klprod.config">
+      <DependentUpon>ConnectionString.n8b-user.local.config</DependentUpon>
+    </Content>
     <Content Include="Configurations\ConnectionString\ConnectionString.n8b-user.production.config">
       <DependentUpon>ConnectionString.n8b-user.local.config</DependentUpon>
     </Content>
@@ -411,6 +444,9 @@
       <DependentUpon>ConnectionString.n8b-user.local.config</DependentUpon>
     </Content>
     <Content Include="Configurations\ConnectionString\ConnectionString.n8g-user.kldr.config">
+      <DependentUpon>ConnectionString.n8g-user.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\ConnectionString\ConnectionString.n8g-user.klprod.config">
       <DependentUpon>ConnectionString.n8g-user.local.config</DependentUpon>
     </Content>
     <Content Include="Configurations\ConnectionString\ConnectionString.n8g-user.production.config">
@@ -425,9 +461,18 @@
     <None Include="Configurations\Web\Transform\n8b.kldr.config">
       <DependentUpon>n8b.local.config</DependentUpon>
     </None>
+    <Content Include="Configurations\Web\Transform\n88.klprod.config">
+      <DependentUpon>n88.local.config</DependentUpon>
+    </Content>
     <None Include="Configurations\Web\Transform\n8g.kldr.config">
       <DependentUpon>n8g.local.config</DependentUpon>
     </None>
+    <Content Include="Configurations\Web\Transform\n8b.klprod.config">
+      <DependentUpon>n8b.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\Web\Transform\n8g.klprod.config">
+      <DependentUpon>n8g.local.config</DependentUpon>
+    </Content>
     <Content Include="HealthCheck.aspx" />
     <Content Include="App_Data\SpConfig\SpName.xml">
       <DependentUpon>_SpName.tt</DependentUpon>
@@ -478,6 +523,15 @@
     <None Include="Configurations\Web\Transform\n8g.uat.config">
       <DependentUpon>n8g.local.config</DependentUpon>
     </None>
+    <Content Include="Configurations\Web\Web.n88-user.klprod.config">
+      <DependentUpon>Web.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\Web\Web.n8b-user.klprod.config">
+      <DependentUpon>Web.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\Web\Web.n8g-user.klprod.config">
+      <DependentUpon>Web.tt</DependentUpon>
+    </Content>
     <None Include="Configurations\Web\Web.txt">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

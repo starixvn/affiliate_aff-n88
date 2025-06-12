@@ -11,7 +11,7 @@
 		{"n8g", "DBAFFN8G.Affiliate_N8G.wsv_afinet"},
 	};
 
-	var environments = new string[] { "uat", "production", "local", "kldr" };
+	var environments = new string[] { "uat", "production", "local", "kldr", "klprod" };
 
 	var sites = new List<SiteInfo>();
 
