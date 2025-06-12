@@ -2,8 +2,8 @@ var Layout = (function ($) {
     var DEFAULT_SPEED = 20;
 
     function initSlider() {
-        //var $mainBanner = $('#mainBanner');
-        //$mainBanner.carousel();
+        var $mainBanner = $('#mainBanner');
+        $mainBanner.carousel();
     }
 
     var _me = {
