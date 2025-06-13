@@ -48,7 +48,9 @@
             @{ Html.RenderPartial("~/Views/CommissionStructure/N88/_RevenueShareTable.cshtml", Model.MaxCommission); }
             <ul>
                 <li class="text" style="margin-top: 15px;">
-                    <strong>ยอดได้/เสียรวมของสมาชิก:</strong> คำนวณจากยอดเสียสุทธิของสมาชิกที่อยู่ภายใต้พันธมิตรของคุณที่ทำการแนะนำให้ @Model.SiteFriendlyName ในแต่ละเดีอน
+                    <strong>กำไรสุทธิของบริษัท: </strong> คือกำไรที่เหลือหลังจากหักยอดเสีย
+                    รายเดือนของผู้เล่นที่คุณแนะนำ
+                    รวมทั้งค่าใช้จ่ายที่เกี่ยวข้องทั้งหมดแล้ว
                 </li>
                 <li class="text">
                     <strong>ผู้เล่นที่ใช้งาน:</strong> สมาชิกที่มียอดเดิมพันเทิร์นโอเวอร์อย่างน้อย 100.00 USD ต่อเดือน
@@ -78,13 +80,13 @@
             <p class="text">ตัวอย่าง:</p>
             <p class="text"><i><strong>รายได้บวก</strong></i></p>
             <div style="padding-left: 25px;">
-                <p class="text">กำไร/ขาดทุนของสมาชิก = USD 55,000</p>
+                <p class="text">กำไร/ขาดทุนของสมาชิก = USD 60,000</p>
                 <p class="text">โบนัสของสมาชิก = USD 5,000</p>
                 <p class="text">ค่าธรรมเนียมทางการเงิน = USD 550</p>
                 <p class="text">ค่าภาคหลวงค่าธรรมเนียม = USD 2,500</p>
                 <p class="text">คอมมิชชั่น = </p>
                 <p class="text">(กำไร/ขาดทุนของสมาชิก - โบนัสของสมาชิก - ค่าธรรมเนียมทางการเงิน - ค่าภาคหลวงค่าธรรมเนียม) x อัตราเปอร์เซ็น คอมมิชชั่น %</p>
-                <p class="text">(55,000 − 5,000 − 550 − 2,500) x 45% = USD 21,127.50</p>
+                <p class="text">(60,000 − 5,000 − 550 − 2,500) × 45% = USD 23,377.5</p>
             </div>
 
             <p class="text"><i><strong>รายได้ติดลบ</strong></i></p>

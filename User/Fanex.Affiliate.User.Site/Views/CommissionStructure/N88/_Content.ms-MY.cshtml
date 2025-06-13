@@ -48,7 +48,7 @@
             @{ Html.RenderPartial("~/Views/CommissionStructure/N88/_RevenueShareTable.cshtml", Model.MaxCommission); }
             <ul>
                 <li class="text" style="margin-top: 15px;">
-                    <strong>Keuntungan Bersih:</strong> Jumlah kerugian bersih bulanan untuk semua pemain yang dirujuk oleh anda kepada @Model.SiteFriendlyName.
+                    <strong>Keuntungan Bersih Syarikat:</strong> Merujuk kepada keuntungan sebenar yang diperoleh daripada jumlah kerugian bersih bulanan semua pemain yang anda perkenalkan kepada @Model.SiteFriendlyName, selepas ditolak semua kos berkaitan.
                 </li>
                 <li class="text">
                     <strong>Pemain Aktif:</strong> Ahli yang mempunyai jumlah pertaruhan sekurang-kurangnya USD 100.00 dalam satu bulan kalendar
@@ -78,13 +78,13 @@
             <p class="text">Contoh:</p>
             <p class="text"><i><strong>Hasil Positif</strong></i></p>
             <div style="padding-left: 25px;">
-                <p class="text">Keuntungan Bersih = USD 55,000</p>
+                <p class="text">Keuntungan Bersih = USD 60,000</p>
                 <p class="text">Bonus Member = USD 5,000</p>
                 <p class="text">Caj Transaksi = USD 550</p>
                 <p class="text">Caj Royalti = USD 2,500</p>
                 <p class="text">Komisen:</p>
                 <p class="text">(Keuntungan Bersih - Bonus Member - Caj Transaksi - Caj Royalti) x Komisen %</p>
-                <p class="text">(55,000 − 5,000 − 550 − 2,500) x 45% = USD 21,127.50</p>
+                <p class="text">(60,000 − 5,000 − 550 − 2,500) × 45% = USD 23,377.5</p>
             </div>
 
             <p class="text"><i><strong>Hasil Negatif</strong></i></p>
