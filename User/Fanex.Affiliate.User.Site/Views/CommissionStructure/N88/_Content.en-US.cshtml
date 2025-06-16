@@ -48,7 +48,7 @@
             @{ Html.RenderPartial("~/Views/CommissionStructure/N88/_RevenueShareTable.cshtml", Model.MaxCommission); }
             <ul>
                 <li class="text" style="margin-top: 15px;">
-                    <strong>Company's Net Profit:</strong> the monthly net loss of all players recommended by you to @Model.SiteFriendlyName.
+                    <strong>Company’s Net Profit:</strong> The actual profit remaining from the monthly net loss of all players recommended by you to @Model.SiteFriendlyName after deducting all related costs.
                 </li>
                 <li class="text">
                     <strong>Active Players:</strong> Members with at least USD 100.00 in wagering turnover per calendar month.
@@ -78,13 +78,13 @@
             <p class="text">Example:</p>
             <p class="text"><i><strong>Positive Revenue</strong></i></p>
             <div style="padding-left: 25px;">
-                <p class="text">Gross Revenue = USD 55,000</p>
+                <p class="text">Gross Revenue = USD 60,000</p>
                 <p class="text">Bonus Expenses = USD 5,000</p>
                 <p class="text">Transaction Fees = USD 550</p>
                 <p class="text">Royalty Fees = USD 2,500</p>
                 <p class="text">Commission = </p>
                 <p class="text">(Gross Revenue - Bonus Expenses - Transaction Fees - Royalty Fees) x Revenue Share %</p>
-                <p class="text">(55,000 − 5,000 − 550 − 2,500) x 45% = USD 21,127.50</p>
+                <p class="text">(60,000 − 5,000 − 550 − 2,500) × 45% = USD 23,377.5</p>
             </div>
 
             <p class="text"><i><strong>Negative Revenue</strong></i></p>

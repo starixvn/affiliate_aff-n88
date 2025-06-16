@@ -48,7 +48,7 @@
             @{ Html.RenderPartial("~/Views/CommissionStructure/N88/_RevenueShareTable.cshtml", Model.MaxCommission); }
             <ul>
                 <li class="text" style="margin-top: 15px;">
-                    <strong>কোম্পানির নেট লাভ:</strong> @(Model.SiteFriendlyName)-এ আপনার দ্বারা সুপারিশকৃত সমস্ত খেলোয়াড়ের মাসিক নিট ক্ষতি।
+                    <strong>কোম্পানির নিট মুনাফা:</strong> @(Model.SiteFriendlyName)-এ আপনার দ্বারা সুপারিশকৃত সমস্ত খেলোয়াড়ের মাসিক নিট ক্ষতি থেকে সমস্ত সংশ্লিষ্ট খরচ বাদ দেওয়ার পর প্রকৃত মুনাফা যা অবশিষ্ট থাকে।
                 </li>
                 <li class="text">
                     <strong>সক্রিয় খেলোয়াড়:</strong> এমন সদস্যরা যাদের যেকোনো ক্যালেন্ডার মাসে বাজির টার্নওভার (wagering turnover) কমপক্ষে USD 100.00 হয়।
@@ -78,13 +78,13 @@
             <p class="text">উদাহরণ</p>
             <p class="text"><i><strong>ইতিবাচক রাজস্ব</strong></i></p>
             <div style="padding-left: 25px;">
-                <p class="text">মোট আয় = USD 55,000</p>
+                <p class="text">মোট আয় = USD 60,000</p>
                 <p class="text">বোনাস খরচ = USD 5,000</p>
                 <p class="text">লেনদেন ফি = USD 550</p>
                 <p class="text">রয়্যালটি ফি = USD 2,500</p>
                 <p class="text">কমিশন = </p>
                 <p class="text">(মোট রাজস্ব - বোনাস খরচ - লেনদেন ফি - রয়্যালটি ফি) x রাজস্ব ভাগ %</p>
-                <p class="text">(55,000 − 5,000 − 550 − 2,500) x 45% = USD 21,127.50</p>
+                <p class="text">(60,000 − 5,000 − 550 − 2,500) × 45% = USD 23,377.5</p>
             </div>
 
             <p class="text"><i><strong>নেতিবাচক রাজস্ব</strong></i></p>

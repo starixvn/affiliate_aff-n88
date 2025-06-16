@@ -1004,10 +1004,18 @@
     <Content Include="www\build\styles\Images\home\n88\main-banners\main.mobile.th-TH.jpg" />
     <Content Include="www\build\styles\Images\home\n88\main-banners\main.mobile.vi-VN.jpg" />
     <Content Include="www\build\styles\Images\home\n88\main-banners\main.mobile.zh-CN.jpg" />
+    <Content Include="www\build\styles\Images\home\n8b\extra-banners\extra.desktop.en-US.jpg" />
+    <Content Include="www\build\styles\Images\home\n8b\extra-banners\extra.desktop.vi-VN.jpg" />
+    <Content Include="www\build\styles\Images\home\n8b\extra-banners\extra.mobile.en-US.jpg" />
+    <Content Include="www\build\styles\Images\home\n8b\extra-banners\extra.mobile.vi-VN.jpg" />
     <Content Include="www\build\styles\Images\home\n8b\main.desktop.en-US.jpg" />
     <Content Include="www\build\styles\Images\home\n8b\main.desktop.vi-VN.jpg" />
     <Content Include="www\build\styles\Images\home\n8b\main.mobile.en-US.jpg" />
     <Content Include="www\build\styles\Images\home\n8b\main.mobile.vi-VN.jpg" />
+    <Content Include="www\build\styles\Images\home\n8g\extra-banners\extra.desktop.en-US.jpg" />
+    <Content Include="www\build\styles\Images\home\n8g\extra-banners\extra.desktop.vi-VN.jpg" />
+    <Content Include="www\build\styles\Images\home\n8g\extra-banners\extra.mobile.en-US.jpg" />
+    <Content Include="www\build\styles\Images\home\n8g\extra-banners\extra.mobile.vi-VN.jpg" />
     <Content Include="www\build\styles\Images\home\n8g\main.desktop.en-US.jpg" />
     <Content Include="www\build\styles\Images\home\n8g\main.desktop.vi-VN.jpg" />
     <Content Include="www\build\styles\Images\home\n8g\main.mobile.en-US.jpg" />
@@ -1654,6 +1662,15 @@
     <Content Include="www\build\styles\Images\home\n88\extra-banners\extra.mobile.th-TH.webp" />
     <Content Include="www\build\styles\Images\home\n88\extra-banners\extra.mobile.vi-VN.webp" />
     <Content Include="www\build\styles\Images\home\n88\extra-banners\extra.mobile.zh-CN.webp" />
+    <Content Include="www\build\styles\Images\home\n8b\extra-banners\extra.desktop.en-US.webp" />
+    <Content Include="www\build\styles\Images\home\n8b\extra-banners\extra.desktop.vi-VN.webp" />
+    <Content Include="www\build\styles\Images\home\n8b\extra-banners\extra.mobile.en-US.webp" />
+    <Content Include="www\build\styles\Images\home\n8b\extra-banners\extra.mobile.vi-VN.webp" />
+    <Content Include="www\build\styles\Images\home\n8g\extra-banners\extra.desktop.en-US.webp" />
+    <Content Include="www\build\styles\Images\home\n8g\extra-banners\extra.desktop.vi-VN.webp" />
+    <Content Include="www\build\styles\Images\home\n8g\extra-banners\extra.mobile.en-US.webp" />
+    <Content Include="www\build\styles\Images\home\n8g\extra-banners\extra.mobile.vi-VN.webp" />
+    <Content Include="www\build\styles\Images\home\n88\extra-banners\extra.mobile.en-US.webp" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
