@@ -146,6 +146,15 @@ export const bodyCellStyle = {
             ...bodyTextStyle.alignment,
             horizontal: "right"
         }
+    },
+    centerBold: {
+        alignment: {
+            ...bodyTextStyle.alignment,
+            horizontal: "center"
+        },
+        font: {
+            bold: true
+        }
     }
 }
 
