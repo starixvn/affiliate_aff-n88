@@ -31,12 +31,6 @@
 
         public void Send(string content, string mailTo, string subject, string languageCode)
         {
-            if (!_appSetting.IsApiDataModifiable)
-            {
-                LogHelper.WriteInfo($"The Aff User doesn't send the mail to {mailTo}: {subject}");
-                return;
-            }
-
             var mailItem = new MailRecord
             {
                 MailTo = mailTo,
