@@ -10,6 +10,8 @@
 
         public decimal DepositAmount { get; set; }
 
+        public decimal WithdrawalAmount { get; set; }
+
         public string DateText => WinLostDate.ToString("dd-MMM-yyyy");
     }
 }

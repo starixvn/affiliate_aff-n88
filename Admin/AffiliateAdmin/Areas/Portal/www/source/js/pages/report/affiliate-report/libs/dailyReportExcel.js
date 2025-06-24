@@ -10,17 +10,17 @@ const MAIN_SECTION_STYLE = 'mainSectionStyle';
 const COL_WIDTH = 'wpx';
 
 const detailColConfig = {
-    ['UserName']: {
+    [reportKey.UserName]: {
         [MAIN_SECTION_STYLE]: bodyCellStyle.center,
         [COL_WIDTH]: 150
     },
-    ['DateText']: {
+    [reportKey.DateText]: {
         [MAIN_SECTION_STYLE]: bodyCellStyle.right,
         [COL_WIDTH]: 150
     },
     [reportKey.PaymentCurrency]: {
         [MAIN_SECTION_STYLE]: bodyCellStyle.center,
-        [COL_WIDTH]: 120
+        [COL_WIDTH]: 150
     },
     [reportKey.TotalClick]: {
         [MAIN_SECTION_STYLE]: bodyCellStyle.number,
@@ -50,15 +50,19 @@ const detailColConfig = {
         [MAIN_SECTION_STYLE]: bodyCellStyle.number,
         [COL_WIDTH]: 120
     },
-    ['DepositAmount']: {
+    [reportKey.DepositAmount]: {
         [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
         [COL_WIDTH]: 120
-    }
+    },
+    [reportKey.WithdrawalAmount]: {
+        [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
+        [COL_WIDTH]: 150
+    },
 };
 
 const detailHeaderConfig = {
-    ['UserName']: headerText[reportKey.UserName],
-    ['DateText']: 'Date',
+    [reportKey.UserName]: headerText[reportKey.UserName],
+    [reportKey.DateText]: headerText[reportKey.DateText],
     [reportKey.PaymentCurrency]: headerText[reportKey.PaymentCurrency],
     [reportKey.TotalClick]: headerText[reportKey.TotalClick],
     [reportKey.UniqueClick]: headerText[reportKey.UniqueClick],
@@ -67,7 +71,8 @@ const detailHeaderConfig = {
     [reportKey.ActiveMember]: headerText[reportKey.ActiveMember],
     [reportKey.NoOfSubAff]: headerText[reportKey.NoOfSubAff],
     [reportKey.TotalDeposit]: headerText[reportKey.TotalDeposit],
-    ['DepositAmount']: 'Deposit Amount'
+    [reportKey.DepositAmount]: headerText[reportKey.DepositAmount],
+    [reportKey.WithdrawalAmount]: headerText[reportKey.WithdrawalAmount],
 };
 
 export default class DailyReportExcel {
@@ -114,7 +119,8 @@ export default class DailyReportExcel {
                     ActiveMember: 0,
                     NoOfSubAff: 0,
                     TotalDeposit: 0,
-                    DepositAmount: 0
+                    DepositAmount: 0,
+                    WithdrawalAmount: 0,
                 };
                 totals.push(total);
             }
@@ -127,6 +133,7 @@ export default class DailyReportExcel {
             total.NoOfSubAff += item.NoOfSubAff;
             total.TotalDeposit += item.TotalDeposit;
             total.DepositAmount += item.DepositAmount;
+            total.WithdrawalAmount += item.WithdrawalAmount;
         });
 
         for (let i = data.length - 1; i >= 0; i--) {
