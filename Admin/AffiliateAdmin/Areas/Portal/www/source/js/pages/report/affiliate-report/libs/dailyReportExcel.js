@@ -10,8 +10,12 @@ const MAIN_SECTION_STYLE = 'mainSectionStyle';
 const COL_WIDTH = 'wpx';
 
 const detailColConfig = {
-    ['Affiliate']: {
-        [MAIN_SECTION_STYLE]: bodyCellStyle.left,
+    ['UserName']: {
+        [MAIN_SECTION_STYLE]: bodyCellStyle.center,
+        [COL_WIDTH]: 150
+    },
+    ['DateText']: {
+        [MAIN_SECTION_STYLE]: bodyCellStyle.right,
         [COL_WIDTH]: 150
     },
     [reportKey.PaymentCurrency]: {
@@ -53,7 +57,8 @@ const detailColConfig = {
 };
 
 const detailHeaderConfig = {
-    ['Affiliate']: headerText[reportKey.UserName],
+    ['UserName']: headerText[reportKey.UserName],
+    ['DateText']: 'Date',
     [reportKey.PaymentCurrency]: headerText[reportKey.PaymentCurrency],
     [reportKey.TotalClick]: headerText[reportKey.TotalClick],
     [reportKey.UniqueClick]: headerText[reportKey.UniqueClick],
@@ -97,7 +102,7 @@ export default class DailyReportExcel {
 
             if (!total) {
                 total = {
-                    DateText: null,
+                    DateText: '',
                     UserName: key,
                     AffId: item.AffId,
                     PaymentCurrency: item.PaymentCurrency,
@@ -197,14 +202,11 @@ export default class DailyReportExcel {
 
     _buildDataRow(item, colIndex) {
         const columnConfig = this.columnConfigs[colIndex];
-        let value;
+        let value = item[columnConfig.field];
         let style = columnConfig[MAIN_SECTION_STYLE];
 
-        if (columnConfig.field === 'Affiliate') {
-            value = item.DateText || item.UserName;
-            style = item.DateText ? bodyCellStyle.right : bodyCellStyle.left;
-        } else {
-            value = item[columnConfig.field];
+        if (columnConfig.field === 'UserName' && item.DateText === '') {
+            style = bodyCellStyle.centerBold;
         }
 
         return {
