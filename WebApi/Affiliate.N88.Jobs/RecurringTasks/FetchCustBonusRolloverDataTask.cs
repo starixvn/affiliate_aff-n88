@@ -15,7 +15,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
 {
     public interface IFetchCustBonusRolloverDataTask : IFetchDataTask { }
 
-    public class FetchCustBonusRolloverDataTask : FetchDataByBatchForMultiRepoTaskBase<CustBonusRolloverModel>, IFetchCustBonusRolloverDataTask
+    public class FetchCustBonusRolloverDataTask : FetchDataByBatchForMultiRepoTaskBase<CustBonusRolloverModel, string>, IFetchCustBonusRolloverDataTask
     {
         private readonly ILicenseeApi _licenseeApi;
         private readonly ILogger _logger;

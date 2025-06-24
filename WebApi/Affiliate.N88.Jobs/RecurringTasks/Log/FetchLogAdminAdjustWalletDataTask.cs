@@ -15,7 +15,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks.Log
 {
     public interface IFetchLogAdminAdjustWalletDataTask : IFetchDataTask { }
 
-    public class FetchLogAdminAdjustWalletDataTask : FetchDataByBatchForMultiRepoTaskBase<LogAdminAjustWalletInfo>, IFetchLogAdminAdjustWalletDataTask
+    public class FetchLogAdminAdjustWalletDataTask : FetchDataByBatchForMultiRepoTaskBase<LogAdminAjustWalletInfo, string>, IFetchLogAdminAdjustWalletDataTask
     {
         private readonly ILicenseeApi _licenseeApi;
         private readonly ILogger _logger;

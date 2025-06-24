@@ -1,5 +1,4 @@
-﻿using Affiliate.N88.Comparer;
-using Affiliate.N88.Jobs.Apis;
+﻿using Affiliate.N88.Jobs.Apis;
 using Affiliate.N88.Jobs.Configurations;
 using Affiliate.N88.Jobs.Constants;
 using Affiliate.N88.Jobs.RecurringTasks.Interfaces;
@@ -9,6 +8,7 @@ using Affiliate.N88.Repository;
 using Affiliate.N88.Services;
 using Fanex.Logging;
 using Microsoft.Extensions.Options;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +20,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks.Product9W
     {
     }
 
-    public class FetchTpWager9WDataTask : FetchDataByBatchForMultiRepoTaskBase<TpWager9W>, IFetchTpWager9WDataTask
+    public class FetchTpWager9WDataTask : FetchDataByBatchForMultiRepoTaskBase<TpWager9W, CreateTimeTrackerInfo>, IFetchTpWager9WDataTask
     {
         private readonly IProduct9WApi _licenseeApi;
         private readonly ILogger _logger;
@@ -30,38 +30,42 @@ namespace Affiliate.N88.Jobs.RecurringTasks.Product9W
              ILogger logger,
              ITrackerService timeTrackerService,
              IOptionsSnapshot<FetchServiceSetting> configuration)
-            : base(_thirdPartyRepo, configuration.Get(Constants.ServiceConfigName.PULL_TPWAGER_9W_SETTING), timeTrackerService)
+            : base(_thirdPartyRepo, configuration.Get(ServiceConfigName.PULL_TPWAGER_9W_SETTING), timeTrackerService)
         {
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _licenseeApi = licenseeApi ?? throw new ArgumentNullException(nameof(licenseeApi));
         }
 
-        protected override async Task<IEnumerable<TpWager9W>> GetDataAsync(string trackValue, int batchCount)
+        protected override async Task<IEnumerable<TpWager9W>> GetDataAsync(CreateTimeTrackerInfo trackValue, int batchCount)
         {
-            var fromDate = DateTime.Parse(trackValue);
             var toDate = DateTime.Now;
-            return await _licenseeApi.GetTpWagerAsync(new BaseParam {
-                FromDate = fromDate,
-                ToDate  = toDate,
-                PageIndex = 0,
-                PageSize = batchCount
+            return await _licenseeApi.GetTpWagerAsync(new BatchCountParam
+            {
+                CreateTime = trackValue.CreateTime,
+                FromDate = trackValue.UpdateTime,
+                ToDate = toDate,
+                BatchCount = batchCount
             });
         }
 
-        protected override string GetInsertTrackingValue(IEnumerable<TpWager9W> data)
-            => data.Max(d => d.UpdateTime).Value.ToString(Format.DateTimeFormat);
-
-        protected override async Task<string> GetLastTrackingValueAsync()
+        protected override CreateTimeTrackerInfo GetInsertTrackingValue(IEnumerable<TpWager9W> data)
         {
-            var tracker = await _timeTrackerService.GetTrackerAsync(TableName, t => t.KeyValue, new StringToDateTimeComparer());
-            var date = string.IsNullOrWhiteSpace(tracker.KeyValue) 
-                ? throw new ArgumentException($"Not valid DateTime Tracker Value {tracker.KeyValue} of table {TableName}") 
-                : DateTime.Parse(tracker.KeyValue);
-            var adjustDate = GetAdjustmentDate(date);
-            return adjustDate.ToString(Format.DateTimeFormat);
+            var lastItem = data.LastOrDefault();
+
+            return new CreateTimeTrackerInfo
+            {
+                CreateTime = lastItem.CreateTime.Value,
+                UpdateTime = lastItem.UpdateTime.Value,
+            };
         }
 
-        private DateTime GetAdjustmentDate(DateTime date)
-            => date.AddMinutes(Settings.AdjustmentValue);
+        protected override async Task<CreateTimeTrackerInfo> GetLastTrackingValueAsync()
+        {
+            var tracker = await _timeTrackerService.GetTrackerAsync(TableName, t => t.CalledTime);
+            var createTimeTrackerInfo = JsonConvert.DeserializeObject<CreateTimeTrackerInfo>(tracker.KeyValue);
+            createTimeTrackerInfo.UpdateTime = createTimeTrackerInfo.UpdateTime.AddMinutes(Settings.AdjustmentValue);
+
+            return createTimeTrackerInfo;
+        }
     }
 }

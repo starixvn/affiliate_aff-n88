@@ -18,7 +18,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks.Log
     public interface IFetchReferralLogDataTask : IFetchDataTask
     { }
 
-    public class FetchReferralLogDataTask : FetchDataByBatchForMultiRepoTaskBase<ReferralLogModel>, IFetchReferralLogDataTask
+    public class FetchReferralLogDataTask : FetchDataByBatchForMultiRepoTaskBase<ReferralLogModel, string>, IFetchReferralLogDataTask
     {
         private ILicenseeApi Api;
         private ILogger Logger;

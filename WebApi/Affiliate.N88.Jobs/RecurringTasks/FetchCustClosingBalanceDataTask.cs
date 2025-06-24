@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 namespace Affiliate.N88.Jobs.RecurringTasks
 {
     public interface IFetchCustClosingBalanceDataTask : IFetchDataTask { }
-    public class FetchCustClosingBalanceDataTask : FetchDataByBatchForMultiRepoTaskBase<CustClosingBalanceModel>, IFetchCustClosingBalanceDataTask
+    public class FetchCustClosingBalanceDataTask : FetchDataByBatchForMultiRepoTaskBase<CustClosingBalanceModel, string>, IFetchCustClosingBalanceDataTask
     {
         private readonly ILicenseeApi _licenseeApi;
         private readonly ILogger _logger;

@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 namespace Affiliate.N88.Jobs.RecurringTasks.Bonus
 {
     public interface IFetchBonusInfoDataTask : IFetchDataTask { }
-    public class FetchBonusInfoDataTask : FetchDataByBatchForMultiRepoTaskBase<BonusDTO>, IFetchBonusInfoDataTask
+    public class FetchBonusInfoDataTask : FetchDataByBatchForMultiRepoTaskBase<BonusDTO, string>, IFetchBonusInfoDataTask
     {
         private readonly ILicenseeApi _licenseeApi;
         private readonly ILogger _logger;

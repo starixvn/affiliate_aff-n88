@@ -10,9 +10,9 @@ namespace Affiliate.N88.Jobs.Apis
     public interface IProduct9WApi
     {
         [Get("/Product9W/GetTpReport")]
-        Task<IEnumerable<TpReport9W>> GetTpReportAsync([Query] BaseParam param);
+        Task<IEnumerable<TpReport9W>> GetTpReportAsync([Query] BatchCountParam param);
 
         [Get("/Product9W/GetTpWager")]
-        Task<IEnumerable<TpWager9W>> GetTpWagerAsync([Query] BaseParam param);
+        Task<IEnumerable<TpWager9W>> GetTpWagerAsync([Query] BatchCountParam param);
     }
 }

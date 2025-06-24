@@ -15,7 +15,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
 {
     public interface IFetchAdjustmentInfoDataTask: IFetchDataTask { }
 
-    public class FetchAdjustmentInfoDataTask : FetchDataByBatchForMultiRepoTaskBase<AdjustmentInfo>, IFetchAdjustmentInfoDataTask
+    public class FetchAdjustmentInfoDataTask : FetchDataByBatchForMultiRepoTaskBase<AdjustmentInfo, string>, IFetchAdjustmentInfoDataTask
     {
         private readonly ILicenseeApi _licenseeApi;
         private readonly ILogger _logger;
