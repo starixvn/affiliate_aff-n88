@@ -337,14 +337,17 @@ namespace Affiliate.N88.Jobs.Middlewares
 
             RegisterTask<IFetchReferralLogDataTask>($"{typeof(IFetchReferralLogDataTask).Name}", appSettings.PullReferralLogSetting.PullInfoCron, job => job.FetchDataAsync());
 
-            RegisterTask<IFetchTpReport9WDataTask>($"{typeof(IFetchTpReport9WDataTask).Name}", appSettings.PullTpReport9WSetting.PullInfoCron, job => job.FetchDataAsync());
+            //RegisterTask<IFetchTpReport9WDataTask>($"{typeof(IFetchTpReport9WDataTask).Name}", appSettings.PullTpReport9WSetting.PullInfoCron, job => job.FetchDataAsync());
 
-            RegisterTask<IFetchTpWager9WDataTask>($"{typeof(IFetchTpWager9WDataTask).Name}", appSettings.PullTpWager9WSetting.PullInfoCron, job => job.FetchDataAsync());
+            //RegisterTask<IFetchTpWager9WDataTask>($"{typeof(IFetchTpWager9WDataTask).Name}", appSettings.PullTpWager9WSetting.PullInfoCron, job => job.FetchDataAsync());
         }
 
         private static void RegisterRetryDataTask(AppSettings appSettings)
         {
-            RegisterTask<IReInsertAffiliateInfoDataTask>($"{typeof(IReInsertAffiliateInfoDataTask).Name}", appSettings.InsertAffiliateSetting.PullInfoCron, job => job.HandleAsync());
+            if (appSettings.IsApiDataModifiable)
+            {
+                RegisterTask<IReInsertAffiliateInfoDataTask>($"{typeof(IReInsertAffiliateInfoDataTask).Name}", appSettings.InsertAffiliateSetting.PullInfoCron, job => job.HandleAsync());
+            }
         }
 
         private static void RegisterTask<T>(string serviceId, string cronExpression, Expression<Func<T, Task>> methodCall)

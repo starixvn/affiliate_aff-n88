@@ -70,6 +70,8 @@
 
         public bool IsRunFetchTask { get; set; }
 
+        public bool IsApiDataModifiable { get; set; }
+
         public bool RunAsService { get; set; }
 
         public ProxySetting ProxySetting { get; set; }
