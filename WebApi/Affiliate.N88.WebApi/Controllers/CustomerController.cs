@@ -1,9 +1,7 @@
-﻿using Affiliate.N88.DTO;
-using Affiliate.N88.Models;
+﻿using Affiliate.N88.Models;
 using Affiliate.N88.Params;
 using Affiliate.N88.SpParams.Commands;
 using Affiliate.N88.SpParams.Criteria;
-using Affiliate.N88.WebApi.DTO;
 using Affiliate.N88.WebApi.Models;
 using Fanex.Data.Repository;
 using Fanex.Logging;
@@ -19,6 +17,7 @@ namespace Affiliate.N88.WebApi.Controllers
 {
     public class CustomerController : ApiController
     {
+        private const int _Marketing_Cust_ID = -1;
         private readonly IDynamicRepository dynamicRepository;
 
         public CustomerController(IDynamicRepository dynamicRepository)
@@ -131,7 +130,7 @@ namespace Affiliate.N88.WebApi.Controllers
                     AffiliateId = affiliate.AffiliateId,
                     AffiliateCode = affiliate.AffiliateCode,
                     AffiliateName = affiliate.AffiliateName,
-                    CustId = affiliate.CustId,
+                    CustId = affiliate.CustId == 0 ? _Marketing_Cust_ID : affiliate.CustId,
                     ParentAffiliate = affiliate.ParentAffiliate ?? string.Empty,
                     SiteId = affiliate.SiteId,
                     UserName = affiliate.UserName,
@@ -212,8 +211,8 @@ namespace Affiliate.N88.WebApi.Controllers
         public async Task<IEnumerable<CustVerificationReward>> GetCustVerificationRewards(DateTime lastGetTime, string conditionField, int batchCount = 2000)
             => await dynamicRepository.FetchAsync<CustVerificationReward>(new GetCustVerificationRewardCriteria(lastGetTime, conditionField, batchCount));
 
-        private string BuildJson(int[] userIds)
-            => $"[{String.Join(",", userIds)}]";
+        private static string BuildJson(int[] userIds)
+            => $"[{string.Join(",", userIds)}]";
 
         private string GetIpAddress()
         {
@@ -232,7 +231,7 @@ namespace Affiliate.N88.WebApi.Controllers
             return context.Request.ServerVariables["REMOTE_ADDR"];
         }
 
-        private bool HasNonASCIIChars(string str)
+        private static bool HasNonASCIIChars(string str)
             => Encoding.UTF8.GetByteCount(str) != str.Length;
     }
 }
