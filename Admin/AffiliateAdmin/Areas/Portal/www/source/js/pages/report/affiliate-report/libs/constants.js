@@ -69,7 +69,10 @@ export const reportKey = {
     MemberStatistics: 'MemberStatistics',
     AffiliateStatistics: 'AffiliateStatistics',
     MonthOnMonth: 'MonthOnMonth',
-    PlayerGgr: 'PlayerGgr'
+    PlayerGgr: 'PlayerGgr',
+    DateText: 'DateText',
+    DepositAmount: 'DepositAmount',
+    WithdrawalAmount: 'WithdrawalAmount',
 }
 
 export const headerText = {
@@ -107,7 +110,10 @@ export const headerText = {
     [reportKey.MemberStatistics]: 'Player Statistics',
     [reportKey.AffiliateStatistics]: 'Affiliate Statistics',
     [reportKey.MonthOnMonth]: 'Month on Month',
-    [reportKey.PlayerGgr]: 'Player GGR'
+    [reportKey.PlayerGgr]: 'Player GGR',
+    [reportKey.DateText]: 'Date',
+    [reportKey.DepositAmount]: 'Deposit Amount',
+    [reportKey.WithdrawalAmount]: 'Withdrawal Amount',
 }
 
 export const headerConfig = {

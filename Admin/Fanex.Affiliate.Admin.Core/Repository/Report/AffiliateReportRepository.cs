@@ -186,6 +186,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
             report.UserName = reader.ToString("Username");
             report.PaymentCurrency = reader.ToString("PaymentCurrency");
             report.DepositAmount = reader.ToDecimal("DepositAmount");
+            report.WithdrawalAmount = reader.ToDecimal("WithdrawalAmount");
 
             return report;
         }
