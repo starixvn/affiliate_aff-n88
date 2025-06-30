@@ -11,10 +11,10 @@ export class WebSite extends PureComponent {
     constructor(props) {
         super(props);
 
-        this.moreSiteUrlRefs = [];
+        this.moreSiteUrlsRefs = [];
 
         for (let _siteUrl of this.props.moreSiteUrlsList) {
-            this.moreSiteUrlRefs.push(React.createRef());
+            this.moreSiteUrlsRefs.push(React.createRef());
         }
 
         this.state = {
@@ -48,11 +48,11 @@ export class WebSite extends PureComponent {
         const findIndex = newMoreSiteUrlsList.indexOf('');
 
         if (findIndex === -1) {
-            this.moreSiteUrlRefs.push(React.createRef());
+            this.moreSiteUrlsRefs.push(React.createRef());
             moreSiteUrlsList.push('');
             this.props.setMoreSiteUrlsList(moreSiteUrlsList);
         } else {
-            this.moreSiteUrlRefs[findIndex].current.focus();
+            this.moreSiteUrlsRefs[findIndex].current.focus();
             this.setState({ messageNotification: `Please input Website URL ${findIndex + 2}` });
         }
     }
@@ -60,7 +60,7 @@ export class WebSite extends PureComponent {
     handleDeleteUrl = (siteIndex) => {
         const { moreSiteUrlsList } = this.props;
         moreSiteUrlsList.splice(siteIndex, 1);
-        this.moreSiteUrlRefs.splice(siteIndex, 1);
+        this.moreSiteUrlsRefs.splice(siteIndex, 1);
 
         this.props.setMoreSiteUrlsList(moreSiteUrlsList);
     }
@@ -75,18 +75,18 @@ export class WebSite extends PureComponent {
         this.setState({ messageNotification: '' })
     }
 
-    _renderMoreSiteUrl(moreSiteUrlsList, hasWebSite) {
+    _renderMoreSiteUrl(moreSiteUrlsList, hasWebSite, isRequired) {
         return (
             <React.Fragment>
                 {
                     moreSiteUrlsList.map((value, index) => {
                         return (
                             <FormGroup row key={`siteUrl${index} ${123}`}>
-                                <Label for={`${index}`} sm={3} xl={2} className="required">Website URL {index + 2}</Label>
-                                <Col sm={5} xl={6}>
-                                    <input className="form-control" disabled={!hasWebSite} name={index} value={value} onChange={this.handleChangeMoreUrl} ref={this.moreSiteUrlRefs[index]} />
+                                <Label for={`${index}`} sm={3} xl={2} className={isRequired ? 'required' : ''}>Website URL {index + 2}</Label>
+                                <Col sm={5} xl={6} className="input-item">
+                                    <input className="form-control" disabled={!hasWebSite} name={index} value={value} onChange={this.handleChangeMoreUrl} ref={this.moreSiteUrlsRefs[index]} />
                                 </Col>
-                                <Button outline color="danger" disabled={!hasWebSite} className="mb-2" onClick={() => this.handleDeleteUrl(index)}><span aria-hidden>Del</span></Button>
+                                <Button outline color="danger" disabled={!hasWebSite} className="my-1" onClick={() => this.handleDeleteUrl(index)}><span aria-hidden>Del</span></Button>
                             </FormGroup>
                         )
                     })
@@ -99,6 +99,7 @@ export class WebSite extends PureComponent {
         const { messageNotification } = this.state;
         const { userAccountInfo, moreSiteUrlsList } = this.props;
         const hasWebSite = userAccountInfo.HasWebSite;
+        const isRequired = userAccountInfo.MarketingAccount === false;
 
         return (
             <React.Fragment>
@@ -107,27 +108,27 @@ export class WebSite extends PureComponent {
                         <FormGroup check>
                             <Label check>
                                 <Input type="radio" checked={hasWebSite} onChange={() => this.handleChangeHasWebSite(true)} />I have my own website
-                        </Label>
+                            </Label>
                         </FormGroup>
                         <FormGroup row className="pt-1">
-                            <Label htmlFor="siteUrl" sm={3} xl={2} className="required">Website URL</Label>
-                            <Col sm={5} xl={6}>
+                            <Label htmlFor="siteUrl" sm={3} xl={2} className={isRequired ? 'required' : ''}>Website URL</Label>
+                            <Col sm={5} xl={6} className="input-item">
                                 <Input type="text" name="siteUrl" disabled={!hasWebSite} value={userAccountInfo.SiteUrl} onChange={this.handleChange} />
                             </Col>
-                            <Button outline color="secondary" disabled={!hasWebSite} className="mb-2" onClick={this.handleAddUrl}>Add Url</Button>
+                            <Button outline color="secondary" disabled={!hasWebSite} className="my-1" onClick={this.handleAddUrl}>Add Url</Button>
                         </FormGroup>
                         {
-                            this._renderMoreSiteUrl(moreSiteUrlsList, hasWebSite)
+                            this._renderMoreSiteUrl(moreSiteUrlsList, hasWebSite, isRequired)
                         }
                     </FormGroup>
                     <FormGroup className="pt-3">
                         <FormGroup check>
                             <Label check>
                                 <Input type="radio" checked={!hasWebSite} onChange={() => this.handleChangeHasWebSite(false)} />I don't have a website
-                        </Label>
+                            </Label>
                         </FormGroup>
                         <FormGroup row className="pt-1">
-                            <Label htmlFor="noSiteDescription" sm={3} xl={2} className="required">{`Please describe how you would like to promote ${this.props.licenseeName} if you don't have the URL`}</Label>
+                            <Label htmlFor="noSiteDescription" sm={3} xl={2} className={isRequired ? 'required' : ''}>{`Please describe how you would like to promote ${this.props.licenseeName} if you don't have the URL`}</Label>
                             <Col sm={6} xl={7}>
                                 <Input type="textarea" disabled={hasWebSite} style={{ height: 70 }} id="noSiteDescription" name="noSiteDescription" value={userAccountInfo.NoSiteDescription} onChange={this.handleChange} />
                             </Col>

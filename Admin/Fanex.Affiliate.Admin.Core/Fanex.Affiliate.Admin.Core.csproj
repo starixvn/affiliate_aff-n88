@@ -219,11 +219,13 @@
   <ItemGroup>
     <Compile Include="Apis\ILicenseeApi.cs" />
     <Compile Include="Attributes\AllowByPassFunctionAuthorizeAttribute.cs" />
+    <Compile Include="Attributes\ConditionalRequiredAttribute.cs" />
     <Compile Include="Attributes\CustomAuthorizeAttribute .cs" />
     <Compile Include="Attributes\FunctionAuthorizeAttribute.cs" />
     <Compile Include="Attributes\PermissionCheckAttribute.cs" />
     <Compile Include="Attributes\UnauthorizedPropertyCensorAttribute.cs" />
     <Compile Include="Attributes\ValidateAntiForgeryHeaderAttribute.cs" />
+    <Compile Include="Commands\Affiliate\CreateMarketingAccountCommand.cs" />
     <Compile Include="Configurations\AppSetting.cs" />
     <Compile Include="Configurations\IAppSetting.cs" />
     <Compile Include="Configurations\LoggingConfig.cs" />
@@ -245,6 +247,7 @@
     <Compile Include="Constants\Money.cs" />
     <Compile Include="Constants\PaymentMethod.cs" />
     <Compile Include="Constants\DefaultValue.cs" />
+    <Compile Include="Constants\SystemLanguage.cs" />
     <Compile Include="Constants\TemplateString.cs" />
     <Compile Include="Constants\TransType.cs" />
     <Compile Include="Constants\UserType.cs" />
@@ -253,6 +256,7 @@
     <Compile Include="Controllers\Administrator\AdministratorController.cs" />
     <Compile Include="Controllers\Administrator\DepartmentController.cs" />
     <Compile Include="Controllers\Affiliate\AffiliateController.cs" />
+    <Compile Include="Controllers\Affiliate\MarketingAccountController.cs" />
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\Affiliate\RevenueGroupController.cs" />
@@ -293,6 +297,8 @@
     <Compile Include="DTO\Administrator\PolicyInfo.cs" />
     <Compile Include="DTO\Affiliate\AffiliateBasicInfo.cs" />
     <Compile Include="DTO\Affiliate\AffiliateInfo.cs" />
+    <Compile Include="DTO\Affiliate\CreateMarketingAccountModel.cs" />
+    <Compile Include="DTO\Affiliate\MarketingAccount.cs" />
     <Compile Include="DTO\AffTypeInfo.cs" />
     <Compile Include="DTO\Api\AffiliateInfo.cs" />
     <Compile Include="DTO\Api\ApiResultInfo.cs" />
@@ -453,6 +459,8 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Services\Affiliate\IMarketingAccountService.cs" />
+    <Compile Include="Services\Affiliate\MarketingAccountService.cs" />
     <Compile Include="Repository\Affiliate\AffiliateInfoRepository.cs" />
     <Compile Include="Repository\Affiliate\IAffiliateInfoRepository.cs" />
     <Compile Include="Repository\CurrencyRepository.cs" />
@@ -622,6 +630,7 @@
     <Compile Include="Utilities\SiteFriendlyNameHelper.cs" />
     <Compile Include="Utilities\SystemFile.cs" />
     <Compile Include="ViewModels\Affiliate\AffiliateInfoViewModel.cs" />
+    <Compile Include="ViewModels\Affiliate\MarketingAccountViewModel.cs" />
     <Compile Include="ViewModels\Report\AffiliateReportViewModel.cs" />
     <Compile Include="ViewModels\AssignNormalGroupViewModel.cs" />
     <Compile Include="ViewModels\AssignPrivateGroupViewModel.cs" />
@@ -672,6 +681,7 @@
     <EmbeddedResource Include="Resources\Lang.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Lang.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

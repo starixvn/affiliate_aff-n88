@@ -6,36 +6,15 @@ import { Col, Form, FormGroup, Label, Input } from 'reactstrap';
 import { renderInputForm, capitalizeFirstChar } from '../../modules/service';
 import { setUserAccountInfo } from '../../actions';
 import { updateObjectInArray } from '../../../../../modules/dataHandler';
+import { getPlaceHolderByApp } from '../../modules/utils';
 
 export class Personal extends PureComponent {
     constructor(props) {
         super(props);
 
         const { userAccountInfo } = this.props;
-        this.TELEGRAM_APP = { Name: 'Telegram', Value: '', Order: 0 };
 
-        this.arrayContactApps = userAccountInfo && this.handleContactApps(userAccountInfo.ContactAppList);
-    }
-
-    handleContactApps = (contactApps) => {
-        if (!Array.isArray(contactApps)) {
-            return [this.TELEGRAM_APP];
-        }
-
-        const result = [...contactApps];
-        const hasTelegram = result.some(item => item.Name === this.TELEGRAM_APP.Name);
-        if (!hasTelegram) {
-            result.push(this.TELEGRAM_APP);
-        }
-
-        return result.sort((a, b) => {
-            const priority = (name) => {
-                if (name === 'Skype') return 0;
-                if (name === 'Telegram') return 1;
-                return 2;
-            };
-            return priority(a.Name) - priority(b.Name);
-        });
+        this.arrayContactApps = userAccountInfo && userAccountInfo.ContactAppList;
     }
 
     handleChange = (event) => {
@@ -62,11 +41,11 @@ export class Personal extends PureComponent {
         this.props.setUserAccountInfo(newUserAccountInfo);
     }
 
-    _renderGenderForm(isMale) {
+    _renderGenderForm(isMale, isRequired) {
         return (
             <FormGroup row>
-                <Label sm={3} xl={2} className="required">Gender</Label>
-                <Col sm={9} xl={10}>
+                <Label sm={3} xl={2} className={isRequired ? 'required' : ''}>Gender</Label>
+                <Col sm={9} xl={10} className="gender-group">
                     <FormGroup check className="d-inline-block mr-3">
                         <Label check>
                             <Input type="radio" checked={isMale != null && isMale} onChange={() => this.handleChangeGender(true)} />{' '} Male
@@ -82,51 +61,30 @@ export class Personal extends PureComponent {
         )
     }
 
-    _renderContactAppInput(name, value, isRequired, placeholder = '') {
-        return (
-            <FormGroup row key={name}>
-                <Label for={name} sm={3} xl={2} className={isRequired ? "required" : ""}>{name}</Label>
-                <Col sm={9} xl={10}>
-                    <Input
-                        type="text"
-                        id={name}
-                        name={name}
-                        value={value || ''}
-                        onChange={this.handleChangeContactApps}
-                        placeholder={placeholder}
-                    />
-                </Col>
-            </FormGroup>
-        );
-    }
-
-    _renderContactApps() {
-        const contactApps = this.arrayContactApps.filter(item => item.Name !== 'Skype');
-        const contactLength = contactApps.length;
-
-        return contactApps.map(contactApp => {
-            const placeholder = contactApp.Name === 'Telegram' ? '@xxxxxxxx' : '';
-            return this._renderContactAppInput(
-                contactApp.Name,
-                contactApp.Value,
-                contactLength === 1,
-                placeholder
-            );
-        });
-    }
-
     render() {
         const { userAccountInfo } = this.props;
+        const isOnlyView = !userAccountInfo.HasHostAffPersonalInfoPermission;
+        const isRequired = userAccountInfo.MarketingAccount === false;
 
         return userAccountInfo && (
             <Form tag="div">
-                {renderInputForm('username', 'User Name', userAccountInfo.AffName, true)}
-                {renderInputForm('firstName', 'First Name', userAccountInfo.FirstName, false, true, this.handleChange)}
-                {renderInputForm('lastName', 'Last Name', userAccountInfo.LastName, false, true, this.handleChange)}
-                {this._renderGenderForm(userAccountInfo.Gender)}
-                {renderInputForm('email', 'Email Address', userAccountInfo.Email, false, true, this.handleChange)}
-                {renderInputForm('phone', 'Contact Number', userAccountInfo.Phone, false, true, this.handleChange)}
-                {this._renderContactApps()}
+                {renderInputForm('username', 'User Name', userAccountInfo.AffName, true, isRequired, this.handleChange)}
+                {renderInputForm('affCategoryDesc', 'Account Type', userAccountInfo.AffCategoryDesc, true, isRequired, this.handleChange)}
+                {renderInputForm('firstName', 'First Name', userAccountInfo.FirstName, false, isRequired, this.handleChange)}
+                {renderInputForm('lastName', 'Last Name', userAccountInfo.LastName, false, isRequired, this.handleChange)}
+                {this._renderGenderForm(userAccountInfo.Gender, isRequired)}
+                {renderInputForm('email', 'Email Address', userAccountInfo.Email, isOnlyView, isRequired, this.handleChange)}
+                {renderInputForm('phone', 'Contact Number', userAccountInfo.Phone, isOnlyView, isRequired, this.handleChange)}
+                {
+                    this.arrayContactApps && this.arrayContactApps.map((contactApp, index) => {
+                        const appNameDisplay = contactApp.Name == "Skype" ? "Teams" : contactApp.Name;
+                        const placeholder = getPlaceHolderByApp(contactApp.Name);
+
+                        return (
+                            renderInputForm(contactApp.Name, appNameDisplay, contactApp.Value, false, isRequired && index == 0, this.handleChangeContactApps, placeholder)
+                        )
+                    })
+                }
             </Form>
         )
     }

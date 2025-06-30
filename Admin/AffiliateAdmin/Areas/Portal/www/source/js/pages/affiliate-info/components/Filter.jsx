@@ -22,6 +22,7 @@ export class Filter extends Component {
             selectedCommGroupList: groupId || allCommGroups,
             selectedStatus: props.param.Status || '',
             parentAffName: this.props.param.ParentAffName || '',
+            isExcludeMarketingAccount: true
         }
     }
 
@@ -51,6 +52,10 @@ export class Filter extends Component {
         this.setState((prevState) => ({ isSortAscending: !prevState.isSortAscending }));
     }
 
+    handleChangeExcludeMarketingAccount = () => {
+        this.setState((prevState) => ({ isExcludeMarketingAccount: !prevState.isExcludeMarketingAccount }));
+    }
+
     handleChangeCommGroup = (item, selectedCommGroupList) => {
         this.setState({ selectedCommGroupList });
 
@@ -67,14 +72,15 @@ export class Filter extends Component {
 
     handleClickSearch = (parentAffName) => {
 
-        const { selectedCommGroupList, selectedLanguage, selectedStatus, userName, email, selectedSortBy, isSortAscending, affCode, affPlayer } = this.state;
+        const { selectedCommGroupList, selectedTargetCountry, selectedLanguage, selectedStatus, userName, email, selectedSortBy, isSortAscending, affCode, affPlayer, isExcludeMarketingAccount } = this.state;
 
         const affCodeInput = affCode.trim();
         const isSelectAllCommGroup = this.props.commGroupList.every(c => c.checked);
-        this.props.setReportTitle(this._buildReportTitle(selectedLanguage, selectedStatus, userName, email, affCodeInput, affPlayer, isSelectAllCommGroup));
+        this.props.setReportTitle(this._buildReportTitle(selectedTargetCountry, selectedLanguage, selectedStatus, userName, email, affCodeInput, affPlayer, isSelectAllCommGroup));
 
         const param = {
             GroupIds: isSelectAllCommGroup ? allCommGroups : selectedCommGroupList,
+            TargetCountryCode: selectedTargetCountry,
             Language: selectedLanguage,
             Status: selectedStatus,
             ParentAffName: parentAffName || this.state.parentAffName,
@@ -83,7 +89,8 @@ export class Filter extends Component {
             SortBy: selectedSortBy,
             SortDirectionType: !isSortAscending,
             AffCode: affCodeInput,
-            AffPlayer: affPlayer
+            AffPlayer: affPlayer,
+            IsExcludeMarketingAccount: isExcludeMarketingAccount
         }
         this.props.setParam(param);
     }
@@ -106,27 +113,28 @@ export class Filter extends Component {
         this.props.setSelectedColumn(newColumnList);
     }
 
-    _buildReportTitle(selectedLanguage, selectedStatus, userName, email, affCode, affPlayer, isSelectAllCommGroup) {
-        const { commGroupList, languageList } = this.props;
+    _buildReportTitle(selectedTargetCountry, selectedLanguage, selectedStatus, userName, email, affCode, affPlayer, isSelectAllCommGroup) {
+        const { commGroupList, languageList, targetCountryList } = this.props;
 
         const space = resource.Space;
         const apostrophe = resource.Apostrophe;
         const commGroupTitle = isSelectAllCommGroup ? resource.AllCommGroups : commGroupList.filter(c => c.checked).map(c => c.name).join(',');
         const languageTitle = languageList[selectedLanguage] || resource.AllLanguages;
         const statusTitle = statusList[selectedStatus] || resource.AllStatuses;
+        const targetCountryTitle = targetCountryList[selectedTargetCountry] || resource.AllTargetCountries;
 
         const userNameTitle = userName && space + resource.UsernameContains + apostrophe + userName + apostrophe;
         const emailTitle = email && space + resource.EmailContains + apostrophe + email + apostrophe;
         const affCodeTitle = affCode && space + resource.AffCodeContains + apostrophe + affCode + apostrophe;
         const affPlayerTitle = affPlayer && space + resource.AffPlayerContains + apostrophe + affPlayer + apostrophe;
 
-        return `${resource.ReportName}${space}${commGroupTitle.toUpperCase()}${space}${languageTitle.toUpperCase()}${space}${statusTitle.toUpperCase()}`
+        return `${resource.ReportName}${space}${commGroupTitle.toUpperCase()}${space}${targetCountryTitle.toUpperCase()}${space}${languageTitle.toUpperCase()}${space}${statusTitle.toUpperCase()}`
             + `${userNameTitle}${emailTitle}${affCodeTitle}${affPlayerTitle}`;
     }
 
     render() {
-        const { selectedLanguage, selectedSortBy, selectedStatus, isSortAscending, userName, email, affCode, parentAffName, affPlayer } = this.state;
-        const { commGroupList, languageList, columnList } = this.props;
+        const { selectedLanguage, selectedSortBy, selectedStatus, isSortAscending, userName, email, affCode, parentAffName, affPlayer, selectedTargetCountry, isExcludeMarketingAccount } = this.state;
+        const { commGroupList, languageList, columnList, targetCountryList } = this.props;
 
         return (
             <div className="filter-container">
@@ -142,6 +150,19 @@ export class Filter extends Component {
                             noneSelectedLabel="None Select"
                             selectedAllLabel="All Revenue Groups"
                             onChange={this.handleChangeCommGroup} />
+                    </FormGroup>
+
+                    <FormGroup className="my-2 mr-sm-2">
+                        {
+                            <Input type="select" name="selectedTargetCountry" id="targetCountry" value={selectedTargetCountry} onChange={this.handleChange}>
+                                <option key="target-country-all" value="">{resource.AllTargetCountries}</option>
+                                {
+                                    Object.keys(targetCountryList).map(country => {
+                                        return (<option key={'country-' + country} value={country}>{targetCountryList[country]}</option>)
+                                    })
+                                }
+                            </Input>
+                        }
                     </FormGroup>
 
                     <FormGroup className="my-2 mr-sm-2">
@@ -230,7 +251,12 @@ export class Filter extends Component {
                             selectedAllLabel="All"
                             onChange={this.handleChangeColumn} />
                     </FormGroup>
-
+                    <FormGroup className="my-2 mr-sm-2">
+                        <Label check>
+                            {resource.ExcludeMarketingAccount}
+                            <Input className="ml-1" type="checkbox" checked={isExcludeMarketingAccount} onChange={this.handleChangeExcludeMarketingAccount} />
+                        </Label>
+                    </FormGroup>
                     <Button className="my-2" outline color="primary" type="button" onClick={() => this.handleClickSearch(parentAffName)} >
                         <span className="oi oi-magnifying-glass"></span> {resource.Search}
                     </Button>
@@ -240,8 +266,8 @@ export class Filter extends Component {
     }
 }
 
-function mapStateToProps({ languageList, commGroupList, param, groupId, columnList, parentAffName }) {
-    return Object.assign({}, { languageList, commGroupList, param, groupId, columnList, parentAffName });
+function mapStateToProps({ languageList, commGroupList, param, groupId, columnList, parentAffName, targetCountryList }) {
+    return Object.assign({}, { languageList, commGroupList, param, groupId, columnList, parentAffName, targetCountryList });
 }
 
 function mapDispatchToProps(dispatch) {

@@ -6,8 +6,10 @@
     requiredBankTranferList,
     playerMethod,
     moneybookersMethod,
-    wireMethod
+    wireMethod,
+    contactAppTypes
 } from './constants'
+import { getRegexByApp } from './utils'
 
 const getMessage = (fieldName, value) => {
     return value === '' ? messageList[fieldName] + "<br />" : '';
@@ -51,82 +53,103 @@ const validatePaymentMethod = (userAccountInfo) => {
     };
 }
 
-const validateContactApps = (contactApps) => {
-    const isTelegramInvalid = (value) => value && (!value.startsWith('@') || value.length <= 1);
-
-    if (!Array.isArray(contactApps)
-        || contactApps.length === 0
-        || (contactApps.length === 1 && contactApps[0].Name === 'Skype')) {
-        return {
-            message: 'At least one IM account is required',
-            isValid: false
-        };
-    }
-
-    const getValue = name => contactApps.find(a => a.Name === name)?.Value?.trim() || '';
-    const contactNotSkype = contactApps.filter(a => a.Name !== 'Skype');
-
-    if (contactNotSkype.length === 1) {
-        const { Name } = contactNotSkype[0];
-        const value = getValue(Name);
-
-        if (!value) {
-            return {
-                message: `${Name} is required`,
-                isValid: false
-            };
-        }
-    }
-
-    if (contactNotSkype.every(a => !a.Value?.trim())) {
-        const names = contactNotSkype.map(a => a.Name).join(', ');
-        return {
-            message: `Contact Apps (${names}): At least one IM account is required`,
-            isValid: false
-        };
-    }
-
-    const telegramValue = getValue('Telegram');
-    if (isTelegramInvalid(telegramValue)) {
-        return {
-            message: 'Telegram is invalid',
-            isValid: false
-        };
-    }
-
-    return {
-        message: '',
-        isValid: true
-    };
-};
-
 export const validateUserAccount = (userAccountInfo, moreSiteUrlsList, licenseeName) => {
+    const { MarketingAccount } = userAccountInfo;
     let message = '';
     const checkEmail = new RegExp(regexEmail);
-    const isValidGender = userAccountInfo.Gender != null;
-    const isValidEmail = checkEmail.test(userAccountInfo.Email);
+    const isValidGender = MarketingAccount || userAccountInfo.Gender != null;
+    const isValidEmail = !userAccountInfo.HasHostAffPersonalInfoPermission || (MarketingAccount && !userAccountInfo.Email ? true : checkEmail.test(userAccountInfo.Email));
     const country = countriesList[userAccountInfo.Country] === undefined ? "" : userAccountInfo.Country;
     const selectedField = userAccountInfo.HasWebSite ? 'SiteUrl' : `NoSiteDescription${licenseeName}`;
 
     const newRequiredFieldList = [...requiredFieldList, selectedField];
     message = isValidGender ? message : message + messageList.Gender + "<br />";
     message = isValidEmail ? message : message + messageList.Email + "<br />";
-    message += getMessage('Country', country);
+    message += MarketingAccount ? '' : getMessage('Country', country);
 
-    const resultValidateContactApps = validateContactApps(userAccountInfo.ContactAppList);
-    message += resultValidateContactApps.isValid ? '' : resultValidateContactApps.message + '<br />';
+    const resultValidateContactApps = validateAppContactList(userAccountInfo.ContactAppList, MarketingAccount);
+    message += resultValidateContactApps.isValid ? '' : resultValidateContactApps.message;
 
-    message += newRequiredFieldList.reduce((accumulator, field) => { return accumulator + getMessage(field, userAccountInfo[field]) }, '');
+    message += MarketingAccount ? '' : newRequiredFieldList.reduce((accumulator, field) => { return accumulator + getMessage(field, userAccountInfo[field]) }, '');
 
-    let isValid = isValidGender && isValidEmail && userAccountInfo.FirstName !== '' && userAccountInfo.LastName !== '' &&
+    let isValid = MarketingAccount || (isValidGender && isValidEmail && userAccountInfo.FirstName !== '' && userAccountInfo.LastName !== '' &&
         userAccountInfo.Phone !== '' && userAccountInfo.Address !== '' && userAccountInfo.City !== '' &&
-        userAccountInfo.Postcode !== '' && userAccountInfo.Country !== '' && userAccountInfo[selectedField] !== '';
+        userAccountInfo.Postcode !== '' && userAccountInfo.Country !== '' && userAccountInfo[selectedField] !== '');
 
-    const resultValidateMoreSiteUrls = (userAccountInfo.HasWebSite && moreSiteUrlsList) ? validateMoreSiteUrls(moreSiteUrlsList) : ({ message: '', isValid: true });
-    const resultValidatePaymentMethod = validatePaymentMethod(userAccountInfo);
+    const resultValidateMoreSiteUrls = (!MarketingAccount && userAccountInfo.HasWebSite && moreSiteUrlsList) ? validateMoreSiteUrls(moreSiteUrlsList) : ({ message: '', isValid: true });
+    const resultValidatePaymentMethod = MarketingAccount ? validatePaymentMethod(userAccountInfo) : ({ message: '', isValid: true });
 
     return {
         message: message + resultValidateMoreSiteUrls.message + resultValidatePaymentMethod.message,
         isValid: isValid && resultValidateMoreSiteUrls.isValid && resultValidatePaymentMethod.isValid && resultValidateContactApps.isValid
+    };
+}
+
+const getAppMessage = (appName, suffixMsg) => {
+    const name = appName == contactAppTypes.Skype ? contactAppTypes.Teams : appName;
+
+    return `${name} ${suffixMsg}`;
+}
+
+const validateContactValue = (contactApp) => {
+    const MAX_LENGTH = 50;
+    let message = '';
+    let isValid = true;
+
+    if (contactApp.Value.length > MAX_LENGTH) {
+        message = getAppMessage(contactApp.Name, "no more than 50 characters<br />");
+        isValid = false;
+    }
+
+    if ((contactApp.Name === contactAppTypes.Telegram ||
+        contactApp.Name === contactAppTypes.Line ||
+        contactApp.Name === contactAppTypes.WhatsApp) &&
+        !new RegExp(getRegexByApp(contactApp.Name)).test(contactApp.Value)) {
+        message = getAppMessage(contactApp.Name, "is invalid<br />");
+        isValid = false;
+    }
+
+    return {
+        message,
+        isValid
+    };
+}
+
+export const validateAppContactList = (contactAppList, MarketingAccount) => {
+    let message = '';
+    let isValid = true;
+
+    if (!MarketingAccount && (!contactAppList || contactAppList.length === 0)) {
+        message = 'At least one IM account is required<br />';
+        isValid = false;
+    }
+
+    const firstItem = contactAppList[0];
+    if (!MarketingAccount && !firstItem.Value) {
+        message = getAppMessage(firstItem.Name, "is required<br />");
+        isValid = false;
+    } else {
+        const firstItemValidation = validateContactValue(firstItem);
+        if (!firstItemValidation.isValid) {
+            message += firstItemValidation.message;
+            isValid = false;
+        }
+    }
+
+    // Validate remaining contacts
+    for (let i = 1; i < contactAppList.length; i++) {
+        const contactApp = contactAppList[i];
+        if (contactApp.Value) {
+            const validationResult = validateContactValue(contactApp);
+            if (!validationResult.isValid) {
+                message += validationResult.message;
+                isValid = false;
+            }
+        }
+    }
+
+    return {
+        message,
+        isValid
     };
 }

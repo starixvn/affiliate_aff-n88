@@ -1,98 +1,177 @@
-﻿using Fanex.Affiliate.Admin.Core.Configurations;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Fanex.Affiliate.Admin.Core.Commands.UserPanel.UserAccount;
+using Fanex.Affiliate.Admin.Core.Configurations;
 using Fanex.Affiliate.Admin.Core.Constants;
+using Fanex.Affiliate.Admin.Core.Criterias.Affiliate;
+using Fanex.Affiliate.Admin.Core.Criterias.UserPanel.UserAccount;
 using Fanex.Affiliate.Admin.Core.DTO;
+using Fanex.Affiliate.Admin.Core.DTO.Affiliate;
 using Fanex.Affiliate.Admin.Core.DTO.Customer;
 using Fanex.Affiliate.Admin.Core.DTO.UserPanel;
 using Fanex.Affiliate.Admin.Core.Extensions;
 using Fanex.Affiliate.Admin.Core.MetaModels.UserPanel;
-using Fanex.Affiliate.Admin.Core.Repository.UserPanel;
 using Fanex.Affiliate.Admin.Core.Resources;
 using Fanex.Affiliate.Admin.Core.Services.ThirdPartyLicensee;
 using Fanex.Affiliate.Admin.Core.Utilities;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+using Fanex.Data.Repository;
 
 namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
 {
-    public class UserAccountService : IUserAccountService
+    public class UserAccountService : BaseDynamicService, IUserAccountService
     {
-        private readonly IUserAccountRepository _userAccountRepository;
         private readonly ILicenseeService _licenseeService;
         private readonly IAppSetting _appSetting;
-        private readonly IAffiliateService _affiliateService;
         private readonly IThirdPartyLicenseeService _thirdPartyLicenseeService;
 
         private const int TEST_CURRENCY_ID = 20;
 
-        public UserAccountService(IUserAccountRepository userAccountRepository,
+        public UserAccountService(IDynamicRepository dynamicRepository,
             ILicenseeService licenseeService,
             IAppSetting appSetting,
-            IAffiliateService affiliateService,
-            IThirdPartyLicenseeService thirdPartyLicenseeService)
+            IThirdPartyLicenseeService thirdPartyLicenseeService) : base(dynamicRepository)
         {
-            _userAccountRepository = userAccountRepository;
             _licenseeService = licenseeService;
             _appSetting = appSetting;
-            _affiliateService = affiliateService;
             _thirdPartyLicenseeService = thirdPartyLicenseeService;
         }
 
         public UserAccount GetUserAccountInfo(int affId)
         {
-            return _userAccountRepository.GetUserAccountInfo(affId);
+            var criteria = new UserAccountCriteria { AffId = affId };
+
+            return GetTData<UserAccount>(criteria);
         }
 
         public (IEnumerable<PaymentMethodInfo> paymentMethods, decimal minAmount) GetPaymentMethod()
         {
-            return _userAccountRepository.GetPaymentMethod();
+            var criteria = new PaymentMethodCriteria();
+
+            var paymentMethods = FetchTData<PaymentMethodInfo>(criteria);
+
+            return (paymentMethods, criteria.MinAmount);
         }
 
         public async Task<ResultInfo> UpdateUserAccountAsync(UserAccountParam param)
         {
-            var validateWebSite = ValidateWebSite(param);
-            if (!validateWebSite.IsSuccessful)
+            var validateResult = ValidateWebSite(param);
+            if (!validateResult.IsSuccessful)
             {
-                return validateWebSite;
+                return validateResult;
             }
 
             var isValidPaymentMethod = ValidatePaymentMethod(param);
-
             var curUserAccInfo = GetUserAccountInfo(param.AffId);
 
-            if (isValidPaymentMethod)
+            if (!isValidPaymentMethod)
             {
-                if (PaymentMethod.PlayerAccount.Equals(param.PreferredPayment) && curUserAccInfo.PlayerUsername != param.PlayerUsername)
+                return new ResultInfo
                 {
-                    var memberSiteId = _appSetting.MemberSiteId;
-                    var memberSiteCust = await _licenseeService
-                        .GetMemberSiteCustomerInfo(param.PlayerUsername, memberSiteId);
-
-                    var result = _licenseeService.CheckCustomerIsValid(memberSiteCust);
-
-                    if (!result.IsSuccessful)
-                    {
-                        return result;
-                    }
-                    param.Player_CustId = memberSiteCust.CustId;
-                    param.Player_Currency = memberSiteCust.IsTest.GetValueOrDefault() ? TEST_CURRENCY_ID : memberSiteCust.CurrencyId.GetValueOrDefault();
-                }
-
-                var updateResult = _userAccountRepository.UpdateUserAccount(param);
-
-                if(updateResult.IsSuccessful)
-                {
-                    await SendAffiliateInfoToLicensee(param.AffId, curUserAccInfo);
-                }
-
-                return updateResult;
+                    Code = ErrCode.GeneralErrorCode,
+                    Message = Lang.UpdateIsFailed
+                };
             }
 
-            return new ResultInfo
+            var isPlayerAccountPreferred = PaymentMethod.PlayerAccount.Equals(param.PreferredPayment);
+            var isDifferentUsername = curUserAccInfo.PlayerUsername != param.PlayerUsername;
+
+            if (isPlayerAccountPreferred && isDifferentUsername)
             {
-                Code = ErrCode.GeneralErrorCode,
-                Message = Lang.UpdateIsFailed
+                var memberSiteId = _appSetting.MemberSiteId;
+                var memberSiteCust = await _licenseeService.GetMemberSiteCustomerInfo(param.PlayerUsername, memberSiteId);
+
+                var validationResult = _licenseeService.CheckCustomerIsValid(memberSiteCust);
+                if (!validationResult.IsSuccessful)
+                {
+                    return validationResult;
+                }
+
+                param.Player_CustId = memberSiteCust.CustId;
+                param.Player_Currency = memberSiteCust.IsTest.GetValueOrDefault()
+                    ? TEST_CURRENCY_ID
+                    : memberSiteCust.CurrencyId.GetValueOrDefault();
+            }
+
+            return await UpdateUserAccount(param, curUserAccInfo);
+        }
+
+        private async Task<ResultInfo> UpdateUserAccount(UserAccountParam param, UserAccount curUserAccInfo)
+        {
+            var command = new UpdateUserAccountCommand
+            {
+                AffId = param.AffId,
+                UserId = param.UserId,
+                Ip = param.Ip,
+                FirstName = param.FirstName,
+                LastName = param.LastName,
+                Gender = param.Gender,
+                Email = param.Email,
+                Phone = param.Phone,
+                ContactApps = param.ContactApps,
+                Address = param.Address,
+                City = param.City,
+                State = param.State,
+                Postcode = param.Postcode,
+                Country = param.Country,
+                MailOption = param.MailOption,
+                SiteUrl = param.SiteUrl,
+                MoreSiteUrls = param.MoreSiteUrls,
+                NoSiteDescription = param.NoSiteDescription,
+                PreferredPayment = param.PreferredPayment,
+                PlayerUsername = param.PlayerUsername,
+                NetellerAccountId = param.NetellerAccountId,
+                MoneybookersEmail = param.MoneybookersEmail,
+                BankName = param.BankName,
+                BankAddress = param.BankAddress,
+                BankCode = param.BankCode,
+                BankAccountName = param.BankAccountName,
+                BankAccountNumber = param.BankAccountNumber,
+                Player_CustId = param.Player_CustId,
+                Player_Currency = param.Player_Currency,
             };
+
+            if (!param.HasHostAffPersonalInfoPermission)
+            {
+                command.Email = curUserAccInfo.Email;
+                command.Phone = curUserAccInfo.Phone;
+            }
+
+            var result = await ExecuteReturnResultInfoAsync(command);
+
+            if (result.IsSuccessful)
+            {
+                await SendAffiliateInfoToLicensee(param.AffId, curUserAccInfo);
+            }
+
+            return result;
+        }
+
+        private async Task SendAffiliateInfoToLicensee(int affId, UserAccount curInfo)
+        {
+            try
+            {
+                var criteria = new AffBasicInfoCriteria { AffId = affId };
+                var affInfo = GetTData<AffiliateBasicInfo>(criteria);
+
+                if (affInfo != null)
+                {
+                    bool isSameAffInfo = affInfo.FirstName.MatchWith(curInfo.FirstName)
+                                                  && affInfo.LastName.MatchWith(curInfo.LastName)
+                                                  && affInfo.Email.MatchWith(curInfo.Email)
+                                                  && affInfo.Phone.MatchWith(curInfo.Phone);
+                    bool isUpdatedSensitiveInfo = !isSameAffInfo || !affInfo.PlayerUsername.MatchWith(curInfo.PlayerUsername);
+
+                    if (isUpdatedSensitiveInfo)
+                    {
+                        await _thirdPartyLicenseeService.SendAffiliateInfo(affInfo);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                LogHelper.WriteError(ex);
+            }
         }
 
         private ResultInfo ValidateWebSite(UserAccountParam param)
@@ -132,33 +211,6 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
         {
             return !(string.IsNullOrEmpty(param.BankName) || string.IsNullOrEmpty(param.BankAddress) ||
                 string.IsNullOrEmpty(param.BankAccountName) || string.IsNullOrEmpty(param.BankAccountNumber));
-        }
-
-        private async Task SendAffiliateInfoToLicensee(int affId, UserAccount curInfo)
-        {
-            try
-            {
-                var affInfo = _affiliateService.GetAffiliateBasicInfo(affId);
-
-                if (affInfo != null)
-                {
-                    bool isSameAffInfo = affInfo.FirstName.MatchWith(curInfo.FirstName)
-                        && affInfo.LastName.MatchWith(curInfo.LastName)
-                        && affInfo.Email.MatchWith(curInfo.Email)
-                        && affInfo.ContactNumber.MatchWith(curInfo.Phone);
-
-                    bool isUpdatedSensitiveInfo = !isSameAffInfo || !affInfo.PlayerUsername.MatchWith(curInfo.PlayerUsername);
-
-                    if (isUpdatedSensitiveInfo)
-                    {
-                        await _thirdPartyLicenseeService.SendAffiliateInfo(affInfo);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                LogHelper.WriteError(ex);
-            }
         }
     }
 }

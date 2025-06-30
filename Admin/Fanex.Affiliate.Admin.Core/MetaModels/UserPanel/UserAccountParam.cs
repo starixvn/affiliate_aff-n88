@@ -2,6 +2,7 @@
 using Fanex.Data;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using Fanex.Affiliate.Admin.Core.Attributes;
 
 namespace Fanex.Affiliate.Admin.Core.MetaModels.UserPanel
 {
@@ -81,5 +82,9 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.UserPanel
         public int? Player_CustId { get; set; }
 
         public int? Player_Currency { get; set; }
+
+        [SpParam(Ignored = true)]
+        public bool HasHostAffPersonalInfoPermission { get; set; }
+
     }
 }

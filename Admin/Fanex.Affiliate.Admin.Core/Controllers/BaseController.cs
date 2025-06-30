@@ -1,31 +1,35 @@
 ﻿using Fanex.Affiliate.Admin.Core.Attributes;
+using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.Extensions;
-using Fanex.Affiliate.Admin.Core.MetaModels;
-using Fanex.Affiliate.Admin.Core.Services.Common;
 using ONEbook.UM.AspNetMVC.Filters;
+using System.Linq;
 using System.Web.Mvc;
-using System.Web.SessionState;
+using Newtonsoft.Json;
 
 namespace Fanex.Affiliate.Admin.Core.Controllers
 {
     [CustomAuthorize]
     [CheckUMFilter]
-    [SessionState(SessionStateBehavior.ReadOnly)]
     public class BaseController : Controller
     {
-        private readonly ISessionService _sessionService;
-
-        protected BaseController(ISessionService sessionService)
+        protected ActionResult GenerateModelStateErrResult() => new JsonNetResult
         {
-            _sessionService = sessionService;
-        }
+            Data = ResultInfo.GenerateErr(string.Join("<br />", ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage)))
+        };
 
-        protected ISessionService SessionService => _sessionService;
-
-        protected void GetUserInfoParam(UserInfoParam param)
+        protected ActionResult GenerateModelStateErrResult(JsonSerializerSettings options) => new JsonNetResult(options)
         {
-            param.UserId = SessionService.UserId;
-            param.Ip = Request.GetClientIP();
-        }
+            Data = ResultInfo.GenerateErr(string.Join("<br />", ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage)))
+        };
+
+        protected ActionResult GenerateErrResult(string messageErr = "") => new JsonNetResult
+        {
+            Data = ResultInfo.GenerateErr(messageErr)
+        };
+
+        protected ActionResult GenerateJsonNetResult(object data) => new JsonNetResult
+        {
+            Data = data
+        };
     }
 }
