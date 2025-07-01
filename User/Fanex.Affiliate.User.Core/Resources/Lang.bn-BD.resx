@@ -1618,7 +1618,7 @@
   <data name="RegisteredDate" xml:space="preserve">
     <value>জমানো গেমারা</value>
   </data>
-  <data name="FdmDate" xml:space="preserve">
+  <data name="FTDDate" xml:space="preserve">
     <value>উত্তরাধিকারীর সংখ্যা</value>
   </data>
   <data name="Bonus" xml:space="preserve">
@@ -1936,7 +1936,7 @@
   <data name="UniqueClick" xml:space="preserve">
     <value>অনন্য ক্লিক</value>
   </data>
-  <data name="FDM" xml:space="preserve">
+  <data name="FTD" xml:space="preserve">
     <value>এফডিএম</value>
   </data>
   <data name="none" xml:space="preserve">

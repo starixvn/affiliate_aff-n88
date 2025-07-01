@@ -1611,8 +1611,8 @@
   <data name="RegisteredDate" xml:space="preserve">
     <value>កាលបរិច្ឆេទ​ចុះបញ្ចី</value>
   </data>
-  <data name="FdmDate" xml:space="preserve">
-    <value>កាលបរិច្ឆេទ FDM</value>
+  <data name="FTDDate" xml:space="preserve">
+    <value>កាលបរិច្ឆេទ FTD</value>
   </data>
   <data name="Bonus" xml:space="preserve">
     <value>ប្រាក់រង្វាន់</value>
@@ -1929,8 +1929,8 @@
   <data name="UniqueClick" xml:space="preserve">
     <value>ការចុចប្លែកៗ</value>
   </data>
-  <data name="FDM" xml:space="preserve">
-    <value>FDM</value>
+  <data name="FTD" xml:space="preserve">
+    <value>FTD</value>
   </data>
   <data name="none" xml:space="preserve">
     <value>គ្មាន</value>

@@ -483,7 +483,7 @@
   <data name="Faqs" xml:space="preserve">
     <value>Tanya Jawab</value>
   </data>
-  <data name="FDM" xml:space="preserve">
+  <data name="FTD" xml:space="preserve">
     <value>Member yang Deposit Pertama Kali</value>
   </data>
   <data name="Female" xml:space="preserve">
@@ -1449,8 +1449,8 @@
   <data name="PleaseDirectAnyComment" xml:space="preserve">
     <value>Silakan kirim komentar atau pertanyaan ke kontak berikut:</value>
   </data>
-  <data name="FdmDate" xml:space="preserve">
-    <value>Tanggal FDM</value>
+  <data name="FTDDate" xml:space="preserve">
+    <value>Tanggal FTD</value>
   </data>
   <data name="TotalGGR" xml:space="preserve">
     <value>Total GGR</value>

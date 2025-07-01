@@ -1,7 +1,7 @@
 ﻿export const rowTitle = {
     Statistics: "Statistics",
     UpToNow: "Up To Now",
-    NewSignups: "New Signups/FDM",
+    NewSignups: "New Signups/FTD",
     TotalActive: "Total Active Players",
     TotalQualified: 'Total Qualified Players',
     TotalSubAff: "Total Sub-Affiliates",

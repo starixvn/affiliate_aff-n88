@@ -82,7 +82,7 @@ export const headerText = {
     [reportKey.TotalClick]: 'Total Click',
     [reportKey.UniqueClick]: 'Unique Click',
     [reportKey.Signup]: 'Signup',
-    [reportKey.Fdm]: 'FDM',
+    [reportKey.Fdm]: 'FTD',
     [reportKey.ActiveMember]: 'Active Player',
     [reportKey.QualifiedMember]: 'Qualified Player',
     [reportKey.NoOfSubAff]: 'Sub-Affiliate',

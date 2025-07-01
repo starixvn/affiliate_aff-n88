@@ -815,8 +815,8 @@ Jika anda mempunyai sebarang soalan dan memerlukan sebarang bantuan, sila jangan
   <data name="RegisteredDate" xml:space="preserve">
     <value>Tarikh Pendaftaran</value>
   </data>
-  <data name="FdmDate" xml:space="preserve">
-    <value>Tarikh FDM</value>
+  <data name="FTDDate" xml:space="preserve">
+    <value>Tarikh FTD</value>
   </data>
   <data name="DepositFee" xml:space="preserve">
     <value>Yuran Deposit</value>
@@ -1946,8 +1946,8 @@ Jika anda mempunyai sebarang soalan dan memerlukan sebarang bantuan, sila jangan
   <data name="Cancelled" xml:space="preserve">
     <value>Cancelled</value>
   </data>
-  <data name="FDM" xml:space="preserve">
-    <value>FDM</value>
+  <data name="FTD" xml:space="preserve">
+    <value>FTD</value>
   </data>
   <data name="RngCasino" xml:space="preserve">
     <value>Rng Casino</value>
