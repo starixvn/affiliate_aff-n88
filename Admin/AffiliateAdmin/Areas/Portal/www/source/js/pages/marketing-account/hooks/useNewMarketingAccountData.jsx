@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { validationEmail } from '../libs/validation';
 import { defaultAdditionalInfo, defaultGeneralInfo, defaultPaymentInfo, defaultPersonalInfo, defaultWebsiteInfo } from '../libs/constants';
-import { getMarketingAccountInfo, createMarketingAccount } from '../actions';
+import { getMarketingAccountInfo, createMarketingAccount, getPaymentMethod } from '../actions';
 
 export default function useNewMarketingAccountData(
     affId, 
@@ -18,6 +18,23 @@ export default function useNewMarketingAccountData(
     const [additionalInfo, setAdditionalInfo] = useState(defaultAdditionalInfo);
     const [paymentInfo, setPaymentInfo] = useState(defaultPaymentInfo);
     const [websiteInfo, setWebsiteInfo] = useState(defaultWebsiteInfo);
+    const [minimumPayment, setMinimumPayment] = useState(0);
+    const [paymentMethods, setPaymentMethods] = useState([]);
+
+    useEffect(() => {
+        toggleLoader(true);
+        _fetchPaymentMethod().finally(() => {
+            toggleLoader(false);
+        });
+    }, []);
+
+    const _fetchPaymentMethod = async () => {
+        const response = await getPaymentMethod()();
+        if (response) {
+            setMinimumPayment(response.MinAmount);
+            setPaymentMethods(response.PaymentMethods);
+        }
+    }
 
     useEffect(() => {
         if (!affId) {
@@ -63,7 +80,19 @@ export default function useNewMarketingAccountData(
         }
     };
 
-    const _handleSubmit = async (modalBodyRef) => {
+    const notify = (errMsg, modalBodyRef, isSuccess = false) => {
+        setResultInfo(prevState => ({
+            ...prevState,
+            isSuccess: isSuccess,
+            isShowMessage: true,
+            message: errMsg
+        }));
+        if (modalBodyRef?.current) {
+            modalBodyRef.current.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    }
+
+    const handleSubmit = async (modalBodyRef, successCallback = null) => {
         const rawData = {
             ...generalInfo,
             ...personalInfo,
@@ -71,48 +100,29 @@ export default function useNewMarketingAccountData(
             ...paymentInfo,
             ...websiteInfo,
         };
+
+        if (!rawData.email) {
+            notify('Email Address is required', modalBodyRef);
+            return;
+        }
+
         const emailResult = validationEmail(rawData.email, true);
         if(!emailResult.isValid) {
-            setResultInfo(prevState => ({
-                ...prevState,
-                isSuccess: false,
-                isShowMessage: true,
-                message: emailResult.message
-            }));    
-            setTimeout(_handleCloseAlert, 3000);
+            notify(emailResult.message, modalBodyRef);
             return;
         }
         toggleLoader(true);
         const result = await createMarketingAccount(rawData);
         toggleLoader(false);
-        if (modalBodyRef?.current) {
-            modalBodyRef.current.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+
         if (!result.isSuccessful) {
-            setResultInfo(prevState => ({
-                ...prevState,
-                isSuccess: false,
-                isShowMessage: true,
-                message: result.message
-            }));
-            setTimeout(_handleCloseAlert, 3000);
+            notify(result.message, modalBodyRef);
             return;
         }
-
-        setResultInfo(prevState => ({
-            ...prevState,
-            isSuccess: true,
-            isShowMessage: true,
-            message: 'Successfully added a new marketing account'
-        }));
-        setTimeout(_handleCloseAlert, 3000);
-    };
-
-    const _handleCloseAlert = () => {
-        setResultInfo(prevState => ({
-            ...prevState,
-            isShowMessage: false
-        }));
+        notify('Successfully added a new marketing account', modalBodyRef, true);
+        if(successCallback) {
+            successCallback();
+        }
     };
 
     return {
@@ -123,7 +133,9 @@ export default function useNewMarketingAccountData(
         additionalInfo,
         paymentInfo,
         websiteInfo,
-        
+        minimumPayment,
+        paymentMethods,
+
         // State setters
         setGeneralInfo,
         setPersonalInfo,
@@ -132,6 +144,6 @@ export default function useNewMarketingAccountData(
         setWebsiteInfo,
         
         // Functions
-        handleSubmit: _handleSubmit,
+        handleSubmit,
     };
 }

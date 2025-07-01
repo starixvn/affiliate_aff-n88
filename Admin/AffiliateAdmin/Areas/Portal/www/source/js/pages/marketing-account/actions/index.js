@@ -20,14 +20,14 @@ export const setIsShowAddAffMktAccountPopup = (data) => {
     }
 }
 
-export const setAffId = (data) => {
+export const setAff = (data) => {
     return {
-        type: types.SET_AFF_ID,
+        type: types.SET_AFF,
         data
     }
 }
 
-export const fetchData = (param) => async () => {
+export const fetchMarketingAccounts = (param) => async () => {
     const response = await post('Portal/Affiliate/GetAffiliateList', param);
 
     return response && response.status === 200 ? response.data : null;

@@ -21,7 +21,8 @@ export const headerText = {
     TargetCountryCode: 'Target Country',
     Language: 'Language',
     RegistrationDateText: 'Registration Date',
-    CreatedBy: 'Created by'
+    CreatedBy: 'Created By',
+    Action: 'Action'
 }
 
 export const defaultGeneralInfo = {
@@ -70,4 +71,22 @@ export const defaultPaymentInfo = {
     playerUsername: '',
     playerCurrency: '',
     playerCurrencyId: 0
+}
+
+export const defaultFilterParams = {
+    "ParentAffName": "",
+    "Status": "",
+    "IsFromHome": false,
+    "GroupIds": "all",
+    "TargetCountryCode": "",
+    "Language": "",
+    "UserName": "",
+    "Email": "",
+    "SortBy": 1,
+    "SortDirectionType": false,
+    "AffCode": "",
+    "AffPlayer": "",
+    "PageIndex": 1,
+    "PageSize": 20,
+    "AffCategoryIds": "2"
 }

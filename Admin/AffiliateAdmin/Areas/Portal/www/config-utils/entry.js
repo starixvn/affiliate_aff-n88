@@ -36,6 +36,7 @@ module.exports = {
     [`${styleDist}/pages/media-gallery/landing-page`]: clientRoot + "/style/pages/media-gallery/landing-page.scss",
     [`${styleDist}/pages/media-gallery/banner-list`]: clientRoot + "/style/pages/media-gallery/banner-list.scss",
     [`${styleDist}/pages/affiliate-info`]: clientRoot + "/style/pages/affiliate-info.scss",
+    [`${styleDist}/pages/marketing-account`]: clientRoot + "/style/pages/marketing-account/index.scss",
     [`${styleDist}/pages/payment/payment-request`]: clientRoot + "/style/pages/payment/payment-request.scss",
     [`${styleDist}/pages/customer`]: clientRoot + "/style/pages/customer/main.scss",
     [`${styleDist}/pages/message/message`]: clientRoot + "/style/pages/message/message.scss",

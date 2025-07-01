@@ -5,22 +5,20 @@ import * as types from '../actions/types';
 
 import { pagingOption } from '../../../reducers/pagingReducer';
 import { isShowLoader } from '../../../reducers/loaderReducer';
-import { defaultPersonalInfo, defaultAdditionalInfo, defaultGeneralInfo } from '../libs/constants';
+import { defaultFilterParams } from '../libs/constants';
 
 const languageCodeList = createReducer({}, {});
 const targetCountryCodeList = createReducer({}, {});
 const dealOptionsList = createReducer({}, {});
 const canAddAffMktAccount = createReducer(false, {});
-const defaultAffId = '12BETAFF001';
-const defaultParams = {
-    ...defaultPersonalInfo,
-    ...defaultAdditionalInfo,
-    ...defaultGeneralInfo
-}
+const defaultAff = {
+    affId: '',
+    affName: ''
+};
 
-export const params = createReducer(defaultParams, {
+export const params = createReducer(null, {
     [types.SET_PARAM](prevState, action) {
-        return Object.assign({}, prevState, action.data);
+        return Object.assign({}, defaultFilterParams, prevState, action.data);
     }
 });
 
@@ -30,8 +28,8 @@ export const isShowAddAffMktAccountPopup = createReducer(false, {
     }
 });
 
-export const affId = createReducer(defaultAffId, {
-    [types.SET_AFF_ID](prevState, action) {
+export const aff = createReducer(defaultAff, {
+    [types.SET_AFF](prevState, action) {
         return action.data;
     }
 });
@@ -44,6 +42,6 @@ export default combineReducers({
     targetCountryCodeList,
     canAddAffMktAccount,
     isShowAddAffMktAccountPopup,
-    affId,
+    aff,
     dealOptionsList
 });

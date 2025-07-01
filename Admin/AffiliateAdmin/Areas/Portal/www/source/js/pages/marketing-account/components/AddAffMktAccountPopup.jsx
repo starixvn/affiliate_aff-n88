@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState, useRef } from 'react';
+﻿import React, { useRef } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Modal, ModalHeader, ModalBody, Button, Form, Alert } from 'reactstrap';
@@ -10,12 +10,20 @@ import EmailFormat from './sections/EmailFormat';
 import Payment from './sections/Payment';
 import WebSite from './sections/WebSite';
 
-import { getMarketingAccountInfo, getPaymentMethod } from '../actions';
+import { getMarketingAccountInfo, getPaymentMethod, setIsShowAddAffMktAccountPopup, setParam } from '../actions';
 import { toggleLoader } from './../../../actions/loaderAction';
 import useNewMarketingAccountData from '../hooks/useNewMarketingAccountData';
 
-export const AddAffMktAccountPopup = (props) => {
+export const AddAffMktAccountPopup = ({ 
+    aff, 
+    isShowAddAffMktAccountPopup, 
+    toggle, 
+    toggleLoader, 
+    setIsShowAddAffMktAccountPopup,
+    params, setParam
+}) => {
     const modalBodyRef = useRef();
+    
     const {
         resultInfo,
         generalInfo, 
@@ -29,15 +37,37 @@ export const AddAffMktAccountPopup = (props) => {
         websiteInfo, 
         setWebsiteInfo,
         handleSubmit,
-    } = useNewMarketingAccountData(props.affId, props.toggleLoader);
+        minimumPayment,
+        paymentMethods
+    } = useNewMarketingAccountData(aff.affId, toggleLoader);
 
     if(!generalInfo.hasData) {
         return null;
     }
 
+    const onSave = () => {
+        const onCloseModal = () => {
+            setTimeout(() => {
+                // reload grid data
+                setParam({
+                    ...params,
+                });
+                setIsShowAddAffMktAccountPopup(false);
+            }, 3000);
+        }
+        handleSubmit(modalBodyRef, onCloseModal);
+    }
+
     return (
-        <Modal isOpen={props.isOpen} toggle={props.toggle} size="lg" backdrop="static" innerRef={modalBodyRef}>
-            <ModalHeader toggle={props.toggle}>
+        <Modal 
+            isOpen={isShowAddAffMktAccountPopup} 
+            toggle={toggle} 
+            size="lg" 
+            backdrop="static"
+            innerRef={modalBodyRef}
+            style={{ transform: 'translate(0, 0)' }}
+        >
+            <ModalHeader toggle={toggle}>
                 <span className="iconpopup"></span> Add a new Marketing account
             </ModalHeader>
             <ModalBody>
@@ -56,11 +86,11 @@ export const AddAffMktAccountPopup = (props) => {
                     <Payment
                         paymentInfo={paymentInfo}
                         setPaymentInfo={setPaymentInfo}
-                        paymentMethodList={generalInfo.paymentMethods}
-                        minimumPayment={generalInfo.minimumPayment}
+                        minimumPayment={minimumPayment}
+                        paymentMethods={paymentMethods}
                     />
                     <Form tag="div">
-                        <Button className="mb-3" color="success" onClick={() => handleSubmit(modalBodyRef)}>SAVE</Button>
+                        <Button className="mb-3" color="success" onClick={onSave}>SAVE</Button>
                     </Form>
                 </div>
             </ModalBody>
@@ -68,9 +98,11 @@ export const AddAffMktAccountPopup = (props) => {
     );
 };
 
-const mapStateToProps = ({ affId }) => {
+const mapStateToProps = ({ aff, isShowAddAffMktAccountPopup, params }) => {
     return {
-        affId
+        aff,
+        isShowAddAffMktAccountPopup,
+        params
     }
 }
 
@@ -78,7 +110,9 @@ const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({
         toggleLoader,
         getMarketingAccountInfo,
-        getPaymentMethod
+        getPaymentMethod,
+        setIsShowAddAffMktAccountPopup,
+        setParam
     }, dispatch);
 }
 
