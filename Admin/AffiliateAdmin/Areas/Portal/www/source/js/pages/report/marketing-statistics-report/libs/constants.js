@@ -6,6 +6,6 @@
     TotalClick: 'Total Clicks',
     UniqueClick: 'Unique Clicks',
     SignUps: 'Sign Up',
-    Fdm: 'FDM',
+    Fdm: 'FTD',
     Total: 'Total'
 }

@@ -483,8 +483,8 @@
   <data name="Faqs" xml:space="preserve">
     <value>Câu hỏi thường gặp</value>
   </data>
-  <data name="FDM" xml:space="preserve">
-    <value>FDM</value>
+  <data name="FTD" xml:space="preserve">
+    <value>FTD</value>
   </data>
   <data name="Female" xml:space="preserve">
     <value>Nữ</value>
@@ -1656,8 +1656,8 @@
   <data name="Promotion" xml:space="preserve">
     <value>KHUYẾN MÃI</value>
   </data>
-  <data name="FdmDate" xml:space="preserve">
-    <value>Ngày FDM</value>
+  <data name="FTDDate" xml:space="preserve">
+    <value>Ngày FTD</value>
   </data>
   <data name="InvalidPlayer" xml:space="preserve">
     <value>Người chơi không tồn tại</value>

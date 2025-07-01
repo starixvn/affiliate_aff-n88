@@ -483,8 +483,8 @@
   <data name="Faqs" xml:space="preserve">
     <value>คำถามที่พบบ่อย</value>
   </data>
-  <data name="FDM" xml:space="preserve">
-    <value>FDM</value>
+  <data name="FTD" xml:space="preserve">
+    <value>FTD</value>
   </data>
   <data name="Female" xml:space="preserve">
     <value>ผู้หญิง</value>
@@ -1440,7 +1440,7 @@
   <data name="PleaseDirectAnyComment" xml:space="preserve">
     <value>กรุณาส่งความคิดเห็นหรือคำถามของท่านมายังช่องทางดังต่อไปนี้ :</value>
   </data>
-  <data name="FdmDate" xml:space="preserve">
+  <data name="FTDDate" xml:space="preserve">
     <value>วันที่ฝากเงินแรก</value>
   </data>
   <data name="TotalGGR" xml:space="preserve">

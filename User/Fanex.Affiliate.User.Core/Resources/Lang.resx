@@ -495,8 +495,8 @@
     <value>FAQs</value>
     <comment>87923</comment>
   </data>
-  <data name="FDM" xml:space="preserve">
-    <value>FDM</value>
+  <data name="FTD" xml:space="preserve">
+    <value>FTD</value>
   </data>
   <data name="Female" xml:space="preserve">
     <value>Female</value>
@@ -1781,8 +1781,8 @@
   <data name="P2pIncluded" xml:space="preserve">
     <value>Revenue Share (P2P included)</value>
   </data>
-  <data name="FdmDate" xml:space="preserve">
-    <value>FDM Date</value>
+  <data name="FTDDate" xml:space="preserve">
+    <value>FTD Date</value>
   </data>
   <data name="TransferBalanceForPlayer" xml:space="preserve">
     <value>Transfer Balance For Player</value>

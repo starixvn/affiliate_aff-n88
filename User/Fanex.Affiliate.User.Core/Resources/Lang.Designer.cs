@@ -19,7 +19,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Lang {
@@ -2041,24 +2041,6 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to FDM.
-        /// </summary>
-        public static string FDM {
-            get {
-                return ResourceManager.GetString("FDM", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to FDM Date.
-        /// </summary>
-        public static string FdmDate {
-            get {
-                return ResourceManager.GetString("FdmDate", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Female.
         /// </summary>
         public static string Female {
@@ -2190,6 +2172,24 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string From {
             get {
                 return ResourceManager.GetString("From", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FTD.
+        /// </summary>
+        public static string FTD {
+            get {
+                return ResourceManager.GetString("FTD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FTD Date.
+        /// </summary>
+        public static string FTDDate {
+            get {
+                return ResourceManager.GetString("FTDDate", resourceCulture);
             }
         }
         

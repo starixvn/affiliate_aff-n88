@@ -483,8 +483,8 @@
   <data name="Faqs" xml:space="preserve">
     <value>常见疑问</value>
   </data>
-  <data name="FDM" xml:space="preserve">
-    <value>FDM</value>
+  <data name="FTD" xml:space="preserve">
+    <value>FTD</value>
   </data>
   <data name="Female" xml:space="preserve">
     <value>女</value>
@@ -1463,7 +1463,7 @@ B2C合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
   <data name="PleaseDirectAnyComment" xml:space="preserve">
     <value>请将任何意见或问题发送至以下联络：</value>
   </data>
-  <data name="FdmDate" xml:space="preserve">
+  <data name="FTDDate" xml:space="preserve">
     <value>首存日期</value>
   </data>
   <data name="TotalGGR" xml:space="preserve">
