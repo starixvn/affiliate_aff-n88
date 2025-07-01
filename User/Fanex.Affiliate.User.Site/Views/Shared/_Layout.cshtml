@@ -210,7 +210,7 @@
     <script src="@Url.RenderLink("~/www/build/js/layout.js")"></script>
     <script src="@Url.RenderLink("~/www/build/js/revenue-notice-dialog.js")"></script>
 
-    @if (userSession != null && settingService.IsApiDataModifiable)
+    @if (userSession != null && !settingService.IsLocal)
     {
         <script src="@Url.RenderLink("~/www/build/js/recheckin.js")"></script>
     }
