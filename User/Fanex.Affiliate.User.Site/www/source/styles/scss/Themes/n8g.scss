@@ -888,7 +888,7 @@ select.form-control {
             border-bottom: 1px solid $home-card-content-border-color;
         }
 
-        > a {
+        > a, > .promotion-group {
             color: $home-card-content-color;
         }
     }

@@ -615,7 +615,7 @@ select.form-control:focus {
 }
 .btn-submit:hover, .btn-submit:focus {
   color: #fff;
-  background-color: #e65400;
+  background-color: rgb(229.5, 83.7, 0);
 }
 .btn-submit .icon {
   color: #fff;
@@ -638,7 +638,7 @@ select.form-control:focus {
   max-width: 48.6%;
   padding: 15px 15px !important;
 }
-.news-content li > a {
+.news-content li > a, .news-content li > .promotion-group {
   color: #212121;
 }
 .news-content li span {
@@ -897,9 +897,6 @@ select.form-control:focus {
     background-position: left center;
     background-repeat: repeat;
   }
-  .news-content li > a {
-    color: #212121;
-  }
   .news-content li .news-title {
     margin-bottom: 0;
     padding-bottom: 8px;
@@ -1060,9 +1057,6 @@ select.form-control:focus {
     background-size: auto 100%;
     background-position: left center;
     background-repeat: repeat;
-  }
-  .news-content li > a {
-    color: #212121;
   }
   .news-content li span {
     font-weight: 400;

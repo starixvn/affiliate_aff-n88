@@ -761,7 +761,7 @@ select.form-control option:hover {
 .news-content li:not(:last-child) {
   border-bottom: 1px solid #C7C7C7;
 }
-.news-content li > a {
+.news-content li > a, .news-content li > .promotion-group {
   color: #ffffff;
 }
 
