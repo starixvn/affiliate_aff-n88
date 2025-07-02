@@ -15,7 +15,7 @@ using System.Web.Mvc;
 namespace Fanex.Affiliate.Admin.Core.Controllers
 {
     [FunctionAuthorize(FunctionName = Function.HotNews)]
-    public class MessageController : BaseController
+    public class MessageController : ReadOnlySessionBaseController
     {
         private const int threeMilliSecond = 3;
         private readonly IMessageService _messageSevice;
@@ -80,7 +80,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
             if (param.IsValid())
             {
                 var encodeParam = EncodeParam(param);
-                GetUserInfoParam(encodeParam);
+                AssignUserInfoParam(encodeParam);
 
                 return new JsonNetResult
                 {
@@ -107,7 +107,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
             if (param.IsValid() && isValidMessageId)
             {
                 var encodeParam = EncodeParam(param);
-                GetUserInfoParam(encodeParam);
+                AssignUserInfoParam(encodeParam);
 
                 return new JsonNetResult
                 {
@@ -132,7 +132,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
         {
             if (ModelState.IsValid)
             {
-                GetUserInfoParam(param);
+                AssignUserInfoParam(param);
 
                 return new JsonNetResult
                 {

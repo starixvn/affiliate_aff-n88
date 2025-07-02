@@ -13,7 +13,7 @@ using System.Web.Mvc;
 namespace Fanex.Affiliate.Admin.Core.Controllers.Administrator
 {
     [FunctionAuthorize(FunctionName = Function.UserControl)]
-    public class DepartmentController : BaseController
+    public class DepartmentController : ReadOnlySessionBaseController
     {
         private readonly IDepartmentService _departmentService;
 
@@ -63,7 +63,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Administrator
             if (ModelState.IsValid)
             {
                 var encodeParam = EncodeParam(param);
-                GetUserInfoParam(encodeParam);
+                AssignUserInfoParam(encodeParam);
 
                 return new JsonNetResult
                 {
@@ -90,7 +90,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Administrator
             if (ModelState.IsValid && isValidDepartmentId)
             {
                 var encodeParam = EncodeParam(param);
-                GetUserInfoParam(encodeParam);
+                AssignUserInfoParam(encodeParam);
 
                 return new JsonNetResult
                 {
@@ -115,7 +115,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Administrator
         {
             if (ModelState.IsValid)
             {
-                GetUserInfoParam(param);
+                AssignUserInfoParam(param);
 
                 return new JsonNetResult
                 {
@@ -154,7 +154,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Administrator
                 {
                     GroupPolicies = Server.HtmlEncode(param.GroupPolicies.Trim())
                 };
-                GetUserInfoParam(encodeParam);
+                AssignUserInfoParam(encodeParam);
 
                 return new JsonNetResult
                 {

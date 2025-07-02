@@ -15,8 +15,6 @@ namespace Fanex.Affiliate.Admin.Core.Criterias.Affiliate
 
         public string GroupIds { get; set; }
 
-        public string TargetCountryCode { get; set; }
-
         public string PreferredLanguage { get; set; }
 
         public string Status { get; set; }
@@ -35,6 +33,6 @@ namespace Fanex.Affiliate.Admin.Core.Criterias.Affiliate
 
         public bool IsExportExcel { get; set; }
 
-        public bool IsExcludeMarketingAccount { get; set; }
+        public string AffCategoryIds { get; set; }
     }
 }

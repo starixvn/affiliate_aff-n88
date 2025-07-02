@@ -61,6 +61,9 @@
     <Reference Include="Fanex.Data, Version=4.2.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Data.4.2.2\lib\net461\Fanex.Data.dll</HintPath>
     </Reference>
+    <Reference Include="Fanex.Data.Repository, Version=4.2.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Data.Repository.4.2.2\lib\net461\Fanex.Data.Repository.dll</HintPath>
+    </Reference>
     <Reference Include="Fanex.Data.SqlServer, Version=4.2.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Data.SqlServer.4.2.2\lib\net461\Fanex.Data.SqlServer.dll</HintPath>
     </Reference>
@@ -225,7 +228,69 @@
     <Compile Include="Attributes\PermissionCheckAttribute.cs" />
     <Compile Include="Attributes\UnauthorizedPropertyCensorAttribute.cs" />
     <Compile Include="Attributes\ValidateAntiForgeryHeaderAttribute.cs" />
+    <Compile Include="Commands\Administrator\BaseAccountCommand.cs" />
+    <Compile Include="Commands\Administrator\ChangeAccountPasswordCommand.cs" />
+    <Compile Include="Commands\Administrator\ChangeAccountStatusCommand.cs" />
+    <Compile Include="Commands\Administrator\DeleteDepartmentCommand.cs" />
+    <Compile Include="Commands\Administrator\DepartmentCommand.cs" />
+    <Compile Include="Commands\Administrator\InsertAccountCommand.cs" />
+    <Compile Include="Commands\Administrator\InsertExistedAccountCommand.cs" />
+    <Compile Include="Commands\Administrator\UpdateAccountCommand.cs" />
+    <Compile Include="Commands\Administrator\UpdateAccountPolicyCommand.cs" />
+    <Compile Include="Commands\Administrator\UpdateRolePolicyCommand.cs" />
+    <Compile Include="Commands\Affiliate\ApproveAffCommand.cs" />
+    <Compile Include="Commands\Affiliate\ChangeAffPasswordCommand.cs" />
     <Compile Include="Commands\Affiliate\CreateMarketingAccountCommand.cs" />
+    <Compile Include="Commands\Affiliate\DeleteEmailHistoryCommand.cs" />
+    <Compile Include="Commands\Affiliate\ToggleFavoriteCommand.cs" />
+    <Compile Include="Commands\Affiliate\UpdatePaymentRequestCommand.cs" />
+    <Compile Include="Commands\Auth\CheckUserPermissionCommand.cs" />
+    <Compile Include="Commands\Auth\LoginCommand.cs" />
+    <Compile Include="Commands\Auth\LoginOnUserCommand.cs" />
+    <Compile Include="Commands\Auth\LogoutCommand.cs" />
+    <Compile Include="Commands\Auth\ReCheckinCommand.cs" />
+    <Compile Include="Commands\BaseAffNonQueryCommand.cs" />
+    <Compile Include="Commands\BaseNonQueryCommand.cs" />
+    <Compile Include="Commands\ChangeAdminPasswordCommand.cs" />
+    <Compile Include="Commands\CommissionGroup\AssignCommGroupCommand.cs" />
+    <Compile Include="Commands\CommissionGroup\BaseCommGroupCommand.cs" />
+    <Compile Include="Commands\CommissionGroup\DeleteCommGroupCommand.cs" />
+    <Compile Include="Commands\CommissionGroup\InsertCommGroupCommand.cs" />
+    <Compile Include="Commands\CommissionGroup\UpdateCommGroupCommand.cs" />
+    <Compile Include="Commands\Customer\UpdateAffTypeCommand.cs" />
+    <Compile Include="Commands\Customer\UpdateLanguageCommand.cs" />
+    <Compile Include="Commands\Customer\UpdateStatusCommand.cs" />
+    <Compile Include="Commands\Customer\UpdateTransferLimitCommand.cs" />
+    <Compile Include="Commands\Domain\BaseDomainControlCommand.cs" />
+    <Compile Include="Commands\Domain\DeleteDomainCommand.cs" />
+    <Compile Include="Commands\Domain\DeleteDomainControlCommand.cs" />
+    <Compile Include="Commands\Domain\DeleteSpecificDomainControlCommand.cs" />
+    <Compile Include="Commands\Domain\InsertDomainCommand.cs" />
+    <Compile Include="Commands\Domain\InsertDomainControlCommand.cs" />
+    <Compile Include="Commands\Domain\InsertSpecificDomainControlCommand.cs" />
+    <Compile Include="Commands\Domain\UpdateDomainCommand.cs" />
+    <Compile Include="Commands\Domain\UpdateDomainControlCommand.cs" />
+    <Compile Include="Commands\Domain\UpdateSpecificDomainControlCommand.cs" />
+    <Compile Include="Commands\MediaGallery\BaseBannerCommand.cs" />
+    <Compile Include="Commands\MediaGallery\BaseLandingPageCommand.cs" />
+    <Compile Include="Commands\MediaGallery\DeleteBannerCommand.cs" />
+    <Compile Include="Commands\MediaGallery\DeleteLandingPageCommand.cs" />
+    <Compile Include="Commands\MediaGallery\InsertBannerCommand.cs" />
+    <Compile Include="Commands\MediaGallery\InsertLandingPageCommand.cs" />
+    <Compile Include="Commands\MediaGallery\UpdateBannerCommand.cs" />
+    <Compile Include="Commands\MediaGallery\UpdateLandingPageCommand.cs" />
+    <Compile Include="Commands\Member\UpdateMemberCommand.cs" />
+    <Compile Include="Commands\Message\BaseMessageCommand.cs" />
+    <Compile Include="Commands\Message\DeleteMessageCommand.cs" />
+    <Compile Include="Commands\Message\InsertMessageCommand.cs" />
+    <Compile Include="Commands\Message\UpdateMessageCommand.cs" />
+    <Compile Include="Commands\Tracker\InsertJobTrackerCommand.cs" />
+    <Compile Include="Commands\Tracker\UpdateJobTrackerCommand.cs" />
+    <Compile Include="Commands\UserPanel\Adjustment\BalanceBroughtForwardCommand.cs" />
+    <Compile Include="Commands\UserPanel\Adjustment\InsertAdjustmentCommand.cs" />
+    <Compile Include="Commands\UserPanel\Note\InsertNoteCommand.cs" />
+    <Compile Include="Commands\UserPanel\Note\UpdateNoteCommand.cs" />
+    <Compile Include="Commands\UserPanel\UpdateUserAccountCommand.cs" />
     <Compile Include="Configurations\AppSetting.cs" />
     <Compile Include="Configurations\IAppSetting.cs" />
     <Compile Include="Configurations\LoggingConfig.cs" />
@@ -235,6 +300,8 @@
     <Compile Include="Constants\AffType.cs" />
     <Compile Include="Constants\Apis\CustomerStatus.cs" />
     <Compile Include="Constants\Apis\PaymentType.cs" />
+    <Compile Include="Constants\AppContact.cs" />
+    <Compile Include="Constants\CacheKey.cs" />
     <Compile Include="Constants\CalculatedType.cs" />
     <Compile Include="Constants\DataTrackerStatus.cs" />
     <Compile Include="Constants\DataTrackerType.cs" />
@@ -277,6 +344,7 @@
     <Compile Include="Controllers\Player\PlayerController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\Affiliate\PaymentRequestController.cs" />
+    <Compile Include="Controllers\ReadOnlySessionBaseController.cs" />
     <Compile Include="Controllers\Report\MarketingStatisticsReportController.cs" />
     <Compile Include="Controllers\Report\ReportController.cs" />
     <Compile Include="Controllers\Report\PlayerGgrReportController.cs" />
@@ -292,6 +360,73 @@
     <Compile Include="Controllers\UserPanel\TrackingStatisticsController.cs" />
     <Compile Include="Controllers\UserPanel\UserAccountController.cs" />
     <Compile Include="Controllers\UserPanel\ViewLogController.cs" />
+    <Compile Include="Criterias\Administrator\AccountPolicyCriteria.cs" />
+    <Compile Include="Criterias\Administrator\AdministratorCriteria.cs" />
+    <Compile Include="Criterias\Administrator\AdministratorDetailCriteria.cs" />
+    <Compile Include="Criterias\Administrator\DepartmentDetailCriteria.cs" />
+    <Compile Include="Criterias\Administrator\PoliciesByGroupIdsCriteria.cs" />
+    <Compile Include="Criterias\Administrator\RolePolicyCriteria.cs" />
+    <Compile Include="Criterias\Affiliate\AffBasicInfoCriteria.cs" />
+    <Compile Include="Criterias\Affiliate\AffiliateCriteria.cs" />
+    <Compile Include="Criterias\AffPagingByDateCriteria.cs" />
+    <Compile Include="Criterias\AffPagingCriteria.cs" />
+    <Compile Include="Criterias\Auth\UserPermissionCriteria.cs" />
+    <Compile Include="Criterias\BaseCriteria.cs" />
+    <Compile Include="Criterias\CommissionGroup\GetCommissionGroupCriteria.cs" />
+    <Compile Include="Criterias\CommissionGroup\GetNormalCommGroupCriteria.cs" />
+    <Compile Include="Criterias\Customer\AffiliateInfoOnLeftPanelCriteria.cs" />
+    <Compile Include="Criterias\Customer\AffiliateOnlineCriteria.cs" />
+    <Compile Include="Criterias\Customer\CustomerStatisticsCriteria.cs" />
+    <Compile Include="Criterias\Customer\TransferLimitCriteria.cs" />
+    <Compile Include="Criterias\Domain\DomainControlCriteria.cs" />
+    <Compile Include="Criterias\Domain\GetTargetCountryListByDomainCriteria.cs" />
+    <Compile Include="Criterias\Domain\SpecificDomainControlCriteria.cs" />
+    <Compile Include="Criterias\EmailHistory\EmailHistoryCriteria.cs" />
+    <Compile Include="Criterias\EmailHistory\EmailHistoryDetailCriteria.cs" />
+    <Compile Include="Criterias\Home\UserOnlineCriteria.cs" />
+    <Compile Include="Criterias\MediaGallery\BannerCriteria.cs" />
+    <Compile Include="Criterias\MediaGallery\BannerDetailCriteria.cs" />
+    <Compile Include="Criterias\MediaGallery\BaseBannerCriteria.cs" />
+    <Compile Include="Criterias\MediaGallery\GetBlockTargetCountriesByLandingPageCriteria.cs" />
+    <Compile Include="Criterias\MediaGallery\LandingPageCriteria.cs" />
+    <Compile Include="Criterias\MediaGallery\MediaCategoryCriteria.cs" />
+    <Compile Include="Criterias\MediaGallery\MediaSizeCriteria.cs" />
+    <Compile Include="Criterias\Member\LatestBillingDateCriteria.cs" />
+    <Compile Include="Criterias\Member\MemberCriteria.cs" />
+    <Compile Include="Criterias\Member\MemberDetailCriteria.cs" />
+    <Compile Include="Criterias\Message\MessageCriteria.cs" />
+    <Compile Include="Criterias\Message\MessageDetailCriteria.cs" />
+    <Compile Include="Criterias\PagingByDateCriteria.cs" />
+    <Compile Include="Criterias\PagingCriteria.cs" />
+    <Compile Include="Criterias\PaymentRequest\PaymentRequestCriteria.cs" />
+    <Compile Include="Criterias\PaymentRequest\PaymentRequestDetailCriteria.cs" />
+    <Compile Include="Criterias\Report\AffiliateReportCriteria.cs" />
+    <Compile Include="Criterias\Report\AffiliateReportDetailCriteria.cs" />
+    <Compile Include="Criterias\Report\BaseAffiliateReportCriteria.cs" />
+    <Compile Include="Criterias\Report\PlayerGgrReportCriteria.cs" />
+    <Compile Include="Criterias\Report\ReportCutOffDateCriteria.cs" />
+    <Compile Include="Criterias\Report\TransferReportCriteria.cs" />
+    <Compile Include="Criterias\UserPanel\CustomerMemberCriteria.cs" />
+    <Compile Include="Criterias\UserPanel\LandingPageStatistics\BaseLandingPageStatisticsCritera.cs" />
+    <Compile Include="Criterias\UserPanel\LandingPageStatistics\LandingPageStatisticsCriteria.cs" />
+    <Compile Include="Criterias\UserPanel\LandingPageStatistics\LandingPageStatisticsDetailCriteria.cs" />
+    <Compile Include="Criterias\UserPanel\MarketingStatistics\MarketingStatisticsCriteria.cs" />
+    <Compile Include="Criterias\UserPanel\Note\NoteCriteria.cs" />
+    <Compile Include="Criterias\UserPanel\Note\NoteDetailCriteria.cs" />
+    <Compile Include="Criterias\UserPanel\PlayerDetailCriteria.cs" />
+    <Compile Include="Criterias\UserPanel\ReferrersStatistics\BaseReferrersStatisticsCriteria.cs" />
+    <Compile Include="Criterias\UserPanel\ReferrersStatistics\ReferrersStatisticsCriteria.cs" />
+    <Compile Include="Criterias\UserPanel\ReferrersStatistics\ReferrersStatisticsDetailCriteria.cs" />
+    <Compile Include="Criterias\UserPanel\StatementHistory\DailyEarningCriteria.cs" />
+    <Compile Include="Criterias\UserPanel\StatementHistory\StatementHistoryCriteria.cs" />
+    <Compile Include="Criterias\UserPanel\StatementHistory\SubAffiliateCriteria.cs" />
+    <Compile Include="Criterias\UserPanel\TrackingStatistics\BaseTrackingStatisticsCriteria.cs" />
+    <Compile Include="Criterias\UserPanel\TrackingStatistics\TrackingCodeCriteria.cs" />
+    <Compile Include="Criterias\UserPanel\TrackingStatistics\TrackingStatisticsCriteria.cs" />
+    <Compile Include="Criterias\UserPanel\TrackingStatistics\TrackingStatisticsDetailCriteria.cs" />
+    <Compile Include="Criterias\UserPanel\UserAccount\PaymentMethodCriteria.cs" />
+    <Compile Include="Criterias\UserPanel\UserAccount\UserAccountCriteria.cs" />
+    <Compile Include="Criterias\UserPanel\ViewLogCriteria.cs" />
     <Compile Include="DTO\Administrator\AdministratorInfo.cs" />
     <Compile Include="DTO\Administrator\DepartmentInfo.cs" />
     <Compile Include="DTO\Administrator\PolicyInfo.cs" />
@@ -459,8 +594,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Services\Affiliate\IMarketingAccountService.cs" />
-    <Compile Include="Services\Affiliate\MarketingAccountService.cs" />
+    <Compile Include="Services\Affiliate\AffiliateService.cs" />
     <Compile Include="Repository\Affiliate\AffiliateInfoRepository.cs" />
     <Compile Include="Repository\Affiliate\IAffiliateInfoRepository.cs" />
     <Compile Include="Repository\CurrencyRepository.cs" />
@@ -540,9 +674,13 @@
     <Compile Include="Services\Administrator\IAdministratorService.cs" />
     <Compile Include="Services\Administrator\IDepartmentService.cs" />
     <Compile Include="Services\AffiliateService.cs" />
+    <Compile Include="Services\Affiliate\IAffiliateService.cs" />
+    <Compile Include="Services\Affiliate\IMarketingAccountService.cs" />
+    <Compile Include="Services\Affiliate\MarketingAccountService.cs" />
     <Compile Include="Services\AffTypeService.cs" />
     <Compile Include="Services\Auth\AuthService.cs" />
     <Compile Include="Services\Auth\IAuthService.cs" />
+    <Compile Include="Services\BaseDynamicService.cs" />
     <Compile Include="Services\ChangeAdminPassword\ChangeAdminPasswordService.cs" />
     <Compile Include="Services\ChangeAdminPassword\IChangeAdminPasswordService.cs" />
     <Compile Include="Services\CommGroup\CommGroupAssignmentService.cs" />
@@ -552,7 +690,9 @@
     <Compile Include="Services\CommGroup\CommissionGroupService.cs" />
     <Compile Include="Services\Common\ISessionService.cs" />
     <Compile Include="DTO\Common\UserPermission.cs" />
+    <Compile Include="Services\Common\ISystemService.cs" />
     <Compile Include="Services\Common\SessionService.cs" />
+    <Compile Include="Services\Common\SystemService.cs" />
     <Compile Include="Services\Customer\CustomerLeftPanelService.cs" />
     <Compile Include="Services\Customer\CustomerStatisticsService.cs" />
     <Compile Include="Services\Customer\ICustomerLeftPanelService.cs" />
@@ -616,6 +756,7 @@
     <Compile Include="Services\UserPanel\TrackingStatisticsService.cs" />
     <Compile Include="Services\UserPanel\UserAccountService.cs" />
     <Compile Include="Services\UserPanel\ViewLogService.cs" />
+    <Compile Include="Utilities\AppContactHelper.cs" />
     <Compile Include="Utilities\CommGroup\CommGroupValidation.cs" />
     <Compile Include="Utilities\CommGroup\ICommGroupValidation.cs" />
     <Compile Include="Utilities\CryptographyHelper.cs" />
@@ -626,6 +767,7 @@
     <Compile Include="Utilities\MailProcessor.cs" />
     <Compile Include="Utilities\MediaGallery\BannerHelper.cs" />
     <Compile Include="Utilities\DateTimeHelper.cs" />
+    <Compile Include="Utilities\RegexHelper.cs" />
     <Compile Include="Utilities\SiteDomainHelper.cs" />
     <Compile Include="Utilities\SiteFriendlyNameHelper.cs" />
     <Compile Include="Utilities\SystemFile.cs" />

@@ -4,7 +4,6 @@ using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.CommissionGroup;
 using Fanex.Affiliate.Admin.Core.Extensions;
 using Fanex.Affiliate.Admin.Core.MetaModels.CommissionGroup;
-using Fanex.Affiliate.Admin.Core.Repository;
 using Fanex.Affiliate.Admin.Core.Services.CommGroup;
 using Fanex.Affiliate.Admin.Core.Services.Common;
 using Fanex.Affiliate.Admin.Core.UnitTests.TestHelper;
@@ -12,6 +11,7 @@ using Fanex.Affiliate.Admin.Core.Utilities.CommGroup;
 using Fanex.Affiliate.Admin.Core.ViewModels;
 using Moq;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Xunit;
@@ -24,13 +24,13 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
         public void Index_WhenCall_ReturnView()
         {
             // Arrange
-            var productRepository = new Mock<IProductRepository>();
-            productRepository.Setup(p => p.GetProductList()).Returns(new List<Product> { new Product { ProductId = 123, ProductName = "abc" } });
+            var systemService = new Mock<ISystemService>();
+            systemService.Setup(p => p.GetProductList()).Returns(new List<Product> { new Product { ProductId = 123, ProductName = "abc" } });
 
             var commGroupCommonService = new Mock<ICommGroupCommonService>();
-            commGroupCommonService.Setup(c => c.GetDeductionList()).Returns(new List<DTO.CommissionGroup.DeductionItem> { new DTO.CommissionGroup.DeductionItem { DeductionId = 13, DeductionName = "ExchangeGgrShare", DeductedPercentage = 0.05m } });
+            commGroupCommonService.Setup(c => c.GetDeductionList()).Returns(new List<DeductionItem> { new DeductionItem { DeductionId = 13, DeductionName = "ExchangeGgrShare", DeductedPercentage = 0.05m } });
 
-            var controller = CreateCommissionGroupController(productRepository: productRepository.Object, commGroupCommonService: commGroupCommonService.Object);
+            var controller = CreateCommissionGroupController(systemService: systemService.Object, commGroupCommonService: commGroupCommonService.Object);
 
             var urlHelperMock = new Mock<UrlHelper>();
             urlHelperMock.Setup(m => m.Content(It.IsAny<string>())).Returns("/Portal");
@@ -46,24 +46,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
             Assert.Equal("~/Areas/Portal/Views/Affiliate/CommissionGroup.cshtml", viewName);
             Assert.Single(model.ProductList);
             Assert.Single(model.DeductionList);
-        }
-
-        [Fact]
-        public void GetCommissionGroupList_GetData_ReturnCorrectData()
-        {
-            // Arrange
-            var param = new GetCommissionGroupParam { GroupName = "abc", PageIndex = 1, PageSize = 20 };
-            var commissionGroupService = new Mock<ICommissionGroupService>();
-            commissionGroupService.Setup(c => c.GetCommissionGroupList(param)).Returns(new List<CommissionGroupSetting> { new CommissionGroupSetting { GroupName = "abc" } }).Callback<GetCommissionGroupParam>(p => param.Nrows = 1);
-            var controller = CreateCommissionGroupController(commissionGroupService: commissionGroupService.Object);
-
-            // Action
-            var result = controller.GetCommissionGroupList(param) as JsonNetResult;
-            var model = result.Data as GetCommissionGroupViewModel;
-
-            // Assert
-            Assert.Equal(1, model.TotalRows);
-            Assert.Single(model.CommissionSettingList);
         }
 
         [Fact]
@@ -449,20 +431,84 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
             Assert.True(resultInfo.IsSuccessful);
         }
 
+        [Fact]
+        public void GetCommissionGroupList_WhenCallWithValidParam_ReturnCorrectData()
+        {
+            // Arrange
+            var param = new GetCommissionGroupParam { Nrows = 10 };
+            var expectedList = new List<CommissionGroupSetting> { new CommissionGroupSetting() };
+            var commissionGroupService = new Mock<ICommissionGroupService>();
+            commissionGroupService.Setup(c => c.GetCommissionGroupList(param)).Returns(expectedList);
+            var controller = CreateCommissionGroupController(commissionGroupService: commissionGroupService.Object);
+
+            // Action
+            var result = controller.GetCommissionGroupList(param) as JsonNetResult;
+            var viewModel = result.Data as GetCommissionGroupViewModel;
+
+            // Assert
+            Assert.NotNull(viewModel);
+            Assert.Single(viewModel.CommissionSettingList);
+            Assert.Equal(param.Nrows, viewModel.TotalRows);
+        }
+
+        [Fact]
+        public void GetCommissionGroupList_WhenCallWithEmptyList_ReturnEmptyViewModel()
+        {
+            // Arrange
+            var param = new GetCommissionGroupParam { Nrows = 10 };
+            var commissionGroupService = new Mock<ICommissionGroupService>();
+            commissionGroupService.Setup(c => c.GetCommissionGroupList(param)).Returns(new List<CommissionGroupSetting>());
+            var controller = CreateCommissionGroupController(commissionGroupService: commissionGroupService.Object);
+
+            // Action
+            var result = controller.GetCommissionGroupList(param) as JsonNetResult;
+            var viewModel = result.Data as GetCommissionGroupViewModel;
+
+            // Assert
+            Assert.NotNull(viewModel);
+            Assert.Empty(viewModel.CommissionSettingList);
+            Assert.Equal(param.Nrows, viewModel.TotalRows);
+        }
+
+        [Fact]
+        public void GetCommissionGroupList_WhenCallWithMultipleItems_ReturnCorrectCount()
+        {
+            // Arrange
+            var param = new GetCommissionGroupParam { Nrows = 10 };
+            var expectedList = new List<CommissionGroupSetting>
+            {
+                new CommissionGroupSetting { GroupId = 1 },
+                new CommissionGroupSetting { GroupId = 2 },
+                new CommissionGroupSetting { GroupId = 3 }
+            };
+            var commissionGroupService = new Mock<ICommissionGroupService>();
+            commissionGroupService.Setup(c => c.GetCommissionGroupList(param)).Returns(expectedList);
+            var controller = CreateCommissionGroupController(commissionGroupService: commissionGroupService.Object);
+
+            // Action
+            var result = controller.GetCommissionGroupList(param) as JsonNetResult;
+            var viewModel = result.Data as GetCommissionGroupViewModel;
+
+            // Assert
+            Assert.NotNull(viewModel);
+            Assert.Equal(3, viewModel.CommissionSettingList.Count());
+            Assert.Equal(param.Nrows, viewModel.TotalRows);
+        }
+
         private static RevenueGroupController CreateCommissionGroupController(
             ISessionService sessionService = null,
             ICommissionGroupService commissionGroupService = null,
-            IProductRepository productRepository = null,
+            ISystemService systemService = null,
             ICommGroupCommonService commGroupCommonService = null,
             ICommGroupValidation commGroupValidation = null
             )
         {
             var fakeSessionService = sessionService ?? MockingHelper.GetSessionService();
             var fakeCommissionGroupService = commissionGroupService ?? Mock.Of<ICommissionGroupService>();
-            var fakeProductRepository = productRepository ?? Mock.Of<IProductRepository>();
+            var fakesystemService = systemService ?? Mock.Of<ISystemService>();
             var fakecommGroupCommonService = commGroupCommonService ?? Mock.Of<ICommGroupCommonService>();
             var fakeCommGroupValidation = commGroupValidation ?? Mock.Of<ICommGroupValidation>();
-            var controller = new RevenueGroupController(fakeSessionService, fakeCommissionGroupService, fakeProductRepository, fakecommGroupCommonService, fakeCommGroupValidation);
+            var controller = new RevenueGroupController(fakeSessionService, fakeCommissionGroupService, fakesystemService, fakecommGroupCommonService, fakeCommGroupValidation);
 
             var request = MockingHelper.GetHttpRequest();
             var server = new Mock<HttpServerUtilityBase>();

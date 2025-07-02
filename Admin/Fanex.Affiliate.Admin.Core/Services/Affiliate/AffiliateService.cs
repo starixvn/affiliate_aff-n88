@@ -46,7 +46,6 @@ namespace Fanex.Affiliate.Admin.Core.Services.Affiliate
                 AffCode = param.AffCode,
                 UserId = param.UserId,
                 GroupIds = param.GroupIds,
-                TargetCountryCode = param.TargetCountryCode,
                 PreferredLanguage = param.Language,
                 Status = param.Status,
                 ParentAffName = param.ParentAffName,
@@ -58,7 +57,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Affiliate
                 IsExportExcel = param.IsExportExcel,
                 PageIndex = param.PageIndex,
                 PageSize = param.PageSize,
-                IsExcludeMarketingAccount = param.IsExcludeMarketingAccount
+                AffCategoryIds = param.AffCategoryIds
             };
 
             return FetchEntityResult<AffiliateInfo>(criteria);

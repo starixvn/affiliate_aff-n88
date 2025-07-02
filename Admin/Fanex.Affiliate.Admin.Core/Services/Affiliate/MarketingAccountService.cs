@@ -1,11 +1,4 @@
-﻿using System;
-using Fanex.Affiliate.Admin.Core.Configurations;
-using Fanex.Affiliate.Admin.Core.Constants;
-using Fanex.Affiliate.Admin.Core.MetaModels.UserPanel;
-using Fanex.Affiliate.Admin.Core.Resources;
-using Fanex.Affiliate.Admin.Core.Services.UserPanel;
-
-namespace Fanex.Affiliate.Admin.Core.Services.Affiliate
+﻿namespace Fanex.Affiliate.Admin.Core.Services.Affiliate
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -19,6 +12,12 @@ namespace Fanex.Affiliate.Admin.Core.Services.Affiliate
     using Fanex.Affiliate.Admin.Core.Utilities;
     using Fanex.Data.Repository;
     using Newtonsoft.Json;
+    using System;
+    using Fanex.Affiliate.Admin.Core.Configurations;
+    using Fanex.Affiliate.Admin.Core.Constants;
+    using Fanex.Affiliate.Admin.Core.DTO.Api;
+    using Fanex.Affiliate.Admin.Core.Resources;
+    using Fanex.Affiliate.Admin.Core.Services.UserPanel;
 
     public class MarketingAccountService : BaseDynamicService, IMarketingAccountService
     {
@@ -27,11 +26,11 @@ namespace Fanex.Affiliate.Admin.Core.Services.Affiliate
         private readonly ILicenseeService _licenseeService;
         private readonly IUserAccountService _userAccountService;
         private readonly IAppSetting _appSetting;
-        
+
         private const int TEST_CURRENCY_ID = 20;
 
         public MarketingAccountService(
-            IDynamicRepository dynamicRepository, 
+            IDynamicRepository dynamicRepository,
             IThirdPartyLicenseeService thirdPartyLicenseeService,
             IAffiliateService affiliateService,
             ILicenseeService licenseeService,
@@ -52,7 +51,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Affiliate
             var account = GetTData<MarketingAccount>(criteria);
 
             HtmlDecodeModelStringProperties(account, server, typeof(MarketingAccount));
-            
+
             return account;
         }
 
@@ -77,7 +76,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Affiliate
                     return result;
                 }
 
-                await NotifyThirdPartyServices(model.AffId);
+                await NotifyThirdPartyServices(command.Username);
                 return result;
             }
             catch (InvalidOperationException ex)
@@ -90,6 +89,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Affiliate
             }
             catch (Exception ex)
             {
+                LogHelper.WriteError(ex);
                 return new ResultInfo
                 {
                     Code = ErrCode.GeneralErrorCode,
@@ -98,13 +98,13 @@ namespace Fanex.Affiliate.Admin.Core.Services.Affiliate
             }
         }
 
-        private void PrepareModelForCreation(CreateMarketingAccountModel model, HttpServerUtilityBase server)
+        private static void PrepareModelForCreation(CreateMarketingAccountModel model, HttpServerUtilityBase server)
         {
-            AssignContactApps(model, server);
-            HtmlEncodeModelStringProperties(model, server, typeof(CreateMarketingAccountModel));
+            AssignContactApps(model);
+            HtmlEncodeModelStringProperties(model, server, typeof(CreateMarketingAccountModel), nameof(model.ContactApps));
         }
 
-        private ResultInfo ValidateCreateMarketingAccountModel(CreateMarketingAccountModel model)
+        private static ResultInfo ValidateCreateMarketingAccountModel(CreateMarketingAccountModel model)
         {
             if (!ValidatePaymentMethod(model.PreferredPayment))
             {
@@ -141,17 +141,17 @@ namespace Fanex.Affiliate.Admin.Core.Services.Affiliate
         {
             var memberSiteCust = await _licenseeService.GetMemberSiteCustomerInfo(model.PlayerUsername, _appSetting.MemberSiteId);
             var validationResult = _licenseeService.CheckCustomerIsValid(memberSiteCust);
-            
+
             if (!validationResult.IsSuccessful)
             {
-                throw new InvalidOperationException($"Customer validation failed: {validationResult.Message}");
+                throw new InvalidOperationException(validationResult.Message);
             }
 
             command.Player_CustId = memberSiteCust.CustId;
             command.Player_Currency = DetermineCurrencyId(memberSiteCust);
         }
 
-        private int DetermineCurrencyId(dynamic memberSiteCust)
+        private static int DetermineCurrencyId(MemberSiteCustomerInfo memberSiteCust)
         {
             return memberSiteCust.IsTest.GetValueOrDefault()
                 ? TEST_CURRENCY_ID
@@ -163,18 +163,20 @@ namespace Fanex.Affiliate.Admin.Core.Services.Affiliate
             return await ExecuteReturnResultInfoAsync(command);
         }
 
-        private async Task NotifyThirdPartyServices(int affId)
+        private async Task NotifyThirdPartyServices(string affName)
         {
-            var affInfo = _affiliateService.GetAffiliateBasicInfo(affId);
+            var affInfo = _affiliateService.GetAffiliateBasicInfo(null, affName);
             affInfo.PlayerCustId = -1;
+            affInfo.PlayerUsername = string.IsNullOrEmpty(affInfo.PlayerUsername) ? string.Empty : affInfo.PlayerUsername;
+
             await _thirdPartyLicenseeService.SendAffiliateInfo(affInfo);
         }
 
-        private static void HtmlEncodeModelStringProperties(object model, HttpServerUtilityBase server, Type type)
+        private static void HtmlEncodeModelStringProperties(object model, HttpServerUtilityBase server, Type type, params string[] ignoreProperties)
         {
             var stringProperties = type
                 .GetProperties()
-                .Where(p => p.PropertyType == typeof(string) && p.CanWrite);
+                .Where(p => p.PropertyType == typeof(string) && p.CanWrite && !ignoreProperties.Contains(p.Name));
 
             foreach (var property in stringProperties)
             {
@@ -202,14 +204,14 @@ namespace Fanex.Affiliate.Admin.Core.Services.Affiliate
             }
         }
 
-        private static void AssignContactApps(CreateMarketingAccountModel model, HttpServerUtilityBase server)
+        private static void AssignContactApps(CreateMarketingAccountModel model)
         {
             var contactApps = JsonConvert.DeserializeObject<IEnumerable<ContactApp>>(model.ContactApps);
             model.ContactAppList = AppContactHelper.HandleContactApps(model.PreferredLanguage, contactApps);
             model.ContactApps = JsonConvert.SerializeObject(model.ContactAppList.Select(p => new ContactApp
             {
-                Name = server.HtmlDecode(p.Name),
-                Value = server.HtmlDecode(p.Value),
+                Name = p.Name,
+                Value = p.Value,
                 Order = p.Order
             }));
         }

@@ -14,7 +14,7 @@ using System.Web.Mvc;
 namespace Fanex.Affiliate.Admin.Core.Controllers.Report
 {
     [FunctionAuthorize(FunctionName = Function.AffReport)]
-    public class PlayerGgrReportController : BaseController
+    public class PlayerGgrReportController : ReadOnlySessionBaseController
     {
         private readonly IProductRepository _productRepository;
         private readonly ICurrencyRepository _currencyRepository;

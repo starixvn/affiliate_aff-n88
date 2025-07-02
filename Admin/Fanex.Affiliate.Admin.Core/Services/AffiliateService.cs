@@ -36,7 +36,7 @@ namespace Fanex.Affiliate.Admin.Core.Services
                             LastName = Convert.ToString(reader["LastName"]),
                             Email = Convert.ToString(reader["Email"]),
                             Status = Convert.ToString(reader["Status"]),
-                            ContactNumber = Convert.ToString(reader["Phone"]),
+                            Phone = Convert.ToString(reader["Phone"]),
                             MailOption = Convert.ToBoolean(reader["MailOption"]),
                             PreferredLanguage = Convert.ToString(reader["PreferredLanguage"]),
                             PlayerUsername = Convert.ToString(reader["PlayerUsername"]),

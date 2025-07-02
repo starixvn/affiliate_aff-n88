@@ -43,8 +43,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
             {
                 new SubMenu { Name = Lang.AffiliateInfo, Url = Url.Content("~/Portal/Affiliate"), FunctionName = Function.Affiliate, IsActive = true },
                 new SubMenu { Name = Lang.PaymentRequest, Url = Url.Content("~/Portal/PaymentRequest"), FunctionName = Function.Payment },
-                new SubMenu { Name = Lang.RevenueGroup, Url = Url.Content("~/Portal/RevenueGroup"), FunctionName = Function.RevenueGroup },
-                new SubMenu { Name = Lang.EmailHistory, Url = Url.Content("~/Portal/EmailHistory"), FunctionName = Function.EmailHistory },
+                new SubMenu { Name = Lang.CommGroup, Url = Url.Content("~/Portal/RevenueGroup"), FunctionName = Function.RevenueGroup },
                 new SubMenu { Name = Lang.MarketingAccount, Url = Url.Content("~/Portal/MarketingAccount"), FunctionName = Function.Affiliate } // TODO: Need Review
             };
 
@@ -52,7 +51,6 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
             {
                 CommGroupList = _commGroupCommonService.GetNormalCommGroupList(new GetGroupListParam()),
                 LanguageList = _systemService.GetLanguageList(),
-                TargetCountryList = _systemService.GetTargetCountryList(),
                 SelectedGroupId = groupId,
                 Param = param,
                 SubMenuList = subMenu

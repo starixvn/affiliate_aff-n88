@@ -11,7 +11,7 @@ using System.Web.Mvc;
 
 namespace Fanex.Affiliate.Admin.Core.Controllers
 {
-    public class ChangeAdminPasswordController : BaseController
+    public class ChangeAdminPasswordController : ReadOnlySessionBaseController
     {
         private readonly IChangeAdminPasswordService _changeAdminPasswordService;
 
@@ -34,7 +34,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
         {
             if (ModelState.IsValid)
             {
-                GetUserInfoParam(param);
+                AssignUserInfoParam(param);
                 param.OldPassword = CryptographyHelper.Encrypt(param.OldPassword.Trim());
                 param.NewPassword = CryptographyHelper.Encrypt(param.NewPassword.Trim());
 

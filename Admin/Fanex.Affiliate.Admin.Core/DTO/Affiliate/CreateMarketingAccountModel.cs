@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using Fanex.Affiliate.Admin.Core.Commands.Affiliate;
 using Fanex.Affiliate.Admin.Core.DTO.UserPanel;
 using Fanex.Affiliate.Admin.Core.MetaModels;
+using Fanex.Affiliate.Admin.Core.Utilities;
 
 namespace Fanex.Affiliate.Admin.Core.DTO.Affiliate
 {
@@ -38,6 +39,7 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Affiliate
 
         public bool? Gender { get; set; }
 
+        [Required]
         public string Email { get; set; }
 
         public string Phone { get; set; }
@@ -88,7 +90,7 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Affiliate
             {
                 UserId = UserId,
                 AffType = AffType,
-                Password = string.Empty,
+                Password = GetRandomEncryptPassword(),
                 GroupId = GroupId,
 
                 FirstName = FirstName,
@@ -103,14 +105,14 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Affiliate
                 State = State,
                 Postal = Postal,
                 Country = Country,
-                
+
                 SiteUrl = SiteUrl,
                 MoreSiteUrls = MoreSiteUrls,
                 NoSiteDesc = NoSiteDesc,
-                
+
                 PreferredLanguage = PreferredLanguage,
                 QuestionId = QuestionId,
-                Answer = string.Empty,
+                Answer = Answer,
 
                 PreferredPayment = PreferredPayment,
                 Player_CustId = PlayerCustId,
@@ -118,9 +120,15 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Affiliate
                 Player_Currency = PlayerCurrencyId,
 
                 Ip = Ip,
-                Language = PreferredLanguage,
                 TargetCountryCode = TargetCountryCode,
             };
+        }
+
+        private static string GetRandomEncryptPassword()
+        {
+            const int PASSWORD_LENGTH = 10;
+
+            return CryptographyHelper.Encrypt(Generator.GetRandomString(PASSWORD_LENGTH));
         }
     }
 }

@@ -18,7 +18,7 @@ using System.Web.Mvc;
 namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
 {
     [FunctionAuthorize(FunctionName = Function.RevenueGroup)]
-    public class CommGroupAssignmentController : BaseController
+    public class CommGroupAssignmentController : ReadOnlySessionBaseController
     {
         private const string PrivateGroupName = "[None]";
 
@@ -87,7 +87,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
                 return CreateErrorResult();
             }
 
-            GetUserInfoParam(assignParam);
+            AssignUserInfoParam(assignParam);
             assignParam.AffId = affInfo.AffId;
 
             var emailParam = new AffInformationEmail

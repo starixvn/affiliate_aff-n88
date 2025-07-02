@@ -21,7 +21,9 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Affiliate
 
         public string LastName { get; set; }
 
-        public string ContactNumber { get; set; }
+        public string Phone { get; set; }
+
+        public string ContactNumber => Phone;
 
         public string Email { get; set; }
 
