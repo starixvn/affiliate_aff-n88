@@ -18,7 +18,7 @@ export const Content = (props) => {
     return (
         <div className="data-content my-2">
             {isShowCreateAffMktAccBtn && <div className="my-2">
-                <Button outline type="button" onClick={() => _handleAddNewAccount(927841, '12BETAFF001')}>
+                <Button outline type="button" onClick={() => _handleAddNewAccount(1, 'N88AFF001')}>
                     Add New Account
                     <span className="oi oi-plus ml-2"></span>
                 </Button>

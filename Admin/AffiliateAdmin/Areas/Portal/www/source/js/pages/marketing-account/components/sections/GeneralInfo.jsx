@@ -13,13 +13,6 @@ export const GeneralInfo = (props) => {
         });
     }
 
-    const targetCountryCodeList = Object.keys(props.targetCountryCodeList).map(key => {
-        return {
-            label: props.targetCountryCodeList[key],
-            value: key
-        }
-    })
-
     const languageCodeList = Object.keys(props.languageCodeList).map(key => {
         return {
             label: props.languageCodeList[key],
@@ -43,13 +36,6 @@ export const GeneralInfo = (props) => {
                 onChange={e => props.setAff(e.target.value)}
                 disabled={true}
                 labelProps={{ style: { paddingRight: '0px' } }}
-            />
-            <RowField
-                label="Target Country"
-                name="targetCountryCode"
-                value={generalInfo.targetCountryCode}
-                onChange={onChange}
-                selectOptions={targetCountryCodeList}
             />
             <RowField
                 label="Language"

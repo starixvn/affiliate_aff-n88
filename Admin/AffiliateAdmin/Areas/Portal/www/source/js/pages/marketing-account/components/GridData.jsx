@@ -67,7 +67,6 @@ export const GridData = (props) => {
                 <Cell header={true} colWidth={60} title={headerText.UserName}>{headerText.UserName}</Cell>
                 <Cell header={true} colWidth={40} title={headerText.AffCode}>{headerText.AffCode}</Cell>
                 <Cell header={true} colWidth={60} title={headerText.Status}>{headerText.Status}</Cell>
-                <Cell header={true} colWidth={100} title={headerText.TargetCountryCode}>{headerText.TargetCountryCode}</Cell>
                 <Cell header={true} colWidth={100} title={headerText.Language}>{headerText.Language}</Cell>
                 <Cell header={true} colWidth={80} title={headerText.RegistrationDateText}>{headerText.RegistrationDateText}</Cell>
                 <Cell header={true} colWidth={80} title={headerText.CreatedBy}>{headerText.CreatedBy}</Cell>
@@ -77,11 +76,10 @@ export const GridData = (props) => {
     }
 
     const _renderDataRow = (dataItem, index) => {
-        const { targetCountryCodeList, languageCodeList } = props;
+        const { languageCodeList } = props;
 
         const language = languageCodeList[dataItem.Language];
-        const targetCountry = targetCountryCodeList[dataItem.TargetCountryCode];
-
+        console.log(dataItem);
         return (
             <Row key={`dataRow-${index}`}>
                 <Cell className="text-center" title={index}>{index}</Cell>
@@ -92,10 +90,9 @@ export const GridData = (props) => {
                 </Cell>
                 <Cell className="text-center" title={dataItem.AffCode}>{dataItem.AffCode}</Cell>
                 <Cell className="text-center" title={dataItem.Status}>{dataItem.Status}</Cell>
-                <Cell className="text-center" title={targetCountry}>{targetCountry}</Cell>
                 <Cell className="text-center" title={language}>{language}</Cell>
                 <Cell className="text-center" title={dataItem.RegistrationDateText}>{dataItem.RegistrationDateText}</Cell>
-                <Cell className="text-center" title={dataItem.ApprovedBy}>{dataItem.ApprovedBy}</Cell>
+                <Cell className="text-center" title={dataItem.ApprovedBy}>{dataItem.ApprovedByText}</Cell>
                 <Cell className="text-center">
                     <button title="Copy" className="btn btn-link" onClick={() => props.handleAddNewAccount(dataItem.AffId, dataItem.UserName)}>
                         <span className={`oi icon-copy-link`}></span>
@@ -142,11 +139,10 @@ export const GridData = (props) => {
     )
 }
 
-const mapStateToProps = ({ params, languageCodeList, targetCountryCodeList, pagingOption }) => {
+const mapStateToProps = ({ params, languageCodeList, pagingOption }) => {
     return {
         params,
         languageCodeList,
-        targetCountryCodeList,
         pagingOption
     };
 };

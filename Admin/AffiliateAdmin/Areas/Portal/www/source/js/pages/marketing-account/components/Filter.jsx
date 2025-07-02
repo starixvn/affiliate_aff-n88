@@ -7,10 +7,8 @@ import { setParam, setIsShowAddAffMktAccountPopup } from '../actions';
 import { allStatuses, globalResource, statusList } from '../libs/constants';
 
 export const Filter = (props) => {
-    const { languageCodeList, targetCountryCodeList } = props;
-
+    const { languageCodeList } = props;
     const [languageCode, setLanguageCode] = useState('');
-    const [targetCountryCode, setTargetCountryCode] = useState('');
     const [status, setStatus] = useState(allStatuses);
     const [userName, setUserName] = useState('');
 
@@ -40,24 +38,12 @@ export const Filter = (props) => {
             "PageSize": 20
         }
 
-        props.setParam({...params, TargetCountryCode: targetCountryCode, Language: languageCode, Status: status === allStatuses ? '' : status, UserName: userName});
+        props.setParam({...params, anguage: languageCode, Status: status === allStatuses ? '' : status, UserName: userName});
     };
 
     return (
         <div className="filter-container">
             <Form inline tag="div">
-                <FormGroup className="mr-sm-2 my-2">
-                    <Input type="select" name="targetCountry" id="targetCountry"
-                        value={targetCountryCode}
-                        onChange={(e) => setTargetCountryCode(e.target.value)}>
-                        <option value="">All Target Countries</option>
-                        {
-                            Object.keys(targetCountryCodeList).map(key => {
-                                return (<option key={`targetCountry-${key}`} value={key}>{targetCountryCodeList[key]}</option>)
-                            })
-                        }
-                    </Input>
-                </FormGroup>
                 <FormGroup className="mr-sm-2 my-2">
                     <Input type="select" name="language" id="language"
                         value={languageCode}

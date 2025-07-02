@@ -26,10 +26,6 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Affiliate
 
         public string PreferredLanguage { get; set; }
 
-        public string TargetCountryName { get; set; }
-
-        public string TargetCountryCode { get; set; }
-
         // Personal
         public string FirstName { get; set; }
 
