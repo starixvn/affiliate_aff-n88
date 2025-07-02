@@ -347,13 +347,13 @@ label {
   color: #ffffff;
   padding: 10px 16px;
 }
-.home-page .news .item-wrapper.last .text-content .news-content li a {
+.home-page .news .item-wrapper.last .text-content .news-content li a, .home-page .news .item-wrapper.last .text-content .news-content li .promotion-group {
   display: block;
 }
-.home-page .news .item-wrapper.last .text-content .news-content li a span {
+.home-page .news .item-wrapper.last .text-content .news-content li a span, .home-page .news .item-wrapper.last .text-content .news-content li .promotion-group span {
   color: #ffffff;
 }
-.home-page .news .item-wrapper.last .text-content .news-content li a span .text-red {
+.home-page .news .item-wrapper.last .text-content .news-content li a span .text-red, .home-page .news .item-wrapper.last .text-content .news-content li .promotion-group span .text-red {
   text-decoration: none !important;
   color: #F61E1F !important;
 }

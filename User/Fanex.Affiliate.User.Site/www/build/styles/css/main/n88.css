@@ -1880,7 +1880,7 @@ label.require:after {
 }
 .info-group .info {
   line-height: 3rem;
-  background: hsl(20deg, 50%, 95%);
+  background: hsl(20, 50%, 95%);
   background-image: linear-gradient(#fff 50%, #f0f0f0 0);
   background-size: auto 6rem;
   background-origin: content-box;
