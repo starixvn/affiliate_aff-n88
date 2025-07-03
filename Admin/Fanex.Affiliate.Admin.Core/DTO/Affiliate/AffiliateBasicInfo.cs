@@ -13,7 +13,9 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Affiliate
 
         public int GroupTypeId { get; set; }
 
-        public string UserName { get; set; }
+        public string AffName { get; set; }
+
+        public string UserName => AffName;
 
         public int AffType { get; set; }
 

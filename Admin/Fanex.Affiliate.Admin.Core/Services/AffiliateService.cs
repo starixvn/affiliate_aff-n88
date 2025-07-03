@@ -31,7 +31,7 @@ namespace Fanex.Affiliate.Admin.Core.Services
                             AffCode = Convert.ToString(reader["AffCode"]),
                             GroupId = Convert.ToInt32(reader["GroupId"]),
                             GroupTypeId = reader.ToInt(Field.GroupTypeId),
-                            UserName = Convert.ToString(reader["UserName"]),
+                            AffName = Convert.ToString(reader["UserName"]),
                             FirstName = Convert.ToString(reader["FirstName"]),
                             LastName = Convert.ToString(reader["LastName"]),
                             Email = Convert.ToString(reader["Email"]),
