@@ -58,8 +58,6 @@
         // Others
         public string Language { get; set; }
 
-        public string TargetCountryCode { get; set; }
-
         // Output
         public string Username { get; set; }
 

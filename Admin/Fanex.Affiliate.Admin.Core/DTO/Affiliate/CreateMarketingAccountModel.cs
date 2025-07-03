@@ -33,8 +33,10 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Affiliate
         public string TargetCountryCode { get; set; }
 
         // Personal
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string FirstName { get; set; }
 
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string LastName { get; set; }
 
         public bool? Gender { get; set; }
@@ -42,32 +44,42 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Affiliate
         [Required]
         public string Email { get; set; }
 
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string Phone { get; set; }
 
         public string ContactApps { get; set; }
 
         // Additional Info
-
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string Address { get; set; }
+
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
 
         public string City { get; set; }
 
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string State { get; set; }
 
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string Postal { get; set; }
 
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string Country { get; set; }
 
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
         public int QuestionId { get; set; }
 
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string Answer { get; set; }
 
         // Site 
         [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string SiteUrl { get; set; }
 
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string MoreSiteUrls { get; set; }
 
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string NoSiteDesc { get; set; }
 
         // Payment 
@@ -103,7 +115,7 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Affiliate
                 Address = Address,
                 City = City,
                 State = State,
-                Postal = Postal,
+                Postal = Postal ?? string.Empty,
                 Country = Country,
 
                 SiteUrl = SiteUrl,
@@ -120,7 +132,6 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Affiliate
                 Player_Currency = PlayerCurrencyId,
 
                 Ip = Ip,
-                TargetCountryCode = TargetCountryCode,
             };
         }
 
