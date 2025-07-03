@@ -22,23 +22,14 @@ export const Filter = (props) => {
 
     const _handleSearch = () => {
         const params = {
-            "ParentAffName": "",
             "Status": "",
-            "IsFromHome": false,
-            "GroupIds": "all",
-            "TargetCountryCode": "",
             "Language": "",
             "UserName": "",
-            "Email": "",
-            "SortBy": 1,
-            "SortDirectionType": false,
-            "AffCode": "",
-            "AffPlayer": "",
             "PageIndex": 1,
             "PageSize": 20
         }
 
-        props.setParam({...params, anguage: languageCode, Status: status === allStatuses ? '' : status, UserName: userName});
+        props.setParam({...params, Language: languageCode, Status: status === allStatuses ? '' : status, UserName: userName});
     };
 
     return (
