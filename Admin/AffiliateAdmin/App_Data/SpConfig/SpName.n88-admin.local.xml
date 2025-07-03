@@ -1,14 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Functions SiteId="32" SiteName="N88 Admin">
   <Function Name="Language">
-    <Setting Key="Aff_Market_Sel" SpName="Aff_Market_Sel" DbName="DBAFFN88.Affiliate_N88.wsv_afinet" />
+	  <Setting Key="Aff_Market_Sel" SpName="Aff_Market_Sel" DbName="DBAFFN88.Affiliate_N88.wsv_afinet" >
+		  <Mapping DataField="MarketId" ObjectProperty="LanguageCode" />
+		  <Mapping DataField="MarketName" ObjectProperty="LanguageName" />
+		  <Mapping DataField="ShortedCode" ObjectProperty="ShortedLanguageCode" />
+	  </Setting>
   </Function>
   <Function Name="AffiliateInformation">
     <Setting Key="Aff_Admin_Affiliate_Approved" SpName="Aff_Admin_Affiliate_Approved" DbName="DBAFFN88.Affiliate_N88.wsv_afinet" />
-    <Setting Key="Aff_Admin_AffiliateInfo_Sel" SpName="Aff_Admin_AffiliateInfo_Sel" DbName="DBAFFN88.Affiliate_N88.wsv_afinet" />
+    <Setting Key="Aff_Admin_AffiliateInfo_Sel" SpName="Aff_Admin_AffiliateInfo_Sel" DbName="DBAFFN88.Affiliate_N88.wsv_afinet" >
+	    <Mapping DataField="Username" ObjectProperty="AffName" />
+	    <Mapping DataField="Postal" ObjectProperty="Postcode" />
+	    <Mapping DataField="NoSiteDesc" ObjectProperty="NoSiteDescription" />
+	    <Mapping DataField="BankSwiftCode" ObjectProperty="BankCode" />
+	    <Mapping DataField="BankAccountNo" ObjectProperty="BankAccountNumber" />
+	    <Mapping DataField="IsPrivate" ObjectProperty="IsUsingPrivateCommGroup" />
+	    <Mapping DataField="GroupName" ObjectProperty="CommissionGroup" />
+	    <Mapping DataField="BalBroughtForward" ObjectProperty="BalanceBf" />
+	    <Mapping DataField="Dep_IsDeductedPercent" ObjectProperty="IsDepositFeePercent" />
+	    <Mapping DataField="Wit_IsDeductedPercent" ObjectProperty="IsWithdrawalFeePercent" />
+	    <Mapping DataField="DisabledTransfer" ObjectProperty="IsDisabledTransfer" />
+    </Setting>
     <Setting Key="Aff_AffiliateUsername_SearchEx" SpName="Aff_AffiliateUsername_SearchEx" DbName="DBAFFN88.Affiliate_N88.wsv_afinet" />
     <Setting Key="Aff_Admin_Statistics_Sel" SpName="Aff_Admin_Statistics_Sel" DbName="DBAFFN88.Affiliate_N88.wsv_afinet" />
-    <Setting Key="Aff_Admin_AffiliateOnlineList_Sel" SpName="Aff_Admin_AffiliateOnlineList_Sel" DbName="DBAFFN88.Affiliate_N88.wsv_afinet" />
+  <Setting Key="Aff_Admin_AffiliateOnlineList_Sel" SpName="Aff_Admin_AffiliateOnlineList_Sel" DbName="DBAFFN88.Affiliate_N88.wsv_afinet" />
+  <Setting Key="Aff_Admin_MarketingAccount_Affiliate_Ins" SpName="Aff_Admin_MarketingAccount_Affiliate_Ins" DbName="DBAFFN88.Affiliate_N88.wsv_afinet" />
   </Function>
   <Function Name="Commission">
     <Setting Key="Aff_ProductList_Sel" SpName="Aff_ProductList_Sel" DbName="DBAFFN88.Affiliate_N88.wsv_afinet" />
@@ -41,7 +58,16 @@
     <Setting Key="Aff_Admin_Rpt_MarketingPage_Statistics" SpName="Aff_Admin_Rpt_MarketingPage_Statistics" DbName="DBAFFN88.Affiliate_N88.wsv_afinet" />
   </Function>
   <Function Name="Info">
-    <Setting Key="Aff_Admin_Affiliate_Sel" SpName="Aff_Admin_Affiliate_Sel" DbName="DBAFFN88.Affiliate_N88.wsv_afinet" />
+	  <Setting Key="Aff_Admin_Affiliate_Sel" SpName="Aff_Admin_Affiliate_Sel" DbName="DBAFFN88.Affiliate_N88.wsv_afinet" >
+		  <Mapping DataField="PreferredLanguage" ObjectProperty="Language" />
+		  <Mapping DataField="RegisteredDate" ObjectProperty="RegistrationDate" />
+		  <Mapping DataField="ApprovedDate" ObjectProperty="ApprovalDate" />
+		  <Mapping DataField="BFF" ObjectProperty="BalanceBf" />
+		  <Mapping DataField="NoOfMember" ObjectProperty="Member" />
+		  <Mapping DataField="Player_Username" ObjectProperty="PlayerUserName" />
+		  <Mapping DataField="IsPrivate" ObjectProperty="IsUsingPrivateCommGroup" />
+		  <Mapping DataField="GroupName" ObjectProperty="CommissionGroup" />
+	  </Setting>
     <Setting Key="Aff_Admin_Affiliate_Favorite_Upd" SpName="Aff_Admin_Affiliate_Favorite_Upd" DbName="DBAFFN88.Affiliate_N88.wsv_afinet" />
     <Setting Key="Aff_Admin_Affiliate_Password_Upd" SpName="Aff_Admin_Affiliate_Password_Upd" DbName="DBAFFN88.Affiliate_N88.wsv_afinet" />
   </Function>
