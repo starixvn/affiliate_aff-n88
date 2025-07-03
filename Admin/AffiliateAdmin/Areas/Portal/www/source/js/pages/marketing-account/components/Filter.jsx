@@ -23,6 +23,8 @@ export const Filter = (props) => {
     const _handleSearch = () => {
         const params = {
             "Status": "",
+            "SortType": 1,
+            "SortDirectionType": 1,
             "Language": "",
             "UserName": "",
             "PageIndex": 1,

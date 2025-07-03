@@ -39,5 +39,7 @@
         public const string EditAffDetails = "[EditAffiliateDetails]";
 
         public const string AffPersonalInfo = "[AffPersonalInfo]";
+
+        public const string CreateMarketingAccount = "[AddMarketingAccount]";
     }
 }
