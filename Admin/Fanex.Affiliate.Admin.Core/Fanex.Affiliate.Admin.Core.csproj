@@ -222,7 +222,7 @@
   <ItemGroup>
     <Compile Include="Apis\ILicenseeApi.cs" />
     <Compile Include="Attributes\AllowByPassFunctionAuthorizeAttribute.cs" />
-    <Compile Include="Attributes\ConditionalRequiredAttribute.cs" />
+    <Compile Include="Attributes\RequiredDependOnFieldAttribute.cs" />
     <Compile Include="Attributes\CustomAuthorizeAttribute .cs" />
     <Compile Include="Attributes\FunctionAuthorizeAttribute.cs" />
     <Compile Include="Attributes\PermissionCheckAttribute.cs" />

@@ -50,14 +50,14 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Affiliate
         public string ContactApps { get; set; }
 
         // Additional Info
+
         [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string Address { get; set; }
 
         [DisplayFormat(ConvertEmptyStringToNull = false)]
-
         public string City { get; set; }
-
         [DisplayFormat(ConvertEmptyStringToNull = false)]
+
         public string State { get; set; }
 
         [DisplayFormat(ConvertEmptyStringToNull = false)]
@@ -76,10 +76,8 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Affiliate
         [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string SiteUrl { get; set; }
 
-        [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string MoreSiteUrls { get; set; }
 
-        [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string NoSiteDesc { get; set; }
 
         // Payment 
@@ -115,7 +113,7 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Affiliate
                 Address = Address,
                 City = City,
                 State = State,
-                Postal = Postal ?? string.Empty,
+                Postal = Postal,
                 Country = Country,
 
                 SiteUrl = SiteUrl,
@@ -131,7 +129,7 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Affiliate
                 Player_UserName = PlayerUsername,
                 Player_Currency = PlayerCurrencyId,
 
-                Ip = Ip,
+                Ip = Ip
             };
         }
 

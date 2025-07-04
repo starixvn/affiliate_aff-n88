@@ -18,6 +18,7 @@
     using Fanex.Affiliate.Admin.Core.DTO.Api;
     using Fanex.Affiliate.Admin.Core.Resources;
     using Fanex.Affiliate.Admin.Core.Services.UserPanel;
+    using Fanex.Affiliate.Admin.Core.Commands.Affiliate;
 
     public class MarketingAccountService : BaseDynamicService, IMarketingAccountService
     {
@@ -118,7 +119,7 @@
             return new ResultInfo(); // Default constructor should create a successful result
         }
 
-        private async Task ConfigurePlayerAccountIfNeeded(CreateMarketingAccountModel model, dynamic command)
+        private async Task ConfigurePlayerAccountIfNeeded(CreateMarketingAccountModel model, CreateMarketingAccountCommand command)
         {
             if (string.IsNullOrEmpty(command.Player_UserName))
             {

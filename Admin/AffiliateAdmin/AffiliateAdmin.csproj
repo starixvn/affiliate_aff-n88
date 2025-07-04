@@ -268,6 +268,9 @@
       <DependentUpon>_SpName.tt</DependentUpon>
     </Content>
     <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\QmTurnoverSetting.jsx" />
+    <Content Include="Areas\Portal\www\source\js\pages\marketing-account\components\sections\RowField.jsx" />
+    <Content Include="Areas\Portal\www\source\js\pages\marketing-account\hooks\useFilterParams.jsx" />
+    <Content Include="Areas\Portal\www\source\js\pages\marketing-account\hooks\useNewMarketingAccountData.jsx" />
     <Content Include="App_Data\SpConfig\SpName.n88-admin.local.xml">
       <DependentUpon>_SpName.tt</DependentUpon>
     </Content>
