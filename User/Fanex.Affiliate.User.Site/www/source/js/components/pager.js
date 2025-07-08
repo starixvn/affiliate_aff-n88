@@ -2,6 +2,7 @@
     var _languageCode;
     var pagingInfoText = {
         'en-US': 'Page {0} of {1}',
+        'en-PH': 'Page {0} of {1}',
         'bn-BD': 'পৃষ্ঠা {0} এর {1}',
         'hi-IN': 'पेज {0} का {1}',
         'km-KH': 'ទំព័រ {0} នៃ {1}',
@@ -14,7 +15,7 @@
         'ko-KR': '페이지 {0} 중 {1}'
     };
 
-    var defaultSupportedLangs = ['en-US', 'bn-BD', 'hi-IN', 'km-KH', 'ms-MY', 'id-ID', 'zh-CN', 'zh-TW', 'th-TH', 'vi-VN', 'ko-KR'];
+    var defaultSupportedLangs = ['en-US', 'bn-BD', 'hi-IN', 'km-KH', 'ms-MY', 'id-ID', 'zh-CN', 'zh-TW', 'th-TH', 'vi-VN', 'ko-KR', "en-PH"];
     var defaultLang = 'en-US';
 
     var DEFAULT_PAGESIZE_LIST = [10, 20, 50, 100, 200];

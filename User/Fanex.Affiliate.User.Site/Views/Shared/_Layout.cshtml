@@ -59,6 +59,7 @@
     }
 
     <link href="@Url.RenderLink("~/www/build/styles/css/main.css")" rel="stylesheet" />
+
     <link href="@Url.RenderLink($"~/www/build/styles/css/{siteName}.css")" rel="stylesheet" />
 
     @RenderSection("styles", required: false)
@@ -67,7 +68,7 @@
     <div class="header-top">
         <div class="col-xs-12 col-sm-5 col-md-5 logo">
             <a href="@Url.Content("~")">
-                <img src=@Url.VersionedLink($"~/www/build/styles/Images/themes/{siteName}.png") alt="logo" class="logo-image" />
+                <img src="~/www/build/styles/Images/themes/@(siteName).png" alt="logo" class="logo-image" />
             </a>
         </div>
         <div class="col-xs-12 col-sm-7 col-md-7 login">
