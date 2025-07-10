@@ -2019,4 +2019,7 @@
   <data name="FdmTotalDeposit" xml:space="preserve">
     <value>បញ្ចូលលុយ&lt;br&gt;(សមាជិកថ្មី)</value>
   </data>
+  <data name="EnglishPhilippines" xml:space="preserve">
+    <value>English (ហ្វីលីពីន)</value>
+  </data>
 </root>

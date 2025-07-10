@@ -2088,4 +2088,7 @@
   <data name="FdmTotalDeposit" xml:space="preserve">
     <value>Tiền nạp&lt;br&gt;(Thành viên mới)</value>
   </data>
+  <data name="EnglishPhilippines" xml:space="preserve">
+    <value>English (Philippines)</value>
+  </data>
 </root>

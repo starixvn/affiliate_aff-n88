@@ -1861,6 +1861,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to English (Philippines).
+        /// </summary>
+        public static string EnglishPhilippines {
+            get {
+                return ResourceManager.GetString("EnglishPhilippines", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please enter Channel Name:.
         /// </summary>
         public static string EnterChannel {

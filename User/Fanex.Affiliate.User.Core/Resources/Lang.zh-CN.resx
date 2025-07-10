@@ -1832,4 +1832,7 @@ B2C合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
   <data name="FdmTotalDeposit" xml:space="preserve">
     <value>已存款&lt;br&gt;（新玩家）</value>
   </data>
+  <data name="EnglishPhilippines" xml:space="preserve">
+    <value>English (菲律宾)</value>
+  </data>
 </root>

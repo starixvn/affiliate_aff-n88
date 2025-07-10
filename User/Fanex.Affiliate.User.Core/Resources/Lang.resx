@@ -2174,4 +2174,7 @@
   <data name="FdmTotalDeposit" xml:space="preserve">
     <value>Deposited&lt;br&gt;(New Players)</value>
   </data>
+  <data name="EnglishPhilippines" xml:space="preserve">
+    <value>English (Philippines)</value>
+  </data>
 </root>

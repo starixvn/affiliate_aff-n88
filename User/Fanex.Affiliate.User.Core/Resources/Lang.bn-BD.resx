@@ -2068,4 +2068,7 @@
   <data name="FdmTotalDeposit" xml:space="preserve">
     <value>নতুন খেলোয়াড়দের জমাকৃত অর্থ</value>
   </data>
+  <data name="EnglishPhilippines" xml:space="preserve">
+    <value>English (ফিলিপাইন)</value>
+  </data>
 </root>

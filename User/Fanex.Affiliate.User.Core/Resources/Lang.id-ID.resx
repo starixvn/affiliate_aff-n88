@@ -1815,4 +1815,7 @@
   <data name="FdmTotalDeposit" xml:space="preserve">
     <value>Sudah Deposit&lt;br&gt;(Pemain Baru)</value>
   </data>
+  <data name="EnglishPhilippines" xml:space="preserve">
+    <value>English (Filipina)</value>
+  </data>
 </root>
