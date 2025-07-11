@@ -28,6 +28,7 @@
 
         public const string Domain = "[Domain]";
 
+
         public const string MemberEmail = "[MemberEmail]";
 
         public const string TransferPlayerSetting = "[HideTransferPlayerSetting]"; //Hide Transfer Player
@@ -41,5 +42,7 @@
         public const string AffPersonalInfo = "[AffPersonalInfo]";
 
         public const string CreateMarketingAccount = "[AddMarketingAccount]";
+
+        public const string ShouldBeIgnoredForClient = "[ShouldBeIgnoredForClient]";
     }
 }

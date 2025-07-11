@@ -18,7 +18,7 @@ export const headerText = {
     UserName: 'Username',
     AffCode: 'Affiliate Code',
     Status: 'Status',
-    TargetCountryCode: 'Target Country',
+    //TargetCountryCode: 'Target Country',
     Language: 'Language',
     RegistrationDateText: 'Registration Date',
     CreatedBy: 'Created By',
@@ -29,8 +29,8 @@ export const defaultGeneralInfo = {
     affType: 0,
     groupId: '',
     preferredLanguage: '',
-    targetCountryName: '',
-    targetCountryCode: '',
+    //targetCountryName: '',
+    //targetCountryCode: '',
     affId: 0,
     affParentName: '',
     affCode: '',
@@ -54,7 +54,7 @@ export const defaultAdditionalInfo = {
     postal: '',
     country: '',
     question: '',
-    questionId: 0, 
+    questionId: 0,
     answer: ''
 }
 
@@ -78,7 +78,7 @@ export const defaultFilterParams = {
     "Status": "",
     "IsFromHome": false,
     "GroupIds": "all",
-    "TargetCountryCode": "",
+    //"TargetCountryCode": "",
     "Language": "",
     "UserName": "",
     "Email": "",

@@ -22,6 +22,7 @@ export const setMoreSiteUrlsList = (data) => {
 export const getUserAccountInfo = (affId) => async (dispatch) => {
     dispatch(toggleLoaderUserPanel(true));
     const url = 'Portal/UserPanel/UserAccount/GetUserAccountInfo';
+    const MARKETING_ACCOUNT_TYPE = "Marketing Affiliate Account";
 
     const response = await post(url, { affId });
 
@@ -31,7 +32,7 @@ export const getUserAccountInfo = (affId) => async (dispatch) => {
     const moreSiteUrlsList = moreSiteUrls && moreSiteUrls != '' && moreSiteUrls.split(';');
 
     dispatch(setMoreSiteUrlsList(moreSiteUrlsList));
-    dispatch(setUserAccountInfo(data));
+    dispatch(setUserAccountInfo({ ...data, IsMarketingAccount: data.AffCategoryDesc === MARKETING_ACCOUNT_TYPE }));
     dispatch(toggleLoaderUserPanel(false));
 }
 

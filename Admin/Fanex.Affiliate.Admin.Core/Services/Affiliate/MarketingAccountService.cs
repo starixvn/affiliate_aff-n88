@@ -167,12 +167,6 @@
         private async Task NotifyThirdPartyServices(string affName)
         {
             var affInfo = _affiliateService.GetAffiliateBasicInfo(null, affName);
-            if (string.IsNullOrEmpty(affInfo.PlayerUsername))
-            {
-                affInfo.PlayerUsername = string.Empty;
-                affInfo.PlayerCustId = -1;
-            }
-
             await _thirdPartyLicenseeService.SendAffiliateInfo(affInfo);
         }
 

@@ -18,8 +18,10 @@ const getMessageIfEmpty = (fieldName, value) => {
 }
 
 const validateContactApps = (contactApps, isMarketingAccount) => {
+    let message = '';
+
     if (isMarketingAccount) {
-        return ""
+        return message;
     }
 
     const isTelegramInvalid = (value) => value && (!value.startsWith('@') || value.length <= 1);
@@ -27,7 +29,7 @@ const validateContactApps = (contactApps, isMarketingAccount) => {
     if (!Array.isArray(contactApps)
         || contactApps.length === 0
         || (contactApps.length === 1 && contactApps[0].Name === 'Skype')) {
-        return message = 'At least one IM account is required';
+        message = 'At least one IM account is required<br />';
     }
 
     const getValue = name => contactApps.find(a => a.Name === name)?.Value?.trim() || '';
@@ -38,18 +40,18 @@ const validateContactApps = (contactApps, isMarketingAccount) => {
         const value = getValue(Name);
 
         if (!value) {
-            return message = `${Name} is required`;
+            message += `${Name} is required<br />`;
         }
     }
 
     if (contactNotSkype.every(a => !a.Value?.trim())) {
         const names = contactNotSkype.map(a => a.Name).join(', ');
-        return message = `Contact Apps (${names}): At least one IM account is required`;
+        message += `Contact Apps (${names}): At least one IM account is required<br />`;
     }
 
     const telegramValue = getValue('Telegram');
     if (isTelegramInvalid(telegramValue)) {
-        return message = 'Telegram is invalid';
+        message += 'Telegram is invalid<br />';
     }
 
     return message;
@@ -57,15 +59,19 @@ const validateContactApps = (contactApps, isMarketingAccount) => {
 
 export const validateUserAccount = (userAccountInfo, moreSiteUrlsList, licenseeName) => {
     let message = '';
-    const selectedField = userAccountInfo.HasWebSite ? 'SiteUrl' : `NoSiteDescription${licenseeName}`;
+    const selectedField = userAccountInfo.HasWebSite ? 'SiteUrl' : 'NoSiteDescription';
 
     message += validateEmail(userAccountInfo);
     message += validateGender(userAccountInfo);
     message += validateCountry(userAccountInfo);
-    message += validateRequiredField(userAccountInfo, selectedField);
+    message += validateRequiredField(userAccountInfo);
+    message += validateWebsite(userAccountInfo, selectedField, licenseeName);
+
+    if (userAccountInfo.HasWebSite) {
+        message += validateEmptyUrl(moreSiteUrlsList);
+    }
     message += validateContactApps(userAccountInfo.ContactAppList, userAccountInfo.IsMarketingAccount);
     message += validatePaymentMethods(userAccountInfo);
-    message += validateEmptyUrl(moreSiteUrlsList);
 
     return {
         message: message,
@@ -89,13 +95,26 @@ const validateCountry = (userAccountInfo) => {
     return getMessage('Country', country);
 }
 
-const validateRequiredField = (userAccountInfo, selectedField) => {
+const validateRequiredField = (userAccountInfo) => {
     if (userAccountInfo.IsMarketingAccount) {
         return ""
     }
 
-    const newRequiredFieldList = [...requiredFieldList, selectedField];
-    return newRequiredFieldList.reduce((accumulator, field) => { return accumulator + getMessageIfEmpty(field, userAccountInfo[field]) }, '');
+    return requiredFieldList.reduce((accumulator, field) => {
+        return accumulator + getMessageIfEmpty(field, userAccountInfo[field])
+    }, '');
+}
+
+const validateWebsite = (userAccountInfo, selectedField, licenseeName) => {
+    if (userAccountInfo.IsMarketingAccount) {
+        return "";
+    }
+
+    if (!userAccountInfo[selectedField]) {
+        return getMessageIfEmpty(userAccountInfo.HasWebSite ? selectedField : `${selectedField}Of${licenseeName}`, userAccountInfo[selectedField]);
+    }
+
+    return "";
 }
 
 const validatePaymentMethods = (userAccountInfo) => {
@@ -122,6 +141,7 @@ const validatePaymentMethods = (userAccountInfo) => {
 
 const validateEmptyUrl = (moreSiteUrlsList) => {
     const isExistEmptyUrl = moreSiteUrlsList.some(siteUrl => siteUrl.trim() === '');
+    const emptySiteUrlIndex = moreSiteUrlsList.indexOf('');
 
     return isExistEmptyUrl ? `Website URL ${emptySiteUrlIndex + 2} is required<br />` : '';
 }

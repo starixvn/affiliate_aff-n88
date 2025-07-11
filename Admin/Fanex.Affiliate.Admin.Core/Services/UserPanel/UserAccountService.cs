@@ -62,35 +62,38 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
             }
 
             var isValidPaymentMethod = ValidatePaymentMethod(param);
-            var curUserAccInfo = GetUserAccountInfo(param.AffId);
-
             if (!isValidPaymentMethod)
             {
-                return new ResultInfo
-                {
-                    Code = ErrCode.GeneralErrorCode,
-                    Message = Lang.UpdateIsFailed
-                };
+                return ResultInfo.GenerateErr("The Preferred Payment Method is invalid!");
             }
 
+            var curUserAccInfo = GetUserAccountInfo(param.AffId);
             var isPlayerAccountPreferred = PaymentMethod.PlayerAccount.Equals(param.PreferredPayment);
-            var isDifferentUsername = curUserAccInfo.PlayerUsername != param.PlayerUsername;
+            var isDifferentUsername = !curUserAccInfo.PlayerUsername.MatchWith(param.PlayerUsername);
 
-            if (isPlayerAccountPreferred && isDifferentUsername)
+            if (isPlayerAccountPreferred && !string.IsNullOrWhiteSpace(param.PlayerUsername))
             {
-                var memberSiteId = _appSetting.MemberSiteId;
-                var memberSiteCust = await _licenseeService.GetMemberSiteCustomerInfo(param.PlayerUsername, memberSiteId);
-
-                var validationResult = _licenseeService.CheckCustomerIsValid(memberSiteCust);
-                if (!validationResult.IsSuccessful)
+                if (isDifferentUsername)
                 {
-                    return validationResult;
-                }
+                    var memberSiteId = _appSetting.MemberSiteId;
+                    var memberSiteCust = await _licenseeService.GetMemberSiteCustomerInfo(param.PlayerUsername, memberSiteId);
+                    var validationResult = _licenseeService.CheckCustomerIsValid(memberSiteCust);
 
-                param.Player_CustId = memberSiteCust.CustId;
-                param.Player_Currency = memberSiteCust.IsTest.GetValueOrDefault()
-                    ? TEST_CURRENCY_ID
-                    : memberSiteCust.CurrencyId.GetValueOrDefault();
+                    if (!validationResult.IsSuccessful)
+                    {
+                        return validationResult;
+                    }
+
+                    param.Player_CustId = memberSiteCust.CustId;
+                    param.Player_Currency = memberSiteCust.IsTest.GetValueOrDefault()
+                        ? TEST_CURRENCY_ID
+                        : memberSiteCust.CurrencyId.GetValueOrDefault();
+                }
+                else
+                {
+                    param.Player_CustId = curUserAccInfo.PlayerCustId;
+                    param.Player_Currency = curUserAccInfo.PlayerCurrencyId;
+                }
             }
 
             return await UpdateUserAccount(param, curUserAccInfo);
@@ -176,6 +179,11 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
 
         private ResultInfo ValidateWebSite(UserAccountParam param)
         {
+            if (param.IsMarketingAccount)
+            {
+                return new ResultInfo();
+            }
+
             if (param.HasWebSite && string.IsNullOrEmpty(param.SiteUrl))
             {
                 return new ResultInfo

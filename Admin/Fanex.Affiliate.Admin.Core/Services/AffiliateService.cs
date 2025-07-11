@@ -40,7 +40,7 @@ namespace Fanex.Affiliate.Admin.Core.Services
                             MailOption = Convert.ToBoolean(reader["MailOption"]),
                             PreferredLanguage = Convert.ToString(reader["PreferredLanguage"]),
                             PlayerUsername = Convert.ToString(reader["PlayerUsername"]),
-                            PlayerCustId = Convert.ToInt32(reader["PlayerCustId"]),
+                            PlayerCustId = (reader["PlayerCustId"] != DBNull.Value) ? Convert.ToInt32(reader["PlayerCustId"]) : 0,
                             ParentAffiliateName = Convert.ToString(reader["ParentAffName"]),
                             AffType = Convert.ToByte(reader["AffType"]),
                             IsUsingPrivateCommGroup = (reader["IsPrivate"] != DBNull.Value) && Convert.ToBoolean(reader["IsPrivate"])

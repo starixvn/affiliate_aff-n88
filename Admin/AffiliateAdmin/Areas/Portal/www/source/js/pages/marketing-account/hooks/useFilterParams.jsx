@@ -3,7 +3,7 @@ import { allStatuses } from '../libs/constants';
 
 const defaultFilterParams = {
     languageCode: '',
-    targetCountryCode: '',
+    //targetCountryCode: '',
     status: allStatuses,
     userName: ''
 }

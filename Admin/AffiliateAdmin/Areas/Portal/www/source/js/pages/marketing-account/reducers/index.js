@@ -8,7 +8,6 @@ import { isShowLoader } from '../../../reducers/loaderReducer';
 import { defaultFilterParams } from '../libs/constants';
 
 const languageCodeList = createReducer({}, {});
-const targetCountryCodeList = createReducer({}, {});
 const dealOptionsList = createReducer({}, {});
 const canAddAffMktAccount = createReducer(false, {});
 const defaultAff = {
@@ -39,7 +38,6 @@ export default combineReducers({
     pagingOption,
     isShowLoader,
     languageCodeList,
-    targetCountryCodeList,
     canAddAffMktAccount,
     isShowAddAffMktAccountPopup,
     aff,

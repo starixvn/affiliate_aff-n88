@@ -32,7 +32,7 @@ export default function RowField({
                         disabled={disabled}
                     >
                         {selectOptions && selectOptions.map((option) => (
-                            <option key={option.value} value={option.value} selected={option.value === value}>{option.label}</option>
+                            <option key={option.value} value={option.value}>{option.label}</option>
                         ))}
                     </Input>
                 }

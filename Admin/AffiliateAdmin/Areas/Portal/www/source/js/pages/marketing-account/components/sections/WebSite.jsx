@@ -1,10 +1,10 @@
-﻿import React, { useState, useRef, useEffect } from 'react';
+﻿import React, { useState, forwardRef, useEffect } from 'react';
 import { Form, FormGroup, Label, Col, Button, Input } from 'reactstrap';
 
 const description = `Please describe how you would like to promote 12Bet if you don't have the URL`;
 
 const getMoreSiteUrls = (moreSiteUrls) => {
-    if(moreSiteUrls) {
+    if (moreSiteUrls) {
         return moreSiteUrls.split(";").map(url => ({
             url: url,
             ref: React.createRef()
@@ -18,45 +18,46 @@ const createMoreSiteUrl = (url) => ({
     ref: React.createRef()
 })
 
-const SiteFieldComponent = ({ label, name, value, onChange, onBlur, disabled, ref }) => {
+const SiteFieldComponent = forwardRef(({ label, name, value, onChange, onBlur, disabled }, ref) => {
     return (
         <React.Fragment>
             <Label sm={3} className="d-flex align-items-center">{label}</Label>
             <Col sm={6} className="input-item d-flex align-items-center">
-                <Input 
-                    type="text" 
-                    name={name} 
-                    disabled={disabled} 
-                    value={value} 
-                    onChange={onChange} 
+                <Input
+                    ref={ref}
+                    type="text"
+                    name={name}
+                    disabled={disabled}
+                    value={value}
+                    onChange={onChange}
                     onBlur={onBlur} />
             </Col>
         </React.Fragment>
     )
-}
+})
 
-const MoreSitesComponents = ({ moreSiteUrls, onChangeMoreSiteUrl, _handleDeleteUrl, disabled, websiteInfo }) => {
+const MoreSitesComponents = ({ moreSiteUrls, onChangeMoreSiteUrl, _handleDeleteUrl, disabled }) => {
     return (
         <React.Fragment>
             {
                 moreSiteUrls.map((siteUrl, index) => {
                     return (
                         <FormGroup row key={`siteUrl${index}`} className="pt-1">
-                            <SiteFieldComponent 
-                                label={`Website URL ${index + 2}`} 
-                                name={`siteUrl${index}`} 
-                                value={siteUrl.url} 
-                                onChange={(e) => onChangeMoreSiteUrl(e, siteUrl.ref)}     
+                            <SiteFieldComponent
+                                label={`Website URL ${index + 2}`}
+                                name={`siteUrl${index}`}
+                                value={siteUrl.url}
+                                onChange={(e) => onChangeMoreSiteUrl(e, siteUrl.ref)}
                                 ref={siteUrl.ref}
                                 disabled={!disabled} />
-                            <Button 
-                                outline 
-                                color="danger" 
+                            <Button
+                                outline
+                                color="danger"
                                 disabled={!disabled}
                                 className="h-100 d-flex align-items-center mt-1"
                                 onClick={() => _handleDeleteUrl(index)}>
                                 Del
-                            </Button>    
+                            </Button>
                         </FormGroup>
                     )
                 })
@@ -67,7 +68,7 @@ const MoreSitesComponents = ({ moreSiteUrls, onChangeMoreSiteUrl, _handleDeleteU
 
 export const WebSite = (props) => {
     const { websiteInfo, setWebsiteInfo } = props;
-    const [ moreSiteUrls, setMoreSiteUrls ] = useState(getMoreSiteUrls(websiteInfo.moreSiteUrls));
+    const [moreSiteUrls, setMoreSiteUrls] = useState(getMoreSiteUrls(websiteInfo.moreSiteUrls));
 
     useEffect(() => {
         setWebsiteInfo({
@@ -116,45 +117,45 @@ export const WebSite = (props) => {
                 <FormGroup>
                     <FormGroup check>
                         <Label check>
-                            <Input 
+                            <Input
                                 type="radio"
                                 name='hasWebSite'
-                                checked={websiteInfo.hasWebSite} 
+                                checked={websiteInfo.hasWebSite}
                                 onChange={onChange}
-                                />I have my own website
+                            />I have my own website
                         </Label>
                     </FormGroup>
                     <FormGroup row className="pt-1">
-                        <SiteFieldComponent 
-                            label="Website URL" 
-                            name="siteUrl" 
-                            value={websiteInfo.siteUrl} 
-                            onChange={onChange} 
-                            onBlur={onChange} 
+                        <SiteFieldComponent
+                            label="Website URL"
+                            name="siteUrl"
+                            value={websiteInfo.siteUrl}
+                            onChange={onChange}
+                            onBlur={onChange}
                             disabled={!websiteInfo.hasWebSite} />
-                        <Button 
-                            outline 
-                            color="secondary" 
-                            disabled={!websiteInfo.hasWebSite || !websiteInfo.siteUrl.trim()} 
-                            className="my-1" 
+                        <Button
+                            outline
+                            color="secondary"
+                            disabled={!websiteInfo.hasWebSite || !websiteInfo.siteUrl.trim()}
+                            className="my-1"
                             onClick={_handleAddUrl}>
                             Add Url
                         </Button>
                     </FormGroup>
                 </FormGroup>
-                <MoreSitesComponents 
-                    moreSiteUrls={moreSiteUrls} 
-                    onChangeMoreSiteUrl={onChangeMoreSiteUrl} 
-                    _handleDeleteUrl={_handleDeleteUrl} 
-                    disabled={websiteInfo.hasWebSite} 
+                <MoreSitesComponents
+                    moreSiteUrls={moreSiteUrls}
+                    onChangeMoreSiteUrl={onChangeMoreSiteUrl}
+                    _handleDeleteUrl={_handleDeleteUrl}
+                    disabled={websiteInfo.hasWebSite}
                     websiteInfo={websiteInfo} />
                 <FormGroup className="pt-3">
                     <FormGroup check>
                         <Label check>
-                            <Input 
-                                type="radio" 
-                                checked={!websiteInfo.hasWebSite} 
-                                onChange={() => _handleChangeHasWebSite(false)}/>I don't have a website
+                            <Input
+                                type="radio"
+                                checked={!websiteInfo.hasWebSite}
+                                onChange={() => _handleChangeHasWebSite(false)} />I don't have a website
                         </Label>
                     </FormGroup>
                     <FormGroup row className="pt-1">
@@ -162,11 +163,11 @@ export const WebSite = (props) => {
                         <Col sm={9}>
                             <Input
                                 key={`noSiteDesc${websiteInfo.hasWebSite}`}
-                                type="textarea" 
-                                disabled={websiteInfo.hasWebSite} 
-                                style={{ height: 70 }} 
-                                id="noSiteDesc" 
-                                name="noSiteDesc" 
+                                type="textarea"
+                                disabled={websiteInfo.hasWebSite}
+                                style={{ height: 70 }}
+                                id="noSiteDesc"
+                                name="noSiteDesc"
                                 value={websiteInfo.noSiteDesc} onChange={onChange} onBlur={onChange} />
                         </Col>
                     </FormGroup>

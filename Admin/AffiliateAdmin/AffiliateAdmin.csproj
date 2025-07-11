@@ -258,6 +258,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Portal\www\source\js\components\Field.jsx" />
+    <Content Include="Areas\Portal\www\source\js\modules\globalResource.js" />
+    <Content Include="Areas\Portal\www\source\js\modules\reducerRegistry.js" />
     <Content Include="App_Data\SpConfig\SpName.n88-admin.klprod.xml">
       <DependentUpon>_SpName.tt</DependentUpon>
     </Content>
