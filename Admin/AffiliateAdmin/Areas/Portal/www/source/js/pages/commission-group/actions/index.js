@@ -80,10 +80,33 @@ export const getSelectedCommGroup = (param) => async (dispatch) => {
     const url = 'Portal/RevenueGroup/GetCommissionGroup';
 
     const response = await post(url, param);
-    let data = response && response.status === 200 ? response.data : null;
+    let data = response && response.status === 200 ? _buildCommGroupInfo(response.data) : null;
 
     dispatch(setSelectedGroup(data));
 }
+
+const _buildCommGroupInfo = (data) => {
+    if (!data) return null;
+
+    const {
+        TierSettingList,
+        PlatformFeeList,
+        ...rest
+    } = data;
+
+    const firstGroupProductId = PlatformFeeList[0]?.GroupProductId;
+    const firstTier = TierSettingList.filter(t => t.GroupProductId === firstGroupProductId);
+
+    const isCheckedField = (list, field) => list?.some(item => item?.[field] !== 0);
+
+    return {
+        ...rest,
+        TierSettingList,
+        PlatformFeeList,
+        IsCheckedMinFTDCount: isCheckedField(firstTier, 'MinFTDCount'),
+        IsCheckedMinTotalDeposit: isCheckedField(firstTier, 'MinTotalDeposit'),
+    };
+};
 
 export const deleteCommGroup = (param) => {
     const url = 'Portal/RevenueGroup/DeleteCommissionGroup';

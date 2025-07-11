@@ -13,6 +13,10 @@ namespace Fanex.Affiliate.Admin.Core.DTO.CommissionGroup
 
         public int MinQm { get; set; }
 
+        public int MinFTDCount { get; set; }
+
+        public decimal MinTotalDeposit { get; set; }
+
         public decimal Commission { get; set; }
     }
 }

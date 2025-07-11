@@ -45,7 +45,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
 
         private static void BuildXml(CreateUpdateCommissionGroupParam param)
         {
-            param.TierSettingXml = BuildTierSettingXml(param.TierSettingList, param.PlatformFeeList);
+            param.TierSettingXml = BuildTierSettingXml(param.TierSettingList, param.PlatformFeeList, param.IsCheckedMinFTDCount, param.IsCheckedMinTotalDeposit);
 
             var tierDeductionSettingList = param.PlatformFeeList.Concat(new[] { param.DepositFee, param.WithdrawalFee });
             if (param.KillRateFeeList != null && param.KillRateFeeList.Any())
@@ -56,7 +56,11 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
             param.TierDeductionsXml = BuildTierDeductionSettingXml(tierDeductionSettingList);
         }
 
-        private static string BuildTierSettingXml(IEnumerable<TierSettingParam> tierSettingParamList, IEnumerable<TierDeductionSettingParam> platformFeeList)
+        private static string BuildTierSettingXml(
+            IEnumerable<TierSettingParam> tierSettingParamList, 
+            IEnumerable<TierDeductionSettingParam> platformFeeList, 
+            bool isCheckedMinFTDCount, 
+            bool isCheckedMinTotalDeposit)
         {
             var result = new StringBuilder();
             result.Append("<root>");
@@ -69,9 +73,14 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
                 {
                     var productIds = platformFeeList.FirstOrDefault(p => p.GroupProductId == item.GroupProductId).ProductIds;
 
-                    var row = $"<row id=\"{item.TierId}\" minamount=\"{item.MinAmount}\"" +
-                        $" minqm=\"{item.MinQm}\" commission=\"{item.Commission}\" productids=\"{productIds}\" />";
-                    result.Append(row);
+                    result.AppendFormat("<row id=\"{0}\" minamount=\"{1}\" minqm=\"{2}\" commission=\"{3}\" productids=\"{4}\" {5} {6} />",
+                        item.TierId,
+                        item.MinAmount,
+                        item.MinQm,
+                        item.Commission,
+                        productIds,
+                        isCheckedMinFTDCount ? $"minftdcount=\"{item.MinFTDCount}\"" : "",
+                        isCheckedMinTotalDeposit ? $"mintotaldeposit=\"{item.MinTotalDeposit}\"" : "");
                 }
             }
 

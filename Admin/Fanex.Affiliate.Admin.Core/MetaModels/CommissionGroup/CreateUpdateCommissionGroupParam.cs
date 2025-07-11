@@ -12,5 +12,9 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.CommissionGroup
         public string Ip { get; set; }
 
         public bool IsPrivate { get; set; }
+
+        public bool IsCheckedMinFTDCount { get; set; }
+
+        public bool IsCheckedMinTotalDeposit { get; set; }
     }
 }

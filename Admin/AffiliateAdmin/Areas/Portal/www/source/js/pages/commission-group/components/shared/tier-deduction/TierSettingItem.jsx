@@ -1,7 +1,19 @@
 import React from 'react';
 
 import { Input } from 'reactstrap';
-import { commissionValueList, format, money, firstMinNetWinValueList, NEGATIVE_INFINITY_SYMBOL, regexAcceptNegativeAmountFormat, regexValidNegativeAmount } from '../../../modules/constant';
+
+import {
+    commissionValueList,
+    format,
+    money,
+    firstMinNetWinValueList,
+    NEGATIVE_INFINITY_SYMBOL,
+    regexAcceptNegativeAmountFormat,
+    regexValidNegativeAmount,
+    INFINITY_FTD_COUNT,
+    INFINITY_TOTAL_DEPOSIT
+} from '../../../modules/constant';
+import { isValidNumber } from '../../../../../modules/utils';
 
 export default class TierSettingItem extends React.PureComponent {
     constructor(props) {
@@ -54,12 +66,41 @@ export default class TierSettingItem extends React.PureComponent {
         onChange && onChange(data.TierId, newItem);
     }
 
+    handleChangeValueWithCheckbox = (e) => {
+        const { name, value } = e.target;
+        const { data, onChangeValueWithCheckbox } = this.props;
+
+        const numericValue = Number(value.replace(/,/g, ''));
+        const oldValue = data[name];
+        const newValue = this.getValidatedValue(value, numericValue, oldValue, name === 'MinFTDCount' ? INFINITY_FTD_COUNT : INFINITY_TOTAL_DEPOSIT);
+
+        if (newValue === oldValue) {
+            return;
+        }
+
+        onChangeValueWithCheckbox && onChangeValueWithCheckbox(data.TierId, name, newValue);
+    }
+
+    getValidatedValue = (rawValue, numericValue, oldValue, maxValue = money.AllowedMaxValue, emptyFallback = 0) => {
+        if (rawValue === '') {
+            return emptyFallback;
+        }
+
+        if (numericValue >= 0 && numericValue <= maxValue && isValidNumber(numericValue)) {
+            return numericValue;
+        }
+
+        return oldValue;
+    };
+
     render() {
-        const { index, data, handleClick, btnText, isFirst, isTurnover } = this.props;
-        const { TierId, MinAmount, MinQm, Commission } = data;
+        const { index, data, handleClick, btnText, isFirst, isFirstTierSetting, isTurnover, selectedGroup } = this.props;
+        const { TierId, MinAmount, MinQm, Commission, MinFTDCount, MinTotalDeposit } = data;
 
         const isValidAmount = regexValidNegativeAmount.test(MinAmount);
         const isNegativeInfinity = MinAmount == money.AllowedMinValue;
+        const isMinFTDCountValid = selectedGroup.IsCheckedMinFTDCount && MinFTDCount > 0 && MinFTDCount <= INFINITY_FTD_COUNT;
+        const isMinTotalDepositValid = selectedGroup.IsCheckedMinTotalDeposit && MinTotalDeposit > 0 && MinTotalDeposit <= INFINITY_TOTAL_DEPOSIT;
 
         return (
             <tr>
@@ -90,6 +131,24 @@ export default class TierSettingItem extends React.PureComponent {
                     <Input type="text" name="MinQm" id={"MinQm" + TierId} value={format(MinQm)} onChange={this.handleChange} />
                 </td>
                 <td>
+                    <Input type="text"
+                        disabled={!isFirstTierSetting || !selectedGroup.IsCheckedMinFTDCount}
+                        className={isMinFTDCountValid ? '' : 'has-error'}
+                        name="MinFTDCount"
+                        id={"MinFTDCount" + TierId}
+                        value={format(MinFTDCount)}
+                        onChange={this.handleChangeValueWithCheckbox} />
+                </td>
+                <td>
+                    <Input type="text"
+                        disabled={!isFirstTierSetting || !selectedGroup.IsCheckedMinTotalDeposit}
+                        className={isMinTotalDepositValid ? '' : 'has-error'}
+                        name="MinTotalDeposit"
+                        id={"MinTotalDeposit" + TierId}
+                        value={format(MinTotalDeposit)}
+                        onChange={this.handleChangeValueWithCheckbox} />
+                </td>
+                <td>
                     <select className="form-control" name="Commission"
                         onChange={this.handleChange} value={format(Commission || 0, 3)}>
                         {
@@ -100,7 +159,7 @@ export default class TierSettingItem extends React.PureComponent {
                     </select>
                 </td>
                 <td className="text-center">
-                    <button type="button" className="btn btn-action" onClick={handleClick}>{btnText}</button>
+                    <button type="button" className="btn btn-tier" onClick={handleClick}>{btnText}</button>
                 </td>
             </tr>
         )

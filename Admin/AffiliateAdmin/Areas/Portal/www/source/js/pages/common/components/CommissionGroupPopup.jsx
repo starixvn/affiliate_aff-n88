@@ -77,7 +77,7 @@ export default class CommissionGroupPopup extends PureComponent {
 
         const url = isPrivate ? resolveClientUrl(`Portal/CommGroupAssignment/AssignPrivateGroup?affId=${affId}&groupTypeId=${assignPrivateGroupTypeId}`) : resolveClientUrl(`Portal/CommGroupAssignment/AssignGroup?affId=${affId}&groupTypeId=${groupTypeId}`);
         const size = isPrivate ? 'lg' : '';
-        const maxWidth = isPrivate ? '' : 650;
+        const maxWidth = isPrivate ? 950 : 650;
 
         return (
             <div className="data-content">

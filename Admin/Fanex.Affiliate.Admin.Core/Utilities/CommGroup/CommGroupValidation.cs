@@ -1,13 +1,13 @@
-﻿using Fanex.Affiliate.Admin.Core.Constants;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.Extensions;
 using Fanex.Affiliate.Admin.Core.MetaModels.CommissionGroup;
 using Fanex.Affiliate.Admin.Core.Repository;
 using Fanex.Affiliate.Admin.Core.Services;
 using Fanex.Affiliate.Admin.Core.Services.CommGroup;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Fanex.Affiliate.Admin.Core.Utilities.CommGroup
 {
@@ -36,12 +36,12 @@ namespace Fanex.Affiliate.Admin.Core.Utilities.CommGroup
         {
             var affInfo = _affiliateService.GetAffiliateBasicInfo(affId);
 
-            if(string.IsNullOrEmpty(affInfo.AffCode))
+            if (string.IsNullOrEmpty(affInfo.AffCode))
             {
                 var permissionList = _authRepository.GetPermissionList(userId);
 
                 return permissionList.Any(i => i.FunctionName.MatchWith(Function.EditAffStatus) && i.IsHost);
-            }    
+            }
 
             return true;
         }
@@ -52,7 +52,7 @@ namespace Fanex.Affiliate.Admin.Core.Utilities.CommGroup
 
             var result = ValidateAllFees(commGroup);
 
-            var validateTierSettingList = ValidateTierSettingList(commGroup.TierSettingList);
+            var validateTierSettingList = ValidateTierSettingList(commGroup.TierSettingList, commGroup.IsCheckedMinFTDCount, commGroup.IsCheckedMinTotalDeposit);
 
             if (!validateGroupType.IsSuccessful || !validateTierSettingList.IsSuccessful)
             {
@@ -88,9 +88,11 @@ namespace Fanex.Affiliate.Admin.Core.Utilities.CommGroup
             return result;
         }
 
-        private static ResultInfo ValidateTierSettingList(IEnumerable<TierSettingParam> tierSettingList)
+        private static ResultInfo ValidateTierSettingList(IEnumerable<TierSettingParam> tierSettingList, bool isCheckedMinFdm, bool isCheckedMinTotalDeposit)
         {
             var tierSettingListByGroupProduct = tierSettingList.GroupBy(t => t.GroupProductId);
+            var firstTierSetting = tierSettingListByGroupProduct.FirstOrDefault().ToList();
+            var index = 0;
 
             foreach (var tierSettings in tierSettingListByGroupProduct)
             {
@@ -109,6 +111,59 @@ namespace Fanex.Affiliate.Admin.Core.Utilities.CommGroup
                         Message = "Min QP must be lesser than or equal to 1,000,000,000"
                     };
                 }
+
+                var allTierSettingsMatchGroupProduct1 = ValidateAllTierSettingsMatchGroupProduct1(index, tierSettings.ToList(), firstTierSetting, isCheckedMinFdm, isCheckedMinTotalDeposit);
+                if (!allTierSettingsMatchGroupProduct1.IsSuccessful)
+                {
+                    return allTierSettingsMatchGroupProduct1;
+                }
+
+                if (index == 0)
+                {
+                    var minFtdMessages = new Dictionary<string, string>
+                    {
+                        { "greaterThanMin", "Min Total FTD Count must be greater than 0." },
+                        { "lesserThanMax", "Min Total FTD Count must be lesser than or equal to 1,000,000,000." },
+                        { "mustIncreaseSequentially", "The values in the Min Total FTD Count column must increase sequentially." }
+                    };
+
+                    var minFtdCountValidationResult = ValidateField(
+                        isCheckedMinFdm,
+                        tierSettings,
+                        x => x.MinFTDCount,
+                        0,
+                        Validation.InfinityFTDCount,
+                        minFtdMessages
+                    );
+
+                    if (!minFtdCountValidationResult.IsSuccessful)
+                    {
+                        return minFtdCountValidationResult;
+                    }
+
+                    var minTotalDepositMessages = new Dictionary<string, string>
+                    {
+                        { "greaterThanMin", "Min Total Deposit (New Player) must be greater than 0." },
+                        { "lesserThanMax", "Min Total Deposit (New Player) must be lesser than or equal to 100,000,000,000." },
+                        { "mustIncreaseSequentially", "The values in the Min Total Deposit (New Player) column must increase sequentially." }
+                    };
+
+                    var minTotalDepositValidationResult = ValidateField(
+                        isCheckedMinTotalDeposit,
+                        tierSettings,
+                        x => x.MinTotalDeposit,
+                        0m,
+                        Validation.InfinityAmount,
+                        minTotalDepositMessages
+                    );
+
+                    if (!minTotalDepositValidationResult.IsSuccessful)
+                    {
+                        return minTotalDepositValidationResult;
+                    }
+                }
+
+                index++;
             }
 
             return new ResultInfo();
@@ -137,7 +192,7 @@ namespace Fanex.Affiliate.Admin.Core.Utilities.CommGroup
                 return result;
             }
 
-            if (IsNotIncreasingMinNetWin(tierSettings))
+            if (IsNotIncreaseSequentially(tierSettings, x => x.MinAmount))
             {
                 UpdateResult(result, "The values in the Min Net Win column must increase sequentially.");
                 return result;
@@ -158,17 +213,130 @@ namespace Fanex.Affiliate.Admin.Core.Utilities.CommGroup
             return result;
         }
 
-        private static bool IsNotIncreasingMinNetWin(IEnumerable<TierSettingParam> tierSettingList)
+        private static ResultInfo ValidateAllTierSettingsMatchGroupProduct1(
+            int index,
+            List<TierSettingParam> groupTiers,
+            List<TierSettingParam> firstGroupTiers,
+            bool isCheckedMinFTDCount,
+            bool isCheckedMinTotalDeposit
+        )
         {
-            TierSettingParam previous = null;
-
-            foreach (var tierSetting in tierSettingList)
+            if (index != 0 && !IsGroup2MatchGroup1(groupTiers, firstGroupTiers, isCheckedMinFTDCount, isCheckedMinTotalDeposit))
             {
-                if (previous != null && tierSetting.MinAmount <= previous.MinAmount)
+                return new ResultInfo
+                {
+                    Code = ErrCode.GeneralErrorCode,
+                    Message = $"Product Group {index + 1} has different Min Total FTD Count or Min Total Deposit (New Player) values in some tiers compared to Product Group 1."
+                };
+            }
+
+            return new ResultInfo
+            {
+                Code = 0,
+                Message = string.Empty
+            };
+        }
+
+        private static bool IsGroup2MatchGroup1(
+            List<TierSettingParam> group2,
+            List<TierSettingParam> group1,
+            bool isCheckedMinFTDCount,
+            bool isCheckedMinTotalDeposit
+        )
+        {
+            if (group2.Count > group1.Count)
+            {
+                return false;
+            }
+
+            int group1Index = 0;
+
+            foreach (var item2 in group2)
+            {
+                bool found = false;
+
+                while (group1Index < group1.Count)
+                {
+                    var item1 = group1[group1Index++];
+
+                    bool isMinFTDCountMatch = !isCheckedMinFTDCount || item1.MinFTDCount == item2.MinFTDCount;
+                    bool isMinTotalDepositMatch = !isCheckedMinTotalDeposit || item1.MinTotalDeposit == item2.MinTotalDeposit;
+
+                    if (isMinFTDCountMatch && isMinTotalDepositMatch)
+                    {
+                        found = true;
+                        break;
+                    }
+                }
+
+                if (!found)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        private static ResultInfo ValidateField<T>(
+            bool isChecked,
+            IEnumerable<TierSettingParam> tierSettings,
+            Func<TierSettingParam, T> selector,
+            T minValue,
+            T maxValue,
+            IDictionary<string, string> messages
+        ) where T : IComparable<T>
+        {
+            if (!isChecked)
+            {
+                return new ResultInfo();
+            }
+
+            const string groupProductName = "Product Group 1";
+
+            if (tierSettings.Any(item => selector(item).CompareTo(minValue) < 0))
+            {
+                return new ResultInfo
+                {
+                    Code = ErrCode.GeneralErrorCode,
+                    Message = $"{groupProductName} - {messages["greaterThanMin"]}"
+                };
+            }
+
+            if (tierSettings.Any(item => selector(item).CompareTo(maxValue) > 0))
+            {
+                return new ResultInfo
+                {
+                    Code = ErrCode.GeneralErrorCode,
+                    Message = $"{groupProductName} - {messages["lesserThanMax"]}"
+                };
+            }
+
+            if (IsNotIncreaseSequentially(tierSettings, selector))
+            {
+                return new ResultInfo
+                {
+                    Code = ErrCode.GeneralErrorCode,
+                    Message = $"{groupProductName} - {messages["mustIncreaseSequentially"]}"
+                };
+            }
+
+            return new ResultInfo();
+        }
+
+
+        private static bool IsNotIncreaseSequentially<T>(IEnumerable<TierSettingParam> tierSettingList, Func<TierSettingParam, T> selector) where T : IComparable<T>
+        {
+            var tierSettingArray = tierSettingList.ToArray();
+            for (var i = 1; i < tierSettingArray.Length; i++)
+            {
+                var current = selector(tierSettingArray[i]);
+                var previous = selector(tierSettingArray[i - 1]);
+
+                if (current.CompareTo(previous) <= 0)
                 {
                     return true;
                 }
-                previous = tierSetting;
             }
 
             return false;
