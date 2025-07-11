@@ -35,6 +35,9 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.Message
         [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string MessageContentkh { get; set; }
 
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
+        public string MessageContentph { get; set; }
+
         public bool IsValid()
         {
             if (!(string.IsNullOrEmpty(MessageContenten) && string.IsNullOrEmpty(MessageContentcs) && string.IsNullOrEmpty(MessageContentbn)))

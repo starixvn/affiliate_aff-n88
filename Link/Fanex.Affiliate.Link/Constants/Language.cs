@@ -7,7 +7,8 @@ namespace Fanex.Affiliate.Link.Constants
         public static readonly IReadOnlyDictionary<string, string> MappingShortedCodes = new Dictionary<string, string>
         {
             { "bn", "bd" },
-            { "ms", "my" }
+            { "ms", "my" },
+            { "phen", "en" },
         };
     }
 }

@@ -23,26 +23,30 @@ export const defaultMessageContentList =
 {
     MessageId: 0,
     [english]: '',
-    [chineseTraditional]: '',
-    [chineseSimplified]: '',
-    [spanish]: '',
-    [thai]: '',
-    [vietNamese]: '',
+    [bangladeshi]: '',
+    [englishPhilipines]: '',
+    [hindi]: '',
     [indonesian]: '',
     [korean]: '',
-    [japanese]: ''
+    [malay]: '',
+    [portuguese]: '',
+    [thai]: '',
+    [vietNamese]: '',
+    [chineseSimplified]: '',
 };
 
 export const languages = {
     [english]: 'English',
-    [chineseTraditional]: 'Chinese Traditional',
-    [chineseSimplified]: 'Chinese Simplified',
-    [spanish]: 'Spanish',
-    [thai]: 'Thai',
-    [vietNamese]: 'VietNamese',
+    [bangladeshi]: 'Bangladeshi',
+    [englishPhilipines]: 'English Philipines',
+    [hindi]: 'Hindi',
     [indonesian]: 'Indonesian',
     [korean]: 'Korean',
-    [japanese]: 'Japanese'
+    [malay]: 'Malay',
+    [portuguese]: 'Portuguese',
+    [thai]: 'Thai',
+    [vietNamese]: 'VietNamese',
+    [chineseSimplified]: 'Chinese Simplified',
 }
 
 export const searchByList = {

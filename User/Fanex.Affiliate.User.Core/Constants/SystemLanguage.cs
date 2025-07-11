@@ -11,7 +11,7 @@ namespace Fanex.Affiliate.User.Core.Constants
         private static readonly IDictionary<string, string> _supportedLanguageForGoogleAnalytics = new Dictionary<string, string>
         {
             ["en-US"] = "en",
-            ["en-PH"] = "ph",
+            ["en-PH"] = "phen",
             ["zh-CN"] = "cs",
             ["th-TH"] = "th",
             ["vi-VN"] = "vn",

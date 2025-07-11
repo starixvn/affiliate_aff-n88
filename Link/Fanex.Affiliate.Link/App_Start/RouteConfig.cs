@@ -9,7 +9,7 @@
     public class RouteConfig
     {
         private const string AFF_CODE_CONSTRAINT = @"\d+";
-        private const string LANGUAGE_CONSTRAINT = @"(\w{2})";
+        private const string LANGUAGE_CONSTRAINT = @"(\w{2}|phen)";
 
         /// <summary>
         /// Register Routes.
