@@ -184,16 +184,20 @@ export const validateTierSettingList = (tierSettingList, isCheckedMinFTDCount, i
             if (!regexValidNegativeAmount.test(firstMinAmount) && Number(firstMinAmount) != 0 && Number(firstMinAmount) != money.AllowedMinValue) {
                 isValid = false;
                 messageList.push(`${groupProductName} - ${messages.minNetWinFirstMustBeZero}`);
-            } else if (isMinNetWinNotStartFromOneAfterNegative(tierSettings)) {
+            }
+            if (isMinNetWinNotStartFromOneAfterNegative(tierSettings)) {
                 isValid = false;
                 messageList.push(`${groupProductName} - ${messages.minNetWinMustStartFromOne}`);
-            } else if (isNotIncreaseSequentially(tierSettings, 'MinAmount')) {
+            }
+            if (isNotIncreaseSequentially(tierSettings, 'MinAmount')) {
                 isValid = false;
                 messageList.push(`${groupProductName} - ${messages.minNetWinMustIncreaseSequentially}`);
-            } else if (tierSettings.filter(item => item.MinAmount < money.AllowedMinValue).length > 0) {
+            }
+            if (tierSettings.filter(item => item.MinAmount < money.AllowedMinValue).length > 0) {
                 isValid = false;
                 messageList.push(`${groupProductName} - ${messages.minNetWinGreaterThanNegativeInfinity}`);
-            } else if (tierSettings.filter(item => item.MinAmount > money.AllowedMaxValue).length > 0) {
+            }
+            if (tierSettings.filter(item => item.MinAmount > money.AllowedMaxValue).length > 0) {
                 isValid = false;
                 messageList.push(`${groupProductName} - ${messages.minNetWinLesserThanInfinity}`);
             }
@@ -215,10 +219,12 @@ export const validateTierSettingList = (tierSettingList, isCheckedMinFTDCount, i
                 if (tierSettings.some(item => item[fieldName] <= minValue)) {
                     isValid = false;
                     messageList.push(`${groupProductName} - ${messagesMap.greaterThanMin}`);
-                } else if (tierSettings.some(item => item[fieldName] > maxValue)) {
+                }
+                if (tierSettings.some(item => item[fieldName] > maxValue)) {
                     isValid = false;
                     messageList.push(`${groupProductName} - ${messagesMap.lesserThanMax}`);
-                } else if (isNotIncreaseSequentially(tierSettings, fieldName)) {
+                }
+                if (isNotIncreaseSequentially(tierSettings, fieldName)) {
                     isValid = false;
                     messageList.push(`${groupProductName} - ${messagesMap.mustIncreaseSequentially}`);
                 }

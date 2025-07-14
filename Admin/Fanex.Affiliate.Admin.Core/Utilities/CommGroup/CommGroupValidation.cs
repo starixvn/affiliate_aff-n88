@@ -90,6 +90,8 @@ namespace Fanex.Affiliate.Admin.Core.Utilities.CommGroup
 
         private static ResultInfo ValidateTierSettingList(IEnumerable<TierSettingParam> tierSettingList, bool isCheckedMinFdm, bool isCheckedMinTotalDeposit)
         {
+            var result = new ResultInfo();
+
             var tierSettingListByGroupProduct = tierSettingList.GroupBy(t => t.GroupProductId);
             var firstTierSetting = tierSettingListByGroupProduct.FirstOrDefault().ToList();
             var index = 0;
@@ -100,22 +102,18 @@ namespace Fanex.Affiliate.Admin.Core.Utilities.CommGroup
 
                 if (!validateMinAmountResult.IsSuccessful)
                 {
-                    return validateMinAmountResult;
+                    UpdateResult(result, validateMinAmountResult.Message);
                 }
 
                 if (tierSettings.Any(item => item.MinQm > Validation.InfinityQualifiedMember))
                 {
-                    return new ResultInfo
-                    {
-                        Code = ErrCode.GeneralErrorCode,
-                        Message = "Min QP must be lesser than or equal to 1,000,000,000"
-                    };
+                    UpdateResult(result, "Min QP must be lesser than or equal to 1,000,000,000");
                 }
 
                 var allTierSettingsMatchGroupProduct1 = ValidateAllTierSettingsMatchGroupProduct1(index, tierSettings.ToList(), firstTierSetting, isCheckedMinFdm, isCheckedMinTotalDeposit);
                 if (!allTierSettingsMatchGroupProduct1.IsSuccessful)
                 {
-                    return allTierSettingsMatchGroupProduct1;
+                    UpdateResult(result, allTierSettingsMatchGroupProduct1.Message);
                 }
 
                 if (index == 0)
@@ -138,7 +136,7 @@ namespace Fanex.Affiliate.Admin.Core.Utilities.CommGroup
 
                     if (!minFtdCountValidationResult.IsSuccessful)
                     {
-                        return minFtdCountValidationResult;
+                        UpdateResult(result, minFtdCountValidationResult.Message);
                     }
 
                     var minTotalDepositMessages = new Dictionary<string, string>
@@ -159,14 +157,14 @@ namespace Fanex.Affiliate.Admin.Core.Utilities.CommGroup
 
                     if (!minTotalDepositValidationResult.IsSuccessful)
                     {
-                        return minTotalDepositValidationResult;
+                        UpdateResult(result, minTotalDepositValidationResult.Message);
                     }
                 }
 
                 index++;
             }
 
-            return new ResultInfo();
+            return result;
         }
 
         private static ResultInfo ValidateMinAmount(IEnumerable<TierSettingParam> tierSettings)
@@ -287,41 +285,30 @@ namespace Fanex.Affiliate.Admin.Core.Utilities.CommGroup
             IDictionary<string, string> messages
         ) where T : IComparable<T>
         {
+            var result = new ResultInfo();
             if (!isChecked)
             {
-                return new ResultInfo();
+                return result;
             }
 
             const string groupProductName = "Product Group 1";
 
             if (tierSettings.Any(item => selector(item).CompareTo(minValue) < 0))
             {
-                return new ResultInfo
-                {
-                    Code = ErrCode.GeneralErrorCode,
-                    Message = $"{groupProductName} - {messages["greaterThanMin"]}"
-                };
+                UpdateResult(result, $"{groupProductName} - {messages["greaterThanMin"]}");
             }
 
             if (tierSettings.Any(item => selector(item).CompareTo(maxValue) > 0))
             {
-                return new ResultInfo
-                {
-                    Code = ErrCode.GeneralErrorCode,
-                    Message = $"{groupProductName} - {messages["lesserThanMax"]}"
-                };
+                UpdateResult(result, $"{groupProductName} - {messages["lesserThanMax"]}");
             }
 
             if (IsNotIncreaseSequentially(tierSettings, selector))
             {
-                return new ResultInfo
-                {
-                    Code = ErrCode.GeneralErrorCode,
-                    Message = $"{groupProductName} - {messages["mustIncreaseSequentially"]}"
-                };
+                UpdateResult(result, $"{groupProductName} - {messages["mustIncreaseSequentially"]}");
             }
 
-            return new ResultInfo();
+            return result;
         }
 
 
