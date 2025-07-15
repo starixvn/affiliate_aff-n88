@@ -15,7 +15,7 @@ export default class AssignGroup extends Component {
         const commGroupListByType = commGroupList.filter(g => g.GroupTypeId === selectedGroupType);
 
         if (selectedGroup === 0) {
-            selectedGroup = commGroupList && commGroupList.length ? commGroupList[0].GroupId : 0;
+            selectedGroup = commGroupListByType && commGroupListByType.length ? commGroupListByType[0].GroupId : 0;
         }
 
         this.state = Object.assign({}, { commGroupList, commGroupTypes, selectedGroupType, commGroupListByType, selectedGroup, affInfo }, {
