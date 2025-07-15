@@ -21,5 +21,7 @@ namespace Fanex.Affiliate.User.Core.DTO.UserPanel
         public decimal GGR { get; set; }
 
         public int QualifiedMember { get; set; }
+
+        public decimal Fdm_TotalDeposit { get; set; }
     }
 }

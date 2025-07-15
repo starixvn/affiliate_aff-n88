@@ -2016,4 +2016,7 @@
   <data name="TcGaming" xml:space="preserve">
     <value>TC-GAMING</value>
   </data>
+  <data name="FdmTotalDeposit" xml:space="preserve">
+    <value>បញ្ចូលលុយ&lt;br&gt;(សមាជិកថ្មី)</value>
+  </data>
 </root>

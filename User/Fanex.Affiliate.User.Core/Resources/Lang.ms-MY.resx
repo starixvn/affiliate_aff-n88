@@ -2051,4 +2051,7 @@ Jika anda mempunyai sebarang soalan dan memerlukan sebarang bantuan, sila jangan
   <data name="ActivePlayers" xml:space="preserve">
     <value>Pemain Aktif</value>
   </data>
+  <data name="FdmTotalDeposit" xml:space="preserve">
+    <value>Telah deposit&lt;br&gt;(Pemain Baru)</value>
+  </data>
 </root>

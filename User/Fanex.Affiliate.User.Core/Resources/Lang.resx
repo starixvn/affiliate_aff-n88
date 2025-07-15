@@ -2171,4 +2171,7 @@
   <data name="PleaseReviewTheUpdatedDetails" xml:space="preserve">
     <value>Please review the updated details in "{0}" or contact support for more information.</value>
   </data>
+  <data name="FdmTotalDeposit" xml:space="preserve">
+    <value>Deposited&lt;br&gt;(New Players)</value>
+  </data>
 </root>

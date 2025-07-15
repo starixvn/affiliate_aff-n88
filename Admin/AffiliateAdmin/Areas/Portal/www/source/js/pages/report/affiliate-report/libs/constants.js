@@ -47,6 +47,7 @@ export const reportKey = {
     NoOfSubAff: 'NoOfSubAff',
     TotalDeposit: 'TotalDeposit',
     Deposit: 'Deposit',
+    Fdm_TotalDeposit: 'Fdm_TotalDeposit',
     Withdrawal: 'Withdrawal',
     Turnover: 'Turnover',
     Ggr: 'Ggr',
@@ -88,6 +89,7 @@ export const headerText = {
     [reportKey.NoOfSubAff]: 'Sub-Affiliate',
     [reportKey.TotalDeposit]: 'Total Deposit',
     [reportKey.Deposit]: 'Deposit',
+    [reportKey.Fdm_TotalDeposit]: 'Total Deposit (New Player)',
     [reportKey.Withdrawal]: 'Withdrawal',
     [reportKey.Turnover]: 'Turnover',
     [reportKey.Ggr]: 'GGR',
@@ -132,6 +134,7 @@ export const headerConfig = {
         label: headerText[reportKey.MemberStatistics],
         cols: {
             [reportKey.Deposit]: { label: headerText[reportKey.Deposit] },
+            [reportKey.Fdm_TotalDeposit]: { label: headerText[reportKey.Fdm_TotalDeposit] },
             [reportKey.Withdrawal]: { label: headerText[reportKey.Withdrawal] },
             [reportKey.Turnover]: { label: headerText[reportKey.Turnover] },
             [reportKey.Ggr]: { label: headerText[reportKey.Ggr] },

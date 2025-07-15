@@ -55,5 +55,7 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Report
         public decimal Deposit { get; set; }
 
         public int QualifiedMember { get; set; }
+
+        public decimal Fdm_TotalDeposit { get; set; }
     }
 }

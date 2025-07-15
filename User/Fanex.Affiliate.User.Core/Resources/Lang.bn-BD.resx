@@ -2065,4 +2065,7 @@
   <data name="ActivePlayers" xml:space="preserve">
     <value>সক্রিয় খেলোয়াড়</value>
   </data>
+  <data name="FdmTotalDeposit" xml:space="preserve">
+    <value>নতুন খেলোয়াড়দের জমাকৃত অর্থ</value>
+  </data>
 </root>

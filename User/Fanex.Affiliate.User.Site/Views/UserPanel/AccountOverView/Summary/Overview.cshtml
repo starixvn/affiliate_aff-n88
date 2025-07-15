@@ -16,10 +16,11 @@
             <tr class="overview-table-header" id="overview-table-header">
                 <th width="10%">@Lang.Date</th>
                 <th width="10%">@Lang.NewSignup</th>
-                <th width="12%">@Lang.DepositedPlayers</th>
+                <th width="10%">@Lang.DepositedPlayers</th>
                 <th width="10%">@Lang.ActivePlayers</th>
                 <th width="10%">@Lang.QualifiedPlayers</th>
                 <th width="10%">@Html.Raw(Lang.Deposit + currencyLabel)</th>
+                <th width="10%">@Html.Raw(Lang.FdmTotalDeposit + currencyLabel)</th>
                 <th width="10%">@Html.Raw(Lang.Turnover + currencyLabel)</th>
                 <th width="10%">@Html.Raw(Lang.Withdrawal + currencyLabel)</th>
                 <th width="10%">@Html.Raw(Lang.GGR + currencyLabel)</th>
@@ -34,6 +35,7 @@
                         <th class="text-center">@itemTotal.ActiveMembers</th>
                         <th class="text-center">@itemTotal.QualifiedMember</th>
                         <th class="text-center">@itemTotal.Deposit.FormatDecimal()</th>
+                        <th class="text-center">@itemTotal.Fdm_TotalDeposit.FormatDecimal()</th>
                         <th class="text-center">@itemTotal.Turnover.FormatDecimal()</th>
                         <th class="text-center">@itemTotal.Withdrawal.FormatDecimal()</th>
                         <th class="text-center">@itemTotal.GGR.FormatDecimal()</th>
@@ -55,6 +57,7 @@
                             <td class="text-center">@item.ActiveMembers</td>
                             <td class="text-center">@item.QualifiedMember</td>
                             <td class="text-center">@item.Deposit.FormatDecimal()</td>
+                            <td class="text-center">@item.Fdm_TotalDeposit.FormatDecimal()</td>
                             <td class="text-center">@item.Turnover.FormatDecimal()</td>
                             <td class="text-center">@item.Withdrawal.FormatDecimal()</td>
                             <td class="text-center">@item.GGR.FormatDecimal()</td>
@@ -64,7 +67,7 @@
                 else
                 {
                     <tr>
-                        <td class="text-center" colspan="9">@Lang.NoInfo</td>
+                        <td class="text-center" colspan="10">@Lang.NoInfo</td>
                     </tr>
                 }
             }

@@ -2085,4 +2085,7 @@
   <data name="ActivePlayers" xml:space="preserve">
     <value>Người chơi đủ điều kiện</value>
   </data>
+  <data name="FdmTotalDeposit" xml:space="preserve">
+    <value>Tiền nạp&lt;br&gt;(Thành viên mới)</value>
+  </data>
 </root>

@@ -2060,4 +2060,7 @@ B2C सहयोगी की टीम&lt;br/&gt;&lt;br/&gt;
   <data name="ActivePlayers" xml:space="preserve">
     <value>सक्रिय खिलाड़ी</value>
   </data>
+  <data name="FdmTotalDeposit" xml:space="preserve">
+    <value>नए खिलाड़ियों द्वारा जमा राशि</value>
+  </data>
 </root>

@@ -1812,4 +1812,7 @@
   <data name="ActivePlayers" xml:space="preserve">
     <value>Pemain Aktif</value>
   </data>
+  <data name="FdmTotalDeposit" xml:space="preserve">
+    <value>Sudah Deposit&lt;br&gt;(Pemain Baru)</value>
+  </data>
 </root>
