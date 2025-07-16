@@ -72,6 +72,8 @@ namespace Fanex.Affiliate.Admin.Core.Configurations
 
         bool IsUseMemberSiteProxy { get; }
 
+        bool IsApiDataModifiable { get; }
+
         string AffSiteUrl { get; }
 
         [SuppressMessage("Major Code Smell", "S3995:URI return values should not be strings", Justification = "Reviewed. Suppression is OK here.")]

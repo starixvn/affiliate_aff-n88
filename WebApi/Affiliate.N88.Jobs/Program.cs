@@ -1,12 +1,8 @@
-﻿using Affiliate.N88.Jobs.Configurations;
-using Microsoft.AspNetCore;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Hosting.WindowsServices;
+﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using System;
 
 namespace Affiliate.N88.Jobs
 {
@@ -14,40 +10,36 @@ namespace Affiliate.N88.Jobs
     {
         public static void Main(string[] args)
         {
-            var isService = !(Debugger.IsAttached || args.Contains("--console"));
-
-            var pathToExe = Process.GetCurrentProcess().MainModule.FileName;
-            var pathToContentRoot = Path.GetDirectoryName(pathToExe);
-            Directory.SetCurrentDirectory(pathToContentRoot);
-
-            var builder = CreateWebHostBuilder(args.Where(arg => arg != "--console").ToArray());
-            var host = builder.Build();
-
-            var config = host.Services.GetService<IConfiguration>();
-            var appSetting = new AppSettings();
-            config.GetSection("AppSettings").Bind(appSetting);
-
-            if (isService && appSetting.RunAsService)
-            {
-                host.RunAsService();
-            }
-            else
-            {
-                host.Run();
-            }
+            CreateHostBuilder(args).Build().Run();
         }
 
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args)
+        public static IHostBuilder CreateHostBuilder(string[] args)
         {
             var configuration = new ConfigurationBuilder()
-                    .SetBasePath(Directory.GetCurrentDirectory())
+                    .SetBasePath(AppContext.BaseDirectory)
                     .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                     .Build();
 
-            return WebHost.CreateDefaultBuilder(args)
-                .UseConfiguration(configuration)
-                .UseStartup<Startup>()
-                .UseUrls($"http://0.0.0.0:{configuration["Port"]}");
+            return Host.CreateDefaultBuilder(args)
+                .ConfigureAppConfiguration((builderContext, config) =>
+                {
+                    var env = builderContext.HostingEnvironment;
+                    // Add config to the container
+                    config.SetBasePath(env.ContentRootPath);
+                    config.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+                    config.AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true);
+                    config.AddEnvironmentVariables();
+                })
+                .ConfigureLogging(logging =>
+                {
+                    logging.ClearProviders();
+                    logging.AddConsole();
+                })
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseStartup<Startup>();
+                    //webBuilder.UseUrls($"https://*:{configuration["Port"]}");
+                });
         }
     }
 }

@@ -6,10 +6,6 @@
 
         public string LicenseeDataAPI { get; set; }
 
-        public string SpPath { get; set; }
-
-        public string SaveConfigPath { get; set; }
-
         public string AuthenticationKey { get; set; }
 
         public FetchServiceSetting PullAffCustomerSetting { get; set; }
@@ -73,6 +69,8 @@
         public FetchServiceSetting InsertAffiliateSetting { get; set; }
 
         public bool IsRunFetchTask { get; set; }
+
+        public bool IsApiDataModifiable { get; set; }
 
         public bool RunAsService { get; set; }
 

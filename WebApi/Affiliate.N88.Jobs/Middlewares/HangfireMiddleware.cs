@@ -9,7 +9,6 @@ using Affiliate.N88.Repository;
 using Affiliate.N88.Services;
 using Hangfire;
 using Hangfire.Dashboard;
-using Hangfire.MemoryStorage;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -22,6 +21,10 @@ using Affiliate.N88.Jobs.RecurringTasks.RetryJob;
 using Affiliate.N88.Jobs.RecurringTasks.AffCustomer;
 using Affiliate.N88.Jobs.RecurringTasks.Customer;
 using Affiliate.N88.Jobs.RecurringTasks.Deposit;
+using Hangfire.Redis.StackExchange;
+using StackExchange.Redis;
+using System.Net;
+using Fanex.Logging;
 
 namespace Affiliate.N88.Jobs.Middlewares
 {
@@ -32,11 +35,27 @@ namespace Affiliate.N88.Jobs.Middlewares
         public static void RegisterHangfire(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddOptions();
-            services.AddHangfire(config =>
+            services.AddSingleton<GlobalHangfireJobExceptionFilterAttribute>();
+            services.AddSingleton<UMHangfireFilterAttribute>();
+
+            var redisConfig = configuration.GetSection($"Redis").Get<RedisSetting>();
+            var configString = $"{redisConfig.Server}:{redisConfig.Port},password={redisConfig.Pass},keepAlive={180},abortConnect={false},defaultDatabase={redisConfig.Database}";
+            var redis = ConnectionMultiplexer.Connect(ConfigurationOptions.Parse(configString));
+
+            services.AddHangfire((serviceProvider, config) =>
             {
-                var memoryOption = new MemoryStorageOptions() { FetchNextJobTimeout = TimeSpan.FromHours(2) };
-                config.UseMemoryStorage(memoryOption);
-                config.UseFilter(new GlobalHangfireJobExceptionFilterAttribute());
+                config.UseRedisStorage(redis, new RedisStorageOptions
+                {
+                    Prefix = redisConfig.AppName,
+                    Db = redisConfig.Database
+                }).WithJobExpirationTimeout(TimeSpan.FromHours(2));
+                config.UseFilter(serviceProvider.GetService<GlobalHangfireJobExceptionFilterAttribute>());
+                config.UseFilter(serviceProvider.GetService<UMHangfireFilterAttribute>());
+            });
+
+            services.AddHangfireServer(options =>
+            {
+                options.SchedulePollingInterval = TimeSpan.FromSeconds(1);
             });
 
             var appSettings = new AppSettings();
@@ -238,14 +257,18 @@ namespace Affiliate.N88.Jobs.Middlewares
 
         public static void UseHangfire(this IApplicationBuilder app, AppSettings appSettings)
         {
-            app.UseHangfireDashboard("/hangfire", new DashboardOptions
+            app.UseHangfireDashboard("/jobs", new DashboardOptions
             {
+                DisplayStorageConnectionString = false,
+                IgnoreAntiforgeryToken = true,
                 Authorization = new[] { new AllowedAnonymouseAuthorizationFilter() }
             });
-            app.UseHangfireServer();
+            Logger.Log.Info($"AFF NV CronJobs on {Dns.GetHostName()}");
 
             if (appSettings.IsRunFetchTask)
             {
+                Logger.Log.Info($"AFF NV CronJobs are registered on {Dns.GetHostName()}");
+
                 RegisterFetchDataTask(appSettings);
                 RegisterRetryDataTask(appSettings);
             }
@@ -314,14 +337,17 @@ namespace Affiliate.N88.Jobs.Middlewares
 
             RegisterTask<IFetchReferralLogDataTask>($"{typeof(IFetchReferralLogDataTask).Name}", appSettings.PullReferralLogSetting.PullInfoCron, job => job.FetchDataAsync());
 
-            RegisterTask<IFetchTpReport9WDataTask>($"{typeof(IFetchTpReport9WDataTask).Name}", appSettings.PullTpReport9WSetting.PullInfoCron, job => job.FetchDataAsync());
+            //RegisterTask<IFetchTpReport9WDataTask>($"{typeof(IFetchTpReport9WDataTask).Name}", appSettings.PullTpReport9WSetting.PullInfoCron, job => job.FetchDataAsync());
 
-            RegisterTask<IFetchTpWager9WDataTask>($"{typeof(IFetchTpWager9WDataTask).Name}", appSettings.PullTpWager9WSetting.PullInfoCron, job => job.FetchDataAsync());
+            //RegisterTask<IFetchTpWager9WDataTask>($"{typeof(IFetchTpWager9WDataTask).Name}", appSettings.PullTpWager9WSetting.PullInfoCron, job => job.FetchDataAsync());
         }
 
         private static void RegisterRetryDataTask(AppSettings appSettings)
         {
-            RegisterTask<IReInsertAffiliateInfoDataTask>($"{typeof(IReInsertAffiliateInfoDataTask).Name}", appSettings.InsertAffiliateSetting.PullInfoCron, job => job.HandleAsync());
+            if (appSettings.IsApiDataModifiable)
+            {
+                RegisterTask<IReInsertAffiliateInfoDataTask>($"{typeof(IReInsertAffiliateInfoDataTask).Name}", appSettings.InsertAffiliateSetting.PullInfoCron, job => job.HandleAsync());
+            }
         }
 
         private static void RegisterTask<T>(string serviceId, string cronExpression, Expression<Func<T, Task>> methodCall)

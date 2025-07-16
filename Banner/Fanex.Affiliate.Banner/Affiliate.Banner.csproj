@@ -210,6 +210,14 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Web.n88-banner.kldr.config">
+      <SubType>Designer</SubType>
+      <DependentUpon>Web.n88-banner.local.config</DependentUpon>
+    </Content>
+    <Content Include="Web.n8b-banner.kldr.config">
+      <SubType>Designer</SubType>
+      <DependentUpon>Web.n8b-banner.local.config</DependentUpon>
+    </Content>
     <Content Include="Web.n8b-banner.production.config">
       <SubType>Designer</SubType>
       <DependentUpon>Web.n8b-banner.local.config</DependentUpon>
@@ -217,6 +225,10 @@
     <Content Include="Web.n8b-banner.uat.config">
       <SubType>Designer</SubType>
       <DependentUpon>Web.n8b-banner.local.config</DependentUpon>
+    </Content>
+    <Content Include="Web.n8g-banner.kldr.config">
+      <SubType>Designer</SubType>
+      <DependentUpon>Web.n8g-banner.local.config</DependentUpon>
     </Content>
     <Content Include="Web.n8g-banner.uat.config">
       <SubType>Designer</SubType>
@@ -253,6 +265,15 @@
     </Content>
     <Content Include="Web.n88-banner.uat.config">
       <DependentUpon>Web.n88-banner.local.config</DependentUpon>
+    </Content>
+    <Content Include="Web.n88-banner.klprod.config">
+      <DependentUpon>Web.n88-banner.local.config</DependentUpon>
+    </Content>
+    <Content Include="Web.n8b-banner.klprod.config">
+      <DependentUpon>Web.n8b-banner.local.config</DependentUpon>
+    </Content>
+    <Content Include="Web.n8g-banner.klprod.config">
+      <DependentUpon>Web.n8g-banner.local.config</DependentUpon>
     </Content>
   </ItemGroup>
   <ItemGroup>

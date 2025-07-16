@@ -1,13 +1,17 @@
 ﻿using Affiliate.N88.Jobs.Configurations;
+using Affiliate.N88.Jobs.Extensions;
 using Affiliate.N88.Jobs.Middlewares;
 using Fanex.Logging;
-using Hangfire;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System.Net;
+using System;
+using Microsoft.Extensions.Hosting;
+using Hangfire;
 
 namespace Affiliate.N88.Jobs
 {
@@ -29,29 +33,60 @@ namespace Affiliate.N88.Jobs
             appSettings = new AppSettings();
             Configuration.GetSection("AppSettings").Bind(appSettings);
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            services.RegisterHangfire(Configuration);
-            services.RegisterServices(Configuration, appSettings);
+            services.AddControllers();
 
+            services.AddHttpContextAccessor();
+            services.AddHttpClient();
+
+            services.RegisterServices(Configuration, appSettings);
+            services.AddUnderMaintenance(Configuration);
+            services.AddSiteHealthChecks(Configuration);
+            services.RegisterHangfire(Configuration);
+            services.AddHttpsRedirection(options =>
+            {
+                const int httpsPort = 443;
+                options.HttpsPort = httpsPort;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             // Add This
-            app.UseHangfire(appSettings);
-            GlobalJobFilters.Filters.Add(new AutomaticRetryAttribute { Attempts = 0 });
+            app.UsePing();
+            app.UseDeveloperExceptionPage();
 
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseHsts();
+                app.UseWhen(
+                    context => !Dns.GetHostName().Contains(context.Request.Host.Host, StringComparison.OrdinalIgnoreCase),
+                    builder => builder.UseHttpsRedirection());
             }
-
-            app.UseMvc();
-
-            app.Run(async (context) =>
+            else
             {
-                await context.Response.WriteAsync("Site is running");
+                app.UseExceptionHandler("/Error");
+            }
+            app.UseMiddleware<ErrorHandler>();
+            app.UseSiteHealthChecks(Configuration);
+            app.UseForwardedHeaders(new ForwardedHeadersOptions
+            {
+                ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+            });
+
+            app.UseRouting();
+
+            GlobalJobFilters.Filters.Add(new AutomaticRetryAttribute { Attempts = 0 });
+            app.UseHangfire(appSettings);
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapDefaultControllerRoute();
+                endpoints.MapGet("/", async context =>
+                {
+                    await context.Response.WriteAsync("Hello, Affiliate NV CronJobs are running!");
+                });
             });
 
             Logger.Log.Info("Affiliate N88 Job started!");

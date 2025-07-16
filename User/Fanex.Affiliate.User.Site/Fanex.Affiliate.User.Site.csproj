@@ -311,161 +311,251 @@
     <AdditionalFiles Include="..\..\.sonarlint\aff.n88usersite\CSharp\SonarLint.xml">
       <Link>SonarLint.xml</Link>
     </AdditionalFiles>
+    <Content Include="App_Data\SpConfig\SpName.n88-user.kldr.xml">
+      <DependentUpon>_SpName.tt</DependentUpon>
+    </Content>
+    <Content Include="App_Data\SpConfig\SpName.n88-user.klprod.xml">
+      <DependentUpon>_SpName.tt</DependentUpon>
+    </Content>
+    <Content Include="App_Data\SpConfig\SpName.n88-user.local.xml">
+      <DependentUpon>_SpName.tt</DependentUpon>
+    </Content>
+    <Content Include="App_Data\SpConfig\SpName.n88-user.production.xml">
+      <DependentUpon>_SpName.tt</DependentUpon>
+    </Content>
+    <Content Include="App_Data\SpConfig\SpName.n88-user.uat.xml">
+      <DependentUpon>_SpName.tt</DependentUpon>
+    </Content>
+    <Content Include="App_Data\SpConfig\SpName.n8b-user.kldr.xml">
+      <DependentUpon>_SpName.tt</DependentUpon>
+    </Content>
+    <Content Include="App_Data\SpConfig\SpName.n8b-user.klprod.xml">
+      <DependentUpon>_SpName.tt</DependentUpon>
+    </Content>
+    <Content Include="App_Data\SpConfig\SpName.n8b-user.local.xml">
+      <DependentUpon>_SpName.tt</DependentUpon>
+    </Content>
+    <Content Include="App_Data\SpConfig\SpName.n8b-user.production.xml">
+      <DependentUpon>_SpName.tt</DependentUpon>
+    </Content>
+    <Content Include="App_Data\SpConfig\SpName.n8b-user.uat.xml">
+      <DependentUpon>_SpName.tt</DependentUpon>
+    </Content>
+    <Content Include="App_Data\SpConfig\SpName.n8g-user.kldr.xml">
+      <DependentUpon>_SpName.tt</DependentUpon>
+    </Content>
+    <Content Include="App_Data\SpConfig\SpName.n8g-user.klprod.xml">
+      <DependentUpon>_SpName.tt</DependentUpon>
+    </Content>
+    <Content Include="App_Data\SpConfig\SpName.n8g-user.local.xml">
+      <DependentUpon>_SpName.tt</DependentUpon>
+    </Content>
+    <Content Include="App_Data\SpConfig\SpName.n8g-user.production.xml">
+      <DependentUpon>_SpName.tt</DependentUpon>
+    </Content>
+    <Content Include="App_Data\SpConfig\SpName.n8g-user.uat.xml">
+      <DependentUpon>_SpName.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\AppSetting.n88-user.kldr.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\AppSetting.n88-user.klprod.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\AppSetting.n88-user.local.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\AppSetting.n88-user.production.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\AppSetting.n88-user.uat.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\AppSetting.n8b-user.kldr.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\AppSetting.n8b-user.klprod.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\AppSetting.n8b-user.local.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\AppSetting.n8b-user.production.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\AppSetting.n8b-user.uat.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\AppSetting.n8g-user.kldr.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\AppSetting.n8g-user.klprod.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\AppSetting.n8g-user.local.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\AppSetting.n8g-user.production.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\AppSetting.n8g-user.uat.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
+    <None Include="Configurations\AppSetting\Transform\n88.kldr.config">
+      <DependentUpon>n88.local.config</DependentUpon>
+    </None>
+    <None Include="Configurations\AppSetting\Transform\n8b.kldr.config">
+      <DependentUpon>n8b.local.config</DependentUpon>
+    </None>
+    <Content Include="Configurations\AppSetting\Transform\n88.klprod.config">
+      <DependentUpon>n88.local.config</DependentUpon>
+    </Content>
+    <None Include="Configurations\AppSetting\Transform\n8g.kldr.config">
+      <DependentUpon>n8g.local.config</DependentUpon>
+    </None>
+    <Content Include="Configurations\AppSetting\Transform\n8b.klprod.config">
+      <DependentUpon>n8b.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\Transform\n8g.klprod.config">
+      <DependentUpon>n8g.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88-user.kldr.config">
+      <DependentUpon>ConnectionString.n88-user.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88-user.klprod.config">
+      <DependentUpon>ConnectionString.n88-user.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88-user.production.config">
+      <DependentUpon>ConnectionString.n88-user.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88-user.uat.config">
+      <DependentUpon>ConnectionString.n88-user.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\ConnectionString\ConnectionString.n8b-user.kldr.config">
+      <DependentUpon>ConnectionString.n8b-user.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\ConnectionString\ConnectionString.n8b-user.klprod.config">
+      <DependentUpon>ConnectionString.n8b-user.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\ConnectionString\ConnectionString.n8b-user.production.config">
+      <DependentUpon>ConnectionString.n8b-user.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\ConnectionString\ConnectionString.n8b-user.uat.config">
+      <DependentUpon>ConnectionString.n8b-user.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\ConnectionString\ConnectionString.n8g-user.kldr.config">
+      <DependentUpon>ConnectionString.n8g-user.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\ConnectionString\ConnectionString.n8g-user.klprod.config">
+      <DependentUpon>ConnectionString.n8g-user.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\ConnectionString\ConnectionString.n8g-user.production.config">
+      <DependentUpon>ConnectionString.n8g-user.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\ConnectionString\ConnectionString.n8g-user.uat.config">
+      <DependentUpon>ConnectionString.n8g-user.local.config</DependentUpon>
+    </Content>
+    <None Include="Configurations\Web\Transform\n88.kldr.config">
+      <DependentUpon>n88.local.config</DependentUpon>
+    </None>
+    <None Include="Configurations\Web\Transform\n8b.kldr.config">
+      <DependentUpon>n8b.local.config</DependentUpon>
+    </None>
+    <Content Include="Configurations\Web\Transform\n88.klprod.config">
+      <DependentUpon>n88.local.config</DependentUpon>
+    </Content>
+    <None Include="Configurations\Web\Transform\n8g.kldr.config">
+      <DependentUpon>n8g.local.config</DependentUpon>
+    </None>
+    <Content Include="Configurations\Web\Transform\n8b.klprod.config">
+      <DependentUpon>n8b.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\Web\Transform\n8g.klprod.config">
+      <DependentUpon>n8g.local.config</DependentUpon>
+    </Content>
     <Content Include="HealthCheck.aspx" />
-    <Content Include="App_Data\SpConfig\SpName.n88user-n88.local.xml">
-      <DependentUpon>_SpName.tt</DependentUpon>
-    </Content>
-    <Content Include="App_Data\SpConfig\SpName.n88user-n88.production.xml">
-      <DependentUpon>_SpName.tt</DependentUpon>
-    </Content>
-    <Content Include="App_Data\SpConfig\SpName.n88user-n88.sit.xml">
-      <DependentUpon>_SpName.tt</DependentUpon>
-    </Content>
-    <Content Include="App_Data\SpConfig\SpName.n88user-n88.uat.xml">
-      <DependentUpon>_SpName.tt</DependentUpon>
-    </Content>
-    <Content Include="App_Data\SpConfig\SpName.n88user-n8b.local.xml">
-      <DependentUpon>_SpName.tt</DependentUpon>
-    </Content>
-    <Content Include="App_Data\SpConfig\SpName.n88user-n8b.production.xml">
-      <DependentUpon>_SpName.tt</DependentUpon>
-    </Content>
-    <Content Include="App_Data\SpConfig\SpName.n88user-n8b.sit.xml">
-      <DependentUpon>_SpName.tt</DependentUpon>
-    </Content>
-    <Content Include="App_Data\SpConfig\SpName.n88user-n8b.uat.xml">
-      <DependentUpon>_SpName.tt</DependentUpon>
-    </Content>
-    <Content Include="App_Data\SpConfig\SpName.n88user-n8g.local.xml">
-      <DependentUpon>_SpName.tt</DependentUpon>
-    </Content>
-    <Content Include="App_Data\SpConfig\SpName.n88user-n8g.production.xml">
-      <DependentUpon>_SpName.tt</DependentUpon>
-    </Content>
-    <Content Include="App_Data\SpConfig\SpName.n88user-n8g.sit.xml">
-      <DependentUpon>_SpName.tt</DependentUpon>
-    </Content>
-    <Content Include="App_Data\SpConfig\SpName.n88user-n8g.uat.xml">
-      <DependentUpon>_SpName.tt</DependentUpon>
-    </Content>
     <Content Include="App_Data\SpConfig\SpName.xml">
       <DependentUpon>_SpName.tt</DependentUpon>
     </Content>
-    <Content Include="App_Data\SpConfig\_SpName.txt">
+    <None Include="App_Data\SpConfig\_SpName.txt">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>_SpName.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\AppSetting\AppSetting.n88user-n88.local.config">
-      <DependentUpon>AppSetting.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\AppSetting\AppSetting.n88user-n88.production.config">
-      <DependentUpon>AppSetting.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\AppSetting\AppSetting.n88user-n88.uat.config">
-      <DependentUpon>AppSetting.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\AppSetting\AppSetting.n88user-n8b.local.config">
-      <DependentUpon>AppSetting.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\AppSetting\AppSetting.n88user-n8b.production.config">
-      <DependentUpon>AppSetting.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\AppSetting\AppSetting.n88user-n8b.uat.config">
-      <DependentUpon>AppSetting.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\AppSetting\AppSetting.n88user-n8g.local.config">
-      <DependentUpon>AppSetting.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\AppSetting\AppSetting.n88user-n8g.production.config">
-      <DependentUpon>AppSetting.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\AppSetting\AppSetting.n88user-n8g.uat.config">
-      <DependentUpon>AppSetting.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\AppSetting\AppSetting.txt">
+    </None>
+    <None Include="Configurations\AppSetting\AppSetting.txt">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AppSetting.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\AppSetting\Transform\n88.production.config">
+    </None>
+    <None Include="Configurations\AppSetting\Transform\n88.production.config">
       <DependentUpon>n88.local.config</DependentUpon>
-    </Content>
-    <Content Include="Configurations\AppSetting\Transform\n88.uat.config">
+    </None>
+    <None Include="Configurations\AppSetting\Transform\n88.uat.config">
       <DependentUpon>n88.local.config</DependentUpon>
-    </Content>
-    <Content Include="Configurations\AppSetting\Transform\n8b.production.config">
+    </None>
+    <None Include="Configurations\AppSetting\Transform\n8b.production.config">
       <DependentUpon>n8b.local.config</DependentUpon>
-    </Content>
-    <Content Include="Configurations\AppSetting\Transform\n8b.uat.config">
+    </None>
+    <None Include="Configurations\AppSetting\Transform\n8b.uat.config">
       <DependentUpon>n8b.local.config</DependentUpon>
-    </Content>
-    <Content Include="Configurations\AppSetting\Transform\n8g.production.config">
+    </None>
+    <None Include="Configurations\AppSetting\Transform\n8g.production.config">
       <DependentUpon>n8g.local.config</DependentUpon>
-    </Content>
-    <Content Include="Configurations\AppSetting\Transform\n8g.uat.config">
+    </None>
+    <None Include="Configurations\AppSetting\Transform\n8g.uat.config">
       <DependentUpon>n8g.local.config</DependentUpon>
-    </Content>
-    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n88.production.config">
-      <DependentUpon>ConnectionString.n88user-n88.local.config</DependentUpon>
-    </Content>
-    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n88.uat.config">
-      <DependentUpon>ConnectionString.n88user-n88.local.config</DependentUpon>
-    </Content>
-    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n8b.production.config">
-      <DependentUpon>ConnectionString.n88user-n8b.local.config</DependentUpon>
-    </Content>
-    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n8b.uat.config">
-      <DependentUpon>ConnectionString.n88user-n8b.local.config</DependentUpon>
-    </Content>
-    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n8g.production.config">
-      <DependentUpon>ConnectionString.n88user-n8g.local.config</DependentUpon>
-    </Content>
-    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n8g.uat.config">
-      <DependentUpon>ConnectionString.n88user-n8g.local.config</DependentUpon>
-    </Content>
-    <Content Include="Configurations\Web\Transform\n88.production.config">
+    </None>
+    <None Include="Configurations\Web\Transform\n88.production.config">
       <DependentUpon>n88.local.config</DependentUpon>
-    </Content>
-    <Content Include="Configurations\Web\Transform\n88.uat.config">
+    </None>
+    <None Include="Configurations\Web\Transform\n88.uat.config">
       <DependentUpon>n88.local.config</DependentUpon>
-    </Content>
-    <Content Include="Configurations\Web\Transform\n8b.production.config">
+    </None>
+    <None Include="Configurations\Web\Transform\n8b.production.config">
       <DependentUpon>n8b.local.config</DependentUpon>
-    </Content>
-    <Content Include="Configurations\Web\Transform\n8b.uat.config">
+    </None>
+    <None Include="Configurations\Web\Transform\n8b.uat.config">
       <DependentUpon>n8b.local.config</DependentUpon>
-    </Content>
-    <Content Include="Configurations\Web\Transform\n8g.production.config">
+    </None>
+    <None Include="Configurations\Web\Transform\n8g.production.config">
       <DependentUpon>n8g.local.config</DependentUpon>
-    </Content>
-    <Content Include="Configurations\Web\Transform\n8g.uat.config">
+    </None>
+    <None Include="Configurations\Web\Transform\n8g.uat.config">
       <DependentUpon>n8g.local.config</DependentUpon>
+    </None>
+    <Content Include="Configurations\Web\Web.n88-user.klprod.config">
+      <DependentUpon>Web.tt</DependentUpon>
     </Content>
-    <Content Include="Configurations\Web\Web.txt">
+    <Content Include="Configurations\Web\Web.n8b-user.klprod.config">
+      <DependentUpon>Web.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\Web\Web.n8g-user.klprod.config">
+      <DependentUpon>Web.tt</DependentUpon>
+    </Content>
+    <None Include="Configurations\Web\Web.txt">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Web.tt</DependentUpon>
-    </Content>
-    <Content Include="App_Data\SpConfig\_SpName.tt">
+    </None>
+    <None Include="App_Data\SpConfig\_SpName.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>_SpName.txt</LastGenOutput>
-    </Content>
-    <Content Include="App_Data\SpConfig\_SpNameConfig.xml">
+    </None>
+    <None Include="App_Data\SpConfig\_SpNameConfig.xml">
       <SubType>Designer</SubType>
-    </Content>
-    <Content Include="App_Data\SpConfig\_SpNameOriginal.xml">
+    </None>
+    <None Include="App_Data\SpConfig\_SpNameOriginal.xml">
       <SubType>Designer</SubType>
-    </Content>
-    <Content Include="App_Data\SpConfig\_SpNameConfiguration.ttinclude" />
+    </None>
+    <None Include="App_Data\SpConfig\_SpNameConfiguration.ttinclude" />
     <None Include="Configurations\AppSetting\AppSetting.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>AppSetting.txt</LastGenOutput>
     </None>
-    <Content Include="Configurations\Web\Web.tt">
+    <None Include="Configurations\Web\Web.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Web.txt</LastGenOutput>
-    </Content>
+    </None>
     <Content Include="favicon-n88.ico" />
     <Content Include="favicon-n8b.ico" />
     <Content Include="favicon-n8g.ico" />
@@ -474,24 +564,45 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="karma.conf.js" />
-    <Content Include="Configurations\AppSetting\Transform\n88.local.config" />
-    <Content Include="Configurations\Web\Transform\n88.local.config" />
-    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n88.local.config" />
-    <Content Include="Configurations\Web\Web.n88user-n88.production.config">
+    <None Include="Configurations\AppSetting\Transform\n88.local.config" />
+    <None Include="Configurations\Web\Transform\n88.local.config" />
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88-user.local.config" />
+    <Content Include="Configurations\Web\Web.n88-user.kldr.config">
       <DependentUpon>Web.tt</DependentUpon>
     </Content>
-    <Content Include="Configurations\Web\Web.n88user-n88.uat.config">
+    <Content Include="Configurations\Web\Web.n88-user.local.config">
       <DependentUpon>Web.tt</DependentUpon>
     </Content>
-    <None Include="Configurations\Web\Web.n88user-n88.local.config">
+    <Content Include="Configurations\Web\Web.n88-user.production.config">
       <DependentUpon>Web.tt</DependentUpon>
-    </None>
-    <None Include="Configurations\Web\Web.n88user-n8b.local.config">
+    </Content>
+    <Content Include="Configurations\Web\Web.n88-user.uat.config">
       <DependentUpon>Web.tt</DependentUpon>
-    </None>
-    <None Include="Configurations\Web\Web.n88user-n8g.local.config">
+    </Content>
+    <Content Include="Configurations\Web\Web.n8b-user.kldr.config">
       <DependentUpon>Web.tt</DependentUpon>
-    </None>
+    </Content>
+    <Content Include="Configurations\Web\Web.n8b-user.local.config">
+      <DependentUpon>Web.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\Web\Web.n8b-user.production.config">
+      <DependentUpon>Web.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\Web\Web.n8b-user.uat.config">
+      <DependentUpon>Web.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\Web\Web.n8g-user.kldr.config">
+      <DependentUpon>Web.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\Web\Web.n8g-user.local.config">
+      <DependentUpon>Web.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\Web\Web.n8g-user.production.config">
+      <DependentUpon>Web.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\Web\Web.n8g-user.uat.config">
+      <DependentUpon>Web.tt</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -508,8 +619,8 @@
     </Content>
     <Content Include="App_Code\RazorHelper.cshtml" />
     <Content Include="Views\Password\Update.cshtml" />
-    <Content Include="Configurations\AppSetting\Transform\n8g.local.config" />
-    <Content Include="Configurations\Web\Transform\n8g.local.config" />
+    <None Include="Configurations\AppSetting\Transform\n8g.local.config" />
+    <None Include="Configurations\Web\Transform\n8g.local.config" />
     <Content Include="Views\Shared\Email\RecoverPassword\Content.en-US.cshtml" />
     <Content Include="Views\Shared\Email\RecoverPassword\Content.id-ID.cshtml" />
     <Content Include="Views\Shared\Email\RecoverPassword\Content.th-TH.cshtml" />
@@ -1384,22 +1495,10 @@
     <Content Include="Views\UserPanel\AccountOverView\MediaGallery\Index.cshtml" />
     <Content Include="Views\UserPanel\AccountOverView\Partial\_GeneratedQrCode.cshtml" />
     <Content Include="www\source\styles\scss\base\_flex.scss" />
-    <Content Include="Configurations\Web\Transform\n8b.local.config" />
-    <Content Include="Configurations\AppSetting\Transform\n8b.local.config" />
-    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n8b.local.config" />
-    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n8g.local.config" />
-    <Content Include="Configurations\Web\Web.n88user-n8b.production.config">
-      <DependentUpon>Web.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\Web\Web.n88user-n8b.uat.config">
-      <DependentUpon>Web.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\Web\Web.n88user-n8g.production.config">
-      <DependentUpon>Web.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\Web\Web.n88user-n8g.uat.config">
-      <DependentUpon>Web.tt</DependentUpon>
-    </Content>
+    <None Include="Configurations\Web\Transform\n8b.local.config" />
+    <None Include="Configurations\AppSetting\Transform\n8b.local.config" />
+    <Content Include="Configurations\ConnectionString\ConnectionString.n8b-user.local.config" />
+    <Content Include="Configurations\ConnectionString\ConnectionString.n8g-user.local.config" />
     <Content Include="www\source\styles\scss\themes\n8g.scss" />
     <Content Include="www\source\styles\scss\themes\n8b.scss" />
     <Content Include="www\source\styles\scss\abstracts\_variables-n8g.scss" />
@@ -1610,6 +1709,7 @@
     <Content Include="Views\Shared\Email\VerificationAccount\Content.km-KH.cshtml" />
     <Content Include="www\source\styles\scss\components\_telegram-update-dialog.scss" />
     <Content Include="www\source\styles\scss\components\_revenue-notice-dialog.scss" />
+    <Content Include="Views\Test\AccessApi.cshtml" />
     <Content Include="www\build\styles\Images\home\n8g\main.desktop.en-US.webp" />
     <Content Include="www\build\styles\Images\home\n8g\main.desktop.vi-VN.webp" />
     <Content Include="www\build\styles\Images\home\n8g\main.mobile.en-US.webp" />

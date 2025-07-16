@@ -258,6 +258,14 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Web.n8b-go.kldr.config">
+      <SubType>Designer</SubType>
+      <DependentUpon>Web.n8b-go.local.config</DependentUpon>
+    </Content>
+    <Content Include="Web.n88-go.kldr.config">
+      <SubType>Designer</SubType>
+      <DependentUpon>Web.n88-go.local.config</DependentUpon>
+    </Content>
     <Content Include="Web.n8b-go.production.config">
       <DependentUpon>Web.n8b-go.local.config</DependentUpon>
     </Content>
@@ -290,6 +298,10 @@
     </Content>
     <Content Include="Fanex.Affiliate.Link.ruleset" />
     <Content Include="Web.n8b-go.local.config" />
+    <Content Include="Web.n8g-go.kldr.config">
+      <SubType>Designer</SubType>
+      <DependentUpon>Web.n8g-go.local.config</DependentUpon>
+    </Content>
     <Content Include="Web.n8g-go.local.config" />
     <Content Include="Web.n8g-go.production.config">
       <DependentUpon>Web.n8g-go.local.config</DependentUpon>
@@ -305,6 +317,15 @@
       <DependentUpon>Web.n88-go.local.config</DependentUpon>
     </Content>
     <Content Include="Views\UnderMaintenance\Index.cshtml" />
+    <Content Include="Web.n88-go.klprod.config">
+      <DependentUpon>Web.n88-go.local.config</DependentUpon>
+    </Content>
+    <Content Include="Web.n8b-go.klprod.config">
+      <DependentUpon>Web.n8b-go.local.config</DependentUpon>
+    </Content>
+    <Content Include="Web.n8g-go.klprod.config">
+      <DependentUpon>Web.n8g-go.local.config</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.6.7.1.4347\analyzers\Google.Protobuf.dll" />
