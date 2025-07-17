@@ -81,6 +81,7 @@
             var model = new MyAccountViewModel
             {
                 AccountInformation = newAccountInfo,
+                IsMarketingAccount = _sessionService.UserSession.IsMarketingAccount,
                 BaseCurrencyList = CurrencyHelper.GetCurrencyList(baseCurrencyList, newAccountInfo.DefaultBaseCurrency)
             };
 

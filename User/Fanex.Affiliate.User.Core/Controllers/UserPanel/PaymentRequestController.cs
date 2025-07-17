@@ -147,6 +147,7 @@
                 MinAmount = paymentParam.MinAmount,
                 PreferredPayment = paymentParam.PreferredPayment,
                 PendingPayment = paymentList.FirstOrDefault(p => p.Status.MatchWith(PaymentStatus.Processing)),
+                IsMarketingAccount = SessionService.UserSession.IsMarketingAccount,
                 IsValidDate = true
             };
 
