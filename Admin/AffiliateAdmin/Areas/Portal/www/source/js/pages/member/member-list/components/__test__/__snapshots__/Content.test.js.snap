@@ -87,10 +87,7 @@ exports[`member list - components - Content  render correctly 1`] = `
               onClick={[Function]}
               sortable={false}
               sorting={false}
-              title="B2CAFF017"
-            >
-              B2CAFF017
-            </t>
+            />
             <t
               asc={true}
               className="text-center"
@@ -210,10 +207,7 @@ exports[`member list - components - Content  render correctly 1`] = `
               onClick={[Function]}
               sortable={false}
               sorting={false}
-              title="B2CAFF177"
-            >
-              B2CAFF177
-            </t>
+            />
             <t
               asc={true}
               className="text-center"
@@ -513,10 +507,7 @@ exports[`member list - components - Content  render correctly with NotificationP
               onClick={[Function]}
               sortable={false}
               sorting={false}
-              title="B2CAFF017"
-            >
-              B2CAFF017
-            </t>
+            />
             <t
               asc={true}
               className="text-center"
@@ -636,10 +627,7 @@ exports[`member list - components - Content  render correctly with NotificationP
               onClick={[Function]}
               sortable={false}
               sorting={false}
-              title="B2CAFF177"
-            >
-              B2CAFF177
-            </t>
+            />
             <t
               asc={true}
               className="text-center"

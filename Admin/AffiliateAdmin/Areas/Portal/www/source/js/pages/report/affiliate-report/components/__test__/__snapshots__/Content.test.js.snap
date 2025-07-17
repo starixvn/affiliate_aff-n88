@@ -65,7 +65,7 @@ exports[`affiliate report - Content  N8B - should render correctly when currentV
           SingleHeaderColumn {
             "key": "Fdm",
             "showable": true,
-            "text": "FDM",
+            "text": "FTD",
           },
           SingleHeaderColumn {
             "key": "ActiveMember",
@@ -275,7 +275,7 @@ exports[`affiliate report - Content  should render correctly when currentViewLev
           SingleHeaderColumn {
             "key": "Fdm",
             "showable": true,
-            "text": "FDM",
+            "text": "FTD",
           },
           SingleHeaderColumn {
             "key": "ActiveMember",
@@ -493,7 +493,7 @@ exports[`affiliate report - Content  should render correctly when currentViewLev
           SingleHeaderColumn {
             "key": "Fdm",
             "showable": true,
-            "text": "FDM",
+            "text": "FTD",
           },
           SingleHeaderColumn {
             "key": "ActiveMember",

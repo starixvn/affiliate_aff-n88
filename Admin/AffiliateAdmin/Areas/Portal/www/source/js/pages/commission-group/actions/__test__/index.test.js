@@ -184,6 +184,8 @@ describe('commission group actions', () => {
                 Description: "",
                 GroupId: 0,
                 GroupName: "",
+                IsCheckedMinFTDCount: false,
+                IsCheckedMinTotalDeposit: false,
                 PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4" }],
                 TierSettingList: []
             },
@@ -192,7 +194,6 @@ describe('commission group actions', () => {
         ajaxRequest.post = jest.fn(() => Promise.resolve(expectedResponse));
 
         const expectedAction = [
-            { type: types.SET_SELECTED_PRODUCT_IDS, data: [2, 5] },
             { type: types.SET_SELECTED_GROUP, data: expectedResponse.data }
         ];
         const param = {
@@ -210,7 +211,6 @@ describe('commission group actions', () => {
         ajaxRequest.post = jest.fn();
 
         const expectedAction = [
-            { type: types.SET_SELECTED_PRODUCT_IDS, data: [] },
             { type: types.SET_SELECTED_GROUP, data: null }
         ];
         const param = {

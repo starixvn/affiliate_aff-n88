@@ -857,10 +857,10 @@ exports[`affiliate report - GridData  should render correctly 1`] = `
           </th>
           <th
             rowSpan="2"
-            title="FDM"
+            title="FTD"
             width={55}
           >
-            FDM
+            FTD
           </th>
           <th
             rowSpan="2"
@@ -1594,10 +1594,10 @@ exports[`affiliate report - GridData  should render correctly with _renderHeader
     </th>
     <th
       rowSpan="2"
-      title="FDM"
+      title="FTD"
       width={55}
     >
-      FDM
+      FTD
     </th>
     <th
       rowSpan="2"
@@ -1821,10 +1821,10 @@ exports[`affiliate report - GridData  should render correctly with _renderHeader
     </th>
     <th
       rowSpan="2"
-      title="FDM"
+      title="FTD"
       width={55}
     >
-      FDM
+      FTD
     </th>
     <th
       rowSpan="2"
@@ -2053,10 +2053,10 @@ exports[`affiliate report - GridData  should render correctly with empty data 1`
           </th>
           <th
             rowSpan="2"
-            title="FDM"
+            title="FTD"
             width={55}
           >
-            FDM
+            FTD
           </th>
           <th
             rowSpan="2"

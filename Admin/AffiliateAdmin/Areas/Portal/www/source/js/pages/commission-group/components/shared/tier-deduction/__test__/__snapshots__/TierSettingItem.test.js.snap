@@ -4,11 +4,10 @@ exports[`commission group - TierSettingItem Should render correctly 1`] = `
 <tr>
   <td
     className="text-center"
-  >
-    1
-  </td>
+  />
   <td>
     <Input
+      className=""
       id="MinAmount1"
       name="MinAmount"
       onChange={[Function]}
@@ -18,11 +17,33 @@ exports[`commission group - TierSettingItem Should render correctly 1`] = `
   </td>
   <td>
     <Input
-      id="MinAp1"
-      name="MinAp"
+      id="MinQm1"
+      name="MinQm"
       onChange={[Function]}
       type="text"
       value="0"
+    />
+  </td>
+  <td>
+    <Input
+      className=""
+      disabled={true}
+      id="MinFTDCount1"
+      name="MinFTDCount"
+      onChange={[Function]}
+      type="text"
+      value="10"
+    />
+  </td>
+  <td>
+    <Input
+      className=""
+      disabled={true}
+      id="MinTotalDeposit1"
+      name="MinTotalDeposit"
+      onChange={[Function]}
+      type="text"
+      value="100"
     />
   </td>
   <td>
@@ -6044,22 +6065,21 @@ exports[`commission group - TierSettingItem Should render correctly 1`] = `
     className="text-center"
   >
     <button
-      className="btn btn-action"
+      className="btn btn-tier"
       type="button"
     />
   </td>
 </tr>
 `;
 
-exports[`commission group - TierSettingItem Should render correctly with MaxAmout, MaxAp 1`] = `
+exports[`commission group - TierSettingItem Should render correctly with MaxAmout, MaxQm, MaxFTDCount, MaxTotalDeposit 1`] = `
 <tr>
   <td
     className="text-center"
-  >
-    1
-  </td>
+  />
   <td>
     <Input
+      className=""
       id="MinAmount1"
       name="MinAmount"
       onChange={[Function]}
@@ -6069,11 +6089,33 @@ exports[`commission group - TierSettingItem Should render correctly with MaxAmou
   </td>
   <td>
     <Input
-      id="MinAp1"
-      name="MinAp"
+      id="MinQm1"
+      name="MinQm"
       onChange={[Function]}
       type="text"
       value="10"
+    />
+  </td>
+  <td>
+    <Input
+      className=""
+      disabled={true}
+      id="MinFTDCount1"
+      name="MinFTDCount"
+      onChange={[Function]}
+      type="text"
+      value="10"
+    />
+  </td>
+  <td>
+    <Input
+      className=""
+      disabled={true}
+      id="MinTotalDeposit1"
+      name="MinTotalDeposit"
+      onChange={[Function]}
+      type="text"
+      value="100"
     />
   </td>
   <td>
@@ -12095,7 +12137,7 @@ exports[`commission group - TierSettingItem Should render correctly with MaxAmou
     className="text-center"
   >
     <button
-      className="btn btn-action"
+      className="btn btn-tier"
       type="button"
     />
   </td>

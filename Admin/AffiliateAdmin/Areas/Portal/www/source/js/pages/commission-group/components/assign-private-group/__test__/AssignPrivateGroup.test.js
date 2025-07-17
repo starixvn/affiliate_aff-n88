@@ -1,5 +1,6 @@
 ﻿import React from 'react';
 import { AssignPrivateGroup } from '../AssignPrivateGroup';
+import { tierSettingDefault } from '../../../modules/constant';
 import { shallow } from 'enzyme';
 import * as ajaxRequest from '../../../../../modules/ajaxRequest';
 
@@ -13,8 +14,11 @@ describe('commission group - assign private group', () => {
         GroupTypeId: 1,
         SubAffCommRate: 0.1,
         IsActivePlayerSum: true,
-        PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4", GroupProductId: 0, IsDeductedPercent: true, DeductedAmount: "" }],
-        TierSettingList: [],
+        IsCheckedMinFTDCount: false,
+        IsCheckedMinTotalDeposit: false,
+        QmTurnover: 100,
+        PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,2,3,4,5", GroupProductId: 0, IsDeductedPercent: true, DeductedAmount: "" }],
+        TierSettingList: [tierSettingDefault],
         KillRateFeeList: [{ DeductedPercentage: 0.03, DeductionId: 16, ProductIds: "", GroupProductId: 0, IsDeductedPercent: true, DeductedAmount: "" }],
     };
 
@@ -24,7 +28,8 @@ describe('commission group - assign private group', () => {
         Description: "",
         GroupId: 0,
         GroupName: "",
-        PlatformFeeList: [{ GroupProductId: 123, DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4" }],
+        QmTurnover: 100,
+        PlatformFeeList: [{ GroupProductId: 123, DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,2,3,4,5" }],
         TierSettingList: [{ GroupProductId: 123, TierId: 1, MinAmount: 0, MinQm: 5, Commission: 0 }],
         KillRateFeeList: [{ GroupProductId: 123, DeductedPercentage: 0.17, DeductionId: 16, ProductIds: "" }],
     };
@@ -213,7 +218,7 @@ describe('commission group - assign private group', () => {
 
         const result = wrapper.instance()._validate();
 
-        expect(result).toEqual({ isValid: false, messageList: ["Min Net Win must be lesser than or equal to 1,000,000,000!"] });
+        expect(result).toEqual({ isValid: false, messageList: ["Product Groups 1 - Min Net Win must be lesser than or equal to 100,000,000,000"] });
     })
     it('_validate - TierSettingList has MinQm > MaxQm', () => {
         const selected_Group = Object.assign({}, selectedGroup, { TierSettingList: [{ TierId: 1, MinAmount: 10, MaxAmount: 100000000000, MinQm: 10000000000, MaxQm: 1000000000, Commission: 0 }] });
@@ -222,7 +227,7 @@ describe('commission group - assign private group', () => {
 
         const result = wrapper.instance()._validate();
 
-        expect(result).toEqual({ isValid: false, messageList: ["Min Qualified Player must be lesser than or equal to 100,000,000,000!"] });
+        expect(result).toEqual({ isValid: false, messageList: ["Product Groups 1 - Min Qualified Player must be lesser than or equal to 1,000,000,000"] });
     })
 
     it('_validate - PlatformFeeList has ProductId is null', () => {

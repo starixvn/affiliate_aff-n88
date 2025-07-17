@@ -2,6 +2,7 @@
 import { AddGroup } from '../AddGroup';
 import { shallow } from 'enzyme';
 import { defaultPagingOption } from '../../../../../modules/constants';
+import { tierSettingDefault } from '../../../modules/constant';
 
 describe('commission group - AddGroup', () => {
     const expectParam = {
@@ -13,9 +14,11 @@ describe('commission group - AddGroup', () => {
         GroupTypeId: 1,
         SubAffCommRate: 0.1,
         IsActivePlayerSum: true,
+        IsCheckedMinFTDCount: false,
+        IsCheckedMinTotalDeposit: false,
         PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4", GroupProductId: 0, IsDeductedPercent: true, DeductedAmount: "" }],
-        TierSettingList: [],
-        KillRateFeeList: [{ DeductedPercentage: 0.05, DeductionId: 16, ProductIds: "", GroupProductId: 0, IsDeductedPercent: true, DeductedAmount: "" }],
+        TierSettingList: [...tierSettingDefault],
+        KillRateFeeList: [{ DeductedPercentage: 0.05, DeductionId: 16, ProductIds: "1,3,4", GroupProductId: 0, IsDeductedPercent: true, DeductedAmount: "" }],
     };
     const defaultProps = {
         deductionList: [
@@ -40,7 +43,7 @@ describe('commission group - AddGroup', () => {
             GroupName: "",
             PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4", IsDeductedPercent: true, DeductedAmount: "" }],
             TierSettingList: [],
-            KillRateFeeList: [{ DeductedPercentage: 0.05, DeductionId: 16, ProductIds: "", IsDeductedPercent: true, DeductedAmount: "" }],
+            KillRateFeeList: [{ DeductedPercentage: 0.05, DeductionId: 16, ProductIds: "1,3,4", IsDeductedPercent: true, DeductedAmount: "" }],
         },
         pagingOption: defaultPagingOption,
         searchedGroupName: '',
