@@ -35,7 +35,7 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Customer
 
         public string MoreSiteUrl { get; set; }
 
-        public string NoSiteDescription { get; set; }
+        public string NoSiteDesc { get; set; }
 
         [JsonIgnore]
         public DateTime? LastLoginDate { get; set; }

@@ -9,6 +9,7 @@ import { defaultFilterParams } from '../libs/constants';
 
 const languageCodeList = createReducer({}, {});
 const dealOptionsList = createReducer({}, {});
+const licenseeName = createReducer(null, {});
 const canAddAffMktAccount = createReducer(false, {});
 const defaultAff = {
     affId: '',
@@ -37,6 +38,7 @@ export default combineReducers({
     params,
     pagingOption,
     isShowLoader,
+    licenseeName,
     languageCodeList,
     canAddAffMktAccount,
     isShowAddAffMktAccountPopup,

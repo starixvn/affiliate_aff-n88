@@ -15,12 +15,14 @@ import { toggleLoader } from './../../../actions/loaderAction';
 import useNewMarketingAccountData from '../hooks/useNewMarketingAccountData';
 
 export const AddAffMktAccountPopup = ({ 
-    aff, 
+    aff,
+    licenseeName,
     isShowAddAffMktAccountPopup, 
+    params,
     toggle, 
-    toggleLoader, 
+    toggleLoader,
     setIsShowAddAffMktAccountPopup,
-    params, setParam
+    setParam
 }) => {
     const modalBodyRef = useRef();
     
@@ -80,10 +82,12 @@ export const AddAffMktAccountPopup = ({
                     <Additional additionalInfo={additionalInfo} setAdditionalInfo={setAdditionalInfo}/>
                     <EmailFormat generalInfo={generalInfo} setGeneralInfo={setGeneralInfo} />
                     <WebSite
+                        licenseeName={licenseeName}
                         websiteInfo={websiteInfo}
                         setWebsiteInfo={setWebsiteInfo}
                     />
                     <Payment
+                        licenseeName={licenseeName}
                         paymentInfo={paymentInfo}
                         setPaymentInfo={setPaymentInfo}
                         minimumPayment={minimumPayment}
@@ -98,9 +102,10 @@ export const AddAffMktAccountPopup = ({
     );
 };
 
-const mapStateToProps = ({ aff, isShowAddAffMktAccountPopup, params }) => {
+const mapStateToProps = ({ aff, licenseeName, isShowAddAffMktAccountPopup, params }) => {
     return {
         aff,
+        licenseeName,
         isShowAddAffMktAccountPopup,
         params
     }

@@ -46,7 +46,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.ThirdPartyLicensee
                 Email = affInfo.Email,
                 Status = affInfo.Status,
                 CustId = affInfo.PlayerCustId,
-                ParentAffiliate = affInfo.ParentAffiliateName,
+                ParentAffiliate = affInfo.ParentAffName,
                 SiteId = _appSetting.MemberSiteId
             };
             var (Id, Result) = _trackerRepository.InsertDataTracker(new InsertDataTrackerDTO

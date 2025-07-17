@@ -55,7 +55,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.UserPanel
                         Country = Server.HtmlDecode(userAccountInfo.Country),
                         SiteUrl = Server.HtmlDecode(userAccountInfo.SiteUrl),
                         MoreSiteUrls = Server.HtmlDecode(userAccountInfo.MoreSiteUrls),
-                        NoSiteDescription = Server.HtmlDecode(userAccountInfo.NoSiteDescription),
+                        NoSiteDesc = Server.HtmlDecode(userAccountInfo.NoSiteDesc),
                         PreferredPayment = Server.HtmlDecode(userAccountInfo.PreferredPayment),
                         PlayerUsername = Server.HtmlDecode(userAccountInfo.PlayerUsername),
                         NetellerAccountId = Server.HtmlDecode(userAccountInfo.NetellerAccountId),
@@ -67,7 +67,6 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.UserPanel
                         BankAccountNumber = Server.HtmlDecode(userAccountInfo.BankAccountNumber),
                         Question = Server.HtmlDecode(userAccountInfo.Question),
                         Answer = Server.HtmlDecode(userAccountInfo.Answer),
-                        HasHostAffPersonalInfoPermission = SessionService.HasHostPermission(Function.AffPersonalInfo),
                         MailOption = userAccountInfo.MailOption,
                         AffCategoryDesc = Server.HtmlDecode(userAccountInfo.AffCategoryDesc)
                     };
@@ -112,7 +111,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.UserPanel
                     Country = Server.HtmlEncode(param.Country),
                     SiteUrl = Server.HtmlEncode(param.SiteUrl),
                     MoreSiteUrls = Server.HtmlEncode(param.MoreSiteUrls),
-                    NoSiteDescription = Server.HtmlEncode(param.NoSiteDescription),
+                    NoSiteDesc = Server.HtmlEncode(param.NoSiteDesc),
                     PreferredPayment = Server.HtmlEncode(param.PreferredPayment),
                     PlayerUsername = Server.HtmlEncode(param.PlayerUsername),
                     NetellerAccountId = Server.HtmlEncode(param.NetellerAccountId),
@@ -124,7 +123,6 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.UserPanel
                     BankAccountNumber = Server.HtmlEncode(param.BankAccountNumber),
                     MailOption = param.MailOption,
                     HasWebSite = param.HasWebSite,
-                    HasHostAffPersonalInfoPermission = SessionService.HasHostPermission(Function.AffPersonalInfo),
                     IsMarketingAccount = param.IsMarketingAccount
                 };
                 AssignUserInfoParam(userAccountParam);

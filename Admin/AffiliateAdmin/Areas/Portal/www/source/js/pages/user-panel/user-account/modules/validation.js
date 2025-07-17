@@ -59,7 +59,7 @@ const validateContactApps = (contactApps, isMarketingAccount) => {
 
 export const validateUserAccount = (userAccountInfo, moreSiteUrlsList, licenseeName) => {
     let message = '';
-    const selectedField = userAccountInfo.HasWebSite ? 'SiteUrl' : 'NoSiteDescription';
+    const selectedField = userAccountInfo.HasWebSite ? 'SiteUrl' : 'NoSiteDesc';
 
     message += validateEmail(userAccountInfo);
     message += validateGender(userAccountInfo);
@@ -81,7 +81,7 @@ export const validateUserAccount = (userAccountInfo, moreSiteUrlsList, licenseeN
 
 const validateEmail = (userAccountInfo) => {
     const checkEmail = new RegExp(regexEmail);
-    const isValidEmail = !userAccountInfo.HasHostAffPersonalInfoPermission || checkEmail.test(userAccountInfo.Email);
+    const isValidEmail = checkEmail.test(userAccountInfo.Email);
     return isValidEmail ? "" : messageList.Email + "<br />";
 }
 

@@ -1,9 +1,8 @@
 ﻿import { regexEmail } from '../../user-panel/user-account/modules/constants';
 
-export const validationEmail = (email, hasHostAffPersonalInfoPermission) => {
+export const validationEmail = (email) => {
     const checkEmail = new RegExp(regexEmail);
-    const isValidEmail = !hasHostAffPersonalInfoPermission
-        || !email
+    const isValidEmail = !email
         || checkEmail.test(email);
 
     return isValidEmail

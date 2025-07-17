@@ -127,7 +127,7 @@ export class Filter extends Component {
         const affCodeTitle = affCode && space + resource.AffCodeContains + apostrophe + affCode + apostrophe;
         const affPlayerTitle = affPlayer && space + resource.AffPlayerContains + apostrophe + affPlayer + apostrophe;
 
-        return `${resource.ReportName}${space}${commGroupTitle.toUpperCase()}${space}${space}${languageTitle.toUpperCase()}${space}${statusTitle.toUpperCase()}`
+        return `${resource.ReportName}${space}${commGroupTitle.toUpperCase()}${space}${languageTitle.toUpperCase()}${space}${statusTitle.toUpperCase()}`
             + `${userNameTitle}${emailTitle}${affCodeTitle}${affPlayerTitle}`;
     }
 

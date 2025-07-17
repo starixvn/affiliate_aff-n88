@@ -12,8 +12,6 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Affiliate
 
         public string AffCode { get; set; }
 
-        public string UserName { get; set; }
-
         public string Status { get; set; }
 
         public bool IsPrivate { get; set; }
@@ -47,7 +45,7 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Affiliate
 
         public string State { get; set; }
 
-        public string Postal { get; set; }
+        public string Postcode { get; set; }
 
         public string Country { get; set; }
 
@@ -76,8 +74,6 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Affiliate
         public string PlayerCurrencyId { get; set; }
 
         public bool? MailOption { get; set; }
-
-        public bool HasHostAffPersonalInfoPermission { get; set; }
 
         public IEnumerable<ContactApp> ContactAppList { get; set; }
 

@@ -44,7 +44,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Customer
                             LastLoginIp = reader.ToString("LastLoginIp"),
                             MoreSiteUrl = reader.ToString("MoreSiteUrls"),
                             SiteUrl = reader.ToString("SiteUrl"),
-                            NoSiteDescription = reader.ToString("NoSiteDesc"),
+                            NoSiteDesc = reader.ToString("NoSiteDesc"),
                             Status = reader.ToString("Status"),
                             Phone = reader.ToString("Phone"),
                             IsUsingPrivateCommGroup = (reader["IsPrivate"] != DBNull.Value) && reader.ToBool("IsPrivate"),

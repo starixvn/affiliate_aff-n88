@@ -38,7 +38,7 @@ namespace Fanex.Affiliate.Admin.Core.DTO.UserPanel
 
         public string MoreSiteUrls { get; set; }
 
-        public string NoSiteDescription { get; set; }
+        public string NoSiteDesc { get; set; }
 
         public string PreferredPayment { get; set; }
 
@@ -65,8 +65,6 @@ namespace Fanex.Affiliate.Admin.Core.DTO.UserPanel
         public string Answer { get; set; }
 
         public bool? MailOption { get; set; }
-
-        public bool HasHostAffPersonalInfoPermission { get; set; }
 
         public IEnumerable<ContactApp> ContactAppList { get; set; }
 

@@ -1,8 +1,6 @@
 ﻿import React, { useState, forwardRef, useEffect } from 'react';
 import { Form, FormGroup, Label, Col, Button, Input } from 'reactstrap';
 
-const description = `Please describe how you would like to promote 12Bet if you don't have the URL`;
-
 const getMoreSiteUrls = (moreSiteUrls) => {
     if (moreSiteUrls) {
         return moreSiteUrls.split(";").map(url => ({
@@ -159,7 +157,7 @@ export const WebSite = (props) => {
                         </Label>
                     </FormGroup>
                     <FormGroup row className="pt-1">
-                        <Label htmlFor="noSiteDesc" sm={3}>{description}</Label>
+                        <Label htmlFor="noSiteDesc" sm={3}>{`Please describe how you would like to promote ${props.licenseeName} if you don't have the URL`}</Label>
                         <Col sm={9}>
                             <Input
                                 key={`noSiteDesc${websiteInfo.hasWebSite}`}

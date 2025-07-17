@@ -9,32 +9,43 @@
         public const string Line = "Line";
         public const string Facebook = "Facebook";
         public const string QQ = "QQ";
-        private const string DefaultRegexValue = "^.*$";
+        public const string Zalo = "Zalo";
+        private const string DefaultRegexValue = "^.*";
 
         public static readonly IReadOnlyDictionary<string, string> FirsAppContactList = new Dictionary<string, string>
         {
             [SystemLanguage.EnglishLanguageCode] = Telegram,
-            [SystemLanguage.BangladeshLanguageCode] = WhatsApp,
-            [SystemLanguage.IndiaLanguageCode] = WhatsApp,
-            [SystemLanguage.IndonesiaLanguageCode] = WhatsApp,
+            [SystemLanguage.BangladeshLanguageCode] = Telegram,
+            [SystemLanguage.IndiaLanguageCode] = Telegram,
+            [SystemLanguage.IndonesiaLanguageCode] = Telegram,
+            [SystemLanguage.MalayLanguageCode] = Telegram,
+            [SystemLanguage.ThailandLanguageCode] = Telegram,
+            [SystemLanguage.VietNamLanguageCode] = Telegram,
+            [SystemLanguage.ChineseLanguageCode] = Telegram,
+
+            [SystemLanguage.PhilippinesLanguageCode] = Telegram,
+            [SystemLanguage.TaiwanLanguageCode] = Telegram,
             [SystemLanguage.JapanLanguageCode] = Telegram,
             [SystemLanguage.CambodianLanguageCode] = Telegram,
             [SystemLanguage.KoreaLanguageCode] = Telegram,
-            [SystemLanguage.ThailandLanguageCode] = Line,
-            [SystemLanguage.VietNamLanguageCode] = Telegram,
-            [SystemLanguage.ChineseLanguageCode] = Telegram,
-            [SystemLanguage.TaiwanLanguageCode] = Telegram,
         };
 
         public static readonly IReadOnlyDictionary<string, string> SecondAppContactList = new Dictionary<string, string>
         {
             [SystemLanguage.EnglishLanguageCode] = Facebook,
-            [SystemLanguage.BangladeshLanguageCode] = Telegram,
-            [SystemLanguage.IndiaLanguageCode] = Telegram,
+            [SystemLanguage.BangladeshLanguageCode] = WhatsApp,
+            [SystemLanguage.IndiaLanguageCode] = WhatsApp,
+            [SystemLanguage.IndonesiaLanguageCode] = WhatsApp,
+            [SystemLanguage.MalayLanguageCode] = Facebook,
+            [SystemLanguage.ThailandLanguageCode] = Line,
+            [SystemLanguage.VietNamLanguageCode] = Zalo,
+            [SystemLanguage.ChineseLanguageCode] = QQ,
+
+            [SystemLanguage.PhilippinesLanguageCode] = Facebook,
+            [SystemLanguage.TaiwanLanguageCode] = QQ,
             [SystemLanguage.JapanLanguageCode] = Facebook,
             [SystemLanguage.CambodianLanguageCode] = Facebook,
-            [SystemLanguage.ChineseLanguageCode] = QQ,
-            [SystemLanguage.TaiwanLanguageCode] = QQ,
+            [SystemLanguage.KoreaLanguageCode] = Facebook,
         };
 
         public static readonly IReadOnlyDictionary<string, string> ThirdAppContactList = new Dictionary<string, string>
@@ -43,16 +54,12 @@
 
         private static readonly IReadOnlyDictionary<string, string> RegexValidations = new Dictionary<string, string>
         {
-            [Telegram] = "^@.+$",
-            ["Line"] = "^@.+$",
-            [WhatsApp] = "^\\+\\d{10,}$",
+            [Telegram] = @"^(?!\s*$)(@.+)$",
         };
 
         private static readonly IReadOnlyDictionary<string, string> PlaceHolders = new Dictionary<string, string>
         {
-            [Telegram] = "@XXXXXXXXXX",
-            ["Line"] = "@XXXXXXXXXX",
-            [WhatsApp] = "+XXXXXXXXXX",
+            [Telegram] = "@xxxxxxxx",
         };
 
         public static string GetRegexByApp(string contactAppName)

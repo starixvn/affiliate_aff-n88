@@ -596,8 +596,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Services\Affiliate\AffiliateService.cs" />
-    <Compile Include="Repository\Affiliate\AffiliateInfoRepository.cs" />
-    <Compile Include="Repository\Affiliate\IAffiliateInfoRepository.cs" />
     <Compile Include="Repository\CurrencyRepository.cs" />
     <Compile Include="Repository\Customer\CustomerLeftPanelRepository.cs" />
     <Compile Include="Repository\Customer\ICustomerLeftPanelRepository.cs" />
@@ -635,11 +633,9 @@
     <Compile Include="Repository\UserPanel\ILandingPageStatisticsRepository.cs" />
     <Compile Include="Repository\UserPanel\IReferrersRepository.cs" />
     <Compile Include="Repository\UserPanel\IStatementHistoryRepository.cs" />
-    <Compile Include="Repository\UserPanel\IUserAccountRepository.cs" />
     <Compile Include="Repository\UserPanel\LandingPageStatisticsRepository.cs" />
     <Compile Include="Repository\UserPanel\ReferrersRepository.cs" />
     <Compile Include="Repository\UserPanel\StatementHistoryRepository.cs" />
-    <Compile Include="Repository\UserPanel\UserAccountRepository.cs" />
     <Compile Include="Resources\Lang.zh-CN.Designer.cs">
       <DependentUpon>Lang.zh-CN.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -674,7 +670,6 @@
     <Compile Include="Services\Administrator\DepartmentService.cs" />
     <Compile Include="Services\Administrator\IAdministratorService.cs" />
     <Compile Include="Services\Administrator\IDepartmentService.cs" />
-    <Compile Include="Services\AffiliateService.cs" />
     <Compile Include="Services\Affiliate\IAffiliateService.cs" />
     <Compile Include="Services\Affiliate\IMarketingAccountService.cs" />
     <Compile Include="Services\Affiliate\MarketingAccountService.cs" />
@@ -707,7 +702,6 @@
     <Compile Include="Services\EmailService.cs" />
     <Compile Include="Services\Home\HomeService.cs" />
     <Compile Include="Services\Home\IHomeService.cs" />
-    <Compile Include="Services\IAffiliateService.cs" />
     <Compile Include="Services\IAffTypeService.cs" />
     <Compile Include="Services\CommGroup\ICommissionGroupService.cs" />
     <Compile Include="Services\IEmailService.cs" />

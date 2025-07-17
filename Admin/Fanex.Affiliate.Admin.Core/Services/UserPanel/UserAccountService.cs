@@ -120,7 +120,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
                 MailOption = param.MailOption,
                 SiteUrl = param.SiteUrl,
                 MoreSiteUrls = param.MoreSiteUrls,
-                NoSiteDescription = param.NoSiteDescription,
+                NoSiteDesc = param.NoSiteDesc,
                 PreferredPayment = param.PreferredPayment,
                 PlayerUsername = param.PlayerUsername,
                 NetellerAccountId = param.NetellerAccountId,
@@ -133,12 +133,6 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
                 Player_CustId = param.Player_CustId,
                 Player_Currency = param.Player_Currency,
             };
-
-            if (!param.HasHostAffPersonalInfoPermission)
-            {
-                command.Email = curUserAccInfo.Email;
-                command.Phone = curUserAccInfo.Phone;
-            }
 
             var result = await ExecuteReturnResultInfoAsync(command);
 
@@ -193,7 +187,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
                 };
             }
 
-            if (!param.HasWebSite && string.IsNullOrEmpty(param.NoSiteDescription))
+            if (!param.HasWebSite && string.IsNullOrEmpty(param.NoSiteDesc))
             {
                 return new ResultInfo
                 {

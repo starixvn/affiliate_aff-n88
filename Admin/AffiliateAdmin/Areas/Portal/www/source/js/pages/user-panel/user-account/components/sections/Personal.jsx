@@ -7,8 +7,6 @@ import { renderInputForm, capitalizeFirstChar } from '../../modules/service';
 import { setUserAccountInfo } from '../../actions';
 import { updateObjectInArray } from '../../../../../modules/dataHandler';
 
-const NORMAL_ACCOUNT_TYPE = 'Normal AFF Account';
-
 export class Personal extends PureComponent {
     constructor(props) {
         super(props);
@@ -119,8 +117,7 @@ export class Personal extends PureComponent {
 
     render() {
         const { userAccountInfo } = this.props;
-        const isOnlyView = !userAccountInfo.HasHostAffPersonalInfoPermission;
-        const isRequired = userAccountInfo.AffCategoryDesc === NORMAL_ACCOUNT_TYPE;
+        const isRequired = !userAccountInfo.IsMarketingAccount;
 
         return userAccountInfo && (
             <Form tag="div">
@@ -129,8 +126,8 @@ export class Personal extends PureComponent {
                 {renderInputForm('firstName', 'First Name', userAccountInfo.FirstName, false, isRequired, this.handleChange)}
                 {renderInputForm('lastName', 'Last Name', userAccountInfo.LastName, false, isRequired, this.handleChange)}
                 {this._renderGenderForm(userAccountInfo.Gender, isRequired)}
-                {renderInputForm('email', 'Email Address', userAccountInfo.Email, isOnlyView, isRequired, this.handleChange)}
-                {renderInputForm('phone', 'Contact Number', userAccountInfo.Phone, isOnlyView, isRequired, this.handleChange)}
+                {renderInputForm('email', 'Email Address', userAccountInfo.Email, false, isRequired, this.handleChange)}
+                {renderInputForm('phone', 'Contact Number', userAccountInfo.Phone, false, isRequired, this.handleChange)}
                 {this._renderContactApps(isRequired)}
             </Form>
         )

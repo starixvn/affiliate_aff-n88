@@ -5,7 +5,7 @@ import { formatDecimal } from '../../../../modules/numberFormat';
 import RowField from './RowField';
 
 export const Payment = (props) => {
-    const { paymentInfo, setPaymentInfo, paymentMethods } = props;
+    const { paymentInfo, setPaymentInfo, paymentMethods, licenseeName } = props;
     const onChange = (e) => {
         setPaymentInfo({
             ...paymentInfo,
@@ -36,7 +36,7 @@ export const Payment = (props) => {
                     <span className="input-item">{minimumPaymentText + ' ' + formatDecimal(props.minimumPayment)}</span>
                 </FormGroup>
                 <RowField 
-                    label="12Bet UserName"
+                    label={`${licenseeName} UserName`}
                     labelProps={{ sm: 3 }}
                     name="playerUsername"
                     value={paymentInfo.playerUsername} 

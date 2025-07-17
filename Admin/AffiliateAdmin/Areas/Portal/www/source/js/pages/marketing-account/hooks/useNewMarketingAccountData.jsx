@@ -106,7 +106,7 @@ export default function useNewMarketingAccountData(
             return;
         }
 
-        const emailResult = validationEmail(rawData.email, true);
+        const emailResult = validationEmail(rawData.email);
         if(!emailResult.isValid) {
             notify(emailResult.message, modalBodyRef);
             return;
