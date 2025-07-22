@@ -258,17 +258,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Web.n8b-go.kldr.config">
-      <SubType>Designer</SubType>
-      <DependentUpon>Web.n8b-go.local.config</DependentUpon>
-    </Content>
-    <Content Include="Web.n88-go.kldr.config">
-      <SubType>Designer</SubType>
-      <DependentUpon>Web.n88-go.local.config</DependentUpon>
-    </Content>
-    <Content Include="Web.n8b-go.production.config">
-      <DependentUpon>Web.n8b-go.local.config</DependentUpon>
-    </Content>
     <Content Include="Web.n8b-go.uat.config">
       <DependentUpon>Web.n8b-go.local.config</DependentUpon>
     </Content>
@@ -298,21 +287,11 @@
     </Content>
     <Content Include="Fanex.Affiliate.Link.ruleset" />
     <Content Include="Web.n8b-go.local.config" />
-    <Content Include="Web.n8g-go.kldr.config">
-      <SubType>Designer</SubType>
-      <DependentUpon>Web.n8g-go.local.config</DependentUpon>
-    </Content>
     <Content Include="Web.n8g-go.local.config" />
-    <Content Include="Web.n8g-go.production.config">
-      <DependentUpon>Web.n8g-go.local.config</DependentUpon>
-    </Content>
     <Content Include="Web.n8g-go.uat.config">
       <DependentUpon>Web.n8g-go.local.config</DependentUpon>
     </Content>
     <Content Include="Web.n88-go.local.config" />
-    <Content Include="Web.n88-go.production.config">
-      <DependentUpon>Web.n88-go.local.config</DependentUpon>
-    </Content>
     <Content Include="Web.n88-go.uat.config">
       <DependentUpon>Web.n88-go.local.config</DependentUpon>
     </Content>
