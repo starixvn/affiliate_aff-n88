@@ -44,7 +44,7 @@ namespace Fanex.Affiliate.Link.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            return View(model: ConfigurationManager.AppSettings["SiteName"]);
         }
 
         [HttpGet]
