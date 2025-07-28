@@ -127,7 +127,7 @@ export const WebSite = (props) => {
                         <SiteFieldComponent
                             label="Website URL"
                             name="siteUrl"
-                            value={websiteInfo.siteUrl}
+                            value={websiteInfo.siteUrl || ''}
                             onChange={onChange}
                             onBlur={onChange}
                             disabled={!websiteInfo.hasWebSite} />
@@ -166,7 +166,7 @@ export const WebSite = (props) => {
                                 style={{ height: 70 }}
                                 id="noSiteDesc"
                                 name="noSiteDesc"
-                                value={websiteInfo.noSiteDesc} onChange={onChange} onBlur={onChange} />
+                                value={websiteInfo.noSiteDesc || ''} onChange={onChange} onBlur={onChange} />
                         </Col>
                     </FormGroup>
                 </FormGroup>

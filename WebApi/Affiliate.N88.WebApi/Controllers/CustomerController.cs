@@ -133,7 +133,7 @@ namespace Affiliate.N88.WebApi.Controllers
                     CustId = affiliate.CustId == 0 ? _Marketing_Cust_ID : affiliate.CustId,
                     ParentAffiliate = affiliate.ParentAffiliate ?? string.Empty,
                     SiteId = affiliate.SiteId,
-                    UserName = affiliate.UserName,
+                    UserName = affiliate.UserName ?? string.Empty,
                     FirstName = affiliate.FirstName ?? string.Empty,
                     LastName = affiliate.LastName ?? string.Empty,
                     ContactNumber = affiliate.ContactNumber ?? string.Empty,

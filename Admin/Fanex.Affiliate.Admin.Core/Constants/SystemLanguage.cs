@@ -4,7 +4,7 @@
     {
         public const string EnglishLanguageCode = "en-US";
         public const string BangladeshLanguageCode = "bn-BD";
-        public const string IndiaLanguageCode = "en-IN";
+        public const string HindiLanguageCode = "hi-IN";
         public const string IndonesiaLanguageCode = "id-ID";
         public const string MalayLanguageCode = "ms-MY";
         public const string ThailandLanguageCode = "th-TH";

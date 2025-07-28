@@ -126,7 +126,7 @@ export class Personal extends PureComponent {
                 {renderInputForm('firstName', 'First Name', userAccountInfo.FirstName, false, isRequired, this.handleChange)}
                 {renderInputForm('lastName', 'Last Name', userAccountInfo.LastName, false, isRequired, this.handleChange)}
                 {this._renderGenderForm(userAccountInfo.Gender, isRequired)}
-                {renderInputForm('email', 'Email Address', userAccountInfo.Email, false, isRequired, this.handleChange)}
+                {renderInputForm('email', 'Email Address', userAccountInfo.Email, false, true, this.handleChange)}
                 {renderInputForm('phone', 'Contact Number', userAccountInfo.Phone, false, isRequired, this.handleChange)}
                 {this._renderContactApps(isRequired)}
             </Form>

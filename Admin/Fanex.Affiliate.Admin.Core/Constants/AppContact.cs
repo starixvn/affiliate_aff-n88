@@ -16,7 +16,7 @@
         {
             [SystemLanguage.EnglishLanguageCode] = Telegram,
             [SystemLanguage.BangladeshLanguageCode] = Telegram,
-            [SystemLanguage.IndiaLanguageCode] = Telegram,
+            [SystemLanguage.HindiLanguageCode] = Telegram,
             [SystemLanguage.IndonesiaLanguageCode] = Telegram,
             [SystemLanguage.MalayLanguageCode] = Telegram,
             [SystemLanguage.ThailandLanguageCode] = Telegram,
@@ -34,7 +34,7 @@
         {
             [SystemLanguage.EnglishLanguageCode] = Facebook,
             [SystemLanguage.BangladeshLanguageCode] = WhatsApp,
-            [SystemLanguage.IndiaLanguageCode] = WhatsApp,
+            [SystemLanguage.HindiLanguageCode] = WhatsApp,
             [SystemLanguage.IndonesiaLanguageCode] = WhatsApp,
             [SystemLanguage.MalayLanguageCode] = Facebook,
             [SystemLanguage.ThailandLanguageCode] = Line,

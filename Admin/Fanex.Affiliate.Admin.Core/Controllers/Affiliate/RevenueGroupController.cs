@@ -1,6 +1,7 @@
 ﻿using Fanex.Affiliate.Admin.Core.Attributes;
 using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
+using Fanex.Affiliate.Admin.Core.DTO.CommissionGroup;
 using Fanex.Affiliate.Admin.Core.Extensions;
 using Fanex.Affiliate.Admin.Core.MetaModels.CommissionGroup;
 using Fanex.Affiliate.Admin.Core.Resources;
@@ -57,6 +58,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
             {
                 ProductList = productList,
                 DeductionList = _commGroupCommonService.GetDeductionList(),
+                CommGroupTypeList = _commGroupCommonService.GetCommGroupTypes(),
                 SubMenuList = subMenu
             };
 
@@ -93,6 +95,11 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
                     commissionGroupInfo.GroupName = Server.HtmlDecode(groupName);
                     commissionGroupInfo.Description = Server.HtmlDecode(description);
 
+                    if (commissionGroupInfo.KillRateFeeList is null || !commissionGroupInfo.KillRateFeeList.Any())
+                    {
+                        commissionGroupInfo.KillRateFeeList = BuildKillRateFeeListByPlatForm(commissionGroupInfo.PlatformFeeList);
+                    }
+
                     return new JsonNetResult
                     {
                         Data = commissionGroupInfo
@@ -123,9 +130,11 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
                     UserId = SessionService.UserId,
                     Ip = Request.GetClientIP(),
                     GroupName = Server.HtmlEncode(commGroup.GroupName.Trim()),
+                    GroupTypeId = commGroup.GroupTypeId,
                     Description = Server.HtmlEncode(commGroup.Description?.Trim()),
                     TierSettingList = commGroup.TierSettingList,
                     PlatformFeeList = commGroup.PlatformFeeList,
+                    KillRateFeeList = commGroup.KillRateFeeList,
                     DepositFee = commGroup.DepositFee,
                     WithdrawalFee = commGroup.WithdrawalFee,
                     SubAffCommRate = commGroup.SubAffCommRate,
@@ -165,6 +174,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
                     Description = Server.HtmlEncode(commGroup.Description?.Trim()),
                     TierSettingList = commGroup.TierSettingList,
                     PlatformFeeList = commGroup.PlatformFeeList,
+                    KillRateFeeList = commGroup.KillRateFeeList,
                     DepositFee = commGroup.DepositFee,
                     WithdrawalFee = commGroup.WithdrawalFee,
                     SubAffCommRate = commGroup.SubAffCommRate,
@@ -193,6 +203,25 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
             AssignUserInfoParam(param);
 
             return GenerateJsonNetResult(_commissionGroupService.DeleteCommissionGroup(param));
+        }
+
+        private IEnumerable<DeductionSetting> BuildKillRateFeeListByPlatForm(IEnumerable<DeductionSetting> platformFeeList)
+        {
+            var deductionSetting = _commGroupCommonService.GetDeductionList().FirstOrDefault(i => i.DeductionId == Deduction.KillRateFeeId);
+
+            IEnumerable<DeductionSetting> killRateFeeList = null;
+            if (platformFeeList != null && platformFeeList.Any())
+            {
+                killRateFeeList = platformFeeList.Select(x => new DeductionSetting
+                {
+                    DeductedPercentage = deductionSetting.DeductedPercentage,
+                    GroupProductId = x.GroupProductId,
+                    ProductIds = string.Empty,
+                    DeductionId = deductionSetting.DeductionId
+                });
+            }
+
+            return killRateFeeList;
         }
 
         private static ResultInfo ValidateGroupName(string groupName)

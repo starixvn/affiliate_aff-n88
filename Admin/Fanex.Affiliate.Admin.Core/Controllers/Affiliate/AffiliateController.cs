@@ -61,7 +61,6 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
 
         [HttpPost]
         [ValidateAntiForgeryHeader]
-        [UnauthorizedPropertyCensor]
         public ActionResult GetAffiliateList(AffiliateInfoParam param)
         {
             if (int.TryParse(param.AffCode, out _) || string.IsNullOrEmpty(param.AffCode))
