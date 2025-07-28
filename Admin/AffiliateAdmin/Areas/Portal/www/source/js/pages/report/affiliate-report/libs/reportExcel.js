@@ -77,6 +77,11 @@ const colConfig =
         [TOTAL_SECTION_STYLE]: totalCellStyle.decimal,
         [COL_WIDTH]: 120
     },
+    [fields.Fdm_TotalDeposit]: {
+        [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
+        [TOTAL_SECTION_STYLE]: totalCellStyle.decimal,
+        [COL_WIDTH]: 150
+    },
     [fields.Withdrawal]: {
         [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
         [TOTAL_SECTION_STYLE]: totalCellStyle.decimal,

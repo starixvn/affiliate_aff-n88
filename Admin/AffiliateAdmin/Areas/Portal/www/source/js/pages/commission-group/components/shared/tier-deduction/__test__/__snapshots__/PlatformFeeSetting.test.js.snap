@@ -38,7 +38,7 @@ exports[`commission group - platform fee setting should render correctly 1`] = `
             onChange={[Function]}
             type="checkbox"
           />
-          Count Active Player across all products(exclude Free Bet)
+          Count Qualified Player across all products(exclude Free Bet)
         </Label>
       </FormGroup>
     </Form>
@@ -55,6 +55,11 @@ exports[`commission group - platform fee setting should render correctly 1`] = `
             "ProductName": "Sportsbook",
           },
           Object {
+            "Checked": false,
+            "ProductId": 2,
+            "ProductName": "Poker",
+          },
+          Object {
             "Checked": true,
             "ProductId": 3,
             "ProductName": "Playtech Casino",
@@ -63,6 +68,11 @@ exports[`commission group - platform fee setting should render correctly 1`] = `
             "Checked": false,
             "ProductId": 4,
             "ProductName": "Number Game",
+          },
+          Object {
+            "Checked": false,
+            "ProductId": 5,
+            "ProductName": "V8 Poker",
           },
         ],
         "royaltyFee": 0.17,
@@ -90,6 +100,11 @@ exports[`commission group - platform fee setting should render correctly 1`] = `
           },
           Object {
             "Checked": false,
+            "ProductId": 2,
+            "ProductName": "Poker",
+          },
+          Object {
+            "Checked": false,
             "ProductId": 3,
             "ProductName": "Playtech Casino",
           },
@@ -97,6 +112,11 @@ exports[`commission group - platform fee setting should render correctly 1`] = `
             "Checked": true,
             "ProductId": 4,
             "ProductName": "Number Game",
+          },
+          Object {
+            "Checked": false,
+            "ProductId": 5,
+            "ProductName": "V8 Poker",
           },
         ],
         "royaltyFee": 0.12,

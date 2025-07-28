@@ -36,9 +36,19 @@ export class PlatformFeeSetting extends PureComponent {
         const lastPlatformFee = PlatformFeeList.slice(-1)[0];
         const groupProductId = lastPlatformFee.GroupProductId + 1;
 
+        const firstGroupProductId = PlatformFeeList[0].GroupProductId;
+        const firstTierItem = TierSettingList.find(t => t.GroupProductId === firstGroupProductId && t.TierId === 1);
+
+        const newTierSetting = {
+            ...tierSettingDefault,
+            GroupProductId: groupProductId,
+            MinFTDCount: firstTierItem.MinFTDCount,
+            MinTotalDeposit: firstTierItem.MinTotalDeposit
+        }
+
         const platformFeeList = [...PlatformFeeList, { ...this.defaultPlatformItem, GroupProductId: groupProductId }];
         const killRateFeeList = [...KillRateFeeList, { ...this.defaultKillRateItem, GroupProductId: groupProductId }];
-        const tierSettingList = [...TierSettingList, { ...tierSettingDefault, GroupProductId: groupProductId }];
+        const tierSettingList = [...TierSettingList, { ...newTierSetting }];
 
         this.props.setSelectedGroup({ PlatformFeeList: platformFeeList, KillRateFeeList: killRateFeeList, TierSettingList: tierSettingList });
     }

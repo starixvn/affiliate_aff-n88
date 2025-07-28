@@ -37,5 +37,7 @@
         public int NoOfSubAffTotal { get; set; }
 
         public int QualifiedMembersByMonth { get; set; }
+
+        public decimal Fdm_TotalDepositByMonth { get; set; }
     }
 }

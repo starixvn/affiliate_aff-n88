@@ -146,7 +146,9 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
                     WithdrawalFee = commGroup.WithdrawalFee,
                     SubAffCommRate = commGroup.SubAffCommRate,
                     QmTurnover = commGroup.QmTurnover,
-                    IsActivePlayerSum = commGroup.IsActivePlayerSum
+                    IsActivePlayerSum = commGroup.IsActivePlayerSum,
+                    IsCheckedMinFTDCount = commGroup.IsCheckedMinFTDCount,
+                    IsCheckedMinTotalDeposit = commGroup.IsCheckedMinTotalDeposit
                 };
 
                 return new JsonNetResult
@@ -194,7 +196,9 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
                     WithdrawalFee = commGroup.WithdrawalFee,
                     SubAffCommRate = commGroup.SubAffCommRate,
                     QmTurnover = commGroup.QmTurnover,
-                    IsActivePlayerSum = commGroup.IsActivePlayerSum
+                    IsActivePlayerSum = commGroup.IsActivePlayerSum,
+                    IsCheckedMinFTDCount = commGroup.IsCheckedMinFTDCount,
+                    IsCheckedMinTotalDeposit = commGroup.IsCheckedMinTotalDeposit
                 };
 
                 return new JsonNetResult

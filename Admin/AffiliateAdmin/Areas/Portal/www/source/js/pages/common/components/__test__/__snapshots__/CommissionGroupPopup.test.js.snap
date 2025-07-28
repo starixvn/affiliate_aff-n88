@@ -106,7 +106,7 @@ exports[`common - components - CommissionGroupPopup render correctly with Privat
     size="lg"
     style={
       Object {
-        "maxWidth": "",
+        "maxWidth": 950,
       }
     }
     toggle={[Function]}

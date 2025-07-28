@@ -56,12 +56,12 @@ exports[`customer statistics - components - Content Should render correctly 1`] 
     </thead>
     <tbody>
       <tr
-        key="New Signups/FDM"
+        key="New Signups/FTD"
       >
         <td
           className="font-weight-bold"
         >
-          New Signups/FDM
+          New Signups/FTD
         </td>
         <td
           className="text-right"
@@ -289,12 +289,12 @@ exports[`customer statistics - components - Content Should render correctly with
     </thead>
     <tbody>
       <tr
-        key="New Signups/FDM"
+        key="New Signups/FTD"
       >
         <td
           className="font-weight-bold"
         >
-          New Signups/FDM
+          New Signups/FTD
         </td>
         <td
           className="text-right"
@@ -528,12 +528,12 @@ exports[`customer statistics - components - Content Should render correctly with
     </thead>
     <tbody>
       <tr
-        key="New Signups/FDM"
+        key="New Signups/FTD"
       >
         <td
           className="font-weight-bold"
         >
-          New Signups/FDM
+          New Signups/FTD
         </td>
         <td
           className="text-right"

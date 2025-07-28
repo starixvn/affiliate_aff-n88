@@ -1812,4 +1812,7 @@
   <data name="ActivePlayers" xml:space="preserve">
     <value>ผู้เล่นที่ใช้งาน</value>
   </data>
+  <data name="FdmTotalDeposit" xml:space="preserve">
+    <value>ยอดฝาก&lt;br&gt;(ผู้เล่นใหม่)</value>
+  </data>
 </root>

@@ -66,7 +66,8 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
                 Turnover = model.Sum(item => item.Turnover),
                 GGR = model.Sum(item => item.GGR),
                 Withdrawal = model.Sum(item => item.Withdrawal),
-                DepositedMembers = model.Sum(item => item.DepositedMembers)
+                DepositedMembers = model.Sum(item => item.DepositedMembers),
+                Fdm_TotalDeposit = model.Sum(item => item.Fdm_TotalDeposit)
             };
 
             var viewPath = PathHelper.GetViewPath(PARTIAL_SUMMARY_PATH, "Overview", _appSetting.SiteName);

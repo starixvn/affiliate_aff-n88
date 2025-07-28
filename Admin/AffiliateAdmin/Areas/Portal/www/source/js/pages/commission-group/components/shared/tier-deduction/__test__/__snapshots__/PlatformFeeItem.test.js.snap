@@ -1108,16 +1108,6 @@ exports[`commission group - PlatformFeeItem Should render correctly 1`] = `
     </Col>
   </FormGroup>
   <Connect(TierSetting)
-    btnText={
-      <React.Fragment>
-        <span>
-          Remove Product Group
-        </span>
-        <span>
-          -
-        </span>
-      </React.Fragment>
-    }
     handleClick={[MockFunction]}
   />
 </div>
@@ -2221,18 +2211,9 @@ exports[`commission group - PlatformFeeItem Should render correctly with only on
     </Col>
   </FormGroup>
   <Connect(TierSetting)
-    btnText={
-      <React.Fragment>
-        <span>
-          Add Product Group
-        </span>
-        <span>
-          +
-        </span>
-      </React.Fragment>
-    }
     handleClick={[MockFunction]}
     isDisableAddButton={true}
+    isFirstTierSetting={true}
   />
 </div>
 `;

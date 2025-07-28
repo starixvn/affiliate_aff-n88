@@ -36,5 +36,9 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.CommissionGroup
 
         [Required]
         public TierDeductionSettingParam WithdrawalFee { get; set; }
+
+        public bool IsCheckedMinFTDCount { get; set; }
+
+        public bool IsCheckedMinTotalDeposit { get; set; }
     }
 }

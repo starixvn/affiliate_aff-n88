@@ -40,7 +40,8 @@ namespace Fanex.Affiliate.Admin.Core.Services.Customer
                             TotalClickMobileByMonth = Convert.ToInt32(reader["TotalClickMobileByMonth"]),
                             NoOfSubAffByMonth = Convert.ToInt32(reader["NoOfSubAffByMonth"]),
                             NoOfSubAffTotal = Convert.ToInt32(reader["NoOfSubAffTotal"]),
-                            QualifiedMembersByMonth = Convert.ToInt32(reader["QualifiedMembersByMonth"])
+                            QualifiedMembersByMonth = Convert.ToInt32(reader["QualifiedMembersByMonth"]),
+                            Fdm_TotalDepositByMonth = Convert.ToDecimal(reader["FDM_TotalDepositByMonth"])
                         };
                     }
                 }

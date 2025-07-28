@@ -6,6 +6,8 @@ export { globalResource, formatDecimal, format, money };
 
 export const INFINITY_AM = money.AllowedMaxValue;
 export const INFINITY_QM = 1000000000;
+export const INFINITY_FTD_COUNT = 1000000000;
+export const INFINITY_TOTAL_DEPOSIT = money.AllowedMaxValue;
 export const NEGATIVE_INFINITY_SYMBOL = '-∞';
 export const FIRST_ITEM_INDEX = 0;
 export const MAX_PERCENTAGE = 1;
@@ -82,7 +84,14 @@ export const messages = {
     assignGroupSuccessfully: 'Assign affiliate to Revenue Group successfully',
     addGroupSuccessfully: 'Add Revenue Group Successfully',
     updateGroupSuccessfully: 'Update Revenue Group Successfully',
-    note: "Note: Change will take effect on current month (GMT-4)."
+    note: "Note: Change will take effect on current month (GMT-4).",
+    minFTDCountGreaterThanZero: 'Min Total FTD Count must be greater than 0.',
+    minTotalDepositGreaterThanZero: 'Min Total Deposit (New Player) must be greater than 0.',
+    minFTDCountLesserThanInfinity: 'Min Total FTD Count must be lesser than or equal to 1,000,000,000.',
+    minTotalDepositLesserThanInfinity: 'Min Total Deposit (New Player) must be lesser than or equal to 100,000,000,000.',
+    minFTDCountMustIncreaseSequentially: 'The values in the Min Total FTD Count column must increase sequentially.',
+    minTotalDepositMustIncreaseSequentially: 'The values in the Min Total Deposit (New Player) column must increase sequentially.',
+    requireAllTierSettingsMatchGroupProduct1: 'Product Group {0} has different Min Total FTD Count or Min Total Deposit values in some tiers compared to Product Group 1.',
 }
 
 const _deductionNameList = {
@@ -111,6 +120,8 @@ export const tierSettingDefault = {
     MinAmount: 0,
     MinQm: 5,
     Commission: 0,
+    MinFTDCount: 0,
+    MinTotalDeposit: 0
 }
 
 export const groupTypeList = {

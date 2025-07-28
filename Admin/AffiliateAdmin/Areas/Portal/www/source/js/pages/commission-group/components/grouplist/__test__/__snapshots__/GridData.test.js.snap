@@ -3,14 +3,14 @@
 exports[`commission group - GridData  _renderGroupData - render correctly 1`] = `
 <div>
   <t
-    key="row-platform-0-2,5,9,10,11,12-1"
+    key="row-platform-0-1,3,4,5,6,7,8,13,14,15,16,17,18-1"
   >
     <t
       asc={true}
       className="text-center"
       header={false}
       onClick={[Function]}
-      rowSpan={5}
+      rowSpan={3}
       sortable={false}
       sorting={false}
     >
@@ -21,7 +21,7 @@ exports[`commission group - GridData  _renderGroupData - render correctly 1`] = 
       className="text-center"
       header={false}
       onClick={[Function]}
-      rowSpan={5}
+      rowSpan={3}
       sortable={false}
       sorting={false}
       title=""
@@ -33,7 +33,7 @@ exports[`commission group - GridData  _renderGroupData - render correctly 1`] = 
       className="text-center"
       header={false}
       onClick={[Function]}
-      rowSpan={5}
+      rowSpan={3}
       sortable={false}
       sorting={false}
     >
@@ -49,7 +49,7 @@ exports[`commission group - GridData  _renderGroupData - render correctly 1`] = 
       className="text-center"
       header={false}
       onClick={[Function]}
-      rowSpan={5}
+      rowSpan={3}
       sortable={false}
       sorting={false}
     />
@@ -58,7 +58,7 @@ exports[`commission group - GridData  _renderGroupData - render correctly 1`] = 
       className="text-center"
       header={false}
       onClick={[Function]}
-      rowSpan={5}
+      rowSpan={3}
       sortable={false}
       sorting={false}
     >
@@ -69,104 +69,6 @@ exports[`commission group - GridData  _renderGroupData - render correctly 1`] = 
         08/15/2018 01:59:32
       </p>
     </t>
-    <t
-      asc={true}
-      className="cell-deduction"
-      header={false}
-      onClick={[Function]}
-      rowSpan="2"
-      sortable={false}
-      sorting={false}
-    >
-      <div
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "<strong>P2P Group 1</strong><br />Royalty Fee 15.0%",
-          }
-        }
-      />
-    </t>
-    <t
-      asc={true}
-      className="font-weight-bold text-center cell-deduction"
-      colSpan="4"
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
-    >
-      Fixed Rate 10.0%
-    </t>
-    <t
-      asc={true}
-      className="text-right"
-      header={false}
-      onClick={[Function]}
-      rowSpan={5}
-      sortable={false}
-      sorting={false}
-      title="10.00"
-    >
-      10.00
-    </t>
-    <t
-      asc={true}
-      className="text-right"
-      header={false}
-      onClick={[Function]}
-      rowSpan={5}
-      sortable={false}
-      sorting={false}
-      title="10.00"
-    >
-      10.00
-    </t>
-    <t
-      asc={true}
-      className="text-right"
-      header={false}
-      onClick={[Function]}
-      rowSpan={5}
-      sortable={false}
-      sorting={false}
-    />
-    <t
-      asc={true}
-      className="text-center"
-      header={false}
-      onClick={[Function]}
-      rowSpan={5}
-      sortable={false}
-      sorting={false}
-    >
-      <button
-        className="btn btn-link"
-        onClick={[Function]}
-      >
-        <span
-          className="oi oi-pencil text-secondary"
-        />
-      </button>
-    </t>
-  </t>
-  <t
-    key="row-platform-0-2,5,9,10,11,12-2"
-  >
-    <t
-      asc={true}
-      className="cell-tier"
-      colSpan="4"
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
-    >
-      Poker,V8 Poker
-    </t>
-  </t>
-  <t
-    key="row-platform-0-1,3,4,5,6,7,8,13,14,15,16,17,18"
-  >
     <t
       asc={true}
       className="cell-deduction"
@@ -212,7 +114,7 @@ exports[`commission group - GridData  _renderGroupData - render correctly 1`] = 
       sortable={false}
       sorting={false}
     >
-      Min Active Player
+      Min Qualified Player
     </t>
     <t
       asc={true}
@@ -223,6 +125,67 @@ exports[`commission group - GridData  _renderGroupData - render correctly 1`] = 
       sorting={false}
     >
       Rev. Share%
+    </t>
+    <t
+      asc={true}
+      className="text-right"
+      header={false}
+      onClick={[Function]}
+      rowSpan={3}
+      sortable={false}
+      sorting={false}
+      title="10.00"
+    >
+      10.00
+    </t>
+    <t
+      asc={true}
+      className="text-right"
+      header={false}
+      onClick={[Function]}
+      rowSpan={3}
+      sortable={false}
+      sorting={false}
+      title="10.00"
+    >
+      10.00
+    </t>
+    <t
+      asc={true}
+      className="text-right"
+      header={false}
+      onClick={[Function]}
+      rowSpan={3}
+      sortable={false}
+      sorting={false}
+    />
+    <t
+      asc={true}
+      className="text-right"
+      header={false}
+      onClick={[Function]}
+      rowSpan={3}
+      sortable={false}
+      sorting={false}
+      title=""
+    />
+    <t
+      asc={true}
+      className="text-center"
+      header={false}
+      onClick={[Function]}
+      rowSpan={3}
+      sortable={false}
+      sorting={false}
+    >
+      <button
+        className="btn btn-link"
+        onClick={[Function]}
+      >
+        <span
+          className="oi oi-pencil text-secondary"
+        />
+      </button>
     </t>
   </t>
   <t
@@ -289,17 +252,17 @@ exports[`commission group - GridData  _renderGroupData - render correctly 1`] = 
 </div>
 `;
 
-exports[`commission group - GridData  _renderGroupData - render correctly with groupId > 1000, MaxAmount and MaxAp is not max value 1`] = `
+exports[`commission group - GridData  _renderGroupData - render correctly with groupId > 1000, MaxAmount and MaxQm is not max value 1`] = `
 <div>
   <t
-    key="row-platform-0-2,5,9,10,11,12-1"
+    key="row-platform-0-1,3,4,5,6,7,8,13,14,15,16,17,18-1"
   >
     <t
       asc={true}
       className="text-center"
       header={false}
       onClick={[Function]}
-      rowSpan={5}
+      rowSpan={3}
       sortable={false}
       sorting={false}
     >
@@ -310,7 +273,7 @@ exports[`commission group - GridData  _renderGroupData - render correctly with g
       className="text-center"
       header={false}
       onClick={[Function]}
-      rowSpan={5}
+      rowSpan={3}
       sortable={false}
       sorting={false}
       title="Private Group"
@@ -325,7 +288,7 @@ exports[`commission group - GridData  _renderGroupData - render correctly with g
       className="text-center"
       header={false}
       onClick={[Function]}
-      rowSpan={5}
+      rowSpan={3}
       sortable={false}
       sorting={false}
     >
@@ -341,7 +304,7 @@ exports[`commission group - GridData  _renderGroupData - render correctly with g
       className="text-center"
       header={false}
       onClick={[Function]}
-      rowSpan={5}
+      rowSpan={3}
       sortable={false}
       sorting={false}
     />
@@ -350,7 +313,7 @@ exports[`commission group - GridData  _renderGroupData - render correctly with g
       className="text-center"
       header={false}
       onClick={[Function]}
-      rowSpan={5}
+      rowSpan={3}
       sortable={false}
       sorting={false}
     >
@@ -361,104 +324,6 @@ exports[`commission group - GridData  _renderGroupData - render correctly with g
         08/15/2018 01:59:32
       </p>
     </t>
-    <t
-      asc={true}
-      className="cell-deduction"
-      header={false}
-      onClick={[Function]}
-      rowSpan="2"
-      sortable={false}
-      sorting={false}
-    >
-      <div
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "<strong>P2P Group 1</strong><br />Royalty Fee 15.0%",
-          }
-        }
-      />
-    </t>
-    <t
-      asc={true}
-      className="font-weight-bold text-center cell-deduction"
-      colSpan="4"
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
-    >
-      Fixed Rate 10.0%
-    </t>
-    <t
-      asc={true}
-      className="text-right"
-      header={false}
-      onClick={[Function]}
-      rowSpan={5}
-      sortable={false}
-      sorting={false}
-      title="10.00"
-    >
-      10.00
-    </t>
-    <t
-      asc={true}
-      className="text-right"
-      header={false}
-      onClick={[Function]}
-      rowSpan={5}
-      sortable={false}
-      sorting={false}
-      title="10.00"
-    >
-      10.00
-    </t>
-    <t
-      asc={true}
-      className="text-right"
-      header={false}
-      onClick={[Function]}
-      rowSpan={5}
-      sortable={false}
-      sorting={false}
-    />
-    <t
-      asc={true}
-      className="text-center"
-      header={false}
-      onClick={[Function]}
-      rowSpan={5}
-      sortable={false}
-      sorting={false}
-    >
-      <button
-        className="btn btn-link"
-        onClick={[Function]}
-      >
-        <span
-          className="oi oi-pencil text-secondary"
-        />
-      </button>
-    </t>
-  </t>
-  <t
-    key="row-platform-0-2,5,9,10,11,12-2"
-  >
-    <t
-      asc={true}
-      className="cell-tier"
-      colSpan="4"
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
-    >
-      Poker,V8 Poker
-    </t>
-  </t>
-  <t
-    key="row-platform-0-1,3,4,5,6,7,8,13,14,15,16,17,18"
-  >
     <t
       asc={true}
       className="cell-deduction"
@@ -504,7 +369,7 @@ exports[`commission group - GridData  _renderGroupData - render correctly with g
       sortable={false}
       sorting={false}
     >
-      Min Active Player
+      Min Qualified Player
     </t>
     <t
       asc={true}
@@ -515,6 +380,67 @@ exports[`commission group - GridData  _renderGroupData - render correctly with g
       sorting={false}
     >
       Rev. Share%
+    </t>
+    <t
+      asc={true}
+      className="text-right"
+      header={false}
+      onClick={[Function]}
+      rowSpan={3}
+      sortable={false}
+      sorting={false}
+      title="10.00"
+    >
+      10.00
+    </t>
+    <t
+      asc={true}
+      className="text-right"
+      header={false}
+      onClick={[Function]}
+      rowSpan={3}
+      sortable={false}
+      sorting={false}
+      title="10.00"
+    >
+      10.00
+    </t>
+    <t
+      asc={true}
+      className="text-right"
+      header={false}
+      onClick={[Function]}
+      rowSpan={3}
+      sortable={false}
+      sorting={false}
+    />
+    <t
+      asc={true}
+      className="text-right"
+      header={false}
+      onClick={[Function]}
+      rowSpan={3}
+      sortable={false}
+      sorting={false}
+      title=""
+    />
+    <t
+      asc={true}
+      className="text-center"
+      header={false}
+      onClick={[Function]}
+      rowSpan={3}
+      sortable={false}
+      sorting={false}
+    >
+      <button
+        className="btn btn-link"
+        onClick={[Function]}
+      >
+        <span
+          className="oi oi-pencil text-secondary"
+        />
+      </button>
     </t>
   </t>
   <t
@@ -630,7 +556,7 @@ exports[`commission group - GridData  _renderHeader - render correctly 1`] = `
     </t>
     <t
       asc={true}
-      colWidth={100}
+      colWidth={90}
       header={true}
       onClick={[Function]}
       rowSpan="2"
@@ -651,7 +577,7 @@ exports[`commission group - GridData  _renderHeader - render correctly 1`] = `
     </t>
     <t
       asc={true}
-      colWidth={120}
+      colWidth={90}
       header={true}
       onClick={[Function]}
       rowSpan="2"
@@ -662,7 +588,7 @@ exports[`commission group - GridData  _renderHeader - render correctly 1`] = `
     </t>
     <t
       asc={true}
-      colWidth={120}
+      colWidth={90}
       header={true}
       onClick={[Function]}
       rowSpan="2"
@@ -673,7 +599,7 @@ exports[`commission group - GridData  _renderHeader - render correctly 1`] = `
     </t>
     <t
       asc={true}
-      colWidth={120}
+      colWidth={90}
       header={true}
       onClick={[Function]}
       rowSpan="2"
@@ -681,6 +607,17 @@ exports[`commission group - GridData  _renderHeader - render correctly 1`] = `
       sorting={false}
     >
       Sub-Affiliate Comm Rate
+    </t>
+    <t
+      asc={true}
+      colWidth={70}
+      header={true}
+      onClick={[Function]}
+      rowSpan="2"
+      sortable={false}
+      sorting={false}
+    >
+      QP Turnover
     </t>
     <t
       asc={true}
@@ -753,173 +690,75 @@ exports[`commission group - GridData  Should render correctly 1`] = `
       autoWidth={true}
       body={
         Array [
-          Array [
-            <t>
-              <React.Fragment>
-                <t
-                  asc={true}
-                  className="text-center"
-                  header={false}
-                  onClick={[Function]}
-                  rowSpan={5}
-                  sortable={false}
-                  sorting={false}
-                >
-                  6
-                </t>
-                <t
-                  asc={true}
-                  className="text-center"
-                  header={false}
-                  onClick={[Function]}
-                  rowSpan={5}
-                  sortable={false}
-                  sorting={false}
-                  title=""
-                >
-                  CG22125
-                </t>
-                <t
-                  asc={true}
-                  className="text-center"
-                  header={false}
-                  onClick={[Function]}
-                  rowSpan={5}
-                  sortable={false}
-                  sorting={false}
-                >
-                  <a
-                    href="/Portal/Affiliate?groupId=153"
-                    target="_top"
-                  >
-                    2
-                  </a>
-                </t>
-                <t
-                  asc={true}
-                  className="text-center"
-                  header={false}
-                  onClick={[Function]}
-                  rowSpan={5}
-                  sortable={false}
-                  sorting={false}
-                >
-                  
-                </t>
-                <t
-                  asc={true}
-                  className="text-center"
-                  header={false}
-                  onClick={[Function]}
-                  rowSpan={5}
-                  sortable={false}
-                  sorting={false}
-                >
-                  <p>
-                    AAnina
-                  </p>
-                  <p>
-                    08/15/2018 01:59:32
-                  </p>
-                </t>
-              </React.Fragment>
-              <t
-                asc={true}
-                className="cell-deduction"
-                header={false}
-                onClick={[Function]}
-                rowSpan="2"
-                sortable={false}
-                sorting={false}
-              >
-                <div
-                  dangerouslySetInnerHTML={
-                    Object {
-                      "__html": "<strong>P2P Group 1</strong><br />Royalty Fee 15.0%",
-                    }
-                  }
-                />
-              </t>
-              <t
-                asc={true}
-                className="font-weight-bold text-center cell-deduction"
-                colSpan="4"
-                header={false}
-                onClick={[Function]}
-                sortable={false}
-                sorting={false}
-              >
-                Fixed Rate 10.0%
-              </t>
-              <React.Fragment>
-                <t
-                  asc={true}
-                  className="text-right"
-                  header={false}
-                  onClick={[Function]}
-                  rowSpan={5}
-                  sortable={false}
-                  sorting={false}
-                  title="10.00"
-                >
-                  10.00
-                </t>
-                <t
-                  asc={true}
-                  className="text-right"
-                  header={false}
-                  onClick={[Function]}
-                  rowSpan={5}
-                  sortable={false}
-                  sorting={false}
-                  title="10.00"
-                >
-                  10.00
-                </t>
-                <t
-                  asc={true}
-                  className="text-right"
-                  header={false}
-                  onClick={[Function]}
-                  rowSpan={5}
-                  sortable={false}
-                  sorting={false}
-                />
-                <t
-                  asc={true}
-                  className="text-center"
-                  header={false}
-                  onClick={[Function]}
-                  rowSpan={5}
-                  sortable={false}
-                  sorting={false}
-                >
-                  <button
-                    className="btn btn-link"
-                    onClick={[Function]}
-                  >
-                    <span
-                      className="oi oi-pencil text-secondary"
-                    />
-                  </button>
-                </t>
-              </React.Fragment>
-            </t>,
-            <t>
-              <t
-                asc={true}
-                className="cell-tier"
-                colSpan="4"
-                header={false}
-                onClick={[Function]}
-                sortable={false}
-                sorting={false}
-              >
-                Poker,V8 Poker
-              </t>
-            </t>,
-          ],
           <t>
+            <React.Fragment>
+              <t
+                asc={true}
+                className="text-center"
+                header={false}
+                onClick={[Function]}
+                rowSpan={3}
+                sortable={false}
+                sorting={false}
+              >
+                6
+              </t>
+              <t
+                asc={true}
+                className="text-center"
+                header={false}
+                onClick={[Function]}
+                rowSpan={3}
+                sortable={false}
+                sorting={false}
+                title=""
+              >
+                CG22125
+              </t>
+              <t
+                asc={true}
+                className="text-center"
+                header={false}
+                onClick={[Function]}
+                rowSpan={3}
+                sortable={false}
+                sorting={false}
+              >
+                <a
+                  href="/Portal/Affiliate?groupId=153"
+                  target="_top"
+                >
+                  2
+                </a>
+              </t>
+              <t
+                asc={true}
+                className="text-center"
+                header={false}
+                onClick={[Function]}
+                rowSpan={3}
+                sortable={false}
+                sorting={false}
+              >
+                
+              </t>
+              <t
+                asc={true}
+                className="text-center"
+                header={false}
+                onClick={[Function]}
+                rowSpan={3}
+                sortable={false}
+                sorting={false}
+              >
+                <p>
+                  AAnina
+                </p>
+                <p>
+                  08/15/2018 01:59:32
+                </p>
+              </t>
+            </React.Fragment>
             <t
               asc={true}
               className="cell-deduction"
@@ -965,7 +804,7 @@ exports[`commission group - GridData  Should render correctly 1`] = `
               sortable={false}
               sorting={false}
             >
-              Min Active Player
+              Min Qualified Player
             </t>
             <t
               asc={true}
@@ -977,6 +816,71 @@ exports[`commission group - GridData  Should render correctly 1`] = `
             >
               Rev. Share%
             </t>
+            <React.Fragment>
+              <t
+                asc={true}
+                className="text-right"
+                header={false}
+                onClick={[Function]}
+                rowSpan={3}
+                sortable={false}
+                sorting={false}
+                title="10.00"
+              >
+                10.00
+              </t>
+              <t
+                asc={true}
+                className="text-right"
+                header={false}
+                onClick={[Function]}
+                rowSpan={3}
+                sortable={false}
+                sorting={false}
+                title="10.00"
+              >
+                10.00
+              </t>
+              <t
+                asc={true}
+                className="text-right"
+                header={false}
+                onClick={[Function]}
+                rowSpan={3}
+                sortable={false}
+                sorting={false}
+              />
+              <t
+                asc={true}
+                className="text-right"
+                header={false}
+                onClick={[Function]}
+                rowSpan={3}
+                sortable={false}
+                sorting={false}
+                title=""
+              >
+                
+              </t>
+              <t
+                asc={true}
+                className="text-center"
+                header={false}
+                onClick={[Function]}
+                rowSpan={3}
+                sortable={false}
+                sorting={false}
+              >
+                <button
+                  className="btn btn-link"
+                  onClick={[Function]}
+                >
+                  <span
+                    className="oi oi-pencil text-secondary"
+                  />
+                </button>
+              </t>
+            </React.Fragment>
           </t>,
           Array [
             <t>
@@ -1088,7 +992,7 @@ exports[`commission group - GridData  Should render correctly 1`] = `
             </t>
             <t
               asc={true}
-              colWidth={100}
+              colWidth={90}
               header={true}
               onClick={[Function]}
               rowSpan="2"
@@ -1109,7 +1013,7 @@ exports[`commission group - GridData  Should render correctly 1`] = `
             </t>
             <t
               asc={true}
-              colWidth={120}
+              colWidth={90}
               header={true}
               onClick={[Function]}
               rowSpan="2"
@@ -1120,7 +1024,7 @@ exports[`commission group - GridData  Should render correctly 1`] = `
             </t>
             <t
               asc={true}
-              colWidth={120}
+              colWidth={90}
               header={true}
               onClick={[Function]}
               rowSpan="2"
@@ -1131,7 +1035,7 @@ exports[`commission group - GridData  Should render correctly 1`] = `
             </t>
             <t
               asc={true}
-              colWidth={120}
+              colWidth={90}
               header={true}
               onClick={[Function]}
               rowSpan="2"
@@ -1139,6 +1043,17 @@ exports[`commission group - GridData  Should render correctly 1`] = `
               sorting={false}
             >
               Sub-Affiliate Comm Rate
+            </t>
+            <t
+              asc={true}
+              colWidth={70}
+              header={true}
+              onClick={[Function]}
+              rowSpan="2"
+              sortable={false}
+              sorting={false}
+            >
+              QP Turnover
             </t>
             <t
               asc={true}
@@ -1283,7 +1198,7 @@ exports[`commission group - GridData  Should render correctly with data is null 
             </t>
             <t
               asc={true}
-              colWidth={100}
+              colWidth={90}
               header={true}
               onClick={[Function]}
               rowSpan="2"
@@ -1304,7 +1219,7 @@ exports[`commission group - GridData  Should render correctly with data is null 
             </t>
             <t
               asc={true}
-              colWidth={120}
+              colWidth={90}
               header={true}
               onClick={[Function]}
               rowSpan="2"
@@ -1315,7 +1230,7 @@ exports[`commission group - GridData  Should render correctly with data is null 
             </t>
             <t
               asc={true}
-              colWidth={120}
+              colWidth={90}
               header={true}
               onClick={[Function]}
               rowSpan="2"
@@ -1326,7 +1241,7 @@ exports[`commission group - GridData  Should render correctly with data is null 
             </t>
             <t
               asc={true}
-              colWidth={120}
+              colWidth={90}
               header={true}
               onClick={[Function]}
               rowSpan="2"
@@ -1334,6 +1249,17 @@ exports[`commission group - GridData  Should render correctly with data is null 
               sorting={false}
             >
               Sub-Affiliate Comm Rate
+            </t>
+            <t
+              asc={true}
+              colWidth={70}
+              header={true}
+              onClick={[Function]}
+              rowSpan="2"
+              sortable={false}
+              sorting={false}
+            >
+              QP Turnover
             </t>
             <t
               asc={true}
@@ -1414,173 +1340,75 @@ exports[`commission group - GridData  Should render correctly with fees is amoun
       autoWidth={true}
       body={
         Array [
-          Array [
-            <t>
-              <React.Fragment>
-                <t
-                  asc={true}
-                  className="text-center"
-                  header={false}
-                  onClick={[Function]}
-                  rowSpan={5}
-                  sortable={false}
-                  sorting={false}
-                >
-                  6
-                </t>
-                <t
-                  asc={true}
-                  className="text-center"
-                  header={false}
-                  onClick={[Function]}
-                  rowSpan={5}
-                  sortable={false}
-                  sorting={false}
-                  title=""
-                >
-                  CG22125
-                </t>
-                <t
-                  asc={true}
-                  className="text-center"
-                  header={false}
-                  onClick={[Function]}
-                  rowSpan={5}
-                  sortable={false}
-                  sorting={false}
-                >
-                  <a
-                    href="/Portal/Affiliate?groupId=153"
-                    target="_top"
-                  >
-                    2
-                  </a>
-                </t>
-                <t
-                  asc={true}
-                  className="text-center"
-                  header={false}
-                  onClick={[Function]}
-                  rowSpan={5}
-                  sortable={false}
-                  sorting={false}
-                >
-                  
-                </t>
-                <t
-                  asc={true}
-                  className="text-center"
-                  header={false}
-                  onClick={[Function]}
-                  rowSpan={5}
-                  sortable={false}
-                  sorting={false}
-                >
-                  <p>
-                    AAnina
-                  </p>
-                  <p>
-                    08/15/2018 01:59:32
-                  </p>
-                </t>
-              </React.Fragment>
-              <t
-                asc={true}
-                className="cell-deduction"
-                header={false}
-                onClick={[Function]}
-                rowSpan="2"
-                sortable={false}
-                sorting={false}
-              >
-                <div
-                  dangerouslySetInnerHTML={
-                    Object {
-                      "__html": "<strong>P2P Group 1</strong><br />Royalty Fee 15.0%",
-                    }
-                  }
-                />
-              </t>
-              <t
-                asc={true}
-                className="font-weight-bold text-center cell-deduction"
-                colSpan="4"
-                header={false}
-                onClick={[Function]}
-                sortable={false}
-                sorting={false}
-              >
-                Fixed Rate 10.0%
-              </t>
-              <React.Fragment>
-                <t
-                  asc={true}
-                  className="text-right"
-                  header={false}
-                  onClick={[Function]}
-                  rowSpan={5}
-                  sortable={false}
-                  sorting={false}
-                  title="2.0%"
-                >
-                  2.0%
-                </t>
-                <t
-                  asc={true}
-                  className="text-right"
-                  header={false}
-                  onClick={[Function]}
-                  rowSpan={5}
-                  sortable={false}
-                  sorting={false}
-                  title="2.0%"
-                >
-                  2.0%
-                </t>
-                <t
-                  asc={true}
-                  className="text-right"
-                  header={false}
-                  onClick={[Function]}
-                  rowSpan={5}
-                  sortable={false}
-                  sorting={false}
-                />
-                <t
-                  asc={true}
-                  className="text-center"
-                  header={false}
-                  onClick={[Function]}
-                  rowSpan={5}
-                  sortable={false}
-                  sorting={false}
-                >
-                  <button
-                    className="btn btn-link"
-                    onClick={[Function]}
-                  >
-                    <span
-                      className="oi oi-pencil text-secondary"
-                    />
-                  </button>
-                </t>
-              </React.Fragment>
-            </t>,
-            <t>
-              <t
-                asc={true}
-                className="cell-tier"
-                colSpan="4"
-                header={false}
-                onClick={[Function]}
-                sortable={false}
-                sorting={false}
-              >
-                Poker,V8 Poker
-              </t>
-            </t>,
-          ],
           <t>
+            <React.Fragment>
+              <t
+                asc={true}
+                className="text-center"
+                header={false}
+                onClick={[Function]}
+                rowSpan={3}
+                sortable={false}
+                sorting={false}
+              >
+                6
+              </t>
+              <t
+                asc={true}
+                className="text-center"
+                header={false}
+                onClick={[Function]}
+                rowSpan={3}
+                sortable={false}
+                sorting={false}
+                title=""
+              >
+                CG22125
+              </t>
+              <t
+                asc={true}
+                className="text-center"
+                header={false}
+                onClick={[Function]}
+                rowSpan={3}
+                sortable={false}
+                sorting={false}
+              >
+                <a
+                  href="/Portal/Affiliate?groupId=153"
+                  target="_top"
+                >
+                  2
+                </a>
+              </t>
+              <t
+                asc={true}
+                className="text-center"
+                header={false}
+                onClick={[Function]}
+                rowSpan={3}
+                sortable={false}
+                sorting={false}
+              >
+                
+              </t>
+              <t
+                asc={true}
+                className="text-center"
+                header={false}
+                onClick={[Function]}
+                rowSpan={3}
+                sortable={false}
+                sorting={false}
+              >
+                <p>
+                  AAnina
+                </p>
+                <p>
+                  08/15/2018 01:59:32
+                </p>
+              </t>
+            </React.Fragment>
             <t
               asc={true}
               className="cell-deduction"
@@ -1626,7 +1454,7 @@ exports[`commission group - GridData  Should render correctly with fees is amoun
               sortable={false}
               sorting={false}
             >
-              Min Active Player
+              Min Qualified Player
             </t>
             <t
               asc={true}
@@ -1638,6 +1466,71 @@ exports[`commission group - GridData  Should render correctly with fees is amoun
             >
               Rev. Share%
             </t>
+            <React.Fragment>
+              <t
+                asc={true}
+                className="text-right"
+                header={false}
+                onClick={[Function]}
+                rowSpan={3}
+                sortable={false}
+                sorting={false}
+                title="2.0%"
+              >
+                2.0%
+              </t>
+              <t
+                asc={true}
+                className="text-right"
+                header={false}
+                onClick={[Function]}
+                rowSpan={3}
+                sortable={false}
+                sorting={false}
+                title="2.0%"
+              >
+                2.0%
+              </t>
+              <t
+                asc={true}
+                className="text-right"
+                header={false}
+                onClick={[Function]}
+                rowSpan={3}
+                sortable={false}
+                sorting={false}
+              />
+              <t
+                asc={true}
+                className="text-right"
+                header={false}
+                onClick={[Function]}
+                rowSpan={3}
+                sortable={false}
+                sorting={false}
+                title=""
+              >
+                
+              </t>
+              <t
+                asc={true}
+                className="text-center"
+                header={false}
+                onClick={[Function]}
+                rowSpan={3}
+                sortable={false}
+                sorting={false}
+              >
+                <button
+                  className="btn btn-link"
+                  onClick={[Function]}
+                >
+                  <span
+                    className="oi oi-pencil text-secondary"
+                  />
+                </button>
+              </t>
+            </React.Fragment>
           </t>,
           Array [
             <t>
@@ -1749,7 +1642,7 @@ exports[`commission group - GridData  Should render correctly with fees is amoun
             </t>
             <t
               asc={true}
-              colWidth={100}
+              colWidth={90}
               header={true}
               onClick={[Function]}
               rowSpan="2"
@@ -1770,7 +1663,7 @@ exports[`commission group - GridData  Should render correctly with fees is amoun
             </t>
             <t
               asc={true}
-              colWidth={120}
+              colWidth={90}
               header={true}
               onClick={[Function]}
               rowSpan="2"
@@ -1781,7 +1674,7 @@ exports[`commission group - GridData  Should render correctly with fees is amoun
             </t>
             <t
               asc={true}
-              colWidth={120}
+              colWidth={90}
               header={true}
               onClick={[Function]}
               rowSpan="2"
@@ -1792,7 +1685,7 @@ exports[`commission group - GridData  Should render correctly with fees is amoun
             </t>
             <t
               asc={true}
-              colWidth={120}
+              colWidth={90}
               header={true}
               onClick={[Function]}
               rowSpan="2"
@@ -1800,6 +1693,17 @@ exports[`commission group - GridData  Should render correctly with fees is amoun
               sorting={false}
             >
               Sub-Affiliate Comm Rate
+            </t>
+            <t
+              asc={true}
+              colWidth={70}
+              header={true}
+              onClick={[Function]}
+              rowSpan="2"
+              sortable={false}
+              sorting={false}
+            >
+              QP Turnover
             </t>
             <t
               asc={true}
@@ -1880,176 +1784,78 @@ exports[`commission group - GridData  Should render correctly with is private gr
       autoWidth={true}
       body={
         Array [
-          Array [
-            <t>
-              <React.Fragment>
-                <t
-                  asc={true}
-                  className="text-center"
-                  header={false}
-                  onClick={[Function]}
-                  rowSpan={5}
-                  sortable={false}
-                  sorting={false}
-                >
-                  6
-                </t>
-                <t
-                  asc={true}
-                  className="text-center"
-                  header={false}
-                  onClick={[Function]}
-                  rowSpan={5}
-                  sortable={false}
-                  sorting={false}
-                  title="Private Group"
-                >
-                  <span
-                    className="oi oi-person"
-                  />
-                  B2CAFF226
-                </t>
-                <t
-                  asc={true}
-                  className="text-center"
-                  header={false}
-                  onClick={[Function]}
-                  rowSpan={5}
-                  sortable={false}
-                  sorting={false}
-                >
-                  <a
-                    href="/Portal/Affiliate?groupId=1271808"
-                    target="_top"
-                  >
-                    2
-                  </a>
-                </t>
-                <t
-                  asc={true}
-                  className="text-center"
-                  header={false}
-                  onClick={[Function]}
-                  rowSpan={5}
-                  sortable={false}
-                  sorting={false}
-                >
-                  
-                </t>
-                <t
-                  asc={true}
-                  className="text-center"
-                  header={false}
-                  onClick={[Function]}
-                  rowSpan={5}
-                  sortable={false}
-                  sorting={false}
-                >
-                  <p>
-                    AAnina
-                  </p>
-                  <p>
-                    08/15/2018 01:59:32
-                  </p>
-                </t>
-              </React.Fragment>
-              <t
-                asc={true}
-                className="cell-deduction"
-                header={false}
-                onClick={[Function]}
-                rowSpan="2"
-                sortable={false}
-                sorting={false}
-              >
-                <div
-                  dangerouslySetInnerHTML={
-                    Object {
-                      "__html": "<strong>P2P Group 1</strong><br />Royalty Fee 15.0%",
-                    }
-                  }
-                />
-              </t>
-              <t
-                asc={true}
-                className="font-weight-bold text-center cell-deduction"
-                colSpan="4"
-                header={false}
-                onClick={[Function]}
-                sortable={false}
-                sorting={false}
-              >
-                Fixed Rate 10.0%
-              </t>
-              <React.Fragment>
-                <t
-                  asc={true}
-                  className="text-right"
-                  header={false}
-                  onClick={[Function]}
-                  rowSpan={5}
-                  sortable={false}
-                  sorting={false}
-                  title="10.00"
-                >
-                  10.00
-                </t>
-                <t
-                  asc={true}
-                  className="text-right"
-                  header={false}
-                  onClick={[Function]}
-                  rowSpan={5}
-                  sortable={false}
-                  sorting={false}
-                  title="10.00"
-                >
-                  10.00
-                </t>
-                <t
-                  asc={true}
-                  className="text-right"
-                  header={false}
-                  onClick={[Function]}
-                  rowSpan={5}
-                  sortable={false}
-                  sorting={false}
-                />
-                <t
-                  asc={true}
-                  className="text-center"
-                  header={false}
-                  onClick={[Function]}
-                  rowSpan={5}
-                  sortable={false}
-                  sorting={false}
-                >
-                  <button
-                    className="btn btn-link"
-                    onClick={[Function]}
-                  >
-                    <span
-                      className="oi oi-pencil text-secondary"
-                    />
-                  </button>
-                </t>
-              </React.Fragment>
-            </t>,
-            <t>
-              <t
-                asc={true}
-                className="cell-tier"
-                colSpan="4"
-                header={false}
-                onClick={[Function]}
-                sortable={false}
-                sorting={false}
-              >
-                Poker,V8 Poker
-              </t>
-            </t>,
-          ],
           <t>
+            <React.Fragment>
+              <t
+                asc={true}
+                className="text-center"
+                header={false}
+                onClick={[Function]}
+                rowSpan={3}
+                sortable={false}
+                sorting={false}
+              >
+                6
+              </t>
+              <t
+                asc={true}
+                className="text-center"
+                header={false}
+                onClick={[Function]}
+                rowSpan={3}
+                sortable={false}
+                sorting={false}
+                title="Private Group"
+              >
+                <span
+                  className="oi oi-person"
+                />
+                B2CAFF226
+              </t>
+              <t
+                asc={true}
+                className="text-center"
+                header={false}
+                onClick={[Function]}
+                rowSpan={3}
+                sortable={false}
+                sorting={false}
+              >
+                <a
+                  href="/Portal/Affiliate?groupId=1271808"
+                  target="_top"
+                >
+                  2
+                </a>
+              </t>
+              <t
+                asc={true}
+                className="text-center"
+                header={false}
+                onClick={[Function]}
+                rowSpan={3}
+                sortable={false}
+                sorting={false}
+              >
+                
+              </t>
+              <t
+                asc={true}
+                className="text-center"
+                header={false}
+                onClick={[Function]}
+                rowSpan={3}
+                sortable={false}
+                sorting={false}
+              >
+                <p>
+                  AAnina
+                </p>
+                <p>
+                  08/15/2018 01:59:32
+                </p>
+              </t>
+            </React.Fragment>
             <t
               asc={true}
               className="cell-deduction"
@@ -2095,7 +1901,7 @@ exports[`commission group - GridData  Should render correctly with is private gr
               sortable={false}
               sorting={false}
             >
-              Min Active Player
+              Min Qualified Player
             </t>
             <t
               asc={true}
@@ -2107,6 +1913,71 @@ exports[`commission group - GridData  Should render correctly with is private gr
             >
               Rev. Share%
             </t>
+            <React.Fragment>
+              <t
+                asc={true}
+                className="text-right"
+                header={false}
+                onClick={[Function]}
+                rowSpan={3}
+                sortable={false}
+                sorting={false}
+                title="10.00"
+              >
+                10.00
+              </t>
+              <t
+                asc={true}
+                className="text-right"
+                header={false}
+                onClick={[Function]}
+                rowSpan={3}
+                sortable={false}
+                sorting={false}
+                title="10.00"
+              >
+                10.00
+              </t>
+              <t
+                asc={true}
+                className="text-right"
+                header={false}
+                onClick={[Function]}
+                rowSpan={3}
+                sortable={false}
+                sorting={false}
+              />
+              <t
+                asc={true}
+                className="text-right"
+                header={false}
+                onClick={[Function]}
+                rowSpan={3}
+                sortable={false}
+                sorting={false}
+                title=""
+              >
+                
+              </t>
+              <t
+                asc={true}
+                className="text-center"
+                header={false}
+                onClick={[Function]}
+                rowSpan={3}
+                sortable={false}
+                sorting={false}
+              >
+                <button
+                  className="btn btn-link"
+                  onClick={[Function]}
+                >
+                  <span
+                    className="oi oi-pencil text-secondary"
+                  />
+                </button>
+              </t>
+            </React.Fragment>
           </t>,
           Array [
             <t>
@@ -2218,7 +2089,7 @@ exports[`commission group - GridData  Should render correctly with is private gr
             </t>
             <t
               asc={true}
-              colWidth={100}
+              colWidth={90}
               header={true}
               onClick={[Function]}
               rowSpan="2"
@@ -2239,7 +2110,7 @@ exports[`commission group - GridData  Should render correctly with is private gr
             </t>
             <t
               asc={true}
-              colWidth={120}
+              colWidth={90}
               header={true}
               onClick={[Function]}
               rowSpan="2"
@@ -2250,7 +2121,7 @@ exports[`commission group - GridData  Should render correctly with is private gr
             </t>
             <t
               asc={true}
-              colWidth={120}
+              colWidth={90}
               header={true}
               onClick={[Function]}
               rowSpan="2"
@@ -2261,7 +2132,7 @@ exports[`commission group - GridData  Should render correctly with is private gr
             </t>
             <t
               asc={true}
-              colWidth={120}
+              colWidth={90}
               header={true}
               onClick={[Function]}
               rowSpan="2"
@@ -2269,6 +2140,17 @@ exports[`commission group - GridData  Should render correctly with is private gr
               sorting={false}
             >
               Sub-Affiliate Comm Rate
+            </t>
+            <t
+              asc={true}
+              colWidth={70}
+              header={true}
+              onClick={[Function]}
+              rowSpan="2"
+              sortable={false}
+              sorting={false}
+            >
+              QP Turnover
             </t>
             <t
               asc={true}

@@ -214,7 +214,9 @@ namespace Fanex.Affiliate.Admin.Core.Repository
                         MinAmount = reader.ToDecimal("MinAmount"),
                         MinQm = reader.ToInt("MinQm"),
                         Commission = reader.ToDecimal("Commission"),
-                        GroupProductId = reader.ToInt("GroupProductId")
+                        GroupProductId = reader.ToInt("GroupProductId"),
+                        MinFTDCount = reader.ToInt("MinFTDCount"),
+                        MinTotalDeposit = reader.ToDecimal("MinTotalDeposit")
                     });
                 }
             }

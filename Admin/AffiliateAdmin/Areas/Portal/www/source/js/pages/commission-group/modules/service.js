@@ -1,4 +1,4 @@
-import { deductionNameList, messages, money, INFINITY_QM, defaultSubAffCommRate, regExp, regexValidNegativeAmount, tierSettingDefault } from './constant';
+import { deductionNameList, messages, money, INFINITY_QM, INFINITY_FTD_COUNT, INFINITY_TOTAL_DEPOSIT, defaultSubAffCommRate, regExp, regexValidNegativeAmount, tierSettingDefault } from './constant';
 
 const emptyCommGroup = {
     GroupId: 0,
@@ -8,6 +8,8 @@ const emptyCommGroup = {
     QmTurnover: 100,
     SubAffCommRate: defaultSubAffCommRate,
     IsActivePlayerSum: true,
+    IsCheckedMinFTDCount: false,
+    IsCheckedMinTotalDeposit: false,
     TierSettingList: [{ ...tierSettingDefault }],
     PlatformFeeList: [],
     DepositFee: {},
@@ -114,10 +116,10 @@ export const convertStringToArrayNumber = (stringIds) => {
 }
 
 export const validate = (selectedGroup) => {
-    const { GroupName, TierSettingList, PlatformFeeList, DepositFee, WithdrawalFee } = selectedGroup;
+    const { GroupName, TierSettingList, PlatformFeeList, DepositFee, WithdrawalFee, IsCheckedMinFTDCount, IsCheckedMinTotalDeposit } = selectedGroup;
 
     const groupNameValidation = validateGroupName(GroupName);
-    const tierSettingValidation = validateTierSettingList(TierSettingList);
+    const tierSettingValidation = validateTierSettingList(TierSettingList, IsCheckedMinFTDCount, IsCheckedMinTotalDeposit);
     const selectedProductValidation = validateItemMustHaveAProduct(PlatformFeeList);
     const depositFeeValidation = validateDeductedFees(DepositFee, messages.requireDepositAmount, messages.invalidDepositAmount);
     const withdrawalFeeValidation = validateDeductedFees(WithdrawalFee, messages.requireWithdrawalAmount, messages.invalidWithdrawalAmount);
@@ -164,7 +166,7 @@ export const validateGroupName = (groupName) => {
     return { isValid, messageList };
 }
 
-export const validateTierSettingList = (tierSettingList) => {
+export const validateTierSettingList = (tierSettingList, isCheckedMinFTDCount, isCheckedMinTotalDeposit) => {
     let isValid = true;
     const messageList = [];
 
@@ -182,16 +184,20 @@ export const validateTierSettingList = (tierSettingList) => {
             if (!regexValidNegativeAmount.test(firstMinAmount) && Number(firstMinAmount) != 0 && Number(firstMinAmount) != money.AllowedMinValue) {
                 isValid = false;
                 messageList.push(`${groupProductName} - ${messages.minNetWinFirstMustBeZero}`);
-            } else if (isMinNetWinNotStartFromOneAfterNegative(tierSettings)) {
+            }
+            if (isMinNetWinNotStartFromOneAfterNegative(tierSettings)) {
                 isValid = false;
                 messageList.push(`${groupProductName} - ${messages.minNetWinMustStartFromOne}`);
-            } else if (isMinNetWinNotIncreaseSequentially(tierSettings)) {
+            }
+            if (isNotIncreaseSequentially(tierSettings, 'MinAmount')) {
                 isValid = false;
                 messageList.push(`${groupProductName} - ${messages.minNetWinMustIncreaseSequentially}`);
-            } else if (tierSettings.filter(item => item.MinAmount < money.AllowedMinValue).length > 0) {
+            }
+            if (tierSettings.filter(item => item.MinAmount < money.AllowedMinValue).length > 0) {
                 isValid = false;
                 messageList.push(`${groupProductName} - ${messages.minNetWinGreaterThanNegativeInfinity}`);
-            } else if (tierSettings.filter(item => item.MinAmount > money.AllowedMaxValue).length > 0) {
+            }
+            if (tierSettings.filter(item => item.MinAmount > money.AllowedMaxValue).length > 0) {
                 isValid = false;
                 messageList.push(`${groupProductName} - ${messages.minNetWinLesserThanInfinity}`);
             }
@@ -200,11 +206,92 @@ export const validateTierSettingList = (tierSettingList) => {
                 isValid = false;
                 messageList.push(`${groupProductName} - ${messages.qmConstrain}`);
             }
+
+            const allTierSettingsMatchGroupProduct1 = validateAllTierSettingsMatchGroupProduct1(i, tierSettings, tierSettingListByGroupProduct[1], isCheckedMinFTDCount, isCheckedMinTotalDeposit);
+            if (!allTierSettingsMatchGroupProduct1.isValid) {
+                isValid = false;
+                messageList.push(...allTierSettingsMatchGroupProduct1.messageList);
+            }
+
+            const validateField = (isChecked, fieldName, minValue, maxValue, messagesMap) => {
+                if (!isChecked) return;
+
+                if (tierSettings.some(item => item[fieldName] <= minValue)) {
+                    isValid = false;
+                    messageList.push(`${groupProductName} - ${messagesMap.greaterThanMin}`);
+                }
+                if (tierSettings.some(item => item[fieldName] > maxValue)) {
+                    isValid = false;
+                    messageList.push(`${groupProductName} - ${messagesMap.lesserThanMax}`);
+                }
+                if (isNotIncreaseSequentially(tierSettings, fieldName)) {
+                    isValid = false;
+                    messageList.push(`${groupProductName} - ${messagesMap.mustIncreaseSequentially}`);
+                }
+            };
+
+            if (i === 0) {
+                validateField(isCheckedMinFTDCount, 'MinFTDCount', 0, INFINITY_FTD_COUNT,
+                    {
+                        greaterThanMin: messages.minFTDCountGreaterThanZero,
+                        lesserThanMax: messages.minFTDCountLesserThanInfinity,
+                        mustIncreaseSequentially: messages.minFTDCountMustIncreaseSequentially
+                    }
+                );
+
+                validateField(isCheckedMinTotalDeposit, 'MinTotalDeposit', 0, INFINITY_TOTAL_DEPOSIT,
+                    {
+                        greaterThanMin: messages.minTotalDepositGreaterThanZero,
+                        lesserThanMax: messages.minTotalDepositLesserThanInfinity,
+                        mustIncreaseSequentially: messages.minTotalDepositMustIncreaseSequentially
+                    }
+                );
+            }
         }
     });
 
     return { isValid, messageList };
 }
+
+// Start validate all tier settings match group product 1
+const validateAllTierSettingsMatchGroupProduct1 = (index, groupTiers, firstGroupTiers, isCheckedMinFTDCount, isCheckedMinTotalDeposit) => {
+    let isValid = true;
+    const messageList = [];
+
+    if (index !== 0 && !isGroup2MatchGroup1(groupTiers, firstGroupTiers, isCheckedMinFTDCount, isCheckedMinTotalDeposit)) {
+        isValid = false;
+        messageList.push(messages.requireAllTierSettingsMatchGroupProduct1.replace('{0}', index + 1));
+    }
+
+    return { isValid, messageList };
+}
+
+const isGroup2MatchGroup1 = (group2, group1, isCheckedMinFTDCount, isCheckedMinTotalDeposit) => {
+    if (group2.length > group1.length) return false;
+
+    let group1Index = 0;
+
+    for (const item2 of group2) {
+        let found = false;
+
+        while (group1Index < group1.length) {
+            const item1 = group1[group1Index++];
+
+            const isMinFTDCountMatch = !isCheckedMinFTDCount || item1.MinFTDCount === item2.MinFTDCount;
+            const isMinTotalDepositMatch = !isCheckedMinTotalDeposit || item1.MinTotalDeposit === item2.MinTotalDeposit;
+
+            if (isMinFTDCountMatch && isMinTotalDepositMatch) {
+                found = true;
+                break;
+            }
+        }
+
+        if (!found) return false;
+    }
+
+    return true;
+};
+// End validate all tier settings match group product 1
 
 export const validateItemMustHaveAProduct = (platformFeeList) => {
     let isValid = true;
@@ -232,8 +319,8 @@ export const handleKillRateListData = (platformFeeList, killRateFeeList) => {
     });
 }
 
-const isMinNetWinNotIncreaseSequentially = (tierSettingList) => {
-    return tierSettingList.some((tier, i) => i != 0 && Number(tier.MinAmount) <= Number(tierSettingList[i - 1].MinAmount));
+const isNotIncreaseSequentially = (tierSettingList, propName) => {
+    return tierSettingList.some((tier, i) => i != 0 && Number(tier[propName]) <= Number(tierSettingList[i - 1][propName]));
 }
 
 const isMinNetWinNotStartFromOneAfterNegative = (tierSettingList) => {

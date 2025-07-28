@@ -93,12 +93,7 @@ exports[`affiliate info - GridData  _buildDataRow - should render correctly with
       className="text-right"
       title="6"
     >
-      <a
-        href="/Portal/Player?AffName=N8BAFF001"
-        target="_top"
-      >
-        6
-      </a>
+      6
     </td>
     <td
       className="text-center"
@@ -247,11 +242,8 @@ exports[`affiliate info - GridData  should render correctly 1`] = `
         >
           <th
             className="freeze-column-header freeze-column-header-0"
-            title="#"
             width={50}
-          >
-            #
-          </th>
+          />
           <th
             className="freeze-column-header freeze-column-header-1"
             title="Parent Affiliate"
@@ -432,12 +424,7 @@ exports[`affiliate info - GridData  should render correctly 1`] = `
             className="text-right"
             title="6"
           >
-            <a
-              href="/Portal/Player?AffName=N8BAFF001"
-              target="_top"
-            >
-              6
-            </a>
+            6
           </td>
           <td
             className="text-center"
@@ -544,12 +531,7 @@ exports[`affiliate info - GridData  should render correctly 1`] = `
             className="text-right"
             title="6"
           >
-            <a
-              href="/Portal/Player?AffName=N8BAFF001"
-              target="_top"
-            >
-              6
-            </a>
+            6
           </td>
           <td
             className="text-center"
@@ -689,12 +671,7 @@ exports[`affiliate info - GridData  should render correctly with _renderDataSect
       className="text-right"
       title="6"
     >
-      <a
-        href="/Portal/Player?AffName=N8BAFF001"
-        target="_top"
-      >
-        6
-      </a>
+      6
     </td>
     <td
       className="text-center"
@@ -807,12 +784,7 @@ exports[`affiliate info - GridData  should render correctly with _renderDataSect
       className="text-right"
       title="6"
     >
-      <a
-        href="/Portal/Player?AffName=N8BAFF001"
-        target="_top"
-      >
-        6
-      </a>
+      6
     </td>
     <td
       className="text-center"
@@ -845,11 +817,8 @@ exports[`affiliate info - GridData  should render correctly with _renderHeader 1
   >
     <th
       className="freeze-column-header freeze-column-header-0"
-      title="#"
       width={50}
-    >
-      #
-    </th>
+    />
     <th
       className="freeze-column-header freeze-column-header-1"
       title="Parent Affiliate"
@@ -985,11 +954,8 @@ exports[`affiliate info - GridData  should render correctly with no data 1`] = `
         >
           <th
             className="freeze-column-header freeze-column-header-0"
-            title="#"
             width={50}
-          >
-            #
-          </th>
+          />
           <th
             className="freeze-column-header freeze-column-header-1"
             title="Parent Affiliate"

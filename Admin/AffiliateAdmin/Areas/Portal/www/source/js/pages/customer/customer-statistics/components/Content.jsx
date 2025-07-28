@@ -86,6 +86,7 @@ export class Content extends PureComponent {
         const TurnoverTotal = formatDecimalWithCurrencySymbol(data.TurnoverTotal);
         const GgrByMonth = formatDecimalWithCurrencySymbol(data.GgrByMonth);
         const GgrTotal = formatDecimalWithCurrencySymbol(data.GgrTotal);
+        const FdmTotalDepositByMonth = formatDecimalWithCurrencySymbol(data.Fdm_TotalDepositByMonth);
 
         const startMonthString = `${monthDate.getMonth() + 1}/1/${monthDate.getFullYear()}`;
 
@@ -103,6 +104,7 @@ export class Content extends PureComponent {
                 {this._buildRow(rowTitle.TotalQualified, format(data.QualifiedMembersByMonth), resource.NA)}
                 {this._buildRow(rowTitle.TotalSubAff, format(data.NoOfSubAffByMonth), format(data.NoOfSubAffTotal))}
                 {this._buildRow(rowTitle.TotalDeposits, DepositByMonth, DepositTotal)}
+                {this._buildRow(rowTitle.FdmTotalDeposits, FdmTotalDepositByMonth, resource.NA)}
                 {this._buildRow(rowTitle.Turnover, TurnoverByMonth, TurnoverTotal)}
                 {this._buildRow(rowTitle.Ggr, GgrByMonth, GgrTotal)}
                 {

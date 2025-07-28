@@ -119,6 +119,7 @@ export class GridData extends PureComponent {
             </tr>,
             <tr className="freeze-row freeze-row-h2" key="thead-2">
                 {childHeader[reportKey.Deposit].isShowable && (<th width={75} title={headerText.Deposit}>{headerText.Deposit}</th>)}
+                {childHeader[reportKey.Fdm_TotalDeposit].isShowable && (<th width={75} title={headerText.Fdm_TotalDeposit}>{headerText.Fdm_TotalDeposit}</th>)}
                 {childHeader[reportKey.Withdrawal].isShowable && (<th width={75} title={headerText.Withdrawal}>{headerText.Withdrawal}</th>)}
                 {childHeader[reportKey.Turnover].isShowable && (<th width={75} title={headerText.Turnover}>{headerText.Turnover}</th>)}
                 {childHeader[reportKey.Ggr].isShowable && (<th width={75} title={headerText.Ggr}>{headerText.Ggr}</th>)}
@@ -225,6 +226,7 @@ export class GridData extends PureComponent {
         const totalEarning = formatDecimal(dataItem.TotalEarning);
         const paymentCurrency = isTotalRow ? '' : dataItem.PaymentCurrency;
         const qualifiedMember = format(dataItem.QualifiedMember);
+        const fdmTotalDeposit = formatDecimal(dataItem.Fdm_TotalDeposit);
 
         return (
             <React.Fragment>
@@ -238,6 +240,7 @@ export class GridData extends PureComponent {
                 {header[reportKey.NoOfSubAff].isShowable && (<td className="text-right" title={noOfSubAff}>{noOfSubAff}</td>)}
                 {header[reportKey.TotalDeposit].isShowable && (<td className="text-right" title={totalDeposit}>{totalDeposit}</td>)}
                 {header[reportKey.Deposit].isShowable && (<td className="text-right" title={deposit}>{deposit}</td>)}
+                {header[reportKey.Fdm_TotalDeposit].isShowable && (<td className="text-right" title={fdmTotalDeposit}>{fdmTotalDeposit}</td>)}
                 {header[reportKey.Withdrawal].isShowable && (<td className="text-right" title={withdrawal}>{withdrawal}</td>)}
                 {header[reportKey.Turnover].isShowable && (<td className={productColumnClassName} title={turnover}>{turnover}</td>)}
                 {header[reportKey.Ggr].isShowable && (<td className={productColumnClassName} title={ggr}>{ggr}</td>)}
@@ -338,7 +341,7 @@ export class GridData extends PureComponent {
     render() {
         const { gridData, total } = this.state;
         const maxHeight = getMaxHeight();
-        const style = this._isMainView() && !this.props.isCheckedDatePicker ? { minWidth: '2225px' } : {};
+        const style = this._isMainView() && !this.props.isCheckedDatePicker ? { minWidth: '2600px' } : {};
 
         return gridData && (
             <Fragment>

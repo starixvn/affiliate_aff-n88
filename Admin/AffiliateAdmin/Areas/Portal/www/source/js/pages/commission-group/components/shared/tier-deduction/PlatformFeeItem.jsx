@@ -25,7 +25,6 @@ export default class PlatformFeeItem extends React.PureComponent {
         const { productList, royaltyFee, killRate, groupProductId } = data;
         const isValid = (isFirst && isOnlyOnePlatformFeeRow) || productList.filter(p => !p.Checked).length < productList.length;
         const isDisableAddButton = isFirst && (productList.length === ONLY_ONE_ITEM);
-        const btnText = isFirst ? (<><span>Add Product Group</span><span>+</span></>) : (<><span>Remove Product Group</span><span>-</span></>);
 
         return (
             <div className="my-2">
@@ -71,7 +70,7 @@ export default class PlatformFeeItem extends React.PureComponent {
                     groupProductId={groupProductId}
                     handleClick={handleClick}
                     isDisableAddButton={isDisableAddButton}
-                    btnText={btnText}
+                    isFirstTierSetting={isFirst}
                     isTurnover={isTurnover}
                 />
             </div>
