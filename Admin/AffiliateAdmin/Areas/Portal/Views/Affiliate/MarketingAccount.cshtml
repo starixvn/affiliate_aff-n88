@@ -2,7 +2,6 @@
 
 @{
     Html.RenderPartial("~/Areas/Portal/Views/Affiliate/_AffiliateSubMenu.cshtml", Model.SubMenuList);
-    var time = DateTime.Now.Ticks;
     var appSetting = AppSetting.Instance;
 }
 
@@ -14,9 +13,11 @@
     <script type="text/javascript">
         window.initialState = {
             licenseeName: '@(appSetting.SiteFriendlyName)',
+            marketingSpecificAffId: @appSetting.MarketingSpecificAffId,
+            marketingSpecificAffName: '@appSetting.MarketingSpecificAffName',
             languageList: @Html.Raw(Json.Encode(Model.LanguageList)),
             dealList: @Html.Raw(Json.Encode(Model.DealList)),
         }
     </script>
-    <script type="text/javascript" src="@Url.VersionedLink("~/Areas/Portal/www/dist/js/pages/affiliate/marketing-account.js?v="+time)"></script>
+    <script type="text/javascript" src="@Url.VersionedLink("~/Areas/Portal/www/dist/js/pages/affiliate/marketing-account.js")"></script>
 }

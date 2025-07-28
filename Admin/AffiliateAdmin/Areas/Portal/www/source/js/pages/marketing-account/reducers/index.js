@@ -16,6 +16,7 @@ const defaultAff = {
     affName: ''
 };
 
+const defaultMktAffInfo = createReducer(defaultAff, {});
 export const params = createReducer(null, {
     [types.SET_PARAM](prevState, action) {
         return Object.assign({}, defaultFilterParams, prevState, action.data);
@@ -40,6 +41,7 @@ export default combineReducers({
     isShowLoader,
     licenseeName,
     languageCodeList,
+    defaultMktAffInfo,
     canAddAffMktAccount,
     isShowAddAffMktAccountPopup,
     aff,

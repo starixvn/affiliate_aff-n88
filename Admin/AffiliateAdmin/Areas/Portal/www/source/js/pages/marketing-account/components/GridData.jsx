@@ -68,6 +68,7 @@ export const GridData = (props) => {
                 <Cell header={true} colWidth={40} title={headerText.AffCode}>{headerText.AffCode}</Cell>
                 <Cell header={true} colWidth={60} title={headerText.Status}>{headerText.Status}</Cell>
                 <Cell header={true} colWidth={100} title={headerText.Language}>{headerText.Language}</Cell>
+                <Cell header={true} colWidth={100} title={headerText.DealName}>{headerText.DealName}</Cell>
                 <Cell header={true} colWidth={80} title={headerText.RegistrationDateText}>{headerText.RegistrationDateText}</Cell>
                 <Cell header={true} colWidth={80} title={headerText.CreatedBy}>{headerText.CreatedBy}</Cell>
                 {
@@ -92,6 +93,7 @@ export const GridData = (props) => {
                 <Cell className="text-center" title={dataItem.AffCode}>{dataItem.AffCode}</Cell>
                 <Cell className="text-center" title={dataItem.Status}>{dataItem.Status}</Cell>
                 <Cell className="text-center" title={language}>{language}</Cell>
+                <Cell className="text-center" title={dataItem.CommissionGroup}>{dataItem.CommissionGroup}</Cell>
                 <Cell className="text-center" title={dataItem.RegistrationDateText}>{dataItem.RegistrationDateText}</Cell>
                 <Cell className="text-center" title={dataItem.ApprovedBy}>{dataItem.ApprovedByText}</Cell>
                 {
