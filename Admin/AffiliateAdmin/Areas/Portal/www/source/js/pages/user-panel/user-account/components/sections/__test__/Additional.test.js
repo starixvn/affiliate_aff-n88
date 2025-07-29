@@ -18,7 +18,7 @@ describe('user account - components - sections - Additional', () => {
         Country: "Viet Nam",
         SiteUrl: "https://aff-b2c.nexdev.net/N88User/UserPanel/Main/#MyAccount",
         MoreSiteUrls: "www.sportsbookie.com;www.gzyyy.com;www.123.com",
-        NoSiteDescription: "",
+        NoSiteDesc: "",
         PreferredPayment: "Player",
         PlayerUsername: "bettingexp",
         NetellerAccountId: "1",

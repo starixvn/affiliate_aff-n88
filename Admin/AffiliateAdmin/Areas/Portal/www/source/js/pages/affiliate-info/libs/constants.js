@@ -85,7 +85,8 @@ export const resource = {
     AZ: 'A-Z',
     Apostrophe: "'",
     NA: 'N/A',
-    DisplayedColumns: 'Displayed Columns'
+    DisplayedColumns: 'Displayed Columns',
+    ExcludeMarketingAccount: 'Exclude Marketing Account'
 }
 
 export const regExp = {

@@ -14,7 +14,7 @@ using System.Web.Mvc;
 namespace Fanex.Affiliate.Admin.Core.Controllers
 {
     [FunctionAuthorize(FunctionName = Function.UserControl)]
-    public class EmailTestingController : BaseController
+    public class EmailTestingController : ReadOnlySessionBaseController
     {
         private const int _transId = 123;
         private const int _amount = 100;

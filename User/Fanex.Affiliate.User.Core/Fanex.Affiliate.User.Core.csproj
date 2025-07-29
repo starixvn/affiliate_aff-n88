@@ -248,6 +248,7 @@
     <Compile Include="BusinessService\TwoFactorAuthService.cs" />
     <Compile Include="BusinessService\UnderMaintenanceService.cs" />
     <Compile Include="BusinessService\VerificationService.cs" />
+    <Compile Include="Constants\AffCategory.cs" />
     <Compile Include="Constants\Apis\ApiConstant.cs" />
     <Compile Include="Constants\Apis\CustomerStatus.cs" />
     <Compile Include="Constants\CalculatedType.cs" />

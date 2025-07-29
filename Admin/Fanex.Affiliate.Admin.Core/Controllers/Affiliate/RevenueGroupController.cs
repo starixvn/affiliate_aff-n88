@@ -4,7 +4,6 @@ using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.CommissionGroup;
 using Fanex.Affiliate.Admin.Core.Extensions;
 using Fanex.Affiliate.Admin.Core.MetaModels.CommissionGroup;
-using Fanex.Affiliate.Admin.Core.Repository;
 using Fanex.Affiliate.Admin.Core.Resources;
 using Fanex.Affiliate.Admin.Core.Services.CommGroup;
 using Fanex.Affiliate.Admin.Core.Services.Common;
@@ -16,8 +15,8 @@ using System.Web.Mvc;
 
 namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
 {
-    [FunctionAuthorize(FunctionName = Function.RevenueGroup)]
-    public class RevenueGroupController : BaseController
+    [FunctionAuthorize(FunctionName = Function.Affiliate)]
+    public class RevenueGroupController : ReadOnlySessionBaseController
     {
         private const int MaxLength = 100;
 
@@ -25,45 +24,48 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
 
         private readonly ICommissionGroupService _commissionGroupService;
 
-        private readonly IProductRepository _productRepository;
+        private readonly ISystemService _systemService;
 
         private readonly ICommGroupValidation _commGroupValidation;
 
         public RevenueGroupController(
             ISessionService sessionService,
             ICommissionGroupService commissionService,
-            IProductRepository productRepository,
+            ISystemService systemService,
             ICommGroupCommonService commGroupCommonService,
             ICommGroupValidation commGroupValidation) : base(sessionService)
         {
             _commissionGroupService = commissionService;
-            _productRepository = productRepository;
+            _systemService = systemService;
             _commGroupCommonService = commGroupCommonService;
             _commGroupValidation = commGroupValidation;
         }
 
         [HttpGet]
+        [FunctionAuthorize(FunctionName = Function.RevenueGroup)]
         public ActionResult Index()
         {
             var subMenu = new List<SubMenu>
             {
                 new SubMenu { Name = Lang.AffiliateInfo, Url = Url.Content("~/Portal/Affiliate"), FunctionName = Function.Affiliate },
                 new SubMenu { Name = Lang.PaymentRequest, Url = Url.Content("~/Portal/PaymentRequest"), FunctionName = Function.Payment },
-                new SubMenu { Name = Lang.CommGroup, Url = Url.Content("~/Portal/RevenueGroup"), FunctionName = Function.RevenueGroup, IsActive = true }
+                new SubMenu { Name = Lang.CommGroup, Url = Url.Content("~/Portal/RevenueGroup"), FunctionName = Function.RevenueGroup, IsActive = true },
+                new SubMenu { Name = Lang.MarketingAccount, Url = Url.Content("~/Portal/MarketingAccount"), FunctionName = Function.Affiliate }
             };
-            var productList = _productRepository.GetProductList();
+            var productList = _systemService.GetProductList();
 
             var viewModel = new CommissionGroupViewModel
             {
                 ProductList = productList,
                 DeductionList = _commGroupCommonService.GetDeductionList(),
-                SubMenuList = subMenu,
-                CommGroupTypeList = _commGroupCommonService.GetCommGroupTypes()
+                CommGroupTypeList = _commGroupCommonService.GetCommGroupTypes(),
+                SubMenuList = subMenu
             };
 
             return View("~/Areas/Portal/Views/Affiliate/CommissionGroup.cshtml", viewModel);
         }
 
+        [FunctionAuthorize(FunctionName = Function.RevenueGroup)]
         [HttpPost]
         [ValidateAntiForgeryHeader]
         public ActionResult GetCommissionGroupList(GetCommissionGroupParam param)
@@ -74,12 +76,10 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
                 TotalRows = param.Nrows
             };
 
-            return new JsonNetResult
-            {
-                Data = viewModel
-            };
+            return GenerateJsonNetResult(viewModel);
         }
 
+        [FunctionAuthorize(FunctionName = Function.RevenueGroup)]
         [HttpPost]
         [ValidateAntiForgeryHeader]
         public ActionResult GetCommissionGroup(GetCommissionGroupParam param)
@@ -107,14 +107,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
                 }
             }
 
-            return new JsonNetResult
-            {
-                Data = new ResultInfo
-                {
-                    Code = ErrCode.GeneralErrorCode,
-                    Message = CommGroupErrorMessage.InvalidGroupId
-                }
-            };
+            return GenerateErrResult(CommGroupErrorMessage.InvalidGroupId);
         }
 
         [FunctionAuthorize(FunctionName = Function.RevenueGroup, IsHost = true)]
@@ -124,7 +117,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
         {
             if (!ModelState.IsValid)
             {
-                return CreateErrorResult();
+                return GenerateModelStateErrResult();
             }
 
             var groupNameValidation = ValidateGroupName(commGroup.GroupName);
@@ -151,20 +144,10 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
                     IsCheckedMinTotalDeposit = commGroup.IsCheckedMinTotalDeposit
                 };
 
-                return new JsonNetResult
-                {
-                    Data = _commissionGroupService.CreateCommissionGroup(createParam)
-                };
+                return GenerateJsonNetResult(_commissionGroupService.CreateCommissionGroup(createParam));
             }
 
-            return new JsonNetResult
-            {
-                Data = new ResultInfo
-                {
-                    Code = ErrCode.GeneralErrorCode,
-                    Message = groupNameValidation.Message + result.Message
-                }
-            };
+            return GenerateErrResult(groupNameValidation.Message + result.Message);
         }
 
         [FunctionAuthorize(FunctionName = Function.RevenueGroup, IsHost = true)]
@@ -174,7 +157,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
         {
             if (!ModelState.IsValid || commGroup.GroupId < Validation.MinId)
             {
-                return CreateErrorResult();
+                return GenerateModelStateErrResult();
             }
 
             var groupNameValidation = ValidateGroupName(commGroup.GroupName);
@@ -201,20 +184,10 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
                     IsCheckedMinTotalDeposit = commGroup.IsCheckedMinTotalDeposit
                 };
 
-                return new JsonNetResult
-                {
-                    Data = _commissionGroupService.UpdateCommissionGroup(updateParam)
-                };
+                return GenerateJsonNetResult(_commissionGroupService.UpdateCommissionGroup(updateParam));
             }
 
-            return new JsonNetResult
-            {
-                Data = new ResultInfo
-                {
-                    Code = ErrCode.GeneralErrorCode,
-                    Message = groupNameValidation.Message + result.Message
-                }
-            };
+            return GenerateErrResult(groupNameValidation.Message + result.Message);
         }
 
         [FunctionAuthorize(FunctionName = Function.RevenueGroup, IsHost = true)]
@@ -224,15 +197,12 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
         {
             if (!ModelState.IsValid)
             {
-                return CreateErrorResult();
+                return GenerateModelStateErrResult();
             }
 
-            GetUserInfoParam(param);
+            AssignUserInfoParam(param);
 
-            return new JsonNetResult
-            {
-                Data = _commissionGroupService.DeleteCommissionGroup(param)
-            };
+            return GenerateJsonNetResult(_commissionGroupService.DeleteCommissionGroup(param));
         }
 
         private IEnumerable<DeductionSetting> BuildKillRateFeeListByPlatForm(IEnumerable<DeductionSetting> platformFeeList)
@@ -254,28 +224,14 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
             return killRateFeeList;
         }
 
-        private ActionResult CreateErrorResult()
-        {
-            return new JsonNetResult
-            {
-                Data = new ResultInfo
-                {
-                    Code = ErrCode.GeneralErrorCode,
-                    Message = string.Join("<br />", ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage))
-                }
-            };
-        }
-
         private static ResultInfo ValidateGroupName(string groupName)
         {
-            var result = new ResultInfo();
             if (string.IsNullOrEmpty(groupName) || groupName.Length > MaxLength)
             {
-                result.Code = ErrCode.GeneralErrorCode;
-                result.Message = CommGroupErrorMessage.InvalidGroupName;
+                return ResultInfo.GenerateErr(CommGroupErrorMessage.InvalidGroupName);
             }
 
-            return result;
+            return ResultInfo.Success;
         }
     }
 }

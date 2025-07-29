@@ -76,6 +76,11 @@ namespace Fanex.Affiliate.Admin.Core.Configurations
 
         string AffSiteUrl { get; }
 
+        int MarketingSpecificAffId { get; }
+
+        string MarketingSpecificAffName { get; }
+
+
         [SuppressMessage("Major Code Smell", "S3995:URI return values should not be strings", Justification = "Reviewed. Suppression is OK here.")]
         string GetAffSiteUrlByShortedLanguageCode(string shortedLanguageCode);
     }

@@ -1,5 +1,7 @@
 ﻿using Fanex.Affiliate.Admin.Core.DTO.Common;
+using Fanex.Affiliate.Admin.Core.Extensions;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Claims;
 using System.Web;
 
@@ -75,5 +77,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Common
         }
 
         public ClaimsPrincipal UserClaim => HttpContext.Current.User as ClaimsPrincipal;
+
+        public bool HasHostPermission(string functionName) => UserPermissionList.Any(i => i.FunctionName.MatchWith(functionName) && i.IsHost);
     }
 }

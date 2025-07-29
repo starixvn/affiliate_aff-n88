@@ -104,7 +104,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Administrator
                     GroupId = param.GroupId
                 };
 
-                GetUserInfoParam(encodeParam);
+                AssignUserInfoParam(encodeParam);
 
                 return new JsonNetResult
                 {
@@ -135,7 +135,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Administrator
                     GroupId = param.GroupId
                 };
 
-                GetUserInfoParam(encodeParam);
+                AssignUserInfoParam(encodeParam);
 
                 return new JsonNetResult
                 {
@@ -168,7 +168,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Administrator
                     GroupId = param.GroupId
                 };
 
-                GetUserInfoParam(encodeParam);
+                AssignUserInfoParam(encodeParam);
 
                 return new JsonNetResult
                 {
@@ -193,7 +193,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Administrator
         {
             if (ModelState.IsValid)
             {
-                GetUserInfoParam(param);
+                AssignUserInfoParam(param);
 
                 return new JsonNetResult
                 {
@@ -222,7 +222,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Administrator
                 {
                     GroupPolicies = Server.HtmlEncode(param.GroupPolicies.Trim())
                 };
-                GetUserInfoParam(encodeParam);
+                AssignUserInfoParam(encodeParam);
 
                 var result = _administratorService.UpdateAccountPolicy(encodeParam);
 
@@ -255,7 +255,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Administrator
             if (ModelState.IsValid)
             {
                 param.Password = CryptographyHelper.Encrypt(param.Password);
-                GetUserInfoParam(param);
+                AssignUserInfoParam(param);
 
                 return new JsonNetResult
                 {
@@ -281,7 +281,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Administrator
             _sessionService.ClaimIdentities = new List<ClaimsIdentity> { new ClaimsIdentity(_authService.GetClaims(userId, permissionList)) };
         }
 
-        private void GetUserInfoParam(UserInfoParam param)
+        private void AssignUserInfoParam(UserInfoParam param)
         {
             param.UserId = _sessionService.UserId;
             param.Ip = Request.GetClientIP();

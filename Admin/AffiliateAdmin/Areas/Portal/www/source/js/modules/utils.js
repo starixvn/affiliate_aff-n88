@@ -113,6 +113,20 @@ export const parseDateTime = (value) => {
     return value;
 }
 
+export const convertArrayToObjectProps = (array, key, value) => {
+    if (!Array.isArray(array) || !array.length) {
+        return {};
+    }
+
+    return array.reduce((result, item) => {
+        if (item && typeof item === 'object' && key in item && value in item) {
+            const keyValue = item[key];
+            result[keyValue] = item[value];
+        }
+        return result;
+    }, {});
+}
+
 export function getDateRange(selectedFromDate, toDateString) {
     const selectedFromDateString = selectedFromDate.format("MM/DD/YYYY");
     const fromDate = new Date(selectedFromDateString);

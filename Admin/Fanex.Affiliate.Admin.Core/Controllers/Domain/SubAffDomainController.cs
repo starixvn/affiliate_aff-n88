@@ -15,7 +15,7 @@ using System.Web.Mvc;
 namespace Fanex.Affiliate.Admin.Core.Controllers.Domain
 {
     [FunctionAuthorize(FunctionName = Function.Domain)]
-    public class SubAffDomainController : BaseController
+    public class SubAffDomainController : ReadOnlySessionBaseController
     {
         private readonly ISubAffDomainService _subAffDomainService;
 
@@ -62,7 +62,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Domain
             if (ModelState.IsValid)
             {
                 var encodeParam = EncodeParam(param);
-                GetUserInfoParam(encodeParam);
+                AssignUserInfoParam(encodeParam);
 
                 return new JsonNetResult
                 {
@@ -89,7 +89,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Domain
             if (ModelState.IsValid && isValidDomainId)
             {
                 var encodeParam = EncodeParam(param);
-                GetUserInfoParam(encodeParam);
+                AssignUserInfoParam(encodeParam);
 
                 return new JsonNetResult
                 {
@@ -114,7 +114,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Domain
         {
             if (ModelState.IsValid)
             {
-                GetUserInfoParam(param);
+                AssignUserInfoParam(param);
 
                 return new JsonNetResult
                 {

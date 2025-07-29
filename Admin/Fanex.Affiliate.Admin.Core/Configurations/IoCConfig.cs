@@ -3,6 +3,7 @@ using Autofac.Integration.Mvc;
 using Fanex.Affiliate.Admin.Core.Apis;
 using Fanex.Affiliate.User.Core.Infrastructure;
 using Fanex.Caching;
+using Fanex.Data.Repository;
 using ONEbook.UM.Configurations;
 using ONEbook.UM.Helpers;
 using ONEbook.UM.NETFramework;
@@ -90,6 +91,8 @@ namespace Fanex.Affiliate.Admin.Core.Configurations
             builder.RegisterType<IPHelperImpl>().AsImplementedInterfaces().SingleInstance();
             builder.RegisterType<UMRestClient>().AsImplementedInterfaces().SingleInstance();
             builder.RegisterType<HttpContextHelper>().AsImplementedInterfaces().SingleInstance();
+
+            builder.RegisterType<DynamicRepository>().AsImplementedInterfaces().InstancePerLifetimeScope();
         }
     }
 }

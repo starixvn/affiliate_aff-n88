@@ -7,13 +7,15 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Affiliate
 
         public string AffCode { get; set; }
 
-        public string ParentAffiliateName { get; set; }
+        public string ParentAffName { get; set; }
 
         public int GroupId { get; set; }
 
         public int GroupTypeId { get; set; }
 
-        public string UserName { get; set; }
+        public string AffName { get; set; }
+
+        public string UserName => AffName;
 
         public int AffType { get; set; }
 
@@ -21,7 +23,9 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Affiliate
 
         public string LastName { get; set; }
 
-        public string ContactNumber { get; set; }
+        public string Phone { get; set; }
+
+        public string ContactNumber => Phone;
 
         public string Email { get; set; }
 
@@ -36,5 +40,7 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Affiliate
         public int PlayerCustId { get; set; }
 
         public bool IsUsingPrivateCommGroup { get; set; }
+
+        public int AffCategoryId { get; set; }
     }
 }

@@ -1,11 +1,11 @@
 ﻿using Fanex.Affiliate.Admin.Core.Attributes;
 using Fanex.Affiliate.Admin.Core.Constants;
-using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.UserPanel;
 using Fanex.Affiliate.Admin.Core.Extensions;
 using Fanex.Affiliate.Admin.Core.MetaModels.UserPanel;
 using Fanex.Affiliate.Admin.Core.Services.Common;
 using Fanex.Affiliate.Admin.Core.Services.UserPanel;
+using Fanex.Affiliate.Admin.Core.Utilities;
 using Fanex.Affiliate.Admin.Core.ViewModels.Customer;
 using Newtonsoft.Json;
 using System.Collections.Generic;
@@ -16,7 +16,7 @@ using System.Web.Mvc;
 namespace Fanex.Affiliate.Admin.Core.Controllers.UserPanel
 {
     [FunctionAuthorize(FunctionName = Function.Affiliate)]
-    public class UserAccountController : BaseController
+    public class UserAccountController : ReadOnlySessionBaseController
     {
         private readonly IUserAccountService _userAccountService;
 
@@ -55,7 +55,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.UserPanel
                         Country = Server.HtmlDecode(userAccountInfo.Country),
                         SiteUrl = Server.HtmlDecode(userAccountInfo.SiteUrl),
                         MoreSiteUrls = Server.HtmlDecode(userAccountInfo.MoreSiteUrls),
-                        NoSiteDescription = Server.HtmlDecode(userAccountInfo.NoSiteDescription),
+                        NoSiteDesc = Server.HtmlDecode(userAccountInfo.NoSiteDesc),
                         PreferredPayment = Server.HtmlDecode(userAccountInfo.PreferredPayment),
                         PlayerUsername = Server.HtmlDecode(userAccountInfo.PlayerUsername),
                         NetellerAccountId = Server.HtmlDecode(userAccountInfo.NetellerAccountId),
@@ -67,7 +67,8 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.UserPanel
                         BankAccountNumber = Server.HtmlDecode(userAccountInfo.BankAccountNumber),
                         Question = Server.HtmlDecode(userAccountInfo.Question),
                         Answer = Server.HtmlDecode(userAccountInfo.Answer),
-                        MailOption = userAccountInfo.MailOption
+                        MailOption = userAccountInfo.MailOption,
+                        AffCategoryDesc = Server.HtmlDecode(userAccountInfo.AffCategoryDesc)
                     };
 
                     if (!string.IsNullOrEmpty(newUserAccountInfo.ContactApps))
@@ -75,10 +76,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.UserPanel
                         newUserAccountInfo.ContactAppList = JsonConvert.DeserializeObject<IEnumerable<ContactApp>>(newUserAccountInfo.ContactApps).OrderBy(p => p.Order);
                     }
 
-                    return new JsonNetResult
-                    {
-                        Data = newUserAccountInfo
-                    };
+                    return GenerateJsonNetResult(newUserAccountInfo);
                 }
             }
 
@@ -92,6 +90,12 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.UserPanel
         {
             if (ModelState.IsValid)
             {
+                var validateAppContacts = AppContactHelper.ValidateAppContactList(param.ContactAppList);
+                if (param.IsNormalAccount && !validateAppContacts.IsSuccessful)
+                {
+                    return GenerateJsonNetResult(validateAppContacts);
+                }
+
                 var userAccountParam = new UserAccountParam
                 {
                     AffId = param.AffId,
@@ -107,7 +111,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.UserPanel
                     Country = Server.HtmlEncode(param.Country),
                     SiteUrl = Server.HtmlEncode(param.SiteUrl),
                     MoreSiteUrls = Server.HtmlEncode(param.MoreSiteUrls),
-                    NoSiteDescription = Server.HtmlEncode(param.NoSiteDescription),
+                    NoSiteDesc = Server.HtmlEncode(param.NoSiteDesc),
                     PreferredPayment = Server.HtmlEncode(param.PreferredPayment),
                     PlayerUsername = Server.HtmlEncode(param.PlayerUsername),
                     NetellerAccountId = Server.HtmlEncode(param.NetellerAccountId),
@@ -119,8 +123,9 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.UserPanel
                     BankAccountNumber = Server.HtmlEncode(param.BankAccountNumber),
                     MailOption = param.MailOption,
                     HasWebSite = param.HasWebSite,
+                    IsMarketingAccount = param.IsMarketingAccount
                 };
-                GetUserInfoParam(userAccountParam);
+                AssignUserInfoParam(userAccountParam);
 
                 if (param.ContactAppList != null)
                 {
@@ -132,20 +137,10 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.UserPanel
                     }));
                 }
 
-                return new JsonNetResult
-                {
-                    Data = await _userAccountService.UpdateUserAccountAsync(userAccountParam)
-                };
+                return GenerateJsonNetResult(await _userAccountService.UpdateUserAccountAsync(userAccountParam));
             }
 
-            return new JsonNetResult
-            {
-                Data = new ResultInfo
-                {
-                    Code = ErrCode.GeneralErrorCode,
-                    Message = string.Join("<br />", ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage))
-                }
-            };
+            return GenerateModelStateErrResult();
         }
 
         [HttpPost]

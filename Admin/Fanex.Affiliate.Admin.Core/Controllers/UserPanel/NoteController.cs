@@ -12,7 +12,7 @@ using System.Web.Mvc;
 namespace Fanex.Affiliate.Admin.Core.Controllers.UserPanel
 {
     [FunctionAuthorize(FunctionName = Function.Affiliate)]
-    public class NoteController : BaseController
+    public class NoteController : ReadOnlySessionBaseController
     {
         private readonly INoteService _noteService;
 
@@ -118,7 +118,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.UserPanel
                 NoteContent = Server.HtmlEncode(param.NoteContent)
             };
 
-            GetUserInfoParam(noteParam);
+            AssignUserInfoParam(noteParam);
 
             return noteParam;
         }

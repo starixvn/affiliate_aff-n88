@@ -28,5 +28,7 @@ namespace Fanex.Affiliate.User.Core.DTO.Auth
         public int BaseCurrency { get; set; }
 
         public bool DisabledTransfer { get; set; }
+
+        public bool IsMarketingAccount { get; set; }
     }
 }

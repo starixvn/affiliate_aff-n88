@@ -37,5 +37,9 @@
         public const string EditAffStatus = "[EditAffiliateStatus]";
 
         public const string EditAffDetails = "[EditAffiliateDetails]";
+
+        public const string CreateMarketingAccount = "[AddMarketingAccount]";
+
+        public const string ShouldBeIgnoredForClient = "[ShouldBeIgnoredForClient]";
     }
 }

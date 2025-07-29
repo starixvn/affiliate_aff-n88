@@ -19,7 +19,7 @@ describe('left panel - components - panel - CommissionPanel', () => {
         LastLoginIp: "10.18.200.125",
         LastName: "B2CAFF226",
         MoreSiteUrl: "www.sportsbookie.com;www.gzyyy.com;www.123.com",
-        NoSiteDescription: "",
+        NoSiteDesc: "",
         Phone: "abc",
         PreferredLanguage: "vi-VN",
         SiteUrl: "https://aff-b2c.nexdev.net/N88User/UserPanel/Main/#MyAccount",

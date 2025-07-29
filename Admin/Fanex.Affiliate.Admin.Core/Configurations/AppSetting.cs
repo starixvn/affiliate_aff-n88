@@ -86,6 +86,10 @@ namespace Fanex.Affiliate.Admin.Core.Configurations
 
         public string AffSiteUrl => GetValue("AffSiteUrl");
 
+        public int MarketingSpecificAffId => Convert.ToInt32(GetValue("MarketingSpecificAffId"));
+
+        public string MarketingSpecificAffName => GetValue("MarketingSpecificAffName");
+
         [SuppressMessage("Major Code Smell", "S3995:URI return values should not be strings", Justification = "Reviewed. Suppression is OK here.")]
         public string GetAffSiteUrlByShortedLanguageCode(string shortedLanguageCode) => GetValue("AffSiteUrl_" + shortedLanguageCode) ?? AffSiteUrl;
 

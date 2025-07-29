@@ -10,7 +10,7 @@
     using Services.Report;
 
     [FunctionAuthorize(FunctionName = Function.AffReport)]
-    public class MarketingStatisticsReportController : BaseController
+    public class MarketingStatisticsReportController : ReadOnlySessionBaseController
     {
         private readonly ILanguageService _languageService;
         private readonly IMarketingStatisticsService _marketingStatisticsService;

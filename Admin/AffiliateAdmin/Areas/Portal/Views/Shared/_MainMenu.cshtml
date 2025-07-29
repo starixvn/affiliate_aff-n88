@@ -75,22 +75,19 @@
     let element;
 
     switch(controllerName) {
-        case 'PaymentRequest': case 'RevenueGroup': case 'EmailHistory':
+        case 'PaymentRequest': case 'RevenueGroup': case 'EmailHistory': case 'MarketingAccount':
             element = document.getElementById('Affiliate');
             break;
         case 'Report': case 'PlayerGgrReport': case 'TransferReport': case 'MarketingStatisticsReport':
             element = document.getElementById('Report');
             break;
-        case 'ActiveMember':
-            element = document.getElementById('Member');
-            break;
-        case 'TextList': case 'LandingPageList':
+        case 'LandingPageList':
             element = document.getElementById('MediaGallery');
             break;
         case 'Department':
             element = document.getElementById('Administrator');
             break;
-        case 'Domain': case 'DomainControl':
+        case 'Domain': case 'DomainControl': case 'SubAffDomain':
             element = document.getElementById('Domain');
             break;
     }

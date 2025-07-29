@@ -13,7 +13,7 @@ using System.Web.Mvc;
 namespace Fanex.Affiliate.Admin.Core.Controllers.Player
 {
     [FunctionAuthorize(FunctionName = Function.Player)]
-    public class PlayerController : BaseController
+    public class PlayerController : ReadOnlySessionBaseController
     {
         private readonly IMemberService _memberService;
         public PlayerController(
@@ -66,7 +66,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Player
         [FunctionAuthorize(FunctionName = Function.Player, IsHost = true)]
         public ActionResult UpdateMember(UpdateMemberParam param)
         {
-            GetUserInfoParam(param);
+            AssignUserInfoParam(param);
 
             return new JsonNetResult
             {

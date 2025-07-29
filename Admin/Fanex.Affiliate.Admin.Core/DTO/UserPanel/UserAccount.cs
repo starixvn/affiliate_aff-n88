@@ -1,6 +1,5 @@
 ﻿using Fanex.Affiliate.Admin.Core.Attributes;
 using Fanex.Affiliate.Admin.Core.Constants;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 
@@ -23,7 +22,6 @@ namespace Fanex.Affiliate.Admin.Core.DTO.UserPanel
 
         public string Phone { get; set; }
 
-        [JsonIgnore]
         public string ContactApps { get; set; }
 
         public string Address { get; set; }
@@ -36,13 +34,11 @@ namespace Fanex.Affiliate.Admin.Core.DTO.UserPanel
 
         public string Country { get; set; }
 
-
         public string SiteUrl { get; set; }
-
 
         public string MoreSiteUrls { get; set; }
 
-        public string NoSiteDescription { get; set; }
+        public string NoSiteDesc { get; set; }
 
         public string PreferredPayment { get; set; }
 
@@ -73,5 +69,13 @@ namespace Fanex.Affiliate.Admin.Core.DTO.UserPanel
         public IEnumerable<ContactApp> ContactAppList { get; set; }
 
         public bool HasWebSite => !string.IsNullOrEmpty(SiteUrl);
+
+        public string AffCategoryDesc { get; set; }
+
+        [PermissionCheck(Function.ShouldBeIgnoredForClient)]
+        public int PlayerCustId { get; set; }
+
+        [PermissionCheck(Function.ShouldBeIgnoredForClient)]
+        public int PlayerCurrencyId { get; set; }
     }
 }

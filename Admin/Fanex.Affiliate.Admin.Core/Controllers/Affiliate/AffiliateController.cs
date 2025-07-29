@@ -2,14 +2,12 @@
 using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.Affiliate;
-using Fanex.Affiliate.Admin.Core.Extensions;
 using Fanex.Affiliate.Admin.Core.MetaModels;
 using Fanex.Affiliate.Admin.Core.MetaModels.Affiliate;
 using Fanex.Affiliate.Admin.Core.MetaModels.CommissionGroup;
-using Fanex.Affiliate.Admin.Core.Repository;
-using Fanex.Affiliate.Admin.Core.Repository.Affiliate;
 using Fanex.Affiliate.Admin.Core.Resources;
-using Fanex.Affiliate.Admin.Core.Services;
+using Fanex.Affiliate.Admin.Core.Services.Affiliate;
+using Fanex.Affiliate.Admin.Core.Services.CommGroup;
 using Fanex.Affiliate.Admin.Core.Services.Common;
 using Fanex.Affiliate.Admin.Core.Utilities;
 using Fanex.Affiliate.Admin.Core.ViewModels.Affiliate;
@@ -19,23 +17,23 @@ using System.Web.Mvc;
 namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
 {
     [FunctionAuthorize(FunctionName = Function.Affiliate)]
-    public class AffiliateController : BaseController
+    public class AffiliateController : ReadOnlySessionBaseController
     {
-        private readonly IAffiliateInfoRepository _affiliateInfoRepository;
+        private readonly IAffiliateService _affiliateService;
 
-        private readonly ICommissionGroupRepository _commissionGroupRepository;
+        private readonly ICommGroupCommonService _commGroupCommonService;
 
-        private readonly ILanguageService _languageService;
+        private readonly ISystemService _systemService;
 
         public AffiliateController(
             ISessionService sessionService,
-            IAffiliateInfoRepository affiliateInfoRepository,
-            ICommissionGroupRepository commissionGroupRepository,
-            ILanguageService languageService) : base(sessionService)
+            IAffiliateService affiliateService,
+            ICommGroupCommonService commGroupCommonService,
+            ISystemService systemService) : base(sessionService)
         {
-            _commissionGroupRepository = commissionGroupRepository;
-            _affiliateInfoRepository = affiliateInfoRepository;
-            _languageService = languageService;
+            _commGroupCommonService = commGroupCommonService;
+            _affiliateService = affiliateService;
+            _systemService = systemService;
         }
 
         [HttpGet]
@@ -45,13 +43,14 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
             {
                 new SubMenu { Name = Lang.AffiliateInfo, Url = Url.Content("~/Portal/Affiliate"), FunctionName = Function.Affiliate, IsActive = true },
                 new SubMenu { Name = Lang.PaymentRequest, Url = Url.Content("~/Portal/PaymentRequest"), FunctionName = Function.Payment },
-                new SubMenu { Name = Lang.CommGroup, Url = Url.Content("~/Portal/RevenueGroup"), FunctionName = Function.RevenueGroup }
+                new SubMenu { Name = Lang.CommGroup, Url = Url.Content("~/Portal/RevenueGroup"), FunctionName = Function.RevenueGroup },
+                new SubMenu { Name = Lang.MarketingAccount, Url = Url.Content("~/Portal/MarketingAccount"), FunctionName = Function.Affiliate }
             };
 
             var viewModel = new AffiliateInfoViewModel
             {
-                CommGroupList = _commissionGroupRepository.GetNormalCommGroupList(new GetGroupListParam()),
-                LanguageList = _languageService.GetLanguageList(),
+                CommGroupList = _commGroupCommonService.GetNormalCommGroupList(new GetGroupListParam()),
+                LanguageList = _systemService.GetLanguageList(),
                 SelectedGroupId = groupId,
                 Param = param,
                 SubMenuList = subMenu
@@ -67,40 +66,31 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
             if (int.TryParse(param.AffCode, out _) || string.IsNullOrEmpty(param.AffCode))
             {
                 param.UserId = SessionService.UserId;
-                var model = _affiliateInfoRepository.GetAffiliateList(param);
+                var model = _affiliateService.GetAffiliateList(param);
 
-                return new JsonNetResult
-                {
-                    Data = model
-                };
+                return GenerateJsonNetResult(model);
             }
 
-            return new JsonNetResult
+            return GenerateJsonNetResult(new EntityResult<AffiliateInfo>
             {
-                Data = new EntityResult<AffiliateInfo>
-                {
-                    MainData = new List<AffiliateInfo>(),
-                    TotalItem = 0
-                }
-            };
+                MainData = new List<AffiliateInfo>(),
+                TotalItem = 0
+            });
         }
 
         [HttpPost]
         [ValidateAntiForgeryHeader]
+        [FunctionAuthorize(FunctionName = Function.Affiliate, IsHost = true)]
         public ActionResult ToggleFavorite(FavoriteParam param)
         {
             if (ModelState.IsValid)
             {
-                GetUserInfoParam(param);
+                AssignUserInfoParam(param);
 
-                return Json(_affiliateInfoRepository.ToggleFavorite(param));
+                return GenerateJsonNetResult(_affiliateService.ToggleFavorite(param));
             }
 
-            return Json(new ResultInfo
-            {
-                Code = ErrCode.GeneralErrorCode,
-                Message = "Update Favorite failed!"
-            });
+            return GenerateErrResult("Update Favorite failed!");
         }
 
         [HttpPost]
@@ -110,16 +100,12 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
         {
             if (ModelState.IsValid)
             {
-                GetUserInfoParam(param);
                 param.Password = CryptographyHelper.Encrypt(param.Password);
+                AssignUserInfoParam(param);
 
-                return Json(_affiliateInfoRepository.ChangePassword(param));
+                return GenerateJsonNetResult(_affiliateService.ChangePassword(param));
             }
-            return Json(new ResultInfo
-            {
-                Code = ErrCode.GeneralErrorCode,
-                Message = "Change Password is failed!"
-            });
+            return GenerateErrResult("Change Password is failed!");
         }
     }
 }

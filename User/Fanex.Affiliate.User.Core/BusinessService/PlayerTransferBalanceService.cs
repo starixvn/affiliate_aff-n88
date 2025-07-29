@@ -175,7 +175,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             }
 
             var loginInfo = _authRepository.GetUserInfo(_sessionService.UserSession.UserName, _sessionService.IsInternal);
-            if (_sessionService.IsInternal || loginInfo.DisabledTransfer)
+            if (_sessionService.IsUnauthorized || loginInfo.DisabledTransfer)
             {
                 return GetResultInfo(Lang.ErrAuthorized);
             }

@@ -62,11 +62,11 @@ export class Personal extends PureComponent {
         this.props.setUserAccountInfo(newUserAccountInfo);
     }
 
-    _renderGenderForm(isMale) {
+    _renderGenderForm(isMale, isRequired) {
         return (
             <FormGroup row>
-                <Label sm={3} xl={2} className="required">Gender</Label>
-                <Col sm={9} xl={10}>
+                <Label sm={3} xl={2} className={isRequired ? 'required' : ''}>Gender</Label>
+                <Col sm={9} xl={10} className="gender-group">
                     <FormGroup check className="d-inline-block mr-3">
                         <Label check>
                             <Input type="radio" checked={isMale != null && isMale} onChange={() => this.handleChangeGender(true)} />{' '} Male
@@ -100,7 +100,7 @@ export class Personal extends PureComponent {
         );
     }
 
-    _renderContactApps() {
+    _renderContactApps(isRequired) {
         const contactApps = this.arrayContactApps.filter(item => item.Name !== 'Skype');
         const contactLength = contactApps.length;
 
@@ -109,7 +109,7 @@ export class Personal extends PureComponent {
             return this._renderContactAppInput(
                 contactApp.Name,
                 contactApp.Value,
-                contactLength === 1,
+                contactLength === 1 && isRequired,
                 placeholder
             );
         });
@@ -117,16 +117,18 @@ export class Personal extends PureComponent {
 
     render() {
         const { userAccountInfo } = this.props;
+        const isRequired = !userAccountInfo.IsMarketingAccount;
 
         return userAccountInfo && (
             <Form tag="div">
-                {renderInputForm('username', 'User Name', userAccountInfo.AffName, true)}
-                {renderInputForm('firstName', 'First Name', userAccountInfo.FirstName, false, true, this.handleChange)}
-                {renderInputForm('lastName', 'Last Name', userAccountInfo.LastName, false, true, this.handleChange)}
-                {this._renderGenderForm(userAccountInfo.Gender)}
+                {renderInputForm('username', 'User Name', userAccountInfo.AffName, true, false, this.handleChange)}
+                {renderInputForm('affCategoryDesc', 'Account Type', userAccountInfo.AffCategoryDesc, true, false, this.handleChange)}
+                {renderInputForm('firstName', 'First Name', userAccountInfo.FirstName, false, isRequired, this.handleChange)}
+                {renderInputForm('lastName', 'Last Name', userAccountInfo.LastName, false, isRequired, this.handleChange)}
+                {this._renderGenderForm(userAccountInfo.Gender, isRequired)}
                 {renderInputForm('email', 'Email Address', userAccountInfo.Email, false, true, this.handleChange)}
-                {renderInputForm('phone', 'Contact Number', userAccountInfo.Phone, false, true, this.handleChange)}
-                {this._renderContactApps()}
+                {renderInputForm('phone', 'Contact Number', userAccountInfo.Phone, false, isRequired, this.handleChange)}
+                {this._renderContactApps(isRequired)}
             </Form>
         )
     }

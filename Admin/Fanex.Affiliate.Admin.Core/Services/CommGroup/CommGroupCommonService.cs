@@ -105,5 +105,10 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
 
             return result.ToString();
         }
+
+        public IEnumerable<NormalCommGroup> GetNormalCommGroupList(GetGroupListParam param)
+        {
+            return _commGroupRepository.GetNormalCommGroupList(param);
+        }
     }
 }

@@ -258,4 +258,7 @@
   <data name="Goal123" xml:space="preserve">
     <value>Goal123</value>
   </data>
+  <data name="MarketingAccount" xml:space="preserve">
+    <value>Marketing Account</value>
+  </data>
 </root>

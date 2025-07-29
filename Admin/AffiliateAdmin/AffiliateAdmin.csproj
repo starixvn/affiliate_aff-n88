@@ -5,7 +5,7 @@
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform> 
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
@@ -80,6 +80,9 @@
     </Reference>
     <Reference Include="Fanex.Data, Version=4.2.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Data.4.2.2\lib\net461\Fanex.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Fanex.Data.Repository, Version=4.2.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Data.Repository.4.2.2\lib\net461\Fanex.Data.Repository.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Data.SqlServer, Version=4.2.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Data.SqlServer.4.2.2\lib\net461\Fanex.Data.SqlServer.dll</HintPath>
@@ -255,6 +258,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Portal\www\source\js\components\Field.jsx" />
+    <Content Include="Areas\Portal\www\source\js\modules\globalResource.js" />
+    <Content Include="Areas\Portal\www\source\js\modules\reducerRegistry.js" />
     <Content Include="App_Data\SpConfig\SpName.n88-admin.klprod.xml">
       <DependentUpon>_SpName.tt</DependentUpon>
     </Content>
@@ -265,6 +271,9 @@
       <DependentUpon>_SpName.tt</DependentUpon>
     </Content>
     <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\QmTurnoverSetting.jsx" />
+    <Content Include="Areas\Portal\www\source\js\pages\marketing-account\components\sections\RowField.jsx" />
+    <Content Include="Areas\Portal\www\source\js\pages\marketing-account\hooks\useFilterParams.jsx" />
+    <Content Include="Areas\Portal\www\source\js\pages\marketing-account\hooks\useNewMarketingAccountData.jsx" />
     <Content Include="App_Data\SpConfig\SpName.n88-admin.local.xml">
       <DependentUpon>_SpName.tt</DependentUpon>
     </Content>
@@ -299,6 +308,24 @@
     <Content Include="Areas\Portal\www\source\js\pages\report\marketing-statistics-report\reducers\index.js" />
     <Content Include="Areas\Portal\www\source\js\reducers\claimReducer.js" />
     <Content Include="HealthCheck.aspx" />
+    <Content Include="Areas\Portal\www\source\js\pages\marketing-account\components\AddAffMktAccountPopup.jsx" />
+    <Content Include="Areas\Portal\www\source\js\pages\marketing-account\components\sections\Additional.jsx" />
+    <Content Include="Areas\Portal\www\source\js\pages\marketing-account\components\sections\EmailFormat.jsx" />
+    <Content Include="Areas\Portal\www\source\js\pages\marketing-account\components\sections\GeneralInfo.jsx" />
+    <Content Include="Areas\Portal\www\source\js\pages\marketing-account\components\sections\Payment.jsx" />
+    <Content Include="Areas\Portal\www\source\js\pages\marketing-account\components\sections\Personal.jsx" />
+    <Content Include="Areas\Portal\www\source\js\pages\marketing-account\components\sections\WebSite.jsx" />
+    <Content Include="Areas\Portal\www\source\js\pages\marketing-account\libs\service.js" />
+    <Content Include="Areas\Portal\www\source\js\pages\marketing-account\libs\validation.js" />
+    <Content Include="Areas\Portal\www\source\js\pages\marketing-account\actions\index.js" />
+    <Content Include="Areas\Portal\www\source\js\pages\marketing-account\actions\types.js" />
+    <Content Include="Areas\Portal\www\source\js\pages\marketing-account\components\AppContainer.jsx" />
+    <Content Include="Areas\Portal\www\source\js\pages\marketing-account\components\Content.jsx" />
+    <Content Include="Areas\Portal\www\source\js\pages\marketing-account\components\Filter.jsx" />
+    <Content Include="Areas\Portal\www\source\js\pages\marketing-account\components\GridData.jsx" />
+    <Content Include="Areas\Portal\www\source\js\pages\marketing-account\index.jsx" />
+    <Content Include="Areas\Portal\www\source\js\pages\marketing-account\libs\constants.js" />
+    <Content Include="Areas\Portal\www\source\js\pages\marketing-account\reducers\index.js" />
     <Content Include="App_Data\SpConfig\SpName.xml">
       <DependentUpon>_SpName.tt</DependentUpon>
     </Content>
@@ -1354,6 +1381,8 @@
     <Content Include="Areas\Portal\www\source\style\pages\member\member-list.scss" />
     <Content Include="Areas\Portal\Views\Report\MarketingPageStatistics.cshtml" />
     <Content Include="Areas\Portal\www\source\style\pages\report\marketing-statistics-report.scss" />
+    <Content Include="Areas\Portal\Views\Affiliate\MarketingAccount.cshtml" />
+    <Content Include="Areas\Portal\www\source\style\pages\marketing-account\index.scss" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -1386,6 +1415,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Areas\Portal\www\source\js\pages\marketing-account\__test__\" />
     <Folder Include="Areas\Portal\www\source\js\pages\media-gallery\banner-list\__test__\__snapshots__\" />
     <Folder Include="Areas\Portal\www\source\js\pages\user-panel\user-account\modules\__test__\" />
   </ItemGroup>

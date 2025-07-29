@@ -16,6 +16,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.ThirdPartyLicensee
 {
     public class ThirdPartyLicenseeService : IThirdPartyLicenseeService
     {
+        private const int _Marketing_Cust_ID = -1;
         private readonly IJobTrackerRepository _trackerRepository;
         private readonly ILicenseeApi _licenseeApi;
         private readonly IAppSetting _appSetting;
@@ -29,7 +30,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.ThirdPartyLicensee
 
         public async Task SendAffiliateInfo(AffiliateBasicInfo affInfo)
         {
-            if (string.IsNullOrEmpty(affInfo.AffCode))
+            if ((affInfo.AffCategoryId != AffCategoryTypes.MarketingAccount && affInfo.PlayerCustId == 0) || string.IsNullOrEmpty(affInfo.AffCode))
             {
                 return;
             }
@@ -39,14 +40,14 @@ namespace Fanex.Affiliate.Admin.Core.Services.ThirdPartyLicensee
                 AffiliateId = affInfo.AffId,
                 AffiliateCode = affInfo.AffCode,
                 AffiliateName = affInfo.UserName,
-                UserName = affInfo.PlayerUsername,
+                UserName = affInfo.PlayerUsername ?? string.Empty,
                 FirstName = affInfo.FirstName,
                 LastName = affInfo.LastName,
                 ContactNumber = affInfo.ContactNumber,
                 Email = affInfo.Email,
                 Status = affInfo.Status,
-                CustId = affInfo.PlayerCustId,
-                ParentAffiliate = affInfo.ParentAffiliateName,
+                CustId = affInfo.PlayerCustId == 0 ? _Marketing_Cust_ID : affInfo.PlayerCustId,
+                ParentAffiliate = affInfo.ParentAffName,
                 SiteId = _appSetting.MemberSiteId
             };
             var (Id, Result) = _trackerRepository.InsertDataTracker(new InsertDataTrackerDTO
