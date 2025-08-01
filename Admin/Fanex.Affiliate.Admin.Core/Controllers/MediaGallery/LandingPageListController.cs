@@ -53,6 +53,16 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
                 Data = _landingPageService.GetLandingPageById(pageId)
             };
         }
+        
+        [HttpPost]
+        [ValidateAntiForgeryHeader]
+        public ActionResult GetTargetCountryListByLandingPage(int pageId)
+        {
+            return new JsonNetResult
+            {
+                Data = _landingPageService.GetExcludedTargetCountryList(pageId)
+            };
+        }
 
         [HttpPost]
         [ValidateAntiForgeryHeader]
@@ -137,7 +147,8 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
             {
                 PageId = param.PageId,
                 PageName = Server.HtmlEncode(param.PageName),
-                PageCode = Server.HtmlEncode(param.PageCode)
+                PageCode = Server.HtmlEncode(param.PageCode),
+                BlockTargetCountry = param.BlockTargetCountry
             };
         }
     }

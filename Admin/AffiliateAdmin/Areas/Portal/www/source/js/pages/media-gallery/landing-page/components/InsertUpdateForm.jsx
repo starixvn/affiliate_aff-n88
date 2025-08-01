@@ -1,11 +1,14 @@
 ﻿import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import MultipleSelect from '../../../../components/multiple-select';
 
 import { Col, Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, Alert, FormFeedback } from 'reactstrap';
-import { setSelectedLandingPageId, getLandingPageDetail, fetchData, insertLandingPage, updateLandingPage, toggleLoader } from '../actions/index';
+import { setSelectedLandingPageId, getLandingPageDetail, fetchData, insertLandingPage, updateLandingPage, toggleLoader, getTargetCountryListByLandingPage } from '../actions/index';
 import { defaultState, headerText, globalResource, messages, restrictedCharactersPattern, maxLength } from '../libs/constants';
 import { defaultInsertId } from '../../common/libs/constants';
+import { handleChangeMultipleSelected } from '../../../../modules/utils';
+import { getBlockTargetCountryList } from '../../../common/modules/utils/targetcountry';
 import { htmlDecode } from '../../../../modules/htmlHelper';
 
 export class InsertUpdateForm extends PureComponent {
@@ -18,36 +21,72 @@ export class InsertUpdateForm extends PureComponent {
     }
 
     componentDidMount() {
-        this.props.fetchData();
+        const { gridData } = this.props;
+
+        !gridData && this.props.fetchData();
     }
 
     componentDidUpdate(prevProps) {
         const { selectedLandingPageId } = this.props;
-        if (prevProps.selectedLandingPageId !== selectedLandingPageId) {
+        if (selectedLandingPageId !== null && prevProps.selectedLandingPageId !== selectedLandingPageId) {
             this.setState({ isInsert: selectedLandingPageId === defaultInsertId });
 
-            selectedLandingPageId && this._handleGetLandingPageDetail(selectedLandingPageId);
+            this._handleUpdateState(selectedLandingPageId);
         }
     }
 
-    _handleGetLandingPageDetail = async (selectedLandingPageId) => {
-        const item = await this.props.getLandingPageDetail(selectedLandingPageId);
+    _handleUpdateState = async (pageId) => {
+        this.props.toggleLoader(true);
+        const targetCountryList = await this.props.getTargetCountryListByLandingPage({ pageId });
 
-        item && this.setState({
-            pageName: htmlDecode(item.PageName),
-            pageCode: htmlDecode(item.PageCode)
-        });
+        if (pageId === 0) {
+            this.setState({
+                isInsert: true,
+                selectedLandingPage: { pageName: '', pageCode: '', blockTargetCountry: '' },
+                targetCountryList
+            });
+        } else {
+            const landingPage = await this.props.getLandingPageDetail(pageId);
+
+            if (landingPage) {
+                const pageName = htmlDecode(landingPage.PageName);
+                const pageCode = htmlDecode(landingPage.PageCode);
+
+                if (targetCountryList && targetCountryList.length) {
+                    const blockTargetCountryList = getBlockTargetCountryList(targetCountryList);
+
+                    this.setState({
+                        isInsert: false,
+                        selectedLandingPage: { pageName, pageCode, blockTargetCountry: blockTargetCountryList.join(',') },
+                        targetCountryList
+                    });
+                } else {
+                    this.setState({ isInsert: false, selectedLandingPage: { pageName, pageCode, blockTargetCountry: '' } });
+                }
+            }
+        }
+
+        this.props.toggleLoader(false);
     }
 
     _handleChange = (event) => {
-        const value = event.target.value;
-        const name = event.target.name;
+        const { name, value } = event.target;
+        const { selectedLandingPage } = this.state;
+        const newPage = { ...selectedLandingPage, [name]: value };
 
-        this.setState({ [name]: value });
+        this.setState({ selectedLandingPage: newPage });
+    }
+
+    _handleChangeTargetCountry = (item, selectedItem) => {
+        const { selectedLandingPage, targetCountryList } = this.state;
+        const newPage = { ...selectedLandingPage, blockTargetCountry: selectedItem };
+
+        this.setState({ selectedLandingPage: newPage, targetCountryList: handleChangeMultipleSelected(targetCountryList, selectedItem) });
+
     }
 
     _validatePageCode() {
-        const { pageCode } = this.state;
+        const { pageCode } = this.state.selectedLandingPage;
         const hasRestrictedCharacter = restrictedCharactersPattern.test(pageCode);
         const result = {
             isValid: !!pageCode && !hasRestrictedCharacter && pageCode.length <= maxLength,
@@ -65,7 +104,7 @@ export class InsertUpdateForm extends PureComponent {
     }
 
     _validatePageName() {
-        const { pageName } = this.state;
+        const { pageName } = this.state.selectedLandingPage;
 
         const result = {
             isValid: !!pageName && pageName.length <= maxLength,
@@ -84,10 +123,10 @@ export class InsertUpdateForm extends PureComponent {
         this.setState({ isClickedSubmit: true });
 
         if (isValid) {
-            const { pageName, pageCode, isInsert } = this.state;
+            const { selectedLandingPage, isInsert } = this.state;
             const { selectedLandingPageId } = this.props;
             const message = isInsert ? "Add Successfully!" : "Update Successfully!";
-            const landingPageInfo = Object.assign({}, { pageId: selectedLandingPageId, pageName, pageCode });
+            const landingPageInfo = Object.assign({}, { pageId: selectedLandingPageId, ...selectedLandingPage });
             const result = isInsert ? await this.props.insertLandingPage(landingPageInfo) : await this.props.updateLandingPage(landingPageInfo);
 
             if (result) {
@@ -133,7 +172,7 @@ export class InsertUpdateForm extends PureComponent {
     }
 
     render() {
-        const { pageName, pageCode, isShowMessage, isSuccess, message, isInsert, isClickedSubmit } = this.state;
+        const { selectedLandingPage, isShowMessage, isSuccess, message, isInsert, isClickedSubmit, targetCountryList } = this.state;
         const pageNameValidation = this._validatePageName();
         const pageCodeValidation = this._validatePageCode();
         const isValid = pageNameValidation.isValid && pageCodeValidation.isValid;
@@ -153,7 +192,7 @@ export class InsertUpdateForm extends PureComponent {
                                 <FormGroup row className="mb-2">
                                     <Label htmlFor="pageName" sm={7} className="required">{headerText.LandingPageName}</Label>
                                     <Col sm={5}>
-                                        <Input type="text" name="pageName" className="input-required mt-2" value={pageName} onChange={this._handleChange}
+                                        <Input type="text" name="pageName" className="input-required mt-2" value={selectedLandingPage.pageName} onChange={this._handleChange}
                                             onKeyPress={(e) => this._handleKeyPress(e, isValid)} invalid={isClickedSubmit && !pageNameValidation.isValid} />
                                         {pageNameValidation.message &&
                                             <FormFeedback><div dangerouslySetInnerHTML={{ __html: pageNameValidation.message }} /></FormFeedback>}
@@ -162,10 +201,26 @@ export class InsertUpdateForm extends PureComponent {
                                 <FormGroup row>
                                     <Label htmlFor="pageCode" sm={7} className="required">{headerText.LandingPageCode}</Label>
                                     <Col sm={5}>
-                                        <Input type="text" name="pageCode" className="input-required mt-2" value={pageCode} onChange={this._handleChange}
+                                        <Input type="text" name="pageCode" className="input-required mt-2" value={selectedLandingPage.pageCode} onChange={this._handleChange}
                                             onKeyPress={(e) => this._handleKeyPress(e, isValid)} invalid={isClickedSubmit && !pageCodeValidation.isValid} />
                                         {pageCodeValidation.message &&
                                             <FormFeedback><div dangerouslySetInnerHTML={{ __html: pageCodeValidation.message }} /></FormFeedback>}
+                                    </Col>
+                                </FormGroup>
+                                <FormGroup row>
+                                    <Label htmlFor="blockTargetCountry" sm={7}>{headerText.BlockTargetCountry}</Label>
+                                    <Col sm={5}>
+                                        {
+                                            targetCountryList && <MultipleSelect
+                                                dataSource={targetCountryList}
+                                                keyField="key"
+                                                valueField="name"
+                                                statusField="checked"
+                                                maxDisplayItemCount={1}
+                                                noneSelectedLabel="None Select"
+                                                selectedAllLabel="All"
+                                                onChange={this._handleChangeTargetCountry} />
+                                        }
                                     </Col>
                                 </FormGroup>
                             </Form>
@@ -185,7 +240,7 @@ function mapStateToProps({ selectedLandingPageId }) {
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ setSelectedLandingPageId, getLandingPageDetail, fetchData, insertLandingPage, updateLandingPage, toggleLoader }, dispatch);
+    return bindActionCreators({ setSelectedLandingPageId, getLandingPageDetail, fetchData, insertLandingPage, updateLandingPage, toggleLoader, getTargetCountryListByLandingPage }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(InsertUpdateForm);

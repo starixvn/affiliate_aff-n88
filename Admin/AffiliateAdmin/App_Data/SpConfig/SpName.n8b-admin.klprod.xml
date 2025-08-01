@@ -115,6 +115,7 @@
     <Setting Key="Aff_Admin_Banner_Del" SpName="Aff_Admin_Banner_Del" DbName="DBAFFN8B.Affiliate_N8B.wsv_afinet" />
     <Setting Key="Aff_Admin_Banner_Sel" SpName="Aff_Admin_Banner_Sel" DbName="DBAFFN8B.Affiliate_N8B.wsv_afinet" />
     <Setting Key="Aff_AffTypeSel" SpName="Aff_AffTypeSel" DbName="DBAFFN8B.Affiliate_N8B.wsv_afinet" />
+    <Setting Key="Aff_LandingPage_ExcludedTargetCountry_Sel" SpName="Aff_LandingPage_ExcludedTargetCountry_Sel" DbName="DBAFFN8B.Affiliate_N8B.wsv_afinet" />
   </Function>
   <Function Name="Message">
     <Setting Key="Aff_Admin_Message_Sel" SpName="Aff_Admin_Message_Sel" DbName="DBAFFN8B.Affiliate_N8B.wsv_afinet" />

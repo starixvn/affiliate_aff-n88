@@ -14,5 +14,7 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.MediaGallery
         [Required(ErrorMessage = "Landing Page Code is required.")]
         [MaxLength(Validation.MaxLengthLandingPage, ErrorMessage = "Landing Page Code must not exceed 50 characters")]
         public string PageCode { get; set; }
+
+        public string BlockTargetCountry { get; set; }
     }
 }

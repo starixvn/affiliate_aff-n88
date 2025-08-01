@@ -1,5 +1,6 @@
 ﻿using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
+using Fanex.Affiliate.Admin.Core.DTO.Common;
 using Fanex.Affiliate.Admin.Core.DTO.MediaGallery;
 using Fanex.Affiliate.Admin.Core.MetaModels.MediaGallery;
 using Fanex.Affiliate.Admin.Core.Repository.MediaGallery;
@@ -28,6 +29,11 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
         public LandingPage GetLandingPageById(int pageId)
         {
             return _landingPageRepository.GetLandingPageById(pageId);
+        }
+
+        public IEnumerable<TargetCountry> GetExcludedTargetCountryList(int pageId)
+        {
+            return _landingPageRepository.GetExcludedTargetCountryList(pageId);
         }
 
         public ResultInfo InsertLandingPage(InsertUpdateLandingPageParam param)

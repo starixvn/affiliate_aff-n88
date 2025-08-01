@@ -1,5 +1,6 @@
 ﻿using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
+using Fanex.Affiliate.Admin.Core.DTO.Common;
 using Fanex.Affiliate.Admin.Core.DTO.MediaGallery;
 using Fanex.Affiliate.Admin.Core.MetaModels.MediaGallery;
 using Fanex.Common.Extensions;
@@ -25,7 +26,8 @@ namespace Fanex.Affiliate.Admin.Core.Repository.MediaGallery
                         {
                             PageId = reader.ToInt(Field.PageId),
                             PageName = reader.ToString("PageName"),
-                            PageCode = reader.ToString("PageCode")
+                            PageCode = reader.ToString("PageCode"),
+                            BlockTargetCountry = reader.ToString("BlockTargetCountry")
                         });
                     }
                 }
@@ -51,7 +53,8 @@ namespace Fanex.Affiliate.Admin.Core.Repository.MediaGallery
                         {
                             PageId = reader.ToInt(Field.PageId),
                             PageName = reader.ToString("PageName"),
-                            PageCode = reader.ToString("PageCode")
+                            PageCode = reader.ToString("PageCode"),
+                            BlockTargetCountry = reader.ToString("BlockTargetCountry")
                         };
                     }
                 }
@@ -108,11 +111,22 @@ namespace Fanex.Affiliate.Admin.Core.Repository.MediaGallery
             }
         }
 
+        public IEnumerable<TargetCountry> GetExcludedTargetCountryList(int pageId)
+        {
+            const string SpKey = "Aff_LandingPage_ExcludedTargetCountry_Sel";
+
+            using (var objDb = GetObjectDb(SpKey))
+            {
+                return objDb.Query<TargetCountry>(new { pageId });
+            }
+        }
+
         private static void AssignCommonParam(IObjectDb objectDb, InsertUpdateLandingPageParam param)
         {
             objectDb.SetParameterValue("UserId", param.UserId);
             objectDb.SetParameterValue("PageName", param.PageName);
             objectDb.SetParameterValue("PageCode", param.PageCode);
+            objectDb.SetParameterValue("BlockTargetCountry", param.BlockTargetCountry);
             objectDb.SetParameterValue("Ip", param.Ip);
         }
     }
