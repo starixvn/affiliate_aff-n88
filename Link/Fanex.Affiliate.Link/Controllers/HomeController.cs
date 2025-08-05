@@ -127,9 +127,10 @@ namespace Fanex.Affiliate.Link.Controllers
                 {
                     WriteLogInfo(command, affCode);
 
-                    var result = HandleRedirectUrl(redirectUrl, pageCode, command.LanguageCode);
+                    var redirectUrlFinal = HandleRedirectUrl(redirectUrl, pageCode, command.LanguageCode);
+                    var forwardQueryString = Request.Url.Query.Replace("?", "&");
 
-                    return Redirect(result);
+                    return Redirect($"{redirectUrlFinal}{forwardQueryString}");
                 }
 
                 ViewBag.Result = LinkIsInvalidMessage;
