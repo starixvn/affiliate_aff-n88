@@ -1,7 +1,6 @@
 ﻿using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.Domain;
 using Fanex.Affiliate.Admin.Core.MetaModels.Domain;
-using Fanex.Affiliate.Admin.Core.Repository.Domain;
 using Fanex.Affiliate.Admin.Core.Services.Domain;
 using Moq;
 using System.Collections.Generic;
@@ -16,10 +15,10 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Domain
         {
             // Arrange
             var spKey = string.Empty;
-            var repository = new Mock<IDomainRepository> { CallBase = true };
-            repository.Setup(r => r.GetDomainList(It.IsAny<string>())).Returns(new List<DomainInfo> { new DomainInfo() }).Callback<string>(p => spKey = p);
+            var commonService = new Mock<ICommonDomainService> { CallBase = true };
+            commonService.Setup(r => r.GetDomainList(It.IsAny<string>())).Returns(new List<DomainInfo> { new DomainInfo() }).Callback<string>(p => spKey = p);
 
-            var service = CreateDomainService(repository.Object);
+            var service = CreateDomainService(commonService.Object);
 
             // Action
             var result = service.GetDomainList(true);
@@ -34,10 +33,10 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Domain
         {
             // Arrange
             var spKey = string.Empty;
-            var repository = new Mock<IDomainRepository> { CallBase = true };
-            repository.Setup(r => r.GetDomainList(It.IsAny<string>())).Returns(new List<DomainInfo> { new DomainInfo() }).Callback<string>(p => spKey = p);
+            var commonService = new Mock<ICommonDomainService> { CallBase = true };
+            commonService.Setup(r => r.GetDomainList(It.IsAny<string>())).Returns(new List<DomainInfo> { new DomainInfo() }).Callback<string>(p => spKey = p);
 
-            var service = CreateDomainService(repository.Object);
+            var service = CreateDomainService(commonService.Object);
 
             // Action
             var result = service.GetDomainList(false);
@@ -52,13 +51,13 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Domain
         {
             // Arrange
             var spKey = string.Empty;
-            var repository = new Mock<IDomainRepository> { CallBase = true };
-            repository.Setup(r => r.InsertDomain(It.IsAny<InsertUpdateDomainParam>(), It.IsAny<string>())).Returns(new ResultInfo()).Callback<InsertUpdateDomainParam, string>((p, s) => spKey = s);
+            var commonService = new Mock<ICommonDomainService> { CallBase = true };
+            commonService.Setup(r => r.InsertDomain(It.IsAny<InsertDomainParam>(), It.IsAny<string>())).Returns(new ResultInfo()).Callback<InsertDomainParam, string>((p, s) => spKey = s);
 
-            var service = CreateDomainService(repository.Object);
+            var service = CreateDomainService(commonService.Object);
 
             // Action
-            var result = service.InsertDomain(new InsertUpdateDomainParam { IsAffDomain = true });
+            var result = service.InsertDomain(new InsertDomainParam { IsAffDomain = true });
 
             // Assert
             Assert.True(result.IsSuccessful);
@@ -70,13 +69,13 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Domain
         {
             // Arrange
             var spKey = string.Empty;
-            var repository = new Mock<IDomainRepository> { CallBase = true };
-            repository.Setup(r => r.InsertDomain(It.IsAny<InsertUpdateDomainParam>(), It.IsAny<string>())).Returns(new ResultInfo()).Callback<InsertUpdateDomainParam, string>((p, s) => spKey = s);
+            var commonService = new Mock<ICommonDomainService> { CallBase = true };
+            commonService.Setup(r => r.InsertDomain(It.IsAny<InsertDomainParam>(), It.IsAny<string>())).Returns(new ResultInfo()).Callback<InsertDomainParam, string>((p, s) => spKey = s);
 
-            var service = CreateDomainService(repository.Object);
+            var service = CreateDomainService(commonService.Object);
 
             // Action
-            var result = service.InsertDomain(new InsertUpdateDomainParam());
+            var result = service.InsertDomain(new InsertDomainParam());
 
             // Assert
             Assert.True(result.IsSuccessful);
@@ -88,13 +87,13 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Domain
         {
             // Arrange
             var spKey = string.Empty;
-            var repository = new Mock<IDomainRepository> { CallBase = true };
-            repository.Setup(r => r.UpdateDomain(It.IsAny<InsertUpdateDomainParam>(), It.IsAny<string>())).Returns(new ResultInfo()).Callback<InsertUpdateDomainParam, string>((p, s) => spKey = s);
+            var commonService = new Mock<ICommonDomainService> { CallBase = true };
+            commonService.Setup(r => r.UpdateDomain(It.IsAny<UpdateDomainParam>(), It.IsAny<string>())).Returns(new ResultInfo()).Callback<UpdateDomainParam, string>((p, s) => spKey = s);
 
-            var service = CreateDomainService(repository.Object);
+            var service = CreateDomainService(commonService.Object);
 
             // Action
-            var result = service.UpdateDomain(new InsertUpdateDomainParam { IsAffDomain = true });
+            var result = service.UpdateDomain(new UpdateDomainParam { IsAffDomain = true });
 
             // Assert
             Assert.True(result.IsSuccessful);
@@ -106,13 +105,13 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Domain
         {
             // Arrange
             var spKey = string.Empty;
-            var repository = new Mock<IDomainRepository> { CallBase = true };
-            repository.Setup(r => r.UpdateDomain(It.IsAny<InsertUpdateDomainParam>(), It.IsAny<string>())).Returns(new ResultInfo()).Callback<InsertUpdateDomainParam, string>((p, s) => spKey = s);
+            var commonService = new Mock<ICommonDomainService> { CallBase = true };
+            commonService.Setup(r => r.UpdateDomain(It.IsAny<UpdateDomainParam>(), It.IsAny<string>())).Returns(new ResultInfo()).Callback<UpdateDomainParam, string>((p, s) => spKey = s);
 
-            var service = CreateDomainService(repository.Object);
+            var service = CreateDomainService(commonService.Object);
 
             // Action
-            var result = service.UpdateDomain(new InsertUpdateDomainParam());
+            var result = service.UpdateDomain(new UpdateDomainParam());
 
             // Assert
             Assert.True(result.IsSuccessful);
@@ -124,10 +123,10 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Domain
         {
             // Arrange
             var spKey = string.Empty;
-            var repository = new Mock<IDomainRepository> { CallBase = true };
-            repository.Setup(r => r.DeleteDomain(It.IsAny<DeleteDomainParam>(), It.IsAny<string>())).Returns(new ResultInfo()).Callback<DeleteDomainParam, string>((p, s) => spKey = s);
+            var commonService = new Mock<ICommonDomainService> { CallBase = true };
+            commonService.Setup(r => r.DeleteDomain(It.IsAny<DeleteDomainParam>(), It.IsAny<string>())).Returns(new ResultInfo()).Callback<DeleteDomainParam, string>((p, s) => spKey = s);
 
-            var service = CreateDomainService(repository.Object);
+            var service = CreateDomainService(commonService.Object);
 
             // Action
             var result = service.DeleteDomain(new DeleteDomainParam { IsAffDomain = true });
@@ -142,10 +141,10 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Domain
         {
             // Arrange
             var spKey = string.Empty;
-            var repository = new Mock<IDomainRepository> { CallBase = true };
-            repository.Setup(r => r.DeleteDomain(It.IsAny<DeleteDomainParam>(), It.IsAny<string>())).Returns(new ResultInfo()).Callback<DeleteDomainParam, string>((p, s) => spKey = s);
+            var commonService = new Mock<ICommonDomainService> { CallBase = true };
+            commonService.Setup(r => r.DeleteDomain(It.IsAny<DeleteDomainParam>(), It.IsAny<string>())).Returns(new ResultInfo()).Callback<DeleteDomainParam, string>((p, s) => spKey = s);
 
-            var service = CreateDomainService(repository.Object);
+            var service = CreateDomainService(commonService.Object);
 
             // Action
             var result = service.DeleteDomain(new DeleteDomainParam());
@@ -155,11 +154,116 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Domain
             Assert.Equal("Aff_Admin_LicenseeDomain_Del", spKey);
         }
 
-        private static DomainService CreateDomainService(IDomainRepository domainRepository = null)
+        [Fact]
+        public void GetTargetCountryListByDomain_WhenCall_ReturnCorrectData()
         {
-            var fakeDomainRepository = domainRepository ?? Mock.Of<IDomainRepository>();
+            // Arrange
+            var affDomainId = 123;
+            var redirectDomainId = 456;
+            var expectedCountries = new List<TargetCountryByDomain> { new TargetCountryByDomain() };
 
-            return new DomainService(fakeDomainRepository);
+            var commonService = new Mock<ICommonDomainService> { CallBase = true };
+            commonService.Setup(r => r.GetTargetCountryListByDomain(affDomainId, redirectDomainId))
+                .Returns(expectedCountries);
+
+            var service = CreateDomainService(commonService.Object);
+
+            // Action
+            var result = service.GetTargetCountryListByDomain(affDomainId, redirectDomainId);
+
+            // Assert
+            commonService.Verify(c => c.GetTargetCountryListByDomain(affDomainId, redirectDomainId));
+            Assert.Single(result);
+            Assert.Equal(expectedCountries, result);
+        }
+
+        [Fact]
+        public void GetTargetCountryListByDomain_WhenCallWithDefaultParams_ReturnCorrectData()
+        {
+            // Arrange
+            var expectedCountries = new List<TargetCountryByDomain> { new TargetCountryByDomain() };
+
+            var commonService = new Mock<ICommonDomainService> { CallBase = true };
+            commonService.Setup(r => r.GetTargetCountryListByDomain(0, 0))
+                .Returns(expectedCountries);
+
+            var service = CreateDomainService(commonService.Object);
+
+            // Action
+            var result = service.GetTargetCountryListByDomain();
+
+            // Assert
+            commonService.Verify(c => c.GetTargetCountryListByDomain(0, 0));
+            Assert.Single(result);
+            Assert.Equal(expectedCountries, result);
+        }
+
+        [Fact]
+        public void GetDomainById_WhenCallWithValidId_ReturnCorrectData()
+        {
+            // Arrange
+            var domainId = 123;
+            var expectedDomain = new DomainInfo { DomainId = domainId };
+            var commonService = new Mock<ICommonDomainService> { CallBase = true };
+            commonService.Setup(r => r.GetDomainList(It.IsAny<string>()))
+                .Returns(new List<DomainInfo> { expectedDomain });
+
+            var service = CreateDomainService(commonService.Object);
+
+            // Action
+            var result = service.GetDomainById(domainId);
+
+            // Assert
+            commonService.Verify(c => c.GetDomainList("Aff_Admin_AffiliateDomain_Sel"));
+            Assert.NotNull(result);
+            Assert.Equal(domainId, result.DomainId);
+        }
+
+        [Fact]
+        public void GetDomainById_WhenCallWithInvalidId_ReturnNull()
+        {
+            // Arrange
+            var domainId = 999;
+            var commonService = new Mock<ICommonDomainService> { CallBase = true };
+            commonService.Setup(r => r.GetDomainList(It.IsAny<string>()))
+                .Returns(new List<DomainInfo>());
+
+            var service = CreateDomainService(commonService.Object);
+
+            // Action
+            var result = service.GetDomainById(domainId);
+
+            // Assert
+            commonService.Verify(c => c.GetDomainList("Aff_Admin_AffiliateDomain_Sel"));
+            Assert.Null(result);
+        }
+
+        [Fact]
+        public void GetDomainById_WhenCallWithLicenseeDomain_ReturnCorrectData()
+        {
+            // Arrange
+            var domainId = 123;
+            var expectedDomain = new DomainInfo { DomainId = domainId };
+            var commonService = new Mock<ICommonDomainService> { CallBase = true };
+            commonService.Setup(r => r.GetDomainList(It.IsAny<string>()))
+                .Returns(new List<DomainInfo> { expectedDomain });
+
+            var service = CreateDomainService(commonService.Object);
+
+            // Action
+            var result = service.GetDomainById(domainId, false);
+
+            // Assert
+            commonService.Verify(c => c.GetDomainList("Aff_Admin_LicenseeDomain_Sel"));
+            Assert.NotNull(result);
+            Assert.Equal(domainId, result.DomainId);
+        }
+
+        private static DomainService CreateDomainService(ICommonDomainService domaincommonService = null)
+        {
+            var fakeDomaincommonService = domaincommonService ?? Mock.Of<ICommonDomainService>();
+
+            return new DomainService(fakeDomaincommonService);
         }
     }
 }
