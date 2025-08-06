@@ -81,7 +81,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Domain
         [HttpPost]
         [ValidateAntiForgeryHeader]
         [FunctionAuthorize(FunctionName = Function.Domain, IsHost = true)]
-        public ActionResult InsertDomain(InsertUpdateDomainParam param)
+        public ActionResult InsertDomain(InsertDomainParam param)
         {
             if (ModelState.IsValid && TargetCountryHelper.IsValidTargetCountryCodes(param.BlockTargetCountry, _systemService.GetTargetCountryList()))
             {
@@ -96,7 +96,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Domain
         [HttpPost]
         [ValidateAntiForgeryHeader]
         [FunctionAuthorize(FunctionName = Function.Domain, IsHost = true)]
-        public ActionResult UpdateDomain(InsertUpdateDomainParam param)
+        public ActionResult UpdateDomain(UpdateDomainParam param)
         {
             if (ModelState.IsValid && TargetCountryHelper.IsValidTargetCountryCodes(param.BlockTargetCountry, _systemService.GetTargetCountryList()))
             {
@@ -123,7 +123,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Domain
             return GenerateErrResult("The Domain is incorrect!");
         }
 
-        private void HandleEncodeParam(InsertUpdateDomainParam param)
+        private void HandleEncodeParam(InsertDomainParam param)
         {
             param.DomainName = Server.HtmlEncode(param.DomainName);
             param.BlockTargetCountry = Server.HtmlEncode(param.BlockTargetCountry);

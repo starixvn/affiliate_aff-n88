@@ -505,7 +505,8 @@
     <Compile Include="MetaModels\Domain\DeleteDomainControlParam.cs" />
     <Compile Include="MetaModels\Domain\DeleteDomainParam.cs" />
     <Compile Include="MetaModels\Domain\InsertUpdateDomainControlParam.cs" />
-    <Compile Include="MetaModels\Domain\InsertUpdateDomainParam.cs" />
+    <Compile Include="MetaModels\Domain\InsertDomainParam.cs" />
+    <Compile Include="MetaModels\Domain\UpdateDomainParam.cs" />
     <Compile Include="MetaModels\Login\LoginParam.cs" />
     <Compile Include="MetaModels\MediaGallery\BannerParam.cs" />
     <Compile Include="MetaModels\MediaGallery\BannerParamFromHome.cs" />
@@ -601,8 +602,6 @@
     <Compile Include="Repository\CurrencyRepository.cs" />
     <Compile Include="Repository\Customer\CustomerLeftPanelRepository.cs" />
     <Compile Include="Repository\Customer\ICustomerLeftPanelRepository.cs" />
-    <Compile Include="Repository\Domain\DomainRepository.cs" />
-    <Compile Include="Repository\Domain\IDomainRepository.cs" />
     <Compile Include="Repository\ICurrencyRepository.cs" />
     <Compile Include="Repository\MediaGallery\BannerListRepository.cs" />
     <Compile Include="Repository\MediaGallery\IBannerListRepository.cs" />
@@ -693,8 +692,10 @@
     <Compile Include="Services\Customer\CustomerStatisticsService.cs" />
     <Compile Include="Services\Customer\ICustomerLeftPanelService.cs" />
     <Compile Include="Services\Customer\ICustomerStatisticsService.cs" />
+    <Compile Include="Services\Domain\CommonDomainService.cs" />
     <Compile Include="Services\Domain\DomainControlService.cs" />
     <Compile Include="Services\Domain\DomainService.cs" />
+    <Compile Include="Services\Domain\ICommonDomainService.cs" />
     <Compile Include="Services\Domain\IDomainControlService.cs" />
     <Compile Include="Services\Domain\IDomainService.cs" />
     <Compile Include="Services\Domain\ISubAffDomainService.cs" />

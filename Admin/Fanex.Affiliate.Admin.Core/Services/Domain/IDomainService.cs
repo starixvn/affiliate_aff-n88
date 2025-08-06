@@ -13,9 +13,9 @@ namespace Fanex.Affiliate.Admin.Core.Services.Domain
 
         DomainInfo GetDomainById(int domainId, bool isAffDomain = true);
 
-        ResultInfo InsertDomain(InsertUpdateDomainParam param);
+        ResultInfo InsertDomain(InsertDomainParam param);
 
-        ResultInfo UpdateDomain(InsertUpdateDomainParam param);
+        ResultInfo UpdateDomain(UpdateDomainParam param);
 
         ResultInfo DeleteDomain(DeleteDomainParam param);
     }

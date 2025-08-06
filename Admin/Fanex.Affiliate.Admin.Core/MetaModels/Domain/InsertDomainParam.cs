@@ -3,10 +3,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Fanex.Affiliate.Admin.Core.MetaModels.Domain
 {
-    public class InsertUpdateDomainParam : UserInfoParam
+    public class InsertDomainParam : UserInfoParam
     {
-        public int DomainId { get; set; }
-
         [Required]
         public string DomainName { get; set; }
 
@@ -14,6 +12,7 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.Domain
 
         public bool IsAffDomain { get; set; }
 
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string BlockTargetCountry { get; set; }
     }
 }
