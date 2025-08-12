@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { Form, FormGroup, Input, Button } from 'reactstrap';
 import { bindActionCreators } from 'redux';
 
-import { setParam, setIsShowAddAffMktAccountPopup } from '../actions';
-import { allStatuses, globalResource, statusList } from '../libs/constants';
+import { setParam, setIsShowAddAffMktAccountPopup, setReportTitle } from '../actions';
+import { allStatuses, globalResource, statusList, resource } from '../libs/constants';
 
 export const Filter = (props) => {
     const { languageCodeList } = props;
@@ -20,6 +20,17 @@ export const Filter = (props) => {
         }
     }
 
+    const _buildReportTitle = (selectedLanguage, selectedStatus, userName) => {
+        const space = resource.Space;
+        const apostrophe = resource.Apostrophe;
+        const languageTitle = languageCodeList[selectedLanguage] || resource.AllLanguages;
+        const statusTitle = statusList[selectedStatus] || resource.AllStatuses;
+        
+        const userNameTitle = userName && space + resource.UsernameContains + apostrophe + userName + apostrophe;
+        
+        return `${resource.ReportName}${space}${languageTitle.toUpperCase()}${space}${statusTitle.toUpperCase()}${userNameTitle || ''}`;
+    };
+
     const _handleSearch = () => {
         const params = {
             "Status": "",
@@ -31,7 +42,9 @@ export const Filter = (props) => {
             "PageSize": 20
         }
 
-        props.setParam({...params, Language: languageCode, Status: status === allStatuses ? '' : status, UserName: userName});
+        const finalStatus = status === allStatuses ? '' : status;
+        props.setReportTitle(_buildReportTitle(languageCode, finalStatus, userName));
+        props.setParam({...params, Language: languageCode, Status: finalStatus, UserName: userName});
     };
 
     return (
@@ -86,6 +99,7 @@ const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({
         setParam,
         setIsShowAddAffMktAccountPopup,
+        setReportTitle,
     }, dispatch);
 };
 

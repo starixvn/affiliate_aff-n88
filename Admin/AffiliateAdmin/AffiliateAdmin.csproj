@@ -5,7 +5,7 @@
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform> 
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
@@ -292,6 +292,7 @@
     <Content Include="App_Data\SpConfig\SpName.n8g-admin.uat.xml">
       <DependentUpon>_SpName.tt</DependentUpon>
     </Content>
+    <Content Include="Areas\Portal\www\source\js\pages\marketing-account\libs\reportExcel.js" />
     <Content Include="Areas\Portal\www\source\js\pages\report\affiliate-report\libs\dailyReportExcel.js" />
     <Content Include="Areas\Portal\www\source\js\modules\claim.js" />
     <Content Include="Areas\Portal\www\source\js\pages\report\affiliate-report\libs\headerConfigs.js" />
