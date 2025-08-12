@@ -188,6 +188,11 @@
 
         private static void HtmlDecodeModelStringProperties(object model, HttpServerUtilityBase server, Type type)
         {
+            if(model is null)
+            {
+                return;
+            }
+
             var stringProperties = type
                 .GetProperties()
                 .Where(p => p.PropertyType == typeof(string) && p.CanWrite);
