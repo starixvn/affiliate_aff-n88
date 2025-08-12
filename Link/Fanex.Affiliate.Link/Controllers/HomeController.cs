@@ -12,20 +12,19 @@ namespace Fanex.Affiliate.Link.Controllers
     using Fanex.Logging;
     using Helpers;
     using Newtonsoft.Json;
-    using ONEbook.UM.AspNetMVC.Filters;
     using Services.Impl;
     using Services.Interface;
 
     /// <summary>
     /// Home controller for affiliate link.
     /// </summary>
-    [CheckUMFilter]
     public class HomeController : Controller
     {
         #region Services
 
         private readonly ITrackingSystemService _trackingSystemService;
         private readonly IAffInfoService _affInfoService;
+        private readonly IUnderMaintenanceService _underMaintenanceService;
 
         private const string LinkIsInvalidMessage = "This link does not exists. Please contact administrator!";
         private const string LinkIsIncorrectMessage = "This link is incorrect. Please contact administrator!";
@@ -38,6 +37,7 @@ namespace Fanex.Affiliate.Link.Controllers
         {
             _trackingSystemService = new TrackingSystemService();
             _affInfoService = new AffInfoService();
+            _underMaintenanceService = new UnderMaintenanceService();
         }
 
         #endregion Constructor
@@ -63,15 +63,22 @@ namespace Fanex.Affiliate.Link.Controllers
         {
             try
             {
-                var affInfo = _affInfoService.GetAffInfoByAffCode(affCode);
-                if (affInfo.AffId == 0 || string.IsNullOrEmpty(lang))
+                if(_underMaintenanceService.IsUnderMaintenance())
                 {
-                    ViewBag.Result = LinkIsInvalidMessage;
-
-                    return View("Link");
+                    return InsertAffiliate(0, affCode, pageCode, lang, channel, true);
                 }
+                else
+                {
+                    var affInfo = _affInfoService.GetAffInfoByAffCode(affCode);
+                    if (affInfo.AffId == 0 || string.IsNullOrEmpty(lang))
+                    {
+                        ViewBag.Result = LinkIsInvalidMessage;
 
-                return InsertAffiliate(affInfo.AffId, affInfo.AffCode, pageCode, lang, channel);
+                        return View("Link");
+                    }
+
+                    return InsertAffiliate(affInfo.AffId, affInfo.AffCode, pageCode, lang, channel);
+                }    
             }
             catch (Exception ex)
             {
@@ -81,7 +88,7 @@ namespace Fanex.Affiliate.Link.Controllers
             }
         }
 
-        private ActionResult InsertAffiliate(int affId, string affCode, string pageCode, string lang, string channel)
+        private ActionResult InsertAffiliate(int affId, string affCode, string pageCode, string lang, string channel, bool isUM = false)
         {
             if (Request.Url != null)
             {
@@ -94,7 +101,7 @@ namespace Fanex.Affiliate.Link.Controllers
                     domainReferrer = Common.GetDomainReferrer(urlReferrer);
                 }
 
-                var affMediaLink = GetOriginalUrl();
+                var affMediaLink = GetAffMediaLinkOriginalUrl();
                 var affDomain = GetFullAffDomain(affMediaLink, pageCode);
 
                 var command = new TrackingSystemCommand
@@ -121,11 +128,12 @@ namespace Fanex.Affiliate.Link.Controllers
                     AffMediaLink = affMediaLink
                 };
 
-                var redirectUrl = _trackingSystemService.InsertStatistic(command);
+                var redirectUrl = isUM ? MappingRedirectInUM(command, affCode)
+                                    : _trackingSystemService.InsertStatistic(command);
 
                 if (!string.IsNullOrEmpty(redirectUrl))
                 {
-                    WriteLogInfo(command, affCode);
+                    WriteLogInfo(command, affCode, isUM);
 
                     var redirectUrlFinal = HandleRedirectUrl(redirectUrl, pageCode, command.LanguageCode);
                     var forwardQueryString = Request.Url.Query.Replace("?", "&");
@@ -137,6 +145,75 @@ namespace Fanex.Affiliate.Link.Controllers
             }
 
             return View("Link");
+        }
+
+        /// <summary>
+        /// Maps the redirect URL in UM (User Management) system based on language, page code, affiliate domain, and affiliate code.
+        /// Enhanced for better readability, maintainability, and robustness.
+        /// </summary>
+        private string MappingRedirectInUM(TrackingSystemCommand command, string affCode)
+        {
+            var lang = command.LanguageCode;
+            var pageCode = command.PageCode;
+            var affDomain = command.AffDomain;
+            var redirectUrl = string.Empty;
+
+            var siteName = ConfigurationManager.AppSettings["SiteName"];
+
+            if (string.IsNullOrEmpty(siteName) || string.IsNullOrEmpty(lang) || string.IsNullOrEmpty(pageCode) || string.IsNullOrEmpty(affDomain))
+            {
+                command.RedirectPage = string.Empty;
+                return string.Empty;
+            }
+
+            if (MappingDomainControl.SettingMapping.TryGetValue(siteName, out var mappingBySiteName) && mappingBySiteName != null)
+            {
+                // Try language-specific mapping first
+                var supportMarketAffDomain = $"{lang}_{affDomain}".ToLowerInvariant();
+
+                if (mappingBySiteName.TryGetValue(supportMarketAffDomain, out var memberDomain) && !string.IsNullOrEmpty(memberDomain))
+                {
+                    redirectUrl = BuildRedirectUrl(memberDomain, lang, pageCode, affCode);
+                }
+                else
+                {
+                    // Fallback to English
+                    var enAffDomain = $"en_{affDomain}".ToLowerInvariant();
+                    if (mappingBySiteName.TryGetValue(enAffDomain, out var memberDomainInEn) && !string.IsNullOrEmpty(memberDomainInEn))
+                    {
+                        redirectUrl = BuildRedirectUrl(memberDomainInEn, lang, pageCode, affCode);
+                    }
+                    else
+                    {
+                        // Fallback to Thai
+                        var thAffDomain = $"th_{affDomain}".ToLowerInvariant();
+                        if (mappingBySiteName.TryGetValue(thAffDomain, out var memberDomainInTH) && !string.IsNullOrEmpty(memberDomainInTH))
+                        {
+                            redirectUrl = BuildRedirectUrl(memberDomainInTH, lang, pageCode, affCode);
+                        }
+                    }
+                }
+            }
+
+            command.RedirectPage = redirectUrl ?? string.Empty;
+            return redirectUrl ?? string.Empty;
+        }
+
+        /// <summary>
+        /// Helper to build the redirect URL.
+        /// </summary>
+        private string BuildRedirectUrl(string domain, string lang, string pageCode, string affCode)
+        {
+            // Ensure no double slashes and all parameters are present
+            if (string.IsNullOrEmpty(domain) || string.IsNullOrEmpty(lang) || string.IsNullOrEmpty(pageCode) || string.IsNullOrEmpty(affCode))
+            {
+                return string.Empty;
+            }
+
+            // Remove trailing slash from domain if present
+            domain = domain.TrimEnd('/');
+
+            return $"{domain}/{lang}/{pageCode}?affCode={Uri.EscapeDataString(affCode)}";
         }
 
         private string GetFullAffDomain(string url, string endPointOfAffDomain)
@@ -154,12 +231,18 @@ namespace Fanex.Affiliate.Link.Controllers
             return url.Substring(pos1 + slashString.Length, pos2 - (pos1 + slashString.Length));
         }
 
-        private string GetOriginalUrl()
+        private string GetAffMediaLinkOriginalUrl()
+        {
+            var urlWithoutProtocol = GetAffMediaLinkWithoutProtocol();
+            var scheme = GetOriginalProtocol();
+            return $"{scheme}://{urlWithoutProtocol}";
+        }
+
+        private string GetAffMediaLinkWithoutProtocol()
         {
             var host = Request.Headers["Host"] ?? Request.Url.Host;
-            var scheme = GetOriginalProtocol();
             var path = Request.Url.AbsolutePath;
-            return $"{scheme}://{host}{path}";
+            return $"{host}{path}";
         }
 
         private byte GetDeviceType()
@@ -194,9 +277,9 @@ namespace Fanex.Affiliate.Link.Controllers
             return languageCode;
         }
 
-        private void WriteLogInfo(TrackingSystemCommand command, string affCode)
+        private void WriteLogInfo(TrackingSystemCommand command, string affCode, bool isUM)
         {
-            if (!command.RedirectPage.Contains(affCode))
+            if (!command.RedirectPage.Contains(affCode) || isUM)
             {
                 var builder = new StringBuilder().AppendLine($"Link Go Info: {Request.Url}").AppendLine();
                 builder.AppendLine("REQUEST INFO")

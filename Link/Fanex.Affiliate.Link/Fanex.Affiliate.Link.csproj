@@ -219,9 +219,9 @@
     <Compile Include="Constants\CacheKey.cs" />
     <Compile Include="Constants\HeaderKey.cs" />
     <Compile Include="Constants\Language.cs" />
+    <Compile Include="Constants\MappingDomainControl.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Commands\TrackingSystemCommand.cs" />
-    <Compile Include="Controllers\UnderMaintenanceController.cs" />
     <Compile Include="Criterias\GeneralAffInfoCriteria.cs" />
     <Compile Include="DataAccess\Impl\TrackingSystemDataAccess.cs" />
     <Compile Include="DataAccess\Interface\ITrackingSystemDataAccess.cs" />

@@ -18,9 +18,10 @@
         {
             LoggingConfig.RegisterSentry();
 
-            UMConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            UMConfig.Register();
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
             DbSettingProviderManager
