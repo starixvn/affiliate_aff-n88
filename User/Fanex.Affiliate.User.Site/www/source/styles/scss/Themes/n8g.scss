@@ -4,6 +4,11 @@ body {
     color: $text-color;
     background: $bg-main-color;
     font-family: 'Roboto', sans-serif;
+
+    &.zh-CN {
+        font-family: 'Noto Sans SC',sans-serif;
+    }
+
     font-size: 1.4rem;
 
     a {

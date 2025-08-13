@@ -4,7 +4,8 @@
 @using Fanex.Affiliate.User.Core.Constants
 @model Fanex.Affiliate.User.Core.ViewModels.BaseLayoutViewModel
 @{
-    var htmlString = Html.RenderPartialByLanguage($"~/Views/TermAndCondition/N88/_Content", Model.CurrentLanguage, Model.SiteFriendlyName);
+    var currentLanguage = Model.CurrentLanguage;
+    var htmlString = Html.RenderPartialByLanguage($"~/Views/TermAndCondition/N88/_Content", currentLanguage, Model.SiteFriendlyName);
     var siteName = Model.SiteName.ToLower();
 }
 
@@ -26,12 +27,19 @@
     <link href="~/www/build/styles/css/bootstrap-3.3.7.min.css" rel="stylesheet" />
     <link href="~/www/build/styles/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,700&display=swap">
+    @if (currentLanguage == SystemLanguage.ChineseLanguageCode)
+    {
+        <link href="~/www/build/styles/fonts/noto-sans-sc/font.min.css" rel="stylesheet" />
+    }
+    else
+    {
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,700&display=swap">
+    }
 
     <link href="@Url.RenderLink("~/www/build/styles/css/main/n88.css")" rel="stylesheet" />
     <link href="@Url.RenderLink("~/www/build/styles/css/n88.css")" rel="stylesheet" />
 </head>
-<body>
+<body class="@currentLanguage">
 
     <div class="main-container">
         <div class="main">

@@ -253,7 +253,7 @@ http://nicolasgallagher.com/micro-clearfix-hack/
   .pika-single.is-bound .pika-lendar {
     width: 26rem;
     margin: 12px 12px 8px;
-    font-family: 'Open Sans', sans-serif !important;
+    font-family: inherit !important;
     font-style: normal;
     font-weight: 600;
     text-transform: capitalize; }
