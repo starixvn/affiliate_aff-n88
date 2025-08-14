@@ -5,6 +5,12 @@ import { shallow } from 'enzyme';
 jest.mock('react-dom', () => ({ render: jest.fn() }))
 
 describe('affiliate info - App', () => {
+    beforeEach(() => {
+        window.globalVariables = {
+            claims: {}
+        }
+    })
+
     const initialState = {
         languageList: [
             {
