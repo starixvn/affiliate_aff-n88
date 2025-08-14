@@ -93,25 +93,33 @@
     <Setting Key="Aff_User_LoginInfo_Sel" SpName="Aff_User_LoginInfo_Sel" DbName="DBAFFN88.Affiliate_N88.wsv_afinet" />
 
     <Setting Key="Aff_Admin_MediaCategory_Sel" SpName="Aff_Admin_MediaCategory_Sel" DbName="DBAFFN88.Affiliate_N88.wsv_afinet" />
-    <Setting Key="Aff_Market_Sel" SpName="Aff_Market_Sel" DbName="DBAFFN88.Affiliate_N88.wsv_afinet" />
+    <Setting Key="Aff_Market_Sel" SpName="Aff_Market_Sel" DbName="DBAFFN88.Affiliate_N88.wsv_afinet" >
+	  <Mapping DataField="MarketId" ObjectProperty="Code" />
+	  <Mapping DataField="MarketName" ObjectProperty="EnglishName" />
+	  <Mapping DataField="MarketNativeName" ObjectProperty="NativeName" />
+	</Setting>
     <Setting Key="Aff_Admin_MediaCurrency_Sel" SpName="Aff_Admin_MediaCurrency_Sel" DbName="DBAFFN88.Affiliate_N88.wsv_afinet" />
     <Setting Key="Aff_Admin_MediaType_Sel" SpName="Aff_Admin_MediaType_Sel" DbName="DBAFFN88.Affiliate_N88.wsv_afinet" />
     <Setting Key="Aff_Admin_MediaSize_Sel" SpName="Aff_Admin_MediaSize_Sel" DbName="DBAFFN88.Affiliate_N88.wsv_afinet" />
     <Setting Key="Aff_User_Domain_Sel" SpName="Aff_User_Domain_Sel" DbName="DBAFFN88.Affiliate_N88.wsv_afinet" />
     <Setting Key="Aff_User_SubAffiliateDomain_Sel" SpName="Aff_User_SubAffiliateDomain_Sel" DbName="DBAFFN88.Affiliate_N88.wsv_afinet" />
-    <Setting Key="Aff_Admin_LandingPage_Sel" SpName="Aff_Admin_LandingPage_Sel" DbName="DBAFFN88.Affiliate_N88.wsv_afinet" />
+    <Setting Key="Aff_User_LandingPage_Sel" SpName="Aff_User_LandingPage_Sel" DbName="DBAFFN88.Affiliate_N88.wsv_afinet" />
     <Setting Key="Aff_Admin_Text_Sel" SpName="Aff_Admin_Text_Sel" DbName="DBAFFN88.Affiliate_N88.wsv_afinet" />
     <Setting Key="Aff_Admin_Banner_Sel" SpName="Aff_Admin_Banner_Sel" DbName="DBAFFN88.Affiliate_N88.wsv_afinet" />
     <Setting Key="Aff_User_Overview_SubAffiliate_Sel" SpName="Aff_User_Overview_SubAffiliate_Sel" DbName="DBAFFN88.Affiliate_N88.wsv_afinet" />
 
     <Setting Key="Aff_Admin_MediaCategory_Sel_view" SpName="Aff_Admin_MediaCategory_Sel" DbName="DBAFFN88.Affiliate_N88.wsv_afinetv" />
-    <Setting Key="Aff_Market_Sel_view" SpName="Aff_Market_Sel" DbName="DBAFFN88.Affiliate_N88.wsv_afinetv" />
+    <Setting Key="Aff_Market_Sel_view" SpName="Aff_Market_Sel" DbName="DBAFFN88.Affiliate_N88.wsv_afinetv" >
+	  <Mapping DataField="MarketId" ObjectProperty="Code" />
+	  <Mapping DataField="MarketName" ObjectProperty="EnglishName" />
+	  <Mapping DataField="MarketNativeName" ObjectProperty="NativeName" />
+	</Setting>
     <Setting Key="Aff_Admin_MediaCurrency_Sel_view" SpName="Aff_Admin_MediaCurrency_Sel" DbName="DBAFFN88.Affiliate_N88.wsv_afinetv" />
     <Setting Key="Aff_Admin_MediaType_Sel_view" SpName="Aff_Admin_MediaType_Sel" DbName="DBAFFN88.Affiliate_N88.wsv_afinetv" />
     <Setting Key="Aff_Admin_MediaSize_Sel_view" SpName="Aff_Admin_MediaSize_Sel" DbName="DBAFFN88.Affiliate_N88.wsv_afinetv" />
     <Setting Key="Aff_User_Domain_Sel_view" SpName="Aff_User_Domain_Sel" DbName="DBAFFN88.Affiliate_N88.wsv_afinetv" />
     <Setting Key="Aff_User_SubAffiliateDomain_Sel_view" SpName="Aff_User_SubAffiliateDomain_Sel" DbName="DBAFFN88.Affiliate_N88.wsv_afinetv" />
-    <Setting Key="Aff_Admin_LandingPage_Sel_view" SpName="Aff_Admin_LandingPage_Sel" DbName="DBAFFN88.Affiliate_N88.wsv_afinetv" />
+    <Setting Key="Aff_User_LandingPage_Sel_view" SpName="Aff_User_LandingPage_Sel" DbName="DBAFFN88.Affiliate_N88.wsv_afinetv" />
     <Setting Key="Aff_Admin_Text_Sel_view" SpName="Aff_Admin_Text_Sel" DbName="DBAFFN88.Affiliate_N88.wsv_afinetv" />
     <Setting Key="Aff_Admin_Banner_Sel_view" SpName="Aff_Admin_Banner_Sel" DbName="DBAFFN88.Affiliate_N88.wsv_afinetv" />
 
@@ -119,7 +127,11 @@
     <Setting Key="Aff_User_AffMediaChannel_Ins" SpName="Aff_User_AffMediaChannel_Ins" DbName="DBAFFN88.Affiliate_N88.wsv_afinet" />
     <Setting Key="Aff_User_AffMediaChannel_Statistics" SpName="Aff_User_AffMediaChannel_Statistics" DbName="DBAFFN88.Affiliate_N88.wsv_afinet" />
     <Setting Key="Aff_User_AffMediaLink_ToggleChannel" SpName="Aff_User_AffMediaLink_ToggleChannel" DbName="DBAFFN88.Affiliate_N88.wsv_afinet" />
-    <Setting Key="Aff_TargetCountry_Sel" SpName="Aff_TargetCountry_Sel" DbName="DBAFFN88.Affiliate_N88.wsv_afinet" />
+    <Setting Key="Aff_TargetCountry_Sel" SpName="Aff_TargetCountry_Sel" DbName="DBAFFN88.Affiliate_N88.wsv_afinet" >
+	  <Mapping DataField="MarketId" ObjectProperty="Code" />
+	  <Mapping DataField="MarketName" ObjectProperty="EnglishName" />
+	  <Mapping DataField="MarketNativeName" ObjectProperty="NativeName" />
+	</Setting>
   </Function>
 
   <Function Name="Currency">

@@ -142,7 +142,9 @@
     <Setting Key="Aff_Admin_LicenseeDomain_Ins" SpName="Aff_Admin_LicenseeDomain_Ins" DbName="DBAFFN8G.Affiliate_N8G.wsv_afinet" />
     <Setting Key="Aff_Admin_LicenseeDomain_Upd" SpName="Aff_Admin_LicenseeDomain_Upd" DbName="DBAFFN8G.Affiliate_N8G.wsv_afinet" />
     <Setting Key="Aff_Admin_LicenseeDomain_Del" SpName="Aff_Admin_LicenseeDomain_Del" DbName="DBAFFN8G.Affiliate_N8G.wsv_afinet" />
-    <Setting Key="Aff_Admin_DomainControl_Sel" SpName="Aff_Admin_DomainControl_Sel" DbName="DBAFFN8G.Affiliate_N8G.wsv_afinet" />
+    <Setting Key="Aff_Admin_DomainControl_Sel" SpName="Aff_Admin_DomainControl_Sel" DbName="DBAFFN8G.Affiliate_N8G.wsv_afinet" >
+	  <Mapping DataField="Status" ObjectProperty="IsUsed" />
+	</Setting>
     <Setting Key="Aff_Admin_DomainControl_Ins" SpName="Aff_Admin_DomainControl_Ins" DbName="DBAFFN8G.Affiliate_N8G.wsv_afinet" />
     <Setting Key="Aff_Admin_DomainControl_Upd" SpName="Aff_Admin_DomainControl_Upd" DbName="DBAFFN8G.Affiliate_N8G.wsv_afinet" />
     <Setting Key="Aff_Admin_DomainControl_Del" SpName="Aff_Admin_DomainControl_Del" DbName="DBAFFN8G.Affiliate_N8G.wsv_afinet" />
