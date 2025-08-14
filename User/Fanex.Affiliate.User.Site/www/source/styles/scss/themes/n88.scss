@@ -7,9 +7,13 @@
 
 body {
     font-family: 'Open Sans',sans-serif;
+
+    &.zh-CN {
+        font-family: 'Noto Sans SC',sans-serif;
+    }
+
     color: $text-color;
     background: $bg-main-color;
-
     //line break for firefox
     &.km-KH {
         word-break: break-word;

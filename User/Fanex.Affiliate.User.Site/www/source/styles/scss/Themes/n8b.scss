@@ -4,6 +4,11 @@ body {
     color: $color-white;
     background: $bg-main-color;
     font-family: 'Myriad Pro', Arial, Helvetica, sans-serif;
+
+    &.zh-CN {
+        font-family: 'Noto Sans SC',sans-serif;
+    }
+
     font-size: 1.4rem;
 }
 

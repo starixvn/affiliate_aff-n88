@@ -37,6 +37,8 @@ namespace Fanex.Affiliate.User.Core.Constants
 
         public const string IndonesiaLanguageCode = "id-ID";
 
+        public const string ChineseLanguageCode = "zh-CN";
+
         public static string GetUppercaseShortedCode(string languageCode)
         {
             if (_supportedLanguageForGoogleAnalytics.TryGetValue(languageCode, out string result) && !string.IsNullOrEmpty(result))

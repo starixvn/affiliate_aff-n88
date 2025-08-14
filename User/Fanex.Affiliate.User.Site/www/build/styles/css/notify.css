@@ -5,7 +5,7 @@ body {
   background: url(../../../source/styles/Images/notify/bgMain.jpg) repeat-x scroll center top #eef3fa;
   background-size: contain;
   color: #333;
-  font-family: "Myriad Pro", Tahoma, REZ, Arial;
+  font-family: inherit;
   font-size: 11px;
   margin: 0;
   padding: 0; }
@@ -61,7 +61,7 @@ body {
   float: left; }
 
 #content {
-  font-family: "Myriad Pro", Tahoma, REZ, Arial;
+  font-family: inherit;
   font-size: 14px;
   color: #FFF;
   float: left; }

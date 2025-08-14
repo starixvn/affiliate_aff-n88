@@ -1,19 +1,21 @@
 ﻿@using Fanex.Affiliate.User.Core.CoreService
 @using Fanex.Affiliate.User.Core.BusinessService
 @using Fanex.Affiliate.User.Core.Utilities
+@using Fanex.Affiliate.User.Core.Constants
 @{
     var sessionService = DependencyResolver.Current.GetService<ISessionService>();
     var settingService = DependencyResolver.Current.GetService<IAppSetting>();
     var languageService = DependencyResolver.Current.GetService<ILanguageService>();
     var userSession = sessionService.UserSession;
     var languageList = languageService.GetSupportedUILanguageList();
-    var currentLanguage = languageList.FirstOrDefault(l => l.Code.Equals(sessionService.CurrentLanguage))?.NativeName;
+    var currentLanguage = sessionService.CurrentLanguage;
+    var languageNativeName = languageList.FirstOrDefault(l => l.Code.Equals(currentLanguage))?.NativeName;
     var siteFriendlyName = settingService.SiteFriendlyName;
     var isLogin = HttpContext.Current.User.Identity.IsAuthenticated && userSession != null;
 }
 
 <!DOCTYPE html>
-<html lang="@currentLanguage">
+<html lang="@languageNativeName">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -38,20 +40,26 @@
     <link href="~/www/build/styles/css/bootstrap-3.3.7.min.css" rel="stylesheet" />
     <link href="~/www/build/styles/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,700&display=swap">
+    @if (currentLanguage == SystemLanguage.ChineseLanguageCode)
+    {
+        <link href="~/www/build/styles/fonts/noto-sans-sc/font.min.css" rel="stylesheet" />
+    }
+    else
+    {
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,700&display=swap">
+    }
 
     <link href="@Url.RenderLink("~/www/build/styles/css/main/n88.css")" rel="stylesheet" />
-
     <link href="@Url.RenderLink("~/www/build/styles/css/n88.css")" rel="stylesheet" />
     @RenderSection("styles", required: false)
 
 </head>
-<body class="@(isLogin ? "after-login-content" : "before-login-content") @sessionService.CurrentLanguage">
+<body class="@(isLogin ? "after-login-content" : "before-login-content") @currentLanguage">
     <header class="@RenderSection("classHeader", required: false)">
         <div class="header-top">
             <div class="logo">
                 <a href="@Url.Content("~")">
-                    @if (sessionService.CurrentLanguage == "zh-CN")
+                    @if (currentLanguage == "zh-CN")
                     {
                         <img src=@Url.Content("~/www/build/styles/Images/themes/n88.zh-CN.png?v=" + settingService.JsVersion) alt="logo" class="logo-image" />
                     }
@@ -65,10 +73,10 @@
                 @{Html.RenderAction("AuthenticationForm", "Auth", new { v = DateTime.UtcNow.Ticks });}
                 <div class="user-signup">
                     <div class="language-login">
-                        <div class="language-container desktop @sessionService.CurrentLanguage">
+                        <div class="language-container desktop @currentLanguage">
                             <div class="language-selection">
                                 <button class="select-language" id="selectedLanguage">
-                                    <span><i class="flag flag-@sessionService.CurrentLanguage"></i>@(currentLanguage)</span>
+                                    <span><i class="flag flag-@currentLanguage"></i>@(languageNativeName)</span>
                                     <i class="caret"></i>
                                 </button>
 
@@ -197,7 +205,7 @@
                     </h5>
                     <button type="button" class="close-btn" id="closeModal">×</button>
                 </div>
-                <div class="modal-body @sessionService.CurrentLanguage">
+                <div class="modal-body @currentLanguage">
                     <p>
                         @Lang.WeAreUpgradingOurCommission
                     </p>
@@ -210,7 +218,7 @@
     </div>
 
     <input type="hidden" id="RootUrl" value="@Url.Content("~")" />
-    <input type="hidden" id="Language" value="@sessionService.CurrentLanguage" />
+    <input type="hidden" id="Language" value="@currentLanguage" />
     @Html.Raw(Fanex.Logging.LogManager.RenderJavascriptLogger())
     <script src="https://cdn.ravenjs.com/3.27.0/raven.min.js" crossorigin="anonymous"></script>
     <script>
