@@ -8,6 +8,7 @@ using NSubstitute;
 using System;
 using System.Web.Mvc;
 using Xunit;
+using Fanex.Affiliate.User.Core.Apis;
 
 namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
 {
@@ -17,6 +18,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
         private readonly IAppSetting AppSetting;
         private readonly ILanguageService LanguageService;
         private readonly IMailProcessor MailProcessor;
+        private readonly ILicenseeApi LicenseeApi;
 
         public TestingEmailControllerTest()
         {
@@ -24,6 +26,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             AppSetting = Substitute.For<IAppSetting>();
             MailProcessor = Substitute.For<IMailProcessor>();
             LanguageService = NSubtituteMockingHelper.FakeLanguageService();
+            LicenseeApi = Substitute.For<ILicenseeApi>();
         }
 
         [Fact]
@@ -182,6 +185,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
         }
 
         private TestController CreateTestingEmailController(ISessionService sessionService = null)
-            => new TestController(sessionService ?? SessionService, LanguageService, AppSetting, MailProcessor);
+            => new TestController(sessionService ?? SessionService, LanguageService, AppSetting, MailProcessor, LicenseeApi);
     }
 }

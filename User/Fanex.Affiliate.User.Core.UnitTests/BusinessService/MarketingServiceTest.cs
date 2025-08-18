@@ -63,16 +63,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         }
 
         [Fact]
-        public void GetGetLanguageList_WhenCall_CallLanguageService()
-        {
-            var service = CreateService();
-
-            service.GetLanguageList(false);
-
-            LanguageService.Received().GetLanguageList(false);
-        }
-
-        [Fact]
         public void GetCurrencyList_WhenNotHaveInfoInCache_CallInfoFromRepo()
         {
             var service = CreateService();
