@@ -50,7 +50,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
             var viewModel = new AffiliateInfoViewModel
             {
                 CommGroupList = _commGroupCommonService.GetNormalCommGroupList(new GetGroupListParam()),
-                LanguageList = _systemService.GetLanguageList(),
+                LanguageList = _systemService.GetSupportedUiLanguageList(),
                 SelectedGroupId = groupId,
                 Param = param,
                 SubMenuList = subMenu

@@ -53,13 +53,13 @@ export class Language extends PureComponent {
     }
 
     _renderLanguageList() {
-        const { affiliateInfo, languageList } = this.props;
+        const { affiliateInfo, supportedUiLanguages } = this.props;
 
         return (
             <select value={affiliateInfo.PreferredLanguage}
                 onChange={this._handleChangeLanguage} onBlur={() => this.toggleChangingLanguage(false)} ref={this.languageDropdown}>
                 {
-                    languageList.map(language => {
+                    supportedUiLanguages.map(language => {
                         return (<option value={language.LanguageCode} key={`affinfo-lang-${language.LanguageCode}`}>{htmlDecode(language.LanguageName)}</option>)
                     })
                 }
@@ -68,8 +68,8 @@ export class Language extends PureComponent {
     }
 
     _renderLanguageLabel() {
-        const { affiliateInfo, languageList } = this.props;
-        const languageItem = languageList.find(l => l.LanguageCode === affiliateInfo.PreferredLanguage);
+        const { affiliateInfo, supportedUiLanguages } = this.props;
+        const languageItem = supportedUiLanguages.find(l => l.LanguageCode === affiliateInfo.PreferredLanguage);
 
         return (
             <Button color="link" className="left-panel-btn-link" onClick={() => this.toggleChangingLanguage(true)}>
@@ -98,10 +98,10 @@ export class Language extends PureComponent {
     }
 }
 
-function mapStateToProps({ affCommonInfo, leftPanel, languageList }) {
+function mapStateToProps({ affCommonInfo, leftPanel, supportedUiLanguages }) {
     const { affiliateInfo } = leftPanel;
     const { affName } = affCommonInfo;
-    return Object.assign({}, { affiliateInfo, languageList, affName });
+    return Object.assign({}, { affiliateInfo, supportedUiLanguages, affName });
 }
 
 function mapDispatchToProps(dispatch) {

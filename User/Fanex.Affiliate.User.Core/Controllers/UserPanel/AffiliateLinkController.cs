@@ -33,7 +33,7 @@
         public ActionResult Index()
         {
             var affId = SessionService.UserSession.AffId;
-            var langs = LanguageService.GetLanguageList(SessionService.IsInternal);
+            var langs = LanguageService.GetSupportedUILanguageList(SessionService.IsInternal);
             var channels = MarketingService.GetChannels(affId);
 
             var refs = new List<RefLinkViewModel>

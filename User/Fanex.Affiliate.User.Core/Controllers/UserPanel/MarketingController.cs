@@ -251,7 +251,7 @@
 
         private string GetEnglishName(string languageCode)
         {
-            return LanguageService.GetLanguageList().FirstOrDefault(l => l.Code.MatchWith(languageCode))?.EnglishName;
+            return LanguageService.GetSupportedUILanguageList().FirstOrDefault(l => l.Code.MatchWith(languageCode))?.EnglishName;
         }
     }
 }

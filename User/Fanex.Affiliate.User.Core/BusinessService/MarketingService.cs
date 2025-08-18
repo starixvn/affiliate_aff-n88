@@ -61,16 +61,6 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             return categoryList ?? new List<CategoryType>();
         }
 
-        public IEnumerable<LanguageType> GetLanguageList(bool isInternal)
-            => _languageService.GetLanguageList(isInternal)
-            .Select(l => new LanguageType
-            {
-                DisplayName = l.DisplayName,
-                MarketId = l.Code,
-                MarketName = l.EnglishName,
-                MarketNativeName = l.NativeName,
-                ShortedCode = l.ShortedCode
-            });
         public IEnumerable<CurrencyType> GetCurrencyList(bool isInternal)
         {
             var currencyList = _cacheService.Get<IEnumerable<CurrencyType>>(CacheKey.CurrencyList);

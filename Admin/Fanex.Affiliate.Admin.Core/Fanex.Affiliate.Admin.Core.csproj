@@ -616,9 +616,7 @@
     <Compile Include="Repository\IAuthRepository.cs" />
     <Compile Include="Repository\ICommissionGroupRepository.cs" />
     <Compile Include="Configurations\IoCConfig.cs" />
-    <Compile Include="Repository\ILanguageRepository.cs" />
     <Compile Include="Repository\IProductRepository.cs" />
-    <Compile Include="Repository\LanguageRepository.cs" />
     <Compile Include="Repository\MediaGallery\ILandingPageRepository.cs" />
     <Compile Include="Repository\MediaGallery\LandingPageRepository.cs" />
     <Compile Include="Repository\ProductRepository.cs" />
@@ -705,9 +703,7 @@
     <Compile Include="Services\IAffTypeService.cs" />
     <Compile Include="Services\CommGroup\ICommissionGroupService.cs" />
     <Compile Include="Services\IEmailService.cs" />
-    <Compile Include="Services\ILanguageService.cs" />
     <Compile Include="Services\ILicenseeService.cs" />
-    <Compile Include="Services\LanguageService.cs" />
     <Compile Include="Services\LicenseeService.cs" />
     <Compile Include="Services\MediaGallery\BannerListService.cs" />
     <Compile Include="Services\MediaGallery\BannerValidationService.cs" />

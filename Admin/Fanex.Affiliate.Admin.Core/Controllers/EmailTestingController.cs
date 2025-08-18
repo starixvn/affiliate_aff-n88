@@ -1,15 +1,14 @@
-﻿using Fanex.Affiliate.Admin.Core.Attributes;
+﻿using System;
+using System.Linq;
+using System.Web.Mvc;
+using Fanex.Affiliate.Admin.Core.Attributes;
 using Fanex.Affiliate.Admin.Core.Configurations;
 using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO.Email;
 using Fanex.Affiliate.Admin.Core.Resources;
-using Fanex.Affiliate.Admin.Core.Services;
 using Fanex.Affiliate.Admin.Core.Services.Common;
 using Fanex.Affiliate.Admin.Core.Utilities;
 using Fanex.Affiliate.Admin.Core.ViewModels;
-using System;
-using System.Linq;
-using System.Web.Mvc;
 
 namespace Fanex.Affiliate.Admin.Core.Controllers
 {
@@ -24,18 +23,18 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
 
         private readonly IAppSetting _appSetting;
 
-        private readonly ILanguageService _languageService;
+        private readonly ISystemService _systemService;
 
         public EmailTestingController(
             ISessionService sessionService,
             IMailProcessor mailProcessor,
             IAppSetting appSetting,
-            ILanguageService languageService
+            ISystemService systemService
             ) : base(sessionService)
         {
             _mailProcessor = mailProcessor;
             _appSetting = appSetting;
-            _languageService = languageService;
+            _systemService = systemService;
         }
 
         [HttpGet]
@@ -50,9 +49,9 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
             string result;
             try
             {
-                _languageService.SetCulture(language);
+                _systemService.SetCulture(language);
                 result = GetEmailContent(language, function, format);
-                _languageService.SetCulture("en-US");
+                _systemService.SetCulture("en-US");
             }
             catch (Exception ex)
             {
@@ -70,14 +69,14 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
 
             try
             {
-                _languageService.SetCulture(language);
+                _systemService.SetCulture(language);
                 var content = GetEmailContent(language, function, format);
                 var shortedLanguageCode = GetShortedLanguageCode(language);
 
                 var subject = GetSubject(function);
 
                 _mailProcessor.Send(content, emailAddress, subject, shortedLanguageCode);
-                _languageService.SetCulture("en-US");
+                _systemService.SetCulture("en-US");
             }
             catch (Exception ex)
             {
@@ -207,7 +206,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
 
         private string GetShortedLanguageCode(string languageCode)
         {
-            var shortedLanguageCode = _languageService.GetLanguageList()
+            var shortedLanguageCode = _systemService.GetSupportedUiLanguageList()
                 .FirstOrDefault(l => string.Equals(l.LanguageCode, languageCode, StringComparison.OrdinalIgnoreCase))?.ShortedLanguageCode ?? _appSetting.DefaultShortedLanguageCode;
 
             return shortedLanguageCode.ToUpperInvariant();

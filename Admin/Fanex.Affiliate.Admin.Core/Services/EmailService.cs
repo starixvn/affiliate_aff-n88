@@ -1,12 +1,13 @@
-﻿using Fanex.Affiliate.Admin.Core.Configurations;
+﻿using System;
+using System.Linq;
+using System.Web;
+using Fanex.Affiliate.Admin.Core.Configurations;
 using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO.Email;
 using Fanex.Affiliate.Admin.Core.Resources;
+using Fanex.Affiliate.Admin.Core.Services.Common;
 using Fanex.Affiliate.Admin.Core.Utilities;
 using Fanex.Affiliate.Admin.Core.ViewModels;
-using System;
-using System.Linq;
-using System.Web;
 
 namespace Fanex.Affiliate.Admin.Core.Services
 {
@@ -16,20 +17,20 @@ namespace Fanex.Affiliate.Admin.Core.Services
 
         private readonly IAppSetting _appSetting;
 
-        private readonly ILanguageService _languageService;
+        private readonly ISystemService _systemService;
 
-        public EmailService(IMailProcessor mailProcessor, IAppSetting appSetting, ILanguageService languageService)
+        public EmailService(IMailProcessor mailProcessor, IAppSetting appSetting, ISystemService systemService)
         {
             _mailProcessor = mailProcessor;
             _appSetting = appSetting;
-            _languageService = languageService;
+            _systemService = systemService;
         }
 
         public void SendApprovedEmail(AffInformationEmail emailParam)
         {
-            _languageService.SetCulture(emailParam.Language);
+            _systemService.SetCulture(emailParam.Language);
             SendAffInforEmail(emailParam);
-            _languageService.SetCulture(_appSetting.DefaultLanguageCode);
+            _systemService.SetCulture(_appSetting.DefaultLanguageCode);
         }
 
         private void SendAffInforEmail(AffInformationEmail emailParam)
@@ -88,7 +89,7 @@ namespace Fanex.Affiliate.Admin.Core.Services
         public void SendPaymentRequestUpdateEmail(PaymentRequestUpdateEmail emailParam)
         {
             var language = emailParam.Language;
-            _languageService.SetCulture(language);
+            _systemService.SetCulture(language);
             var shortedLanguageCode = GetShortedLanguageCode(language);
             emailParam.MailContact = GetMailContactByLanguageCode(shortedLanguageCode);
             emailParam.SiteFriendlyName = _appSetting.SiteFriendlyName;
@@ -107,14 +108,14 @@ namespace Fanex.Affiliate.Admin.Core.Services
                 content;
 
             _mailProcessor.Send(contentToSend, emailParam.MailTo, subject, shortedLanguageCode);
-            _languageService.SetCulture(_appSetting.DefaultLanguageCode);
+            _systemService.SetCulture(_appSetting.DefaultLanguageCode);
         }
 
         public void SendDisapprovedEmail(AffInformationEmail emailParam)
         {
-            _languageService.SetCulture(emailParam.Language);
+            _systemService.SetCulture(emailParam.Language);
             SendDisapprovedAffiliateEmail(emailParam);
-            _languageService.SetCulture(_appSetting.DefaultLanguageCode);
+            _systemService.SetCulture(_appSetting.DefaultLanguageCode);
         }
 
         private void SendDisapprovedAffiliateEmail(AffInformationEmail emailParam)
@@ -146,7 +147,7 @@ namespace Fanex.Affiliate.Admin.Core.Services
 
         private string GetShortedLanguageCode(string languageCode)
         {
-            var shortedLanguageCode = _languageService.GetLanguageList()
+            var shortedLanguageCode = _systemService.GetLanguageList()
                 .FirstOrDefault(l => string.Equals(l.LanguageCode, languageCode, StringComparison.OrdinalIgnoreCase))?.ShortedLanguageCode ?? _appSetting.DefaultShortedLanguageCode;
 
             return shortedLanguageCode.ToUpperInvariant();

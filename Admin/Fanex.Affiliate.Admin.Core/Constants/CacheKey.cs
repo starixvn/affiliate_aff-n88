@@ -19,5 +19,7 @@
         public const string TargetCountryList = "Aff.NV.Admin.TargetCountryList";
 
         public const string TokenExtApi = "Aff.NV.Admin.TokenExtApi";
+
+        public const string SupportedUiLanguageList = "Affiliate.NV.Admin.SupportedUiLanguages";
     }
 }

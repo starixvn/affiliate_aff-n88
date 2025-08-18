@@ -7,7 +7,7 @@
     var settingService = DependencyResolver.Current.GetService<IAppSetting>();
     var languageService = DependencyResolver.Current.GetService<ILanguageService>();
     var userSession = sessionService.UserSession;
-    var languageList = languageService.GetLanguageList();
+    var languageList = languageService.GetSupportedUILanguageList();
     var currentLanguage = sessionService.CurrentLanguage;
     var languageNativeName = languageList.FirstOrDefault(l => l.Code.Equals(currentLanguage))?.NativeName;
     var siteFriendlyName = settingService.SiteFriendlyName;

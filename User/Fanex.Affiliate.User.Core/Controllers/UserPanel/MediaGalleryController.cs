@@ -44,7 +44,7 @@
             var channels = MarketingService.GetChannels(userSession.AffId);
             var categoryList = System.Enum.GetValues(typeof(AffiliateLinkType)).Cast<int>()
                 .ToDictionary(t => t.ToString(), t => GetMediaMainCategory((AffiliateLinkType)t));
-            var languageList = LanguageService.GetLanguageList(isInternal);
+            var languageList = LanguageService.GetSupportedUILanguageList(isInternal);
             var currencyList = MarketingService.GetCurrencyList(isInternal)
                 .Select(i => new SelectListItem
                 {

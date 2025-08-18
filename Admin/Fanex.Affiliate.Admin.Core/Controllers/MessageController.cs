@@ -1,16 +1,14 @@
-﻿using Fanex.Affiliate.Admin.Core.Attributes;
+﻿using System.Collections.Generic;
+using System.Web.Mvc;
+using Fanex.Affiliate.Admin.Core.Attributes;
 using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.Message;
 using Fanex.Affiliate.Admin.Core.Extensions;
-using Fanex.Affiliate.Admin.Core.MetaModels;
 using Fanex.Affiliate.Admin.Core.MetaModels.Message;
 using Fanex.Affiliate.Admin.Core.Resources;
-using Fanex.Affiliate.Admin.Core.Services;
 using Fanex.Affiliate.Admin.Core.Services.Common;
 using Fanex.Affiliate.Admin.Core.Services.Message;
-using System.Collections.Generic;
-using System.Web.Mvc;
 
 namespace Fanex.Affiliate.Admin.Core.Controllers
 {
@@ -18,22 +16,22 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
     public class MessageController : ReadOnlySessionBaseController
     {
         private const int threeMilliSecond = 3;
-        private readonly IMessageService _messageSevice;
-        private readonly ILanguageService _languageService;
+        private readonly IMessageService _messageService;
+        private readonly ISystemService _systemService;
 
         public MessageController(
             ISessionService sessionService,
-            IMessageService messageSevice,
-            ILanguageService languageService) : base(sessionService)
+            IMessageService messageService,
+            ISystemService systemService) : base(sessionService)
         {
-            _messageSevice = messageSevice;
-            _languageService = languageService;
+            _messageService = messageService;
+            _systemService = systemService;
         }
 
         [HttpGet]
         public ActionResult Index()
         {
-            var mode = _languageService.GetLanguageList();
+            var mode = _systemService.GetSupportedUiLanguageList();
 
             return View(mode);
         }
@@ -48,7 +46,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
 
                 return new JsonNetResult
                 {
-                    Data = _messageSevice.GetMessageList(param)
+                    Data = _messageService.GetMessageList(param)
                 };
             }
 
@@ -68,7 +66,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
         {
             return new JsonNetResult
             {
-                Data = _messageSevice.GetMessageDetail(selectedMessageId)
+                Data = _messageService.GetMessageDetail(selectedMessageId)
             };
         }
 
@@ -84,7 +82,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
 
                 return new JsonNetResult
                 {
-                    Data = _messageSevice.InsertMessage(encodeParam)
+                    Data = _messageService.InsertMessage(encodeParam)
                 };
             }
 
@@ -111,7 +109,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
 
                 return new JsonNetResult
                 {
-                    Data = _messageSevice.UpdateMessage(encodeParam)
+                    Data = _messageService.UpdateMessage(encodeParam)
                 };
             }
 
@@ -136,7 +134,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
 
                 return new JsonNetResult
                 {
-                    Data = _messageSevice.DeleteMessages(param)
+                    Data = _messageService.DeleteMessages(param)
                 };
             }
 

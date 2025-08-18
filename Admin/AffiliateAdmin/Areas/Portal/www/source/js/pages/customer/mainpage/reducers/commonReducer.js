@@ -12,6 +12,7 @@ const now = new Date();
 const defaultToday = `${now.getMonth()}/${now.getDate()}/${now.getFullYear()}`;
 const today = createReducer(defaultToday, {});
 const languageList = createReducer(null, {});
+const supportedUiLanguages = createReducer(null, {});
 const productList = createReducer(null, {});
 const currencyList = createReducer(null, {});
 const baseCurrencyList = createReducer(null, {});
@@ -22,6 +23,7 @@ export {
     affCommonInfo,
     today,
     languageList,
+    supportedUiLanguages,
     productList,
     currencyList,
     baseCurrencyList,

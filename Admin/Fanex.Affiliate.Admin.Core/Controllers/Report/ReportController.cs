@@ -1,14 +1,13 @@
-﻿using Fanex.Affiliate.Admin.Core.Attributes;
+﻿using System.Web.Mvc;
+using Fanex.Affiliate.Admin.Core.Attributes;
 using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.Extensions;
 using Fanex.Affiliate.Admin.Core.MetaModels.CommissionGroup;
 using Fanex.Affiliate.Admin.Core.MetaModels.Report;
 using Fanex.Affiliate.Admin.Core.Repository;
-using Fanex.Affiliate.Admin.Core.Services;
 using Fanex.Affiliate.Admin.Core.Services.Common;
 using Fanex.Affiliate.Admin.Core.Services.Report;
 using Fanex.Affiliate.Admin.Core.ViewModels.Report;
-using System.Web.Mvc;
 
 namespace Fanex.Affiliate.Admin.Core.Controllers.Report
 {
@@ -17,7 +16,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Report
     {
         private readonly IProductRepository _productRepository;
 
-        private readonly ILanguageService _languageService;
+        private readonly ISystemService _systemService;
 
         private readonly IAffiliateReportService _affiliateReportService;
 
@@ -28,18 +27,17 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Report
         public ReportController(
             ISessionService sessionService,
             IProductRepository productRepository,
-            ILanguageService languageService,
+            ISystemService systemService,
             IAffiliateReportService affiliateReportService,
             ICurrencyRepository currencyRepository,
             ICommissionGroupRepository commissionGroupRepository) : base(sessionService)
         {
             _productRepository = productRepository;
-            _languageService = languageService;
+            _systemService = systemService;
             _affiliateReportService = affiliateReportService;
             _currencyRepository = currencyRepository;
             _commissionGroupRepository = commissionGroupRepository;
         }
-
 
         [HttpGet]
         [AllowByPassFunctionAuthorize]
@@ -49,7 +47,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Report
             {
                 ReportCutOffDate = _affiliateReportService.GetReportCutOffDate(),
                 ProductList = _productRepository.GetProductList(),
-                LanguageList = _languageService.GetLanguageList(),
+                LanguageList = _systemService.GetSupportedUiLanguageList(),
                 CurrencyList = _currencyRepository.GetCurrencies(),
                 BaseCurrencyList = _currencyRepository.GetBaseCurrencies(),
                 PaymentCurrencyList = _currencyRepository.GetPaymentCurrencies(),
