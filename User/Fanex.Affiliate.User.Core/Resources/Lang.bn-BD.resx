@@ -699,9 +699,6 @@
   <data name="EmailAddressIsRequired" xml:space="preserve">
     <value>ইমেল ঠিকানা প্রয়োজন</value>
   </data>
-  <data name="EmailAddressIsInvalid" xml:space="preserve">
-    <value>ইমেল ঠিকানা অবৈধ</value>
-  </data>
   <data name="EmailMaxLength" xml:space="preserve">
     <value>ইমেল ঠিকানা 50 অক্ষরের বেশি নয়।</value>
   </data>
@@ -2067,5 +2064,8 @@
   </data>
   <data name="FdmTotalDeposit" xml:space="preserve">
     <value>নতুন খেলোয়াড়দের জমাকৃত অর্থ</value>
+  </data>
+  <data name="EmailAddressIsInvalid" xml:space="preserve">
+    <value>একটি বৈধ ইমেল ঠিকানা দিন, যেমন example@email.com</value>
   </data>
 </root>

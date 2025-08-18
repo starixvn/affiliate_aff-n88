@@ -436,7 +436,7 @@
     <value>Alamat Email yang Anda masukkan tidak cocok.</value>
   </data>
   <data name="EmailAddressIsInvalid" xml:space="preserve">
-    <value>Alamat Email tidak valid</value>
+    <value>Silakan masukkan alamat email yang sah, seperti contoh@email.com</value>
   </data>
   <data name="EmailAddressIsRequired" xml:space="preserve">
     <value>Alamat e-mail diperlukan.</value>

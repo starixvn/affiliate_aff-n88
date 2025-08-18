@@ -1753,7 +1753,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Email Address is invalid.
+        ///   Looks up a localized string similar to Please enter a valid email address, such as example@email.com.
         /// </summary>
         public static string EmailAddressIsInvalid {
             get {

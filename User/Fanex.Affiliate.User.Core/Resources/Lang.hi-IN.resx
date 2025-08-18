@@ -424,7 +424,7 @@
     <value>ईमेल की जरूरत है</value>
   </data>
   <data name="EmailAddressIsInvalid" xml:space="preserve">
-    <value>ईमेल पता अमान्य है</value>
+    <value>कृपया एक मान्य ईमेल पता दर्ज करें, जैसे example@email.com</value>
   </data>
   <data name="ErrEmailRequire" xml:space="preserve">
     <value>ईमेल पते की ज़रुरत है</value>

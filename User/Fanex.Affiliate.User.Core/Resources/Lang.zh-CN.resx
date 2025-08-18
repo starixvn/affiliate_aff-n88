@@ -436,7 +436,7 @@
     <value>您输入的电子邮件地址不符。</value>
   </data>
   <data name="EmailAddressIsInvalid" xml:space="preserve">
-    <value>电子邮件地址无效</value>
+    <value>请输入有效的电子邮箱地址，例如 example@email.com</value>
   </data>
   <data name="EmailAddressIsRequired" xml:space="preserve">
     <value>请填写电邮地址</value>
