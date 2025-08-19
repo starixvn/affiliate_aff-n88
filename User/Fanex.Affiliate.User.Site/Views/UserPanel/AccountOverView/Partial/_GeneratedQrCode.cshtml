@@ -2,6 +2,7 @@
 @{
     Layout = null;
 }
+
 @model  IEnumerable<Fanex.Affiliate.User.Core.ViewModels.UserPanel.Marketing.QrCodeLinkViewModel>
 
 @helper RenderQrItem(Fanex.Affiliate.User.Core.ViewModels.UserPanel.Marketing.QrCodeLinkViewModel item)
@@ -12,7 +13,10 @@
     var downloadName = item.DisplayName + "_qrcode";
     var selectedLinkType = (int)ViewBag.SelectedLinkType;
 
-    <div class="qr-item"
+    var appSettings = DependencyResolver.Current.GetService<IAppSetting>();
+    var siteName = appSettings.SiteName.ToLowerInvariant();
+
+    <div class="@siteName qr-item"
          data-image-name="@downloadName"
          data-selected-page="@ViewBag.SelectedPage"
          data-selected-domain-id="@ViewBag.SelectedDomainId"

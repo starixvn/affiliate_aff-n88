@@ -11,7 +11,8 @@
             selectedDomainId: $(trigger).data("selected-domain-id"),
             selectedPage: $(trigger).data("selected-page"),
             selectedChannel: $(trigger).data("selected-channel"),
-            selectedLinkType: $(trigger).data("selected-link-type")
+            selectedLinkType: $(trigger).data("selected-link-type"),
+            selectedTargetCountry: $(trigger).data("selected-target-country")
         };
     }
 
