@@ -9,6 +9,8 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
         string GetFavoriteLanguage();
 
+        string GetCountry();
+
         string GetCurrentLanguage();
 
         bool IsValid(string langCode);

@@ -13,7 +13,7 @@
     var siteFriendlyName = settingService.SiteFriendlyName;
     var isLogin = HttpContext.Current.User.Identity.IsAuthenticated && userSession != null;
     var targetCountryLanguages = languageService.GetTargetCountryLanguages();
-
+    var currentCountry = targetCountryLanguages.FirstOrDefault(t => t.Key == sessionService.CurrentCountry).Value[0]?.TargetCountryName;
 }
 
 <!DOCTYPE html>
@@ -79,7 +79,7 @@
                         <div class="language-container desktop @currentLanguage">
                             <div class="language-selection">
                                 <button class="select-language" id="selectedLanguage">
-                                    <span><i class="flag flag-@currentLanguage"></i>@(languageNativeName)</span>
+                                    <span><i class="flag flag-@sessionService.CurrentCountry"></i>@(currentCountry)</span>
                                     <i class="caret"></i>
                                 </button>
 
@@ -94,15 +94,14 @@
                                         @foreach (var country in targetCountryLanguages)
                                         {
                                             <li class="country-item">
-                                                <i class="country-item-col-1 flag flag-@country.Value[0].Code"></i>
+                                                <i class="country-item-col-1 flag flag-@country.Key"></i>
                                                 <div class="country-item-col-2">
-                                                    <p class="country-name">@country.Value[0].TargetCountryName</p>
+                                                    <p class="country-name @(country.Key == sessionService.CurrentCountry ? "text-bold" : "")">@country.Value[0].TargetCountryName</p>
                                                     <div class="language-options">
                                                         @foreach (var lang in country.Value)
                                                         {
-
-                                                            var shortedCode = SystemLanguage.SupportedLanguage.ContainsKey(lang.ShortedCode) ? SystemLanguage.SupportedLanguage[lang.ShortedCode] : lang.ShortedCode;
-                                                            <a href="javascript:;" class="language-item" data-option="@shortedCode">
+                                                            var code = SystemLanguage.SupportedLanguage.ContainsKey(lang.Code) ? SystemLanguage.SupportedLanguage[lang.Code] : lang.Code;
+                                                            <a href="javascript:;" class="language-item @(sessionService.CurrentLanguage == lang.Code && country.Key == sessionService.CurrentCountry ? "highlight" : "")" data-target-country-code="@country.Key" data-option="@code">
                                                                 @lang.NativeName
                                                             </a>
                                                             if (lang != country.Value.Last())
@@ -231,6 +230,7 @@
             ServerError: '@Lang.ServerError'
         };
         window.JsVersion = '@settingService.JsVersion';
+        window.SiteName = 'n88';
     </script>
 
     @Html.InlineScripts("~/www/build/js/lib/modernizr-webp.js")

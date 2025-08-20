@@ -43,6 +43,13 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             return IsValid(langCookie) ? langCookie : SystemLanguage.DefaultLanguageCode;
         }
 
+        public string GetCountry()
+        {
+            var countryCookie = HttpContext.Current.Request.Cookies[AppSetting.Instance.SiteName + "_country"]?.Value;
+
+            return string.IsNullOrWhiteSpace(countryCookie) ? SystemLanguage.DefaultCountryCode : countryCookie;
+        }
+
         public IEnumerable<Language> GetLanguageList(bool? isInternal = null)
         {
             var isForInternal = isInternal ?? _sessionService.IsInternal;

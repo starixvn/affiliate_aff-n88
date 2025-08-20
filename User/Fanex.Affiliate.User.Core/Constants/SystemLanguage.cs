@@ -33,6 +33,8 @@ namespace Fanex.Affiliate.User.Core.Constants
             get { return _appSetting.DefaultShortedLanguageCode; }
         }
 
+        public static string DefaultCountryCode => _appSetting.DefaultCountryCode;
+
         public const string EnglishLanguageCode = "en-US";
 
         public const string IndonesiaLanguageCode = "id-ID";

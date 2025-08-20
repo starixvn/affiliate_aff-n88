@@ -1,5 +1,6 @@
 var Layout = (function ($) {
     var DEFAULT_SPEED = 20;
+    const siteName = window.SiteName;
 
     function initSlider() {
         var $mainBanner = $('#mainBanner');
@@ -28,6 +29,9 @@ var Layout = (function ($) {
 
             $("#languageList").on("click", ".language-item", function () {
                 var $selectedItem = $(this);
+                const targetCountryCode = $selectedItem.data('target-country-code');
+
+                document.cookie = `${siteName}_country=${targetCountryCode}; path=/`;
                 Site.changeLanguage($selectedItem.data('option'));
             });
 

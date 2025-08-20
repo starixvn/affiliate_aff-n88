@@ -1,7 +1,8 @@
+using System.Linq;
+using System.Web;
 using Fanex.Affiliate.User.Core.Constants;
 using Fanex.Affiliate.User.Core.DTO.Auth;
 using Fanex.Affiliate.User.Core.DTO.VerificationAccount;
-using System.Web;
 
 namespace Fanex.Affiliate.User.Core.CoreService
 {
@@ -13,6 +14,7 @@ namespace Fanex.Affiliate.User.Core.CoreService
 
         private const string CurrentLanguageKey = "AffiliateB2C.CurrentLanguageKey";
         private const string IsInternalKey = "AffiliateB2C.IsInternalKey";
+        private const string CurrentCountryKey = "AffiliateB2C.CurrentCountryKey";
 
         private const string RsaKeyPairKey = "AffiliateB2C.RsaKeyPairKey";
         private const string VerificationSessionKey = "AffiliateB2C.VerificationSessionKey";
@@ -50,6 +52,25 @@ namespace Fanex.Affiliate.User.Core.CoreService
             {
                 HttpContext.Current.Session[CurrentLanguageKey] = value;
             }
+        }
+
+        public string CurrentCountry
+        {
+            get
+            {
+                var session = HttpContext.Current.Session;
+                var defaultCountryCode = SystemLanguage.DefaultCountryCode;
+
+                if (session == null)
+                {
+                    return defaultCountryCode;
+                }
+
+                var currentCountry = session[CurrentCountryKey] as string;
+
+                return string.IsNullOrWhiteSpace(currentCountry) ? defaultCountryCode : currentCountry;
+            }
+            set => HttpContext.Current.Session[CurrentCountryKey] = value;
         }
 
         public bool IsInternal

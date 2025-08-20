@@ -304,8 +304,8 @@
     flex: 1 4 0%;
 
     .flag {
-        width: 30px;
-        height: 30px;
+        width: 35px;
+        height: 35px;
         border-radius: 50%;
         border: 1px solid #eee;
         margin-right: 0;
@@ -313,7 +313,6 @@
 
     .country-name {
         color: #333;
-        font-weight: 500;
         font-size: 14px;
     }
 
@@ -328,6 +327,10 @@
             color: #666;
             text-decoration: none;
             font-size: 13px;
+
+            &.highlight {
+                color: #D90F0F;
+            }
 
             &:hover {
                 color: #D90F0F;
