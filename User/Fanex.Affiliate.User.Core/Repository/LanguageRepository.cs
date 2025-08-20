@@ -32,5 +32,15 @@ namespace Fanex.Affiliate.User.Core.Repository
                     });
             }
         }
+
+        public IEnumerable<TargetCountryLanguage> GetTargetCountryLanguages(bool isDefault = true, string targetCountryCode = "")
+        {
+            const string uSpKey = "Aff_TargetCountry_Sel";
+
+            using (var objectDb = Builder.Build(uSpKey))
+            {
+                return objectDb.Query<TargetCountryLanguage>(new { isDefault, targetCountryCode });
+            }
+        }
     }
 }

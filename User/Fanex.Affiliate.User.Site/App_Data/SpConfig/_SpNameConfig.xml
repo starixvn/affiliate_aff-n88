@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Root>
   <item LicenseeName="N8B" Environment="DEV" SpName="Test" Suffix="_xtest"></item>
+	<item LicenseeName="N88" Environment="DEV" SpName="Aff_TargetCountry_Sel" Suffix="_UAT2"></item>
 
 </Root>

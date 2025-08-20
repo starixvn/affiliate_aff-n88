@@ -84,5 +84,16 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             Thread.CurrentThread.CurrentCulture.DateTimeFormat = CultureInfo.CreateSpecificCulture("en-US").DateTimeFormat;
             Thread.CurrentThread.CurrentCulture.NumberFormat = CultureInfo.CreateSpecificCulture("en-US").NumberFormat;
         }
+
+        public Dictionary<string, List<TargetCountryLanguage>> GetTargetCountryLanguages(bool isDefault = true,
+            string targetCountryCode = "")
+        {
+            var targetCountryLanguages = _languageRepository.GetTargetCountryLanguages(isDefault, targetCountryCode);
+
+            return targetCountryLanguages
+                .GroupBy(tcl => tcl.TargetCountryCode)
+                .ToDictionary(key => key.Key,
+                    val => val.ToList());
+        }
     }
 }

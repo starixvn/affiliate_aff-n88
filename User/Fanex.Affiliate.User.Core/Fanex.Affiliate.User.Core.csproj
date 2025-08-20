@@ -272,6 +272,7 @@
     <Compile Include="DTO\Api\AccountApiResult.cs" />
     <Compile Include="DTO\Api\ApiResultInfo.cs" />
     <Compile Include="DTO\Api\CustomerBalanceInfo.cs" />
+    <Compile Include="DTO\TargetCountryLanguage.cs" />
     <Compile Include="DTO\UserPanel\MarketingPageStatistics.cs" />
     <Compile Include="DTO\UserPanel\PlayerTransferBalance\PlayerTransferBalanceHistoryInfo.cs" />
     <Compile Include="DTO\UserPanel\PlayerTransferBalance\PlayerTransferBalanceHistoryResult.cs" />

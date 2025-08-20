@@ -14,6 +14,7 @@
     var siteName = settingService.SiteName.ToLower();
     var isN8G = string.Equals(settingService.SiteName, SiteName.N8G, StringComparison.CurrentCultureIgnoreCase);
     var jsVersion = AppSetting.Instance.JsVersion;
+    var targetCountryLanguages = languageService.GetTargetCountryLanguages(false);
 }
 
 <!DOCTYPE html>
@@ -91,10 +92,33 @@
 
                         <div class="language-list-wrapper" id="languageList">
                             <ul class="list-unstyled language-list">
-                                @foreach (var language in languageList)
+                                @*@foreach (var language in languageList)
                                 {
                                     <li>
                                         <a href="javascript:;" class="language-item" data-option="@language.ShortedCode"><i class="flag flag-@language.Code"></i>@language.NativeName</a>
+                                    </li>
+                                }*@
+                                @foreach (var country in targetCountryLanguages)
+                                {
+                                    <li class="country-item">
+                                        <i class="country-item-col-1 flag flag-@country.Value.First().ShortedCode"></i>
+                                        <div class="country-item-col-2">
+                                            <p class="country-name">@country.Key</p>
+                                            <div class="language-options">
+                                                @foreach (var lang in country.Value)
+                                                {
+
+                                                    var shortedCode = SystemLanguage.SupportedLanguage.ContainsKey(lang.ShortedCode) ? SystemLanguage.SupportedLanguage[lang.ShortedCode] : lang.ShortedCode;
+                                                    <a href="javascript:;" class="language-item" data-option="@shortedCode">
+                                                        @lang.MarketNativeName
+                                                    </a>
+                                                    if (lang != country.Value.Last())
+                                                    {
+                                                        <span class="separator">|</span>
+                                                    }
+                                                }
+                                            </div>
+                                        </div>
                                     </li>
                                 }
                             </ul>
