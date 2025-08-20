@@ -8,6 +8,7 @@ import { isShowLoader } from '../../../reducers/loaderReducer';
 import { defaultFilterParams, resource } from '../libs/constants';
 
 const languageCodeList = createReducer({}, {});
+const targetCountryCodeList = createReducer({}, {});
 const dealOptionsList = createReducer({}, {});
 const licenseeName = createReducer(null, {});
 const canAddAffMktAccount = createReducer(false, {});
@@ -47,6 +48,7 @@ export default combineReducers({
     isShowLoader,
     licenseeName,
     languageCodeList,
+    targetCountryCodeList,
     defaultMktAffInfo,
     canAddAffMktAccount,
     isShowAddAffMktAccountPopup,
