@@ -13,7 +13,7 @@ const REPORT_TITLE_ROW_INDEX = 0;
 const HEADER_ROW_INDEX = 1;
 const DATA_ROW_INDEX = 2;
 
-const TOTAL_COLUMN = 11;
+const TOTAL_COLUMN = 12;
 
 const MAIN_SECTION_STYLE = 'mainSectionStyle';
 
@@ -25,6 +25,7 @@ const fields = {
     LastName: 'LastName',
     Phone: 'Phone',
     Status: 'Status',
+    TargetCountryCode: 'TargetCountryCode',
     Language: 'Language',
     CommissionGroup: 'CommissionGroup',
     RegistrationDateText: 'RegistrationDateText',
@@ -32,9 +33,10 @@ const fields = {
 }
 
 export default class ReportExcel {
-    constructor(data, title, languageList) {
+    constructor(data, title, targetCountryList, languageList) {
         this.title = title;
         this.data = data;
+        this.targetCountryList = targetCountryList;
         this.languageList = languageList;
 
         this.worksheet = {};
@@ -115,7 +117,9 @@ export default class ReportExcel {
         const fieldName = columnConfig.field;
         let value = fieldName === fields.Index ? rowIndex + 1 : item[fieldName];
 
-        if (fieldName === fields.Language) {
+        if (fieldName === fields.TargetCountryCode) {
+            value = this.targetCountryList[value] || '';
+        } else if (fieldName === fields.Language) {
             value = this.languageList[value] || '';
         }
 
@@ -178,6 +182,10 @@ export default class ReportExcel {
             field: fields.Status,
             [MAIN_SECTION_STYLE]: bodyCellStyle.left,
             width: 100
+        }, {
+            field: fields.TargetCountryCode,
+            [MAIN_SECTION_STYLE]: bodyCellStyle.left,
+            width: 150
         }, {
             field: fields.Language,
             [MAIN_SECTION_STYLE]: bodyCellStyle.left,

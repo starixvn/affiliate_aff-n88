@@ -11,7 +11,7 @@ import GridData from './GridData';
 import ReportExcel from '../libs/reportExcel';
 
 export const Content = (props) => {
-    const { params, canAddAffMktAccount, defaultMktAffInfo, reportTitle, languageCodeList } = props;
+    const { params, canAddAffMktAccount, defaultMktAffInfo, reportTitle, targetCountryCodeList, languageCodeList } = props;
 
     const handleExportExcel = async () => {
         props.toggleLoader(true);
@@ -19,7 +19,7 @@ export const Content = (props) => {
         const postData = Object.assign({}, params, { IsExportExcel: true });
         const data = await props.fetchMarketingAccounts(postData);
 
-        const reportExcel = new ReportExcel(!data ? { MainData: [], TotalItem: 0 } : data, reportTitle, languageCodeList);
+        const reportExcel = new ReportExcel(!data ? { MainData: [], TotalItem: 0 } : data, reportTitle, targetCountryCodeList, languageCodeList);
         reportExcel.export();
   
         props.toggleLoader(false);
