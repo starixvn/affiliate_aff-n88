@@ -37,6 +37,21 @@ namespace Fanex.Affiliate.Admin.Core.Services.Common
             return languageList;
         }
 
+        public IEnumerable<Language> GetSupportedUiLanguageList()
+        {
+            var uiLanguageList = _cacheService.Get<IEnumerable<Language>>(CacheKey.SupportedUiLanguageList);
+
+            if (uiLanguageList == null)
+            {
+                var languageList = GetLanguageList();
+                uiLanguageList = languageList.Where(l => !l.LanguageCode.Equals("ko-KR") && !l.LanguageCode.Equals("pt-BR"));
+
+                _cacheService.Set(CacheKey.SupportedUiLanguageList, uiLanguageList);
+            }
+
+            return uiLanguageList;
+        }
+
         public IEnumerable<Product> GetProductList()
         {
             var productList = _cacheService.Get<IEnumerable<Product>>(CacheKey.ProductList);

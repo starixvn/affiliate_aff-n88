@@ -5,29 +5,28 @@
     using Constants;
     using Extensions;
     using MetaModels.Report;
-    using Services;
     using Services.Common;
     using Services.Report;
 
     [FunctionAuthorize(FunctionName = Function.AffReport)]
     public class MarketingStatisticsReportController : ReadOnlySessionBaseController
     {
-        private readonly ILanguageService _languageService;
+        private readonly ISystemService _systemService;
         private readonly IMarketingStatisticsService _marketingStatisticsService;
 
         public MarketingStatisticsReportController(
             ISessionService sessionService,
-            ILanguageService languageService,
+            ISystemService systemService,
             IMarketingStatisticsService marketingStatisticsService) : base(sessionService)
         {
-            _languageService = languageService;
+            _systemService = systemService;
             _marketingStatisticsService = marketingStatisticsService;
         }
 
         [HttpGet]
         public ActionResult Index()
         {
-            var languages = _languageService.GetLanguageList();
+            var languages = _systemService.GetLanguageList();
 
             return View("~/Areas/Portal/Views/Report/MarketingPageStatistics.cshtml", languages);
         }

@@ -1,20 +1,19 @@
-﻿using Fanex.Affiliate.Admin.Core.Attributes;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using Fanex.Affiliate.Admin.Core.Attributes;
 using Fanex.Affiliate.Admin.Core.Configurations;
 using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.Extensions;
-using Fanex.Affiliate.Admin.Core.MetaModels;
 using Fanex.Affiliate.Admin.Core.MetaModels.MediaGallery;
 using Fanex.Affiliate.Admin.Core.Resources;
 using Fanex.Affiliate.Admin.Core.Services;
 using Fanex.Affiliate.Admin.Core.Services.Common;
 using Fanex.Affiliate.Admin.Core.Services.MediaGallery;
 using Fanex.Affiliate.Admin.Core.ViewModels.MediaGallery;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
 
 namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
 {
@@ -24,7 +23,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
         private const int BannerListCategory = 1;
         private const string CasinoCategory = "Casino";
         private const string SportsbookCategory = "Sportsbook";
-        private readonly ILanguageService _languageService;
+        private readonly ISystemService _systemService;
         private readonly ICommonMediaGalleryService _commonMediaGalleryService;
         private readonly IBannerListService _bannerListService;
         private readonly IAffTypeService _affTypeService;
@@ -32,13 +31,13 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
 
         public MediaGalleryController(
             ISessionService sessionService,
-            ILanguageService languageService,
+            ISystemService systemService,
             ICommonMediaGalleryService commonMediaGalleryService,
             IBannerListService bannerListService,
             IAffTypeService affTypeService,
             IAppSetting appSetting) : base(sessionService)
         {
-            _languageService = languageService;
+            _systemService = systemService;
             _commonMediaGalleryService = commonMediaGalleryService;
             _bannerListService = bannerListService;
             _affTypeService = affTypeService;
@@ -67,7 +66,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
                                         && !string.IsNullOrEmpty(c.SubCategoryName)),
                 SubCategorySportsbookList = bannerListCategory.Where(c => string.Equals(c.CategoryName, SportsbookCategory, StringComparison.CurrentCultureIgnoreCase)
                                         && !string.IsNullOrEmpty(c.SubCategoryName)),
-                LanguageList = _languageService.GetLanguageList(),
+                LanguageList = _systemService.GetSupportedUiLanguageList(),
                 CurrencyList = _commonMediaGalleryService.GetCurrencyList(),
                 SizeList = _bannerListService.GetSizeList(sizeParam),
                 AffTypeList = _affTypeService.GetAffTypeList(),

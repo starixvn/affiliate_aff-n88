@@ -25,7 +25,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.TestHelper
                 new MarketingItem { BannerId = 1, TextId = 1 }
             });
             marketingService.GetCategoryList(Arg.Any<bool>(), Arg.Any<AffiliateLinkType>(), Arg.Any<bool>()).Returns(Constant.CategoryList);
-            marketingService.GetLanguageList(Arg.Any<bool>()).Returns(Constant.LanguageTypeList);
             marketingService.GetCurrencyList(Arg.Any<bool>()).Returns(Constant.CurrencyType);
             marketingService.GetAvailableDomainList(Arg.Any<int>(), Arg.Any<AffiliateLinkType>(), Arg.Any<bool>()).Returns(Constant.DomainList);
             marketingService.GetLandingPageList(Arg.Any<bool>(), Arg.Any<AffiliateLinkType>()).Returns(Constant.LandingPageList);

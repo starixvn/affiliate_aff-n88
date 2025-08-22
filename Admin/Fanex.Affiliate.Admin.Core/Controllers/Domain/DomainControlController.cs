@@ -1,17 +1,15 @@
-﻿using Fanex.Affiliate.Admin.Core.Attributes;
+﻿using System.Collections.Generic;
+using System.Web.Mvc;
+using Fanex.Affiliate.Admin.Core.Attributes;
 using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.Extensions;
-using Fanex.Affiliate.Admin.Core.MetaModels;
 using Fanex.Affiliate.Admin.Core.MetaModels.Domain;
-using Fanex.Affiliate.Admin.Core.Repository;
 using Fanex.Affiliate.Admin.Core.Resources;
 using Fanex.Affiliate.Admin.Core.Services.Common;
 using Fanex.Affiliate.Admin.Core.Services.Domain;
 using Fanex.Affiliate.Admin.Core.Utilities;
 using Fanex.Affiliate.Admin.Core.ViewModels.Domain;
-using System.Collections.Generic;
-using System.Web.Mvc;
 
 namespace Fanex.Affiliate.Admin.Core.Controllers.Domain
 {
@@ -19,15 +17,15 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Domain
     public class DomainControlController : ReadOnlySessionBaseController
     {
         private readonly IDomainControlService _domainControlService;
-        private readonly ILanguageRepository _languageRepository;
+        private readonly ISystemService _systemService;
 
         public DomainControlController(
             ISessionService sessionService,
             IDomainControlService domainControlService,
-            ILanguageRepository languageRepository) : base(sessionService)
+            ISystemService systemService) : base(sessionService)
         {
             _domainControlService = domainControlService;
-            _languageRepository = languageRepository;
+            _systemService = systemService;
         }
 
         public ActionResult Index()
@@ -43,7 +41,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Domain
             var model = new DomainControlViewModel
             {
                 SubMenuList = subMenu,
-                MarketList = _languageRepository.GetLanguageList()
+                MarketList = _systemService.GetSupportedUiLanguageList()
             };
 
             return View("~/Areas/Portal/Views/Domain/DomainControl.cshtml", model);

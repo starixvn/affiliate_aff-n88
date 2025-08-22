@@ -11,14 +11,14 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
     [FunctionAuthorize(FunctionName = Function.Affiliate)]
     public class CustomerController : ReadOnlySessionBaseController
     {
-        private readonly ILanguageService _languageService;
+        private readonly ISystemService _languageService;
         private readonly IAffTypeService _affTypeService;
         private readonly IProductRepository _productRepository;
         private readonly ICurrencyRepository _currencyRepository;
 
         public CustomerController(
             ISessionService sessionService,
-            ILanguageService languageService,
+            ISystemService languageService,
             IAffTypeService affTypeService,
             IProductRepository productRepository,
             ICurrencyRepository currencyRepository) : base(sessionService)
@@ -34,6 +34,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
             var viewModel = new CustomerViewModel
             {
                 AffName = user,
+                SupportedUiLanguages = _languageService.GetSupportedUiLanguageList(),
                 LanguageList = _languageService.GetLanguageList(),
                 AffTypeList = _affTypeService.GetAffTypeList(),
                 ProductList = _productRepository.GetProductList(),
