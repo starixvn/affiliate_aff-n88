@@ -1,11 +1,13 @@
 ﻿var SignUp = (function ($) {
     var _isReadTermAndCondition = false;
     var _isClickSubmit = false;
+    var iti = null;
 
     var _me = {
         initialize: function () {
             _me.initEvent();
             _me.refreshCaptcha();
+            _me.initPhoneInput();
         },
 
         initEvent: function () {
@@ -57,11 +59,15 @@
             var agree = $("#chkAgree").prop("checked");
             var $form = $("#accountForm");
             var validator = $form.validate();
+            var fullPhoneNumber = iti.getNumber();
 
-            var isValidForm = agree && validator.form();
+            var isValidForm = agree && validator.form() && iti.isValidNumber();
+
             if (isValidForm) {
                 Site.showLoader();
                 WebSite.assignValueForWebSite();
+                $("#fullPhoneNumber").val(fullPhoneNumber);
+
                 var postData = $form.serializeObject();
 
                 $.ajax({
@@ -132,6 +138,59 @@
         refreshCaptcha: function () {
             var captchaUrl = Site.resolveRelativeUrl("Auth/CaptchaImage?type=1&_v=" + new Date().getTime());
             $("#signupCaptcha").attr("src", captchaUrl);
+        },
+
+        initPhoneInput: function () {
+            var input = document.querySelector("#phone-input");
+            if (input && window.intlTelInput) {
+                var detectedCountry = $("#detectedCountryCode").val();
+                iti = window.intlTelInput(input, {
+                    separateDialCode: true,
+                    formatOnDisplay: true,
+                    nationalMode: false,
+                    placeholderNumberType: "MOBILE",
+                    autoPlaceholder: "aggressive",
+                    showFlag: true,
+                    initialCountry: detectedCountry || "auto"
+                });
+
+                $("#phone-input").data('iti', iti);
+                _me.setupPhoneValidation(input);
+            }
+        },
+
+        setupPhoneValidation: function (input) {
+            input.addEventListener('blur', function () {
+                var isValid = iti.isValidNumber();
+                var $phoneInput = $(input);
+                var $formGroup = $phoneInput.closest('.form-group');
+
+                if ($phoneInput.val().trim() !== '') {
+                    if (isValid) {
+                        $formGroup.removeClass('has-error');
+                        $formGroup.find('.help-block').addClass('hide');
+                    } else {
+                        var selectedCountryData = iti.getSelectedCountryData();
+                        var countryCode = selectedCountryData.iso2.toUpperCase();
+                        var possibleLengths = iti.getPossibleLength(countryCode, "MOBILE");
+                        var errorMessage = resourceLanguage.phoneNumberRequired;
+
+                        if (possibleLengths && Array.isArray(possibleLengths) && possibleLengths.length > 0) {
+                            var minLength = Math.min.apply(Math, possibleLengths);
+                            var maxLength = Math.max.apply(Math, possibleLengths);
+
+                            if (minLength === maxLength) {
+                                errorMessage = "Phone number you entered is incorrect, should be " + minLength + " digits.";
+                            } else {
+                                errorMessage = "Phone number you entered is incorrect, should be between " + minLength + " - " + maxLength + " digits.";
+                            }
+                        }
+
+                        $formGroup.addClass('has-error');
+                        $formGroup.find('.help-block').html(errorMessage).removeClass('hide');
+                    }
+                }
+            });
         }
     };
 

@@ -112,7 +112,8 @@
                     <div class="form-group">
                         <label class="col-sm-3 control-label require">@Lang.ContactNumber</label>
                         <div class="col-sm-4">
-                            @Html.TextBoxFor(p => p.Phone, new { @class = "form-control" })
+                            @Html.HiddenFor(p => p.Phone, new { @id = "fullPhoneNumber" })
+                            @Html.TextBoxFor(p => p.Phone, new { @type = "tel", @class = "form-control", @id = "phone-input" })
                         </div>
                         <div class="col-sm-offset-3 col-sm-9">
                             @Html.ValidationMessageFor(x => x.Phone, string.Empty, new { @class = "help-block hide" })

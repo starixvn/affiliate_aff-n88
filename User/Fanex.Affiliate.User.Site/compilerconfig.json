@@ -111,10 +111,10 @@
   //  "outputFile": "www/build/styles/css/messagehistory.css",
   //  "inputFile": "www/source/styles/pages/messagehistory.scss"
   //},
-  //{
-  //  "outputFile": "www/build/styles/css/signup.css",
-  //  "inputFile": "www/source/styles/pages/signup.scss"
-  //},
+  {
+    "outputFile": "www/build/styles/css/signup.css",
+    "inputFile": "www/source/styles/pages/signup.scss"
+  },
   //{
   //  "outputFile": "www/build/styles/css/notify.css",
   //  "inputFile": "www/source/styles/pages/notify.scss"

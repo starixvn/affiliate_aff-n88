@@ -132,5 +132,8 @@
     <Setting Key="Aff_TransferBalanceHistory_Upd" SpName="Aff_TransferBalanceHistory_Upd" DbName="DBAFFN8B.Affiliate_N8B.wsv_afinet" />
 
   </Function>
+    <Function Name="IPCountry">
+	    <Setting Key="Acc_GetIPInfo_Full" SpName="Acc_GetIPInfo_Full" DbName="DBCUST.bodb_licensee.wsv_afinet" />
+    </Function>
 </Functions>
 		

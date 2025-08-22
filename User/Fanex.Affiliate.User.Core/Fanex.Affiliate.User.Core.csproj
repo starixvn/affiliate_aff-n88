@@ -229,7 +229,9 @@
     <Compile Include="BusinessService\CommissionReportService.cs" />
     <Compile Include="BusinessService\ICaptchaService.cs" />
     <Compile Include="BusinessService\ICommissionReportService.cs" />
+    <Compile Include="BusinessService\IIpLocationService.cs" />
     <Compile Include="BusinessService\IPlayerTransferBalanceService.cs" />
+    <Compile Include="BusinessService\IpLocationService.cs" />
     <Compile Include="BusinessService\IQrCodeGeneratorService.cs" />
     <Compile Include="BusinessService\ISecurityQuestionService.cs" />
     <Compile Include="BusinessService\ITwoFactorAuthService.cs" />
@@ -379,7 +381,9 @@
     <Compile Include="MetalModels\UserPanel\QrCodeParam.cs" />
     <Compile Include="MetalModels\UserPanel\SubAffComParam.cs" />
     <Compile Include="MetalModels\UserPanel\SubAffDetailParam.cs" />
+    <Compile Include="Repository\IIpLocationRepository.cs" />
     <Compile Include="Repository\ILanguageRepository.cs" />
+    <Compile Include="Repository\IpLocationRepository.cs" />
     <Compile Include="Repository\LanguageRepository.cs" />
     <Compile Include="Repository\UserPanel\BaseRepository.cs" />
     <Compile Include="Repository\UserPanel\ICurrencyRepository.cs" />

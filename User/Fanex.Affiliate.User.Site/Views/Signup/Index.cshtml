@@ -13,7 +13,7 @@
 @model Fanex.Affiliate.User.Core.MetalModels.UserSignUpParam
 
 @section styles{
-    @Html.InlineStyles("~/www/build/styles/css/signup.css")
+    <link href="@Url.RenderLink("~/www/build/styles/css/signup.css")" rel="stylesheet" />
 }
 
 @section scripts{
@@ -22,11 +22,12 @@
             webSiteUrl: '@Lang.WebsiteURL',
             requiredMoreWebSiteUrl: '@Lang.WebsiteUrli',
             generalError: '@Error.General',
-            deleteLabel: '@Lang.Del'
+            deleteLabel: '@Lang.Del',
+            phoneNumberRequired: '@Lang.errContactNumberEmpty'
         }
     </script>
     <script src="@Url.RenderLink("~/www/build/js/validation.js")"></script>
-    @Html.InlineScripts("~/www/build/js/signup.js")
+    <script src="@Url.RenderLink("~/www/build/js/signup.js")"></script>
 }
 
 <div class="content sign-up-page">
@@ -81,10 +82,10 @@
                         <label class="col-sm-3 control-label require">@Lang.Gender</label>
                         <div class="col-sm-4">
                             <label class="radio-inline">
-                            <input type="radio" name="Gender" id="male" value="True" checked /> <span>@Lang.Male</span>
+                                <input type="radio" name="Gender" id="male" value="True" checked /> <span>@Lang.Male</span>
                             </label>
                             <label class="radio-inline">
-                            <input type="radio" name="Gender" id="female" value="False" /> <span>@Lang.Female</span>
+                                <input type="radio" name="Gender" id="female" value="False" /> <span>@Lang.Female</span>
                             </label>
                         </div>
                     </div>
@@ -112,7 +113,11 @@
                     <div class="form-group">
                         <label class="col-sm-3 control-label require">@Lang.ContactNumber</label>
                         <div class="col-sm-4">
-                            @Html.TextBoxFor(p => p.Phone, new { @class = "form-control" })
+                            <div class="phone-input-container">
+                                @Html.HiddenFor(p => p.Phone, new { @id = "fullPhoneNumber" })
+                                @Html.HiddenFor(p => p.DetectedCountryCode, new { @id = "detectedCountryCode" })
+                                @Html.TextBoxFor(p => p.Phone, new { @type = "tel", @class = "form-control", @id = "phone-input" })
+                            </div>
                         </div>
                         <div class="col-sm-offset-3 col-sm-9">
                             @Html.ValidationMessageFor(x => x.Phone, string.Empty, new { @class = "help-block hide" })
@@ -338,7 +343,7 @@
             <div class="row">
                 <div class="error-content">
                     <div class="img-support">
-                        <img class="img-responsive" src="~/www/build/styles/Images/404-illus.png" alt="404-illus"/>
+                        <img class="img-responsive" src="~/www/build/styles/Images/404-illus.png" alt="404-illus" />
                     </div>
                     <div class="error-text">
                         <p class="text-center">@Html.Raw($"{Lang.InvalidLink} <a href={Url.Content("~/SignUp/Index")}>{Lang.ClickHere}</a>")</p>
