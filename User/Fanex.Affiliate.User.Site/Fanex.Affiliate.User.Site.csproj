@@ -1098,7 +1098,6 @@
     <Content Include="www\build\styles\Images\themes\n88.zh-CN.png" />
     <Content Include="www\build\styles\Images\themes\n8b.png" />
     <Content Include="www\source\js\components\intlTelInput.js" />
-    <Content Include="www\source\js\components\utils.js" />
     <Content Include="www\source\js\pages\revenue-notice-dialog.js" />
     <Content Include="www\source\js\pages\telegram-update-dialog.js" />
     <Content Include="www\source\js\layout\n88-after-login.js" />
