@@ -1,7 +1,9 @@
 namespace Fanex.Affiliate.User.Core.Repository
 {
+    using Fanex.Affiliate.User.Core.DTO;
+
     public interface IIpLocationRepository
     {
-        string GetCountryFromIp(string ip);
+        IpLocationInfo GetCountryFromIp(string ip);
     }
 }

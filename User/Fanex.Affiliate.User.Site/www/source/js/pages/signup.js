@@ -142,21 +142,28 @@
 
         initPhoneInput: function () {
             var input = document.querySelector("#phone-input");
-            if (input && window.intlTelInput) {
-                var detectedCountry = $("#detectedCountryCode").val();
-                iti = window.intlTelInput(input, {
-                    separateDialCode: true,
-                    formatOnDisplay: true,
-                    nationalMode: false,
-                    placeholderNumberType: "MOBILE",
-                    autoPlaceholder: "aggressive",
-                    showFlag: true,
-                    initialCountry: detectedCountry || "auto"
-                });
 
-                $("#phone-input").data('iti', iti);
-                _me.setupPhoneValidation(input);
+            if (!input || !window.intlTelInput) {
+                return;
             }
+
+            var detectedCountry = $("#detectedCountryCode").val() || "auto";
+            var $phoneInput = $("#phone-input");
+            var config = {
+                separateDialCode: true,
+                formatOnDisplay: true,
+                nationalMode: false,
+                placeholderNumberType: "MOBILE",
+                autoPlaceholder: "aggressive",
+                showFlag: true,
+                initialCountry: detectedCountry,
+                strictMode: true
+            };
+
+            iti = window.intlTelInput(input, config);
+
+            $phoneInput.data('iti', iti);
+            _me.setupPhoneValidation(input);
         },
 
         setupPhoneValidation: function (input) {

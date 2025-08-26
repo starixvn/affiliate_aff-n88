@@ -1680,7 +1680,6 @@
     <Content Include="www\source\styles\Images\intl-tel-input\flags.webp" />
     <Content Include="www\source\styles\Images\intl-tel-input\globe%402x.webp" />
     <Content Include="www\source\styles\Images\intl-tel-input\globe.webp" />
-    <Content Include="www\source\styles\scss\components\n88\_intlTelInput.scss" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

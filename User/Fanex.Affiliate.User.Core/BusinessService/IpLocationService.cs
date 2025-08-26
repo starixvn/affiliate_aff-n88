@@ -1,7 +1,8 @@
-using Fanex.Affiliate.User.Core.Repository;
-
 namespace Fanex.Affiliate.User.Core.BusinessService
 {
+    using Fanex.Affiliate.User.Core.Repository;
+    using Fanex.Affiliate.User.Core.DTO;
+
     public class IpLocationService : IIpLocationService
     {
         private readonly IIpLocationRepository _ipLocationRepository;
@@ -11,7 +12,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             _ipLocationRepository = ipLocationRepository;
         }
 
-        public string GetCountryFromIp(string ip)
+        public IpLocationInfo GetCountryFromIp(string ip)
         {
             return _ipLocationRepository.GetCountryFromIp(ip);
         }

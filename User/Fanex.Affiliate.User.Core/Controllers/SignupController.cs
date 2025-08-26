@@ -174,16 +174,9 @@
 
         private string GetDetectedCountry()
         {
-            try
-            {
-                var clientIpAddress = GetClientIpAddress();
-                var countryCode = _ipLocationService.GetCountryFromIp(clientIpAddress);
-                return countryCode?.ToLowerInvariant();
-            }
-            catch
-            {
-                return null;
-            }
+            var clientIpAddress = GetClientIpAddress();
+            var ipLocationInfo = _ipLocationService.GetCountryFromIp(clientIpAddress);
+            return ipLocationInfo?.CountrySHORT?.ToLowerInvariant();
         }
 
         private string GetClientIpAddress()

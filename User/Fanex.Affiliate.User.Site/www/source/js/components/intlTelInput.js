@@ -2394,15 +2394,13 @@
                                 var isAllowedChar = separateDialCode ? isNumeric : isInitialPlus || isNumeric;
                                 var newValue = value.slice(0, self.telInput.selectionStart) + e.key + value.slice(self.telInput.selectionEnd);
                                 var newFullNumber = self._getFullNumber(newValue);
-                                var coreNumber = intlTelInput.utils.getCoreNumber(newFullNumber, self.selectedCountryData.iso2);
-                                var hasExceededMaxLength = self.maxCoreNumberLength && coreNumber.length > self.maxCoreNumberLength;
                                 var isChangingDialCode = false;
                                 if (alreadyHasPlus) {
                                     var currentCountry = self.selectedCountryData.iso2;
                                     var newCountry = self._getCountryFromNumber(newFullNumber);
                                     isChangingDialCode = newCountry !== currentCountry;
                                 }
-                                if (!isAllowedChar || hasExceededMaxLength && !isChangingDialCode && !isInitialPlus) {
+                                if (!isAllowedChar && !isChangingDialCode && !isInitialPlus) {
                                     e.preventDefault();
                                 }
                             }

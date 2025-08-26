@@ -2394,15 +2394,13 @@
                                 var isAllowedChar = separateDialCode ? isNumeric : isInitialPlus || isNumeric;
                                 var newValue = value.slice(0, self.telInput.selectionStart) + e.key + value.slice(self.telInput.selectionEnd);
                                 var newFullNumber = self._getFullNumber(newValue);
-                                var coreNumber = intlTelInput.utils.getCoreNumber(newFullNumber, self.selectedCountryData.iso2);
-                                var hasExceededMaxLength = self.maxCoreNumberLength && coreNumber.length > self.maxCoreNumberLength;
                                 var isChangingDialCode = false;
                                 if (alreadyHasPlus) {
                                     var currentCountry = self.selectedCountryData.iso2;
                                     var newCountry = self._getCountryFromNumber(newFullNumber);
                                     isChangingDialCode = newCountry !== currentCountry;
                                 }
-                                if (!isAllowedChar || hasExceededMaxLength && !isChangingDialCode && !isInitialPlus) {
+                                if (!isAllowedChar && !isChangingDialCode && !isInitialPlus) {
                                     e.preventDefault();
                                 }
                             }
@@ -9984,21 +9982,28 @@ var SignUp = (function ($) {
 
         initPhoneInput: function () {
             var input = document.querySelector("#phone-input");
-            if (input && window.intlTelInput) {
-                var detectedCountry = $("#detectedCountryCode").val();
-                iti = window.intlTelInput(input, {
-                    separateDialCode: true,
-                    formatOnDisplay: true,
-                    nationalMode: false,
-                    placeholderNumberType: "MOBILE",
-                    autoPlaceholder: "aggressive",
-                    showFlag: true,
-                    initialCountry: detectedCountry || "auto"
-                });
 
-                $("#phone-input").data('iti', iti);
-                _me.setupPhoneValidation(input);
+            if (!input || !window.intlTelInput) {
+                return;
             }
+
+            var detectedCountry = $("#detectedCountryCode").val() || "auto";
+            var $phoneInput = $("#phone-input");
+            var config = {
+                separateDialCode: true,
+                formatOnDisplay: true,
+                nationalMode: false,
+                placeholderNumberType: "MOBILE",
+                autoPlaceholder: "aggressive",
+                showFlag: true,
+                initialCountry: detectedCountry,
+                strictMode: true
+            };
+
+            iti = window.intlTelInput(input, config);
+
+            $phoneInput.data('iti', iti);
+            _me.setupPhoneValidation(input);
         },
 
         setupPhoneValidation: function (input) {

@@ -133,7 +133,7 @@
   </Function>
 
   <Function Name="IPCountry">
-    <Setting Key="Acc_GetIPInfo_Full" SpName="Acc_GetIPInfo_Full" DbName="DBCUST.bodb_licensee.wsv_afinet" />
+    <Setting Key="Acc_GetIPInfo_Full" SpName="Acc_GetIPInfo_Full" DbName="DBCUST.IPDB.wsv_afinet" />
   </Function>
 </Functions>
 		
