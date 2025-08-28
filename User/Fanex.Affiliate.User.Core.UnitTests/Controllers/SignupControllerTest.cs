@@ -200,7 +200,8 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             IAppSetting appSetting = null,
             ICaptchaService captchaService = null,
             ILanguageService languageService = null,
-            ISecurityQuestionService securityQuestionService = null)
+            ISecurityQuestionService securityQuestionService = null,
+            IIpLocationService ipLocationService = null)
         {
             sessionService = sessionService ?? MockingHelper.GetSessionService();
             sessionService.SignUpCaptchaCode = Constant.Captcha;
@@ -209,8 +210,9 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             captchaService = captchaService ?? CreateDefaultCaptchaService();
             languageService = languageService ?? Mock.Of<ILanguageService>();
             securityQuestionService = securityQuestionService ?? Mock.Of<ISecurityQuestionService>();
+            ipLocationService = ipLocationService ?? Mock.Of<IIpLocationService>();
 
-            var controller = new SignupController(sessionService, appSetting, accountService, languageService, captchaService, securityQuestionService);
+            var controller = new SignupController(sessionService, appSetting, accountService, languageService, captchaService, securityQuestionService, ipLocationService);
             var request = MockingHelper.GetHttpRequest();
             var response = new Mock<HttpResponseBase>();
             response.Setup(p => p.Cookies).Returns(new HttpCookieCollection());

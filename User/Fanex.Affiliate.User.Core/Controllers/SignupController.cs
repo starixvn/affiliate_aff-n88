@@ -174,25 +174,9 @@
 
         private string GetDetectedCountry()
         {
-            var clientIpAddress = GetClientIpAddress();
+            var clientIpAddress = Request.GetClientIP();
             var ipLocationInfo = _ipLocationService.GetCountryFromIp(clientIpAddress);
             return ipLocationInfo?.CountrySHORT?.ToLowerInvariant();
-        }
-
-        private string GetClientIpAddress()
-        {
-            string userIpAddress = Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
-
-            if (string.IsNullOrEmpty(userIpAddress))
-            {
-                userIpAddress = Request.UserHostAddress;
-            }
-            else
-            {
-                string[] ipAddresses = userIpAddress.Split(',');
-                userIpAddress = ipAddresses[0].Trim();
-            }
-            return userIpAddress;
         }
     }
 }
