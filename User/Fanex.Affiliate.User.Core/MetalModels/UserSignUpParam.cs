@@ -21,7 +21,7 @@ namespace Fanex.Affiliate.User.Core.MetalModels
         public bool Gender { get; set; }
 
         [Required(ErrorMessageResourceType = typeof(Lang), ErrorMessageResourceName = "EmailAddressIsRequired")]
-        [RegularExpression(@"^[a-zA-Z0-9][\w.-]*(?<![-_.])@(?:[-\w])+\.[\w-]{2,24}\s*$", ErrorMessageResourceType = typeof(Lang), ErrorMessageResourceName = "EmailAddressIsInvalid")]
+        [RegularExpression(@"^[a-zA-Z0-9](?!.*\.\.)(?!.*--)[\w.-]*(?<![-_.])@(?:[-\w])+\.[\w-]{2,24}\s*$", ErrorMessageResourceType = typeof(Lang), ErrorMessageResourceName = "EmailAddressIsInvalid")]
         [MaxLength(Number.Fifty, ErrorMessageResourceType = typeof(Lang), ErrorMessageResourceName = "EmailMaxLength")]
         public string Email { get; set; }
 

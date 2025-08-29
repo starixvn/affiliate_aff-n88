@@ -18,7 +18,8 @@
   --iti-path-globe-2x: url("../../../source/styles/Images/intl-tel-input/globe@2x.webp");
   --iti-flag-sprite-width: 3904px;
   --iti-flag-sprite-height: 12px;
-  --iti-mobile-popup-margin: 30px; }
+  --iti-mobile-popup-margin: 30px;
+  --iti-font-size: 13px; }
 
 .iti {
   position: relative;
@@ -48,7 +49,8 @@
   z-index: 0;
   margin: 0 !important;
   width: 100%;
-  font-size: 13px; }
+  font-size: var(--iti-font-size);
+  padding-top: 4px; }
 
 .iti__country-container {
   position: absolute;
@@ -141,7 +143,8 @@
   outline: none; }
 
 .iti__dial-code {
-  color: var(--iti-dialcode-color); }
+  color: var(--iti-dialcode-color);
+  font-size: var(--iti-font-size); }
 
 .iti__country.iti__highlight {
   background-color: var(--iti-hover-color); }
