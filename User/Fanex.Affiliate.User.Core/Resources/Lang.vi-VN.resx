@@ -2088,4 +2088,7 @@
   <data name="FdmTotalDeposit" xml:space="preserve">
     <value>Tiền nạp&lt;br&gt;(Thành viên mới)</value>
   </data>
+  <data name="InvalidPhoneNumber" xml:space="preserve">
+    <value>Vui lòng nhập số điện thoại đúng định dạng và đủ chữ số.</value>
+  </data>
 </root>

@@ -2063,4 +2063,7 @@ B2C सहयोगी की टीम&lt;br/&gt;&lt;br/&gt;
   <data name="FdmTotalDeposit" xml:space="preserve">
     <value>नए खिलाड़ियों द्वारा जमा राशि</value>
   </data>
+  <data name="InvalidPhoneNumber" xml:space="preserve">
+    <value>फ़ोन नंबर अमान्य है। कृपया सुनिश्चित करें कि इसमें आवश्यक अंकों की संख्या है।</value>
+  </data>
 </root>

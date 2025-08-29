@@ -2068,4 +2068,7 @@
   <data name="EmailAddressIsInvalid" xml:space="preserve">
     <value>একটি বৈধ ইমেল ঠিকানা দিন, যেমন example@email.com</value>
   </data>
+  <data name="InvalidPhoneNumber" xml:space="preserve">
+    <value>ফোন নম্বরটি অকার্যকর। অনুগ্রহ করে নিশ্চিত করুন যে এতে প্রয়োজনীয় সংখ্যক সংখ্যা রয়েছে।</value>
+  </data>
 </root>

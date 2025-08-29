@@ -1816,4 +1816,7 @@
   <data name="FdmTotalDeposit" xml:space="preserve">
     <value>ยอดฝาก&lt;br&gt;(ผู้เล่นใหม่)</value>
   </data>
+  <data name="InvalidPhoneNumber" xml:space="preserve">
+    <value>หมายเลขโทรศัพท์ไม่ถูกต้อง กรุณาตรวจสอบให้เเน่ใจว่ามีจำนวนหลักตามที่กำหนด</value>
+  </data>
 </root>

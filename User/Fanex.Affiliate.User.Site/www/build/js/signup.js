@@ -9891,7 +9891,7 @@ var SignUp = (function ($) {
 
             $("#signupCaptcha").on("click", function () {
                 _me.refreshCaptcha();
-            })
+            });
         },
 
         submit: function () {
@@ -9901,7 +9901,8 @@ var SignUp = (function ($) {
             var validator = $form.validate();
             var fullPhoneNumber = iti.getNumber();
 
-            var isValidForm = agree && validator.form() && iti.isValidNumber();
+            var isValidPhone = _me.validatePhoneNumber(document.querySelector("#phone-input"));
+            var isValidForm = agree && validator.form() && isValidPhone;
 
             if (isValidForm) {
                 Site.showLoader();
@@ -9970,7 +9971,7 @@ var SignUp = (function ($) {
                 requiredMoreWebSiteUrl: resourceLanguage.requiredMoreWebSiteUrl,
                 webSiteUrl: resourceLanguage.webSiteUrl,
                 deleteLabel: resourceLanguage.deleteLabel
-            }
+            };
 
             WebSite.handleAddingUrl(lang);
         },
@@ -10008,36 +10009,40 @@ var SignUp = (function ($) {
 
         setupPhoneValidation: function (input) {
             input.addEventListener('blur', function () {
-                var isValid = iti.isValidNumber();
-                var $phoneInput = $(input);
-                var $formGroup = $phoneInput.closest('.form-group');
-
-                if ($phoneInput.val().trim() !== '') {
-                    if (isValid) {
-                        $formGroup.removeClass('has-error');
-                        $formGroup.find('.help-block').addClass('hide');
-                    } else {
-                        var selectedCountryData = iti.getSelectedCountryData();
-                        var countryCode = selectedCountryData.iso2.toUpperCase();
-                        var possibleLengths = iti.getPossibleLength(countryCode, "MOBILE");
-                        var errorMessage = resourceLanguage.phoneNumberRequired;
-
-                        if (possibleLengths && Array.isArray(possibleLengths) && possibleLengths.length > 0) {
-                            var minLength = Math.min.apply(Math, possibleLengths);
-                            var maxLength = Math.max.apply(Math, possibleLengths);
-
-                            if (minLength === maxLength) {
-                                errorMessage = "Phone number you entered is incorrect, should be " + minLength + " digits.";
-                            } else {
-                                errorMessage = "Phone number you entered is incorrect, should be between " + minLength + " - " + maxLength + " digits.";
-                            }
-                        }
-
-                        $formGroup.addClass('has-error');
-                        $formGroup.find('.help-block').html(errorMessage).removeClass('hide');
-                    }
-                }
+                _me.validatePhoneNumber(input);
             });
+        },
+
+        validatePhoneNumber: function (input) {
+            var $phoneInput = $(input);
+            var $formGroup = $phoneInput.closest('.form-group');
+            var phoneValue = $phoneInput.val().trim();
+            var errorMessage = '';
+            var hasError = false;
+
+            $formGroup.removeClass('has-error');
+            $formGroup.find('.help-block').addClass('hide');
+
+            if (phoneValue === '') {
+                errorMessage = resourceLanguage.phoneNumberRequired;
+                hasError = true;
+            }
+            else if (phoneValue.length > 50) {
+                errorMessage = resourceLanguage.phoneMaxLength;
+                hasError = true;
+            }
+            else if (!iti.isValidNumber()) {
+                errorMessage = resourceLanguage.invalidPhoneNumber;
+                hasError = true;
+            }
+
+            if (hasError) {
+                $formGroup.addClass('has-error');
+                $formGroup.find('.help-block').html(errorMessage).removeClass('hide');
+                return false;
+            }
+
+            return true;
         }
     };
 

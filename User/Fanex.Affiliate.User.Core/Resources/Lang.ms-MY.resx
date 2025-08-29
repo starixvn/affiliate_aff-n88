@@ -2054,4 +2054,7 @@ Jika anda mempunyai sebarang soalan dan memerlukan sebarang bantuan, sila jangan
   <data name="FdmTotalDeposit" xml:space="preserve">
     <value>Telah deposit&lt;br&gt;(Pemain Baru)</value>
   </data>
+  <data name="InvalidPhoneNumber" xml:space="preserve">
+    <value>Nombor telefon tidak sah. Sila pastikan ia mempunyai digit yang diperlukan.</value>
+  </data>
 </root>
