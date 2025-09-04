@@ -86,10 +86,17 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
             var languageCode = GetTargetLanguageCode(param.IsChangeAffTypeLink, param.Language, targetLanguages);
             param.Language = languageCode;
 
-            var categoryList = GetCategoryList(param.IsChangeAffTypeLink, param.IsMediaGallery, param.TargetId, isInternal);
+            if (param.IsMediaGallery && (isDefaultLoading || param.IsChangeAffTypeLink))
+            {
+                param.Category = null;
+                param.SubCategory = null;
+            }
+
+            var categoryList = GetCategoryList(param, isDefaultLoading, isInternal);
             var sizeList = GetSizeList(param, isInternal);
             var domains = GetDomainListByTargetCountry(param.TargetCountryCode, param.TargetId);
-            var selectedDomain = domains.FirstOrDefault();
+            var selectedDomain = domains.FirstOrDefault(d => d.DomainId == param.DomainId)
+                                 ?? domains.FirstOrDefault();
 
             var pages = MarketingService.GetLandingPageList(new LandingPageParam
             {
@@ -116,20 +123,20 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
                 : targetLanguages.FirstOrDefault()?.Code ?? SystemLanguage.DefaultLanguageCode;
         }
 
-        private IEnumerable<SelectListItem> GetCategoryList(bool isChangeAffTypeLink, bool isMediaGallery, AffiliateLinkType type, bool isInternal)
+        private IEnumerable<SelectListItem> GetCategoryList(MarketingFilterParam param, bool isDefaultLoading, bool isInternal)
         {
-            if (!isChangeAffTypeLink && !isMediaGallery)
+            if (param.IsMediaGallery && (isDefaultLoading || param.IsChangeAffTypeLink))
             {
-                return Enumerable.Empty<SelectListItem>();
+                return MarketingService.GetCategoryList(true, param.TargetId, isInternal)
+                    .Where(c => string.IsNullOrEmpty(c.SubCategory))
+                    .Select(c => new SelectListItem
+                    {
+                        Value = c.Category,
+                        Text = Lang.ResourceManager.GetString(RegexHelper.Replace(c.Category, @"\s+", "")) ?? c.Category
+                    });
             }
 
-            return MarketingService.GetCategoryList(true, type, isInternal)
-                .Where(c => string.IsNullOrEmpty(c.SubCategory))
-                .Select(c => new SelectListItem
-                {
-                    Value = c.Category,
-                    Text = Lang.ResourceManager.GetString(RegexHelper.Replace(c.Category, @"\s+", "")) ?? c.Category
-                });
+            return Enumerable.Empty<SelectListItem>();
         }
 
         private IEnumerable<SelectListItem> GetSizeList(MarketingFilterParam param, bool isInternal)
