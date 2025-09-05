@@ -1,4 +1,4 @@
-﻿@model string
+﻿@model Fanex.Affiliate.User.Core.ViewModels.ContactUsViewModel
 
 @{
     Layout = "~/Views/Shared/N88/_LayoutBeforeLogin.cshtml";
@@ -18,14 +18,14 @@
         <div class="slogan">
             <p>@Html.Raw(Lang.PleaseDirectAnyComment)</p>
         </div>
-        <div class="grid-contact-info">
+        <div class="grid-contact-info @(Model.ShouldShowZalo ? "has-zalo" : "")">
             <div class="contact-items">
                 <ul class="info-social">
                     <li>
                         <img src="~/www/build/styles/Images/contact-us/N88/email.png" alt="@Lang.EmailContactUs" />
                         <span>@Lang.EmailContactUs</span>
                     </li>
-                    <li><a href=@("mailto:" + Model)>@Model</a></li>
+                    <li><a href=@("mailto:" + Model.MailContact)>@Model.MailContact</a></li>
                 </ul>
             </div>
             <div class="contact-items">
@@ -46,20 +46,23 @@
                     <li><a href="https://cli.re/nova88daily">https://cli.re/nova88daily</a></li>
                 </ul>
             </div>
-            <div class="contact-items">
-                <ul class="info-social info-zalo">
-                    <li>
-                        <il class="zalo-group">
-                            <img src="~/www/build/styles/Images/contact-us/N88/zalo.png" alt="Zalo" />
-                            <span>Zalo</span>
-                        </il>
-                        <p>(+66) 991 915 095</p>
-                    </li>
-                    <li class="zalo-qrcode">
-                        <img src="~/www/build/styles/Images/contact-us/N88/qrcode.png" alt="Zalo QrCode" />
-                    </li>
-                </ul>
-            </div>
+            @if (Model.ShouldShowZalo)
+            {
+                <div class="contact-items">
+                    <ul class="info-social info-zalo">
+                        <li>
+                            <il class="zalo-group">
+                                <img src="~/www/build/styles/Images/contact-us/N88/zalo.png" alt="Zalo" />
+                                <span>Zalo</span>
+                            </il>
+                            <p>(+66) 991 915 095</p>
+                        </li>
+                        <li class="zalo-qrcode">
+                            <img src="~/www/build/styles/Images/contact-us/N88/qrcode.png" alt="Zalo QrCode" />
+                        </li>
+                    </ul>
+                </div>
+            }
         </div>
         <div class="date-time-info">
             <p class="text-center">@Html.Raw(Lang.SupportTimeN88)</p>
