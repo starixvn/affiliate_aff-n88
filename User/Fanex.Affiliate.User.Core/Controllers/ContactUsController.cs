@@ -2,6 +2,9 @@
 {
     using BusinessService;
     using CoreService;
+    using Fanex.Affiliate.User.Core.Constants;
+    using Fanex.Affiliate.User.Core.Extensions;
+    using Fanex.Affiliate.User.Core.ViewModels;
     using System.Web.Mvc;
     using Utilities;
 
@@ -21,8 +24,30 @@
         public ActionResult Index()
         {
             var mailContact = _appSetting.GetMailContactByLanguageCode(SessionService.CurrentLanguage);
+            var shouldShowZalo = ShouldShowZalo();
+            
+            var model = new ContactUsViewModel
+            {
+                MailContact = mailContact,
+                ShouldShowZalo = shouldShowZalo
+            };
 
-            return View($"~/Views/ContactUs/{_appSetting.SiteName}/Index.cshtml", model: mailContact);
+            return View($"~/Views/ContactUs/{_appSetting.SiteName}/Index.cshtml", model);
+        }
+
+        private bool ShouldShowZalo()
+        {
+            if (SessionService.CurrentLanguage.MatchWith(SystemLanguage.VietnameseLanguageCode))
+            {
+                return true;
+            }
+            
+            if (SessionService.UserSession?.PreferredLanguage.MatchWith(SystemLanguage.VietnameseLanguageCode) == true)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }
