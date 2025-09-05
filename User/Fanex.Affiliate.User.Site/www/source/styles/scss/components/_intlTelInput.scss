@@ -60,22 +60,22 @@
   padding: var(--iti-border-width);
 }
 .iti__selected-country {
-  z-index: 1;
-  position: relative;
-  display: flex;
-  align-items: center;
-  height: 100%;
-  background: none;
-  border: 0;
-  margin: 0;
-  padding: 0;
-  font-family: inherit;
-  font-size: inherit;
-  color: inherit;
-  border-radius: 0;
-  font-weight: inherit;
-  line-height: inherit;
-  text-decoration: none;
+    z-index: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    background: none;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    font-family: inherit;
+    font-size: var(--iti-font-size);
+    color: inherit;
+    border-radius: 0;
+    font-weight: inherit;
+    line-height: normal;
+    text-decoration: none;
 }
 .iti__selected-country-primary {
   display: flex;
