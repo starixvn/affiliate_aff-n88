@@ -61,8 +61,6 @@ namespace Fanex.Affiliate.User.Core.Utilities
 
         string SiteName { get; }
 
-        string MinWithdrawal { get; }
-
         string SubAffTextLinkTemplate { get; }
 
         string DefaultLanguageCode { get; }

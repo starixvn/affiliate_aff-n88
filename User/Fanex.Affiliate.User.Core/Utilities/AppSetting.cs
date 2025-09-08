@@ -68,8 +68,6 @@ namespace Fanex.Affiliate.User.Core.Utilities
 
         public string SiteFriendlyName => Lang.ResourceManager.GetString(GetValue("SiteFriendlyName"));
 
-        public string MinWithdrawal => GetValue("MinWithdrawal");
-
         public string SubAffTextLinkTemplate => GetValue("SubAffTextLinkTemplate");
 
         public string DefaultLanguageCode => GetValue("DefaultLanguageCode");
