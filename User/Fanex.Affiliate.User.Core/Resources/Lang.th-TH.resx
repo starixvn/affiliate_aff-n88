@@ -436,8 +436,7 @@
     <value>อีเมลล์แอดเดรสที่คุณกรอกไม่สอดคล้องกัน</value>
   </data>
   <data name="EmailAddressIsInvalid" xml:space="preserve">
-    <value>"กรุณากรอกที่อยู่อีเมลที่ถูกต้อง 
-เช่น example@email.com"</value>
+    <value>กรุณากรอกที่อยู่อีเมลที่ถูกต้อง เช่น example@email.com</value>
   </data>
   <data name="EmailAddressIsRequired" xml:space="preserve">
     <value>ต้องระบุอีเมล์แอดเดรสค่ะ</value>
