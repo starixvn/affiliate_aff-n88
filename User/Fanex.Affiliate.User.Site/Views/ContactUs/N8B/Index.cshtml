@@ -1,4 +1,4 @@
-﻿@model string
+﻿@model Fanex.Affiliate.User.Core.ViewModels.ContactUsViewModel
 
 @{
     Layout = "~/Views/Shared/_LayoutBeforeLogin.cshtml";
@@ -24,7 +24,7 @@
                 </div>
                 <div class="text-center">
                     <strong>Email</strong>
-                    <p class="intro"><a href=@("mailto:" + Model)>@Model</a></p>
+                    <p class="intro"><a href=@("mailto:" + Model.MailContact)>@Model.MailContact</a></p>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-4">
