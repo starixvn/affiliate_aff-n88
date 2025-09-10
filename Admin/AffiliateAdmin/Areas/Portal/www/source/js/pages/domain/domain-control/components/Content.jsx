@@ -20,14 +20,6 @@ export class Content extends PureComponent {
         }
     }
 
-    componentDidMount() {
-        const { affDomainList, redirectDomainList } = this.props;
-
-        if (!affDomainList || !redirectDomainList) {
-            this.props.fetchDomain();
-        }
-    }
-
     _handleCloseNotificationPopup = (confirmResult) => {
         this.setState({ message: '' });
 
@@ -162,8 +154,8 @@ export class Content extends PureComponent {
     }
 }
 
-function mapStateToProps({ shouldResetScrollPosition, gridData, selectedTargetCountry, affDomainList, redirectDomainList }) {
-    return Object.assign({}, { shouldResetScrollPosition, gridData, selectedTargetCountry, affDomainList, redirectDomainList });
+function mapStateToProps({ shouldResetScrollPosition, gridData, selectedTargetCountry }) {
+    return Object.assign({}, { shouldResetScrollPosition, gridData, selectedTargetCountry });
 }
 
 function mapDispatchToProps(dispatch) {

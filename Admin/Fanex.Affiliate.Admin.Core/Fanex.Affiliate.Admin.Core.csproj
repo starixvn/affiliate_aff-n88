@@ -379,6 +379,7 @@
     <Compile Include="Criterias\Customer\CustomerStatisticsCriteria.cs" />
     <Compile Include="Criterias\Customer\TransferLimitCriteria.cs" />
     <Compile Include="Criterias\Domain\DomainControlCriteria.cs" />
+    <Compile Include="Criterias\Domain\DomainsExcludingBlockTargetCountryCriteria.cs" />
     <Compile Include="Criterias\Domain\GetTargetCountryListByDomainCriteria.cs" />
     <Compile Include="Criterias\Domain\SpecificDomainControlCriteria.cs" />
     <Compile Include="Criterias\EmailHistory\EmailHistoryCriteria.cs" />

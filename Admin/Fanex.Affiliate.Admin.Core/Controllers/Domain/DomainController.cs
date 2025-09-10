@@ -50,11 +50,11 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Domain
 
         [HttpPost]
         [ValidateAntiForgeryHeader]
-        public ActionResult GetDomainList(bool isAffDomain)
+        public ActionResult GetDomainList(bool isAffDomain, string countryCode)
         {
             return new JsonNetResult
             {
-                Data = _domainService.GetDomainList(isAffDomain)
+                Data = _domainService.GetDomainList(isAffDomain, countryCode)
             };
         }
 

@@ -30,25 +30,11 @@ export const selectedDomainId = createReducer(null, {
     }
 })
 
-export const affDomainList = createReducer(null, {
-    [types.SET_AFF_DOMAIN_LIST](prevState, action) {
-        return action.data;
-    }
-})
-
-export const redirectDomainList = createReducer(null, {
-    [types.SET_REDIRECT_DOMAIN_LIST](prevState, action) {
-        return action.data;
-    }
-})
-
 export default combineReducers({
     gridData,
     isShowLoader,
     targetCountryList,
     selectedTargetCountry,
     selectedDomainId,
-    affDomainList,
-    redirectDomainList,
     shouldResetScrollPosition
 });

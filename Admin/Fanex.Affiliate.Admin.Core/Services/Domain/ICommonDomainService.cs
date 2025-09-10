@@ -7,7 +7,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Domain
 {
     public interface ICommonDomainService
     {
-        IEnumerable<DomainInfo> GetDomainList(string spKey);
+        IEnumerable<DomainInfo> GetDomainList(string spKey, string countryCode = null);
 
         ResultInfo InsertDomain(InsertDomainParam param, string spKey);
 

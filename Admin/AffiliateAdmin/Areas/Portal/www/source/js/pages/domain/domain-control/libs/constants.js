@@ -20,5 +20,6 @@ export const defaultState = {
     isSuccess: true,
     message: '',
     selectedDomain: null,
-    targetCountryListByDomains: null
+    affDomainList: null,
+    redirectDomainList: null
 }

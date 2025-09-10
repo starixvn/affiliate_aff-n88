@@ -9,7 +9,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Domain
     {
         IEnumerable<TargetCountryByDomain> GetTargetCountryListByDomain(int affDomainId = 0, int redirectDomainId = 0);
 
-        IEnumerable<DomainInfo> GetDomainList(bool isAffDomain);
+        IEnumerable<DomainInfo> GetDomainList(bool isAffDomain, string countryCode = null);
 
         DomainInfo GetDomainById(int domainId, bool isAffDomain = true);
 

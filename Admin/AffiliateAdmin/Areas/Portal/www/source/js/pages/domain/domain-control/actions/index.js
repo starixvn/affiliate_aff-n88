@@ -33,20 +33,6 @@ export const setGridData = (data) => {
     }
 }
 
-export const setAffDomainList = (data) => {
-    return {
-        type: types.SET_AFF_DOMAIN_LIST,
-        data
-    }
-}
-
-export const setRedirectDomainList = (data) => {
-    return {
-        type: types.SET_REDIRECT_DOMAIN_LIST,
-        data
-    }
-}
-
 export const fetchData = (targetCountryCode) => async (dispatch) => {
     dispatch(toggleLoader(true));
 
@@ -65,11 +51,6 @@ export const getDomainControlById = (domainControlId) => async () => {
     const response = await post(url, { domainControlId });
 
     return response && response.status === 200 ? response.data : null;
-}
-
-export const fetchDomain = () => async (dispatch) => {
-    dispatch(setAffDomainList(await getDomainList(true)));
-    dispatch(setRedirectDomainList(await getDomainList(false)));
 }
 
 export const insertDomain = (param) => async () => {

@@ -25,9 +25,9 @@ export const setSelectedDomainId = (data) => {
     }
 }
 
-export const getDomainList = async (isAffDomain) => {
+export const getDomainList = async (isAffDomain, countryCode) => {
     const url = 'Portal/Domain/GetDomainList';
-    const response = await post(url, { isAffDomain });
+    const response = await post(url, { isAffDomain, countryCode });
 
     return response && response.status === 200 ? response.data : [];
 }

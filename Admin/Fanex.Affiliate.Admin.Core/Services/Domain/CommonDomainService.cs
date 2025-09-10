@@ -14,9 +14,15 @@ namespace Fanex.Affiliate.Admin.Core.Services.Domain
         {
         }
 
-        public IEnumerable<DomainInfo> GetDomainList(string spKey)
+        public IEnumerable<DomainInfo> GetDomainList(string spKey, string countryCode = null)
         {
-            return FetchTData<DomainInfo>(spKey);
+            var criteria = new DomainsExcludingBlockTargetCountryCriteria
+            {
+                CountryCode = countryCode,
+                SpName = spKey
+            };
+
+            return FetchTData<DomainInfo>(criteria);
         }
 
         public ResultInfo InsertDomain(InsertDomainParam param, string spKey)

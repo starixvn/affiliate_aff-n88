@@ -18,11 +18,11 @@
         public IEnumerable<TargetCountryByDomain> GetTargetCountryListByDomain(int affDomainId = 0, int redirectDomainId = 0)
             => _commonDomainService.GetTargetCountryListByDomain(affDomainId, redirectDomainId);
 
-        public IEnumerable<DomainInfo> GetDomainList(bool isAffDomain)
+        public IEnumerable<DomainInfo> GetDomainList(bool isAffDomain, string countryCode = null)
         {
             var spKey = isAffDomain ? "Aff_Admin_AffiliateDomain_Sel" : "Aff_Admin_LicenseeDomain_Sel";
 
-            return _commonDomainService.GetDomainList(spKey);
+            return _commonDomainService.GetDomainList(spKey, countryCode);
         }
 
         public DomainInfo GetDomainById(int domainId, bool isAffDomain = true)
