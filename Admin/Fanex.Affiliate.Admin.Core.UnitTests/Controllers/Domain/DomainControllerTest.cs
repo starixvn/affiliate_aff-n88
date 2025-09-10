@@ -8,6 +8,7 @@ using Fanex.Affiliate.Admin.Core.Services.Domain;
 using Fanex.Affiliate.Admin.Core.UnitTests.TestHelper;
 using Fanex.Affiliate.Admin.Core.ViewModels.Domain;
 using Moq;
+using NSubstitute;
 using System.Collections.Generic;
 using System.Web;
 using System.Web.Mvc;
@@ -45,11 +46,11 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Domain
             var isAffDomain = true;
             bool passedParam = false;
             var domainService = new Mock<IDomainService>();
-            domainService.Setup(t => t.GetDomainList(isAffDomain)).Returns(new List<DomainInfo> { new DomainInfo() }).Callback<bool>(p => passedParam = p);
+            domainService.Setup(t => t.GetDomainList(isAffDomain, It.IsAny<string>())).Returns(new List<DomainInfo> { new DomainInfo() }).Callback<bool, string>((p1, p2) => passedParam = p1);
             var controller = CreateDomainController(domainService: domainService.Object);
 
             // Action
-            var result = controller.GetDomainList(isAffDomain) as JsonNetResult;
+            var result = controller.GetDomainList(isAffDomain, "") as JsonNetResult;
             var data = result.Data as List<DomainInfo>;
 
             // Assert

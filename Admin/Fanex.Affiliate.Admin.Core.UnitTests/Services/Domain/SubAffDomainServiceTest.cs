@@ -16,7 +16,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Domain
             // Arrange
             var spKey = string.Empty;
             var commonService = new Mock<ICommonDomainService> { CallBase = true };
-            commonService.Setup(r => r.GetDomainList(It.IsAny<string>())).Returns(new List<DomainInfo> { new DomainInfo() }).Callback<string>(p => spKey = p);
+            commonService.Setup(r => r.GetDomainList(It.IsAny<string>(), It.IsAny<string>())).Returns(new List<DomainInfo> { new DomainInfo() }).Callback<string, string>((p1, p2) => spKey = p1);
 
             var service = CreateSubAffDomainService(commonService.Object);
 

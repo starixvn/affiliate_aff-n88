@@ -16,7 +16,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Domain
             // Arrange
             var spKey = string.Empty;
             var commonService = new Mock<ICommonDomainService> { CallBase = true };
-            commonService.Setup(r => r.GetDomainList(It.IsAny<string>())).Returns(new List<DomainInfo> { new DomainInfo() }).Callback<string>(p => spKey = p);
+            commonService.Setup(r => r.GetDomainList(It.IsAny<string>(), null)).Returns(new List<DomainInfo> { new DomainInfo() }).Callback<string, string>((p, p2) => spKey = p);
 
             var service = CreateDomainService(commonService.Object);
 
@@ -34,7 +34,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Domain
             // Arrange
             var spKey = string.Empty;
             var commonService = new Mock<ICommonDomainService> { CallBase = true };
-            commonService.Setup(r => r.GetDomainList(It.IsAny<string>())).Returns(new List<DomainInfo> { new DomainInfo() }).Callback<string>(p => spKey = p);
+            commonService.Setup(r => r.GetDomainList(It.IsAny<string>(), It.IsAny<string>())).Returns(new List<DomainInfo> { new DomainInfo() }).Callback<string, string>((p1, p2) => spKey = p1);
 
             var service = CreateDomainService(commonService.Object);
 
@@ -205,7 +205,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Domain
             var domainId = 123;
             var expectedDomain = new DomainInfo { DomainId = domainId };
             var commonService = new Mock<ICommonDomainService> { CallBase = true };
-            commonService.Setup(r => r.GetDomainList(It.IsAny<string>()))
+            commonService.Setup(r => r.GetDomainList(It.IsAny<string>(), null))
                 .Returns(new List<DomainInfo> { expectedDomain });
 
             var service = CreateDomainService(commonService.Object);
@@ -214,7 +214,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Domain
             var result = service.GetDomainById(domainId);
 
             // Assert
-            commonService.Verify(c => c.GetDomainList("Aff_Admin_AffiliateDomain_Sel"));
+            commonService.Verify(c => c.GetDomainList("Aff_Admin_AffiliateDomain_Sel", null));
             Assert.NotNull(result);
             Assert.Equal(domainId, result.DomainId);
         }
@@ -225,7 +225,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Domain
             // Arrange
             var domainId = 999;
             var commonService = new Mock<ICommonDomainService> { CallBase = true };
-            commonService.Setup(r => r.GetDomainList(It.IsAny<string>()))
+            commonService.Setup(r => r.GetDomainList(It.IsAny<string>(), null))
                 .Returns(new List<DomainInfo>());
 
             var service = CreateDomainService(commonService.Object);
@@ -234,7 +234,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Domain
             var result = service.GetDomainById(domainId);
 
             // Assert
-            commonService.Verify(c => c.GetDomainList("Aff_Admin_AffiliateDomain_Sel"));
+            commonService.Verify(c => c.GetDomainList("Aff_Admin_AffiliateDomain_Sel", null));
             Assert.Null(result);
         }
 
@@ -245,7 +245,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Domain
             var domainId = 123;
             var expectedDomain = new DomainInfo { DomainId = domainId };
             var commonService = new Mock<ICommonDomainService> { CallBase = true };
-            commonService.Setup(r => r.GetDomainList(It.IsAny<string>()))
+            commonService.Setup(r => r.GetDomainList(It.IsAny<string>(), null))
                 .Returns(new List<DomainInfo> { expectedDomain });
 
             var service = CreateDomainService(commonService.Object);
@@ -254,7 +254,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Domain
             var result = service.GetDomainById(domainId, false);
 
             // Assert
-            commonService.Verify(c => c.GetDomainList("Aff_Admin_LicenseeDomain_Sel"));
+            commonService.Verify(c => c.GetDomainList("Aff_Admin_LicenseeDomain_Sel", null));
             Assert.NotNull(result);
             Assert.Equal(domainId, result.DomainId);
         }

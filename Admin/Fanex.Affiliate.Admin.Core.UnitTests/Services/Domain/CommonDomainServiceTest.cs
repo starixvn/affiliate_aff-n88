@@ -20,14 +20,14 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Domain
         {
             // Arrange
             var repository = new Mock<IDynamicRepository>();
-            repository.Setup(r => r.Fetch<DomainInfo>(It.IsAny<BaseCriteria>())).Returns(new List<DomainInfo> { new DomainInfo { CreateDate = new DateTime(2020, 09, 10) } });
+            repository.Setup(r => r.Fetch<DomainInfo>(It.IsAny<CriteriaBase>())).Returns(new List<DomainInfo> { new DomainInfo { CreateDate = new DateTime(2020, 09, 10) } });
 
             // Action
             var service = new CommonDomainService(repository.Object);
             var result = service.GetDomainList("Aff_Admin_SubAffiliateDomain_Sel");
 
             // Assert
-            repository.Verify(d => d.Fetch<DomainInfo>(It.Is<BaseCriteria>(c => !string.IsNullOrEmpty(c.GetSettingKey()) && c.IsValid())));
+            repository.Verify(d => d.Fetch<DomainInfo>(It.Is<CriteriaBase>(c => !string.IsNullOrEmpty(c.GetSettingKey()) && c.IsValid())));
             Assert.Single(result);
         }
 
@@ -36,14 +36,14 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Domain
         {
             // Arrange
             var repository = new Mock<IDynamicRepository>();
-            repository.Setup(r => r.Fetch<DomainInfo>(It.IsAny<BaseCriteria>())).Returns(new List<DomainInfo> { new DomainInfo() });
+            repository.Setup(r => r.Fetch<DomainInfo>(It.IsAny<CriteriaBase>())).Returns(new List<DomainInfo> { new DomainInfo() });
 
             // Action
             var service = new CommonDomainService(repository.Object);
             var result = service.GetDomainList("Aff_Admin_SubAffiliateDomain_Sel");
 
             // Assert
-            repository.Verify(d => d.Fetch<DomainInfo>(It.Is<BaseCriteria>(c => !string.IsNullOrEmpty(c.GetSettingKey()) && c.IsValid())));
+            repository.Verify(d => d.Fetch<DomainInfo>(It.Is<CriteriaBase>(c => !string.IsNullOrEmpty(c.GetSettingKey()) && c.IsValid())));
             Assert.Single(result);
         }
 

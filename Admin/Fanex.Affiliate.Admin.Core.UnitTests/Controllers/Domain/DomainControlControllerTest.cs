@@ -1,17 +1,19 @@
-﻿using Fanex.Affiliate.Admin.Core.Controllers.Domain;
+﻿using System.Collections.Generic;
+using System.Web;
+using System.Web.Mvc;
+using Fanex.Affiliate.Admin.Core.Controllers.Domain;
 using Fanex.Affiliate.Admin.Core.DTO;
+using Fanex.Affiliate.Admin.Core.DTO.Common;
 using Fanex.Affiliate.Admin.Core.DTO.Domain;
 using Fanex.Affiliate.Admin.Core.Extensions;
 using Fanex.Affiliate.Admin.Core.MetaModels.Domain;
 using Fanex.Affiliate.Admin.Core.Repository;
+using Fanex.Affiliate.Admin.Core.Services;
 using Fanex.Affiliate.Admin.Core.Services.Common;
 using Fanex.Affiliate.Admin.Core.Services.Domain;
 using Fanex.Affiliate.Admin.Core.UnitTests.TestHelper;
 using Fanex.Affiliate.Admin.Core.ViewModels.Domain;
 using Moq;
-using System.Collections.Generic;
-using System.Web;
-using System.Web.Mvc;
 using Xunit;
 
 namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Domain
@@ -22,11 +24,13 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Domain
         public void Index_WhenCall_ReturnView()
         {
             // Arrange
-            var controller = CreateDomainControlController();
-
             var urlHelperMock = new Mock<UrlHelper>();
             urlHelperMock.Setup(m => m.Content(It.IsAny<string>())).Returns("/Portal/DomainControl");
 
+            var domainControlService = new Mock<IDomainControlService>();
+            domainControlService.Setup(m => m.GetTargetCountryListByDomain(It.IsAny<int>(), It.IsAny<int>())).Returns(new List<TargetCountry> { new TargetCountry { TargetCountryCode = "vb", TargetCountryName = "bi" } });
+
+            var controller = CreateDomainControlController(domainControlService: domainControlService.Object);
             controller.Url = urlHelperMock.Object;
 
             // Action
@@ -43,19 +47,19 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Domain
         public void GetDomainControlList_WhenCall_ReturnCorrectData()
         {
             // Arrange
-            var market = "en";
+            var targetCountryCode = "en";
             string passedParam = null;
             var domainControlService = new Mock<IDomainControlService>();
-            domainControlService.Setup(t => t.GetDomainControl(It.IsAny<string>(), It.IsAny<int>())).Returns(new List<DomainControlInfo> { new DomainControlInfo() }).Callback<string>(p => passedParam = p);
+            domainControlService.Setup(t => t.GetDomainControl(It.IsAny<string>(), It.IsAny<int>())).Returns(new List<DomainControlInfo> { new DomainControlInfo() }).Callback<string, int>((p1, p2) => passedParam = p1);
             var controller = CreateDomainControlController(domainControlService: domainControlService.Object);
 
             // Action
-            var result = controller.GetDomainControlList(market) as JsonNetResult;
+            var result = controller.GetDomainControlList(targetCountryCode) as JsonNetResult;
             var data = result.Data as List<DomainControlInfo>;
 
             // Assert
             Assert.Single(data);
-            Assert.Equal(market, passedParam);
+            Assert.Equal(targetCountryCode, passedParam);
         }
 
         [Fact]
@@ -90,7 +94,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Domain
 
             // Assert
             Assert.False(resultInfo.IsSuccessful);
-            Assert.Equal("Domain's info is invalid!", resultInfo.Message);
+            Assert.Equal("The Domain Control's info is invalid!", resultInfo.Message);
         }
 
         [Fact]
@@ -113,22 +117,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Domain
         }
 
         [Fact]
-        public void UpdateDomainControl_WhenCallWithInvalidDomainId_ReturnError()
-        {
-            // Arrange
-            var param = new UpdateDomainControlParam { AffDomainId = 1, RedirectDomainId = 2 };
-            var controller = CreateDomainControlController();
-
-            // Action
-            var result = controller.UpdateDomainControl(param) as JsonNetResult;
-            var resultInfo = result.Data as ResultInfo;
-
-            // Assert
-            Assert.False(resultInfo.IsSuccessful);
-            Assert.Equal("Domain Id is invalid.", resultInfo.Message);
-        }
-
-        [Fact]
         public void UpdateDomainControl_WhenCallWithInvalidParam_ReturnError()
         {
             // Arrange
@@ -142,7 +130,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Domain
 
             // Assert
             Assert.False(resultInfo.IsSuccessful);
-            Assert.Equal("Domain's info is invalid!", resultInfo.Message);
+            Assert.Equal("The Domain Control's info is invalid!", resultInfo.Message);
         }
 
         [Fact]
@@ -177,7 +165,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Domain
 
             // Assert
             Assert.False(resultInfo.IsSuccessful);
-            Assert.Equal("Domain Id is invalid.", resultInfo.Message);
+            Assert.Equal("The Domain Control is incorrect!", resultInfo.Message);
         }
 
         private DomainControlController CreateDomainControlController(
