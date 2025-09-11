@@ -446,7 +446,7 @@
     <value>Email addresses that you entered do not match.</value>
   </data>
   <data name="EmailAddressIsInvalid" xml:space="preserve">
-    <value>Email Address is invalid</value>
+    <value>Please enter a valid email address, such as example@email.com</value>
   </data>
   <data name="EmailAddressIsRequired" xml:space="preserve">
     <value>Email Address is required</value>
@@ -2173,5 +2173,8 @@
   </data>
   <data name="FdmTotalDeposit" xml:space="preserve">
     <value>Deposited&lt;br&gt;(New Players)</value>
+  </data>
+  <data name="InvalidPhoneNumber" xml:space="preserve">
+    <value>Phone number is invalid. Please ensure it has the required digits.</value>
   </data>
 </root>

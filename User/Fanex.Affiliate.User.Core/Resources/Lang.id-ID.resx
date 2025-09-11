@@ -436,7 +436,7 @@
     <value>Alamat Email yang Anda masukkan tidak cocok.</value>
   </data>
   <data name="EmailAddressIsInvalid" xml:space="preserve">
-    <value>Alamat Email tidak valid</value>
+    <value>Silakan masukkan alamat email yang sah, seperti contoh@email.com</value>
   </data>
   <data name="EmailAddressIsRequired" xml:space="preserve">
     <value>Alamat e-mail diperlukan.</value>
@@ -1814,5 +1814,8 @@
   </data>
   <data name="FdmTotalDeposit" xml:space="preserve">
     <value>Sudah Deposit&lt;br&gt;(Pemain Baru)</value>
+  </data>
+  <data name="InvalidPhoneNumber" xml:space="preserve">
+    <value>Nomor telepon tidak valid. Pastikan nomor tersebut memiliki jumlah digit yang sesuai.</value>
   </data>
 </root>

@@ -430,7 +430,7 @@
     <value>Alamat E-mel diperlukan</value>
   </data>
   <data name="EmailAddressIsInvalid" xml:space="preserve">
-    <value>Alamat E-mel tidak sah</value>
+    <value>Sila masukkan alamat e-mel yang sah, seperti example@email.com</value>
   </data>
   <data name="EmailMaxLength" xml:space="preserve">
     <value>Alamat E-mel tidak lebih daripada 50 aksara.</value>
@@ -2053,5 +2053,8 @@ Jika anda mempunyai sebarang soalan dan memerlukan sebarang bantuan, sila jangan
   </data>
   <data name="FdmTotalDeposit" xml:space="preserve">
     <value>Telah deposit&lt;br&gt;(Pemain Baru)</value>
+  </data>
+  <data name="InvalidPhoneNumber" xml:space="preserve">
+    <value>Nombor telefon tidak sah. Sila pastikan ia mempunyai digit yang diperlukan.</value>
   </data>
 </root>

@@ -130,7 +130,10 @@
     <Setting Key="Aff_User_TransferBalanceInfo_Sel" SpName="Aff_User_TransferBalanceInfo_Sel" DbName="DBAFFN8G.Affiliate_N8G.wsv_afinet" />
     <Setting Key="Aff_TransferBalanceHistory_Ins" SpName="Aff_TransferBalanceHistory_Ins" DbName="DBAFFN8G.Affiliate_N8G.wsv_afinet" />
     <Setting Key="Aff_TransferBalanceHistory_Upd" SpName="Aff_TransferBalanceHistory_Upd" DbName="DBAFFN8G.Affiliate_N8G.wsv_afinet" />
+  </Function>
 
+  <Function Name="IPCountry">
+    <Setting Key="Acc_GetIPInfo_Full" SpName="Acc_GetIPInfo_Full" DbName="DBCUST.IPDB.wsv_afinet" />
   </Function>
 </Functions>
 		

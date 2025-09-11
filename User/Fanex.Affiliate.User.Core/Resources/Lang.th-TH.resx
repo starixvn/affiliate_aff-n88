@@ -436,7 +436,7 @@
     <value>อีเมลล์แอดเดรสที่คุณกรอกไม่สอดคล้องกัน</value>
   </data>
   <data name="EmailAddressIsInvalid" xml:space="preserve">
-    <value>อีเมลล์แอดเดรสไม่ถูกต้อง</value>
+    <value>กรุณากรอกที่อยู่อีเมลที่ถูกต้อง เช่น example@email.com</value>
   </data>
   <data name="EmailAddressIsRequired" xml:space="preserve">
     <value>ต้องระบุอีเมล์แอดเดรสค่ะ</value>
@@ -1814,5 +1814,8 @@
   </data>
   <data name="FdmTotalDeposit" xml:space="preserve">
     <value>ยอดฝาก&lt;br&gt;(ผู้เล่นใหม่)</value>
+  </data>
+  <data name="InvalidPhoneNumber" xml:space="preserve">
+    <value>หมายเลขโทรศัพท์ไม่ถูกต้อง กรุณาตรวจสอบให้เเน่ใจว่ามีจำนวนหลักตามที่กำหนด</value>
   </data>
 </root>

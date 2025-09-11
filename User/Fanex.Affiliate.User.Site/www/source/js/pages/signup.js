@@ -1,11 +1,13 @@
 ﻿var SignUp = (function ($) {
     var _isReadTermAndCondition = false;
     var _isClickSubmit = false;
+    var iti = null;
 
     var _me = {
         initialize: function () {
             _me.initEvent();
             _me.refreshCaptcha();
+            _me.initPhoneInput();
         },
 
         initEvent: function () {
@@ -49,7 +51,7 @@
 
             $("#signupCaptcha").on("click", function () {
                 _me.refreshCaptcha();
-            })
+            });
         },
 
         submit: function () {
@@ -57,11 +59,16 @@
             var agree = $("#chkAgree").prop("checked");
             var $form = $("#accountForm");
             var validator = $form.validate();
+            var fullPhoneNumber = iti.getNumber();
 
-            var isValidForm = agree && validator.form();
+            var isValidPhone = _me.validatePhoneNumber(document.querySelector("#phone-input"));
+            var isValidForm = agree && validator.form() && isValidPhone;
+
             if (isValidForm) {
                 Site.showLoader();
                 WebSite.assignValueForWebSite();
+                $("#fullPhoneNumber").val(fullPhoneNumber);
+
                 var postData = $form.serializeObject();
 
                 $.ajax({
@@ -124,7 +131,7 @@
                 requiredMoreWebSiteUrl: resourceLanguage.requiredMoreWebSiteUrl,
                 webSiteUrl: resourceLanguage.webSiteUrl,
                 deleteLabel: resourceLanguage.deleteLabel
-            }
+            };
 
             WebSite.handleAddingUrl(lang);
         },
@@ -132,6 +139,70 @@
         refreshCaptcha: function () {
             var captchaUrl = Site.resolveRelativeUrl("Auth/CaptchaImage?type=1&_v=" + new Date().getTime());
             $("#signupCaptcha").attr("src", captchaUrl);
+        },
+
+        initPhoneInput: function () {
+            var input = document.querySelector("#phone-input");
+
+            if (!input || !window.intlTelInput) {
+                return;
+            }
+
+            var detectedCountry = $("#detectedCountryCode").val() || "auto";
+            var $phoneInput = $("#phone-input");
+            var config = {
+                separateDialCode: true,
+                formatOnDisplay: true,
+                nationalMode: false,
+                placeholderNumberType: "MOBILE",
+                autoPlaceholder: "aggressive",
+                showFlag: true,
+                initialCountry: detectedCountry,
+                strictMode: true
+            };
+
+            iti = window.intlTelInput(input, config);
+
+            $phoneInput.data('iti', iti);
+            _me.setupPhoneValidation(input);
+        },
+
+        setupPhoneValidation: function (input) {
+            input.addEventListener('blur', function () {
+                _me.validatePhoneNumber(input);
+            });
+        },
+
+        validatePhoneNumber: function (input) {
+            var $phoneInput = $(input);
+            var $formGroup = $phoneInput.closest('.form-group');
+            var phoneValue = $phoneInput.val().trim();
+            var errorMessage = '';
+            var hasError = false;
+
+            $formGroup.removeClass('has-error');
+            $formGroup.find('.help-block').addClass('hide');
+
+            if (phoneValue === '') {
+                errorMessage = resourceLanguage.phoneNumberRequired;
+                hasError = true;
+            }
+            else if (phoneValue.length > 50) {
+                errorMessage = resourceLanguage.phoneMaxLength;
+                hasError = true;
+            }
+            else if (!iti.isValidNumber()) {
+                errorMessage = resourceLanguage.invalidPhoneNumber;
+                hasError = true;
+            }
+
+            if (hasError) {
+                $formGroup.addClass('has-error');
+                $formGroup.find('.help-block').html(errorMessage).removeClass('hide');
+                return false;
+            }
+
+            return true;
         }
     };
 

@@ -22,6 +22,7 @@
         private readonly IAppSetting _appSetting;
         private readonly ICaptchaService _captchaService;
         private readonly ISecurityQuestionService _securityQuestionService;
+        private readonly IIpLocationService _ipLocationService;
         private const string ParentCodeCookieName = "Fanex.UserSite.RefCode";
         private const int CookieTimeOut = 6;
 
@@ -31,12 +32,14 @@
             IAccountService accountService,
             ILanguageService languageService,
             ICaptchaService captchaService,
-            ISecurityQuestionService securityQuestionService) : base(sessionService, languageService)
+            ISecurityQuestionService securityQuestionService,
+            IIpLocationService ipLocationService) : base(sessionService, languageService)
         {
             _accountService = accountService;
             _captchaService = captchaService;
             _appSetting = appSetting;
             _securityQuestionService = securityQuestionService;
+            _ipLocationService = ipLocationService;
         }
 
         [HttpGet]
@@ -48,9 +51,11 @@
             }
 
             var viewPath = PathHelper.GetViewPath("Signup", "Index", _appSetting.SiteName);
+            var detectedCountry = GetDetectedCountry();
+
             if ((string.IsNullOrEmpty(refId) || string.Equals(refId, "index", StringComparison.CurrentCultureIgnoreCase)) && string.IsNullOrEmpty(affCode))
             {
-                return View(viewPath, new UserSignUpParam());
+                return View(viewPath, new UserSignUpParam { DetectedCountryCode = detectedCountry });
             }
 
             var affInfo = new GeneralAffInfo();
@@ -69,10 +74,10 @@
             {
                 SetCookie(affInfo.AffCode);
 
-                return View(viewPath, new UserSignUpParam());
+                return View(viewPath, new UserSignUpParam { DetectedCountryCode = detectedCountry });
             }
 
-            return View(viewPath, new UserSignUpParam { IsValidParentCode = false });
+            return View(viewPath, new UserSignUpParam { IsValidParentCode = false, DetectedCountryCode = detectedCountry });
         }
 
         [HttpPost]
@@ -165,6 +170,13 @@
             };
 
             HttpContext.Response.Cookies.Add(cookie);
+        }
+
+        private string GetDetectedCountry()
+        {
+            var clientIpAddress = Request.GetClientIP();
+            var ipLocationInfo = _ipLocationService.GetCountryFromIp(clientIpAddress);
+            return ipLocationInfo?.CountrySHORT?.ToLowerInvariant();
         }
     }
 }

@@ -112,6 +112,8 @@ namespace Fanex.Affiliate.User.Site
             builder.RegisterType<CurrencyRepository>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<PlayerTransferBalanceService>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<PlayerTransferBalanceRespository>().AsImplementedInterfaces().InstancePerLifetimeScope();
+            builder.RegisterType<IpLocationRepository>().AsImplementedInterfaces().InstancePerLifetimeScope();
+            builder.RegisterType<IpLocationService>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<UnderMaintenanceService>().AsImplementedInterfaces().InstancePerLifetimeScope();
 
             builder.RegisterType<QrCodeUrlGeneratorService>().AsImplementedInterfaces().InstancePerLifetimeScope();

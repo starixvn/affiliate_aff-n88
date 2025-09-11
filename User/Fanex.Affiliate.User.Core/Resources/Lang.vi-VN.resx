@@ -436,7 +436,7 @@
     <value>Địa chỉ email mà bạn nhập không khớp.</value>
   </data>
   <data name="EmailAddressIsInvalid" xml:space="preserve">
-    <value>Địa chỉ email không hợp lệ</value>
+    <value>Vui lòng nhập một địa chỉ email hợp lệ, ví dụ example@email.com</value>
   </data>
   <data name="EmailAddressIsRequired" xml:space="preserve">
     <value>Bạn cần điền Địa chỉ eMail.</value>
@@ -2087,5 +2087,8 @@
   </data>
   <data name="FdmTotalDeposit" xml:space="preserve">
     <value>Tiền nạp&lt;br&gt;(Thành viên mới)</value>
+  </data>
+  <data name="InvalidPhoneNumber" xml:space="preserve">
+    <value>Vui lòng nhập số điện thoại đúng định dạng và đủ chữ số.</value>
   </data>
 </root>

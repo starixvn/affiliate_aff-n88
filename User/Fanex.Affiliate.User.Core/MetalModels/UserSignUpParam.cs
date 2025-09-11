@@ -10,7 +10,6 @@ namespace Fanex.Affiliate.User.Core.MetalModels
 {
     public class UserSignUpParam
     {
-
         [Required(ErrorMessageResourceType = typeof(Lang), ErrorMessageResourceName = "FirstNameIsRequired")]
         [MaxLength(Number.Fifty, ErrorMessageResourceType = typeof(Lang), ErrorMessageResourceName = "FirstNameMaxLength")]
         public string FirstName { get; set; }
@@ -22,7 +21,11 @@ namespace Fanex.Affiliate.User.Core.MetalModels
         public bool Gender { get; set; }
 
         [Required(ErrorMessageResourceType = typeof(Lang), ErrorMessageResourceName = "EmailAddressIsRequired")]
-        [EmailAddress(ErrorMessageResourceType = typeof(Lang), ErrorMessageResourceName = "EmailAddressIsInvalid")]
+        [RegularExpression(
+            @"^(?![.])(?!.*\.\.)[A-Za-z0-9][A-Za-z0-9._-]*(?<![._-])@(?!xn--)(?!-)[A-Za-z0-9-]+(?<!-)(\.(?!-)[A-Za-z0-9-]+(?<!-))*\.[A-Za-z]{1,24}$",
+            ErrorMessageResourceType = typeof(Lang),
+            ErrorMessageResourceName = "EmailAddressIsInvalid")]
+
         [MaxLength(Number.Fifty, ErrorMessageResourceType = typeof(Lang), ErrorMessageResourceName = "EmailMaxLength")]
         public string Email { get; set; }
 
@@ -114,5 +117,8 @@ namespace Fanex.Affiliate.User.Core.MetalModels
 
         [SpParam(Ignored = true)]
         public bool IsValidParentCode { get; set; } = true;
+
+        [SpParam(Ignored = true)]
+        public string DetectedCountryCode { get; set; }
     }
 }

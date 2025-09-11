@@ -424,7 +424,7 @@
     <value>ईमेल की जरूरत है</value>
   </data>
   <data name="EmailAddressIsInvalid" xml:space="preserve">
-    <value>ईमेल पता अमान्य है</value>
+    <value>कृपया एक मान्य ईमेल पता दर्ज करें, जैसे example@email.com</value>
   </data>
   <data name="ErrEmailRequire" xml:space="preserve">
     <value>ईमेल पते की ज़रुरत है</value>
@@ -2062,5 +2062,8 @@ B2C सहयोगी की टीम&lt;br/&gt;&lt;br/&gt;
   </data>
   <data name="FdmTotalDeposit" xml:space="preserve">
     <value>नए खिलाड़ियों द्वारा जमा राशि</value>
+  </data>
+  <data name="InvalidPhoneNumber" xml:space="preserve">
+    <value>फ़ोन नंबर अमान्य है। कृपया सुनिश्चित करें कि इसमें आवश्यक अंकों की संख्या है।</value>
   </data>
 </root>

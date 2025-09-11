@@ -13,7 +13,7 @@
 @model Fanex.Affiliate.User.Core.MetalModels.UserSignUpParam
 
 @section styles{
-    @Html.InlineStyles("~/www/build/styles/css/signup.css")
+    <link href="@Url.RenderLink("~/www/build/styles/css/signup.css")" rel="stylesheet" />
 }
 
 @section scripts{
@@ -22,11 +22,14 @@
             webSiteUrl: '@Lang.WebsiteURL',
             requiredMoreWebSiteUrl: '@Lang.WebsiteUrli',
             generalError: '@Error.General',
-            deleteLabel: '@Lang.Del'
+            deleteLabel: '@Lang.Del',
+            phoneNumberRequired: '@Lang.errContactNumberEmpty',
+            invalidPhoneNumber: '@Lang.InvalidPhoneNumber',
+            phoneMaxLength: '@Lang.PhoneMaxLength',
         }
     </script>
     <script src="@Url.RenderLink("~/www/build/js/validation.js")"></script>
-    @Html.InlineScripts("~/www/build/js/signup.js")
+    <script src="@Url.RenderLink("~/www/build/js/signup.js")"></script>
 }
 
 <div class="content sign-up-page">
@@ -112,7 +115,9 @@
                     <div class="form-group">
                         <label class="col-sm-3 control-label require">@Lang.ContactNumber</label>
                         <div class="col-sm-4">
-                            @Html.TextBoxFor(p => p.Phone, new { @class = "form-control" })
+                            @Html.HiddenFor(p => p.Phone, new { @id = "fullPhoneNumber" })
+                            @Html.HiddenFor(p => p.DetectedCountryCode, new { @id = "detectedCountryCode" })
+                            @Html.TextBoxFor(p => p.Phone, new { @type = "tel", @class = "form-control", @id = "phone-input" })
                         </div>
                         <div class="col-sm-offset-3 col-sm-9">
                             @Html.ValidationMessageFor(x => x.Phone, string.Empty, new { @class = "help-block hide" })
