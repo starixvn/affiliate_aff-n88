@@ -16,6 +16,8 @@ namespace Fanex.Affiliate.User.Core.BusinessService
     public class LanguageService : ILanguageService
     {
         private const string LANGUAGE_COOKIE_KEY = "afffavoritelang";
+        private string COUNTRY_COOKIE_KEY = $"{AppSetting.Instance.SiteName}_country";
+        private string COUNTRY_IP_COOKIE_KEY = $"{AppSetting.Instance.SiteName}_country";
 
         private readonly ISessionService _sessionService;
         private readonly ILanguageRepository _languageRepository;
@@ -23,9 +25,9 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         private readonly IIpLocationService _ipLocationService;
 
         public LanguageService(
-            ILanguageRepository languageRepository, 
-            ISessionService sessionService, 
-            IMemoryCacheService cacheService, 
+            ILanguageRepository languageRepository,
+            ISessionService sessionService,
+            IMemoryCacheService cacheService,
             IIpLocationService ipLocationService)
         {
             _languageRepository = languageRepository;
@@ -48,63 +50,106 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             }
 
             var langCookie = HttpContext.Current.Request.Cookies[LANGUAGE_COOKIE_KEY + AppSetting.Instance.SiteName]?.Value;
-            return IsValid(langCookie) ? langCookie : SystemLanguage.DefaultLanguageCode;
+            return IsValid(langCookie) ? langCookie : GetLanguageByCountry();
+        }
+
+        private string GetLanguageByCountry()
+        {
+            var countryCode = GetCountry();
+            if (string.IsNullOrWhiteSpace(countryCode))
+            {
+                return null;
+            }
+
+            return GetSystemTargetCountries()
+                       .FirstOrDefault(c => c.TargetCountryCode == countryCode)
+                       ?.Code
+                   ?? SystemLanguage.DefaultCountryCode;
         }
 
         public string GetCountry()
         {
-            var preferredUrlLang = HttpContext.Current.Request["lang"]?.Trim();
-
-            if (!string.IsNullOrWhiteSpace(preferredUrlLang) && SystemLanguage.SupportedFavoriteLanguages.ContainsKey(preferredUrlLang))
+            var countryByRoute = GetCountryByRoute();
+            if (!string.IsNullOrWhiteSpace(countryByRoute))
             {
-                return GetCountryByLanguage(preferredUrlLang);
+                return countryByRoute;
+            }
+
+            var countryByCookie = GetCountryByCookie();
+            if (!string.IsNullOrWhiteSpace(countryByCookie))
+            {
+                return countryByCookie;
             }
 
             return GetCountryByIp();
         }
 
-        private string GetCountryByLanguage(string languageShortedCode)
+        private string GetCountryByRoute()
         {
-            var targetCountryLanguages = GetTargetCountryLanguages();
-
-            foreach (var dic in targetCountryLanguages)
+            var languageShortedCode = HttpContext.Current.Request["lang"]?.Trim();
+            if (string.IsNullOrWhiteSpace(languageShortedCode) || !SystemLanguage.SupportedFavoriteLanguages.ContainsKey(languageShortedCode))
             {
-                var value = dic.Value;
-                if (value.FirstOrDefault(l => l.ShortedCode == languageShortedCode) != null)
-                {
-                    return dic.Key;
-                }
+                return string.Empty;
             }
 
-            return SystemLanguage.DefaultCountryCode;
+            var match = GetTargetCountryLanguages()
+                .FirstOrDefault(dic => dic.Value.Any(l => l.ShortedCode == languageShortedCode));
+
+            if (!string.IsNullOrWhiteSpace(match.Key))
+            {
+                SetCountryCookie(match.Key, COUNTRY_COOKIE_KEY);
+                return match.Key;
+            }
+
+            return string.Empty;
+        }
+
+        private string GetCountryByCookie()
+        {
+            var request = HttpContext.Current.Request;
+            var country = request.Cookies[COUNTRY_COOKIE_KEY]?.Value;
+            if (!string.IsNullOrWhiteSpace(country))
+            {
+                return country;
+            }
+
+            return string.Empty;
         }
 
         private string GetCountryByIp()
         {
             var request = HttpContext.Current.Request;
-            var cookieKey = $"{AppSetting.Instance.SiteName}_country";
-            var countryCookie = request.Cookies[cookieKey]?.Value;
+            var countryInfo = _ipLocationService.GetCountryFromIp(request.GetClientIP());
+            var country = countryInfo?.CountrySHORT;
+            SetCountryCookie(country, COUNTRY_IP_COOKIE_KEY);
 
-            if (!string.IsNullOrWhiteSpace(countryCookie))
+            if (!IsValidCountry(country))
             {
-                return countryCookie;
+                country = SystemLanguage.DefaultCountryCode;
             }
 
-            var countryByIp = _ipLocationService.GetCountryFromIp(request.GetClientIP());
-            if (IsValidCountry(countryCookie))
+            SetCountryCookie(country, COUNTRY_COOKIE_KEY);
+            return country;
+        }
+
+        private static void SetCountryCookie(string countryCode, string cookieKey)
+        {
+            var request = HttpContext.Current.Request;
+            var response = HttpContext.Current.Response;
+
+            var existingCookie = request.Cookies[cookieKey];
+            if (existingCookie != null && existingCookie.Value == countryCode)
             {
-                var languageCookie = new HttpCookie(LANGUAGE_COOKIE_KEY + AppSetting.Instance.SiteName, SystemLanguage.DefaultCountryCode)
-                {
-                    HttpOnly = true,
-                    Secure = true
-                };
-
-                HttpContext.Current.Response.Cookies.Add(languageCookie);
-
-                return countryByIp;
+                return;
             }
 
-            return SystemLanguage.DefaultCountryCode;
+            var cookie = new HttpCookie(cookieKey, countryCode)
+            {
+                HttpOnly = true,
+                Secure = true
+            };
+
+            response.Cookies.Set(cookie);
         }
 
         public IEnumerable<Language> GetLanguageList(bool? isInternal = null)
