@@ -132,6 +132,11 @@
 	  <Mapping DataField="MarketName" ObjectProperty="EnglishName" />
 	  <Mapping DataField="MarketNativeName" ObjectProperty="NativeName" />
 	</Setting>
+    <Setting Key="Aff_TargetCountry_Sel_view" SpName="Aff_TargetCountry_Sel" DbName="" >
+	    <Mapping DataField="MarketId" ObjectProperty="Code" />
+	    <Mapping DataField="MarketName" ObjectProperty="EnglishName" />
+	    <Mapping DataField="MarketNativeName" ObjectProperty="NativeName" />
+    </Setting>
   </Function>
 
   <Function Name="Currency">
