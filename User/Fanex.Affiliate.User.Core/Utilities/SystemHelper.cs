@@ -10,7 +10,7 @@
 
     public static class SystemHelper
     {
-        public static IEnumerable<SelectListItem> GetTargetLanguageList(IEnumerable<TargetCountryLanguage> targetLanguageList, string targetLanguageCode = null)
+        public static IEnumerable<SelectListItem> GetTargetLanguageList(IEnumerable<Language> targetLanguageList, string targetLanguageCode = null)
         {
             var dataList = targetLanguageList.Select(l => new SelectListItem
             {

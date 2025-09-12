@@ -210,7 +210,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
         private string ConvertSelectedLanguageNames(string targetCountryCode, string languageCode)
         {
-            var targetCountryLanguages = _languageService.GetTargetCountries(targetCountryCode, false);
+            var targetCountryLanguages = _languageService.GetLanguageByTargetCountry(targetCountryCode);
             if (string.IsNullOrEmpty(languageCode))
             {
                 var allLanguageName = targetCountryLanguages.Select(l => l.EnglishName).ToList();
@@ -223,7 +223,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         private Dictionary<string, Language> GetLanguageUsedForGeneration(LinkGeneratingParam linkGeneratedParam)
         {
             var result = new Dictionary<string, Language>();
-            var languageList = _languageService.GetLanguageList();
+            var languageList = _languageService.GetLanguageByTargetCountry(linkGeneratedParam.SelectedTargetCountry);
 
             if (string.IsNullOrEmpty(linkGeneratedParam.SelectedLanguage))
             {

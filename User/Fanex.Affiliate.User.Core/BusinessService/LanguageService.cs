@@ -48,7 +48,6 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             }
 
             var langCookie = HttpContext.Current.Request.Cookies[LANGUAGE_COOKIE_KEY + AppSetting.Instance.SiteName]?.Value;
-
             return IsValid(langCookie) ? langCookie : SystemLanguage.DefaultLanguageCode;
         }
 
@@ -111,38 +110,82 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         public IEnumerable<Language> GetLanguageList(bool? isInternal = null)
         {
             var isForInternal = isInternal ?? _sessionService.IsInternal;
-            var languageList = _cacheService.Get<IEnumerable<Language>>(CacheKey.LanguageList);
+            var cacheKey = isForInternal ? CacheKey.InternalLanguageList : CacheKey.LanguageList;
+            var languageList = _cacheService.Get<IEnumerable<Language>>(cacheKey);
 
             if (languageList == null)
             {
                 languageList = _languageRepository.GetLanguageList(isForInternal);
-                _cacheService.Set(CacheKey.LanguageList, languageList);
+                _cacheService.Set(cacheKey, languageList);
             }
 
             return languageList ?? new List<Language>();
         }
 
+        public IEnumerable<Language> GetLanguageByTargetCountry(string targetCountry = "")
+        {
+            var cacheKey = (_sessionService.IsInternal
+                               ? CacheKey.InternalLanguageListByTargetCountry
+                               : CacheKey.LanguageListByTargetCountry)
+                           + targetCountry;
+
+            var languageListByTargetCountry = _cacheService.Get<IEnumerable<Language>>(cacheKey);
+
+            if (languageListByTargetCountry == null)
+            {
+                languageListByTargetCountry = GetTargetCountries(targetCountry, false)
+                    .Select(l => new Language
+                    {
+                        Code = l.Code,
+                        EnglishName = l.EnglishName,
+                        NativeName = l.NativeName,
+                        ShortedCode = l.ShortedCode
+                    })
+                    .ToList();
+
+                _cacheService.Set(cacheKey, languageListByTargetCountry);
+            }
+
+            return languageListByTargetCountry;
+        }
+
         public IEnumerable<Language> GetSupportedUILanguageList(bool? isInternal = null)
         {
             var isForInternal = isInternal ?? _sessionService.IsInternal;
-            var uiLanguageList = _cacheService.Get<IEnumerable<Language>>(CacheKey.SupportedUiLanguageList);
+            var cacheKey = isForInternal ? CacheKey.InternalSupportedUiLanguageList : CacheKey.SupportedUiLanguageList;
+            var uiLanguageList = _cacheService.Get<IEnumerable<Language>>(cacheKey);
 
             if (uiLanguageList == null)
             {
                 var languageList = _languageRepository.GetLanguageList(isForInternal) ?? new List<Language>();
                 uiLanguageList = languageList.Where(l => !l.Code.Equals("ko-KR") && !l.Code.Equals("pt-BR"));
 
-                _cacheService.Set(CacheKey.SupportedUiLanguageList, uiLanguageList);
+                _cacheService.Set(cacheKey, uiLanguageList);
             }
 
             return uiLanguageList;
+        }
+
+        public IEnumerable<TargetCountryLanguage> GetSystemTargetCountries()
+        {
+            var isInternal = _sessionService.IsInternal;
+            var cacheKey = isInternal ? CacheKey.InternalTargetCountryList : CacheKey.TargetCountryList;
+
+            var targetCountryList = _cacheService.Get<IEnumerable<TargetCountryLanguage>>(cacheKey);
+            if (targetCountryList == null)
+            {
+                targetCountryList = GetTargetCountries();
+                _cacheService.Set(cacheKey, targetCountryList);
+            }
+
+            return targetCountryList ?? new List<TargetCountryLanguage>();
         }
 
         public bool IsValid(string langCode)
             => !string.IsNullOrWhiteSpace(langCode) && GetLanguageList().Any(l => Equals(l.Code, langCode));
 
         private bool IsValidCountry(string countryCode)
-            => !string.IsNullOrWhiteSpace(countryCode) && GetTargetCountries(countryCode).Any();
+            => !string.IsNullOrWhiteSpace(countryCode) && GetSystemTargetCountries().Any(t => Equals(t.TargetCountryCode, countryCode));
 
         public void SetCulture(string languageCode)
         {
@@ -154,20 +197,27 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             Thread.CurrentThread.CurrentCulture.NumberFormat = CultureInfo.CreateSpecificCulture("en-US").NumberFormat;
         }
 
-        public IEnumerable<TargetCountryLanguage> GetTargetCountries(string targetCountryCode = "", bool isDefault = true)
+        private IEnumerable<TargetCountryLanguage> GetTargetCountries(string targetCountryCode = "", bool isDefault = true)
         {
-            return _languageRepository.GetTargetCountryInfo(targetCountryCode, isDefault);
+            var isInternal = _sessionService.IsInternal;
+            return _languageRepository.GetTargetCountryInfo(targetCountryCode, isDefault, isInternal);
         }
 
-        public Dictionary<string, List<TargetCountryLanguage>> GetTargetCountryLanguages(string targetCountryCode = "")
+        public Dictionary<string, List<TargetCountryLanguage>> GetTargetCountryLanguages()
         {
-            var targetCountryLanguages = GetTargetCountries(targetCountryCode, false);
+            var cacheKey = _sessionService.IsInternal ? CacheKey.InternalTargetCountryLanguages : CacheKey.TargetCountryLanguages;
+            var targetCountryLanguages = _cacheService.Get<IEnumerable<TargetCountryLanguage>>(cacheKey);
+            if (targetCountryLanguages == null)
+            {
+                targetCountryLanguages = GetTargetCountries(string.Empty, false);
+                _cacheService.Set(cacheKey, targetCountryLanguages);
+            }
 
             var result = targetCountryLanguages
                 .GroupBy(tcl => tcl.TargetCountryCode)
                 .ToDictionary(
                     g => g.Key,
-                    g => g.OrderByDescending(m => m.Code == SystemLanguage.DefaultLanguageCode).ToList()
+                    g => g.OrderByDescending(m => m.Code == SystemLanguage.EnglishLanguageCode).ToList()
                 );
 
             return result;

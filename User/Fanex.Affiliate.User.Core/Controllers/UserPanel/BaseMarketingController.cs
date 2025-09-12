@@ -71,7 +71,7 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
             var isInternal = SessionService.IsInternal;
 
             var targetCountries = isDefaultLoading
-                ? LanguageService.GetTargetCountries()
+                ? LanguageService.GetSystemTargetCountries()
                 : Enumerable.Empty<TargetCountry>();
 
             if (string.IsNullOrEmpty(param.TargetCountryCode))
@@ -80,8 +80,8 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
             }
 
             var targetLanguages = param.IsChangeAffTypeLink
-                ? Enumerable.Empty<TargetCountryLanguage>()
-                : LanguageService.GetTargetCountries(param.TargetCountryCode, false);
+                ? Enumerable.Empty<Language>()
+                : LanguageService.GetLanguageByTargetCountry(param.TargetCountryCode);
 
             var languageCode = GetTargetLanguageCode(param.IsChangeAffTypeLink, param.Language, targetLanguages);
             param.Language = languageCode;
@@ -116,7 +116,7 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
             };
         }
 
-        private static string GetTargetLanguageCode(bool isChangeAffTypeLink, string currentLang, IEnumerable<TargetCountryLanguage> targetLanguages)
+        private static string GetTargetLanguageCode(bool isChangeAffTypeLink, string currentLang, IEnumerable<Language> targetLanguages)
         {
             return isChangeAffTypeLink
                 ? currentLang

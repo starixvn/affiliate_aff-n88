@@ -85,7 +85,7 @@
                 AccountInformation = newAccountInfo,
                 IsMarketingAccount = _sessionService.UserSession.IsMarketingAccount,
                 BaseCurrencyList = CurrencyHelper.GetCurrencyList(baseCurrencyList, newAccountInfo.DefaultBaseCurrency),
-                TargetCountryList = LanguageService.GetTargetCountries()
+                TargetCountryList = LanguageService.GetSystemTargetCountries()
             };
 
             return View("~/Views/UserPanel/MyAccount/index.cshtml", model);

@@ -251,7 +251,7 @@
                             <div class="col-sm-4">
                                 <select class="form-control" name="TargetCountryCode" id="TargetCountryCode" data-val="true" data-val-required="@Error.TargetCountryErr">
                                     <option value="">@Lang.SelectOne</option>
-                                    @foreach (var item in languageService.GetTargetCountries())
+                                    @foreach (var item in languageService.GetSystemTargetCountries())
                                     {
                                         <option value="@item.TargetCountryCode" data-language="@item.Code">@item.TargetCountryName</option>
                                     }
