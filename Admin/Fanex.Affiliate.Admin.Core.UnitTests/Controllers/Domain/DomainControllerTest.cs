@@ -181,13 +181,15 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Domain
 
         private DomainController CreateDomainController(
         ISessionService sessionService = null,
-        IDomainService domainService = null
+        IDomainService domainService = null,
+        ISystemService systemService = null
         )
         {
             var fakeSessionService = sessionService ?? MockingHelper.GetSessionService();
             var fakeDomainService = domainService ?? Mock.Of<IDomainService>();
+            var fakeSystemService = systemService ?? Mock.Of<ISystemService>();
 
-            var controller = new DomainController(fakeSessionService, fakeDomainService);
+            var controller = new DomainController(fakeSessionService, fakeDomainService, fakeSystemService);
 
             var request = MockingHelper.GetHttpRequest();
             var server = new Mock<HttpServerUtilityBase>();

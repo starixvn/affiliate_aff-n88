@@ -7,7 +7,11 @@ namespace Fanex.Affiliate.Admin.Core.Services.Domain
 {
     public interface IDomainService
     {
+        IEnumerable<TargetCountryByDomain> GetTargetCountryListByDomain(int affDomainId = 0, int redirectDomainId = 0);
+
         IEnumerable<DomainInfo> GetDomainList(bool isAffDomain);
+
+        DomainInfo GetDomainById(int domainId, bool isAffDomain = true);
 
         ResultInfo InsertDomain(InsertUpdateDomainParam param);
 

@@ -1,16 +1,15 @@
-﻿using Fanex.Affiliate.Admin.Core.Attributes;
+﻿using System.Collections.Generic;
+using System.Web.Mvc;
+using Fanex.Affiliate.Admin.Core.Attributes;
 using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.Extensions;
-using Fanex.Affiliate.Admin.Core.MetaModels;
 using Fanex.Affiliate.Admin.Core.MetaModels.Domain;
 using Fanex.Affiliate.Admin.Core.Resources;
 using Fanex.Affiliate.Admin.Core.Services.Common;
 using Fanex.Affiliate.Admin.Core.Services.Domain;
 using Fanex.Affiliate.Admin.Core.Utilities;
 using Fanex.Affiliate.Admin.Core.ViewModels.Domain;
-using System.Collections.Generic;
-using System.Web.Mvc;
 
 namespace Fanex.Affiliate.Admin.Core.Controllers.Domain
 {
@@ -19,11 +18,15 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Domain
     {
         private readonly IDomainService _domainService;
 
+        private readonly ISystemService _systemService;
+
         public DomainController(
             ISessionService sessionService,
-            IDomainService domainService) : base(sessionService)
+            IDomainService domainService,
+            ISystemService systemService) : base(sessionService)
         {
             _domainService = domainService;
+            _systemService = systemService;
         }
 
         public ActionResult Index(bool isAffDomain = true)
@@ -57,28 +60,37 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Domain
 
         [HttpPost]
         [ValidateAntiForgeryHeader]
+        public ActionResult GetDomainById(int domainId, bool isAffDomain = true)
+        {
+            return new JsonNetResult
+            {
+                Data = _domainService.GetDomainById(domainId, isAffDomain)
+            };
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryHeader]
+        public ActionResult GetTargetCountryListByDomain(int affDomainId = 0, int redirectDomainId = 0)
+        {
+            return new JsonNetResult
+            {
+                Data = _domainService.GetTargetCountryListByDomain(affDomainId, redirectDomainId)
+            };
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryHeader]
         [FunctionAuthorize(FunctionName = Function.Domain, IsHost = true)]
         public ActionResult InsertDomain(InsertUpdateDomainParam param)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && TargetCountryHelper.IsValidTargetCountryCodes(param.BlockTargetCountry, _systemService.GetTargetCountryList()))
             {
-                var encodeParam = EncodeParam(param);
-                AssignUserInfoParam(encodeParam);
+                HandleEncodeParam(param);
 
-                return new JsonNetResult
-                {
-                    Data = _domainService.InsertDomain(encodeParam)
-                };
+                return GenerateJsonNetResult(_domainService.InsertDomain(param));
             }
 
-            return new JsonNetResult
-            {
-                Data = new ResultInfo
-                {
-                    Code = ErrCode.GeneralErrorCode,
-                    Message = "Please input Domain's name."
-                }
-            };
+            return GenerateErrResult("The Domain' info is invalid!");
         }
 
         [HttpPost]
@@ -86,26 +98,14 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Domain
         [FunctionAuthorize(FunctionName = Function.Domain, IsHost = true)]
         public ActionResult UpdateDomain(InsertUpdateDomainParam param)
         {
-            var isValidDomainId = param.DomainId >= Validation.MinId;
-            if (ModelState.IsValid && isValidDomainId)
+            if (ModelState.IsValid && TargetCountryHelper.IsValidTargetCountryCodes(param.BlockTargetCountry, _systemService.GetTargetCountryList()))
             {
-                var encodeParam = EncodeParam(param);
-                AssignUserInfoParam(encodeParam);
+                HandleEncodeParam(param);
 
-                return new JsonNetResult
-                {
-                    Data = _domainService.UpdateDomain(encodeParam)
-                };
+                return GenerateJsonNetResult(_domainService.UpdateDomain(param));
             }
 
-            return new JsonNetResult
-            {
-                Data = new ResultInfo
-                {
-                    Code = ErrCode.GeneralErrorCode,
-                    Message = !isValidDomainId ? "Domain Id is invalid." : "Please input Domain's name."
-                }
-            };
+            return GenerateErrResult("The Domain' info is invalid!");
         }
 
         [HttpPost]
@@ -117,31 +117,17 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Domain
             {
                 AssignUserInfoParam(param);
 
-                return new JsonNetResult
-                {
-                    Data = _domainService.DeleteDomain(param)
-                };
+                return GenerateJsonNetResult(_domainService.DeleteDomain(param));
             }
 
-            return new JsonNetResult
-            {
-                Data = new ResultInfo
-                {
-                    Code = ErrCode.GeneralErrorCode,
-                    Message = "Domain id is incorrect."
-                }
-            };
+            return GenerateErrResult("The Domain is incorrect!");
         }
 
-        private InsertUpdateDomainParam EncodeParam(InsertUpdateDomainParam param)
+        private void HandleEncodeParam(InsertUpdateDomainParam param)
         {
-            return new InsertUpdateDomainParam
-            {
-                DomainId = param.DomainId,
-                DomainName = Server.HtmlEncode(param.DomainName),
-                IsSSL = param.IsSSL,
-                IsAffDomain = param.IsAffDomain
-            };
+            param.DomainName = Server.HtmlEncode(param.DomainName);
+            param.BlockTargetCountry = Server.HtmlEncode(param.BlockTargetCountry);
+            AssignUserInfoParam(param);
         }
     }
 }

@@ -7,6 +7,8 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Domain
 {
     public interface IDomainRepository
     {
+        IEnumerable<TargetCountryByDomain> GetTargetCountryListByDomain(int affDomainId = 0, int redirectDomainId = 0);
+
         IEnumerable<DomainInfo> GetDomainList(string spKey);
 
         ResultInfo InsertDomain(InsertUpdateDomainParam param, string spKey);

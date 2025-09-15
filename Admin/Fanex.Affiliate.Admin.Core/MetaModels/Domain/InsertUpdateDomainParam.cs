@@ -13,5 +13,7 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.Domain
         public bool IsSSL { get; set; }
 
         public bool IsAffDomain { get; set; }
+
+        public string BlockTargetCountry { get; set; }
     }
 }

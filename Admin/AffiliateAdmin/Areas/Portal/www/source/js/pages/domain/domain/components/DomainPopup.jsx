@@ -1,26 +1,62 @@
 ﻿import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import MultipleSelect from '../../../../components/multiple-select';
 
 import { Col, Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, Alert } from 'reactstrap';
-import { insertDomain, updateDomain, toggleLoader, fetchData, setSelectedDomain } from '../actions/index';
+import { insertDomain, updateDomain, toggleLoader, fetchData, setSelectedDomainId, getDomainById, getTargetCountryListByDomain } from '../actions/index';
+import { defaultState } from '../libs/constants';
+import { handleChangeMultipleSelected } from '../../../../modules/utils';
+import { getBlockTargetCountryList } from '../../../common/modules/utils/targetcountry';
+import { targetCountryStatus } from '../../../../modules/constants';
+import { deepClone } from '../../../../modules/dataHandler';
 
 export class DomainPopup extends PureComponent {
     constructor(props) {
         super(props)
 
-        this.state = {
-            isInsert: true,
-            isShowMessage: false,
-            isSuccess: true,
-            message: ''
-        }
+        this.state = defaultState;
     }
 
     componentDidUpdate(prevProps) {
-        const { selectedDomain } = this.props;
-        if (selectedDomain && prevProps.selectedDomain !== selectedDomain) {
-            this.setState({ isInsert: selectedDomain.domainId === 0 });
+        const { selectedDomainId, isAffDomain } = this.props;
+        if (selectedDomainId !== null && prevProps.selectedDomainId !== selectedDomainId) {
+            this._handleUpdateState(selectedDomainId, isAffDomain);
+        }
+    }
+
+    _handleUpdateState = async (selectedDomainId, isAffDomain) => {
+        if (selectedDomainId === 0) {
+            const targetCountryList = await this.props.getTargetCountryListByDomain({ affDomainId: 0, redirectDomainId: 0 });
+
+            this.setState({
+                isInsert: true,
+                selectedDomain: { domainId: selectedDomainId, domainName: '', blockTargetCountry: '', isSSL: true },
+                targetCountryList
+            });
+        } else {
+            this.props.toggleLoader(true);
+            const domain = await this.props.getDomainById(selectedDomainId, isAffDomain);
+
+            if (domain) {
+                const { DomainName, IsSSL } = domain;
+                const domainIdParam = isAffDomain ? "affDomainId" : "redirectDomainId";
+                const targetCountryList = await this.props.getTargetCountryListByDomain({ [domainIdParam]: selectedDomainId });
+
+                if (targetCountryList && targetCountryList.length) {
+                    const blockTargetCountryList = getBlockTargetCountryList(targetCountryList);
+
+                    this.setState({
+                        isInsert: false,
+                        selectedDomain: { domainId: selectedDomainId, domainName: DomainName, blockTargetCountry: blockTargetCountryList.join(','), isSSL: IsSSL },
+                        targetCountryList,
+                        initialTargetCountryList: deepClone(targetCountryList)
+                    });
+                } else {
+                    this.setState({ isInsert: false, selectedDomain: { domainId: selectedDomainId, domainName: DomainName, blockTargetCountry: '', isSSL: IsSSL } });
+                }
+            }
+            this.props.toggleLoader(false);
         }
     }
 
@@ -31,32 +67,108 @@ export class DomainPopup extends PureComponent {
         const { selectedDomain } = this.props;
         const newDomain = Object.assign({}, selectedDomain, { [target.name]: value });
 
-        this.props.setSelectedDomain(newDomain);
+        this.setState({ selectedDomain: newDomain });
+    }
+
+    _handleChangeTargetCountry = (item, selectedItem) => {
+        const { selectedDomain, targetCountryList } = this.state;
+        const newDomain = { ...selectedDomain, blockTargetCountry: selectedItem };
+
+        this.setState({ selectedDomain: newDomain, targetCountryList: handleChangeMultipleSelected(targetCountryList, selectedItem) });
+    }
+
+    _handleCloseNotificationPopup = (confirmResult) => {
+        this.setState({ messageConfirm: '' });
+
+        const { selectedDomain, isConfirmPopup } = this.state;
+        if ((confirmResult || !isConfirmPopup) && selectedDomain.domainName) {
+            this._submitData(selectedDomain);
+        }
     }
 
     _handleSubmit = async () => {
-        this.props.toggleLoader(true);
+        const { selectedDomain, isInsert, targetCountryList, initialTargetCountryList } = this.state;
 
-        const { selectedDomain, isAffDomain } = this.props;
-
-        if (selectedDomain.domainName) {
-            const { isInsert } = this.state;
-            const domainInfo = Object.assign({}, selectedDomain, { isAffDomain })
-            const message = isInsert ? "Add Successfully!" : "Update Successfully!";
-
-            const result = isInsert ? await this.props.insertDomain(domainInfo) : await this.props.updateDomain(domainInfo);
-
-            if (result) {
-                this._handleShowAlert(result.IsSuccessful, result.IsSuccessful ? message : result.Message);
-            } else {
-                this._handleShowAlert(false, isInsert ? "Add Domain is failed!" : "Update Domain is failed!");
-            }
-
-        } else {
-            this._handleShowAlert(false, "Please input domain name!")
+        if (!selectedDomain.domainName) {
+            this._handleShowAlert(false, "Please input domain name!");
+            return;
         }
 
-        this.props.toggleLoader(false);
+        const initialUsedCountryOnControlDomains = initialTargetCountryList && initialTargetCountryList.filter(targetCountry =>
+            targetCountry.IsUsedDomainControl
+        ).map(t => t.TargetCountryCode).join(",");
+
+        if (isInsert || !initialUsedCountryOnControlDomains) {
+            this._submitData(selectedDomain);
+            return;
+        }
+
+        const initialBlockedControlDomains = initialTargetCountryList.filter(targetCountry =>
+            targetCountry.IsUsedDomainControl &&
+            targetCountry.Status === targetCountryStatus.Blocked
+        ).map(t => t.TargetCountryCode).join(",");
+
+        const blockedControlDomains = targetCountryList.filter(targetCountry =>
+            targetCountry.IsUsedDomainControl &&
+            targetCountry.Status === targetCountryStatus.Blocked &&
+            !initialBlockedControlDomains.includes(targetCountry.TargetCountryCode)
+        );
+
+        if (!!blockedControlDomains.length) {
+            const message = `The mapping domain control will be disabled if you block this target country. Are you sure you want to proceed with this?`;
+
+            this.setState({ messageConfirm: message, isConfirmPopup: true });
+            return;
+        }
+
+        const unblockedControlDomains = targetCountryList.filter(targetCountry =>
+            targetCountry.IsUsedDomainControl &&
+            targetCountry.Status === targetCountryStatus.Normal &&
+            initialBlockedControlDomains.includes(targetCountry.TargetCountryCode)
+        );
+
+        if (!!unblockedControlDomains.length) {
+            const message = `Please check the mapping domain control for this domain after you unblock the target country!`;
+
+            this.setState({ messageConfirm: message, isConfirmPopup: false });
+            return;
+        }
+
+        this._submitData(selectedDomain);
+    }
+
+    _submitData = async (selectedDomain) => {
+        try {
+            this.props.toggleLoader(true);
+
+            const { isAffDomain } = this.props;
+            const { isInsert } = this.state;
+
+            const domainInfo = {
+                ...selectedDomain,
+                isAffDomain
+            };
+
+            const result = isInsert
+                ? await this.props.insertDomain(domainInfo)
+                : await this.props.updateDomain(domainInfo);
+
+            const successMessage = isInsert ? "Add Successfully!" : "Update Successfully!";
+            const errorMessage = isInsert ? "Add Domain failed!" : "Update Domain failed!";
+
+            if (result) {
+                this._handleShowAlert(
+                    result.IsSuccessful,
+                    result.IsSuccessful ? successMessage : result.Message
+                );
+            } else {
+                this._handleShowAlert(false, errorMessage);
+            }
+        } catch (error) {
+            this._handleShowAlert(false, 'An unexpected error occurred');
+        } finally {
+            this.props.toggleLoader(false);
+        }
     }
 
     _handleKeyPress = (event) => {
@@ -81,62 +193,87 @@ export class DomainPopup extends PureComponent {
 
         if (isSuccess) {
             this.props.fetchData(this.props.isAffDomain);
-            this.props.setSelectedDomain(null);
+            this._handleClosePopup();
         }
     }
 
     _handleClosePopup = () => {
-        this.props.setSelectedDomain(null)
+        this.props.setSelectedDomainId(null)
+        this.setState(defaultState);
     }
 
     render() {
-        const { selectedDomain } = this.props;
-        const { isInsert, isSuccess, isShowMessage, message } = this.state;
+        const { isInsert, isSuccess, isShowMessage, message, isConfirmPopup, messageConfirm, selectedDomain, targetCountryList } = this.state;
         const isShowPopup = selectedDomain !== null;
         const title = isInsert ? "Add Domain" : "Edit Domain";
         const buttonLabel = isInsert ? "Add" : "Submit";
 
         return selectedDomain && (
-            <Modal isOpen={isShowPopup} toggle={this._handleClosePopup} backdrop='static'>
-                <ModalHeader toggle={this._handleClosePopup}><span className="iconpopup"></span>{title}</ModalHeader>
-                <ModalBody>
-                    <div className="modal-body-wrapper">
-                        <div className="domain-form-container">
-                            <Alert color={isSuccess ? 'success' : 'danger'} isOpen={isShowMessage}>
-                                <div dangerouslySetInnerHTML={{ __html: message }}></div>
-                            </Alert>
-                            <Form tag="form" className="mb-5" autoComplete="off">
-                                <FormGroup row className="mb-2">
-                                    <Label htmlFor="domainName" sm={4} className="required">Domain</Label>
-                                    <Col sm={8}>
-                                        <Input type="text" className="input-required mt-2" name="domainName"
-                                            value={selectedDomain.domainName} onChange={this._handleChange} onKeyPress={this._handleKeyPress} />
-                                    </Col>
-                                </FormGroup>
-                                <FormGroup row className="mb-2">
-                                    <Label sm={4}>SSL</Label>
-                                    <Col sm={8}>
-                                        <input type="checkbox" className="mt-2" name="isSSL" checked={selectedDomain.isSSL} onChange={this._handleChange} />
-                                    </Col>
-                                </FormGroup>
-                            </Form>
+            <>
+                <Modal isOpen={isShowPopup} toggle={this._handleClosePopup} backdrop='static'>
+                    <ModalHeader toggle={this._handleClosePopup}><span className="iconpopup"></span>{title}</ModalHeader>
+                    <ModalBody>
+                        <div className="modal-body-wrapper">
+                            <div className="domain-form-container">
+                                <Alert color={isSuccess ? 'success' : 'danger'} isOpen={isShowMessage}>
+                                    <div dangerouslySetInnerHTML={{ __html: message }}></div>
+                                </Alert>
+                                <Form tag="form" className="mb-5" autoComplete="off">
+                                    <FormGroup row className="mb-2">
+                                        <Label htmlFor="domainName" sm={4} className="required">Domain</Label>
+                                        <Col sm={8}>
+                                            <Input type="text" className="input-required mt-2" name="domainName"
+                                                value={selectedDomain.domainName} onChange={this._handleChange} onKeyPress={this._handleKeyPress} />
+                                        </Col>
+                                    </FormGroup>
+                                    <FormGroup row className="mb-2">
+                                        <Label sm={4}>SSL</Label>
+                                        <Col sm={8}>
+                                            <input type="checkbox" className="mt-2" name="isSSL" checked={selectedDomain.isSSL} onChange={this._handleChange} />
+                                        </Col>
+                                    </FormGroup>
+                                    <FormGroup row className="mb-2">
+                                        <Label htmlFor="blockTargetCountry" sm={4}>Block Target Country</Label>
+                                        <Col sm={8}>
+                                            {
+                                                targetCountryList && <MultipleSelect
+                                                    dataSource={targetCountryList}
+                                                    keyField="key"
+                                                    valueField="name"
+                                                    statusField="checked"
+                                                    maxDisplayItemCount={1}
+                                                    noneSelectedLabel="None Select"
+                                                    selectedAllLabel="All"
+                                                    onChange={this._handleChangeTargetCountry} />
+                                            }
+                                        </Col>
+                                    </FormGroup>
+                                </Form>
 
-                            <Button type="button" color="success" className="mr-3" onClick={this._handleSubmit}>{buttonLabel}</Button>
-                            <Button type="button" color="info" onClick={this._handleClosePopup}>Cancel</Button>
+                                <Button type="button" color="success" className="mr-3" onClick={this._handleSubmit}>{buttonLabel}</Button>
+                                <Button type="button" color="info" onClick={this._handleClosePopup}>Cancel</Button>
+                            </div>
                         </div>
-                    </div>
-                </ModalBody>
-            </Modal>
+                    </ModalBody>
+                </Modal>
+                {
+                    !!messageConfirm && <NotificationPopup
+                        message={messageConfirm}
+                        isConfirmPopup={isConfirmPopup}
+                        onClose={this._handleCloseNotificationPopup}
+                    />
+                }
+            </>
         );
     }
 }
 
-function mapStateToProps({ selectedDomain, isAffDomain }) {
-    return Object.assign({}, { selectedDomain, isAffDomain });
+function mapStateToProps({ selectedDomainId, isAffDomain }) {
+    return Object.assign({}, { selectedDomainId, isAffDomain });
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ insertDomain, updateDomain, toggleLoader, fetchData, setSelectedDomain }, dispatch);
+    return bindActionCreators({ insertDomain, updateDomain, toggleLoader, fetchData, setSelectedDomainId, getDomainById, getTargetCountryListByDomain }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(DomainPopup);

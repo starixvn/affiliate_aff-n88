@@ -448,6 +448,7 @@
     <Compile Include="DTO\Customer\TransferLimitSettingInfo.cs" />
     <Compile Include="DTO\Domain\DomainControlInfo.cs" />
     <Compile Include="DTO\Domain\DomainInfo.cs" />
+    <Compile Include="DTO\Domain\TargetCountryByDomain.cs" />
     <Compile Include="DTO\Home\GeneralInfo.cs" />
     <Compile Include="DTO\Home\OnlineListInfo.cs" />
     <Compile Include="DTO\MediaGallery\BannerInfo.cs" />
@@ -763,6 +764,7 @@
     <Compile Include="Utilities\SiteDomainHelper.cs" />
     <Compile Include="Utilities\SiteFriendlyNameHelper.cs" />
     <Compile Include="Utilities\SystemFile.cs" />
+    <Compile Include="Utilities\TargetCountryHelper.cs" />
     <Compile Include="ViewModels\Affiliate\AffiliateInfoViewModel.cs" />
     <Compile Include="ViewModels\Affiliate\MarketingAccountViewModel.cs" />
     <Compile Include="ViewModels\Report\AffiliateReportViewModel.cs" />

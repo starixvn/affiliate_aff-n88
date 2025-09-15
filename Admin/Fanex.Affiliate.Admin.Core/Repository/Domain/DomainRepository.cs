@@ -1,4 +1,5 @@
-﻿using Fanex.Affiliate.Admin.Core.DTO;
+﻿using Fanex.Affiliate.Admin.Core.Criterias.Domain;
+using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.Domain;
 using Fanex.Affiliate.Admin.Core.Extensions;
 using Fanex.Affiliate.Admin.Core.MetaModels.Domain;
@@ -11,6 +12,20 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Domain
 {
     public class DomainRepository : BaseRepository, IDomainRepository
     {
+        public IEnumerable<TargetCountryByDomain> GetTargetCountryListByDomain(int affDomainId = 0, int redirectDomainId = 0)
+        {
+            var criteria = new GetTargetCountryListByDomainCriteria
+            {
+                AffDomainId = affDomainId,
+                RedirectDomainId = redirectDomainId
+            };
+
+            using (var objDb = GetObjectDb(criteria.GetSettingKey()))
+            {
+                return objDb.Query<TargetCountryByDomain>(criteria);
+            }
+        }
+
         public IEnumerable<DomainInfo> GetDomainList(string spKey)
         {
             var result = new List<DomainInfo>();
@@ -72,6 +87,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Domain
 
         private static void AssignParam(IObjectDb objectDb, InsertUpdateDomainParam param)
         {
+            objectDb.SetParameterValue("BlockTargetCountry", param.BlockTargetCountry);
             objectDb.SetParameterValue("DomainName", param.DomainName);
             objectDb.SetParameterValue("IsSSL", param.IsSSL);
             objectDb.SetParameterValue("UserID", param.UserId);
@@ -88,7 +104,8 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Domain
                 DomainName = Convert.ToString(reader["DomainName"]),
                 IsSSL = reader.GetVal<bool>("IsSSL"),
                 Creator = Convert.ToString(reader["Creator"]),
-                CreatedDate = reader["CreateDate"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(reader["CreateDate"])
+                CreateDate = reader["CreateDate"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(reader["CreateDate"]),
+                BlockTargetCountry = Convert.ToString(reader["BlockTargetCountry"]),
             };
         }
     }

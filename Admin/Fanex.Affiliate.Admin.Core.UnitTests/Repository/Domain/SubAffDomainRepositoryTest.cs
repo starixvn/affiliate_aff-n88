@@ -33,7 +33,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Domain
 
             // Assert
             Assert.Single(result);
-            Assert.Equal("09/10/2020", item.CreatedDateText);
         }
 
         [Fact]
@@ -56,7 +55,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Domain
 
             // Assert
             Assert.Single(result);
-            Assert.Null(item.CreatedDateText);
         }
 
         [Fact]

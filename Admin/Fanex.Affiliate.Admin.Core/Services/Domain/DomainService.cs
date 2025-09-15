@@ -3,6 +3,7 @@ using Fanex.Affiliate.Admin.Core.DTO.Domain;
 using Fanex.Affiliate.Admin.Core.MetaModels.Domain;
 using Fanex.Affiliate.Admin.Core.Repository.Domain;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Fanex.Affiliate.Admin.Core.Services.Domain
 {
@@ -14,11 +15,20 @@ namespace Fanex.Affiliate.Admin.Core.Services.Domain
         {
             _domainRepository = domainRepository;
         }
+
+        public IEnumerable<TargetCountryByDomain> GetTargetCountryListByDomain(int affDomainId = 0, int redirectDomainId = 0)
+            => _domainRepository.GetTargetCountryListByDomain(affDomainId, redirectDomainId);
+
         public IEnumerable<DomainInfo> GetDomainList(bool isAffDomain)
         {
             var spKey = isAffDomain ? "Aff_Admin_AffiliateDomain_Sel" : "Aff_Admin_LicenseeDomain_Sel";
 
             return _domainRepository.GetDomainList(spKey);
+        }
+
+        public DomainInfo GetDomainById(int domainId, bool isAffDomain = true)
+        {
+            return GetDomainList(isAffDomain).FirstOrDefault(d => d.DomainId == domainId);
         }
 
         public ResultInfo InsertDomain(InsertUpdateDomainParam param)
