@@ -1,6 +1,5 @@
 ﻿import { post } from '../../../../modules/ajaxRequest';
 import { toggleLoader } from '../../../../actions/loaderAction';
-import { targetCountryStatus } from '../../../../modules/constants';
 import { SHOULD_RESET_SCROLL_POSITION, SET_SELECTED_DOMAIN_ID, SET_GRID_DATA } from './types';
 
 export { toggleLoader };
@@ -54,16 +53,7 @@ export const getTargetCountryListByDomain = (param) => async () => {
     const url = 'Portal/Domain/GetTargetCountryListByDomain';
     const response = await post(url, param);
 
-    if (response && response.status === 200 && response.data) {
-        return response.data.map(item => ({
-            ...item,
-            key: item.TargetCountryCode,
-            name: item.TargetCountryName,
-            checked: item.Status === targetCountryStatus.Blocked
-        }));
-    }
-
-    return null;
+    return response && response.status === 200 ? response.data : null;
 }
 
 export const insertDomain = (param) => async () => {

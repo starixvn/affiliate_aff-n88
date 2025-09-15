@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using Fanex.Affiliate.Admin.Core.Attributes;
 using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
+using Fanex.Affiliate.Admin.Core.DTO.Common;
 using Fanex.Affiliate.Admin.Core.Extensions;
 using Fanex.Affiliate.Admin.Core.MetaModels.Domain;
 using Fanex.Affiliate.Admin.Core.Resources;
@@ -17,15 +18,12 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Domain
     public class DomainControlController : ReadOnlySessionBaseController
     {
         private readonly IDomainControlService _domainControlService;
-        private readonly ISystemService _systemService;
 
         public DomainControlController(
             ISessionService sessionService,
-            IDomainControlService domainControlService,
-            ISystemService systemService) : base(sessionService)
+            IDomainControlService domainControlService) : base(sessionService)
         {
             _domainControlService = domainControlService;
-            _systemService = systemService;
         }
 
         public ActionResult Index()
@@ -41,7 +39,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Domain
             var model = new DomainControlViewModel
             {
                 SubMenuList = subMenu,
-                MarketList = _systemService.GetSupportedUiLanguageList()
+                TargetCountryList = GetVisibleTargetCountries()
             };
 
             return View("~/Areas/Portal/Views/Domain/DomainControl.cshtml", model);
@@ -49,63 +47,55 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Domain
 
         [HttpPost]
         [ValidateAntiForgeryHeader]
-        public ActionResult GetDomainControlList(string market)
+        public ActionResult GetDomainControlList(string targetCountryCode)
         {
             return new JsonNetResult
             {
-                Data = _domainControlService.GetDomainControlList(market)
+                Data = _domainControlService.GetDomainControl(targetCountryCode)
+            };
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryHeader]
+        public ActionResult GetDomainControlById(int domainControlId)
+        {
+            var domainControl = _domainControlService.GetDomainControlById(domainControlId);
+            var isValidMarket = TargetCountryHelper.IsValidTargetCountryCodes(domainControl?.TargetCountryCode, GetVisibleTargetCountries());
+
+            return new JsonNetResult
+            {
+                Data = isValidMarket ? domainControl : null
             };
         }
 
         [HttpPost]
         [ValidateAntiForgeryHeader]
         [FunctionAuthorize(FunctionName = Function.Domain, IsHost = true)]
-        public ActionResult InsertDomainControl(InsertUpdateDomainControlParam param)
+        public ActionResult InsertDomainControl(InsertDomainControlParam param)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && TargetCountryHelper.IsValidTargetCountryCodes(param.TargetCountryCode, GetVisibleTargetCountries()))
             {
                 AssignUserInfoParam(param);
 
-                return new JsonNetResult
-                {
-                    Data = _domainControlService.InsertDomainControl(param)
-                };
+                return GenerateJsonNetResult(_domainControlService.InsertDomainControl(param));
             }
 
-            return new JsonNetResult
-            {
-                Data = new ResultInfo
-                {
-                    Code = ErrCode.GeneralErrorCode,
-                    Message = "Domain's info is invalid!"
-                }
-            };
+            return GenerateErrResult("The Domain Control's info is invalid!");
         }
 
         [HttpPost]
         [ValidateAntiForgeryHeader]
         [FunctionAuthorize(FunctionName = Function.Domain, IsHost = true)]
-        public ActionResult UpdateDomainControl(InsertUpdateDomainControlParam param)
+        public ActionResult UpdateDomainControl(UpdateDomainControlParam param)
         {
-            var isValidDomainId = param.DomainId >= Validation.MinId;
-            if (ModelState.IsValid && isValidDomainId)
+            if (ModelState.IsValid && TargetCountryHelper.IsValidTargetCountryCodes(param.TargetCountryCode, GetVisibleTargetCountries()))
             {
                 AssignUserInfoParam(param);
 
-                return new JsonNetResult
-                {
-                    Data = _domainControlService.UpdateDomainControl(param)
-                };
+                return GenerateJsonNetResult(_domainControlService.UpdateDomainControl(param));
             }
 
-            return new JsonNetResult
-            {
-                Data = new ResultInfo
-                {
-                    Code = ErrCode.GeneralErrorCode,
-                    Message = !isValidDomainId ? "Domain Id is invalid." : "Domain's info is invalid!"
-                }
-            };
+            return GenerateErrResult("The Domain Control's info is invalid!");
         }
 
         [HttpPost]
@@ -117,20 +107,15 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Domain
             {
                 AssignUserInfoParam(param);
 
-                return new JsonNetResult
-                {
-                    Data = _domainControlService.DeleteDomainControl(param)
-                };
+                return GenerateJsonNetResult(_domainControlService.DeleteDomainControl(param));
             }
 
-            return new JsonNetResult
-            {
-                Data = new ResultInfo
-                {
-                    Code = ErrCode.GeneralErrorCode,
-                    Message = "Domain Id is invalid."
-                }
-            };
+            return GenerateErrResult("The Domain Control is incorrect!");
+        }
+
+        private IEnumerable<TargetCountry> GetVisibleTargetCountries()
+        {
+            return _domainControlService.GetTargetCountryListByDomain();
         }
     }
 }

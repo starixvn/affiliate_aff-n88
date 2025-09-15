@@ -7,7 +7,7 @@ import { Col, Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBo
 import { insertDomain, updateDomain, toggleLoader, fetchData, setSelectedDomainId, getDomainById, getTargetCountryListByDomain } from '../actions/index';
 import { defaultState } from '../libs/constants';
 import { handleChangeMultipleSelected } from '../../../../modules/utils';
-import { getBlockTargetCountryList } from '../../../common/modules/utils/targetcountry';
+import { getBlockTargetCountryList, convertListToMutilpleSelected } from '../../../common/modules/utils/targetcountry';
 import { targetCountryStatus } from '../../../../modules/constants';
 import { deepClone } from '../../../../modules/dataHandler';
 
@@ -32,7 +32,7 @@ export class DomainPopup extends PureComponent {
             this.setState({
                 isInsert: true,
                 selectedDomain: { domainId: selectedDomainId, domainName: '', blockTargetCountry: '', isSSL: true },
-                targetCountryList
+                targetCountryList: convertListToMutilpleSelected(targetCountryList)
             });
         } else {
             this.props.toggleLoader(true);
@@ -43,13 +43,13 @@ export class DomainPopup extends PureComponent {
                 const domainIdParam = isAffDomain ? "affDomainId" : "redirectDomainId";
                 const targetCountryList = await this.props.getTargetCountryListByDomain({ [domainIdParam]: selectedDomainId });
 
-                if (targetCountryList && targetCountryList.length) {
+                if (targetCountryList?.length) {
                     const blockTargetCountryList = getBlockTargetCountryList(targetCountryList);
 
                     this.setState({
                         isInsert: false,
                         selectedDomain: { domainId: selectedDomainId, domainName: DomainName, blockTargetCountry: blockTargetCountryList.join(','), isSSL: IsSSL },
-                        targetCountryList,
+                        targetCountryList: convertListToMutilpleSelected(targetCountryList),
                         initialTargetCountryList: deepClone(targetCountryList)
                     });
                 } else {
@@ -94,7 +94,7 @@ export class DomainPopup extends PureComponent {
             return;
         }
 
-        const initialUsedCountryOnControlDomains = initialTargetCountryList && initialTargetCountryList.filter(targetCountry =>
+        const initialUsedCountryOnControlDomains = initialTargetCountryList?.filter(targetCountry =>
             targetCountry.IsUsedDomainControl
         ).map(t => t.TargetCountryCode).join(",");
 
@@ -103,7 +103,7 @@ export class DomainPopup extends PureComponent {
             return;
         }
 
-        const initialBlockedControlDomains = initialTargetCountryList.filter(targetCountry =>
+        const initialBlockedControlDomains = initialTargetCountryList?.filter(targetCountry =>
             targetCountry.IsUsedDomainControl &&
             targetCountry.Status === targetCountryStatus.Blocked
         ).map(t => t.TargetCountryCode).join(",");

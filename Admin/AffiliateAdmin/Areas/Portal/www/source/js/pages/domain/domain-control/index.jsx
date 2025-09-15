@@ -7,16 +7,17 @@ import AppContainer from './components/AppContainer';
 import reducer from './reducers';
 import { configureStore } from '../../../modules/store';
 
-const store = configureStore({ ...window.initialState }, reducer);
-
 export default class App extends React.PureComponent {
     constructor(props) {
         super(props);
+        const { targetCountryList } = window.initialState;
+
+        this.store = configureStore({ targetCountryList }, reducer);
     }
 
     render() {
         return (
-            <Provider store={store}>
+            <Provider store={this.store}>
                 <AppContainer />
             </ Provider>
         );
