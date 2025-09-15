@@ -73,11 +73,11 @@ export class Filter extends Component {
 
     handleClickSearch = (parentAffName) => {
 
-        const { selectedCommGroupList, selectedLanguage, selectedStatus, userName, email, selectedSortBy, isSortAscending, affCode, affPlayer, affCategoryIds } = this.state;
+        const { selectedCommGroupList, selectedLanguage, selectedStatus, userName, email, selectedSortBy, isSortAscending, affCode, affPlayer, affCategoryIds, selectedTargetCountry } = this.state;
 
         const affCodeInput = affCode.trim();
         const isSelectAllCommGroup = this.props.commGroupList.every(c => c.checked);
-        this.props.setReportTitle(this._buildReportTitle(selectedLanguage, selectedStatus, userName, email, affCodeInput, affPlayer, isSelectAllCommGroup));
+        this.props.setReportTitle(this._buildReportTitle(selectedLanguage, selectedStatus, userName, email, affCodeInput, affPlayer, isSelectAllCommGroup, selectedTargetCountry));
 
         const param = {
             GroupIds: isSelectAllCommGroup ? allCommGroups : selectedCommGroupList,
@@ -90,7 +90,8 @@ export class Filter extends Component {
             SortDirectionType: !isSortAscending,
             AffCode: affCodeInput,
             AffPlayer: affPlayer,
-            AffCategoryIds: affCategoryIds
+            AffCategoryIds: affCategoryIds,
+            TargetCountryCode: selectedTargetCountry
         }
         this.props.setParam(param);
     }
@@ -113,27 +114,27 @@ export class Filter extends Component {
         this.props.setSelectedColumn(newColumnList);
     }
 
-    _buildReportTitle(selectedLanguage, selectedStatus, userName, email, affCode, affPlayer, isSelectAllCommGroup) {
-        const { commGroupList, languageList } = this.props;
+    _buildReportTitle(selectedLanguage, selectedStatus, userName, email, affCode, affPlayer, isSelectAllCommGroup, selectedTargetCountry) {
+        const { commGroupList, languageList, targetCountryList } = this.props;
 
         const space = resource.Space;
         const apostrophe = resource.Apostrophe;
         const commGroupTitle = isSelectAllCommGroup ? resource.AllCommGroups : commGroupList.filter(c => c.checked).map(c => c.name).join(',');
         const languageTitle = languageList[selectedLanguage] || resource.AllLanguages;
         const statusTitle = statusList[selectedStatus] || resource.AllStatuses;
-
+        const targetCountryTitle = targetCountryList[selectedTargetCountry] || resource.AllTargetCountries;
         const userNameTitle = userName && space + resource.UsernameContains + apostrophe + userName + apostrophe;
         const emailTitle = email && space + resource.EmailContains + apostrophe + email + apostrophe;
         const affCodeTitle = affCode && space + resource.AffCodeContains + apostrophe + affCode + apostrophe;
         const affPlayerTitle = affPlayer && space + resource.AffPlayerContains + apostrophe + affPlayer + apostrophe;
 
-        return `${resource.ReportName}${space}${commGroupTitle.toUpperCase()}${space}${languageTitle.toUpperCase()}${space}${statusTitle.toUpperCase()}`
+        return `${resource.ReportName}${space}${commGroupTitle.toUpperCase()}${space}${targetCountryTitle.toUpperCase()}${space}${languageTitle.toUpperCase()}${space}${statusTitle.toUpperCase()}`
             + `${userNameTitle}${emailTitle}${affCodeTitle}${affPlayerTitle}`;
     }
 
     render() {
-        const { selectedLanguage, selectedSortBy, selectedStatus, isSortAscending, userName, email, affCode, parentAffName, affPlayer, affCategoryIds } = this.state;
-        const { commGroupList, languageList, columnList } = this.props;
+        const { selectedLanguage, selectedSortBy, selectedStatus, isSortAscending, userName, email, affCode, parentAffName, affPlayer, affCategoryIds, selectedTargetCountry } = this.state;
+        const { commGroupList, languageList, columnList, targetCountryList } = this.props;
 
         return (
             <div className="filter-container">
@@ -149,6 +150,19 @@ export class Filter extends Component {
                             noneSelectedLabel="None Select"
                             selectedAllLabel="All Revenue Groups"
                             onChange={this.handleChangeCommGroup} />
+                    </FormGroup>
+
+                    <FormGroup className="my-2 mr-sm-2">
+                        {
+                            <Input type="select" name="selectedTargetCountry" id="targetCountry" value={selectedTargetCountry} onChange={this.handleChange}>
+                                <option key="target-country-all" value="">{resource.AllTargetCountries}</option>
+                                {
+                                    Object.keys(targetCountryList).map(country => {
+                                        return (<option key={'country-' + country} value={country}>{targetCountryList[country]}</option>)
+                                    })
+                                }
+                            </Input>
+                        }
                     </FormGroup>
 
                     <FormGroup className="my-2 mr-sm-2">

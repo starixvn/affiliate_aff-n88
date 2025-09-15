@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 
 namespace Fanex.Affiliate.Admin.Core.DTO.Affiliate
 {
@@ -58,5 +57,7 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Affiliate
         public string ApprovedBy { get; set; }
 
         public string ApprovedByText => string.IsNullOrEmpty(ApprovedBy) ? "N/A" : ApprovedBy;
+
+        public string TargetCountryCode { get; set; }
     }
 }

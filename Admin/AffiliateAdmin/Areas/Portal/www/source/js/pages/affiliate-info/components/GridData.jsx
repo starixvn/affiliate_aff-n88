@@ -76,6 +76,7 @@ export class GridData extends Component {
         const newParam = {
             ParentAffName: userName,
             GroupId: 0,
+            TargetCountryCode: '',
             Language: '',
             Status: '',
             UserName: '',
@@ -97,6 +98,7 @@ export class GridData extends Component {
                 {selectedColumnList['Status'] && <th width={75} title={headerText.Status.label}>{headerText.Status.label}</th>}
                 {selectedColumnList['FirstName'] && <th width={75} title={headerText.FirstName.label}>{headerText.FirstName.label}</th>}
                 {selectedColumnList['LastName'] && <th width={75} title={headerText.LastName.label}>{headerText.LastName.label}</th>}
+                {selectedColumnList['TargetCountryCode'] && <th width={75} title={headerText.TargetCountryCode.label}>{headerText.TargetCountryCode.label}</th>}
                 {selectedColumnList['Language'] && <th width={75} title={headerText.Language.label}>{headerText.Language.label}</th>}
                 {selectedColumnList['Phone'] && <th width={100} title={headerText.Phone.label}>{headerText.Phone.label}</th>}
                 {selectedColumnList['Email'] && <th width={175} title={headerText.Email.label}>{headerText.Email.label}</th>}
@@ -139,7 +141,7 @@ export class GridData extends Component {
     }
 
     _buildDataRow(dataItem, index, selectedColumnList) {
-        const { languageList, isShowMemberLink } = this.props;
+        const { languageList, isShowMemberLink, targetCountryList } = this.props;
         const status = dataItem.Status && htmlDecode(dataItem.Status).toLowerCase();
         const isApproved = status == "approved";
         const commissionGroupName = htmlDecode(dataItem.CommissionGroup);
@@ -163,6 +165,7 @@ export class GridData extends Component {
             <Button color="link" className="p-0" onClick={() => this._handleViewSubAff(dataItem.UserName)}>
                 {formattedSubAffValue}
             </Button>);
+        const targetCountry = targetCountryList[dataItem.TargetCountryCode];
         const language = languageList[dataItem.Language];
         const commissionGroup = dataItem.IsUsingPrivateCommGroup ? (
             <Button color="link"
@@ -196,6 +199,7 @@ export class GridData extends Component {
                 {selectedColumnList['Status'] && <td title={dataItem.Status}>{dataItem.Status}</td>}
                 {selectedColumnList['FirstName'] && <td title={firstName}>{firstName}</td>}
                 {selectedColumnList['LastName'] && <td title={lastName}>{lastName}</td>}
+                {selectedColumnList['TargetCountryCode'] && <td title={targetCountry}>{targetCountry}</td>}
                 {selectedColumnList['Language'] && <td title={language}>{language}</td>}
                 {selectedColumnList['Phone'] && <td title={phone}>{phone}</td>}
                 {selectedColumnList['Email'] && <td title={email}>{email}</td>}
@@ -334,10 +338,10 @@ export class GridData extends Component {
     }
 }
 
-function mapStateToProps({ pagingOption, languageList, param, columnList, claimsPrincipal }) {
+function mapStateToProps({ pagingOption, languageList, param, columnList, claimsPrincipal, targetCountryList }) {
     const isShowMemberLink = claimsPrincipal.hasReadClaim(claimResource.Player);
 
-    return Object.assign({}, { pagingOption, languageList, param, columnList, isShowMemberLink });
+    return Object.assign({}, { pagingOption, languageList, param, columnList, isShowMemberLink, targetCountryList });
 }
 
 function mapDispatchToProps(dispatch) {

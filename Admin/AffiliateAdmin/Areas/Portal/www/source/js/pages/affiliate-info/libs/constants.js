@@ -33,6 +33,7 @@ export const headerText = {
     Status: { label: 'Status' },
     FirstName: { label: 'First Name' },
     LastName: { label: 'Last Name' },
+    TargetCountryCode: { label: 'Target Country' },
     Language: { label: 'Language' },
     Phone: { label: 'Mobile Phone' },
     Email: { label: 'Email' },
@@ -54,6 +55,7 @@ export const minWidthOfColumns = {
     Status: 75,
     FirstName: 75,
     LastName: 75,
+    TargetCountryCode: 75,
     Language: 75,
     Phone: 100,
     Email: 175,
@@ -74,6 +76,7 @@ export const resource = {
     Space: ' - ',
     ReportName: 'AFFILIATE REPORT',
     AllCommGroups: 'All Revenue Groups',
+    AllTargetCountries: 'All Target Countries',
     AllLanguages: 'All Languages',
     AllStatuses: 'All Statuses',
     UsernameContains: 'USERNAME CONTAINS ',
@@ -95,6 +98,7 @@ export const regExp = {
 
 export const defaultState = {
     selectedCommGroup: 0,
+    selectedTargetCountry: '',
     selectedLanguage: '',
     selectedStatus: '',
     parentAffName: '',

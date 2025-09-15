@@ -375,7 +375,6 @@
     <Compile Include="Criterias\BaseCriteria.cs" />
     <Compile Include="Criterias\CommissionGroup\GetCommissionGroupCriteria.cs" />
     <Compile Include="Criterias\CommissionGroup\GetNormalCommGroupCriteria.cs" />
-    <Compile Include="Criterias\Customer\AffiliateInfoOnLeftPanelCriteria.cs" />
     <Compile Include="Criterias\Customer\AffiliateOnlineCriteria.cs" />
     <Compile Include="Criterias\Customer\CustomerStatisticsCriteria.cs" />
     <Compile Include="Criterias\Customer\TransferLimitCriteria.cs" />
