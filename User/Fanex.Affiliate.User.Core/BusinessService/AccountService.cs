@@ -1,13 +1,14 @@
-﻿using Fanex.Affiliate.User.Core.Apis;
+﻿using System.Threading.Tasks;
+using Fanex.Affiliate.User.Core.Apis;
 using Fanex.Affiliate.User.Core.Constants.Apis;
 using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.DTO.Api;
+using Fanex.Affiliate.User.Core.DTO.UserPanel;
 using Fanex.Affiliate.User.Core.MetalModels;
 using Fanex.Affiliate.User.Core.MetalModels.Email;
 using Fanex.Affiliate.User.Core.Repository.UserPanel;
 using Fanex.Affiliate.User.Core.Resources;
 using Fanex.Affiliate.User.Core.Utilities;
-using System.Threading.Tasks;
 
 namespace Fanex.Affiliate.User.Core.BusinessService
 {
@@ -30,6 +31,9 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             _licenseeApi = licenseeApi;
             _appSetting = appSetting;
         }
+
+        public AccountInformation GetAccountInfo(int affId)
+            => _accountRepository.GetAccountInfo(affId);
 
         public async Task<ResultInfo> CreateAffiliateAsync(UserSignUpParam signUpParam, EmailBaseParam emailParam)
         {
@@ -95,7 +99,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             var siteId = _appSetting.MemberSiteId;
             return await _licenseeApi.GetCustomerInfoAsync(userName, siteId);
         }
-        private ResultInfo CheckPlayerUserNameValid(MemberSiteCustomerInfo cust)
+        private static ResultInfo CheckPlayerUserNameValid(MemberSiteCustomerInfo cust)
         {
             var validInfo = new ResultInfo
             {

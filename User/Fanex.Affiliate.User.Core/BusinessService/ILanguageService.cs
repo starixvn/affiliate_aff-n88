@@ -17,6 +17,8 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
         IEnumerable<Language> GetSupportedUILanguageList(bool? isInternal = null);
 
-        Dictionary<string, List<TargetCountryLanguage>> GetTargetCountryLanguages(bool isDefault = true, string targetCountryCode = "");
+        IEnumerable<TargetCountryLanguage> GetTargetCountries(string targetCountryCode = "", bool isDefault = true);
+
+        Dictionary<string, List<TargetCountryLanguage>> GetTargetCountryLanguages(string targetCountryCode = "");
     }
 }

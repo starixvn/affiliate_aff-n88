@@ -75,6 +75,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
         public bool IsValid(string langCode)
             => !string.IsNullOrWhiteSpace(langCode) && GetLanguageList().Any(l => Equals(l.Code, langCode));
+
         public void SetCulture(string languageCode)
         {
 
@@ -85,15 +86,23 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             Thread.CurrentThread.CurrentCulture.NumberFormat = CultureInfo.CreateSpecificCulture("en-US").NumberFormat;
         }
 
-        public Dictionary<string, List<TargetCountryLanguage>> GetTargetCountryLanguages(bool isDefault = true,
-            string targetCountryCode = "")
+        public IEnumerable<TargetCountryLanguage> GetTargetCountries(string targetCountryCode = "", bool isDefault = true)
         {
-            var targetCountryLanguages = _languageRepository.GetTargetCountryLanguages(isDefault, targetCountryCode);
+            return _languageRepository.GetTargetCountryInfo(targetCountryCode, isDefault);
+        }
 
-            return targetCountryLanguages
+        public Dictionary<string, List<TargetCountryLanguage>> GetTargetCountryLanguages(string targetCountryCode = "")
+        {
+            var targetCountryLanguages = GetTargetCountries(targetCountryCode, false);
+
+            var result = targetCountryLanguages
                 .GroupBy(tcl => tcl.TargetCountryCode)
-                .ToDictionary(key => key.Key,
-                    val => val.ToList());
+                .ToDictionary(
+                    g => g.Key,
+                    g => g.ToList()
+                );
+
+            return result;
         }
     }
 }

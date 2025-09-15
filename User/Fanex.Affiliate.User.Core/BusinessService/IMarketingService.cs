@@ -20,7 +20,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
         IEnumerable<SizeType> GetSizeList(SizeParam param, bool isInternal = false);
 
-        IEnumerable<Domain> GetAvailableDomainList(int affId, AffiliateLinkType linkType, bool isInternal = false);
+        IEnumerable<Domain> GetAvailableDomainList(AvailableDomainParam param);
 
         IDictionary<string, LanguageLinkViewModel> GenerateLinkList(LinkGeneratingParam linkGeneratedParam);
 
@@ -28,7 +28,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
         IEnumerable<MarketingItem> GetTextList(MarketingTextParam textParam);
 
-        IEnumerable<LandingPage> GetLandingPageList(bool isInternal = false, AffiliateLinkType linkType = AffiliateLinkType.AffiliateLink);
+        IEnumerable<LandingPage> GetLandingPageList(LandingPageParam param);
 
         ResultInfo<MarketingChannel> AddMarketingChannel(int userId, string channelName);
 

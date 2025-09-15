@@ -13,5 +13,7 @@ namespace Fanex.Affiliate.User.Core.MetalModels.UserPanel
         public int? SelectedDomainId { get; set; }
 
         public AffiliateLinkType SelectedLinkType { get; set; }
+
+        public string SelectedTargetCountry { get; set; }
     }
 }

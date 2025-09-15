@@ -2177,4 +2177,7 @@
   <data name="InvalidPhoneNumber" xml:space="preserve">
     <value>Phone number is invalid. Please ensure it has the required digits.</value>
   </data>
+  <data name="TargetCountry" xml:space="preserve">
+    <value>Target Country</value>
+  </data>
 </root>

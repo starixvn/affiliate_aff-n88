@@ -251,7 +251,7 @@
     @media (max-width: 767px) {
         align-items: flex-end;
 
-        .language-container .flag {
+        .language-container span .flag {
             width: 16px !important;
             height: 16px !important;
         }
@@ -281,7 +281,7 @@
     position: relative;
 
     .select-language {
-        //width: 100%;
+        width: 100%;
         height: 100%;
         padding: 0 25px 0 28px;
         background: transparent;
@@ -333,7 +333,6 @@
         position: absolute;
         background: #fff;
         z-index: 100;
-        width: 135px;
         font-size: 13px;
         top: 36px;
         background: #FFFFFF;
@@ -502,9 +501,10 @@
     flex: 1 4 0%;
 
     .flag {
-        width: 20px;
-        height: 20px;
+        width: 30px;
+        height: 30px;
         border-radius: 50%;
+        margin-right: 0;
         border: 1px solid #eee;
     }
 
@@ -534,7 +534,7 @@
 
         .separator {
             color: #ddd;
-            font-size: 12px;
+            font-size: 13px;
         }
     }
 
@@ -563,11 +563,12 @@
 }
 
 .country-item-col-1 {
-    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .country-item-col-2 {
-    flex: 4;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;

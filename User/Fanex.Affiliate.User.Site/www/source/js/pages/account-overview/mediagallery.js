@@ -28,6 +28,7 @@
             _me.initEvent();
             initPager();
             _me.togglePager();
+            MarketingBase.initEvent();
             MarketingBase.initChannelSelectEvent();
         },
 
@@ -53,21 +54,6 @@
                 _me.getSize();
             });
 
-            $("#AffLinkType").change(function () {
-                let selectedVal = $(this).val();
-                let selectedItem = window.searchOption.RefLinks.find(r => r.AffLinkType == selectedVal);
-
-
-                let domains = selectedItem.Domains.map(item => new Option(item.DomainName, item.DomainId));
-                let pages = selectedItem.SitePages.map(item => new Option(item.PageName, item.PageCode));
-                let category = [new Option(window.dic.all, "")];
-                category.push(...window.searchOption.CategoryList[selectedVal].map(item => new Option(item.Text, item.Value)));
-
-                $("#Page").empty().append(pages);
-                $("#Domain").empty().append(domains);
-                $("#Category").empty().append(category);
-            })
-
             $("#SubCategory").on("change", function () {
                 _me.getSize();
             });
@@ -88,7 +74,7 @@
                 _me.getSize();
             });
 
-            $("#btnMarketingSearch").on("click", function () {
+            $("#btnMarketingSubmit").on("click", function () {
                 _me.submitSearch();
                 _me.renderQrCodePage()
                     .then(function () {
@@ -110,7 +96,7 @@
             $("#marketingPager").toggle(totalItem > 0);
         },
 
-        submitSearch: function(){
+        submitSearch: function () {
             _pageIndex = 0;
             var searchParams = _me.getSearchParam();
             _me.getBannerList(searchParams, _me.updatePager);
@@ -124,7 +110,7 @@
                 data: param,
                 url: Site.resolveRelativeUrl("UserPanel/Marketing/GetSubCategory"),
                 success: function (response) {
-                    var html = _me.buildOptionList(response, "Value", "Text", true);
+                    var html = Site.buildOptionList(response, "Value", "Text", true);
                     $("#SubCategory").html(html);
                 },
                 beforeSend: function () {
@@ -144,7 +130,8 @@
                 currency: $("#Currency").val(),
                 imageType: $("#ImageType").val(),
                 deviceType: $("#DeviceType").val(),
-                targetId: $("#AffLinkType").val()
+                targetId: $("#AffLinkType").val(),
+                targetCountryCode: $('#TargetCountry').val()
             };
 
             $.ajax({
@@ -154,7 +141,7 @@
                 data: param,
                 url: Site.resolveRelativeUrl("UserPanel/Marketing/GetSize"),
                 success: function (response) {
-                    var html = _me.buildOptionList(response, "Size", "Size", true);
+                    var html = Site.buildOptionList(response, "Size", "Size", true);
                     $("#Size").html(html);
                 },
                 beforeSend: function () {
@@ -164,18 +151,6 @@
                     Site.hideLoader();
                 }
             });
-        },
-
-        buildOptionList: function (dataList, value, text, hasAllOption) {
-            var optionList = dataList.map(function (item) {
-                return "<option value='" + item[value] + "'>" + item[text] + "</option>"
-            });
-
-            if (hasAllOption) {
-                optionList.unshift(optionAll);
-            }
-
-            return optionList.join("");
         },
 
         getSearchParam: function () {
@@ -191,6 +166,7 @@
                 selectedPage: $("#Page").val(),
                 selectedChannel: $("#Channel").val(),
                 targetId: $("#AffLinkType").val(),
+                selectedTargetCountry: $('#TargetCountry').val(),
                 pageIndex: _pageIndex + 1,
                 pageSize: _pageSize
             };
@@ -225,14 +201,15 @@
                 selectedPage: $('#Page').val(),
                 selectedChannel: $('#Channel').val(),
                 selectedDomainId: $('#Domain').val(),
-                selectedLinkType: $('#AffLinkType').val()
+                selectedLinkType: $('#AffLinkType').val(),
+                selectedTargetCountry: $('#TargetCountry').val()
             }
             return MarketingBase.renderQrCodePage(param)
                 .then((response) => {
                     if (response.ok)
                         return response.text()
                     else {
-                        handleFalseResponse(response);
+                        MarketingBase.handleFalseResponse(response);
                     }
                 })
                 .then(html => {

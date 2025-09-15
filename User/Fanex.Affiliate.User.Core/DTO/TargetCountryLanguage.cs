@@ -1,18 +1,12 @@
 ﻿namespace Fanex.Affiliate.User.Core.DTO
 {
-    public class TargetCountryLanguage
+    public class TargetCountryLanguage : TargetCountry
     {
-        public int OrderNo { get; set; }
+        public string Code { get; set; }
 
-        public string TargetCountryCode { get; set; }
+        public string EnglishName { get; set; }
 
-        public string TargetCountryName { get; set; }
-
-        public string MarketId { get; set; }
-
-        public string MarketName { get; set; }
-
-        public string MarketNativeName { get; set; }
+        public string NativeName { get; set; }
 
         public string ShortedCode { get; set; }
     }

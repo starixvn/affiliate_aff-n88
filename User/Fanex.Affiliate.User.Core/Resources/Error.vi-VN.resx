@@ -189,4 +189,7 @@
   <data name="AccountInvalidFormat" xml:space="preserve">
     <value>{0} không hợp lệ</value>
   </data>
+  <data name="TargetCountryErr" xml:space="preserve">
+    <value>Vui lòng chọn thị trường</value>
+  </data>
 </root>

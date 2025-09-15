@@ -21,19 +21,11 @@ namespace Fanex.Affiliate.User.Core.Repository
 
             using (var objectDb = Builder.Build(uSpKey, dbMode))
             {
-                return objectDb.Query<LanguageType>()
-                    .Select(l => new Language
-                    {
-                        Code = l.MarketId,
-                        DisplayName = l.DisplayName,
-                        EnglishName = l.MarketName,
-                        NativeName = l.MarketNativeName,
-                        ShortedCode = l.ShortedCode
-                    });
+                return objectDb.Query<Language>();
             }
         }
 
-        public IEnumerable<TargetCountryLanguage> GetTargetCountryLanguages(bool isDefault = true, string targetCountryCode = "")
+        public IEnumerable<TargetCountryLanguage> GetTargetCountryInfo(string targetCountryCode = "", bool isDefault = true)
         {
             const string uSpKey = "Aff_TargetCountry_Sel";
 

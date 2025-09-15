@@ -1,7 +1,8 @@
-﻿using Fanex.Affiliate.User.Core.Enum;
-
-namespace Fanex.Affiliate.User.Core.MetalModels.UserPanel
+﻿namespace Fanex.Affiliate.User.Core.MetalModels.UserPanel
 {
+    using Data;
+    using Fanex.Affiliate.User.Core.Enum;
+
     public class SizeParam
     {
         public string Category { get; set; }
@@ -19,5 +20,8 @@ namespace Fanex.Affiliate.User.Core.MetalModels.UserPanel
         public string AffType { get; set; }
 
         public AffiliateLinkType TargetId { get; set; }
+
+        [SpParam(Ignored = true)]
+        public string TargetCountryCode { get; set; }
     }
 }

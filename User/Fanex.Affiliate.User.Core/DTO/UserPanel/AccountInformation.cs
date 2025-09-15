@@ -51,7 +51,7 @@ namespace Fanex.Affiliate.User.Core.DTO.UserPanel
 
         public bool IsPlayerAccount => !string.IsNullOrEmpty(PreferredPayment) && PreferredPayment.Equals("Player", StringComparison.OrdinalIgnoreCase);
 
-        public IEnumerable<string> MoreWebsiteUrlList => string.IsNullOrEmpty(MoreSiteUrls) ? new string[0] : MoreSiteUrls.Split(';');
+        public IEnumerable<string> MoreWebsiteUrlList => string.IsNullOrEmpty(MoreSiteUrls) ? Array.Empty<string>() : MoreSiteUrls.Split(';');
 
         public string LanguageName { get; set; }
 
@@ -70,5 +70,7 @@ namespace Fanex.Affiliate.User.Core.DTO.UserPanel
         public int PlayerCurrencyId { get; set; }
 
         public int AffCategoryId { get; set; }
+
+        public string TargetCountryCode { get; set; }
     }
 }

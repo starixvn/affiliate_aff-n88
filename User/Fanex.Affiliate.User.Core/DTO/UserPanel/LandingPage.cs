@@ -5,5 +5,7 @@
         public string PageName { get; set; }
 
         public string PageCode { get; set; }
+
+        public string BlockTargetCountryCode { get; set; }
     }
 }
