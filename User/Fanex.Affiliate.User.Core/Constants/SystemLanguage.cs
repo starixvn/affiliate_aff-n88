@@ -21,7 +21,27 @@ namespace Fanex.Affiliate.User.Core.Constants
             ["bn-BD"] = "bn"
         };
 
+        private static readonly IDictionary<string, string> _supportedFavoriteLanguages = new Dictionary<string, string>
+        {
+            ["en"] = "en-US",
+            ["ms"] = "ms-MY",
+            ["cs"] = "zh-CN",
+            ["th"] = "th-TH",
+            ["then"] = "en-US",
+            ["id"] = "id-ID",
+            ["iden"] = "en-US",
+            ["hi"] = "hi-IN",
+            ["hien"] = "en-US",
+            ["vn"] = "vi-VN",
+            ["vnen"] = "en-US",
+            ["bn"] = "bn-BD",
+            ["bnen"] = "en-US",
+            ["phen"] = "en-US",
+        };
+
         public static IDictionary<string, string> SupportedLanguage => _supportedLanguageForGoogleAnalytics;
+
+        public static IDictionary<string, string> SupportedFavoriteLanguages => _supportedFavoriteLanguages;
 
         public static string DefaultLanguageCode
         {

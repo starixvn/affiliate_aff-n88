@@ -100,8 +100,7 @@
                                                     <div class="language-options">
                                                         @foreach (var lang in country.Value)
                                                         {
-                                                            var code = SystemLanguage.SupportedLanguage.ContainsKey(lang.Code) ? SystemLanguage.SupportedLanguage[lang.Code] : lang.Code;
-                                                            <a href="javascript:;" class="language-item @(sessionService.CurrentLanguage == lang.Code && country.Key == sessionService.CurrentCountry ? "highlight" : "")" data-target-country-code="@country.Key" data-option="@code">
+                                                            <a href="javascript:;" class="language-item @(sessionService.CurrentLanguage == lang.Code && country.Key == sessionService.CurrentCountry ? "highlight" : "")" data-target-country-code="@country.Key" data-option="@lang.ShortedCode">
                                                                 @lang.NativeName
                                                             </a>
                                                             if (lang != country.Value.Last())

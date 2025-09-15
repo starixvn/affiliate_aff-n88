@@ -272,6 +272,7 @@
     <Compile Include="DTO\Api\AccountApiResult.cs" />
     <Compile Include="DTO\Api\ApiResultInfo.cs" />
     <Compile Include="DTO\Api\CustomerBalanceInfo.cs" />
+    <Compile Include="DTO\IpLocationResult.cs" />
     <Compile Include="DTO\TargetCountry.cs" />
     <Compile Include="DTO\TargetCountryLanguage.cs" />
     <Compile Include="DTO\UserPanel\MarketingPageStatistics.cs" />
@@ -389,7 +390,6 @@
     <Compile Include="Repository\IIpLocationRepository.cs" />
     <Compile Include="Repository\ILanguageRepository.cs" />
     <Compile Include="Repository\IpLocationRepository.cs" />
-    <Compile Include="DTO\IpLocationResult.cs" />
     <Compile Include="Repository\LanguageRepository.cs" />
     <Compile Include="Repository\UserPanel\BaseRepository.cs" />
     <Compile Include="Repository\UserPanel\ICurrencyRepository.cs" />

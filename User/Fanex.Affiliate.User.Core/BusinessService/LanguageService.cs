@@ -1,28 +1,37 @@
-﻿using Fanex.Affiliate.User.Core.Constants;
-using Fanex.Affiliate.User.Core.CoreService;
-using Fanex.Affiliate.User.Core.DTO;
-using Fanex.Affiliate.User.Core.Repository;
-using Fanex.Affiliate.User.Core.Utilities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Threading;
 using System.Web;
+using Fanex.Affiliate.User.Core.Constants;
+using Fanex.Affiliate.User.Core.CoreService;
+using Fanex.Affiliate.User.Core.DTO;
+using Fanex.Affiliate.User.Core.Extensions;
+using Fanex.Affiliate.User.Core.Repository;
+using Fanex.Affiliate.User.Core.Utilities;
 
 namespace Fanex.Affiliate.User.Core.BusinessService
 {
     public class LanguageService : ILanguageService
     {
+        private const string LANGUAGE_COOKIE_KEY = "afffavoritelang";
+
         private readonly ISessionService _sessionService;
         private readonly ILanguageRepository _languageRepository;
         private readonly IMemoryCacheService _cacheService;
+        private readonly IIpLocationService _ipLocationService;
 
-        public LanguageService(ILanguageRepository languageRepository, ISessionService sessionService, IMemoryCacheService cacheService)
+        public LanguageService(
+            ILanguageRepository languageRepository, 
+            ISessionService sessionService, 
+            IMemoryCacheService cacheService, 
+            IIpLocationService ipLocationService)
         {
             _languageRepository = languageRepository;
             _sessionService = sessionService;
             _cacheService = cacheService;
+            _ipLocationService = ipLocationService;
         }
 
         public string GetCurrentLanguage()
@@ -30,24 +39,73 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
         public string GetFavoriteLanguage()
         {
-            var preferedUrlLang = HttpContext.Current.Request["lang"]?.Trim();
-            var preferedLang = SystemLanguage.SupportedLanguage.FirstOrDefault(i => string.Equals(i.Value, preferedUrlLang, StringComparison.OrdinalIgnoreCase)).Key;
+            var preferredUrlLang = HttpContext.Current.Request["lang"]?.Trim();
+            var preferredLang = SystemLanguage.SupportedFavoriteLanguages.FirstOrDefault(i => string.Equals(i.Key, preferredUrlLang, StringComparison.OrdinalIgnoreCase)).Value;
 
-            if (!string.IsNullOrEmpty(preferedLang) && IsValid(preferedLang))
+            if (IsValid(preferredLang))
             {
-                return preferedLang;
+                return preferredLang;
             }
 
-            var langCookie = HttpContext.Current.Request.Cookies["afffavoritelang" + AppSetting.Instance.SiteName]?.Value;
+            var langCookie = HttpContext.Current.Request.Cookies[LANGUAGE_COOKIE_KEY + AppSetting.Instance.SiteName]?.Value;
 
             return IsValid(langCookie) ? langCookie : SystemLanguage.DefaultLanguageCode;
         }
 
         public string GetCountry()
         {
-            var countryCookie = HttpContext.Current.Request.Cookies[AppSetting.Instance.SiteName + "_country"]?.Value;
+            var preferredUrlLang = HttpContext.Current.Request["lang"]?.Trim();
 
-            return string.IsNullOrWhiteSpace(countryCookie) ? SystemLanguage.DefaultCountryCode : countryCookie;
+            if (!string.IsNullOrWhiteSpace(preferredUrlLang) && SystemLanguage.SupportedFavoriteLanguages.ContainsKey(preferredUrlLang))
+            {
+                return GetCountryByLanguage(preferredUrlLang);
+            }
+
+            return GetCountryByIp();
+        }
+
+        private string GetCountryByLanguage(string languageShortedCode)
+        {
+            var targetCountryLanguages = GetTargetCountryLanguages();
+
+            foreach (var dic in targetCountryLanguages)
+            {
+                var value = dic.Value;
+                if (value.FirstOrDefault(l => l.ShortedCode == languageShortedCode) != null)
+                {
+                    return dic.Key;
+                }
+            }
+
+            return SystemLanguage.DefaultCountryCode;
+        }
+
+        private string GetCountryByIp()
+        {
+            var request = HttpContext.Current.Request;
+            var cookieKey = $"{AppSetting.Instance.SiteName}_country";
+            var countryCookie = request.Cookies[cookieKey]?.Value;
+
+            if (!string.IsNullOrWhiteSpace(countryCookie))
+            {
+                return countryCookie;
+            }
+
+            var countryByIp = _ipLocationService.GetCountryFromIp(request.GetClientIP());
+            if (IsValidCountry(countryCookie))
+            {
+                var languageCookie = new HttpCookie(LANGUAGE_COOKIE_KEY + AppSetting.Instance.SiteName, SystemLanguage.DefaultCountryCode)
+                {
+                    HttpOnly = true,
+                    Secure = true
+                };
+
+                HttpContext.Current.Response.Cookies.Add(languageCookie);
+
+                return countryByIp;
+            }
+
+            return SystemLanguage.DefaultCountryCode;
         }
 
         public IEnumerable<Language> GetLanguageList(bool? isInternal = null)
@@ -83,6 +141,9 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         public bool IsValid(string langCode)
             => !string.IsNullOrWhiteSpace(langCode) && GetLanguageList().Any(l => Equals(l.Code, langCode));
 
+        private bool IsValidCountry(string countryCode)
+            => !string.IsNullOrWhiteSpace(countryCode) && GetTargetCountries(countryCode).Any();
+
         public void SetCulture(string languageCode)
         {
 
@@ -106,7 +167,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                 .GroupBy(tcl => tcl.TargetCountryCode)
                 .ToDictionary(
                     g => g.Key,
-                    g => g.ToList()
+                    g => g.OrderByDescending(m => m.Code == SystemLanguage.DefaultLanguageCode).ToList()
                 );
 
             return result;
