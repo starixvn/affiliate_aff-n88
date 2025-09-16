@@ -100,7 +100,7 @@
             {
                 var language = LanguageService.GetLanguageList().FirstOrDefault(p => p.ShortedCode == item.LanguageCode);
 
-                item.LanguageName = language == null ? item.LanguageCode : language.NativeName;
+                item.LanguageName = language == null ? item.LanguageCode : language.EnglishName;
             }
 
             return dataList;
