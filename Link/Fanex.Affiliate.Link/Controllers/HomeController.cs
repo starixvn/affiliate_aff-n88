@@ -252,19 +252,19 @@ namespace Fanex.Affiliate.Link.Controllers
 
         private string HandleRedirectUrl(string redirectUrl, string pageCode, string languageCode)
         {
-            var mappingCode = MappingLanguageCodeOnMemberSite(languageCode);
+            var redirectUri = new Uri(redirectUrl);
+            var segments = redirectUri.AbsolutePath.Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
+            var lang = segments[0];
+            var mappingCode = MappingLanguageCodeOnMemberSite(lang);
 
             var redirectPattern = ConfigurationManager.AppSettings[$"Redirect_{pageCode.ToLowerInvariant()}_pattern"];
             if (!string.IsNullOrEmpty(redirectPattern))
             {
-                var redirectUri = new Uri(redirectUrl);
                 var path = redirectPattern.Replace("#language#", mappingCode);
                 return $"{redirectUri.Scheme}://{redirectUri.Host}{path}{redirectUri.Query}";
             }
-            else
-            {
-                return redirectUrl.Replace($"/{languageCode}/", $"/{mappingCode}/");
-            }
+
+            return redirectUrl.Replace($"/{languageCode}/", $"/{mappingCode}/");
         }
 
         private static string MappingLanguageCodeOnMemberSite(string languageCode)
