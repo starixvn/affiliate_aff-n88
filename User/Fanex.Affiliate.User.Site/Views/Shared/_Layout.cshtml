@@ -10,11 +10,10 @@
     var currentLanguage = sessionService.CurrentLanguage;
     var languageNativeName = languageList.FirstOrDefault(l => l.Code.Equals(currentLanguage))?.NativeName;
     var siteFriendlyName = settingService.SiteFriendlyName;
-    var siteName = settingService.SiteName.ToLower();
+    var siteName = settingService.SiteName.ToLowerInvariant();
     var isN8G = string.Equals(settingService.SiteName, SiteName.N8G, StringComparison.CurrentCultureIgnoreCase);
     var jsVersion = AppSetting.Instance.JsVersion;
     var targetCountryLanguages = languageService.GetTargetCountryLanguages();
-    var currentCountry = targetCountryLanguages.FirstOrDefault(t => t.Key == sessionService.CurrentCountry).Value[0]?.TargetCountryName;
 }
 
 <!DOCTYPE html>
@@ -217,7 +216,7 @@
             ServerError: '@Lang.ServerError'
         };
         window.JsVersion = '@jsVersion';
-        window.SiteName = @siteName;
+        window.SiteName = '@siteName';
     </script>
 
     @Html.InlineScripts("~/www/build/js/lib/modernizr-webp.js")

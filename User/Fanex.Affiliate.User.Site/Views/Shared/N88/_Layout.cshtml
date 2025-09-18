@@ -13,7 +13,6 @@
     var siteFriendlyName = settingService.SiteFriendlyName;
     var isLogin = HttpContext.Current.User.Identity.IsAuthenticated && userSession != null;
     var targetCountryLanguages = languageService.GetTargetCountryLanguages();
-    var currentCountry = targetCountryLanguages.FirstOrDefault(t => t.Key == sessionService.CurrentCountry).Value[0]?.TargetCountryName;
 }
 
 <!DOCTYPE html>

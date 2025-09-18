@@ -15,9 +15,11 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 {
     public class LanguageService : ILanguageService
     {
-        private const string LANGUAGE_COOKIE_KEY = "afffavoritelang";
-        private string COUNTRY_COOKIE_KEY = $"{AppSetting.Instance.SiteName}_country";
-        private string COUNTRY_IP_COOKIE_KEY = $"{AppSetting.Instance.SiteName}_country";
+        private static string siteName = AppSetting.Instance.SiteName.ToLowerInvariant();
+
+        private string LANGUAGE_COOKIE_KEY = $"{siteName}_afffavoritelang";
+        private string COUNTRY_COOKIE_KEY = $"{siteName}_country";
+        private string COUNTRY_IP_COOKIE_KEY = $"{siteName}_ipcountry";
 
         private readonly ISessionService _sessionService;
         private readonly ILanguageRepository _languageRepository;
@@ -49,7 +51,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                 return preferredLang;
             }
 
-            var langCookie = HttpContext.Current.Request.Cookies[LANGUAGE_COOKIE_KEY + AppSetting.Instance.SiteName]?.Value;
+            var langCookie = HttpContext.Current.Request.Cookies[LANGUAGE_COOKIE_KEY]?.Value;
             return IsValid(langCookie) ? langCookie : GetLanguageByCountry();
         }
 
@@ -64,7 +66,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             return GetSystemTargetCountries()
                        .FirstOrDefault(c => c.TargetCountryCode == countryCode)
                        ?.Code
-                   ?? SystemLanguage.DefaultCountryCode;
+                   ?? SystemLanguage.DefaultLanguageCode;
         }
 
         public string GetCountry()
@@ -108,7 +110,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         {
             var request = HttpContext.Current.Request;
             var country = request.Cookies[COUNTRY_COOKIE_KEY]?.Value;
-            if (!string.IsNullOrWhiteSpace(country))
+            if (IsValidCountry(country))
             {
                 return country;
             }
@@ -202,7 +204,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
             if (uiLanguageList == null)
             {
-                var languageList = _languageRepository.GetLanguageList(isForInternal) ?? new List<Language>();
+                var languageList = GetLanguageList();
                 uiLanguageList = languageList.Where(l => !l.Code.Equals("ko-KR") && !l.Code.Equals("pt-BR"));
 
                 _cacheService.Set(cacheKey, uiLanguageList);
