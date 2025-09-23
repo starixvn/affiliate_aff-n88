@@ -1573,6 +1573,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Deposited.
+        /// </summary>
+        public static string Deposited {
+            get {
+                return ResourceManager.GetString("Deposited", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Deposited Players.
         /// </summary>
         public static string DepositedPlayers {
@@ -3463,6 +3472,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Non-Deposited.
+        /// </summary>
+        public static string NonDeposited {
+            get {
+                return ResourceManager.GetString("NonDeposited", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to None.
         /// </summary>
         public static string none {
@@ -3918,6 +3936,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string PlayerCurrency {
             get {
                 return ResourceManager.GetString("PlayerCurrency", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Player List.
+        /// </summary>
+        public static string PlayerList {
+            get {
+                return ResourceManager.GetString("PlayerList", resourceCulture);
             }
         }
         
@@ -4629,6 +4656,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string ShareBanner {
             get {
                 return ResourceManager.GetString("ShareBanner", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show All Players (Ignore Date filter).
+        /// </summary>
+        public static string ShowAllPlayersIgnoreDateFilter {
+            get {
+                return ResourceManager.GetString("ShowAllPlayersIgnoreDateFilter", resourceCulture);
             }
         }
         

@@ -25,5 +25,7 @@ namespace Fanex.Affiliate.User.Core.DTO.UserPanel
         public decimal DepositFee { get; set; }
 
         public decimal WithdrawalFee { get; set; }
+
+        public string Currency { get; set; }
     }
 }

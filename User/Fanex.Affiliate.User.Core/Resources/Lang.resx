@@ -2183,4 +2183,16 @@
   <data name="NetRevenue" xml:space="preserve">
     <value>Net Revenue</value>
   </data>
+  <data name="PlayerList" xml:space="preserve">
+    <value>Player List</value>
+  </data>
+  <data name="ShowAllPlayersIgnoreDateFilter" xml:space="preserve">
+    <value>Show All Players (Ignore Date filter)</value>
+  </data>
+  <data name="Deposited" xml:space="preserve">
+    <value>Deposited</value>
+  </data>
+  <data name="NonDeposited" xml:space="preserve">
+    <value>Non-Deposited</value>
+  </data>
 </root>

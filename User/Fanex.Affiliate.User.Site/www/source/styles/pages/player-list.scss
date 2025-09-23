@@ -1,0 +1,29 @@
+﻿@import "../scss/components/pager";
+@import "../scss/components/pikaday";
+
+#PlayerType {
+    margin-bottom: 0;
+}
+
+.btn-player-list {
+    margin-bottom: 5px;
+}
+
+#pager {
+    width: 70%;
+    margin-top: 30px;
+
+    & + #table {
+        margin-top: 0;
+    }
+}
+
+.date-wrapper {
+    display: inline-block;
+}
+
+.form-filter {
+    .form-group {
+        width: 300px;
+    }
+}

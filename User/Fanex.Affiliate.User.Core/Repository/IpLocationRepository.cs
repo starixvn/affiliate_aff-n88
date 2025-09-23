@@ -1,8 +1,6 @@
 namespace Fanex.Affiliate.User.Core.Repository
 {
-    using Fanex.Affiliate.User.Core.Repository.UserPanel;
     using Fanex.Affiliate.User.Core.DTO;
-    using System.Linq;
 
     public class IpLocationRepository : IIpLocationRepository
     {
