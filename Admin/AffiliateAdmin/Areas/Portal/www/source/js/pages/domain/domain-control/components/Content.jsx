@@ -7,7 +7,7 @@ import NotificationPopup from '../../../common/components/NotificationPopup';
 
 import { htmlDecode } from '../../../../modules/htmlHelper';
 import { headerText, globalResource } from '../libs/constants';
-import { deleteDomain, fetchData, fetchDomain, toggleLoader, setSelectedDomainId, setShouldResetScrollPosition } from '../actions';
+import { deleteDomain, fetchData, toggleLoader, setSelectedDomainId, setShouldResetScrollPosition } from '../actions';
 
 export class Content extends PureComponent {
     constructor(props) {
@@ -159,7 +159,7 @@ function mapStateToProps({ shouldResetScrollPosition, gridData, selectedTargetCo
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ deleteDomain, fetchData, fetchDomain, toggleLoader, setSelectedDomainId, setShouldResetScrollPosition }, dispatch);
+    return bindActionCreators({ deleteDomain, fetchData, toggleLoader, setSelectedDomainId, setShouldResetScrollPosition }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Content);
