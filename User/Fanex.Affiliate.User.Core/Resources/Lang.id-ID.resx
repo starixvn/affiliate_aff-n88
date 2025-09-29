@@ -1818,4 +1818,7 @@
   <data name="InvalidPhoneNumber" xml:space="preserve">
     <value>Nomor telepon tidak valid. Pastikan nomor tersebut memiliki jumlah digit yang sesuai.</value>
   </data>
+  <data name="NetRevenue" xml:space="preserve">
+    <value>Pendapatan Bersih</value>
+  </data>
 </root>

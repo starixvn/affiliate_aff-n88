@@ -1051,6 +1051,20 @@ div.summary-content {
         .group-four {
             background-color: $account-overview-group-four;
         }
+
+        .group-five {
+            background-color: $account-overview-group-five;
+
+            .info-panel {
+                width: 100% !important;
+            }
+        }
+
+        .img-icon {
+            .img-responsive {
+                min-width: 40px;
+            }
+        }
     }
 
     .details-section {

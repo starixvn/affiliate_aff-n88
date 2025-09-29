@@ -1818,4 +1818,7 @@
   <data name="InvalidPhoneNumber" xml:space="preserve">
     <value>หมายเลขโทรศัพท์ไม่ถูกต้อง กรุณาตรวจสอบให้เเน่ใจว่ามีจำนวนหลักตามที่กำหนด</value>
   </data>
+  <data name="NetRevenue" xml:space="preserve">
+    <value>รายได้สุทธิ</value>
+  </data>
 </root>

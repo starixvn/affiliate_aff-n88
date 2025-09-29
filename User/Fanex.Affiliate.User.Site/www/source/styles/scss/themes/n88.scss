@@ -902,6 +902,18 @@ select.form-control {
                 background-color: $account-overview-img-four;
             }
         }
+
+        .group-five {
+            background-color: $account-overview-group-five;
+
+            .img-icon {
+                background-color: $account-overview-img-five;
+            }
+
+            .info-panel-content {
+                background-color: $account-overview-img-five;
+            }
+        }
     }
 
     .details-section-menu {

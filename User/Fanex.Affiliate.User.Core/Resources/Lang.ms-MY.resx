@@ -2057,4 +2057,7 @@ Jika anda mempunyai sebarang soalan dan memerlukan sebarang bantuan, sila jangan
   <data name="InvalidPhoneNumber" xml:space="preserve">
     <value>Nombor telefon tidak sah. Sila pastikan ia mempunyai digit yang diperlukan.</value>
   </data>
+  <data name="NetRevenue" xml:space="preserve">
+    <value>Hasil Bersih</value>
+  </data>
 </root>

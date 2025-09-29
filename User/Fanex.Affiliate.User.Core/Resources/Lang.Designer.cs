@@ -3346,6 +3346,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Net Revenue.
+        /// </summary>
+        public static string NetRevenue {
+            get {
+                return ResourceManager.GetString("NetRevenue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Company Net Win ({0}).
         /// </summary>
         public static string NetWinLoss {

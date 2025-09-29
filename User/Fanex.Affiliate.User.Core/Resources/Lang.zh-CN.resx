@@ -1835,4 +1835,7 @@ B2C合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
   <data name="InvalidPhoneNumber" xml:space="preserve">
     <value>电话号码无效，请确保位数正确。</value>
   </data>
+  <data name="NetRevenue" xml:space="preserve">
+    <value>净收入</value>
+  </data>
 </root>
