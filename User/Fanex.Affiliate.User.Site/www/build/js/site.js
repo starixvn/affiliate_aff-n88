@@ -1,8 +1,10 @@
-﻿'use strict';
+﻿"use strict";
 
 var Site = (function ($) {
     var _rootUrl = null;
     var _language = null;
+
+    var optionAll = "<option value=''>" + window.Lang.All + "</option>";
 
     function createNewUrlByLanguage(url, language) {
         var hasQueryString = url.indexOf('?') !== -1;
@@ -82,8 +84,8 @@ var Site = (function ($) {
                 _iteratorError = err;
             } finally {
                 try {
-                    if (!_iteratorNormalCompletion && _iterator['return']) {
-                        _iterator['return']();
+                    if (!_iteratorNormalCompletion && _iterator["return"]) {
+                        _iterator["return"]();
                     }
                 } finally {
                     if (_didIteratorError) {
@@ -111,6 +113,18 @@ var Site = (function ($) {
             var url = newActualUrl + hash;
 
             _me.redirect(url);
+        },
+
+        buildOptionList: function buildOptionList(dataList, value, text, hasAllOption) {
+            var optionList = dataList.map(function (item) {
+                return "<option value='" + item[value] + "'>" + item[text] + "</option>";
+            });
+
+            if (hasAllOption) {
+                optionList.unshift(optionAll);
+            }
+
+            return optionList.join('');
         }
     };
 
