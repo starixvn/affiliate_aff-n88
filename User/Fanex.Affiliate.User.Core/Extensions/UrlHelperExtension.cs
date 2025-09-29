@@ -1,4 +1,6 @@
 ﻿using Fanex.Affiliate.User.Core.Utilities;
+using System.IO;
+using System.Web.Hosting;
 using System.Web.Mvc;
 
 namespace Fanex.Affiliate.User.Core.Extensions
@@ -12,12 +14,24 @@ namespace Fanex.Affiliate.User.Core.Extensions
             var link = appSetting.IsLocal ? urlHelper.Content(bundleVirtualPath) :
                                             urlHelper.Content(RegexHelper.Replace(bundleVirtualPath, @"\.(js|css)$", ".min.$1"));
 
-            return link + "?v=" + appSetting.JsVersion;
+            var version = GenerateContentVersion(bundleVirtualPath);
+            return $"{link}?v={version}";
         }
 
         public static string VersionedLink(this UrlHelper urlHelper, string virtualPath)
         {
-            return urlHelper.Content(virtualPath) + "?v=" + appSetting.JsVersion;
+            var link = urlHelper.Content(virtualPath);
+
+            var version = GenerateContentVersion(link);
+            return $"{link}?v={version}";
+        }
+
+        private static string GenerateContentVersion(string contentPath)
+        {
+            const string format = "MMddyyyy_HHmmss";
+            var fullPathFile = HostingEnvironment.MapPath(contentPath);
+            var version = File.GetLastWriteTime(fullPathFile).ToString(format);
+            return version;
         }
     }
 }

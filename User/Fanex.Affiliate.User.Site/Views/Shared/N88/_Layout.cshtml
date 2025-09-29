@@ -63,11 +63,11 @@
                 <a href="@Url.Content("~")">
                     @if (currentLanguage == "zh-CN")
                     {
-                        <img src=@Url.Content("~/www/build/styles/Images/themes/n88.zh-CN.png?v=" + settingService.JsVersion) alt="logo" class="logo-image" />
+                        <img src=@Url.Content("~/www/build/styles/Images/themes/n88.zh-CN.png?v=001") alt="logo" class="logo-image" />
                     }
                     else
                     {
-                        <img src=@Url.Content("~/www/build/styles/Images/themes/n88.png?v=" + settingService.JsVersion) alt="logo" class="logo-image" />
+                        <img src=@Url.Content("~/www/build/styles/Images/themes/n88.png?v=001") alt="logo" class="logo-image" />
                     }
                 </a>
             </div>
@@ -227,7 +227,6 @@
             All: '@Lang.All',
             ServerError: '@Lang.ServerError'
         };
-        window.JsVersion = '@settingService.JsVersion';
         window.SiteName = 'n88';
     </script>
 

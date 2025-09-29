@@ -24,8 +24,6 @@ namespace Fanex.Affiliate.User.Core.Utilities
 
         public IEnumerable<string> AllowedAffiliateTypes => GetValue("AllowedAffType").Split(',');
 
-        public string JsVersion => GetValue("JsVersion");
-
         public string PromotionB2CLink => GetValue("PromotionB2CLink");
 
         public bool IsEuroSite => AllowedAffiliateTypes.Any(t => t == AffiliateType.European.ToString("D"));
