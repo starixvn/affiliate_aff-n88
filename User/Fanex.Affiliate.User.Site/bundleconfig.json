@@ -218,11 +218,5 @@
     "inputFiles": [
       "www/source/js/pages/telegram-update-dialog.js"
     ]
-  },
-  {
-    "outputFileName": "www/build/js/revenue-notice-dialog.js",
-    "inputFiles": [
-      "www/source/js/pages/revenue-notice-dialog.js"
-    ]
   }
 ]

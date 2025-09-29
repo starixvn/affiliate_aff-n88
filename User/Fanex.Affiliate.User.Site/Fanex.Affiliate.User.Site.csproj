@@ -696,10 +696,6 @@
     <Content Include="www\build\js\player-transfer-balance.min.js">
       <DependentUpon>player-transfer-balance.js</DependentUpon>
     </Content>
-    <Content Include="www\build\js\revenue-notice-dialog.js" />
-    <Content Include="www\build\js\revenue-notice-dialog.min.js">
-      <DependentUpon>revenue-notice-dialog.js</DependentUpon>
-    </Content>
     <Content Include="www\build\js\revenue-structure.js" />
     <Content Include="www\build\js\revenue-structure.min.js">
       <DependentUpon>revenue-structure.js</DependentUpon>
@@ -1098,7 +1094,6 @@
     <Content Include="www\build\styles\Images\themes\n88.zh-CN.png" />
     <Content Include="www\build\styles\Images\themes\n8b.png" />
     <Content Include="www\source\js\components\intlTelInput.js" />
-    <Content Include="www\source\js\pages\revenue-notice-dialog.js" />
     <Content Include="www\source\js\pages\telegram-update-dialog.js" />
     <Content Include="www\source\js\layout\n88-after-login.js" />
     <Content Include="www\source\js\layout\n88.js" />
@@ -1604,7 +1599,6 @@
     <Content Include="Views\Shared\Email\VerificationAccount\Content.bn-BD.cshtml" />
     <Content Include="Views\Shared\Email\VerificationAccount\Content.km-KH.cshtml" />
     <Content Include="www\source\styles\scss\components\_telegram-update-dialog.scss" />
-    <Content Include="www\source\styles\scss\components\_revenue-notice-dialog.scss" />
     <Content Include="Views\Test\AccessApi.cshtml" />
     <Content Include="www\build\styles\Images\home\n8g\main.desktop.en-US.webp" />
     <Content Include="www\build\styles\Images\home\n8g\main.desktop.vi-VN.webp" />
