@@ -84,12 +84,15 @@ select {
         .language-list-wrapper {
             background-color: #29426C;
 
+            .country-name {
+                color: #9F9F9F;
+            }
+
             .language-list {
                 margin-bottom: 0;
 
                 .language-item {
                     color: $text-color-white;
-                    padding: 8px 20px;
 
                     &:hover {
                         background: #0B71DF;
