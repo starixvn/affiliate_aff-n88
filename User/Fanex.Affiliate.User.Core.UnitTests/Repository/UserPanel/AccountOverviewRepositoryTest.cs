@@ -105,7 +105,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Repository.UserPanel
                 DepositedMembers = 2,
                 QualifiedMember = 1,
                 Signups = 2,
-                Turnover = 100,
+                NetGGR = 100,
                 NoOfSubAff = 0,
                 SubAffCommission = 0
             });
