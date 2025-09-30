@@ -39,5 +39,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         ResultInfo ToggleMarketingLink(MarketingLinkParam param);
 
         IEnumerable<IGrouping<string, MarketingChannelLink>> GetUsingMarketingLinks(int userId);
+
+        void TrackingAffMarketingLink(int affId, IDictionary<string, QrCodeLinkViewModel> qrCodeLinks, QrCodeParam param);
     }
 }
