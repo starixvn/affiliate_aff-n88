@@ -901,6 +901,8 @@
     <Content Include="www\build\styles\Images\account-overview\icon-weiboi.png" />
     <Content Include="www\build\styles\Images\account-overview\icon-whatsapp.png" />
     <Content Include="www\build\styles\Images\account-overview\icon-zalo.png" />
+    <Content Include="www\build\styles\Images\account-overview\net-revenue-n88.png" />
+    <Content Include="www\build\styles\Images\account-overview\net-revenue.png" />
     <Content Include="www\build\styles\Images\account-overview\new-sign-up-n88.png" />
     <Content Include="www\build\styles\Images\account-overview\new-sign-up.png" />
     <Content Include="www\build\styles\Images\account-overview\total-deposit-n88.png" />

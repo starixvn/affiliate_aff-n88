@@ -568,8 +568,22 @@ label {
             background-color: $account-overview-group-four;
         }
 
+        .group-five {
+            background-color: $account-overview-group-five;
+
+            .info-panel {
+                width: 100% !important;
+            }
+        }
+
         .info-panel {
             min-height: 70px;
+        }
+
+        .img-icon {
+            .img-responsive {
+                min-width: 40px;
+            }
         }
     }
 

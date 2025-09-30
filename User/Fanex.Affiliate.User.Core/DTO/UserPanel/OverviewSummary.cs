@@ -12,8 +12,6 @@
 
         public int QualifiedMember { get; set; }
 
-        public decimal Turnover { get; set; }
-
         public decimal Deposit { get; set; }
 
         public decimal Commission { get; set; }
@@ -23,5 +21,7 @@
         public decimal SubAffCommission { get; set; }
 
         public bool IsMaxSubLevel { get; set; }
+
+        public decimal NetGGR { get; set; }
     }
 }

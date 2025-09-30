@@ -12,7 +12,6 @@
     var siteFriendlyName = settingService.SiteFriendlyName;
     var siteName = settingService.SiteName.ToLowerInvariant();
     var isN8G = string.Equals(settingService.SiteName, SiteName.N8G, StringComparison.CurrentCultureIgnoreCase);
-    var jsVersion = AppSetting.Instance.JsVersion;
     var targetCountryLanguages = languageService.GetTargetCountryLanguages();
 }
 
@@ -215,7 +214,6 @@
             All: '@Lang.All',
             ServerError: '@Lang.ServerError'
         };
-        window.JsVersion = '@jsVersion';
         window.SiteName = '@siteName';
     </script>
 

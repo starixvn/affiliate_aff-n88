@@ -2180,4 +2180,7 @@
   <data name="TargetCountry" xml:space="preserve">
     <value>Target Country</value>
   </data>
+  <data name="NetRevenue" xml:space="preserve">
+    <value>Net Revenue</value>
+  </data>
 </root>

@@ -2019,4 +2019,7 @@
   <data name="FdmTotalDeposit" xml:space="preserve">
     <value>បញ្ចូលលុយ&lt;br&gt;(សមាជិកថ្មី)</value>
   </data>
+  <data name="NetRevenue" xml:space="preserve">
+    <value>ប្រាក់ចំណូលសុទ្ធ</value>
+  </data>
 </root>

@@ -29,8 +29,6 @@ namespace Fanex.Affiliate.User.Core.Utilities
 
         int ServerId { get; }
 
-        string JsVersion { get; }
-
         string PromotionB2CLink { get; }
 
         bool IsEuroSite { get; }

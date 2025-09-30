@@ -2091,4 +2091,7 @@
   <data name="InvalidPhoneNumber" xml:space="preserve">
     <value>Vui lòng nhập số điện thoại đúng định dạng và đủ chữ số.</value>
   </data>
+  <data name="NetRevenue" xml:space="preserve">
+    <value>Doanh thu thuần</value>
+  </data>
 </root>
