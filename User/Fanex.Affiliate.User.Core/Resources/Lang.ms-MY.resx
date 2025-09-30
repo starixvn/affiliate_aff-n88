@@ -756,7 +756,7 @@ Jika anda mempunyai sebarang soalan dan memerlukan sebarang bantuan, sila jangan
     <value>Pendaftaran Baharu</value>
   </data>
   <data name="Deposit" xml:space="preserve">
-    <value>Terdeposit</value>
+    <value>Sudah Deposit</value>
   </data>
   <data name="P2pIncluded" xml:space="preserve">
     <value>Bahagian Hasil (termasuk P2P)</value>
@@ -2059,5 +2059,14 @@ Jika anda mempunyai sebarang soalan dan memerlukan sebarang bantuan, sila jangan
   </data>
   <data name="NetRevenue" xml:space="preserve">
     <value>Hasil Bersih</value>
+  </data>
+  <data name="PlayerList" xml:space="preserve">
+    <value>Senarai Pemain</value>
+  </data>
+  <data name="ShowAllPlayersIgnoreDateFilter" xml:space="preserve">
+    <value>Tunjukkan Semua Pemain (Abaikan Penapis Tarikh)</value>
+  </data>
+  <data name="NonDeposited" xml:space="preserve">
+    <value>Tiada deposit</value>
   </data>
 </root>
