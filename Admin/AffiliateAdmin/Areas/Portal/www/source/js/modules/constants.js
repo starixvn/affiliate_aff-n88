@@ -49,3 +49,8 @@ export const deviceTypesHasAll = {
     'All': AllDevices,
     ...deviceTypes
 }
+
+export const targetCountryStatus = {
+    Normal: 0,
+    Blocked: 1
+}

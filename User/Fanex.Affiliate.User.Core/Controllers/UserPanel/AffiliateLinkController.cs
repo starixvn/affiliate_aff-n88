@@ -1,13 +1,14 @@
 ﻿namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
 {
+    using System.Web.Mvc;
     using Fanex.Affiliate.User.Core.BusinessService;
     using Fanex.Affiliate.User.Core.CoreService;
+    using Fanex.Affiliate.User.Core.Enum;
+    using Fanex.Affiliate.User.Core.Extensions;
+    using Fanex.Affiliate.User.Core.Resources;
     using Fanex.Affiliate.User.Core.Utilities;
     using Filters;
     using ONEbook.UM.AspNetMVC.Filters;
-    using System.Collections.Generic;
-    using System.Web.Mvc;
-    using ViewModels.UserPanel.Marketing;
 
     [CheckUMFilter]
     [CustomAuthorize]
@@ -15,12 +16,13 @@
     {
         private IAccountService AccountService { get; }
 
-        public AffiliateLinkController(ISessionService sessionService,
+        public AffiliateLinkController(
+            ISessionService sessionService,
             IAppSetting appSetting,
             ILanguageService languageService,
             IMarketingService marketingService,
             IAccountService accountService)
-            : base(sessionService,
+           : base(sessionService,
                 appSetting,
                 languageService,
                 marketingService)
@@ -33,25 +35,20 @@
         public ActionResult Index()
         {
             var affId = SessionService.UserSession.AffId;
-            var langs = LanguageService.GetSupportedUILanguageList(SessionService.IsInternal);
-            var channels = MarketingService.GetChannels(affId);
+            var targetCountryCode = AccountService.GetAccountInfo(affId)?.TargetCountryCode;
 
-            var refs = new List<RefLinkViewModel>
-            {
-                GetAffLinkTypeViewModel(),
-            };
+            var vm = GetLinkFormViewModel(targetCountryCode);
+            vm.Channels = MarketingService.GetChannels(affId);
 
             if (!AccountService.GetGeneralAffInfo(affId).IsMaxSubLevel)
             {
-                refs.Add(GetSubAffLinkTypeViewModel());
+                vm.LinkTypes = vm.LinkTypes
+                    .Append(new SelectListItem
+                    {
+                        Value = nameof(AffiliateLinkType.SubAffiliateLink),
+                        Text = Lang.SubAffiliateLink
+                    });
             }
-
-            var vm = new AffiliateLinkViewModel
-            {
-                Channels = channels,
-                Languages = langs,
-                RefLinks = refs
-            };
 
             ViewBag.SelectedLang = SessionService.UserSession.PreferredLanguage;
 

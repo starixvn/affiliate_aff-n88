@@ -14,6 +14,8 @@ const commGroupList = createReducer(null, {
     }
 });
 
+const targetCountryList = createReducer(null, {});
+
 const languageList = createReducer({}, {});
 
 const groupId = createReducer(0, {});
@@ -81,5 +83,6 @@ export default combineReducers({
     commGroup,
     groupTypeId,
     groupId,
-    columnList
+    columnList,
+    targetCountryList
 });

@@ -125,7 +125,8 @@
                     AffType = _appSetting.AllowedAffiliateTypes.FirstOrDefault(),
                     Ip = Request.GetClientIP(),
                     IsLocal = _appSetting.IsLocal,
-                    AffParentCode = affParentCode
+                    AffParentCode = affParentCode,
+                    TargetCountryCode = Server.HtmlEncode(param.TargetCountryCode)
                 };
 
                 var mailContact = _appSetting.GetMailContactByLanguageCode(signUpParam.PreferredLanguage ?? SessionService.CurrentLanguage);

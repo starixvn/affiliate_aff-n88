@@ -8,6 +8,7 @@ using Fanex.Affiliate.Admin.Core.Services.Domain;
 using Fanex.Affiliate.Admin.Core.UnitTests.TestHelper;
 using Fanex.Affiliate.Admin.Core.ViewModels.Domain;
 using Moq;
+using NSubstitute;
 using System.Collections.Generic;
 using System.Web;
 using System.Web.Mvc;
@@ -45,11 +46,11 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Domain
             var isAffDomain = true;
             bool passedParam = false;
             var domainService = new Mock<IDomainService>();
-            domainService.Setup(t => t.GetDomainList(isAffDomain)).Returns(new List<DomainInfo> { new DomainInfo() }).Callback<bool>(p => passedParam = p);
+            domainService.Setup(t => t.GetDomainList(isAffDomain, It.IsAny<string>())).Returns(new List<DomainInfo> { new DomainInfo() }).Callback<bool, string>((p1, p2) => passedParam = p1);
             var controller = CreateDomainController(domainService: domainService.Object);
 
             // Action
-            var result = controller.GetDomainList(isAffDomain) as JsonNetResult;
+            var result = controller.GetDomainList(isAffDomain, "") as JsonNetResult;
             var data = result.Data as List<DomainInfo>;
 
             // Assert
@@ -61,10 +62,10 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Domain
         public void InsertDomain_WhenCallWithValidParam_InsertSuccessful()
         {
             // Arrange
-            var param = new InsertUpdateDomainParam { DomainName = "abc.com" };
-            InsertUpdateDomainParam passedParam = null;
+            var param = new InsertDomainParam { DomainName = "abc.com" };
+            InsertDomainParam passedParam = null;
             var domainService = new Mock<IDomainService>();
-            domainService.Setup(s => s.InsertDomain(It.IsAny<InsertUpdateDomainParam>())).Returns(new ResultInfo()).Callback<InsertUpdateDomainParam>(p => passedParam = p);
+            domainService.Setup(s => s.InsertDomain(It.IsAny<InsertDomainParam>())).Returns(new ResultInfo()).Callback<InsertDomainParam>(p => passedParam = p);
             var controller = CreateDomainController(domainService: domainService.Object);
 
             // Action
@@ -73,7 +74,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Domain
 
             // Assert
             Assert.True(resultInfo.IsSuccessful);
-            Assert.Equal(param.DomainId, passedParam.DomainId);
         }
 
         [Fact]
@@ -84,22 +84,22 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Domain
             controller.ModelState.AddModelError("Error01", string.Empty);
 
             // Action
-            var result = controller.InsertDomain(new InsertUpdateDomainParam()) as JsonNetResult;
+            var result = controller.InsertDomain(new InsertDomainParam()) as JsonNetResult;
             var resultInfo = result.Data as ResultInfo;
 
             // Assert
             Assert.False(resultInfo.IsSuccessful);
-            Assert.Equal("Please input Domain's name.", resultInfo.Message);
+            Assert.Equal("The Domain' info is invalid!", resultInfo.Message);
         }
 
         [Fact]
         public void UpdateDomain_WhenCallWithValidParam_UpdateSuccessful()
         {
             // Arrange
-            var param = new InsertUpdateDomainParam { DomainId = 123, DomainName = "abc.com" };
-            InsertUpdateDomainParam passedParam = null;
+            var param = new UpdateDomainParam { DomainId = 123, DomainName = "abc.com" };
+            UpdateDomainParam passedParam = null;
             var domainService = new Mock<IDomainService>();
-            domainService.Setup(s => s.UpdateDomain(It.IsAny<InsertUpdateDomainParam>())).Returns(new ResultInfo()).Callback<InsertUpdateDomainParam>(p => passedParam = p);
+            domainService.Setup(s => s.UpdateDomain(It.IsAny<UpdateDomainParam>())).Returns(new ResultInfo()).Callback<UpdateDomainParam>(p => passedParam = p);
             var controller = CreateDomainController(domainService: domainService.Object);
 
             // Action
@@ -115,8 +115,9 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Domain
         public void UpdateDomain_WhenCallWithInvalidDomainId_ReturnError()
         {
             // Arrange
-            var param = new InsertUpdateDomainParam { DomainName = "abc" };
+            var param = new UpdateDomainParam { DomainId = -1, DomainName = "abc" };
             var controller = CreateDomainController();
+            controller.ModelState.AddModelError("DomainId", "");
 
             // Action
             var result = controller.UpdateDomain(param) as JsonNetResult;
@@ -124,14 +125,14 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Domain
 
             // Assert
             Assert.False(resultInfo.IsSuccessful);
-            Assert.Equal("Domain Id is invalid.", resultInfo.Message);
+            Assert.Equal("The Domain' info is invalid!", resultInfo.Message);
         }
 
         [Fact]
         public void UpdateDomain_WhenCallWithInvalidParam_ReturnError()
         {
             // Arrange
-            var param = new InsertUpdateDomainParam { DomainId = 123, DomainName = "abc.com" };
+            var param = new UpdateDomainParam { DomainId = 123, DomainName = "abc.com" };
             var controller = CreateDomainController();
             controller.ModelState.AddModelError("Error01", string.Empty);
 
@@ -141,7 +142,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Domain
 
             // Assert
             Assert.False(resultInfo.IsSuccessful);
-            Assert.Equal("Please input Domain's name.", resultInfo.Message);
+            Assert.Equal("The Domain' info is invalid!", resultInfo.Message);
         }
 
         [Fact]
@@ -176,18 +177,20 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Domain
 
             // Assert
             Assert.False(resultInfo.IsSuccessful);
-            Assert.Equal("Domain id is incorrect.", resultInfo.Message);
+            Assert.Equal("The Domain is incorrect!", resultInfo.Message);
         }
 
         private DomainController CreateDomainController(
         ISessionService sessionService = null,
-        IDomainService domainService = null
+        IDomainService domainService = null,
+        ISystemService systemService = null
         )
         {
             var fakeSessionService = sessionService ?? MockingHelper.GetSessionService();
             var fakeDomainService = domainService ?? Mock.Of<IDomainService>();
+            var fakeSystemService = systemService ?? Mock.Of<ISystemService>();
 
-            var controller = new DomainController(fakeSessionService, fakeDomainService);
+            var controller = new DomainController(fakeSessionService, fakeDomainService, fakeSystemService);
 
             var request = MockingHelper.GetHttpRequest();
             var server = new Mock<HttpServerUtilityBase>();

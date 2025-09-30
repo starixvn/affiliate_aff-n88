@@ -247,6 +247,21 @@
                     </div>
                     <div class="form-horizontal">
                         <div class="form-group">
+                            <label class="col-sm-3 control-label require">@Lang.TargetCountry</label>
+                            <div class="col-sm-4">
+                                <select class="form-control" name="TargetCountryCode" id="TargetCountryCode" data-val="true" data-val-required="@Error.TargetCountryErr">
+                                    <option value="">@Lang.SelectOne</option>
+                                    @foreach (var item in languageService.GetSystemTargetCountries())
+                                    {
+                                        <option value="@item.TargetCountryCode" data-language="@item.Code">@item.TargetCountryName</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="col-sm-offset-3 col-sm-9">
+                                @Html.ValidationMessageFor(x => x.TargetCountryCode, string.Empty, new { @class = "help-block hide" })
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label class="col-sm-3 control-label require">@Lang.Language</label>
                             <div class="col-sm-4">
                                 <select class="form-control" name="PreferredLanguage" id="PreferredLanguage" data-val="true" data-val-required="@Lang.PreferLangErr">
@@ -263,7 +278,7 @@
                         </div>
 
                         <div class="form-group">
-                            @{Html.RenderAction("SecurityQuestion", "Signup");}
+                            @{ Html.RenderAction("SecurityQuestion", "Signup"); }
                             <div class="col-sm-offset-3 col-sm-9">
                                 @Html.ValidationMessageFor(x => x.QuestionId, string.Empty, new { @class = "help-block hide" })
                             </div>
@@ -284,7 +299,7 @@
                             <div class="col-sm-4 preference-validation">
                                 @Html.TextBoxFor(p => p.Captcha, new { @class = "form-control", @autocomplete = "off" })
                                 <div class="captcha">
-                                    <div class="validation-value"><img id="signupCaptcha" src="" alt="captcha" /></div>
+                                    <div class="validation-value"><img id="signupCaptcha" src="" alt="captcha"/></div>
                                 </div>
                             </div>
                             <div class="col-sm-offset-3 col-sm-9">

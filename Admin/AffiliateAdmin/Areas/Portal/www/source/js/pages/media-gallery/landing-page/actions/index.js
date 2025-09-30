@@ -1,5 +1,6 @@
 ﻿import { post } from '../../../../modules/ajaxRequest';
 import { toggleLoader } from '../../../../actions/loaderAction';
+import { targetCountryStatus } from '../../../../modules/constants';
 import { SET_CHECKED_LANDING_PAGES, SET_SELECTED_LANDING_PAGE_ID, SHOULD_RESET_SCROLL_POSITION, SET_GRID_DATA } from './types';
 
 export { toggleLoader };
@@ -62,6 +63,22 @@ export const getLandingPageDetail = (selectedLandingPageId) => async () => {
     const response = await post(url, { pageId: selectedLandingPageId });
 
     return response && response.status === 200 ? response.data : null;
+}
+
+export const getTargetCountryListByLandingPage = (param) => async () => {
+    const url = 'Portal/LandingPageList/GetTargetCountryListByLandingPage';
+    const response = await post(url, param);
+
+    if (response && response.status === 200 && response.data) {
+        return response.data.map(item => ({
+            ...item,
+            key: item.TargetCountryCode,
+            name: item.TargetCountryName,
+            checked: item.Status === targetCountryStatus.Blocked
+        }));
+    }
+
+    return null;
 }
 
 export const insertLandingPage = (param) => async () => {

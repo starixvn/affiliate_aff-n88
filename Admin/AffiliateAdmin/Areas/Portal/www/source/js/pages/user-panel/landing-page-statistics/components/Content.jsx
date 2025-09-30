@@ -76,7 +76,7 @@ export class Content extends Component {
     }
 
     _buildDataRow(dataItem, index) {
-        const language = this.props.shortCodeLanguageList[dataItem.LanguageCode] || dataItem.LanguageCode;
+        const language = this.props.languageList[dataItem.LanguageCode] || dataItem.LanguageCode;
         const page = htmlDecode(dataItem.Page);
         const totalClick = format(dataItem.TotalClick);
         const uniqueClick = format(dataItem.UniqueClick);
@@ -118,10 +118,10 @@ export class Content extends Component {
 }
 
 
-function mapStateToProps({ landingPageStatistics }) {
-    const { param, shortCodeLanguageList } = landingPageStatistics;
+function mapStateToProps({ landingPageStatistics, languageList }) {
+    const { param } = landingPageStatistics;
 
-    return Object.assign({}, { param, shortCodeLanguageList });
+    return Object.assign({}, { param, languageList });
 }
 
 function mapDispatchToProps(dispatch) {

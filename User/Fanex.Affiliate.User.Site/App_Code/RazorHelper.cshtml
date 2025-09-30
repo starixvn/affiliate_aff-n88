@@ -106,6 +106,28 @@
     }
 }
 
+@helper RenderDropdownForMarketingHasNoInfo(string id, string label, IEnumerable<System.Web.Mvc.SelectListItem> dataList, bool hasAnyData = false)
+{
+    <div class="form-group flex-sm-boostrap flex-center">
+        <label class="col-sm-3 control-label" for="@id">@label</label>
+        <div class="col-sm-9">
+            <select class="form-control" id="@id">
+                @if (hasAnyData)
+                {
+                    foreach (var item in dataList)
+                    {
+                        <option value="@item.Value" @(item.Selected ? "selected" : string.Empty)>@item.Text</option>
+                    }
+                }
+                else
+                {
+                    <option value="">@Fanex.Affiliate.User.Core.Resources.Lang.NoInfo</option>
+                }
+            </select>
+        </div>
+    </div>
+}
+
 @helper RenderDropdownForN88Marketing(string id, string label, IEnumerable<System.Web.Mvc.SelectListItem> dataList, bool hasAllOption = true, bool isVisible = true)
 {
     if (dataList != null)
@@ -127,6 +149,28 @@
             </div>
         </div>
     }
+}
+
+@helper RenderDropdownForN88MarketingHasNoInfo(string id, string label, IEnumerable<System.Web.Mvc.SelectListItem> dataList, bool hasAnyData = false)
+{
+    <div class="form-group flex-sm-boostrap flex-center">
+        <label class="control-label" for="@id">@label</label>
+        <div class="control-input">
+            <select class="form-control" id="@id">
+                @if (hasAnyData)
+                {
+                    foreach (var item in dataList)
+                    {
+                        <option value="@item.Value" @(item.Selected ? "selected" : string.Empty)>@item.Text</option>
+                    }
+                }
+                else
+                {
+                    <option value="">@Fanex.Affiliate.User.Core.Resources.Lang.NoInfo</option>
+                }
+            </select>
+        </div>
+    </div>
 }
 
 @helper RenderAppContact(string language)
@@ -157,8 +201,8 @@
                 <input placeholder="@RegexHelper.AddPlaceHolders(firstAppName)" type="text" name="ContactAppList[0].Value" id="ContactAppList[0].Value" class="form-control" value=""
                        data-val="true" data-val-requiredifnullorempty-dependentprop="ContactAppList[1].Value"
                        data-val-requiredifnullorempty="@Error.RequireIMAccount"
-                       data-val-regex="@Error.AccountInvalidFormat.Replace("{0}", firstAppName)" 
-                       data-val-regex-pattern="@RegexHelper.RegexContactApps(firstAppName)"/>
+                       data-val-regex="@Error.AccountInvalidFormat.Replace("{0}", firstAppName)"
+                       data-val-regex-pattern="@RegexHelper.RegexContactApps(firstAppName)" />
             </div>
         }
         else
@@ -166,8 +210,8 @@
             <div class="col-sm-4">
                 <input type="text" name="ContactAppList[0].Value" id="ContactAppList[0].Value" class="form-control" value=""
                        data-val="true" data-val-required="@Error.RequireIMAccount"
-                       data-val-regex="@Error.AccountInvalidFormat.Replace("{0}", firstAppName)" 
-                       data-val-regex-pattern="@RegexHelper.RegexContactApps(firstAppName)"/>
+                       data-val-regex="@Error.AccountInvalidFormat.Replace("{0}", firstAppName)"
+                       data-val-regex-pattern="@RegexHelper.RegexContactApps(firstAppName)" />
             </div>
         }
         <div class="col-sm-offset-3 col-sm-9">

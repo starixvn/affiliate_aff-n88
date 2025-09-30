@@ -120,5 +120,8 @@ namespace Fanex.Affiliate.User.Core.MetalModels
 
         [SpParam(Ignored = true)]
         public string DetectedCountryCode { get; set; }
+        
+        [Required(ErrorMessageResourceType = typeof(Error), ErrorMessageResourceName = "TargetCountryErr")]
+        public string TargetCountryCode { get; set; }
     }
 }

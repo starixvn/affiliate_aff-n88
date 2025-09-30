@@ -1,5 +1,10 @@
 ﻿namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Drawing;
+    using System.Linq;
+    using System.Web.Mvc;
     using Constants;
     using DTO.UserPanel;
     using Extensions;
@@ -12,12 +17,6 @@
     using Fanex.Affiliate.User.Core.Utilities;
     using Filters;
     using MetalModels.UserPanel;
-    using System;
-    using System.Collections.Generic;
-    using System.Drawing;
-    using System.Linq;
-    using System.Text.RegularExpressions;
-    using System.Web.Mvc;
     using ViewModels.UserPanel.Marketing;
 
     [CustomAuthorize]
@@ -25,8 +24,8 @@
     {
         private const string CHANNEL_NAME_REGEX = "^[a-zA-Z0-9]+$";
 
-        private readonly IQrCodeGeneratorService QrCodeGeneratorService;
-        private readonly IFileSystem FileSystem;
+        private readonly IQrCodeGeneratorService _qrCodeGeneratorService;
+        private readonly IFileSystem _fileSystem;
 
         public MarketingController(ISessionService sessionService, IAppSetting appSetting,
             ILanguageService languageService,
@@ -34,8 +33,8 @@
             IQrCodeGeneratorService qrCodeGeneratorService,
             IFileSystem fileSystem) : base(sessionService, appSetting, languageService, marketingService)
         {
-            QrCodeGeneratorService = qrCodeGeneratorService;
-            FileSystem = fileSystem;
+            _qrCodeGeneratorService = qrCodeGeneratorService;
+            _fileSystem = fileSystem;
         }
 
         [HttpGet]
@@ -50,8 +49,7 @@
                 Text = Lang.ResourceManager.GetString(RegexHelper.Replace(i.SubCategory, @"\s+", "")) ?? i.SubCategory
             });
 
-            return Json(newSub,
-                JsonRequestBehavior.AllowGet);
+            return Json(newSub, JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
@@ -59,7 +57,6 @@
         public ActionResult GetSize(SizeParam param)
         {
             param.AffType = SessionService.UserSession.AffType;
-            param.Language = GetEnglishName(param.Language);
             var sizeList = MarketingService.GetSizeList(param, SessionService.IsInternal);
 
             return Json(sizeList, JsonRequestBehavior.AllowGet);
@@ -70,8 +67,7 @@
         public ActionResult GetBanner(MarketingBannerParam bannerParam)
         {
             var userSession = SessionService.UserSession;
-            var selectedDomain = MarketingService.GetAvailableDomainList(userSession.AffId, bannerParam.TargetId, SessionService.IsInternal)
-                                                    .FirstOrDefault(d => d.DomainId == bannerParam.SelectedDomainId);
+            var selectedDomain = GetDomain(bannerParam.SelectedDomainId, bannerParam.SelectedTargetCountry, bannerParam.TargetId);
 
             var bannerSettingKey = userSession.PreferredLanguage.Replace("-", string.Empty).ToUpperInvariant();
 
@@ -80,9 +76,7 @@
             bannerParam.AffType = userSession.AffType;
             bannerParam.SelectedDomain = selectedDomain;
             bannerParam.TextLinkTemplate = MarketingService.GetTextLinkTemplate(bannerParam.TargetId);
-            bannerParam.BannerDomain = AppSetting.GetValue($"BannerDomain{bannerSettingKey}") ??
-                AppSetting.BannerDomain;
-            bannerParam.Language = GetEnglishName(bannerParam.Language);
+            bannerParam.BannerDomain = AppSetting.GetValue($"BannerDomain{bannerSettingKey}") ?? AppSetting.BannerDomain;
 
             var bannerList = GetBannerList(bannerParam);
             ViewBag.TotalItem = bannerParam.Nrows;
@@ -110,11 +104,11 @@
                 }
             }
 
+            ViewBag.SelectedTargetCountry = param.SelectedTargetCountry;
             ViewBag.SelectedDomainId = param.SelectedDomainId;
             ViewBag.SelectedPage = param.SelectedPage;
             ViewBag.SelectedLinkType = param.SelectedLinkType;
             ViewBag.SelectedChannel = param.SelectedChannel;
-            ViewBag.Language = param.SelectedLanguage;
 
             return View("~/Views/UserPanel/AccountOverview/Partial/_GeneratedQrCode.cshtml", result.Values);
         }
@@ -199,6 +193,22 @@
             return View(viewPath, MarketingService.GetUsingMarketingLinks(userId));
         }
 
+        [HttpGet]
+        [AjaxOnly]
+        public ActionResult GetChangedFilters(MarketingFilterParam param)
+        {
+            var changedForm = GetChangedFilter(param);
+
+            return Json(new
+            {
+                sizeList = changedForm.SizeList,
+                domainList = changedForm.Domains,
+                languageList = changedForm.Languages,
+                pageList = changedForm.SitePages,
+                categoryList = changedForm.CategoryList
+            }, JsonRequestBehavior.AllowGet);
+        }
+
         private IEnumerable<MarketingItem> GetBannerList(MarketingBannerParam bannerParam)
         {
             if (bannerParam.SelectedDomain == null)
@@ -230,7 +240,7 @@
             var icon = GetQrCodeIcon();
             var language = link.Value.Language;
             var textLink = link.Value.Link;
-            var qrCode = QrCodeGeneratorService.GenerateBase64QrCode(textLink, icon, includePrefix);
+            var qrCode = _qrCodeGeneratorService.GenerateBase64QrCode(textLink, icon, includePrefix);
             return new QrCodeLinkViewModel
             {
                 Language = language,
@@ -244,14 +254,9 @@
         {
             var logoPath = HttpContext.Server.MapPath($"~/www/build/styles/Images/themes/{AppSetting.SiteName}.png");
             var qrLogoPath = HttpContext.Server.MapPath($"~/www/build/styles/Images/themes/{AppSetting.SiteName}-qrcode.png");
-            var path = FileSystem.Exists(qrLogoPath) ? qrLogoPath : logoPath;
+            var path = _fileSystem.Exists(qrLogoPath) ? qrLogoPath : logoPath;
 
-            return QrCodeGeneratorService.GetImage(path);
-        }
-
-        private string GetEnglishName(string languageCode)
-        {
-            return LanguageService.GetSupportedUILanguageList().FirstOrDefault(l => l.Code.MatchWith(languageCode))?.EnglishName;
+            return _qrCodeGeneratorService.GetImage(path);
         }
     }
 }

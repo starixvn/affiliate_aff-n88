@@ -5,12 +5,13 @@ export { globalResource };
 export const headerText = {
     Index: '#',
     LandingPageName: 'Landing Page Name (Shown in dropdown)',
-    LandingPageCode: 'Landing Page Code (Contained in links)'
+    LandingPageCode: 'Landing Page Code (Contained in links)',
+    BlockTargetCountry: 'Block Target Country'
 }
 
 export const defaultState = {
-    pageName: '',
-    pageCode: '',
+    selectedLandingPage: { pageName: '', pageCode: '', blockTargetCountry: '' },
+    targetCountryList: null,
     isClickedSubmit: false,
     isInsert: true,
     isShowMessage: false,

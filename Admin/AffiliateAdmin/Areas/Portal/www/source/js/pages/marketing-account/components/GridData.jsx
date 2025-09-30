@@ -11,7 +11,6 @@ import { globalResource } from '../../../modules/globalResource';
 import { NotificationPopup } from '../../common/components/NotificationPopup';
 
 export const GridData = (props) => {
-
     const [gridData, setGridData] = useState(null);
     const [shouldResetScrollPosition, setShouldResetScrollPosition] = useState(true);
     const [messageNotification, setMessageNotification] = useState('');
@@ -44,7 +43,7 @@ export const GridData = (props) => {
         if (dataList && dataList.length) {
             const { pagingOption } = props;
             const startIndex = (pagingOption.PageIndex - 1) * pagingOption.PageSize + 1;
-            
+
             for (let i = 0; i < dataList.length; i++) {
                 const dataItem = dataList[i];
 
@@ -53,7 +52,7 @@ export const GridData = (props) => {
         }
         else {
             dataRows.push(<Row>
-                <Cell className="text-center" colSpan={9}>{globalResource.NoInfo}</Cell>
+                <Cell className="text-center" colSpan={10}>{globalResource.NoInfo}</Cell>
             </Row>);
         }
 
@@ -70,6 +69,7 @@ export const GridData = (props) => {
                 <Cell header={true} colWidth={60} title={headerText.LastName}>{headerText.LastName}</Cell>
                 <Cell header={true} colWidth={60} title={headerText.Phone}>{headerText.Phone}</Cell>
                 <Cell header={true} colWidth={50} title={headerText.Status}>{headerText.Status}</Cell>
+                <Cell header={true} colWidth={60} title={headerText.Status}>{headerText.TargetCountryCode}</Cell>
                 <Cell header={true} colWidth={60} title={headerText.Language}>{headerText.Language}</Cell>
                 <Cell header={true} colWidth={100} title={headerText.CommissionGroup}>{headerText.CommissionGroup}</Cell>
                 <Cell header={true} colWidth={60} title={headerText.RegistrationDateText}>{headerText.RegistrationDateText}</Cell>
@@ -82,8 +82,9 @@ export const GridData = (props) => {
     }
 
     const _renderDataRow = (dataItem, index) => {
-        const { languageCodeList, canAddAffMktAccount } = props;
+        const { languageCodeList, canAddAffMktAccount, targetCountryCodeList } = props;
         const language = languageCodeList[dataItem.Language];
+        const targetCountry = targetCountryCodeList[dataItem.TargetCountryCode];
 
         return (
             <Row key={`dataRow-${index}`}>
@@ -98,6 +99,7 @@ export const GridData = (props) => {
                 <Cell className="text-left" title={dataItem.LastName}>{dataItem.LastName}</Cell>
                 <Cell className="text-left" title={dataItem.Phone}>{dataItem.Phone}</Cell>
                 <Cell className="text-left" title={dataItem.Status}>{dataItem.Status}</Cell>
+                <Cell className="text-center" title={targetCountry}>{targetCountry}</Cell>
                 <Cell className="text-left" title={language}>{language}</Cell>
                 <Cell className="text-left" title={dataItem.CommissionGroup}>{dataItem.CommissionGroup}</Cell>
                 <Cell className="text-left" title={dataItem.RegistrationDateText}>{dataItem.RegistrationDateText}</Cell>
@@ -110,7 +112,7 @@ export const GridData = (props) => {
                             </button>
                         </Cell>)
                 }
-            </Row>
+            </Row >
         );
     }
 
@@ -151,10 +153,11 @@ export const GridData = (props) => {
     )
 }
 
-const mapStateToProps = ({ params, languageCodeList, pagingOption, canAddAffMktAccount }) => {
+const mapStateToProps = ({ params, languageCodeList, pagingOption, canAddAffMktAccount, targetCountryCodeList }) => {
     return {
         params,
         languageCodeList,
+        targetCountryCodeList,
         canAddAffMktAccount,
         pagingOption
     };

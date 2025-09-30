@@ -1,15 +1,1 @@
-﻿
-
-
-// Generated helper templates
-// Generated items
-// Fanex.Affiliate.User.Site\App_Data\SpConfig\SpName.n8g-user.klprod.xml
-// Fanex.Affiliate.User.Site\App_Data\SpConfig\SpName.n8b-user.klprod.xml
-// Fanex.Affiliate.User.Site\App_Data\SpConfig\SpName.n88-user.klprod.xml
-// Fanex.Affiliate.User.Site\App_Data\SpConfig\SpName.n8g-user.local.xml
-// Fanex.Affiliate.User.Site\App_Data\SpConfig\SpName.n8b-user.local.xml
-// Fanex.Affiliate.User.Site\App_Data\SpConfig\SpName.n88-user.local.xml
-// Fanex.Affiliate.User.Site\App_Data\SpConfig\SpName.n8g-user.uat.xml
-// Fanex.Affiliate.User.Site\App_Data\SpConfig\SpName.n8b-user.uat.xml
-// Fanex.Affiliate.User.Site\App_Data\SpConfig\SpName.n88-user.uat.xml
-// Fanex.Affiliate.User.Site\App_Data\SpConfig\SpName.xml
+﻿.NET Core placeholder content to avoid ignoring the output extension directive

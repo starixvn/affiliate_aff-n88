@@ -28,5 +28,7 @@ namespace Fanex.Affiliate.User.Core.MetalModels
         public int ErrCode { get; set; }
 
         public string ErrMsg { get; set; }
+
+        public string TargetCountryCode { get; set; }
     }
 }

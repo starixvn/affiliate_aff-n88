@@ -74,5 +74,7 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Customer
 
         [PermissionCheck(Function.TransferPlayerSetting)]
         public string PlayerCurrency { get; set; }
+
+        public string TargetCountryName { get; set; }
     }
 }

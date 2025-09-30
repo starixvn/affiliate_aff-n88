@@ -56,7 +56,7 @@
             var viewModel = new LandingPageStatisticsViewModel
             {
                 LanguageList = MarketingHelper.GetLanguageList(LanguageService.GetLanguageList(SessionService.IsInternal), userSession.PreferredLanguage),
-                MemberSitePageList = MarketingService.GetLandingPageList(isInternal),
+                MemberSitePageList = MarketingService.GetLandingPageList(new LandingPageParam { IsInternal = isInternal }),
                 FromDate = landingPageParam.FromDate,
                 ToDate = landingPageParam.ToDate,
                 DataList = GetLandingPageStatisticsData(landingPageParam),
@@ -74,14 +74,6 @@
             landingPageParam.AffId = SessionService.UserSession.AffId;
             landingPageParam.IsInternal = SessionService.IsInternal;
 
-            var selectedLanguage = landingPageParam.LanguageCode;
-            if (!string.IsNullOrEmpty(selectedLanguage))
-            {
-                landingPageParam.LanguageCode = LanguageService.GetLanguageList()
-                                                .FirstOrDefault(l => l.Code.Equals(selectedLanguage))
-                                                ?.ShortedCode ?? SystemLanguage.DefaultShortedLanguageCode;
-            }
-
             var viewModel = new LandingPageStatisticsViewModel
             {
                 DataList = GetLandingPageStatisticsData(landingPageParam),
@@ -98,9 +90,9 @@
 
             foreach (var item in dataList)
             {
-                var language = LanguageService.GetLanguageList().FirstOrDefault(p => p.ShortedCode == item.LanguageCode);
+                var language = LanguageService.GetLanguageList().FirstOrDefault(p => p.Code == item.LanguageCode);
 
-                item.LanguageName = language == null ? item.LanguageCode : language.NativeName;
+                item.LanguageName = language == null ? item.LanguageCode : language.EnglishName;
             }
 
             return dataList;

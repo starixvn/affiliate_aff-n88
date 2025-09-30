@@ -2,7 +2,6 @@
 using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.Extensions;
-using Fanex.Affiliate.Admin.Core.MetaModels;
 using Fanex.Affiliate.Admin.Core.MetaModels.Domain;
 using Fanex.Affiliate.Admin.Core.Resources;
 using Fanex.Affiliate.Admin.Core.Services.Common;
@@ -57,16 +56,16 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Domain
         [HttpPost]
         [ValidateAntiForgeryHeader]
         [FunctionAuthorize(FunctionName = Function.Domain, IsHost = true)]
-        public ActionResult InsertSubAffDomain(InsertUpdateDomainParam param)
+        public ActionResult InsertSubAffDomain(InsertDomainParam param)
         {
             if (ModelState.IsValid)
             {
-                var encodeParam = EncodeParam(param);
-                AssignUserInfoParam(encodeParam);
+                EncodeParam(param);
+                AssignUserInfoParam(param);
 
                 return new JsonNetResult
                 {
-                    Data = _subAffDomainService.InsertSubAffDomain(encodeParam)
+                    Data = _subAffDomainService.InsertSubAffDomain(param)
                 };
             }
 
@@ -83,17 +82,17 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Domain
         [HttpPost]
         [ValidateAntiForgeryHeader]
         [FunctionAuthorize(FunctionName = Function.Domain, IsHost = true)]
-        public ActionResult UpdateSubAffDomain(InsertUpdateDomainParam param)
+        public ActionResult UpdateSubAffDomain(UpdateDomainParam param)
         {
             var isValidDomainId = param.DomainId >= Validation.MinId;
             if (ModelState.IsValid && isValidDomainId)
             {
-                var encodeParam = EncodeParam(param);
-                AssignUserInfoParam(encodeParam);
+                EncodeParam(param);
+                AssignUserInfoParam(param);
 
                 return new JsonNetResult
                 {
-                    Data = _subAffDomainService.UpdateSubAffDomain(encodeParam)
+                    Data = _subAffDomainService.UpdateSubAffDomain(param)
                 };
             }
 
@@ -132,15 +131,9 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Domain
             };
         }
 
-        private InsertUpdateDomainParam EncodeParam(InsertUpdateDomainParam param)
+        private void EncodeParam(InsertDomainParam param)
         {
-            return new InsertUpdateDomainParam
-            {
-                DomainId = param.DomainId,
-                DomainName = Server.HtmlEncode(param.DomainName),
-                IsSSL = param.IsSSL,
-                IsAffDomain = param.IsAffDomain
-            };
+            param.DomainName = Server.HtmlEncode(param.DomainName);
         }
     }
 }

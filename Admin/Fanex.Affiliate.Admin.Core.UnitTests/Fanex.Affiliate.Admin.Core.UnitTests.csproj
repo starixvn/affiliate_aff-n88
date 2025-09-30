@@ -210,7 +210,6 @@
     <Compile Include="Repository\Customer\LandingPageStatisticsRepositoryTest.cs" />
     <Compile Include="Repository\Customer\ReferrersRepositoryTest.cs" />
     <Compile Include="Repository\Customer\StatementHistoryRepositoryTest.cs" />
-    <Compile Include="Repository\Domain\SubAffDomainRepositoryTest.cs" />
     <Compile Include="Repository\LanguageRepositoryTest.cs" />
     <Compile Include="Repository\MediaGallery\BannerListReppositoryTest.cs" />
     <Compile Include="Repository\MediaGallery\LandingPageRepositoryTest.cs" />
@@ -239,6 +238,7 @@
     <Compile Include="Services\Customer\TrackingStatisticsServiceTest.cs" />
     <Compile Include="Services\Customer\UserAccountServiceTest.cs" />
     <Compile Include="Services\Customer\ViewLogServiceTest.cs" />
+    <Compile Include="Services\Domain\CommonDomainServiceTest.cs" />
     <Compile Include="Services\Domain\DomainControlServiceTest.cs" />
     <Compile Include="Services\Domain\SubAffDomainServiceTest.cs" />
     <Compile Include="Services\Domain\DomainServiceTest.cs" />

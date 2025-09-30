@@ -1,4 +1,8 @@
-﻿using Fanex.Affiliate.User.Core.Constants;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using Fanex.Affiliate.User.Core.Constants;
 using Fanex.Affiliate.User.Core.CoreService;
 using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.DTO.UserPanel;
@@ -11,10 +15,6 @@ using Fanex.Affiliate.User.Core.Repository.UserPanel;
 using Fanex.Affiliate.User.Core.Resources;
 using Fanex.Affiliate.User.Core.Utilities;
 using Fanex.Affiliate.User.Core.ViewModels.UserPanel.Marketing;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace Fanex.Affiliate.User.Core.BusinessService
 {
@@ -28,7 +28,6 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
         private const int AffiliateLink = 1;
         private const int MediaGallery = 2;
-
 
         public MarketingService(IMarketingRepository marketingRepository, IMemoryCacheService cacheService, IAppSetting appSetting, ILanguageService languageService)
         {
@@ -76,6 +75,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
         public IEnumerable<SizeType> GetSizeList(SizeParam param, bool isInternal = false)
         {
+            param.Language = ConvertSelectedLanguageNames(param.TargetCountryCode, param.Language);
             return _marketingRepository.GetSizeList(param, isInternal);
         }
 
@@ -92,34 +92,25 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             return bannerTypeList ?? new List<BannerType>();
         }
 
-        public IEnumerable<Domain> GetAvailableDomainList(int affId, AffiliateLinkType linkType, bool isInternal = false)
+        public IEnumerable<Domain> GetAvailableDomainList(AvailableDomainParam param)
         {
-            var isMember = linkType == AffiliateLinkType.AffiliateLink;
-            var cachKey = isMember ? CacheKey.DomainList : CacheKey.SubDomainList;
+            var domains = _marketingRepository.GetAvailableDomainList(param);
 
-            var domainList = _cacheService.Get<IEnumerable<Domain>>(cachKey);
-
-            if (domainList == null)
-            {
-                domainList = _marketingRepository.GetAvailableDomainList(affId, isMember, isInternal);
-                _cacheService.Set(cachKey, domainList, Number.Ten);
-            }
-
-            return domainList ?? new List<Domain>();
+            return domains ?? new List<Domain>();
         }
 
         public IDictionary<string, LanguageLinkViewModel> GenerateLinkList(LinkGeneratingParam linkGeneratedParam)
         {
             var languages = GetLanguageUsedForGeneration(linkGeneratedParam);
             return GenerateLink(languages, linkGeneratedParam);
-
         }
 
         public IEnumerable<MarketingItem> GetBannerList(MarketingBannerParam bannerParam)
         {
             const int LengthOfSplittingSize = 2;
-            var bannerList = _marketingRepository.GetBannerList(bannerParam);
+            bannerParam.Language = ConvertSelectedLanguageNames(bannerParam.SelectedTargetCountry, bannerParam.Language);
 
+            var bannerList = _marketingRepository.GetBannerList(bannerParam);
             foreach (var banner in bannerList)
             {
                 banner.FileName = bannerParam.BannerDomain + banner.FileName;
@@ -164,11 +155,10 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             return textList;
         }
 
-        public IEnumerable<LandingPage> GetLandingPageList(bool isInternal = false, AffiliateLinkType linkType = AffiliateLinkType.AffiliateLink)
+        public IEnumerable<LandingPage> GetLandingPageList(LandingPageParam param)
         {
-            var isTargetToMember = linkType == AffiliateLinkType.AffiliateLink;
-            return isTargetToMember
-                ? _marketingRepository.GetLandingPageList(isInternal)
+            return param.IsMember
+                ? _marketingRepository.GetLandingPageList(param)
                 : GetSubAffLandingPages();
         }
 
@@ -218,10 +208,22 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         public IEnumerable<IGrouping<string, MarketingChannelLink>> GetUsingMarketingLinks(int userId)
             => _marketingRepository.GetUsingMarketingLink(userId).GroupBy(c => c.ChannelCode);
 
+        private string ConvertSelectedLanguageNames(string targetCountryCode, string languageCode)
+        {
+            var targetCountryLanguages = _languageService.GetLanguageByTargetCountry(targetCountryCode);
+            if (string.IsNullOrEmpty(languageCode))
+            {
+                var allLanguageName = targetCountryLanguages.Select(l => l.EnglishName).ToList();
+                return string.Join(",", allLanguageName);
+            }
+
+            return targetCountryLanguages.FirstOrDefault(l => l.Code.MatchWith(languageCode))?.EnglishName;
+        }
+
         private Dictionary<string, Language> GetLanguageUsedForGeneration(LinkGeneratingParam linkGeneratedParam)
         {
             var result = new Dictionary<string, Language>();
-            var languageList = _languageService.GetLanguageList();
+            var languageList = _languageService.GetLanguageByTargetCountry(linkGeneratedParam.SelectedTargetCountry);
 
             if (string.IsNullOrEmpty(linkGeneratedParam.SelectedLanguage))
             {
@@ -277,7 +279,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             return result;
         }
 
-        private IEnumerable<LandingPage> GetSubAffLandingPages()
+        private static IEnumerable<LandingPage> GetSubAffLandingPages()
         {
             return new List<LandingPage>
             {
@@ -313,7 +315,6 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                     return string.Empty;
             }
         }
-
 
         private static string NormalizeName(string channelName)
         {

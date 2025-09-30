@@ -2,6 +2,8 @@
     var _rootUrl = null;
     var _language = null;
 
+    const optionAll = "<option value=''>" + window.Lang.All + "</option>";
+
     function createNewUrlByLanguage(url, language) {
         var hasQueryString = url.indexOf('?') !== -1;
         var updatedQueryParam = 'lang=' + language;
@@ -90,6 +92,18 @@
             var url = newActualUrl + hash;
 
             _me.redirect(url);
+        },
+
+        buildOptionList: function (dataList, value, text, hasAllOption) {
+            var optionList = dataList.map(function (item) {
+                return "<option value='" + item[value] + "'>" + item[text] + "</option>"
+            });
+
+            if (hasAllOption) {
+                optionList.unshift(optionAll);
+            }
+
+            return optionList.join('');
         }
     };
 

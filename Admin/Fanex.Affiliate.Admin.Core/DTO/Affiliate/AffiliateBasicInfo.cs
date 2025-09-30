@@ -42,5 +42,7 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Affiliate
         public bool IsUsingPrivateCommGroup { get; set; }
 
         public int AffCategoryId { get; set; }
+
+        public string TargetCountryName { get; set; }
     }
 }

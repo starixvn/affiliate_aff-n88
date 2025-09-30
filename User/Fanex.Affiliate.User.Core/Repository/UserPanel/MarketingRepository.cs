@@ -60,15 +60,15 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
             }
         }
 
-        public IEnumerable<Domain> GetAvailableDomainList(int affId, bool isMember, bool isInternal)
+        public IEnumerable<Domain> GetAvailableDomainList(AvailableDomainParam param)
         {
-            var uSpKey = isMember ? "Aff_User_Domain_Sel" : "Aff_User_SubAffiliateDomain_Sel";
+            var uSpKey = param.IsMember ? "Aff_User_Domain_Sel" : "Aff_User_SubAffiliateDomain_Sel";
 
-            var dbMode = isInternal ? DBMode.View : DBMode.Main;
+            var dbMode = param.IsInternal ? DBMode.View : DBMode.Main;
 
             using (var objectDb = _builder.Build(uSpKey, dbMode))
             {
-                return isMember ? objectDb.Query<Domain>(new { AffId = affId }) : objectDb.Query<Domain>();
+                return param.IsMember ? objectDb.Query<Domain>(param) : objectDb.Query<Domain>();
             }
         }
 
@@ -95,14 +95,14 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
             }
         }
 
-        public IEnumerable<LandingPage> GetLandingPageList(bool isInternal)
+        public IEnumerable<LandingPage> GetLandingPageList(LandingPageParam param)
         {
-            const string SpKey = "Aff_Admin_LandingPage_Sel";
-            var dbMode = isInternal ? DBMode.View : DBMode.Main;
+            const string SpKey = "Aff_User_LandingPage_Sel";
+            var dbMode = param.IsInternal ? DBMode.View : DBMode.Main;
 
             using (var db = _builder.Build(SpKey, dbMode))
             {
-                return db.Query<LandingPage>();
+                return db.Query<LandingPage>(param);
             }
         }
 

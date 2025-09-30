@@ -5092,6 +5092,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Target Country.
+        /// </summary>
+        public static string TargetCountry {
+            get {
+                return ResourceManager.GetString("TargetCountry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to TC-GAMING.
         /// </summary>
         public static string TcGaming {

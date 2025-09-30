@@ -1,6 +1,6 @@
 ﻿import { post } from '../../../../modules/ajaxRequest';
 import { toggleLoader } from '../../../../actions/loaderAction';
-import { SHOULD_RESET_SCROLL_POSITION, SET_SELECTED_DOMAIN, SET_GRID_DATA } from './types';
+import { SHOULD_RESET_SCROLL_POSITION, SET_SELECTED_DOMAIN_ID, SET_GRID_DATA } from './types';
 
 export { toggleLoader };
 
@@ -18,16 +18,16 @@ export const setGridData = (data) => {
     }
 }
 
-export const setSelectedDomain = (data) => {
+export const setSelectedDomainId = (data) => {
     return {
-        type: SET_SELECTED_DOMAIN,
+        type: SET_SELECTED_DOMAIN_ID,
         data
     }
 }
 
-export const getDomainList = async (isAffDomain) => {
+export const getDomainList = async (isAffDomain, countryCode) => {
     const url = 'Portal/Domain/GetDomainList';
-    const response = await post(url, { isAffDomain });
+    const response = await post(url, { isAffDomain, countryCode });
 
     return response && response.status === 200 ? response.data : [];
 }
@@ -40,6 +40,20 @@ export const fetchData = (isAffDomain) => async (dispatch) => {
     dispatch(setGridData(data));
     dispatch(setShouldResetScrollPosition(true));
     dispatch(toggleLoader(false));
+}
+
+export const getDomainById = (domainId, isAffDomain) => async () => {
+    const url = 'Portal/Domain/GetDomainById';
+    const response = await post(url, { domainId, isAffDomain });
+
+    return response && response.status === 200 ? response.data : null;
+}
+
+export const getTargetCountryListByDomain = (param) => async () => {
+    const url = 'Portal/Domain/GetTargetCountryListByDomain';
+    const response = await post(url, param);
+
+    return response && response.status === 200 ? response.data : null;
 }
 
 export const insertDomain = (param) => async () => {

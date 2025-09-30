@@ -84,12 +84,15 @@ select {
         .language-list-wrapper {
             background-color: #29426C;
 
+            .country-name {
+                color: #9F9F9F;
+            }
+
             .language-list {
                 margin-bottom: 0;
 
                 .language-item {
                     color: $text-color-white;
-                    padding: 8px 20px;
 
                     &:hover {
                         background: #0B71DF;
@@ -949,7 +952,6 @@ select.form-control {
                     border: 0;
 
                     a {
-                        color: $sub-nav-menu-color-sub;
                         padding: 9px 10px;
                         font-size: 1.4rem;
                         line-height: 16px;

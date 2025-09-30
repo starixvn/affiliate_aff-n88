@@ -17,13 +17,13 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
 
         IEnumerable<SizeType> GetSizeList(SizeParam param, bool isInternal);
 
-        IEnumerable<Domain> GetAvailableDomainList(int affId, bool isMember, bool isInternal);
+        IEnumerable<Domain> GetAvailableDomainList(AvailableDomainParam param);
 
         IEnumerable<MarketingItem> GetBannerList(MarketingBannerParam bannerParam);
 
         IEnumerable<MarketingItem> GetTextList(MarketingTextParam textParam);
 
-        IEnumerable<LandingPage> GetLandingPageList(bool isInternal);
+        IEnumerable<LandingPage> GetLandingPageList(LandingPageParam param);
 
         (int Code, string ErrMsg) AddMarketingChannel(int userId, string channelCode, string channelName);
 

@@ -1,7 +1,5 @@
-﻿using Fanex.Affiliate.User.Core.DTO;
-using Fanex.Affiliate.User.Core.DTO.UserPanel.MediaGallery;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
+using Fanex.Affiliate.User.Core.DTO;
 
 namespace Fanex.Affiliate.User.Core.Repository
 {
@@ -21,15 +19,18 @@ namespace Fanex.Affiliate.User.Core.Repository
 
             using (var objectDb = Builder.Build(uSpKey, dbMode))
             {
-                return objectDb.Query<LanguageType>()
-                    .Select(l => new Language
-                    {
-                        Code = l.MarketId,
-                        DisplayName = l.DisplayName,
-                        EnglishName = l.MarketName,
-                        NativeName = l.MarketNativeName,
-                        ShortedCode = l.ShortedCode
-                    });
+                return objectDb.Query<Language>();
+            }
+        }
+
+        public IEnumerable<TargetCountryLanguage> GetTargetCountryInfo(string targetCountryCode = "", bool isDefault = true, bool isInternal = false)
+        {
+            const string uSpKey = "Aff_TargetCountry_Sel";
+            var dbMode = isInternal ? DBMode.View : DBMode.Main;
+
+            using (var objectDb = Builder.Build(uSpKey, dbMode))
+            {
+                return objectDb.Query<TargetCountryLanguage>(new { isDefault, targetCountryCode });
             }
         }
     }

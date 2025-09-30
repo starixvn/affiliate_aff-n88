@@ -1,8 +1,7 @@
-﻿using Fanex.Affiliate.User.Core.DTO;
+﻿using System;
+using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.DTO.UserPanel;
 using Fanex.Affiliate.User.Core.MetalModels;
-using System;
-using System.Collections.Generic;
 
 namespace Fanex.Affiliate.User.Core.Repository.UserPanel
 {

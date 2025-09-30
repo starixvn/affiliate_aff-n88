@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Functions SiteId="32" SiteName="N88 Admin">
   <Function Name="Language">
+	  <Setting Key="Aff_TargetCountry_Sel" SpName="Aff_TargetCountry_Sel" DbName="DBAFFN8G.Affiliate_N8G.wsv_afinet" />
 	  <Setting Key="Aff_Market_Sel" SpName="Aff_Market_Sel" DbName="DBAFFN8G.Affiliate_N8G.wsv_afinet" >
 		  <Mapping DataField="MarketId" ObjectProperty="LanguageCode" />
 		  <Mapping DataField="MarketName" ObjectProperty="LanguageName" />
@@ -115,6 +116,7 @@
     <Setting Key="Aff_Admin_Banner_Del" SpName="Aff_Admin_Banner_Del" DbName="DBAFFN8G.Affiliate_N8G.wsv_afinet" />
     <Setting Key="Aff_Admin_Banner_Sel" SpName="Aff_Admin_Banner_Sel" DbName="DBAFFN8G.Affiliate_N8G.wsv_afinet" />
     <Setting Key="Aff_AffTypeSel" SpName="Aff_AffTypeSel" DbName="DBAFFN8G.Affiliate_N8G.wsv_afinet" />
+    <Setting Key="Aff_LandingPage_ExcludedTargetCountry_Sel" SpName="Aff_LandingPage_ExcludedTargetCountry_Sel" DbName="DBAFFN8G.Affiliate_N8G.wsv_afinet" />
   </Function>
   <Function Name="Message">
     <Setting Key="Aff_Admin_Message_Sel" SpName="Aff_Admin_Message_Sel" DbName="DBAFFN8G.Affiliate_N8G.wsv_afinet" />
@@ -140,7 +142,9 @@
     <Setting Key="Aff_Admin_LicenseeDomain_Ins" SpName="Aff_Admin_LicenseeDomain_Ins" DbName="DBAFFN8G.Affiliate_N8G.wsv_afinet" />
     <Setting Key="Aff_Admin_LicenseeDomain_Upd" SpName="Aff_Admin_LicenseeDomain_Upd" DbName="DBAFFN8G.Affiliate_N8G.wsv_afinet" />
     <Setting Key="Aff_Admin_LicenseeDomain_Del" SpName="Aff_Admin_LicenseeDomain_Del" DbName="DBAFFN8G.Affiliate_N8G.wsv_afinet" />
-    <Setting Key="Aff_Admin_DomainControl_Sel" SpName="Aff_Admin_DomainControl_Sel" DbName="DBAFFN8G.Affiliate_N8G.wsv_afinet" />
+    <Setting Key="Aff_Admin_DomainControl_Sel" SpName="Aff_Admin_DomainControl_Sel" DbName="DBAFFN8G.Affiliate_N8G.wsv_afinet" >
+	  <Mapping DataField="Status" ObjectProperty="IsUsed" />
+	</Setting>
     <Setting Key="Aff_Admin_DomainControl_Ins" SpName="Aff_Admin_DomainControl_Ins" DbName="DBAFFN8G.Affiliate_N8G.wsv_afinet" />
     <Setting Key="Aff_Admin_DomainControl_Upd" SpName="Aff_Admin_DomainControl_Upd" DbName="DBAFFN8G.Affiliate_N8G.wsv_afinet" />
     <Setting Key="Aff_Admin_DomainControl_Del" SpName="Aff_Admin_DomainControl_Del" DbName="DBAFFN8G.Affiliate_N8G.wsv_afinet" />
@@ -148,6 +152,7 @@
     <Setting Key="Aff_Admin_SubAffiliateDomain_Ins" SpName="Aff_Admin_SubAffiliateDomain_Ins" DbName="DBAFFN8G.Affiliate_N8G.wsv_afinet" />
     <Setting Key="Aff_Admin_SubAffiliateDomain_Upd" SpName="Aff_Admin_SubAffiliateDomain_Upd" DbName="DBAFFN8G.Affiliate_N8G.wsv_afinet" />
     <Setting Key="Aff_Admin_SubAffiliateDomain_Del" SpName="Aff_Admin_SubAffiliateDomain_Del" DbName="DBAFFN8G.Affiliate_N8G.wsv_afinet" />
+    <Setting Key="Aff_Domain_BlockTargetCountry_Sel" SpName="Aff_Domain_BlockTargetCountry_Sel" DbName="DBAFFN8G.Affiliate_N8G.wsv_afinet" />
   </Function>
   <Function Name="Administrator">
     <Setting Key="Aff_Con_GroupInfoSel" SpName="Aff_Con_GroupInfoSel" DbName="DBAFFN8G.Affiliate_N8G.wsv_afinet" />

@@ -1,5 +1,6 @@
 ﻿using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
+using Fanex.Affiliate.Admin.Core.DTO.Common;
 using Fanex.Affiliate.Admin.Core.Extensions;
 using Fanex.Caching;
 using Fanex.Data.Repository;
@@ -110,6 +111,21 @@ namespace Fanex.Affiliate.Admin.Core.Services.Common
             }
 
             return currencyList;
+        }
+
+        public IEnumerable<TargetCountry> GetTargetCountryList()
+        {
+            var targetCountries = _cacheService.Get<IEnumerable<TargetCountry>>(CacheKey.TargetCountryList);
+
+            if (targetCountries == null)
+            {
+                const string SpKey = "Aff_TargetCountry_Sel";
+
+                targetCountries = FetchTData<TargetCountry>(SpKey);
+                _cacheService.Set(CacheKey.TargetCountryList, targetCountries);
+            }
+
+            return targetCountries;
         }
 
         public void SetCulture(string languageCode)

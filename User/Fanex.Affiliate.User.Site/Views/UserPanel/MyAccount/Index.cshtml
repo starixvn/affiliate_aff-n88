@@ -163,8 +163,8 @@
                                            data-val="true"
                                            data-val-requiredifnullorempty-dependentprop="ContactAppList[0].Value,ContactAppList[1].Value"
                                            data-val-requiredifnullorempty="@Error.RequireIMAccount"
-                                           data-val-regex="@Error.AccountInvalidFormat.Replace("{0}", item.Name)" 
-                                           data-val-regex-pattern="@RegexHelper.RegexContactApps(item.Name)"/>
+                                           data-val-regex="@Error.AccountInvalidFormat.Replace("{0}", item.Name)"
+                                           data-val-regex-pattern="@RegexHelper.RegexContactApps(item.Name)" />
                                 </div>
                             }
                             else
@@ -175,8 +175,8 @@
                                            value="@Html.Raw(item.Value)"
                                            data-val="true"
                                            data-val-required="@Error.RequireIMAccount"
-                                           data-val-regex="@Error.AccountInvalidFormat.Replace("{0}", item.Name)" 
-                                           data-val-regex-pattern="@RegexHelper.RegexContactApps(item.Name)"/>
+                                           data-val-regex="@Error.AccountInvalidFormat.Replace("{0}", item.Name)"
+                                           data-val-regex-pattern="@RegexHelper.RegexContactApps(item.Name)" />
                                 </div>
                             }
                             <div class="col-sm-offset-3 col-sm-9">
@@ -310,6 +310,20 @@
         <div class="info-group">
             <div class="title">
                 <span class="text">@Lang.Preference</span>
+            </div>
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">@Lang.TargetCountry</label>
+                    <div class="col-sm-4">
+                        <select class="form-control" name="TargetCountryCode" id="AccountInformation.TargetCountryCode" data-val="true" data-val-required="@Error.TargetCountryErr">
+                            @foreach (var item in Model.TargetCountryList)
+                            {
+                                <option value="@item.TargetCountryCode" @(item.TargetCountryCode == Model.AccountInformation.TargetCountryCode ? "selected" : string.Empty)>@item.TargetCountryName</option>
+                            }
+                        </select>
+                        @Html.ValidationMessageFor(x => x.AccountInformation.TargetCountryCode, string.Empty, new { @class = "help-block hide" })
+                    </div>
+                </div>
             </div>
             <div class="form-horizontal">
                 <div class="form-group">

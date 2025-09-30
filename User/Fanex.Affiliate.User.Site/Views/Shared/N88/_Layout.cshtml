@@ -1,7 +1,7 @@
 ﻿@using Fanex.Affiliate.User.Core.CoreService
 @using Fanex.Affiliate.User.Core.BusinessService
-@using Fanex.Affiliate.User.Core.Utilities
 @using Fanex.Affiliate.User.Core.Constants
+
 @{
     var sessionService = DependencyResolver.Current.GetService<ISessionService>();
     var settingService = DependencyResolver.Current.GetService<IAppSetting>();
@@ -12,6 +12,7 @@
     var languageNativeName = languageList.FirstOrDefault(l => l.Code.Equals(currentLanguage))?.NativeName;
     var siteFriendlyName = settingService.SiteFriendlyName;
     var isLogin = HttpContext.Current.User.Identity.IsAuthenticated && userSession != null;
+    var targetCountryLanguages = languageService.GetTargetCountryLanguages();
 }
 
 <!DOCTYPE html>
@@ -51,6 +52,7 @@
 
     <link href="@Url.RenderLink("~/www/build/styles/css/main/n88.css")" rel="stylesheet" />
     <link href="@Url.RenderLink("~/www/build/styles/css/n88.css")" rel="stylesheet" />
+
     @RenderSection("styles", required: false)
 
 </head>
@@ -76,16 +78,37 @@
                         <div class="language-container desktop @currentLanguage">
                             <div class="language-selection">
                                 <button class="select-language" id="selectedLanguage">
-                                    <span><i class="flag flag-@currentLanguage"></i>@(languageNativeName)</span>
+                                    <span><i class="flag flag-@sessionService.CurrentLanguage"></i>@(languageNativeName)</span>
                                     <i class="caret"></i>
                                 </button>
 
                                 <div class="language-list-wrapper" id="languageList">
                                     <ul class="list-unstyled language-list">
-                                        @foreach (var language in languageList)
+                                        @*@foreach (var language in languageList)
                                         {
                                             <li>
                                                 <a href="javascript:;" class="language-item" data-option="@language.ShortedCode"><i class="flag flag-@language.Code"></i>@language.NativeName</a>
+                                            </li>
+                                        }*@
+                                        @foreach (var country in targetCountryLanguages)
+                                        {
+                                            <li class="country-item">
+                                                <i class="country-item-col-1 flag flag-@country.Key"></i>
+                                                <div class="country-item-col-2">
+                                                    <p class="country-name @(country.Key == sessionService.CurrentCountry ? "text-bold" : "")">@country.Value[0].TargetCountryName</p>
+                                                    <div class="language-options">
+                                                        @foreach (var lang in country.Value)
+                                                        {
+                                                            <a href="javascript:;" class="language-item @(sessionService.CurrentLanguage == lang.Code && country.Key == sessionService.CurrentCountry ? "highlight" : "")" data-target-country-code="@country.Key" data-option="@lang.ShortedCode">
+                                                                @lang.NativeName
+                                                            </a>
+                                                            if (lang != country.Value.Last())
+                                                            {
+                                                                <span class="separator">|</span>
+                                                            }
+                                                        }
+                                                    </div>
+                                                </div>
                                             </li>
                                         }
                                     </ul>
@@ -201,9 +224,11 @@
     <script src="https://cdn.ravenjs.com/3.27.0/raven.min.js" crossorigin="anonymous"></script>
     <script>
         window.Lang = {
+            All: '@Lang.All',
             ServerError: '@Lang.ServerError'
         };
         window.JsVersion = '@settingService.JsVersion';
+        window.SiteName = 'n88';
     </script>
 
     @Html.InlineScripts("~/www/build/js/lib/modernizr-webp.js")

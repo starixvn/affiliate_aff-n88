@@ -34,5 +34,7 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.Affiliate
         public bool IsExportExcel { get; set; }
 
         public string AffCategoryIds { get; set; }
+
+        public string TargetCountryCode { get; set; }
     }
 }

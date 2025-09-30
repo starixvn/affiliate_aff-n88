@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import { Form, FormGroup, Input, Button } from 'reactstrap';
 import { bindActionCreators } from 'redux';
 
-import { setParam, setIsShowAddAffMktAccountPopup, setReportTitle } from '../actions';
+import { setParam, setReportTitle } from '../actions';
 import { allStatuses, globalResource, statusList, resource } from '../libs/constants';
 
-export const Filter = (props) => {
-    const { languageCodeList } = props;
+export const Filter = ({ languageCodeList, targetCountryCodeList, setParam, setReportTitle }) => {
+    const [targetCountryCode, setTargetCountryCode] = useState('');
     const [languageCode, setLanguageCode] = useState('');
     const [status, setStatus] = useState(allStatuses);
     const [userName, setUserName] = useState('');
@@ -20,15 +20,16 @@ export const Filter = (props) => {
         }
     }
 
-    const _buildReportTitle = (selectedLanguage, selectedStatus, userName) => {
+    const _buildReportTitle = (selectedTargetCountry, selectedLanguage, selectedStatus, userName) => {
         const space = resource.Space;
         const apostrophe = resource.Apostrophe;
+        const targetCountryTitle = targetCountryCodeList[selectedTargetCountry] || resource.AllTargetCountries;
         const languageTitle = languageCodeList[selectedLanguage] || resource.AllLanguages;
         const statusTitle = statusList[selectedStatus] || resource.AllStatuses;
         
         const userNameTitle = userName && space + resource.UsernameContains + apostrophe + userName + apostrophe;
-        
-        return `${resource.ReportName}${space}${languageTitle.toUpperCase()}${space}${statusTitle.toUpperCase()}${userNameTitle || ''}`;
+
+        return `${resource.ReportName}${space}${targetCountryTitle.toUpperCase()}${space}${languageTitle.toUpperCase()}${space}${statusTitle.toUpperCase()}${userNameTitle || ''}`;
     };
 
     const _handleSearch = () => {
@@ -43,13 +44,25 @@ export const Filter = (props) => {
         }
 
         const finalStatus = status === allStatuses ? '' : status;
-        props.setReportTitle(_buildReportTitle(languageCode, finalStatus, userName));
-        props.setParam({...params, Language: languageCode, Status: finalStatus, UserName: userName});
+        setReportTitle(_buildReportTitle(targetCountryCode, languageCode, finalStatus, userName));
+        setParam({ ...params, Language: languageCode, Status: finalStatus, UserName: userName, TargetCountryCode: targetCountryCode });
     };
 
     return (
         <div className="filter-container">
             <Form inline tag="div">
+                <FormGroup className="mr-sm-2 my-2">
+                    <Input type="select" name="targetCountry" id="targetCountry"
+                        value={targetCountryCode}
+                        onChange={(e) => setTargetCountryCode(e.target.value)}>
+                        <option value="">All Target Countries</option>
+                        {
+                            Object.keys(targetCountryCodeList).map(key => {
+                                return (<option key={`targetCountry-${key}`} value={key}>{targetCountryCodeList[key]}</option>)
+                            })
+                        }
+                    </Input>
+                </FormGroup>
                 <FormGroup className="mr-sm-2 my-2">
                     <Input type="select" name="language" id="language"
                         value={languageCode}
@@ -98,7 +111,6 @@ const mapStateToProps = ({ languageCodeList, targetCountryCodeList }) => {
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({
         setParam,
-        setIsShowAddAffMktAccountPopup,
         setReportTitle,
     }, dispatch);
 };

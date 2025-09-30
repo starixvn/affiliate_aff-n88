@@ -3,29 +3,29 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
-import { setSelectedMarket, fetchData } from '../actions';
+import { setSelectedTargetCountry, fetchData } from '../actions';
 import { headerText, globalResource } from '../libs/constants';
 
 export const Filter = (props) => {
-    const { marketList } = props;
-    const [market, setMarket] = useState('');
+    const { targetCountryList } = props;
+    const [targetCountry, setTargetCountry] = useState('');
 
     const _handleSearch = () => {
-        props.setSelectedMarket(market);
-        props.fetchData(market);
+        props.setSelectedTargetCountry(targetCountry);
+        props.fetchData(targetCountry);
     }
 
-    return marketList && (
+    return targetCountryList && (
         <div className="filter-container my-2">
             <Form inline tag="div">
-                <FormGroup className="mr-sm-3">
-                    <Label htmlFor="market" className="mr-sm-2">{headerText.Market}</Label>
-                    <Input type="select" name="market" value={market} onChange={(e) => setMarket(e.target.value)}>
-                        <option key={'market-all'} value={''}>{globalResource.All}</option>
+                <FormGroup className="mr-sm-2">
+                    <Label htmlFor="targetCountry" className="mr-sm-2">{headerText.TargetCountry}</Label>
+                    <Input type="select" name="targetCountry" value={targetCountry} onChange={(e) => setTargetCountry(e.target.value)}>
+                        <option key={'targetCountry-all'} value={''}>{globalResource.All}</option>
                         {
-                            marketList.map(item => {
-                                return (<option key={`market-${item.LanguageCode}`} value={item.LanguageCode}>{item.LanguageName}</option>)
-                            })
+                            targetCountryList.map(item => (
+                                <option key={`targetCountry-${item.TargetCountryCode}`} value={item.TargetCountryCode}>{item.TargetCountryName}</option>)
+                            )
                         }
                     </Input>
                 </FormGroup>
@@ -37,12 +37,12 @@ export const Filter = (props) => {
     )
 }
 
-function mapStateToProps({ marketList }) {
-    return Object.assign({}, { marketList });
+function mapStateToProps({ targetCountryList }) {
+    return Object.assign({}, { targetCountryList });
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ setSelectedMarket, fetchData }, dispatch);
+    return bindActionCreators({ setSelectedTargetCountry, fetchData }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(React.memo(Filter));

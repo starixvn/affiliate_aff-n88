@@ -36,6 +36,7 @@
             _accountRepository = accountRepository;
             _currencyRepository = currencyRepository;
         }
+
         [HttpGet]
         [AjaxOnly]
         public ActionResult Index()
@@ -64,7 +65,8 @@
                 IsRenderState = _sessionService.CurrentLanguage == SimplifiedChineseCode || _sessionService.CurrentLanguage == TraditionalChineseCode,
                 HasWebSite = accountInfo.HasWebSite,
                 AffCurrency = accountInfo.AffCurrency,
-                DefaultBaseCurrency = accountInfo.DefaultBaseCurrency
+                DefaultBaseCurrency = accountInfo.DefaultBaseCurrency,
+                TargetCountryCode = accountInfo.TargetCountryCode,
             };
 
             if (!string.IsNullOrEmpty(newAccountInfo.ContactApps))
@@ -82,7 +84,8 @@
             {
                 AccountInformation = newAccountInfo,
                 IsMarketingAccount = _sessionService.UserSession.IsMarketingAccount,
-                BaseCurrencyList = CurrencyHelper.GetCurrencyList(baseCurrencyList, newAccountInfo.DefaultBaseCurrency)
+                BaseCurrencyList = CurrencyHelper.GetCurrencyList(baseCurrencyList, newAccountInfo.DefaultBaseCurrency),
+                TargetCountryList = LanguageService.GetSystemTargetCountries()
             };
 
             return View("~/Views/UserPanel/MyAccount/index.cshtml", model);
@@ -125,6 +128,7 @@
                     Value = Server.HtmlEncode(p.Value),
                     Order = p.Order
                 })),
+                TargetCountryCode = Server.HtmlEncode(model.TargetCountryCode)
             };
 
             var updatingResult = _accountRepository.UpdateAccountInformation(accountUpdateParam);

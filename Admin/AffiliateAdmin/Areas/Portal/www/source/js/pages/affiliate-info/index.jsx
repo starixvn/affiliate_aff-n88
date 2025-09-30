@@ -6,14 +6,14 @@ import reducer from './reducers';
 import AppContainer from './components/AppContainer';
 import { configureStore } from '../../modules/store';
 import { headerText, defaultColumns } from './libs/constants';
-import { convertListToMutilpleSelected, handleChangeMultipleSelected } from '../../modules/utils';
+import { convertArrayToObjectProps, convertListToMutilpleSelected, handleChangeMultipleSelected } from '../../modules/utils';
 import ClaimPrincipal from '../../modules/claim';
 
 export default class App extends Component {
     constructor(props) {
         super(props);
 
-        const { commGroupList, languageList, groupId, param } = window.initialState;
+        const { commGroupList, languageList, groupId, param, targetCountryList } = window.initialState;
         const claimsPrincipal = ClaimPrincipal.currentClaimPrincipal;
 
         let newCommGroupList = convertListToMutilpleSelected(commGroupList, 'GroupId', 'GroupName');
@@ -22,10 +22,8 @@ export default class App extends Component {
             newCommGroupList = handleChangeMultipleSelected(newCommGroupList, groupId.toString());
         }
 
-        const language = {};
-        for (let languageItem of languageList) {
-            language[languageItem.LanguageCode] = languageItem.LanguageName;
-        }
+        const newTargetCountryList = convertArrayToObjectProps(targetCountryList, 'TargetCountryCode', 'TargetCountryName');
+        const newLanguageList = convertArrayToObjectProps(languageList, 'LanguageCode', 'LanguageName');
 
         const filteredColumnList = Object.keys(headerText).filter(c => !defaultColumns.includes(c)).filter(c => !headerText[c].renderClaim || claimsPrincipal.hasClaim(headerText[c].renderClaim));
         const columnList = filteredColumnList.map(item => {
@@ -36,7 +34,7 @@ export default class App extends Component {
             }
         });
 
-        this.store = configureStore({ languageList: language, commGroupList: newCommGroupList, groupId, param, columnList, claimsPrincipal }, reducer);
+        this.store = configureStore({ languageList: newLanguageList, commGroupList: newCommGroupList, groupId, param, columnList, claimsPrincipal, targetCountryList: newTargetCountryList }, reducer);
 
     }
 

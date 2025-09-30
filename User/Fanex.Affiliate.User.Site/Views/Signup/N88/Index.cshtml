@@ -84,10 +84,10 @@
                         <label class="col-sm-3 control-label require">@Lang.Gender</label>
                         <div class="col-sm-4">
                             <label class="radio-inline">
-                            <input type="radio" name="Gender" id="male" value="True" checked /> <span>@Lang.Male</span>
+                                <input type="radio" name="Gender" id="male" value="True" checked /> <span>@Lang.Male</span>
                             </label>
                             <label class="radio-inline">
-                            <input type="radio" name="Gender" id="female" value="False" /> <span>@Lang.Female</span>
+                                <input type="radio" name="Gender" id="female" value="False" /> <span>@Lang.Female</span>
                             </label>
                         </div>
                     </div>
@@ -247,6 +247,21 @@
                     </div>
                     <div class="form-horizontal">
                         <div class="form-group">
+                            <label class="col-sm-3 control-label require">@Lang.TargetCountry</label>
+                            <div class="col-sm-4">
+                                <select class="form-control" name="TargetCountryCode" id="TargetCountryCode" data-val="true" data-val-required="@Error.TargetCountryErr">
+                                    <option value="">@Lang.SelectOne</option>
+                                    @foreach (var item in languageService.GetSystemTargetCountries())
+                                    {
+                                        <option value="@item.TargetCountryCode" data-language="@item.Code">@item.TargetCountryName</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="col-sm-offset-3 col-sm-9">
+                                @Html.ValidationMessageFor(x => x.TargetCountryCode, string.Empty, new { @class = "help-block hide" })
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label class="col-sm-3 control-label require">@Lang.Language</label>
                             <div class="col-sm-4">
                                 <select class="form-control" name="PreferredLanguage" id="PreferredLanguage" data-val="true" data-val-required="@Lang.PreferLangErr">
@@ -263,7 +278,7 @@
                         </div>
 
                         <div class="form-group">
-                            @{Html.RenderAction("SecurityQuestion", "Signup");}
+                            @{ Html.RenderAction("SecurityQuestion", "Signup"); }
                             <div class="col-sm-offset-3 col-sm-9">
                                 @Html.ValidationMessageFor(x => x.QuestionId, string.Empty, new { @class = "help-block hide" })
                             </div>
@@ -343,7 +358,7 @@
             <div class="row">
                 <div class="error-content">
                     <div class="img-support">
-                        <img class="img-responsive" src="~/www/build/styles/Images/404-illus.png" alt="404-illus"/>
+                        <img class="img-responsive" src="~/www/build/styles/Images/404-illus.png" alt="404-illus" />
                     </div>
                     <div class="error-text">
                         <p class="text-center">@Html.Raw($"{Lang.InvalidLink} <a href={Url.Content("~/SignUp/Index")}>{Lang.ClickHere}</a>")</p>

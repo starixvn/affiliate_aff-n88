@@ -747,6 +747,10 @@ label {
                     a.menu-item {
                         color: $color-black !important;
 
+                        &.active {
+                            background-color: rgba(51,145,246,0.5)
+                        }
+
                         &:hover {
                             background: rgba(51,145,246,0.5)
                         }

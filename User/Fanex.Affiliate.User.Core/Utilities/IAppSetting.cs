@@ -96,5 +96,7 @@ namespace Fanex.Affiliate.User.Core.Utilities
         int GreenNumberRGB { get; }
 
         int BlueNumberRGB { get; }
+
+        string DefaultCountryCode { get; }
     }
 }

@@ -28,11 +28,18 @@ namespace Fanex.Affiliate.User.Core.Controllers
             base.Initialize(requestContext);
 
             var favoriteLanguage = LanguageService.GetFavoriteLanguage();
+            var currentCountry = LanguageService.GetCountry();
             var sessionLang = SessionService.CurrentLanguage;
+            var sessionCountry = SessionService.CurrentCountry;
             if (favoriteLanguage != sessionLang)
             {
-                requestContext.HttpContext.Response.Cookies.Add(new System.Web.HttpCookie("afffavoritelang" + AppSetting.Instance.SiteName, favoriteLanguage) { HttpOnly = true });
+                requestContext.HttpContext.Response.Cookies.Add(new System.Web.HttpCookie(AppSetting.Instance.SiteName.ToLowerInvariant() + "_afffavoritelang", favoriteLanguage) { HttpOnly = true });
                 SessionService.CurrentLanguage = favoriteLanguage;
+            }
+
+            if (currentCountry != sessionCountry)
+            {
+                SessionService.CurrentCountry = currentCountry;
             }
             LanguageService.SetCulture(favoriteLanguage);
         }

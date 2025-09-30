@@ -54,6 +54,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Customer
                             IsDisabledTransfer = reader.ToBool("DisabledTransfer"),
                             PlayerCurrency = reader.ToString("PlayerCurrency"),
                             TransferLimit = reader.ToDecimal("TransferLimit"),
+                            TargetCountryName = reader.ToString("TargetCountryName")
                         };
                     }
                 }

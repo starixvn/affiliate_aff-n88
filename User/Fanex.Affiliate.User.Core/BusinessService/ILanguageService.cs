@@ -9,6 +9,8 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
         string GetFavoriteLanguage();
 
+        string GetCountry();
+
         string GetCurrentLanguage();
 
         bool IsValid(string langCode);
@@ -16,5 +18,11 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         IEnumerable<Language> GetLanguageList(bool? isInternal = null);
 
         IEnumerable<Language> GetSupportedUILanguageList(bool? isInternal = null);
+
+        IEnumerable<TargetCountryLanguage> GetSystemTargetCountries();
+
+        Dictionary<string, List<TargetCountryLanguage>> GetTargetCountryLanguages();
+
+        IEnumerable<Language> GetLanguageByTargetCountry(string targetCountry = "");
     }
 }
