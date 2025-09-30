@@ -32,5 +32,7 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
         (int Code, string ErrMsg) ToggleMarketingLink(MarketingLinkParam param);
 
         IEnumerable<MarketingChannelLink> GetUsingMarketingLink(int userId);
+
+        IEnumerable<MarketingChannelLink> GetAffMarketingLinks(int userId, string channelCode);
     }
 }

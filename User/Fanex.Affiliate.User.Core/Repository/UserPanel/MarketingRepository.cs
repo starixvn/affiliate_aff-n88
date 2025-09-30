@@ -150,5 +150,15 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
             }
         }
 
+        public IEnumerable<MarketingChannelLink> GetAffMarketingLinks(int userId, string channelCode)
+        {
+            const string spKey = "Aff_User_AffMediaLink_Sel";
+
+            using (var objectDb = _builder.Build(spKey))
+            {
+                return objectDb.Query<MarketingChannelLink>(new { AffId = userId, channelCode });
+            }
+        }
+
     }
 }

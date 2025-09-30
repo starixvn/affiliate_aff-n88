@@ -37,6 +37,46 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             _languageService = languageService;
         }
 
+        public void TrackingAffMarketingLink(int affId, IDictionary<string, QrCodeLinkViewModel> qrCodeLinks, QrCodeParam param)
+        {
+            var affMediaLinks = GetAffMarketingLinks(affId, param.SelectedChannel);
+            var shouldTrackingAffLinks = qrCodeLinks.Values;
+
+            if (affMediaLinks != null)
+            {
+                shouldTrackingAffLinks = new List<QrCodeLinkViewModel>();
+
+                foreach (var item in qrCodeLinks.Values)
+                {
+                    var affLink = affMediaLinks.FirstOrDefault(l => l.AffMediaLink.Equals(item.Link, StringComparison.OrdinalIgnoreCase));
+
+                    if (affLink is null)
+                    {
+                        item.IsShow = true;
+                        shouldTrackingAffLinks.Add(item);
+                    }
+                    else
+                    {
+                        item.IsShow = affLink.IsShow;
+                    }
+                }
+            }
+
+            foreach (var item in shouldTrackingAffLinks)
+            {
+                var trackingParam = new MarketingLinkParam
+                {
+                    AffId = affId,
+                    AffMediaLink = item.Link,
+                    ChannelCode = param.SelectedChannel,
+                    LanguageCode = item.Language.Code,
+                    IsOn = item.IsShow
+                };
+
+                ToggleMarketingLink(trackingParam);
+            }
+        }
+
         public IEnumerable<CategoryType> GetCategoryList(bool isMediaPage, AffiliateLinkType linkType, bool isInternal = false)
         {
             var cacheKey = isMediaPage ? CacheKey.BannerCategoryList : CacheKey.TextCategoryList;
@@ -204,6 +244,9 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                 Message = string.IsNullOrWhiteSpace(message) ? ErrMsg : message
             };
         }
+
+        private IEnumerable<MarketingChannelLink> GetAffMarketingLinks(int userId, string channelCode)
+            => _marketingRepository.GetAffMarketingLinks(userId, channelCode);
 
         public IEnumerable<IGrouping<string, MarketingChannelLink>> GetUsingMarketingLinks(int userId)
             => _marketingRepository.GetUsingMarketingLink(userId).GroupBy(c => c.ChannelCode);
