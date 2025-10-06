@@ -1523,6 +1523,11 @@ var PlayerList = (function ($) {
                 var month = date.getMonth() + 1;
                 var year = date.getFullYear();
                 return formatDateUnit(month) + "/" + formatDateUnit(day) + "/" + year;
+            },
+            onOpen: function () {
+                if ($('#ignoreDateFilter').prop("checked")) {
+                    this.hide();
+                }
             }
         }));
     }
