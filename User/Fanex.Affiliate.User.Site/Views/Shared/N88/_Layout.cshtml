@@ -13,6 +13,7 @@
     var siteFriendlyName = settingService.SiteFriendlyName;
     var isLogin = HttpContext.Current.User.Identity.IsAuthenticated && userSession != null;
     var targetCountryLanguages = languageService.GetTargetCountryLanguages();
+    var telegramContact = settingService.TelegramContact;
 }
 
 <!DOCTYPE html>
@@ -220,6 +221,15 @@
 
     <input type="hidden" id="RootUrl" value="@Url.Content("~")" />
     <input type="hidden" id="Language" value="@currentLanguage" />
+    
+    <div class="contact-girl-floating-icon hidden" id="contactGirlIcon">
+        <div class="contact-girl-close" id="contactGirlClose">&times;</div>
+        <a href="@telegramContact" target="_blank" class="contact-girl-link">
+            <img src="~/www/build/styles/Images/contact-girl/n88/contact-us.@(currentLanguage).webp" 
+                 alt="Contact Girl" class="contact-girl-image" />
+        </a>
+    </div>
+    
     @Html.Raw(Fanex.Logging.LogManager.RenderJavascriptLogger())
     <script src="https://cdn.ravenjs.com/3.27.0/raven.min.js" crossorigin="anonymous"></script>
     <script>

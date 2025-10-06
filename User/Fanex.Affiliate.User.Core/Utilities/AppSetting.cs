@@ -103,5 +103,7 @@ namespace Fanex.Affiliate.User.Core.Utilities
         public int BlueNumberRGB => Convert.ToInt32(GetValue("BlueNumberRGB"));
 
         public string DefaultCountryCode => GetValue("DefaultCountryCode");
+
+        public string TelegramContact => GetValue("TelegramContact");
     }
 }

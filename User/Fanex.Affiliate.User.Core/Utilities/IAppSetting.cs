@@ -96,5 +96,7 @@ namespace Fanex.Affiliate.User.Core.Utilities
         int BlueNumberRGB { get; }
 
         string DefaultCountryCode { get; }
+
+        string TelegramContact { get; }
     }
 }

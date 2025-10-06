@@ -7,12 +7,29 @@ var Layout = (function ($) {
         $mainBanner.carousel();
     }
 
+    function initContactGirl() {
+        var $contactGirlIcon = $('#contactGirlIcon');
+
+        if (sessionStorage.getItem('contactGirlIconHidden') !== 'true') {
+            $contactGirlIcon.removeClass('hidden');
+        }
+
+        $('#contactGirlClose').on('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            $contactGirlIcon.addClass('hidden');
+            sessionStorage.setItem('contactGirlIconHidden', 'true');
+        });
+    }
+
     var _me = {
         initialize: function () {
             initSlider();
             _me.registerAjaxHandlerError();
             _me.initEvent();
             _me.renderHotNews();
+            initContactGirl();
         },
         initEvent: function () {
             $("#selectedLanguage").on("click", function (e) {
