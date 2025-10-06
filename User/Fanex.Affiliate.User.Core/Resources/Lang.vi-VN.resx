@@ -2103,4 +2103,7 @@
   <data name="NonDeposited" xml:space="preserve">
     <value>Chưa gửi tiền</value>
   </data>
+  <data name="Deposited" xml:space="preserve">
+    <value>Đã gửi tiền</value>
+  </data>
 </root>

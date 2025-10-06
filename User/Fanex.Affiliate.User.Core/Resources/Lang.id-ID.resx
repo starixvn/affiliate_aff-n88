@@ -1830,4 +1830,7 @@
   <data name="NonDeposited" xml:space="preserve">
     <value>Tidak ada deposit</value>
   </data>
+  <data name="Deposited" xml:space="preserve">
+    <value>Sudah Deposit</value>
+  </data>
 </root>

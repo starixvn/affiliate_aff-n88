@@ -2083,4 +2083,7 @@
   <data name="NonDeposited" xml:space="preserve">
     <value>অজমাকৃত</value>
   </data>
+  <data name="Deposited" xml:space="preserve">
+    <value>জমা হয়েছে</value>
+  </data>
 </root>

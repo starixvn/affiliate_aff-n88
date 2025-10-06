@@ -2069,4 +2069,7 @@ Jika anda mempunyai sebarang soalan dan memerlukan sebarang bantuan, sila jangan
   <data name="NonDeposited" xml:space="preserve">
     <value>Tiada deposit</value>
   </data>
+  <data name="Deposited" xml:space="preserve">
+    <value>Sudah Deposit</value>
+  </data>
 </root>

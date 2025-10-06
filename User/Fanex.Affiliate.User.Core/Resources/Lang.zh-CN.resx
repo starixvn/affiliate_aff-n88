@@ -1847,4 +1847,7 @@ B2C合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
   <data name="NonDeposited" xml:space="preserve">
     <value>无存款</value>
   </data>
+  <data name="Deposited" xml:space="preserve">
+    <value>已存款</value>
+  </data>
 </root>
