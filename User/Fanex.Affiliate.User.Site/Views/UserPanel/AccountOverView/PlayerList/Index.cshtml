@@ -34,18 +34,20 @@
                             <span class="glyphicon glyphicon-calendar"></span>
                         </div>
                     </div>
-                    <div class="checkbox form-group">
+                    <div class="form-group checkbox">
                         <label class="text-bold">
                             <input id="ignoreDateFilter" type="checkbox" />
                             @Lang.ShowAllPlayersIgnoreDateFilter
                         </label>
                     </div>
-                    <button type="button" class="btn btn-submit btn-player-list" id="btnSubmit">@Lang.Submit</button>
+                    <div class="form-group justify-center">
+                        <button type="button" class="btn btn-submit btn-player-list" id="btnSubmit">@Lang.Submit</button>
+                    </div>
                 </form>
             </div>
         </div>
-        <div class="report-container">
-            <div class="table table-medium table-responsive display-none" id="player-list-table"></div>
+        <div class="report-container table-medium ">
+            <div class="table table-responsive display-none" id="player-list-table"></div>
             <div id="pager"></div>
         </div>
     </div>

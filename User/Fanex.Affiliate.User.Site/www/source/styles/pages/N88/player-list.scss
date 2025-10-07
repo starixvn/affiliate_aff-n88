@@ -4,12 +4,13 @@
 @import '../../scss/components/n88/table-sticky';
 @import '../../scss/components/n88/group-control';
 
-.btn-player-list {
-    margin-right: 0;
+.info-group {
+    @include TableAndMobile {
+        width: 100%;
+    }
 }
 
 #pager {
-    //width: 70%;
     margin: 4rem 0 1.6rem;
 
     @include TableAndMobile {
@@ -24,11 +25,8 @@
         margin-top: 0;
     }
 }
-
-.overview-table {
-    margin: 0;
-
+.report-container {
     @include TableAndMobile {
-        width: 100% !important;
+        width: 100%;
     }
 }

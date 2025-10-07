@@ -1,16 +1,11 @@
 ﻿@import "../scss/components/pager";
 @import "../scss/components/pikaday";
 
-#PlayerType {
-    margin-bottom: 0;
-}
-
 .btn-player-list {
     margin-bottom: 5px;
 }
 
 #pager {
-    width: 70%;
     margin-top: 30px;
 
     & + #table {
@@ -25,5 +20,22 @@
 .form-filter {
     .form-group {
         width: 300px;
+        margin-bottom: 5px;
+
+        @media only screen and (max-width: 1023px) {
+            > label {
+                width: 13%;
+            }
+
+            &.checkbox {
+                > label {
+                    width: 100%;
+                }
+            }
+
+            &.justify-center {
+                justify-content: center;
+            }
+        }
     }
 }
