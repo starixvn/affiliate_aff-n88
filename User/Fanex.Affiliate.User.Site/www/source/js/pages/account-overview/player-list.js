@@ -22,14 +22,10 @@
     }
 
     function initDatePicker(id, triggerId) {
-        let firstDate = new Date('11/01/2021');
-        let lastDate = new Date($('#ToDate').val());
         UserPanel.datepicker.push(new Pikaday({
             field: document.getElementById(id),
             trigger: document.getElementById(triggerId),
             yearRange: [2020, new Date().getFullYear()],
-            minDate: firstDate,
-            maxDate: lastDate,
             toString: function (date, format) {
                 var day = date.getDate();
                 var month = date.getMonth() + 1;

@@ -4,7 +4,7 @@
 
 @model Fanex.Affiliate.User.Core.ViewModels.UserPanel.PlayerListViewModel
 
-@Html.InlineStyles("~/www/build/styles/css/player-list.min.css")
+<link href="@Url.RenderLink("~/www/build/styles/css/player-list.css")" rel="stylesheet" />
 
 <div class="container-fluid" id="player-list">
     <div class="info-group">
@@ -47,7 +47,7 @@
         <div class="report-container">
             <div class="table table-medium table-responsive display-none" id="player-list-table"></div>
             <div id="pager"></div>
-            </div>
+        </div>
     </div>
 </div>
 
