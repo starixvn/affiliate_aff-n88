@@ -10,6 +10,12 @@ var Layout = (function ($) {
     function initContactGirl() {
         var $contactGirlIcon = $('#contactGirlIcon');
 
+        if (window.location.pathname.toLowerCase().endsWith('/contactus') ||
+            window.location.pathname.toLowerCase().endsWith('/contactus/')) {
+            $contactGirlIcon.addClass('hidden');
+            return;
+        }
+
         if (sessionStorage.getItem('contactGirlIconHidden') !== 'true') {
             $contactGirlIcon.removeClass('hidden');
         }
