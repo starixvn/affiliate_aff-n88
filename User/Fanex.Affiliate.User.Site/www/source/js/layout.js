@@ -27,6 +27,12 @@ var Layout = (function ($) {
             $contactGirlIcon.addClass('hidden');
             sessionStorage.setItem('contactGirlIconHidden', 'true');
         });
+
+        $(document).on('keydown', function (e) {
+            if (e.keyCode === 116 || e.key === 'F5') {
+                sessionStorage.removeItem('contactGirlIconHidden');
+            }
+        });
     }
 
     var _me = {
