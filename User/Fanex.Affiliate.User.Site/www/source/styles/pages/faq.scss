@@ -10,6 +10,20 @@
     }
 }
 
+.term-condition-page {
+    .page-title {
+        color: #EA5500;
+        font-size: 42px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+}
+.banner-terms-condition {
+    color: #EA5500;
+    font-size: 42px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
 .content-group {
     .title-container {
         .index-number {
@@ -32,11 +46,10 @@
             position: relative;
 
             .title {
-                color: #D90F0F;
+                color: #FF5D00;
                 font-size: 18px;
-                font-weight: 700;
+                font-weight: bold;
                 line-height: 1;
-                text-transform: uppercase;
 
                 @include Mobile {
                     font-size: 14px;
@@ -74,7 +87,7 @@
                 display: block;
                 width: 20px;
                 height: 20px;
-                background: linear-gradient(90deg, #D90F0F 0%, #FF8651 77.6%);
+                background: #FF5D00;
                 border-radius: 100px;
                 position: absolute;
                 right: 0;
@@ -118,7 +131,7 @@
     .content-block {
         border-radius: 12px;
         background: #FFF;
-        padding: 35px 56px;
+        padding: 30px 30px;
         text-align: left;
         font-size: 16px;
         line-height: normal;
@@ -135,13 +148,13 @@
         }
 
         & > ul, > ol {
-            padding-left: 30px;
+            padding-left: 10px;
             list-style-type: none;
 
             & > li {
                 counter-increment: muffins;
 
-                 ul, ol {
+                ul, ol {
                     padding-left: 30px;
 
                     li::marker {
@@ -153,7 +166,7 @@
             & > li::before {
                 content: counter(muffins);
                 font-size: 20px;
-                background: #d90f0f;
+                background: #FF5D00;
                 font-weight: 700;
                 line-height: 30px;
                 color: #fff;
