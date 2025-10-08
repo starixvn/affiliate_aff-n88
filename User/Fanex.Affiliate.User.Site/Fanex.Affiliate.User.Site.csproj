@@ -729,6 +729,10 @@
     <Content Include="www\build\js\telegram-update-dialog.min.js">
       <DependentUpon>telegram-update-dialog.js</DependentUpon>
     </Content>
+    <Content Include="www\build\js\terms-and-conditions.js" />
+    <Content Include="www\build\js\terms-and-conditions.min.js">
+      <DependentUpon>terms-and-conditions.js</DependentUpon>
+    </Content>
     <Content Include="www\build\js\user-panel.js" />
     <Content Include="www\build\js\user-panel.min.js">
       <DependentUpon>user-panel.js</DependentUpon>
@@ -1122,6 +1126,7 @@
     <Content Include="www\build\styles\Images\themes\n8b.png" />
     <Content Include="www\source\js\components\intlTelInput.js" />
     <Content Include="www\source\js\pages\contact-us.js" />
+    <Content Include="www\source\js\pages\terms-and-conditions.js" />
     <Content Include="www\source\js\pages\account-overview\account-overview.min.js">
       <DependentUpon>account-overview.js</DependentUpon>
     </Content>

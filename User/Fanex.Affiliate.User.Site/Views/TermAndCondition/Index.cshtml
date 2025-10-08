@@ -4,6 +4,14 @@
     Layout = "~/Views/Shared/_LayoutBeforeLogin.cshtml";
 }
 
+@section styles{
+    @Html.InlineStyles("~/www/build/styles/css/faq.css")
+}
+
+@section scripts{
+    @Html.InlineScripts("~/www/build/js/terms-and-conditions.js")
+}
+
 @{
     var htmlString = Html.RenderPartialByLanguage($"~/Views/TermAndCondition/_Content", Model.CurrentLanguage, Model.SiteFriendlyName);
 }
