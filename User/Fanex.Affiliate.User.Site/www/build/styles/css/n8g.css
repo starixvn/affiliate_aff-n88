@@ -889,6 +889,15 @@ div.summary-content .dashboard-section .group-three {
 div.summary-content .dashboard-section .group-four {
   background-color: #259176;
 }
+div.summary-content .dashboard-section .group-five {
+  background-color: #AE8F56;
+}
+div.summary-content .dashboard-section .group-five .info-panel {
+  width: 100% !important;
+}
+div.summary-content .dashboard-section .img-icon .img-responsive {
+  min-width: 40px;
+}
 div.summary-content .details-section {
   padding-top: 29px;
 }
@@ -1392,10 +1401,14 @@ div.custom-panel {
 .btn-move-top {
   background: #0B71DF;
   color: #fff;
+  opacity: 1;
 }
 .btn-move-top:hover {
   background: #1882F5;
   box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16);
+}
+.btn-move-top i {
+  display: block;
 }
 
 .date-time .img-support {

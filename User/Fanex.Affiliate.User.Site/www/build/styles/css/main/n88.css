@@ -1861,7 +1861,7 @@ label.require:after {
 
 .moving-block {
   position: fixed;
-  bottom: 15px;
+  bottom: 14.6rem;
   right: 135px;
   z-index: 1;
 }
@@ -1871,6 +1871,11 @@ label.require:after {
   }
   .moving-block .btn-move-top {
     margin-right: 10px;
+  }
+}
+@media (max-width: 1023px) {
+  .moving-block {
+    right: 15px;
   }
 }
 @media (max-width: 1199px) and (min-width: 1024px) {
@@ -2354,10 +2359,9 @@ input[type=radio], input[type=checkbox] {
 }
 .contact-girl-floating-icon {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 18.6rem;
+  right: 75px;
   z-index: 9999;
-  opacity: 0.9;
   transition: opacity 0.3s ease, transform 0.3s ease;
   cursor: pointer;
 }
@@ -2398,9 +2402,26 @@ input[type=radio], input[type=checkbox] {
 .contact-girl-floating-icon .contact-girl-link .contact-girl-image:hover {
   transform: scale(1.1);
 }
+@media (max-width: 1199px) and (min-width: 1024px) {
+  .contact-girl-floating-icon {
+    right: 20px;
+  }
+}
+@media (max-width: 1023px) {
+  .contact-girl-floating-icon {
+    right: 15px;
+  }
+  .contact-girl-floating-icon .contact-girl-link .contact-girl-image {
+    width: 80px;
+  }
+  .contact-girl-floating-icon .contact-girl-close {
+    width: 18px;
+    height: 18px;
+    font-size: 12px;
+  }
+}
 @media (max-width: 768px) {
   .contact-girl-floating-icon {
-    bottom: 15px;
     right: 15px;
   }
   .contact-girl-floating-icon .contact-girl-link .contact-girl-image {
@@ -2414,7 +2435,6 @@ input[type=radio], input[type=checkbox] {
 }
 @media (max-width: 480px) {
   .contact-girl-floating-icon {
-    bottom: 10px;
     right: 10px;
   }
   .contact-girl-floating-icon .contact-girl-link .contact-girl-image {
