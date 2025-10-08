@@ -2074,4 +2074,16 @@
   <data name="NetRevenue" xml:space="preserve">
     <value>নিট আয়</value>
   </data>
+  <data name="PlayerList" xml:space="preserve">
+    <value>খেলোয়াড়ের তালিকা</value>
+  </data>
+  <data name="ShowAllPlayersIgnoreDateFilter" xml:space="preserve">
+    <value>সকল খেলোয়াড় দেখাও (তারিখ ফিল্টার উপেক্ষা করো)</value>
+  </data>
+  <data name="NonDeposited" xml:space="preserve">
+    <value>অজমাকৃত</value>
+  </data>
+  <data name="Deposited" xml:space="preserve">
+    <value>জমা হয়েছে</value>
+  </data>
 </root>

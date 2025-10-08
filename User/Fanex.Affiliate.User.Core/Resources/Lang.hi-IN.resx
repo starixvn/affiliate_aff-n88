@@ -1257,7 +1257,7 @@ B2C सहयोगी की टीम&lt;br/&gt;&lt;br/&gt;
     <value>नए साइनअप</value>
   </data>
   <data name="Deposit" xml:space="preserve">
-    <value>जमा</value>
+    <value>जमा किया गया</value>
   </data>
   <data name="P2pIncluded" xml:space="preserve">
     <value>आय का हिस्सा (P2P शामिल)</value>
@@ -2068,5 +2068,17 @@ B2C सहयोगी की टीम&lt;br/&gt;&lt;br/&gt;
   </data>
   <data name="NetRevenue" xml:space="preserve">
     <value>शुद्ध राजस्व</value>
+  </data>
+  <data name="PlayerList" xml:space="preserve">
+    <value>खिलाड़ियों की सूची</value>
+  </data>
+  <data name="ShowAllPlayersIgnoreDateFilter" xml:space="preserve">
+    <value>सभी खिलाड़ियों को दिखाएँ (तारीख फ़िल्टर को नज़रअंदाज़ करें)</value>
+  </data>
+  <data name="NonDeposited" xml:space="preserve">
+    <value>अजमा</value>
+  </data>
+  <data name="Deposited" xml:space="preserve">
+    <value>जमा किया गया</value>
   </data>
 </root>

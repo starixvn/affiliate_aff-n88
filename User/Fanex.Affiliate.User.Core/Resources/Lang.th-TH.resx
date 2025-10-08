@@ -403,7 +403,7 @@
     <value>เดนมาร์ก</value>
   </data>
   <data name="Deposit" xml:space="preserve">
-    <value>ฝากเงิน</value>
+    <value>ฝากเเล้ว</value>
   </data>
   <data name="Description" xml:space="preserve">
     <value>รายละเอียด</value>
@@ -1820,5 +1820,17 @@
   </data>
   <data name="NetRevenue" xml:space="preserve">
     <value>รายได้สุทธิ</value>
+  </data>
+  <data name="PlayerList" xml:space="preserve">
+    <value>รายชื่อผู้เล่น</value>
+  </data>
+  <data name="ShowAllPlayersIgnoreDateFilter" xml:space="preserve">
+    <value>แสดงผู้เล่นทั้งหมด (ไม่สนใจตัวกรองวันที่)</value>
+  </data>
+  <data name="NonDeposited" xml:space="preserve">
+    <value>ไม่มีการฝาก</value>
+  </data>
+  <data name="Deposited" xml:space="preserve">
+    <value>ฝากเเล้ว</value>
   </data>
 </root>

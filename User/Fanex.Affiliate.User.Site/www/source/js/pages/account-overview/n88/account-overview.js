@@ -1,6 +1,6 @@
 ﻿var AccountOverview = (function ($) {
     var DEFAULT_ACTION_OF_ACCOUNT_OVERVIEW = 'Summary';
-    var allowedActionListOfAccountOverview = ["Summary", "AffiliateLink", "MediaGallery", "SubAffLink", "SubAffMediaGallery"];
+    var allowedActionListOfAccountOverview = ["Summary", "AffiliateLink", "MediaGallery", "SubAffLink", "SubAffMediaGallery", "PlayerList"];
 
     var _me = {
         initialize: function () {

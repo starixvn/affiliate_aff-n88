@@ -115,6 +115,8 @@ namespace Fanex.Affiliate.User.Site
             builder.RegisterType<IpLocationRepository>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<IpLocationService>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<UnderMaintenanceService>().AsImplementedInterfaces().InstancePerLifetimeScope();
+            builder.RegisterType<PlayerRepository>().AsImplementedInterfaces().InstancePerLifetimeScope();
+            builder.RegisterType<PlayerListService>().AsImplementedInterfaces().InstancePerLifetimeScope();
 
             builder.RegisterType<QrCodeUrlGeneratorService>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<PngImageHandler>().AsImplementedInterfaces().InstancePerLifetimeScope();

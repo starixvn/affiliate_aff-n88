@@ -981,14 +981,14 @@ module.exports = closest;
     var pagingInfoText = {
         'en-US': 'Page {0} of {1}',
         'bn-BD': 'পৃষ্ঠা {0} এর {1}',
-        'hi-IN': 'पेज {0} का {1}',
+        'hi-IN': 'पृष्ठ {0} का {1}',
         'km-KH': 'ទំព័រ {0} នៃ {1}',
-        'ms-MY': 'Halaman {0} dari {1}',
+        'ms-MY': 'Muka Surat {0} daripada {1}',
         'id-ID': 'Halaman {0} dari {1}',
-        'zh-CN': '从 {0} 页到 {1} 页',
+        'zh-CN': '第 {0} 页，共 {1} 页',
         'zh-TW': '從 {0} 頁到 {1} 頁',
-        'th-TH': 'หน้า {0} จาก {1}',
-        'vi-VN': 'Trang {0} của {1}',
+        'th-TH': 'หน้า {0} ถึง {1} หน้า',
+        'vi-VN': 'Trang {0} trên {1}',
         'ko-KR': '페이지 {0} 중 {1}'
     };
 

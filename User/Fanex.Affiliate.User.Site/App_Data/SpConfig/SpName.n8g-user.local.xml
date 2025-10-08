@@ -138,6 +138,7 @@
 	    <Mapping DataField="MarketName" ObjectProperty="EnglishName" />
 	    <Mapping DataField="MarketNativeName" ObjectProperty="NativeName" />
     </Setting>
+    <Setting Key="Aff_User_Member_Sel" SpName="Aff_User_Member_Sel" DbName="DBAFFN8G.Affiliate_N8G.wsv_afinet" />
   </Function>
 
   <Function Name="Currency">

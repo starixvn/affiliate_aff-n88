@@ -403,7 +403,7 @@
     <value>丹麦</value>
   </data>
   <data name="Deposit" xml:space="preserve">
-    <value>存款</value>
+    <value>已存款</value>
   </data>
   <data name="Description" xml:space="preserve">
     <value>描述</value>
@@ -1837,5 +1837,17 @@ B2C合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
   </data>
   <data name="NetRevenue" xml:space="preserve">
     <value>净收入</value>
+  </data>
+  <data name="PlayerList" xml:space="preserve">
+    <value>玩家列表</value>
+  </data>
+  <data name="ShowAllPlayersIgnoreDateFilter" xml:space="preserve">
+    <value>显示所有玩家（忽略日期筛选）</value>
+  </data>
+  <data name="NonDeposited" xml:space="preserve">
+    <value>无存款</value>
+  </data>
+  <data name="Deposited" xml:space="preserve">
+    <value>已存款</value>
   </data>
 </root>

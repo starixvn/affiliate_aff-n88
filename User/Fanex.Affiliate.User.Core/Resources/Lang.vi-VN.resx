@@ -403,7 +403,7 @@
     <value>Đan Mạch</value>
   </data>
   <data name="Deposit" xml:space="preserve">
-    <value>Tiền nạp vào</value>
+    <value>Đã gửi tiền</value>
   </data>
   <data name="Description" xml:space="preserve">
     <value>Mô tả</value>
@@ -2093,5 +2093,17 @@
   </data>
   <data name="NetRevenue" xml:space="preserve">
     <value>Doanh thu thuần</value>
+  </data>
+  <data name="PlayerList" xml:space="preserve">
+    <value>Danh sách người chơi</value>
+  </data>
+  <data name="ShowAllPlayersIgnoreDateFilter" xml:space="preserve">
+    <value>Hiển thị tất cả người chơi (Bỏ qua lọc ngày)</value>
+  </data>
+  <data name="NonDeposited" xml:space="preserve">
+    <value>Chưa gửi tiền</value>
+  </data>
+  <data name="Deposited" xml:space="preserve">
+    <value>Đã gửi tiền</value>
   </data>
 </root>
