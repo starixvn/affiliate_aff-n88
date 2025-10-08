@@ -1,14 +1,14 @@
 ﻿namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
 {
     using System.Web.Mvc;
-    using Fanex.Affiliate.User.Core.BusinessService;
-    using Fanex.Affiliate.User.Core.CoreService;
-    using Fanex.Affiliate.User.Core.Enum;
-    using Fanex.Affiliate.User.Core.Extensions;
-    using Fanex.Affiliate.User.Core.Resources;
-    using Fanex.Affiliate.User.Core.Utilities;
+    using BusinessService;
+    using CoreService;
+    using Enum;
+    using Extensions;
     using Filters;
     using ONEbook.UM.AspNetMVC.Filters;
+    using Resources;
+    using Utilities;
 
     [CheckUMFilter]
     [CustomAuthorize]
@@ -21,11 +21,13 @@
             IAppSetting appSetting,
             ILanguageService languageService,
             IMarketingService marketingService,
-            IAccountService accountService)
+            IAccountService accountService,
+            IIpLocationService ipLocationService)
            : base(sessionService,
                 appSetting,
                 languageService,
-                marketingService)
+                marketingService,
+                ipLocationService)
         {
             AccountService = accountService;
         }

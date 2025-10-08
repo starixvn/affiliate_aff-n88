@@ -1,9 +1,9 @@
-﻿using System;
-using System.Reflection;
-using System.Web.Mvc;
-
-namespace Fanex.Affiliate.User.Core.Filters
+﻿namespace Fanex.Affiliate.User.Core.Filters
 {
+    using System;
+    using System.Reflection;
+    using System.Web.Mvc;
+
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, Inherited = false, AllowMultiple = true)]
     public sealed class AjaxOnlyAttribute : ActionMethodSelectorAttribute
     {
@@ -11,6 +11,5 @@ namespace Fanex.Affiliate.User.Core.Filters
         {
             return controllerContext.HttpContext.Request.IsAjaxRequest();
         }
-
     }
 }

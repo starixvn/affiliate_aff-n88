@@ -1,12 +1,12 @@
-﻿using Fanex.Affiliate.User.Core.CoreService;
-using System;
-using System.Net;
-using System.Web.Mvc;
-using System.Web.Routing;
-
-namespace Fanex.Affiliate.User.Core.Filters
+﻿namespace Fanex.Affiliate.User.Core.Filters
 {
-    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, Inherited = true, AllowMultiple = true)]
+    using System;
+    using System.Net;
+    using System.Web.Mvc;
+    using System.Web.Routing;
+    using CoreService;
+
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = true)]
     public sealed class CustomAuthorizeAttribute : AuthorizeAttribute
     {
         public override void OnAuthorization(AuthorizationContext filterContext)

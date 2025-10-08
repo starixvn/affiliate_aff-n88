@@ -1,15 +1,15 @@
-﻿using Fanex.Affiliate.User.Core.BusinessService;
-using Fanex.Affiliate.User.Core.Controllers;
-using Fanex.Affiliate.User.Core.CoreService;
-using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
-using Fanex.Affiliate.User.Core.Utilities;
-using Moq;
-using System.Web;
-using System.Web.Mvc;
-using Xunit;
-
-namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
+﻿namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
 {
+    using System.Web;
+    using System.Web.Mvc;
+    using Core.BusinessService;
+    using Core.Controllers;
+    using Core.CoreService;
+    using Core.Utilities;
+    using Moq;
+    using TestHelper;
+    using Xunit;
+
     public class ContactUsControllerTest
     {
         [Fact]
@@ -29,13 +29,15 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
         private static ContactUsController CreateController(
             ISessionService sessionService = null,
             IAppSetting appSetting = null,
-            ILanguageService languageService = null)
+            ILanguageService languageService = null,
+            IIpLocationService ipLocationService = null)
         {
             sessionService = sessionService ?? MockingHelper.GetSessionService();
             appSetting = appSetting ?? Mock.Of<IAppSetting>();
             languageService = languageService ?? Mock.Of<ILanguageService>();
+            ipLocationService = ipLocationService ?? Mock.Of<IIpLocationService>();
 
-            var controller = new ContactUsController(appSetting, sessionService, languageService);
+            var controller = new ContactUsController(appSetting, sessionService, languageService, ipLocationService);
             var request = MockingHelper.GetHttpRequest();
             var server = new Mock<HttpServerUtilityBase>();
             server.Setup(s => s.HtmlEncode(It.IsAny<string>())).Returns<string>(s => $"Encoded{s}");

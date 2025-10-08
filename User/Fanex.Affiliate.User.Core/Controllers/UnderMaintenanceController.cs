@@ -1,12 +1,12 @@
-﻿using Fanex.Affiliate.User.Core.BusinessService;
-using Fanex.Affiliate.User.Core.CoreService;
-using Fanex.Affiliate.User.Core.Utilities;
-using System.Web.Mvc;
-using System.Web.Routing;
-using System.Web.Security;
-
-namespace Fanex.Affiliate.User.Core.Controllers
+﻿namespace Fanex.Affiliate.User.Core.Controllers
 {
+    using System.Web.Mvc;
+    using System.Web.Routing;
+    using System.Web.Security;
+    using BusinessService;
+    using CoreService;
+    using Utilities;
+
     public class UnderMaintenanceController : Controller
     {
         private readonly IAppSetting _appSetting;
@@ -17,7 +17,8 @@ namespace Fanex.Affiliate.User.Core.Controllers
         public UnderMaintenanceController(
             IAppSetting appSetting,
             ISessionService sessionService,
-            ILanguageService languageService, IUnderMaintenanceService underMaintenanceService)
+            ILanguageService languageService, 
+            IUnderMaintenanceService underMaintenanceService)
         {
             _appSetting = appSetting;
             _sessionService = sessionService;

@@ -1,8 +1,8 @@
-﻿using Fanex.Affiliate.User.Core.DTO.Auth;
-using Fanex.Affiliate.User.Core.DTO.VerificationAccount;
-
-namespace Fanex.Affiliate.User.Core.CoreService
+﻿namespace Fanex.Affiliate.User.Core.CoreService
 {
+    using DTO.Auth;
+    using DTO.VerificationAccount;
+
     public interface ISessionService
     {
         UserSession UserSession { get; }
@@ -12,6 +12,8 @@ namespace Fanex.Affiliate.User.Core.CoreService
         string CurrentLanguage { get; set; }
 
         string CurrentCountry { get; set; }
+
+        string CountryShort { get; set; }
 
         bool IsInternal { get; set; }
 

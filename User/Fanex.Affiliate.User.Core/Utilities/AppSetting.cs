@@ -1,13 +1,13 @@
-﻿using Fanex.Affiliate.User.Core.Constants;
-using Fanex.Affiliate.User.Core.Enum;
-using Fanex.Affiliate.User.Core.Resources;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-
-namespace Fanex.Affiliate.User.Core.Utilities
+﻿namespace Fanex.Affiliate.User.Core.Utilities
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Configuration;
+    using System.Linq;
+    using Constants;
+    using Enum;
+    using Resources;
+
     public class AppSetting : IAppSetting
     {
         public static IAppSetting Instance { get; } = new AppSetting();
@@ -103,5 +103,9 @@ namespace Fanex.Affiliate.User.Core.Utilities
         public int BlueNumberRGB => Convert.ToInt32(GetValue("BlueNumberRGB"));
 
         public string DefaultCountryCode => GetValue("DefaultCountryCode");
+
+        public string DefaultDomainSite => GetValue("DefaultDomainSite");
+
+        public string DefaultDomainSiteByCountry(string countryCode) => GetValue("DefaultDomainSite:" + countryCode) ?? DefaultDomainSite;
     }
 }

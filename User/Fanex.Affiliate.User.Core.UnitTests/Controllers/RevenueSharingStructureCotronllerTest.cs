@@ -1,13 +1,13 @@
-﻿using Fanex.Affiliate.User.Core.BusinessService;
-using Fanex.Affiliate.User.Core.Controllers;
-using Fanex.Affiliate.User.Core.CoreService;
-using Fanex.Affiliate.User.Core.Utilities;
-using NSubstitute;
-using System.Web.Mvc;
-using Xunit;
-
-namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
+﻿namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
 {
+    using System.Web.Mvc;
+    using Core.BusinessService;
+    using Core.Controllers;
+    using Core.CoreService;
+    using Core.Utilities;
+    using NSubstitute;
+    using Xunit;
+
     public class RevenueSharingStructureCotronllerTest
     {
         [Fact]
@@ -18,7 +18,8 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
 
             var sessionService = Substitute.For<ISessionService>();
             var languageService = Substitute.For<ILanguageService>();
-            var controller = new RevenueSharingStructureController(appSetting, sessionService, languageService);
+            var ipLocationService = Substitute.For<IIpLocationService>();
+            var controller = new RevenueSharingStructureController(appSetting, sessionService, languageService, ipLocationService);
 
             var result = controller.Index() as ViewResult;
 

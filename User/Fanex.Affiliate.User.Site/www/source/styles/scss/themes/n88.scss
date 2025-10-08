@@ -113,7 +113,7 @@ header {
                 background-image: url("../../../../build/styles/Images/icons/flags/China.png");
             }
 
-            &-zh-TW {
+            &.flag-zh-TW {
                 background-image: url("../../../../build/styles/Images/icons/flags/Taiwan.png");
             }
 
@@ -139,6 +139,10 @@ header {
 
             &.flag-km-KH {
                 background-image: url("../../../../build/styles/Images/icons/flags/Cambodian.png");
+            }
+
+            &.flag-en-PH {
+                background-image: url("../../../../build/styles/Images/icons/flags/Philippines.png");
             }
         }
     }

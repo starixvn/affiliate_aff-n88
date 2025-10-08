@@ -2180,8 +2180,14 @@
   <data name="TargetCountry" xml:space="preserve">
     <value>Target Country</value>
   </data>
+  <data name="Viber" xml:space="preserve">
+    <value>Viber</value>
+  </data>
   <data name="NetRevenue" xml:space="preserve">
     <value>Net Revenue</value>
+  </data>
+  <data name="NotAllowOnCountry" xml:space="preserve">
+    <value>Your account is not available in this country.</value>
   </data>
   <data name="PlayerList" xml:space="preserve">
     <value>Player List</value>

@@ -5,18 +5,18 @@
     using System.Drawing;
     using System.Linq;
     using System.Web.Mvc;
+    using BusinessService;
     using Constants;
+    using CoreService;
+    using DTO;
     using DTO.UserPanel;
+    using Enum;
     using Extensions;
-    using Fanex.Affiliate.User.Core.BusinessService;
-    using Fanex.Affiliate.User.Core.CoreService;
-    using Fanex.Affiliate.User.Core.DTO;
-    using Fanex.Affiliate.User.Core.Enum;
-    using Fanex.Affiliate.User.Core.MetalModels;
-    using Fanex.Affiliate.User.Core.Resources;
-    using Fanex.Affiliate.User.Core.Utilities;
     using Filters;
+    using MetalModels;
     using MetalModels.UserPanel;
+    using Resources;
+    using Utilities;
     using ViewModels.UserPanel.Marketing;
 
     [CustomAuthorize]
@@ -31,7 +31,9 @@
             ILanguageService languageService,
             IMarketingService marketingService,
             IQrCodeGeneratorService qrCodeGeneratorService,
-            IFileSystem fileSystem) : base(sessionService, appSetting, languageService, marketingService)
+            IFileSystem fileSystem,
+            IIpLocationService ipLocationService) 
+            : base(sessionService, appSetting, languageService, marketingService, ipLocationService)
         {
             _qrCodeGeneratorService = qrCodeGeneratorService;
             _fileSystem = fileSystem;
@@ -214,7 +216,7 @@
         {
             var selectedLInkType = param.SelectedLinkType;
 
-            var linkList = selectedLInkType == Core.Enum.AffiliateLinkType.AffiliateLink
+            var linkList = selectedLInkType == AffiliateLinkType.AffiliateLink
                 ? GetLinkForMemberList(param)
                 : GetLinkForSubAffList(param);
 

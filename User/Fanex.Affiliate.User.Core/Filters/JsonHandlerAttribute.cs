@@ -1,9 +1,9 @@
-﻿using Fanex.Affiliate.User.Core.Infrastructure;
-using System;
-using System.Web.Mvc;
-
-namespace Fanex.Affiliate.User.Core.Filters
+﻿namespace Fanex.Affiliate.User.Core.Filters
 {
+    using System;
+    using System.Web.Mvc;
+    using Infrastructure;
+
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = true)]
     public class JsonHandlerAttribute : ActionFilterAttribute
     {

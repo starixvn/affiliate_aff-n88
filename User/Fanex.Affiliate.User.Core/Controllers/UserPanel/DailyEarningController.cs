@@ -1,14 +1,14 @@
 ﻿namespace Fanex.Affiliate.User.Core.Controllers
 {
-    using Constants;
-    using Fanex.Affiliate.User.Core.BusinessService;
-    using Fanex.Affiliate.User.Core.CoreService;
-    using Fanex.Affiliate.User.Core.Repository.UserPanel;
-    using Fanex.Affiliate.User.Core.Utilities;
-    using Filters;
-    using MetalModels.UserPanel;
     using System;
     using System.Web.Mvc;
+    using BusinessService;
+    using Constants;
+    using CoreService;
+    using Filters;
+    using MetalModels.UserPanel;
+    using Repository.UserPanel;
+    using Utilities;
     using ViewModels.UserPanel;
 
     [CustomAuthorize]
@@ -23,8 +23,9 @@
             ISessionService sessionService,
             ILanguageService languageService,
             IStatementHistoryRepository statementHistoryRepository,
-            ICurrencyRepository currencyRepository
-            ) : base(sessionService, languageService)
+            ICurrencyRepository currencyRepository,
+            IIpLocationService ipLocationService
+            ) : base(sessionService, languageService, ipLocationService)
         {
             _appSetting = appSetting;
             _statementHistoryRepository = statementHistoryRepository;

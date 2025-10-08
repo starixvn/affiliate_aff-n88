@@ -63,6 +63,8 @@ namespace Fanex.Affiliate.User.Core.Constants
 
         public const string VietnameseLanguageCode = "vi-VN";
 
+        public const string PhilippinesCountryCode = "PH";
+
         public static string GetUppercaseShortedCode(string languageCode)
         {
             if (_supportedLanguageForGoogleAnalytics.TryGetValue(languageCode, out string result) && !string.IsNullOrEmpty(result))

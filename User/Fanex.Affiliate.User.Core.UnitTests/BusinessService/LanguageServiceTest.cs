@@ -1,31 +1,33 @@
-﻿using Fanex.Affiliate.User.Core.BusinessService;
-using Fanex.Affiliate.User.Core.Constants;
-using Fanex.Affiliate.User.Core.CoreService;
-using Fanex.Affiliate.User.Core.DTO;
-using Fanex.Affiliate.User.Core.Repository;
-using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
-using NSubstitute;
-using NSubstitute.ReturnsExtensions;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Web;
-using Xunit;
-
-namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
+﻿namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
 {
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+    using System.Web;
+    using Constants;
+    using Core.BusinessService;
+    using Core.CoreService;
+    using Core.Repository;
+    using DTO;
+    using NSubstitute;
+    using NSubstitute.ReturnsExtensions;
+    using TestHelper;
+    using Xunit;
+
     public class LanguageServiceTest
     {
         private readonly ILanguageRepository Repo;
         private readonly ISessionService SessionService;
         private readonly IMemoryCacheService CacheServive;
+        private readonly IIpLocationService IpLocationService;
 
         public LanguageServiceTest()
         {
             Repo = Substitute.For<ILanguageRepository>();
             SessionService = NSubtituteMockingHelper.FakeSessionService();
             CacheServive = Substitute.For<IMemoryCacheService>();
+            IpLocationService = Substitute.For<IIpLocationService>();
         }
 
         [Fact]
@@ -142,6 +144,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             };
 
         private LanguageService CreateService()
-            => new LanguageService(Repo, SessionService, CacheServive);
+            => new LanguageService(Repo, SessionService, CacheServive, IpLocationService);
     }
 }

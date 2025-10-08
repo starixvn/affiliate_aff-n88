@@ -1,24 +1,24 @@
-﻿using Fanex.Affiliate.User.Core.BusinessService;
-using Fanex.Affiliate.User.Core.Controllers;
-using Fanex.Affiliate.User.Core.CoreService;
-using Fanex.Affiliate.User.Core.DTO;
-using Fanex.Affiliate.User.Core.DTO.Auth;
-using Fanex.Affiliate.User.Core.DTO.UserPanel;
-using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
-using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
-using Fanex.Affiliate.User.Core.Utilities;
-using Fanex.Affiliate.User.Core.ViewModels.UserPanel;
-using Moq;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Principal;
-using System.Web.Mvc;
-using Xunit;
-
-namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
+﻿namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Security.Principal;
+    using System.Web.Mvc;
+    using Core.BusinessService;
+    using Core.Controllers;
+    using Core.CoreService;
+    using Core.Utilities;
+    using DTO;
+    using DTO.Auth;
+    using DTO.UserPanel;
+    using MetalModels.UserPanel;
+    using Moq;
+    using Newtonsoft.Json;
+    using TestHelper;
+    using ViewModels.UserPanel;
+    using Xunit;
+
     public class NewsControllerTest
     {
         [Fact]
@@ -320,12 +320,17 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             Assert.Equal(Constant.DefaultLanguage, passedParam.Language);
         }
 
-        private static NewsController CreateController(INewsService newsService, ISessionService sessionService = null, ILanguageService languageService = null)
+        private static NewsController CreateController(
+            INewsService newsService, 
+            ISessionService sessionService = null, 
+            ILanguageService languageService = null,
+            IIpLocationService ipLocationService = null)
         {
             sessionService = sessionService ?? MockingHelper.GetSessionService();
             languageService = languageService ?? new Mock<ILanguageService>().Object;
+            ipLocationService = ipLocationService ?? new Mock<IIpLocationService>().Object;
 
-            return new NewsController(new Mock<IAppSetting>().Object, sessionService, languageService, newsService);
+            return new NewsController(new Mock<IAppSetting>().Object, sessionService, languageService, ipLocationService, newsService);
         }
     }
 }

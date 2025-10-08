@@ -1,18 +1,18 @@
-﻿using Fanex.Affiliate.User.Core.BusinessService;
-using Fanex.Affiliate.User.Core.CoreService;
-using Fanex.Affiliate.User.Core.DTO.UserPanel;
-using Fanex.Affiliate.User.Core.Filters;
-using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
-using Fanex.Affiliate.User.Core.Repository.UserPanel;
-using Fanex.Affiliate.User.Core.Utilities;
-using Fanex.Affiliate.User.Core.ViewModels.UserPanel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Mvc;
-
-namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
+﻿namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web.Mvc;
+    using BusinessService;
+    using CoreService;
+    using DTO.UserPanel;
+    using Filters;
+    using MetalModels.UserPanel;
+    using Repository.UserPanel;
+    using Utilities;
+    using ViewModels.UserPanel;
+
     [CustomAuthorize]
     public class SummaryController : BaseController
     {
@@ -24,8 +24,9 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
             IAppSetting appSetting,
             ISessionService sessionService,
             ILanguageService languageService,
-            IAccountOverviewRepository accountOverviewRepository
-            ) : base(sessionService, languageService)
+            IAccountOverviewRepository accountOverviewRepository,
+            IIpLocationService ipLocationService
+            ) : base(sessionService, languageService, ipLocationService)
         {
             _appSetting = appSetting;
             _accountOverviewRepository = accountOverviewRepository;

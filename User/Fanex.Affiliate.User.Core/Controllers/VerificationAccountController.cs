@@ -1,21 +1,21 @@
-﻿using Fanex.Affiliate.User.Core.BusinessService;
-using Fanex.Affiliate.User.Core.CoreService;
-using Fanex.Affiliate.User.Core.DTO;
-using Fanex.Affiliate.User.Core.DTO.VerificationAccount;
-using Fanex.Affiliate.User.Core.Extensions;
-using Fanex.Affiliate.User.Core.Filters;
-using Fanex.Affiliate.User.Core.MetalModels;
-using Fanex.Affiliate.User.Core.MetalModels.Email;
-using Fanex.Affiliate.User.Core.Repository.UserPanel;
-using Fanex.Affiliate.User.Core.Resources;
-using Fanex.Affiliate.User.Core.Utilities;
-using Fanex.Affiliate.User.Core.ViewModels;
-using System;
-using System.Web.Mvc;
-using System.Web.UI;
-
-namespace Fanex.Affiliate.User.Core.Controllers
+﻿namespace Fanex.Affiliate.User.Core.Controllers
 {
+    using System;
+    using System.Web.Mvc;
+    using System.Web.UI;
+    using BusinessService;
+    using CoreService;
+    using DTO;
+    using DTO.VerificationAccount;
+    using Extensions;
+    using Filters;
+    using MetalModels;
+    using MetalModels.Email;
+    using Repository.UserPanel;
+    using Resources;
+    using Utilities;
+    using ViewModels;
+
     public class VerificationAccountController : AuthBaseController
     {
         private const int CaptchaImgWidth = 100;
@@ -30,7 +30,16 @@ namespace Fanex.Affiliate.User.Core.Controllers
             ICaptchaService captchaService,
             IAccountRepository accountRepository,
             IAuthService authService,
-            IVerificationService verificationService) : base(sessionService, languageService, appSetting, captchaService, authService, accountRepository)
+            IVerificationService verificationService,
+            IIpLocationService ipLocationService) 
+            : base(
+                sessionService, 
+                languageService, 
+                appSetting, 
+                captchaService, 
+                authService,
+                ipLocationService,
+                accountRepository)
         {
             _verificationService = verificationService;
         }
@@ -128,7 +137,7 @@ namespace Fanex.Affiliate.User.Core.Controllers
                 var userInfo = loginResult.UserInfo;
                 if (userInfo != null && verificationSession.AffId == userInfo.AffId)
                 {
-                    if (!IsValidDomain(userInfo.AffType))
+                    if (!IsValidAffiliateType(userInfo.AffType))
                     {
                         return Json(CreateVerifyAccountResult(GetErrorResult(Lang.NotAllowOnDomain)));
                     }

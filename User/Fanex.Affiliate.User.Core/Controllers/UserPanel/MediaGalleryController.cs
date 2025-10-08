@@ -3,13 +3,13 @@
     using System.Linq;
     using System.Web.Mvc;
     using System.Web.Mvc.Html;
-    using Fanex.Affiliate.User.Core.BusinessService;
-    using Fanex.Affiliate.User.Core.CoreService;
-    using Fanex.Affiliate.User.Core.Enum;
-    using Fanex.Affiliate.User.Core.Extensions;
-    using Fanex.Affiliate.User.Core.Resources;
-    using Fanex.Affiliate.User.Core.Utilities;
+    using BusinessService;
+    using CoreService;
+    using Enum;
+    using Extensions;
     using Filters;
+    using Resources;
+    using Utilities;
     using ViewModels.UserPanel.Marketing;
 
     public class MediaGalleryController : BaseMarketingController
@@ -19,8 +19,9 @@
         public MediaGalleryController(ISessionService sessionService, IAppSetting appSetting,
             ILanguageService languageService,
             IMarketingService marketingService,
-            IAccountService accountService) :
-            base(sessionService, appSetting, languageService, marketingService)
+            IAccountService accountService,
+            IIpLocationService ipLocationService) 
+            : base(sessionService, appSetting, languageService, marketingService, ipLocationService)
         {
             AccountService = accountService;
         }

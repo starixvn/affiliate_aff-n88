@@ -107,11 +107,17 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Repository.UserPanel
             var key = uSpKey + dbMode;
             var repo = CreateRepo();
             var db = Builder.Build(null, null);
+            var param = new AvailableDomainParam 
+            { 
+                AffId = 1,
+                IsMember = true,
+                IsInternal = isInternal
+            };
 
-            repo.GetAvailableDomainList(1, true, isInternal);
+            repo.GetAvailableDomainList(param);
 
             Assert.Equal(key, db.SettingKey);
-            db.Received().Query<Domain>(Arg.Compat.Is<object>(o => CheckPropertyValue(o, "AffId", 1)));
+            db.Received().Query<Domain>(Arg.Is<AvailableDomainParam>(p => p.AffId == 1 && p.IsMember && p.IsInternal == isInternal));
         }
 
         [Theory]
@@ -124,8 +130,14 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Repository.UserPanel
             var key = uSpKey + dbMode;
             var repo = CreateRepo();
             var db = Builder.Build(null, null);
+            var param = new AvailableDomainParam
+            {
+                AffId = 1,
+                IsMember = false,
+                IsInternal = isInternal
+            };
 
-            repo.GetAvailableDomainList(1, false, isInternal);
+            repo.GetAvailableDomainList(param);
 
             Assert.Equal(key, db.SettingKey);
             db.Received().Query<Domain>();
@@ -182,8 +194,9 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Repository.UserPanel
             var repo = CreateRepo();
             var db = Builder.Build(SpKey, dbMode);
             db.Query<LandingPage>().Returns(new List<LandingPage> { new LandingPage() });
+            var param = new LandingPageParam { IsInternal = isInternal };
 
-            var result = repo.GetLandingPageList(isInternal);
+            var result = repo.GetLandingPageList(param);
 
             Assert.Equal(key, db.SettingKey);
             Assert.NotEmpty(result);

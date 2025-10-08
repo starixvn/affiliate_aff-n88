@@ -1,16 +1,17 @@
-﻿using Fanex.Affiliate.User.Core.BusinessService;
-using Fanex.Affiliate.User.Core.CoreService;
-using Fanex.Affiliate.User.Core.Filters;
-using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
-using Fanex.Affiliate.User.Core.Repository.UserPanel;
-using Fanex.Affiliate.User.Core.Utilities;
-using Fanex.Affiliate.User.Core.ViewModels.UserPanel;
-using System;
-using System.Linq;
-using System.Web.Mvc;
-
-namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
+﻿namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
 {
+    using System;
+    using System.Linq;
+    using System.Web.Mvc;
+    using BusinessService;
+    using Constants;
+    using CoreService;
+    using Filters;
+    using MetalModels.UserPanel;
+    using Repository.UserPanel;
+    using Utilities;
+    using ViewModels.UserPanel;
+
     [CustomAuthorize]
     public class SubAffEarningController : BaseController
     {
@@ -23,7 +24,9 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
             ISessionService sessionService,
             ILanguageService languageService,
             IStatementHistoryRepository statementHistoryRepository,
-            ICurrencyRepository currencyRepository) : base(sessionService, languageService)
+            ICurrencyRepository currencyRepository,
+            IIpLocationService ipLocationService) 
+            : base(sessionService, languageService, ipLocationService)
         {
             _appSetting = appSetting;
             _statementHistoryRepository = statementHistoryRepository;
@@ -46,9 +49,9 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
                 SubAffUserName = s.UserName
             });
 
-            if (!Constants.RequestPage.Links.TryGetValue(requestPage, out BreadcrumbViewModel breadcrumb))
+            if (!RequestPage.Links.TryGetValue(requestPage, out BreadcrumbViewModel breadcrumb))
             {
-                breadcrumb = Constants.RequestPage.Links[Constants.RequestPage.StatementHistory];
+                breadcrumb = RequestPage.Links[RequestPage.StatementHistory];
             }
 
             breadcrumb.Url = $"{breadcrumb.Url}?baseCurrency={param.BaseCurrency}";

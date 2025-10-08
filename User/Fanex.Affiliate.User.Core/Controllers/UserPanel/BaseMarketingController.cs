@@ -1,20 +1,20 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Web.Mvc;
-using Fanex.Affiliate.User.Core.BusinessService;
-using Fanex.Affiliate.User.Core.Constants;
-using Fanex.Affiliate.User.Core.CoreService;
-using Fanex.Affiliate.User.Core.DTO;
-using Fanex.Affiliate.User.Core.DTO.UserPanel;
-using Fanex.Affiliate.User.Core.Enum;
-using Fanex.Affiliate.User.Core.Filters;
-using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
-using Fanex.Affiliate.User.Core.Resources;
-using Fanex.Affiliate.User.Core.Utilities;
-using Fanex.Affiliate.User.Core.ViewModels.UserPanel.Marketing;
-
-namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
+﻿namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web.Mvc;
+    using BusinessService;
+    using Constants;
+    using CoreService;
+    using DTO;
+    using DTO.UserPanel;
+    using Enum;
+    using Filters;
+    using MetalModels.UserPanel;
+    using Resources;
+    using Utilities;
+    using ViewModels.UserPanel.Marketing;
+
     [CustomAuthorize]
     public class BaseMarketingController : BaseController
     {
@@ -24,8 +24,9 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
         public BaseMarketingController(ISessionService sessionService,
             IAppSetting appSetting,
             ILanguageService languageService,
-            IMarketingService marketingService)
-            : base(sessionService, languageService)
+            IMarketingService marketingService,
+            IIpLocationService ipLocationService)
+            : base(sessionService, languageService, ipLocationService)
         {
             MarketingService = marketingService;
             AppSetting = appSetting;

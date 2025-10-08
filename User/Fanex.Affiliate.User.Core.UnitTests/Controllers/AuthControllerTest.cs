@@ -1,24 +1,25 @@
-﻿using Fanex.Affiliate.User.Core.BusinessService;
-using Fanex.Affiliate.User.Core.Controllers;
-using Fanex.Affiliate.User.Core.CoreService;
-using Fanex.Affiliate.User.Core.DTO;
-using Fanex.Affiliate.User.Core.DTO.Auth;
-using Fanex.Affiliate.User.Core.DTO.VerificationAccount;
-using Fanex.Affiliate.User.Core.MetalModels;
-using Fanex.Affiliate.User.Core.Repository.UserPanel;
-using Fanex.Affiliate.User.Core.Resources;
-using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
-using Fanex.Affiliate.User.Core.Utilities;
-using Fanex.Affiliate.User.Core.ViewModels;
-using NSubstitute;
-using NSubstitute.ReturnsExtensions;
-using System.Collections.Generic;
-using System.Security.Principal;
-using System.Web.Mvc;
-using Xunit;
-
-namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
+﻿namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
 {
+    using System.Collections.Generic;
+    using System.Security.Principal;
+    using System.Web.Mvc;
+    using Core.BusinessService;
+    using Core.Controllers;
+    using Core.CoreService;
+    using Core.Repository.UserPanel;
+    using Core.Utilities;
+    using DTO;
+    using DTO.Auth;
+    using DTO.UserPanel;
+    using DTO.VerificationAccount;
+    using MetalModels;
+    using NSubstitute;
+    using NSubstitute.ReturnsExtensions;
+    using Resources;
+    using TestHelper;
+    using ViewModels;
+    using Xunit;
+
     public class AuthControllerTest
     {
         private readonly ISessionService SessionService;
@@ -27,6 +28,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
         private readonly IAuthService AuthService;
         private readonly ICaptchaService CaptchaService;
         private readonly IAccountRepository AccountRepository;
+        private readonly IIpLocationService IpLocationService;
 
         public AuthControllerTest()
         {
@@ -36,6 +38,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             AuthService = Substitute.For<IAuthService>();
             CaptchaService = Substitute.For<ICaptchaService>();
             AccountRepository = Substitute.For<IAccountRepository>();
+            IpLocationService = Substitute.For<IIpLocationService>();
         }
 
         [Fact]
@@ -237,7 +240,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             var loginResult = GetValidLoginResultViewModel();
             AuthService.GetLoginResult(null, false).ReturnsForAnyArgs(loginResult);
             AppSetting.AllowedAffiliateTypes.Returns(new List<string> { "Asian" });
-            AccountRepository.GetAccountInfo(Arg.Any<int>()).Returns(new DTO.UserPanel.AccountInformation { DefaultBaseCurrency = 1 });
+            AccountRepository.GetAccountInfo(Arg.Any<int>()).Returns(new AccountInformation { DefaultBaseCurrency = 1 });
 
             var result = controller.SignIn(param) as JsonResult;
             var model = result.Data as ResultInfo;
@@ -317,7 +320,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             var loginResult = GetValidLoginResultViewModel();
             AuthService.GetLoginResult(default(UserLoginParam), true).ReturnsForAnyArgs(loginResult);
             AppSetting.AllowedAffiliateTypes.Returns(new List<string> { "Asian" });
-            AccountRepository.GetAccountInfo(Arg.Any<int>()).Returns(new DTO.UserPanel.AccountInformation { DefaultBaseCurrency = 1 });
+            AccountRepository.GetAccountInfo(Arg.Any<int>()).Returns(new AccountInformation { DefaultBaseCurrency = 1 });
 
             var result = controller.AdminLogin(param) as RedirectResult;
 
@@ -378,7 +381,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
         }
 
         public AuthController CreateController()
-            => new AuthController(SessionService, AppSetting, LanguageService, AuthService, CaptchaService, AccountRepository);
+            => new AuthController(SessionService, AppSetting, LanguageService, AuthService, CaptchaService, AccountRepository, IpLocationService);
 
         private UserLoginParam GetValidParam()
             => new UserLoginParam

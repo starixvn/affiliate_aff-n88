@@ -1,15 +1,15 @@
 ﻿namespace Fanex.Affiliate.User.Core.Controllers
 {
-    using Enum;
-    using Fanex.Affiliate.User.Core.BusinessService;
-    using Fanex.Affiliate.User.Core.Constants;
-    using Fanex.Affiliate.User.Core.CoreService;
-    using Fanex.Affiliate.User.Core.Repository.UserPanel;
-    using Fanex.Affiliate.User.Core.Utilities;
-    using Filters;
-    using MetalModels.UserPanel;
     using System;
     using System.Web.Mvc;
+    using BusinessService;
+    using Constants;
+    using CoreService;
+    using Enum;
+    using Filters;
+    using MetalModels.UserPanel;
+    using Repository.UserPanel;
+    using Utilities;
     using ViewModels.UserPanel.Statistics;
 
     [CustomAuthorize]
@@ -21,8 +21,9 @@
             IAppSetting appSetting,
             ISessionService sessionService,
             ILanguageService languageService,
-            IStatisticsRepository statisticsRepository
-            ) : base(sessionService, languageService)
+            IStatisticsRepository statisticsRepository,
+            IIpLocationService ipLocationService
+            ) : base(sessionService, languageService, ipLocationService)
         {
             _appSetting = appSetting;
             _statisticsRepository = statisticsRepository;

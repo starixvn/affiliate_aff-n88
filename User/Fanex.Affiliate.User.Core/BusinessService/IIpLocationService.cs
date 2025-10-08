@@ -1,6 +1,6 @@
 namespace Fanex.Affiliate.User.Core.BusinessService
 {
-    using Fanex.Affiliate.User.Core.DTO;
+    using DTO;
 
     public interface IIpLocationService
     {

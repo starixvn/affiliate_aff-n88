@@ -1,11 +1,10 @@
-using System.Linq;
-using System.Web;
-using Fanex.Affiliate.User.Core.Constants;
-using Fanex.Affiliate.User.Core.DTO.Auth;
-using Fanex.Affiliate.User.Core.DTO.VerificationAccount;
-
 namespace Fanex.Affiliate.User.Core.CoreService
 {
+    using System.Web;
+    using Constants;
+    using DTO.Auth;
+    using DTO.VerificationAccount;
+
     public class SessionService : ISessionService
     {
         private const string UserSessionKey = "AffiliateB2C.UserSessionKey";
@@ -15,14 +14,15 @@ namespace Fanex.Affiliate.User.Core.CoreService
         private const string CurrentLanguageKey = "AffiliateB2C.CurrentLanguageKey";
         private const string IsInternalKey = "AffiliateB2C.IsInternalKey";
         private const string CurrentCountryKey = "AffiliateB2C.CurrentCountryKey";
+        private const string CountryShortKey = "AffiliateB2C.CountryShortKey";
 
         private const string RsaKeyPairKey = "AffiliateB2C.RsaKeyPairKey";
         private const string VerificationSessionKey = "AffiliateB2C.VerificationSessionKey";
 
         public string CaptchaCode
         {
-            get { return HttpContext.Current.Session[CaptchaCodeKey] as string; }
-            set { HttpContext.Current.Session[CaptchaCodeKey] = value; }
+            get => HttpContext.Current.Session[CaptchaCodeKey] as string;
+            set => HttpContext.Current.Session[CaptchaCodeKey] = value;
         }
 
         public UserSession UserSession
@@ -30,7 +30,7 @@ namespace Fanex.Affiliate.User.Core.CoreService
             get
             {
                 var temp = HttpContext.Current.Session[UserSessionKey];
-                return temp != null ? (UserSession)temp : null;
+                return (UserSession)temp;
             }
         }
 
@@ -48,10 +48,7 @@ namespace Fanex.Affiliate.User.Core.CoreService
 
                 return string.IsNullOrEmpty(currentLanguage) ? SystemLanguage.DefaultLanguageCode : currentLanguage;
             }
-            set
-            {
-                HttpContext.Current.Session[CurrentLanguageKey] = value;
-            }
+            set => HttpContext.Current.Session[CurrentLanguageKey] = value;
         }
 
         public string CurrentCountry
@@ -73,22 +70,41 @@ namespace Fanex.Affiliate.User.Core.CoreService
             set => HttpContext.Current.Session[CurrentCountryKey] = value;
         }
 
+        public string CountryShort
+        {
+            get
+            {
+                var session = HttpContext.Current.Session;
+                const string defaultCountryIp = "-";
+
+                if (session == null)
+                {
+                    return defaultCountryIp;
+                }
+
+                var countryIp = session[CountryShortKey] as string;
+
+                return string.IsNullOrWhiteSpace(countryIp) ? defaultCountryIp : countryIp;
+            }
+            set => HttpContext.Current.Session[CountryShortKey] = value;
+        }
+
         public bool IsInternal
         {
-            get { return (bool)(HttpContext.Current.Session[IsInternalKey] ?? false); }
-            set { HttpContext.Current.Session[IsInternalKey] = value; }
+            get => (bool)(HttpContext.Current.Session[IsInternalKey] ?? false);
+            set => HttpContext.Current.Session[IsInternalKey] = value;
         }
 
         public string SignUpCaptchaCode
         {
-            get { return HttpContext.Current.Session[SingUpCaptchaCodeKey] as string; }
-            set { HttpContext.Current.Session[SingUpCaptchaCodeKey] = value; }
+            get => HttpContext.Current.Session[SingUpCaptchaCodeKey] as string;
+            set => HttpContext.Current.Session[SingUpCaptchaCodeKey] = value;
         }
 
         public string PrivateKey
         {
-            get { return HttpContext.Current.Session[RsaKeyPairKey] as string; }
-            set { HttpContext.Current.Session[RsaKeyPairKey] = value; }
+            get => HttpContext.Current.Session[RsaKeyPairKey] as string;
+            set => HttpContext.Current.Session[RsaKeyPairKey] = value;
         }
 
         public void AssignSessions(AuthorizedUserInfo authorizedUser)
@@ -115,8 +131,8 @@ namespace Fanex.Affiliate.User.Core.CoreService
 
         public VerificationSession VerificationSession
         {
-            get { return HttpContext.Current.Session[VerificationSessionKey] as VerificationSession; }
-            set { HttpContext.Current.Session[VerificationSessionKey] = value; }
+            get => HttpContext.Current.Session[VerificationSessionKey] as VerificationSession;
+            set => HttpContext.Current.Session[VerificationSessionKey] = value;
         }
 
         public bool IsUnauthorized => IsInternal || UserSession.IsMarketingAccount;

@@ -1,21 +1,21 @@
-﻿using Fanex.Affiliate.User.Core.BusinessService;
-using Fanex.Affiliate.User.Core.Constants;
-using Fanex.Affiliate.User.Core.Controllers.UserPanel;
-using Fanex.Affiliate.User.Core.CoreService;
-using Fanex.Affiliate.User.Core.DTO.Auth;
-using Fanex.Affiliate.User.Core.DTO.UserPanel;
-using Fanex.Affiliate.User.Core.DTO.UserPanel.PlayerTransferBalance;
-using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
-using Fanex.Affiliate.User.Core.Repository.UserPanel;
-using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
-using Fanex.Affiliate.User.Core.Utilities;
-using NSubstitute;
-using System.Collections.Generic;
-using System.Web.Mvc;
-using Xunit;
-
-namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
+﻿namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
 {
+    using System.Collections.Generic;
+    using System.Web.Mvc;
+    using Constants;
+    using Core.BusinessService;
+    using Core.Controllers.UserPanel;
+    using Core.CoreService;
+    using Core.Repository.UserPanel;
+    using Core.Utilities;
+    using DTO.Auth;
+    using DTO.UserPanel;
+    using DTO.UserPanel.PlayerTransferBalance;
+    using MetalModels.UserPanel;
+    using NSubstitute;
+    using TestHelper;
+    using Xunit;
+
     public class PlayerTransferBalanceHistoryControllerTest
     {
         private readonly IAppSetting AppSetting;
@@ -23,6 +23,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
         private readonly IAccountRepository accountRepository;
         private readonly ICurrencyRepository currencyRepository;
         private readonly IPlayerTransferBalanceService playerTransferBalanceService;
+        private readonly IIpLocationService ipLocationService;
 
         public PlayerTransferBalanceHistoryControllerTest()
         {
@@ -31,6 +32,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
             accountRepository = Substitute.For<IAccountRepository>();
             currencyRepository = Substitute.For<ICurrencyRepository>();
             playerTransferBalanceService = Substitute.For<IPlayerTransferBalanceService>();
+            ipLocationService = Substitute.For<IIpLocationService>();
         }
 
         [Fact]
@@ -110,7 +112,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
         private PlayerTransferBalanceHistoryController CreateController()
         {
 
-            var controler = new PlayerTransferBalanceHistoryController(AppSetting, sessionService, null, currencyRepository, playerTransferBalanceService, accountRepository);
+            var controler = new PlayerTransferBalanceHistoryController(AppSetting, sessionService, null, currencyRepository, playerTransferBalanceService, accountRepository, ipLocationService);
 
             return MockingHelper.FakeController(controler) as PlayerTransferBalanceHistoryController;
         }

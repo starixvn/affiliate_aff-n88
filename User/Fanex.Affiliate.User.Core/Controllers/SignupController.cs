@@ -1,19 +1,19 @@
 ﻿namespace Fanex.Affiliate.User.Core.Controllers
 {
-    using BusinessService;
-    using CoreService;
-    using DTO;
-    using Fanex.Affiliate.User.Core.Extensions;
-    using MetalModels;
-    using MetalModels.Email;
-    using Newtonsoft.Json;
-    using Resources;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
     using System.Web;
     using System.Web.Mvc;
+    using BusinessService;
+    using CoreService;
+    using DTO;
+    using Extensions;
+    using MetalModels;
+    using MetalModels.Email;
+    using Newtonsoft.Json;
+    using Resources;
     using Utilities;
 
     public class SignupController : BaseController
@@ -33,7 +33,8 @@
             ILanguageService languageService,
             ICaptchaService captchaService,
             ISecurityQuestionService securityQuestionService,
-            IIpLocationService ipLocationService) : base(sessionService, languageService)
+            IIpLocationService ipLocationService) 
+            : base(sessionService, languageService, ipLocationService)
         {
             _accountService = accountService;
             _captchaService = captchaService;

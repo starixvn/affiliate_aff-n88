@@ -1,9 +1,9 @@
 ﻿namespace Fanex.Affiliate.User.Core.Controllers
 {
-    using CoreService;
-    using Fanex.Affiliate.User.Core.BusinessService;
-    using Fanex.Affiliate.User.Core.Utilities;
     using System.Web.Mvc;
+    using BusinessService;
+    using CoreService;
+    using Utilities;
 
     public class FaqController : BaseLayoutController
     {
@@ -11,7 +11,9 @@
         public FaqController(
             IAppSetting appSetting,
             ISessionService sessionService,
-            ILanguageService languageService) : base(appSetting, sessionService, languageService)
+            ILanguageService languageService,
+            IIpLocationService ipLocationService) 
+            : base(appSetting, sessionService, languageService, ipLocationService)
         {
         }
 

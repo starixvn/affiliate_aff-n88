@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Fanex.Affiliate.User.Core.Utilities
+﻿namespace Fanex.Affiliate.User.Core.Utilities
 {
+    using System;
+    using System.Collections.Generic;
+
     public interface IAppSetting
     {
         string GetValue(string key);
@@ -96,5 +96,9 @@ namespace Fanex.Affiliate.User.Core.Utilities
         int BlueNumberRGB { get; }
 
         string DefaultCountryCode { get; }
+
+        string DefaultDomainSite { get; }
+
+        string DefaultDomainSiteByCountry(string countryCode);
     }
 }

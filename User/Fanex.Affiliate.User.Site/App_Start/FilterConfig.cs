@@ -1,9 +1,9 @@
-﻿using Fanex.Affiliate.User.Core.Filters;
-using System.Configuration;
-using System.Web.Mvc;
-
-namespace Fanex.Affiliate.User.Site
+﻿namespace Fanex.Affiliate.User.Site
 {
+    using System.Configuration;
+    using System.Web.Mvc;
+    using Core.Filters;
+
     public static class FilterConfig
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
@@ -14,6 +14,7 @@ namespace Fanex.Affiliate.User.Site
                 filters.Add(new GlobalErrorHandlerAttribute());
             }
             filters.Add(new JsonHandlerAttribute());
+            filters.Add(new IpRestrictionFilterAttribute());
         }
     }
 }

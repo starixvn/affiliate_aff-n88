@@ -1,10 +1,10 @@
 ﻿namespace Fanex.Affiliate.User.Core.Controllers
 {
-    using Fanex.Affiliate.User.Core.BusinessService;
-    using Fanex.Affiliate.User.Core.CoreService;
-    using Fanex.Affiliate.User.Core.Utilities;
-    using Filters;
     using System.Web.Mvc;
+    using BusinessService;
+    using CoreService;
+    using Filters;
+    using Utilities;
 
     [CustomAuthorize]
     public class MainController : BaseController
@@ -14,7 +14,9 @@
         public MainController(
             IAppSetting appSetting,
             ISessionService sessionService,
-            ILanguageService languageService) : base(sessionService, languageService)
+            ILanguageService languageService,
+            IIpLocationService ipLocationService) 
+            : base(sessionService, languageService, ipLocationService)
         {
             _appSetting = appSetting;
         }

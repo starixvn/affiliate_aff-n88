@@ -1,7 +1,7 @@
 namespace Fanex.Affiliate.User.Core.BusinessService
 {
-    using Fanex.Affiliate.User.Core.Repository;
-    using Fanex.Affiliate.User.Core.DTO;
+    using DTO;
+    using Repository;
 
     public class IpLocationService : IIpLocationService
     {

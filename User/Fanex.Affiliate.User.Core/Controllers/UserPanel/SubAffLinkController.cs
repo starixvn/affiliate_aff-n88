@@ -1,20 +1,22 @@
-﻿using Fanex.Affiliate.User.Core.BusinessService;
-using Fanex.Affiliate.User.Core.CoreService;
-using Fanex.Affiliate.User.Core.Utilities;
-using System.Web.Mvc;
-
-namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
+﻿namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
 {
+    using System.Web.Mvc;
+    using BusinessService;
+    using CoreService;
+    using Utilities;
+
     public class SubAffLinkController : BaseMarketingController
     {
         public SubAffLinkController(ISessionService sessionService,
             IAppSetting appSetting,
             ILanguageService languageService,
-            IMarketingService marketingService)
+            IMarketingService marketingService,
+            IIpLocationService ipLocationService)
             : base(sessionService,
                 appSetting,
                 languageService,
-                marketingService)
+                marketingService,
+                ipLocationService)
         {
         }
 

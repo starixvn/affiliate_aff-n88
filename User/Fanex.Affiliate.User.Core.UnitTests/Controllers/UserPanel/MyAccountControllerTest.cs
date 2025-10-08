@@ -1,22 +1,22 @@
-﻿using Fanex.Affiliate.User.Core.BusinessService;
-using Fanex.Affiliate.User.Core.Controllers;
-using Fanex.Affiliate.User.Core.CoreService;
-using Fanex.Affiliate.User.Core.DTO;
-using Fanex.Affiliate.User.Core.DTO.UserPanel;
-using Fanex.Affiliate.User.Core.MetalModels;
-using Fanex.Affiliate.User.Core.Repository.UserPanel;
-using Fanex.Affiliate.User.Core.Resources;
-using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
-using Fanex.Affiliate.User.Core.ViewModels.UserPanel;
-using Moq;
-using Newtonsoft.Json;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Mvc;
-using Xunit;
-
-namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
+﻿namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web.Mvc;
+    using Core.BusinessService;
+    using Core.Controllers;
+    using Core.CoreService;
+    using Core.Repository.UserPanel;
+    using DTO;
+    using DTO.UserPanel;
+    using MetalModels;
+    using Moq;
+    using Newtonsoft.Json;
+    using Resources;
+    using TestHelper;
+    using ViewModels.UserPanel;
+    using Xunit;
+
     public class MyAccountControllerTest
     {
         private const string PlayerUserName = "player";
@@ -24,13 +24,15 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
             ISessionService sessionService = null,
             IAccountRepository accountRepository = null,
             ILanguageService languageService = null,
-            ICurrencyRepository currencyRepository = null)
+            ICurrencyRepository currencyRepository = null,
+            IIpLocationService ipLocationService = null)
         {
             var fakeSessionService = sessionService ?? MockingHelper.GetSessionService();
             var fakeAccountRepository = accountRepository ?? (new Mock<IAccountRepository>()).Object;
             var fakeLanguageService = languageService ?? Mock.Of<ILanguageService>();
             var fakeCurrencyRepository = currencyRepository ?? Mock.Of<ICurrencyRepository>();
-            var controller = new MyAccountController(fakeSessionService, fakeLanguageService, fakeAccountRepository, fakeCurrencyRepository);
+            var fakeIpLocationService = ipLocationService ?? Mock.Of<IIpLocationService>();
+            var controller = new MyAccountController(fakeSessionService, fakeLanguageService, fakeAccountRepository, fakeCurrencyRepository, fakeIpLocationService);
             return MockingHelper.FakeController(controller) as MyAccountController;
         }
 
@@ -70,7 +72,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
             };
             var accountRepository = new Mock<IAccountRepository>();
             accountRepository.Setup(ac => ac.GetAccountInfo(Constant.DefaultAffId)).Returns(expectedAccount);
-            var controller = CreateAccountController(null, accountRepository: accountRepository.Object);
+            var controller = CreateAccountController(accountRepository: accountRepository.Object);
 
             // Action
             var actionResult = controller.Index() as ViewResult;
@@ -110,7 +112,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
             var sessionService = MockingHelper.GetSessionService();
             sessionService.IsInternal = true;
 
-            var controller = CreateAccountController(sessionService, null);
+            var controller = CreateAccountController(sessionService);
 
             // Action
             var actionResult = controller.Index(new AccountInformation()) as JsonResult;
@@ -125,7 +127,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
         public void PostMyAccount_InvalidContactApp_ReturnCorrectResult()
         {
             // Arrange
-            var controller = CreateAccountController(null, null);
+            var controller = CreateAccountController();
             var contactAppList = CreateContactAppList();
             contactAppList.ForEach(item => item.Value = null);
 

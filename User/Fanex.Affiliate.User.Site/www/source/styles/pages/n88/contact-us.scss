@@ -27,7 +27,7 @@
         grid-template-columns: repeat(3,22rem);
     }
 
-    &.has-zalo {
+    &.has-four-app {
         grid-template-columns: repeat(4, 28.4rem);
 
         @include landscapeTablet {

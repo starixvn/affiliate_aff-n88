@@ -1,18 +1,18 @@
 ﻿namespace Fanex.Affiliate.User.Core.Controllers
 {
-    using Fanex.Affiliate.User.Core.BusinessService;
-    using Fanex.Affiliate.User.Core.Constants;
-    using Fanex.Affiliate.User.Core.CoreService;
-    using Fanex.Affiliate.User.Core.DTO.UserPanel;
-    using Fanex.Affiliate.User.Core.Repository.UserPanel;
-    using Fanex.Affiliate.User.Core.Utilities;
-    using Fanex.Affiliate.User.Core.ViewModels.UserPanel;
-    using Filters;
-    using MetalModels.UserPanel;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
+    using BusinessService;
+    using Constants;
+    using CoreService;
+    using DTO.UserPanel;
+    using Filters;
+    using MetalModels.UserPanel;
+    using Repository.UserPanel;
+    using Utilities;
+    using ViewModels.UserPanel;
 
     [CustomAuthorize]
     public class StatementHistoryController : BaseController
@@ -27,8 +27,9 @@
             ILanguageService languageService,
             IAppSetting appSetting,
             IStatementHistoryRepository statementHistoryRepository,
-            ICurrencyRepository currencyRepository)
-            : base(sessionService, languageService)
+            ICurrencyRepository currencyRepository,
+            IIpLocationService ipLocationService)
+            : base(sessionService, languageService, ipLocationService)
         {
             _appSetting = appSetting;
             _sessionService = sessionService;

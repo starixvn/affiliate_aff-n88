@@ -1,10 +1,10 @@
-﻿using Fanex.Affiliate.User.Core.BusinessService;
-using Fanex.Affiliate.User.Core.CoreService;
-using Fanex.Affiliate.User.Core.Utilities;
-using Fanex.Affiliate.User.Core.ViewModels;
-
-namespace Fanex.Affiliate.User.Core.Controllers
+﻿namespace Fanex.Affiliate.User.Core.Controllers
 {
+    using BusinessService;
+    using CoreService;
+    using Utilities;
+    using ViewModels;
+
     public class BaseLayoutController : BaseController
     {
         protected readonly IAppSetting AppSetting;
@@ -12,7 +12,9 @@ namespace Fanex.Affiliate.User.Core.Controllers
         public BaseLayoutController(
             IAppSetting appSetting,
             ISessionService sessionService,
-            ILanguageService languageService) : base(sessionService, languageService)
+            ILanguageService languageService,
+            IIpLocationService ipLocationService) 
+            : base(sessionService, languageService, ipLocationService)
         {
             AppSetting = appSetting;
         }
@@ -23,7 +25,8 @@ namespace Fanex.Affiliate.User.Core.Controllers
             {
                 SiteName = AppSetting.SiteName,
                 SiteFriendlyName = AppSetting.SiteFriendlyName,
-                CurrentLanguage = SessionService.CurrentLanguage
+                CurrentLanguage = SessionService.CurrentLanguage,
+                CurrentCountry = SessionService.CurrentCountry
             };
         }
 
@@ -32,6 +35,7 @@ namespace Fanex.Affiliate.User.Core.Controllers
             model.SiteName = AppSetting.SiteName;
             model.SiteFriendlyName = AppSetting.SiteFriendlyName;
             model.CurrentLanguage = SessionService.CurrentLanguage;
+            model.CurrentCountry = SessionService.CurrentCountry;
         }
     }
 }

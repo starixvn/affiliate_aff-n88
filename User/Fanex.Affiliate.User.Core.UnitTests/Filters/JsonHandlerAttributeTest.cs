@@ -1,13 +1,14 @@
-﻿using Fanex.Affiliate.User.Core.Controllers;
-using Fanex.Affiliate.User.Core.Filters;
-using Fanex.Affiliate.User.Core.Infrastructure;
-using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
-using System.Collections.Generic;
-using System.Web.Mvc;
-using Xunit;
-
-namespace Fanex.Affiliate.User.Core.UnitTests.Filters
+﻿namespace Fanex.Affiliate.User.Core.UnitTests.Filters
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Web.Mvc;
+    using Core.Controllers;
+    using Core.Filters;
+    using Core.Infrastructure;
+    using TestHelper;
+    using Xunit;
+
     public class JsonHandlerAttributeTest
     {
         [Fact]
@@ -37,7 +38,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Filters
 
         private static ActionExecutedContext GetActionExecutedContext()
         {
-            var controller = NSubtituteMockingHelper.FakeController(new HomeController(null, null, null));
+            var controller = NSubtituteMockingHelper.FakeController(new HomeController(null, null, null, null));
             var actionDes = new ActionDescriptorFake();
             return new ActionExecutedContext(controller.ControllerContext, actionDes, false, null);
         }
@@ -45,18 +46,18 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Filters
 
     public class ActionDescriptorFake : ActionDescriptor
     {
-        public override string ActionName => throw new System.NotImplementedException();
+        public override string ActionName => throw new NotImplementedException();
 
-        public override ControllerDescriptor ControllerDescriptor => throw new System.NotImplementedException();
+        public override ControllerDescriptor ControllerDescriptor => throw new NotImplementedException();
 
         public override object Execute(ControllerContext controllerContext, IDictionary<string, object> parameters)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public override ParameterDescriptor[] GetParameters()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }

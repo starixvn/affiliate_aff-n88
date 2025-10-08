@@ -1,18 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Threading;
-using System.Web;
-using Fanex.Affiliate.User.Core.Constants;
-using Fanex.Affiliate.User.Core.CoreService;
-using Fanex.Affiliate.User.Core.DTO;
-using Fanex.Affiliate.User.Core.Extensions;
-using Fanex.Affiliate.User.Core.Repository;
-using Fanex.Affiliate.User.Core.Utilities;
-
-namespace Fanex.Affiliate.User.Core.BusinessService
+﻿namespace Fanex.Affiliate.User.Core.BusinessService
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Globalization;
+    using System.Linq;
+    using System.Threading;
+    using System.Web;
+    using Constants;
+    using CoreService;
+    using DTO;
+    using Extensions;
+    using Repository;
+    using Utilities;
+
     public class LanguageService : ILanguageService
     {
         private static string siteName = AppSetting.Instance.SiteName.ToLowerInvariant();
@@ -157,12 +157,17 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         public IEnumerable<Language> GetLanguageList(bool? isInternal = null)
         {
             var isForInternal = isInternal ?? _sessionService.IsInternal;
-            var cacheKey = isForInternal ? CacheKey.InternalLanguageList : CacheKey.LanguageList;
-            var languageList = _cacheService.Get<IEnumerable<Language>>(cacheKey);
+            var cacheKey = (isForInternal
+                               ? CacheKey.InternalLanguageList
+                               : CacheKey.LanguageList)
+                           + GetCountryCodeKey();
 
+            var languageList = _cacheService.Get<IEnumerable<Language>>(cacheKey);
             if (languageList == null)
             {
-                languageList = _languageRepository.GetLanguageList(isForInternal);
+                languageList = _languageRepository
+                    .GetLanguageList(isForInternal)
+                    .FilterPhLanguage(l => l.Code, _sessionService.UserSession?.TargetCountryCode);
                 _cacheService.Set(cacheKey, languageList);
             }
 
@@ -177,7 +182,6 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                            + targetCountry;
 
             var languageListByTargetCountry = _cacheService.Get<IEnumerable<Language>>(cacheKey);
-
             if (languageListByTargetCountry == null)
             {
                 languageListByTargetCountry = GetTargetCountries(targetCountry, false)
@@ -199,9 +203,12 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         public IEnumerable<Language> GetSupportedUILanguageList(bool? isInternal = null)
         {
             var isForInternal = isInternal ?? _sessionService.IsInternal;
-            var cacheKey = isForInternal ? CacheKey.InternalSupportedUiLanguageList : CacheKey.SupportedUiLanguageList;
-            var uiLanguageList = _cacheService.Get<IEnumerable<Language>>(cacheKey);
+            var cacheKey = (isForInternal
+                               ? CacheKey.InternalSupportedUiLanguageList
+                               : CacheKey.SupportedUiLanguageList)
+                           + GetCountryCodeKey();
 
+            var uiLanguageList = _cacheService.Get<IEnumerable<Language>>(cacheKey);
             if (uiLanguageList == null)
             {
                 var languageList = GetLanguageList();
@@ -216,7 +223,10 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         public IEnumerable<TargetCountryLanguage> GetSystemTargetCountries()
         {
             var isInternal = _sessionService.IsInternal;
-            var cacheKey = isInternal ? CacheKey.InternalTargetCountryList : CacheKey.TargetCountryList;
+            var cacheKey = (isInternal
+                               ? CacheKey.InternalTargetCountryList
+                               : CacheKey.TargetCountryList)
+                           + GetCountryCodeKey();
 
             var targetCountryList = _cacheService.Get<IEnumerable<TargetCountryLanguage>>(cacheKey);
             if (targetCountryList == null)
@@ -247,12 +257,18 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         private IEnumerable<TargetCountryLanguage> GetTargetCountries(string targetCountryCode = "", bool isDefault = true)
         {
             var isInternal = _sessionService.IsInternal;
-            return _languageRepository.GetTargetCountryInfo(targetCountryCode, isDefault, isInternal);
+            return _languageRepository
+                .GetTargetCountryInfo(targetCountryCode, isDefault, isInternal)
+                .FilterPhCountry(c => c.TargetCountryCode, _sessionService.UserSession?.TargetCountryCode);
         }
 
         public Dictionary<string, List<TargetCountryLanguage>> GetTargetCountryLanguages()
         {
-            var cacheKey = _sessionService.IsInternal ? CacheKey.InternalTargetCountryLanguages : CacheKey.TargetCountryLanguages;
+            var cacheKey = (_sessionService.IsInternal
+                               ? CacheKey.InternalTargetCountryLanguages
+                               : CacheKey.TargetCountryLanguages)
+                           + GetCountryCodeKey();
+
             var targetCountryLanguages = _cacheService.Get<IEnumerable<TargetCountryLanguage>>(cacheKey);
             if (targetCountryLanguages == null)
             {
@@ -268,6 +284,18 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                 );
 
             return result;
+        }
+
+        private string GetCountryCodeKey()
+        {
+            var countryCode = _sessionService.UserSession?.TargetCountryCode ?? _sessionService.CountryShort;
+            if (siteName == SiteName.N88.ToLowerInvariant()
+                && string.Equals(countryCode, SystemLanguage.PhilippinesCountryCode, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return $"_{countryCode}";
+            }
+
+            return "_";
         }
     }
 }

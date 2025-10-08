@@ -1,20 +1,21 @@
-﻿using Fanex.Affiliate.User.Core.BusinessService;
-using Fanex.Affiliate.User.Core.Controllers.UserPanel;
-using Fanex.Affiliate.User.Core.CoreService;
-using Fanex.Affiliate.User.Core.DTO.UserPanel;
-using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
-using Fanex.Affiliate.User.Core.Repository.UserPanel;
-using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
-using Fanex.Affiliate.User.Core.Utilities;
-using Fanex.Affiliate.User.Core.ViewModels.UserPanel;
-using NSubstitute;
-using System;
-using System.Collections.Generic;
-using System.Web.Mvc;
-using Xunit;
-
-namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
+﻿namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Web.Mvc;
+    using Core.BusinessService;
+    using Core.Controllers.UserPanel;
+    using Core.CoreService;
+    using Core.Repository.UserPanel;
+    using Core.Utilities;
+    using DTO.Auth;
+    using DTO.UserPanel;
+    using MetalModels.UserPanel;
+    using NSubstitute;
+    using TestHelper;
+    using ViewModels.UserPanel;
+    using Xunit;
+
     public class RevenueReportControllerTest
     {
         private readonly IAppSetting AppSetting;
@@ -22,6 +23,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
         private readonly ILanguageService LanguageService;
         private readonly ICommissionReportService CommissionService;
         private readonly ICurrencyRepository CurrencyRepo;
+        private readonly IIpLocationService IpLocationService;
 
         public RevenueReportControllerTest()
         {
@@ -30,6 +32,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
             LanguageService = Substitute.For<ILanguageService>();
             CommissionService = Substitute.For<ICommissionReportService>();
             CurrencyRepo = Substitute.For<ICurrencyRepository>();
+            IpLocationService = Substitute.For<IIpLocationService>();
         }
 
 
@@ -37,7 +40,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
         public void Index_WhenCall_ReturnCorrectView()
         {
             RevenueReportController controller = CreateController();
-            SessionService.UserSession.Returns(new DTO.Auth.UserSession());
+            SessionService.UserSession.Returns(new UserSession());
             CurrencyRepo.GetBaseCurrencyList().Returns(new List<Currency> { new Currency { Code = "USD", ExchangeId = 123 } });
 
             var result = controller.Index(null) as ViewResult;
@@ -71,7 +74,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
         }
 
         private RevenueReportController CreateController()
-            => new RevenueReportController(AppSetting, SessionService, LanguageService, CommissionService, CurrencyRepo);
+            => new RevenueReportController(AppSetting, SessionService, LanguageService, CommissionService, CurrencyRepo, IpLocationService);
 
     }
 }

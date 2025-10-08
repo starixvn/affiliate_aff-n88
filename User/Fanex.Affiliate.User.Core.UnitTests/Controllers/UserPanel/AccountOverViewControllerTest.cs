@@ -1,16 +1,16 @@
-﻿using Fanex.Affiliate.User.Core.BusinessService;
-using Fanex.Affiliate.User.Core.Controllers.UserPanel;
-using Fanex.Affiliate.User.Core.DTO.UserPanel;
-using Fanex.Affiliate.User.Core.Repository.UserPanel;
-using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
-using Fanex.Affiliate.User.Core.ViewModels.UserPanel;
-using Moq;
-using Newtonsoft.Json;
-using System.Web.Mvc;
-using Xunit;
-
-namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
+﻿namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
 {
+    using System.Web.Mvc;
+    using Core.BusinessService;
+    using Core.Controllers.UserPanel;
+    using Core.Repository.UserPanel;
+    using DTO.UserPanel;
+    using Moq;
+    using Newtonsoft.Json;
+    using TestHelper;
+    using ViewModels.UserPanel;
+    using Xunit;
+
     public class AccountOverViewControllerTest
     {
         [Fact]
@@ -20,7 +20,11 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
             var expectResult = new AccountOverviewViewModel { IsMaxLevel = false, LastLoginInfo = new LastLoginInfo() };
             var repository = new Mock<IAccountOverviewRepository>();
             repository.Setup(r => r.GetLastLoginInfo(It.IsAny<int>())).Returns(expectResult.LastLoginInfo);
-            var controller = new AccountOverviewController(MockingHelper.GetSessionService(), Mock.Of<ILanguageService>(), repository.Object);
+            var controller = new AccountOverviewController(
+                MockingHelper.GetSessionService(), 
+                Mock.Of<ILanguageService>(), 
+                repository.Object, 
+                Mock.Of<IIpLocationService>());
 
             // Action
             var viewResult = controller.Index() as ViewResult;

@@ -1,21 +1,21 @@
-﻿using Fanex.Affiliate.User.Core.BusinessService;
-using Fanex.Affiliate.User.Core.Controllers;
-using Fanex.Affiliate.User.Core.CoreService;
-using Fanex.Affiliate.User.Core.DTO;
-using Fanex.Affiliate.User.Core.DTO.UserPanel;
-using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
-using Fanex.Affiliate.User.Core.Repository.UserPanel;
-using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
-using Fanex.Affiliate.User.Core.Utilities;
-using Fanex.Affiliate.User.Core.ViewModels.UserPanel;
-using Moq;
-using System;
-using System.Collections.Generic;
-using System.Web.Mvc;
-using Xunit;
-
-namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
+﻿namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Web.Mvc;
+    using Core.BusinessService;
+    using Core.Controllers;
+    using Core.CoreService;
+    using Core.Repository.UserPanel;
+    using Core.Utilities;
+    using DTO;
+    using DTO.UserPanel;
+    using MetalModels.UserPanel;
+    using Moq;
+    using TestHelper;
+    using ViewModels.UserPanel;
+    using Xunit;
+
     public class DailyEarningControllerTest
     {
         [Fact]
@@ -157,14 +157,16 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
              IStatementHistoryRepository statementHistoryRepository = null,
              ISessionService sessionService = null,
              ILanguageService languageService = null,
-             ICurrencyRepository currencyRepository = null)
+             ICurrencyRepository currencyRepository = null,
+             IIpLocationService ipLocationService = null)
         {
             var appSetting = Mock.Of<IAppSetting>();
             var fakeSessionService = sessionService ?? MockingHelper.GetSessionService();
             var fakeLanguageService = languageService ?? Mock.Of<ILanguageService>();
             var fakeCurrencyRepository = currencyRepository ?? Mock.Of<ICurrencyRepository>();
             var fakeStatementHistoryRepository = statementHistoryRepository ?? Mock.Of<IStatementHistoryRepository>();
-            var controller = new DailyEarningController(appSetting, fakeSessionService, fakeLanguageService, fakeStatementHistoryRepository, fakeCurrencyRepository);
+            var fakeIpLocationService = ipLocationService ?? Mock.Of<IIpLocationService>();
+            var controller = new DailyEarningController(appSetting, fakeSessionService, fakeLanguageService, fakeStatementHistoryRepository, fakeCurrencyRepository, fakeIpLocationService);
 
             return MockingHelper.FakeController(controller) as DailyEarningController;
         }

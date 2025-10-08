@@ -1,15 +1,15 @@
-﻿using Fanex.Affiliate.User.Core.BusinessService;
-using Fanex.Affiliate.User.Core.CoreService;
-using Fanex.Affiliate.User.Core.DTO;
-using Fanex.Affiliate.User.Core.Filters;
-using Fanex.Affiliate.User.Core.Resources;
-using Fanex.Affiliate.User.Core.Utilities;
-using Fanex.Affiliate.User.Core.ViewModels.UserPanel;
-using System.Threading.Tasks;
-using System.Web.Mvc;
-
-namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
+﻿namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
 {
+    using System.Threading.Tasks;
+    using System.Web.Mvc;
+    using BusinessService;
+    using CoreService;
+    using DTO;
+    using Filters;
+    using Resources;
+    using Utilities;
+    using ViewModels.UserPanel;
+
     [CustomAuthorize]
     public class PlayerTransferBalanceController : BaseController
     {
@@ -20,7 +20,9 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
             IAppSetting appSetting,
             ISessionService sessionService,
             ILanguageService languageService,
-            IPlayerTransferBalanceService playerTransferBalanceService) : base(sessionService, languageService)
+            IPlayerTransferBalanceService playerTransferBalanceService,
+            IIpLocationService ipLocationService) 
+            : base(sessionService, languageService, ipLocationService)
         {
             _appSetting = appSetting;
             _playerTransferBalanceService = playerTransferBalanceService;

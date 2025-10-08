@@ -1,15 +1,19 @@
 ﻿namespace Fanex.Affiliate.User.Core.Controllers
 {
-    using CoreService;
-    using Fanex.Affiliate.User.Core.BusinessService;
-    using Fanex.Affiliate.User.Core.Utilities;
     using System.Web.Mvc;
+    using BusinessService;
+    using CoreService;
+    using Utilities;
     using ViewModels;
 
     public class ProductController : BaseLayoutController
     {
-        public ProductController(IAppSetting appSetting, ISessionService sessionService, ILanguageService languageService)
-            : base(appSetting, sessionService, languageService)
+        public ProductController(
+            IAppSetting appSetting, 
+            ISessionService sessionService, 
+            ILanguageService languageService,
+            IIpLocationService ipLocationService)
+            : base(appSetting, sessionService, languageService, ipLocationService)
         {
         }
 

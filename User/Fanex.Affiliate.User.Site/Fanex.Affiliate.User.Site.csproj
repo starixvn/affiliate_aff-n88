@@ -976,6 +976,7 @@
     <Content Include="www\build\styles\Images\contact-us\email.png" />
     <Content Include="www\build\styles\Images\contact-us\goal123.png" />
     <Content Include="www\build\styles\Images\contact-us\n88\email.png" />
+    <Content Include="www\build\styles\Images\contact-us\n88\viber.png" />
     <Content Include="www\build\styles\Images\contact-us\n88\zalo.png" />
     <Content Include="www\build\styles\Images\contact-us\n88\qrcode.png" />
     <Content Include="www\build\styles\Images\contact-us\n88\telegram.png" />
@@ -1050,6 +1051,7 @@
     <Content Include="www\build\styles\Images\icons\flags\Hindi.png" />
     <Content Include="www\build\styles\Images\icons\flags\Indonesia.png" />
     <Content Include="www\build\styles\Images\icons\flags\Malaysia.png" />
+    <Content Include="www\build\styles\Images\icons\flags\Philippines.png" />
     <Content Include="www\build\styles\Images\icons\flags\Taiwan.png" />
     <Content Include="www\build\styles\Images\icons\flags\Thailand.png" />
     <Content Include="www\build\styles\Images\icons\flags\Vietnam.png" />
@@ -1102,6 +1104,7 @@
     <Content Include="www\build\styles\Images\promotion\n8g\main.mobile.en-US.jpg" />
     <Content Include="www\build\styles\Images\promotion\n8g\main.mobile.vi-VN.jpg" />
     <Content Include="www\build\styles\Images\revenue-share-structure\n88\revenue_share_hierarchy.bn-BD.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\n88\revenue_share_hierarchy.PH.en-US.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\n88\revenue_share_hierarchy.en-US.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\n88\revenue_share_hierarchy.hi-IN.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\n88\revenue_share_hierarchy.id-ID.png" />
@@ -1701,6 +1704,11 @@
     <Content Include="www\source\styles\Images\intl-tel-input\flags.webp" />
     <Content Include="www\source\styles\Images\intl-tel-input\globe%402x.webp" />
     <Content Include="www\source\styles\Images\intl-tel-input\globe.webp" />
+    <Content Include="Views\CommissionStructure\N88\_RevenueShareTable.PH.en-US.cshtml" />
+    <Content Include="Views\CommissionStructure\N88\_Content.PH.en-US.cshtml" />
+    <Content Include="Views\TermAndCondition\N88\_Content.PH.en-US.cshtml" />
+    <Content Include="Views\Faq\N88\_Content.PH.en-US.cshtml" />
+    <Content Include="Views\CommissionStructure\N88\_ExampleTable.PH.en-US.cshtml" />
     <Content Include="Views\UserPanel\AccountOverView\PlayerList\N88\Index.cshtml" />
     <Content Include="Views\UserPanel\AccountOverView\PlayerList\Index.cshtml" />
     <Content Include="Views\UserPanel\AccountOverView\PlayerList\_Content.cshtml" />

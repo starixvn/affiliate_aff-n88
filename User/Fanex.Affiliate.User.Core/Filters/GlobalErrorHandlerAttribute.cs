@@ -1,13 +1,13 @@
-﻿using Fanex.Affiliate.User.Core.Resources;
-using Fanex.Affiliate.User.Core.Utilities;
-using System;
-using System.Net;
-using System.Web;
-using System.Web.Mvc;
-using System.Web.Routing;
-
-namespace Fanex.Affiliate.User.Core.Filters
+﻿namespace Fanex.Affiliate.User.Core.Filters
 {
+    using System;
+    using System.Net;
+    using System.Web;
+    using System.Web.Mvc;
+    using System.Web.Routing;
+    using Resources;
+    using Utilities;
+
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = true)]
     public class GlobalErrorHandlerAttribute : FilterAttribute, IExceptionFilter
     {

@@ -1,23 +1,23 @@
-﻿using Fanex.Affiliate.User.Core.BusinessService;
-using Fanex.Affiliate.User.Core.Constants;
-using Fanex.Affiliate.User.Core.Controllers;
-using Fanex.Affiliate.User.Core.CoreService;
-using Fanex.Affiliate.User.Core.DTO.Auth;
-using Fanex.Affiliate.User.Core.DTO.UserPanel;
-using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
-using Fanex.Affiliate.User.Core.Repository.UserPanel;
-using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
-using Fanex.Affiliate.User.Core.Utilities;
-using Fanex.Affiliate.User.Core.ViewModels.UserPanel;
-using NSubstitute;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Mvc;
-using Xunit;
-
-namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
+﻿namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web.Mvc;
+    using Constants;
+    using Core.BusinessService;
+    using Core.Controllers;
+    using Core.CoreService;
+    using Core.Repository.UserPanel;
+    using Core.Utilities;
+    using DTO.Auth;
+    using DTO.UserPanel;
+    using MetalModels.UserPanel;
+    using NSubstitute;
+    using TestHelper;
+    using ViewModels.UserPanel;
+    using Xunit;
+
     public class StatementHistoryControllerTest
     {
         private readonly ISessionService SessionService;
@@ -25,6 +25,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
         private readonly IAppSetting AppSetting;
         private readonly IStatementHistoryRepository Repo;
         private readonly ICurrencyRepository CurrencyRepo;
+        private readonly IIpLocationService IpLocationService;
 
         public StatementHistoryControllerTest()
         {
@@ -33,6 +34,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
             AppSetting = Substitute.For<IAppSetting>();
             Repo = Substitute.For<IStatementHistoryRepository>();
             CurrencyRepo = Substitute.For<ICurrencyRepository>();
+            IpLocationService = Substitute.For<IIpLocationService>();
         }
 
         [Theory]
@@ -245,6 +247,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
         }
 
         private StatementHistoryController CreateController()
-            => new StatementHistoryController(SessionService, LanguageService, AppSetting, Repo, CurrencyRepo);
+            => new StatementHistoryController(SessionService, LanguageService, AppSetting, Repo, CurrencyRepo, IpLocationService);
     }
 }

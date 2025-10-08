@@ -1,25 +1,25 @@
-﻿using Fanex.Affiliate.User.Core.BusinessService;
-using Fanex.Affiliate.User.Core.Constants;
-using Fanex.Affiliate.User.Core.CoreService;
-using Fanex.Affiliate.User.Core.DTO;
-using Fanex.Affiliate.User.Core.DTO.UserPanel;
-using Fanex.Affiliate.User.Core.DTO.UserPanel.MediaGallery;
-using Fanex.Affiliate.User.Core.Enum;
-using Fanex.Affiliate.User.Core.MetalModels;
-using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
-using Fanex.Affiliate.User.Core.Repository.UserPanel;
-using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
-using Fanex.Affiliate.User.Core.Utilities;
-using NSubstitute;
-using NSubstitute.ReturnsExtensions;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Web;
-using Xunit;
-
-namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
+﻿namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
 {
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Web;
+    using Constants;
+    using Core.BusinessService;
+    using Core.CoreService;
+    using Core.Repository.UserPanel;
+    using Core.Utilities;
+    using DTO;
+    using DTO.UserPanel;
+    using DTO.UserPanel.MediaGallery;
+    using Enum;
+    using MetalModels;
+    using MetalModels.UserPanel;
+    using NSubstitute;
+    using NSubstitute.ReturnsExtensions;
+    using TestHelper;
+    using Xunit;
+
     public class MarketingServiceTest
     {
         private readonly IMarketingRepository Repo;
@@ -41,7 +41,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             var service = CreateService();
             CacheService.Get<IEnumerable<CategoryType>>(null).ReturnsForAnyArgs(Constant.CategoryList);
 
-            service.GetCategoryList(false, AffiliateLinkType.AffiliateLink, false);
+            service.GetCategoryList(false, AffiliateLinkType.AffiliateLink);
 
             Repo.DidNotReceiveWithAnyArgs().GetCategoryList(null, false);
         }
@@ -55,7 +55,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             CacheService.Get<IEnumerable<CategoryType>>(null).ReturnsNullForAnyArgs();
             Repo.GetCategoryList(null, false).ReturnsNullForAnyArgs();
 
-            var result = service.GetCategoryList(isMediaPage, AffiliateLinkType.AffiliateLink, false);
+            var result = service.GetCategoryList(isMediaPage, AffiliateLinkType.AffiliateLink);
 
             Repo.ReceivedWithAnyArgs().GetCategoryList(null, false);
             CacheService.ReceivedWithAnyArgs().Set(null, default(IEnumerable<CategoryType>));
@@ -115,7 +115,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
                 TargetId = AffiliateLinkType.AffiliateLink
             };
 
-            service.GetSizeList(param, false);
+            service.GetSizeList(param);
 
             Repo.Received().GetSizeList(param, false);
         }
@@ -127,7 +127,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             CacheService.Get<IEnumerable<BannerType>>(CacheKey.BannerTypeList).ReturnsNullForAnyArgs();
             Repo.GetBannerTypeList(false).ReturnsForAnyArgs(Constant.BannerTypeList);
 
-            var result = service.GetBannerTypeList(false);
+            var result = service.GetBannerTypeList();
 
             Repo.Received().GetBannerTypeList(false);
             CacheService.Received().Set(CacheKey.BannerTypeList, Arg.Compat.Any<IEnumerable<BannerType>>());
@@ -141,7 +141,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             CacheService.Get<IEnumerable<BannerType>>(CacheKey.BannerTypeList).ReturnsNull();
             Repo.GetBannerTypeList(false).ReturnsNullForAnyArgs();
 
-            var result = service.GetBannerTypeList(false);
+            var result = service.GetBannerTypeList();
 
             Repo.Received().GetBannerTypeList(false);
             CacheService.Received().Set(CacheKey.BannerTypeList, Arg.Compat.Any<IEnumerable<BannerType>>());
@@ -154,7 +154,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             var service = CreateService();
             CacheService.Get<IEnumerable<BannerType>>(CacheKey.BannerTypeList).Returns(Constant.BannerTypeList);
 
-            var result = service.GetBannerTypeList(false);
+            var result = service.GetBannerTypeList();
 
             Repo.DidNotReceive().GetBannerTypeList(false);
             CacheService.DidNotReceive().Set(CacheKey.BannerTypeList, Arg.Compat.Any<IEnumerable<BannerType>>());
@@ -166,11 +166,18 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         {
             var service = CreateService();
             CacheService.Get<IEnumerable<Domain>>(CacheKey.DomainList).ReturnsNull();
-            Repo.GetAvailableDomainList(0, true, false).ReturnsForAnyArgs(Constant.DomainList);
+            var param = new AvailableDomainParam
+            {
+                AffId = 0,
+                IsInternal = false,
+                IsMember = true,
+                TargetCountryCode = null
+            };
+            Repo.GetAvailableDomainList(param).ReturnsForAnyArgs(Constant.DomainList);
 
-            var result = service.GetAvailableDomainList(0, AffiliateLinkType.AffiliateLink, false);
+            var result = service.GetAvailableDomainList(param);
 
-            Repo.Received().GetAvailableDomainList(0, true, false);
+            Repo.Received().GetAvailableDomainList(param);
             CacheService.Received().Set(CacheKey.DomainList, Arg.Compat.Any<IEnumerable<Domain>>(), Number.Ten);
             Assert.NotEmpty(result);
         }
@@ -180,11 +187,18 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         {
             var service = CreateService();
             CacheService.Get<IEnumerable<Domain>>(CacheKey.SubDomainList).ReturnsNull();
-            Repo.GetAvailableDomainList(0, true, false).ReturnsNullForAnyArgs();
+            var param = new AvailableDomainParam
+            {
+                AffId = 0,
+                IsInternal = false,
+                IsMember = true,
+                TargetCountryCode = null
+            };
+            Repo.GetAvailableDomainList(param).ReturnsNullForAnyArgs();
 
-            var result = service.GetAvailableDomainList(0, AffiliateLinkType.SubAffiliateLink, false);
+            var result = service.GetAvailableDomainList(param);
 
-            Repo.Received().GetAvailableDomainList(0, false, false);
+            Repo.Received().GetAvailableDomainList(param);
             CacheService.Received().Set(CacheKey.SubDomainList, Arg.Compat.Any<IEnumerable<Domain>>(), Number.Ten);
             Assert.Empty(result);
         }
@@ -309,18 +323,30 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         public void GetLandingPageList_WhenCall_RepoCall()
         {
             var servcice = CreateService();
+            var param = new LandingPageParam
+            {
+                TargetCountryCode = null,
+                IsInternal = false,
+                IsMember = true
+            };
 
-            servcice.GetLandingPageList(false);
+            servcice.GetLandingPageList(param);
 
-            Repo.Received().GetLandingPageList(false);
+            Repo.Received().GetLandingPageList(param);
         }
 
         [Fact]
         public void GetLandingPageList_WhenCallWithSubAff_ReturnNotEmptyData()
         {
             var servcice = CreateService();
+            var param = new LandingPageParam
+            {
+                TargetCountryCode = null,
+                IsInternal = false,
+                IsMember = true
+            };
 
-            var result = servcice.GetLandingPageList(false, AffiliateLinkType.SubAffiliateLink);
+            var result = servcice.GetLandingPageList(param);
 
             Assert.NotEmpty(result);
         }

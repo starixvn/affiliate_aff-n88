@@ -1,22 +1,24 @@
-﻿using Fanex.Affiliate.User.Core.BusinessService;
-using Fanex.Affiliate.User.Core.Controllers;
-using Fanex.Affiliate.User.Core.CoreService;
-using Fanex.Affiliate.User.Core.DTO;
-using Fanex.Affiliate.User.Core.DTO.UserPanel;
-using Fanex.Affiliate.User.Core.DTO.VerificationAccount;
-using Fanex.Affiliate.User.Core.Repository.UserPanel;
-using Fanex.Affiliate.User.Core.Resources;
-using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
-using Fanex.Affiliate.User.Core.Utilities;
-using Fanex.Affiliate.User.Core.ViewModels;
-using NSubstitute;
-using NSubstitute.ReturnsExtensions;
-using System.Collections.Generic;
-using System.Web.Mvc;
-using Xunit;
-
-namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
+﻿namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
 {
+    using System.Collections.Generic;
+    using System.Web.Mvc;
+    using Core.BusinessService;
+    using Core.Controllers;
+    using Core.CoreService;
+    using Core.Repository.UserPanel;
+    using Core.Utilities;
+    using DTO;
+    using DTO.Auth;
+    using DTO.UserPanel;
+    using DTO.VerificationAccount;
+    using MetalModels;
+    using NSubstitute;
+    using NSubstitute.ReturnsExtensions;
+    using Resources;
+    using TestHelper;
+    using ViewModels;
+    using Xunit;
+
     public class VerificationAccountControllerTest
     {
         private readonly ISessionService SessionService;
@@ -26,6 +28,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
         private readonly IAccountRepository AccountRepo;
         private readonly IAuthService AuthService;
         private readonly IVerificationService VerificationService;
+        private readonly IIpLocationService IpLocationService;
 
         public VerificationAccountControllerTest()
         {
@@ -36,6 +39,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             AccountRepo = Substitute.For<IAccountRepository>();
             AuthService = Substitute.For<IAuthService>();
             VerificationService = Substitute.For<IVerificationService>();
+            IpLocationService = Substitute.For<IIpLocationService>();
         }
 
         [Fact]
@@ -78,11 +82,11 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             var sessionSevice = new VerificationSession();
             SessionService.VerificationSession.Returns(sessionSevice);
             var imageByte = new byte[] { 0x20, 0x20, 0x20 };
-            CaptchaService.GenerateImageBuffer(null, 0, 0, false).ReturnsForAnyArgs(imageByte);
+            CaptchaService.GenerateImageBuffer(null, 0, 0).ReturnsForAnyArgs(imageByte);
 
             var result = controller.CaptchaImage() as FileContentResult;
 
-            CaptchaService.ReceivedWithAnyArgs().GenerateImageBuffer(null, 0, 0, false);
+            CaptchaService.ReceivedWithAnyArgs().GenerateImageBuffer(null, 0, 0);
             Assert.NotNull(result);
             Assert.Equal("image/png", result.ContentType);
             Assert.Equal(imageByte, result.FileContents);
@@ -144,7 +148,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             VerificationService.SendCode(null).ReturnsForAnyArgs(sendCodeResult);
             SetUpAppSetting();
 
-            var result = controller.VerifyAccount(new MetalModels.VerificationAccountParam()) as JsonResult;
+            var result = controller.VerifyAccount(new VerificationAccountParam()) as JsonResult;
 
             Assert.NotNull(result);
             var data = result.Data as VerifyAccountResult;
@@ -168,7 +172,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             AuthService.GetLoginResult(null, false).ReturnsForAnyArgs(loginResult);
             AppSetting.AllowedAffiliateTypes.Returns(new List<string> { "Asia" });
 
-            var result = controller.VerifyAccount(new MetalModels.VerificationAccountParam()) as JsonResult;
+            var result = controller.VerifyAccount(new VerificationAccountParam()) as JsonResult;
 
             Assert.NotNull(result);
             var data = result.Data as VerifyAccountResult;
@@ -186,7 +190,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             SetUpAppSetting();
             CaptchaService.IsValid(null, null, null).ReturnsForAnyArgs(false);
 
-            var result = controller.VerifyAccount(new MetalModels.VerificationAccountParam()) as JsonResult;
+            var result = controller.VerifyAccount(new VerificationAccountParam()) as JsonResult;
 
             Assert.NotNull(result);
             var data = result.Data as VerifyAccountResult;
@@ -207,7 +211,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             CaptchaService.IsValid(null, null, null).ReturnsForAnyArgs(true);
             VerificationService.IsValidOtp(null).ReturnsForAnyArgs(false);
 
-            var result = controller.VerifyAccount(new MetalModels.VerificationAccountParam()) as JsonResult;
+            var result = controller.VerifyAccount(new VerificationAccountParam()) as JsonResult;
 
             Assert.NotNull(result);
             var data = result.Data as VerifyAccountResult;
@@ -229,7 +233,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             VerificationService.IsValidOtp(null).ReturnsForAnyArgs(true);
             AuthService.GetLoginResult(null, false).ReturnsForAnyArgs(new LoginResultViewModel());
 
-            var result = controller.VerifyAccount(new MetalModels.VerificationAccountParam()) as JsonResult;
+            var result = controller.VerifyAccount(new VerificationAccountParam()) as JsonResult;
 
             Assert.NotNull(result);
             var data = result.Data as VerifyAccountResult;
@@ -252,7 +256,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             var loginResult = GetSuccessLoginResult();
             AuthService.GetLoginResult(null, false).ReturnsForAnyArgs(loginResult);
 
-            var result = controller.VerifyAccount(new MetalModels.VerificationAccountParam()) as JsonResult;
+            var result = controller.VerifyAccount(new VerificationAccountParam()) as JsonResult;
 
             Assert.NotNull(result);
             var data = result.Data as VerifyAccountResult;
@@ -277,7 +281,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             AuthService.GetLoginResult(null, false).ReturnsForAnyArgs(loginResult);
             AppSetting.AllowedAffiliateTypes.Returns(new List<string> { "Asia" });
 
-            var result = controller.VerifyAccount(new MetalModels.VerificationAccountParam()) as JsonResult;
+            var result = controller.VerifyAccount(new VerificationAccountParam()) as JsonResult;
 
             AuthService.ReceivedWithAnyArgs().SignIn(null, false);
             Assert.NotNull(result);
@@ -312,7 +316,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
                 {
                     IsOk = false
                 },
-                UserInfo = new DTO.Auth.AuthorizedUserInfo
+                UserInfo = new AuthorizedUserInfo
                 {
                     AffId = 1,
                     AffType = "Asia"
@@ -327,7 +331,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
                 {
                     IsOk = true
                 },
-                UserInfo = new DTO.Auth.AuthorizedUserInfo
+                UserInfo = new AuthorizedUserInfo
                 {
                     AffId = 1,
                     AffType = "Asia"
@@ -358,13 +362,15 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             };
         private VerificationAccountController CreateController()
         {
-            var controller = new VerificationAccountController(SessionService,
+            var controller = new VerificationAccountController(
+                SessionService,
                 AppSetting,
                 LanguageService,
                 CaptchaService,
                 AccountRepo,
                 AuthService,
-                VerificationService);
+                VerificationService,
+                IpLocationService);
 
             NSubtituteMockingHelper.FakeController(controller);
             NSubtituteMockingHelper.FakeAjaxRequest(controller.Request);

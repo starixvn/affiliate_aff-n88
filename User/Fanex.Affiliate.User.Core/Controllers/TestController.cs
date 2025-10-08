@@ -1,18 +1,18 @@
 ﻿namespace Fanex.Affiliate.User.Core.Controllers
 {
+    using System;
+    using System.Threading.Tasks;
+    using System.Web.Mvc;
+    using Apis;
     using BusinessService;
     using Constants;
     using CoreService;
     using DTO;
     using Enum;
-    using Fanex.Affiliate.User.Core.Apis;
-    using Fanex.Affiliate.User.Core.Resources;
     using Filters;
     using MetalModels.Email;
     using ONEbook.UM.AspNetMVC.Filters;
-    using System;
-    using System.Threading.Tasks;
-    using System.Web.Mvc;
+    using Resources;
     using Utilities;
     using ViewModels;
 
@@ -28,9 +28,14 @@
         private readonly string _userName;
         private const int AffId = 123456;
 
-        public TestController(ISessionService sessionService,
-            ILanguageService languageService, IAppSetting appSetting,
-            IMailProcessor mailProcessor, ILicenseeApi licenseeApi) : base(sessionService, languageService)
+        public TestController(
+            ISessionService sessionService,
+            ILanguageService languageService, 
+            IAppSetting appSetting,
+            IMailProcessor mailProcessor, 
+            ILicenseeApi licenseeApi,
+            IIpLocationService ipLocationService) 
+            : base(sessionService, languageService, ipLocationService)
         {
             _mailProcessor = mailProcessor;
             _appSetting = appSetting;

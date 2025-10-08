@@ -7,7 +7,7 @@
 }
 
 @{
-    var htmlString = Html.RenderPartialByLanguage("~/Views/Faq/N88/_Content", Model.CurrentLanguage, Model.SiteFriendlyName).ToHtmlString();
+    var htmlString = Html.RenderPartialFilterPhCountry("~/Views/Faq/N88/_Content", Model.CurrentCountry, Model.CurrentLanguage, Model.SiteFriendlyName).ToHtmlString();
 }
 
 @section styles{

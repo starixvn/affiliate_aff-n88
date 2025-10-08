@@ -1,16 +1,17 @@
-﻿using Fanex.Affiliate.User.Core.BusinessService;
-using Fanex.Affiliate.User.Core.Constants;
-using Fanex.Affiliate.User.Core.CoreService;
-using Fanex.Affiliate.User.Core.Filters;
-using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
-using Fanex.Affiliate.User.Core.Repository.UserPanel;
-using Fanex.Affiliate.User.Core.Resources;
-using Fanex.Affiliate.User.Core.Utilities;
-using System.Linq;
-using System.Web.Mvc;
-
-namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
+﻿namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
 {
+    using System.Linq;
+    using System.Web.Mvc;
+    using BusinessService;
+    using Constants;
+    using CoreService;
+    using DTO.UserPanel.PlayerTransferBalance;
+    using Filters;
+    using MetalModels.UserPanel;
+    using Repository.UserPanel;
+    using Resources;
+    using Utilities;
+
     [CustomAuthorize]
     public class PlayerTransferBalanceHistoryController : BaseController
     {
@@ -25,8 +26,9 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
             ILanguageService languageService,
             ICurrencyRepository currencyRepository,
             IPlayerTransferBalanceService playerTransferBalanceService,
-            IAccountRepository accountRepository)
-            : base(sessionService, languageService)
+            IAccountRepository accountRepository,
+            IIpLocationService ipLocationService)
+            : base(sessionService, languageService, ipLocationService)
         {
             _appSetting = appSetting;
             _playerTransferService = playerTransferBalanceService;
@@ -79,7 +81,7 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
             return PartialView(viewPath, model);
         }
 
-        private static void TranslateStatus(DTO.UserPanel.PlayerTransferBalance.PlayerTransferBalanceHistoryResult model)
+        private static void TranslateStatus(PlayerTransferBalanceHistoryResult model)
         {
             foreach (var item in model.Items)
             {

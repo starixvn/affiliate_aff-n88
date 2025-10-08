@@ -18,7 +18,7 @@
         <div class="slogan">
             <p>@Html.Raw(Lang.PleaseDirectAnyComment)</p>
         </div>
-        <div class="grid-contact-info @(Model.ShouldShowZalo ? "has-zalo" : "")">
+        <div class="grid-contact-info @(Model.ShouldShowZalo || Model.ShouldShowViber ? "has-four-app" : "")">
             <div class="contact-items">
                 <ul class="info-social">
                     <li>
@@ -46,6 +46,18 @@
                     <li><a href="https://cli.re/nova88daily">https://cli.re/nova88daily</a></li>
                 </ul>
             </div>
+            @if (Model.ShouldShowViber)
+            {
+                <div class="contact-items">
+                    <ul class="info-social">
+                        <li>
+                            <img src="~/www/build/styles/Images/contact-us/N88/viber.png" alt="@Lang.Viber" />
+                            <span>@Lang.Viber</span>
+                        </li>
+                        <li><a href="https://cli.re/nova88daily">https://cli.re/nova88daily</a></li>
+                    </ul>
+                </div>
+            }
             @if (Model.ShouldShowZalo)
             {
                 <div class="contact-items">

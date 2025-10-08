@@ -1,6 +1,7 @@
 namespace Fanex.Affiliate.User.Core.Repository
 {
-    using Fanex.Affiliate.User.Core.DTO;
+    using System.Data;
+    using DTO;
 
     public class IpLocationRepository : IIpLocationRepository
     {
@@ -42,7 +43,7 @@ namespace Fanex.Affiliate.User.Core.Repository
             return null;
         }
 
-        private IpLocationInfo GetIpLocationInfo(System.Data.IDataReader reader)
+        private IpLocationInfo GetIpLocationInfo(IDataReader reader)
         {
             if (reader.Read())
             {
@@ -58,7 +59,7 @@ namespace Fanex.Affiliate.User.Core.Repository
             return null;
         }
 
-        private IpLocationRange GetIpLocationRange(System.Data.IDataReader reader)
+        private IpLocationRange GetIpLocationRange(IDataReader reader)
         {
             if (reader.Read())
             {

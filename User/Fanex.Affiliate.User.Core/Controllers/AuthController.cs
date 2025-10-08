@@ -1,24 +1,33 @@
-﻿using Fanex.Affiliate.User.Core.BusinessService;
-using Fanex.Affiliate.User.Core.CoreService;
-using Fanex.Affiliate.User.Core.DTO;
-using Fanex.Affiliate.User.Core.DTO.VerificationAccount;
-using Fanex.Affiliate.User.Core.Extensions;
-using Fanex.Affiliate.User.Core.Filters;
-using Fanex.Affiliate.User.Core.MetalModels;
-using Fanex.Affiliate.User.Core.Repository.UserPanel;
-using Fanex.Affiliate.User.Core.Resources;
-using Fanex.Affiliate.User.Core.Utilities;
-using Fanex.Affiliate.User.Core.ViewModels;
-using System;
-using System.Web.Mvc;
-using System.Web.UI;
-
-namespace Fanex.Affiliate.User.Core.Controllers
+﻿namespace Fanex.Affiliate.User.Core.Controllers
 {
+    using System;
+    using System.Web.Mvc;
+    using System.Web.UI;
+    using BusinessService;
+    using Constants;
+    using CoreService;
+    using DTO;
+    using DTO.VerificationAccount;
+    using Extensions;
+    using Filters;
+    using MetalModels;
+    using NPOI.Util.Collections;
+    using Repository.UserPanel;
+    using Resources;
+    using Utilities;
+    using ViewModels;
+
     public class AuthController : AuthBaseController
     {
         private const int CaptchaImgWidth = 65;
         private const int CaptchaImgHeight = 26;
+
+        private const string DefaultCountryShort = "-";
+
+        private readonly HashSet<string> specialCountry = new HashSet<string>
+        {
+            SystemLanguage.PhilippinesCountryCode
+        };
 
         public AuthController(
             ISessionService sessionService,
@@ -26,7 +35,17 @@ namespace Fanex.Affiliate.User.Core.Controllers
             ILanguageService languageService,
             IAuthService authService,
             ICaptchaService captchaService,
-            IAccountRepository accountRepository) : base(sessionService, languageService, appSetting, captchaService, authService, accountRepository)
+            IAccountRepository accountRepository,
+            IIpLocationService ipLocationService)
+            : base(
+                sessionService,
+                languageService,
+                appSetting,
+                captchaService,
+                authService,
+                ipLocationService,
+                accountRepository
+                )
         {
         }
 
@@ -69,7 +88,8 @@ namespace Fanex.Affiliate.User.Core.Controllers
                 return Json(requestValidation);
             }
 
-            userParam.LoginIp = Request.GetClientIP();
+            var clientIp = Request.GetClientIP();
+            userParam.LoginIp = clientIp;
             userParam.Language = SessionService.CurrentLanguage;
             userParam.UserAgent = Request.UserAgent;
             userParam.IsVerifyingAccount = false;
@@ -83,9 +103,16 @@ namespace Fanex.Affiliate.User.Core.Controllers
             }
 
             var userInfo = loginResult.UserInfo;
+            var countryCode = IpLocationService.GetCountryFromIp(clientIp).CountrySHORT;
+
             if (userInfo != null)
             {
-                if (!IsValidDomain(userInfo.AffType))
+                if (IsInvalidCountryAccess(userInfo.TargetCountryCode, countryCode, AppSetting.SiteName))
+                {
+                    return Json(GetErrorResult(Lang.NotAllowOnCountry));
+                }
+
+                if (!IsValidAffiliateType(userInfo.AffType))
                 {
                     return Json(GetErrorResult(Lang.NotAllowOnDomain));
                 }
@@ -108,6 +135,7 @@ namespace Fanex.Affiliate.User.Core.Controllers
         }
 
         [HttpGet]
+        [SkipIpRestriction]
         public ActionResult AdminLogin(InternalLoginParam loginParam)
         {
             if (ModelState.IsValid)
@@ -130,7 +158,7 @@ namespace Fanex.Affiliate.User.Core.Controllers
                     var loginResult = AuthService.GetLoginResult(userLoginParam, true);
                     var user = loginResult.UserInfo;
 
-                    if (loginResult.Result.IsOk && user != null && IsValidDomain(user.AffType))
+                    if (loginResult.Result.IsOk && user != null && IsValidAffiliateType(user.AffType))
                     {
                         var adminId = loginParam.AccId * -1;
                         AssignLoginInfoAndSetAuth(loginResult.UserInfo, clientIpAddress, adminId);
@@ -191,6 +219,34 @@ namespace Fanex.Affiliate.User.Core.Controllers
         {
             Session.Clear();
             AuthService.SignOut();
+        }
+
+        private bool IsInvalidCountryAccess(string targetCountryCode, string countryShort, string siteName)
+        {
+            if (siteName != SiteName.N88)
+            {
+                return false; // only apply to N88 site
+            }
+
+            bool isCountryShortEmpty = string.IsNullOrEmpty(countryShort) || countryShort == "-" || countryShort == DefaultCountryShort;
+            bool isTargetCountrySpecial = specialCountry.Contains(targetCountryCode);
+            bool isCountryShortSpecial = specialCountry.Contains(countryShort);
+
+            // Case 1: IP country not detected
+            if (isCountryShortEmpty)
+            {
+                // Invalid only if target is special (restricted access)
+                return isTargetCountrySpecial;
+            }
+
+            // Case 2: IP country is special → only valid if target matches
+            if (isCountryShortSpecial)
+            {
+                return targetCountryCode != countryShort;
+            }
+
+            // Case 3: IP country is normal → valid if both are normal (not special)
+            return isTargetCountrySpecial;
         }
     }
 }

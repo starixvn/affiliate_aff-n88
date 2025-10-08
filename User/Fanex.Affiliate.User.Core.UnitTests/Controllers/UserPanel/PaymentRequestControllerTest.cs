@@ -1,37 +1,39 @@
-﻿using Fanex.Affiliate.User.Core.BusinessService;
-using Fanex.Affiliate.User.Core.Constants;
-using Fanex.Affiliate.User.Core.Controllers;
-using Fanex.Affiliate.User.Core.CoreService;
-using Fanex.Affiliate.User.Core.DTO;
-using Fanex.Affiliate.User.Core.Enum;
-using Fanex.Affiliate.User.Core.MetalModels.Email;
-using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
-using Fanex.Affiliate.User.Core.Resources;
-using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
-using Fanex.Affiliate.User.Core.Utilities;
-using Fanex.Affiliate.User.Core.ViewModels.UserPanel;
-using Moq;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using System.Web.Mvc;
-using Xunit;
-
-namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
+﻿namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
+    using System.Web.Mvc;
+    using Constants;
+    using Core.BusinessService;
+    using Core.Controllers;
+    using Core.CoreService;
+    using Core.Utilities;
+    using DTO;
+    using Enum;
+    using MetalModels.Email;
+    using MetalModels.UserPanel;
+    using Moq;
+    using Newtonsoft.Json;
+    using Resources;
+    using TestHelper;
+    using ViewModels.UserPanel;
+    using Xunit;
+
     public class PaymentRequestControllerTest
     {
         private static PaymentRequestController CreatePaymentRequestController(ISessionService sessionService = null,
             IAppSetting appSetting = null,
             ILanguageService languageService = null,
-            IPaymentService paymentService = null)
+            IPaymentService paymentService = null,
+            IIpLocationService ipLocationService = null)
         {
             var fakeSessionService = sessionService ?? MockingHelper.GetSessionService();
             var fakePaymentService = paymentService ?? (new Mock<IPaymentService>()).Object;
             var fakeAppsetting = appSetting ?? (new Mock<IAppSetting>()).Object;
             var fakeLanguageService = languageService ?? (new Mock<ILanguageService>()).Object;
-            var controller = new PaymentRequestController(fakeSessionService, fakeAppsetting, fakeLanguageService, fakePaymentService);
+            var fakeIpLocationService = ipLocationService ?? (new Mock<IIpLocationService>()).Object;
+            var controller = new PaymentRequestController(fakeSessionService, fakeAppsetting, fakeLanguageService, fakePaymentService, fakeIpLocationService);
 
             return MockingHelper.FakeController(controller) as PaymentRequestController;
         }

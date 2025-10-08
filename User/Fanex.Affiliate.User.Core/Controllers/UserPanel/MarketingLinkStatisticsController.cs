@@ -1,17 +1,17 @@
-﻿using Fanex.Affiliate.User.Core.BusinessService;
-using Fanex.Affiliate.User.Core.Constants;
-using Fanex.Affiliate.User.Core.CoreService;
-using Fanex.Affiliate.User.Core.Filters;
-using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
-using Fanex.Affiliate.User.Core.Repository.UserPanel;
-using Fanex.Affiliate.User.Core.Utilities;
-using Fanex.Affiliate.User.Core.ViewModels.UserPanel.Statistics;
-using System;
-using System.Linq;
-using System.Web.Mvc;
-
-namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
+﻿namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
 {
+    using System;
+    using System.Linq;
+    using System.Web.Mvc;
+    using BusinessService;
+    using Constants;
+    using CoreService;
+    using Filters;
+    using MetalModels.UserPanel;
+    using Repository.UserPanel;
+    using Utilities;
+    using ViewModels.UserPanel.Statistics;
+
     [CustomAuthorize]
     public class MarketingLinkStatisticsController : BaseController
     {
@@ -22,8 +22,9 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
             IAppSetting appSetting,
             ISessionService sessionService,
             ILanguageService languageService,
-            IStatisticsRepository statisticsRepository
-            ) : base(sessionService, languageService)
+            IStatisticsRepository statisticsRepository,
+            IIpLocationService ipLocationService
+            ) : base(sessionService, languageService, ipLocationService)
         {
             _appSetting = appSetting;
             _statisticsRepository = statisticsRepository;

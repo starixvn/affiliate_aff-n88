@@ -1,18 +1,18 @@
 ﻿namespace Fanex.Affiliate.User.Core.Controllers
 {
-    using Constants;
-    using DTO;
-    using Extensions;
-    using Fanex.Affiliate.User.Core.BusinessService;
-    using Fanex.Affiliate.User.Core.CoreService;
-    using Filters;
-    using MetalModels.Email;
-    using MetalModels.UserPanel;
-    using Resources;
     using System;
     using System.Linq;
     using System.Threading.Tasks;
     using System.Web.Mvc;
+    using BusinessService;
+    using Constants;
+    using CoreService;
+    using DTO;
+    using Extensions;
+    using Filters;
+    using MetalModels.Email;
+    using MetalModels.UserPanel;
+    using Resources;
     using Utilities;
     using ViewModels.UserPanel;
 
@@ -24,7 +24,9 @@
         public PaymentRequestController(ISessionService sessionService,
             IAppSetting appSetting,
             ILanguageService languageService,
-            IPaymentService paymentService) : base(sessionService, languageService)
+            IPaymentService paymentService,
+            IIpLocationService ipLocationService) 
+            : base(sessionService, languageService, ipLocationService)
         {
             _paymentService = paymentService;
             _appSetting = appSetting;

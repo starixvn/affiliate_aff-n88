@@ -349,6 +349,8 @@
     <Compile Include="Enum\PlayerType.cs" />
     <Compile Include="Enum\TransType.cs" />
     <Compile Include="Extensions\HttpRequestExtension.cs" />
+    <Compile Include="Extensions\LinqExtensions.cs" />
+    <Compile Include="Filters\IpRestrictionFilterAttribute.cs" />
     <Compile Include="MetalModels\Api\AccountParam.cs" />
     <Compile Include="MetalModels\Api\TransferMoneyParam.cs" />
     <Compile Include="MetalModels\MarketingLinkParam.cs" />

@@ -6,7 +6,7 @@
     Layout = "~/Views/Shared/N88/_LayoutBeforeLogin.cshtml";
 }
 @{
-    var htmlString = Html.RenderPartialByLanguage("~/Views/CommissionStructure/N88/_Content", Model.CurrentLanguage, Model).ToHtmlString();
+    var htmlString = Html.RenderPartialFilterPhCountry("~/Views/CommissionStructure/N88/_Content", Model.CurrentCountry, Model.CurrentLanguage, Model).ToHtmlString();
 }
 
 @section scripts{

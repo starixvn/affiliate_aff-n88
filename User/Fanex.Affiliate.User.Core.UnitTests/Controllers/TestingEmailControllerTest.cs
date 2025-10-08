@@ -1,18 +1,17 @@
-﻿using Fanex.Affiliate.User.Core.Apis;
-using Fanex.Affiliate.User.Core.BusinessService;
-using Fanex.Affiliate.User.Core.Controllers;
-using Fanex.Affiliate.User.Core.CoreService;
-using Fanex.Affiliate.User.Core.DTO.Auth;
-using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
-using Fanex.Affiliate.User.Core.Utilities;
-using NSubstitute;
-using System;
-using System.Web.Mvc;
-using Xunit;
-using Fanex.Affiliate.User.Core.Apis;
-
-namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
+﻿namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
 {
+    using System;
+    using System.Web.Mvc;
+    using Apis;
+    using Core.BusinessService;
+    using Core.Controllers;
+    using Core.CoreService;
+    using Core.Utilities;
+    using DTO.Auth;
+    using NSubstitute;
+    using TestHelper;
+    using Xunit;
+
     public class TestingEmailControllerTest
     {
         private readonly ISessionService SessionService;
@@ -20,6 +19,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
         private readonly ILanguageService LanguageService;
         private readonly IMailProcessor MailProcessor;
         private readonly ILicenseeApi LicenseeApi;
+        private readonly IIpLocationService IpLocationService;
 
         public TestingEmailControllerTest()
         {
@@ -28,6 +28,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             MailProcessor = Substitute.For<IMailProcessor>();
             LanguageService = NSubtituteMockingHelper.FakeLanguageService();
             LicenseeApi = Substitute.For<ILicenseeApi>();
+            IpLocationService = Substitute.For<IIpLocationService>();
         }
 
         [Fact]
@@ -186,6 +187,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
         }
 
         private TestController CreateTestingEmailController(ISessionService sessionService = null)
-            => new TestController(sessionService ?? SessionService, LanguageService, AppSetting, MailProcessor, LicenseeApi);
+            => new TestController(sessionService ?? SessionService, LanguageService, AppSetting, MailProcessor, LicenseeApi, IpLocationService);
     }
 }

@@ -1,21 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Web.Mvc;
-using Fanex.Affiliate.User.Core.BusinessService;
-using Fanex.Affiliate.User.Core.Constants;
-using Fanex.Affiliate.User.Core.Controllers;
-using Fanex.Affiliate.User.Core.CoreService;
-using Fanex.Affiliate.User.Core.DTO.UserPanel;
-using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
-using Fanex.Affiliate.User.Core.Repository.UserPanel;
-using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
-using Fanex.Affiliate.User.Core.Utilities;
-using Fanex.Affiliate.User.Core.ViewModels.UserPanel.Statistics;
-using Moq;
-using Xunit;
-
-namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
+﻿namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Web.Mvc;
+    using Constants;
+    using Core.BusinessService;
+    using Core.Controllers;
+    using Core.CoreService;
+    using Core.Repository.UserPanel;
+    using Core.Utilities;
+    using DTO.UserPanel;
+    using MetalModels.UserPanel;
+    using Moq;
+    using TestHelper;
+    using ViewModels.UserPanel.Statistics;
+    using Xunit;
+
     public class ReferrersStatisticsControllerTest
     {
         [Fact]
@@ -87,14 +87,16 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
         private static ReferrersStatisticsController CreateController(
             ISessionService sessionService = null,
             ILanguageService languageService = null,
-            IStatisticsRepository staticticsRepository = null)
+            IStatisticsRepository staticticsRepository = null,
+            IIpLocationService ipLocationService = null)
         {
             var appSetting = Mock.Of<IAppSetting>();
             var fakeSessionService = sessionService ?? MockingHelper.GetSessionService();
             var fakeLanguageService = languageService ?? Mock.Of<ILanguageService>();
+            var fakeIpLocationService = ipLocationService ?? Mock.Of<IIpLocationService>();
             var fakeStaticticsRepository = staticticsRepository ?? (new Mock<IStatisticsRepository>()).Object;
 
-            return new ReferrersStatisticsController(appSetting, fakeSessionService, fakeLanguageService, fakeStaticticsRepository);
+            return new ReferrersStatisticsController(appSetting, fakeSessionService, fakeLanguageService, fakeStaticticsRepository, fakeIpLocationService);
         }
     }
 }

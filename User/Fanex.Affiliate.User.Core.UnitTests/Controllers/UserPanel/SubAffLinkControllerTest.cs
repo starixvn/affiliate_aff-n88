@@ -1,16 +1,16 @@
-﻿using Fanex.Affiliate.User.Core.Controllers.UserPanel;
-using System.Web.Mvc;
-using Xunit;
-
-namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
+﻿namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
 {
+    using System.Web.Mvc;
+    using Core.Controllers.UserPanel;
+    using Xunit;
+
     public class SubAffLinkControllerTest
     {
         [Fact]
         public void Index_WhenCall_RedirectToRoute()
         {
             //Arrange
-            var controller = new SubAffLinkController(null, null, null, null);
+            var controller = new SubAffLinkController(null, null, null, null, null);
 
             //Action
             var result = controller.Index() as RedirectToRouteResult;

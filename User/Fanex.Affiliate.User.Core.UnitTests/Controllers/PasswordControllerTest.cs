@@ -1,23 +1,24 @@
-﻿using System.IO;
-using System.Web;
-using System.Web.Mvc;
-using System.Web.Routing;
-using Fanex.Affiliate.User.Core.BusinessService;
-using Fanex.Affiliate.User.Core.Controllers;
-using Fanex.Affiliate.User.Core.CoreService;
-using Fanex.Affiliate.User.Core.DTO;
-using Fanex.Affiliate.User.Core.MetalModels;
-using Fanex.Affiliate.User.Core.MetalModels.Email;
-using Fanex.Affiliate.User.Core.Repository.UserPanel;
-using Fanex.Affiliate.User.Core.Resources;
-using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
-using Fanex.Affiliate.User.Core.Utilities;
-using Moq;
-using NSubstitute;
-using Xunit;
-
-namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
+﻿namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
 {
+    using System.Collections.Specialized;
+    using System.IO;
+    using System.Web;
+    using System.Web.Mvc;
+    using System.Web.Routing;
+    using Core.BusinessService;
+    using Core.Controllers;
+    using Core.CoreService;
+    using Core.Repository.UserPanel;
+    using Core.Utilities;
+    using DTO;
+    using MetalModels;
+    using MetalModels.Email;
+    using Moq;
+    using NSubstitute;
+    using Resources;
+    using TestHelper;
+    using Xunit;
+
     public class PasswordControllerTest
     {
         private readonly ISessionService SessionService;
@@ -26,6 +27,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
         private readonly ICryptographyService CryptographyService;
         private readonly ILanguageService LanguageService;
         private readonly IEmailService EmailService;
+        private readonly IIpLocationService IpLocationService;
 
         const string Email = "abc@gmail.com";
         const int InvalidUrlAddress = 1001;
@@ -39,6 +41,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             CryptographyService = Substitute.For<ICryptographyService>();
             LanguageService = NSubtituteMockingHelper.FakeLanguageService();
             EmailService = Substitute.For<IEmailService>();
+            IpLocationService = Substitute.For<IIpLocationService>();
         }
 
         [Fact]
@@ -186,7 +189,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             var controller = CreateController();
             NSubtituteMockingHelper.FakeController(controller);
 
-            var result = controller.RecoverPasswordResult(true, 0) as ViewResult;
+            var result = controller.RecoverPasswordResult(true) as ViewResult;
 
             Assert.NotNull(result);
             var data = result.Model as ResultInfo;
@@ -318,13 +321,13 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
 
         private PasswordController CreateController()
         {
-            var controller = new PasswordController(SessionService, AppSetting, AccountRepo, CryptographyService, LanguageService, EmailService);
+            var controller = new PasswordController(SessionService, AppSetting, AccountRepo, CryptographyService, LanguageService, IpLocationService, EmailService);
 
             var requestMock = new Mock<HttpRequestBase>();
             var contextMock = new Mock<HttpContextBase>();
 
             requestMock.Setup(r => r.UserHostAddress).Returns("192.168.1.99");
-            requestMock.Setup(r => r.ServerVariables).Returns(new System.Collections.Specialized.NameValueCollection());
+            requestMock.Setup(r => r.ServerVariables).Returns(new NameValueCollection());
 
             contextMock.Setup(c => c.Request).Returns(requestMock.Object);
             controller.ControllerContext = new ControllerContext(

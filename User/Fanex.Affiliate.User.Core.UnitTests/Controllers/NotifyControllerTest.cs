@@ -1,24 +1,26 @@
-﻿using Fanex.Affiliate.User.Core.BusinessService;
-using Fanex.Affiliate.User.Core.Controllers;
-using Fanex.Affiliate.User.Core.CoreService;
-using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
-using Fanex.Affiliate.User.Core.Utilities;
-using Newtonsoft.Json;
-using NSubstitute;
-using System.Web.Mvc;
-using Xunit;
-
-namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
+﻿namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
 {
+    using System.Web.Mvc;
+    using Core.BusinessService;
+    using Core.Controllers;
+    using Core.CoreService;
+    using Core.Utilities;
+    using Newtonsoft.Json;
+    using NSubstitute;
+    using TestHelper;
+    using Xunit;
+
     public class NotifyControllerTest
     {
         private readonly IAppSetting AppSetting;
         private readonly ISessionService SessionService;
         private readonly ILanguageService LanguageService;
+        private readonly IIpLocationService IpLocationService;
 
         public NotifyControllerTest()
         {
             AppSetting = Substitute.For<IAppSetting>();
+            IpLocationService = Substitute.For<IIpLocationService>();
             SessionService = NSubtituteMockingHelper.FakeSessionService();
             LanguageService = NSubtituteMockingHelper.FakeLanguageService();
         }
@@ -60,6 +62,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
         }
 
         private NotifyController CreateController()
-            => new NotifyController(AppSetting, SessionService, LanguageService);
+            => new NotifyController(AppSetting, SessionService, LanguageService, IpLocationService);
     }
 }

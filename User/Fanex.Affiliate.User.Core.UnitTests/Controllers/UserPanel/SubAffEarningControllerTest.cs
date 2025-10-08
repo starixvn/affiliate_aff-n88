@@ -1,20 +1,20 @@
-﻿using Fanex.Affiliate.User.Core.BusinessService;
-using Fanex.Affiliate.User.Core.Controllers.UserPanel;
-using Fanex.Affiliate.User.Core.CoreService;
-using Fanex.Affiliate.User.Core.DTO.UserPanel;
-using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
-using Fanex.Affiliate.User.Core.Repository.UserPanel;
-using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
-using Fanex.Affiliate.User.Core.Utilities;
-using Fanex.Affiliate.User.Core.ViewModels.UserPanel;
-using NSubstitute;
-using System;
-using System.Collections.Generic;
-using System.Web.Mvc;
-using Xunit;
-
-namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
+﻿namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Web.Mvc;
+    using Core.BusinessService;
+    using Core.Controllers.UserPanel;
+    using Core.CoreService;
+    using Core.Repository.UserPanel;
+    using Core.Utilities;
+    using DTO.UserPanel;
+    using MetalModels.UserPanel;
+    using NSubstitute;
+    using TestHelper;
+    using ViewModels.UserPanel;
+    using Xunit;
+
     public class SubAffEarningControllerTest
     {
         private readonly IAppSetting AppSetting;
@@ -22,6 +22,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
         private readonly ICurrencyRepository CurrencyRepository;
         private readonly ILanguageService LanguageService;
         private readonly IStatementHistoryRepository StatementHistoryRepository;
+        private readonly IIpLocationService IpLocationService;
 
         public SubAffEarningControllerTest()
         {
@@ -30,6 +31,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
             LanguageService = NSubtituteMockingHelper.FakeLanguageService();
             StatementHistoryRepository = Substitute.For<IStatementHistoryRepository>();
             CurrencyRepository = Substitute.For<ICurrencyRepository>();
+            IpLocationService = Substitute.For<IIpLocationService>();
         }
         [Fact]
         public void Index_WhenCallWith_ReturnCorrectView()
@@ -44,7 +46,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
                 }
             });
 
-            var controller = new SubAffEarningController(AppSetting, SessionService, LanguageService, StatementHistoryRepository, CurrencyRepository);
+            var controller = new SubAffEarningController(AppSetting, SessionService, LanguageService, StatementHistoryRepository, CurrencyRepository, IpLocationService);
 
             //Action
             var result = controller.Index(new SubAffComParam { MonthDate = new DateTime(2020, 12, 08) }) as ViewResult;
@@ -67,7 +69,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
                     SubAffCommission = 500m
                 }
             });
-            var controller = new SubAffEarningController(AppSetting, SessionService, LanguageService, StatementHistoryRepository, CurrencyRepository);
+            var controller = new SubAffEarningController(AppSetting, SessionService, LanguageService, StatementHistoryRepository, CurrencyRepository, IpLocationService);
 
             //Action
             var result = controller.Index(new SubAffComParam { IsOnlyContent = true, RequestPage = "abc", MonthDate = null }) as ViewResult;

@@ -3526,6 +3526,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Your account is not available in this country..
+        /// </summary>
+        public static string NotAllowOnCountry {
+            get {
+                return ResourceManager.GetString("NotAllowOnCountry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sorry! You are not allowed to login on this domain..
         /// </summary>
         public static string NotAllowOnDomain {
@@ -5763,6 +5772,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string VerifyEmailAddressIsRequired {
             get {
                 return ResourceManager.GetString("VerifyEmailAddressIsRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Viber.
+        /// </summary>
+        public static string Viber {
+            get {
+                return ResourceManager.GetString("Viber", resourceCulture);
             }
         }
         

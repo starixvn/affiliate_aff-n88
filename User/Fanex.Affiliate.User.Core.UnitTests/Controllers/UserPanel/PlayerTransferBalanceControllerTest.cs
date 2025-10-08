@@ -1,30 +1,32 @@
-﻿using Fanex.Affiliate.User.Core.BusinessService;
-using Fanex.Affiliate.User.Core.Controllers.UserPanel;
-using Fanex.Affiliate.User.Core.CoreService;
-using Fanex.Affiliate.User.Core.DTO;
-using Fanex.Affiliate.User.Core.DTO.Auth;
-using Fanex.Affiliate.User.Core.DTO.UserPanel.PlayerTransferBalance;
-using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
-using Fanex.Affiliate.User.Core.Utilities;
-using Fanex.Affiliate.User.Core.ViewModels.UserPanel;
-using NSubstitute;
-using System.Threading.Tasks;
-using System.Web.Mvc;
-using Xunit;
-
-namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
+﻿namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
 {
+    using System.Threading.Tasks;
+    using System.Web.Mvc;
+    using Core.BusinessService;
+    using Core.Controllers.UserPanel;
+    using Core.CoreService;
+    using Core.Utilities;
+    using DTO;
+    using DTO.Auth;
+    using DTO.UserPanel.PlayerTransferBalance;
+    using NSubstitute;
+    using TestHelper;
+    using ViewModels.UserPanel;
+    using Xunit;
+
     public class PlayerTransferBalanceControllerTest
     {
         private readonly IAppSetting AppSetting;
         private readonly ISessionService sessionService;
         private readonly IPlayerTransferBalanceService playerTransferBalanceService;
+        private readonly IIpLocationService ipLocationService;
 
         public PlayerTransferBalanceControllerTest()
         {
             AppSetting = Substitute.For<IAppSetting>();
             sessionService = NSubtituteMockingHelper.FakeSessionService();
             playerTransferBalanceService = Substitute.For<IPlayerTransferBalanceService>();
+            ipLocationService = Substitute.For<IIpLocationService>();
         }
 
         [Fact]
@@ -100,6 +102,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
         }
 
         private PlayerTransferBalanceController CreateController()
-            => new PlayerTransferBalanceController(AppSetting, sessionService, null, playerTransferBalanceService);
+            => new PlayerTransferBalanceController(AppSetting, sessionService, null, playerTransferBalanceService, ipLocationService);
     }
 }

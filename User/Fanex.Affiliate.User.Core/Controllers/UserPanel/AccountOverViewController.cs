@@ -1,11 +1,11 @@
 ﻿namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
 {
-    using Fanex.Affiliate.User.Core.BusinessService;
-    using Fanex.Affiliate.User.Core.CoreService;
-    using Fanex.Affiliate.User.Core.ViewModels.UserPanel;
+    using System.Web.Mvc;
+    using BusinessService;
+    using CoreService;
     using Filters;
     using Repository.UserPanel;
-    using System.Web.Mvc;
+    using ViewModels.UserPanel;
 
     [CustomAuthorize]
     public class AccountOverviewController : BaseController
@@ -16,8 +16,9 @@
 
         public AccountOverviewController(ISessionService sessionService,
             ILanguageService languageService,
-            IAccountOverviewRepository accountOverviewRepository
-            ) : base(sessionService, languageService)
+            IAccountOverviewRepository accountOverviewRepository,
+            IIpLocationService ipLocationService
+            ) : base(sessionService, languageService, ipLocationService)
         {
             _accountOverviewRepository = accountOverviewRepository;
             _sessionService = sessionService;

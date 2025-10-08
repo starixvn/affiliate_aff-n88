@@ -1,10 +1,10 @@
-﻿using Fanex.Affiliate.User.Core.BusinessService;
-using Fanex.Affiliate.User.Core.CoreService;
-using Fanex.Affiliate.User.Core.Utilities;
-using System.Web.Mvc;
-
-namespace Fanex.Affiliate.User.Core.Controllers
+﻿namespace Fanex.Affiliate.User.Core.Controllers
 {
+    using System.Web.Mvc;
+    using BusinessService;
+    using CoreService;
+    using Utilities;
+
     public class NotifyController : BaseController
     {
         private readonly IAppSetting _appSetting;
@@ -12,8 +12,9 @@ namespace Fanex.Affiliate.User.Core.Controllers
         public NotifyController(
             IAppSetting appSetting,
             ISessionService sessionService,
-            ILanguageService languageService)
-            : base(sessionService, languageService)
+            ILanguageService languageService,
+            IIpLocationService ipLocationService)
+            : base(sessionService, languageService, ipLocationService)
         {
             _appSetting = appSetting;
         }

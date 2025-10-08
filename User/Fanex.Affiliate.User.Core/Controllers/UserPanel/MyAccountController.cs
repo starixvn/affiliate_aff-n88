@@ -1,21 +1,21 @@
 ﻿namespace Fanex.Affiliate.User.Core.Controllers
 {
-    using Constants;
-    using DTO;
-    using DTO.UserPanel;
-    using Fanex.Affiliate.User.Core.BusinessService;
-    using Fanex.Affiliate.User.Core.CoreService;
-    using Fanex.Affiliate.User.Core.Extensions;
-    using Fanex.Affiliate.User.Core.Repository.UserPanel;
-    using Fanex.Affiliate.User.Core.Utilities;
-    using Fanex.Affiliate.User.Core.ViewModels.UserPanel;
-    using Filters;
-    using MetalModels;
-    using Newtonsoft.Json;
-    using Resources;
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
+    using BusinessService;
+    using Constants;
+    using CoreService;
+    using DTO;
+    using DTO.UserPanel;
+    using Extensions;
+    using Filters;
+    using MetalModels;
+    using Newtonsoft.Json;
+    using Repository.UserPanel;
+    using Resources;
+    using Utilities;
+    using ViewModels.UserPanel;
 
     [CustomAuthorize]
     public class MyAccountController : BaseController
@@ -29,8 +29,9 @@
         public MyAccountController(ISessionService sessionService,
             ILanguageService languageService,
             IAccountRepository accountRepository,
-            ICurrencyRepository currencyRepository)
-            : base(sessionService, languageService)
+            ICurrencyRepository currencyRepository,
+            IIpLocationService ipLocationService)
+            : base(sessionService, languageService, ipLocationService)
         {
             _sessionService = sessionService;
             _accountRepository = accountRepository;

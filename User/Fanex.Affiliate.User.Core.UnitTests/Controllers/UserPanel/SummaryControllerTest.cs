@@ -1,20 +1,20 @@
-﻿using Fanex.Affiliate.User.Core.BusinessService;
-using Fanex.Affiliate.User.Core.Controllers.UserPanel;
-using Fanex.Affiliate.User.Core.CoreService;
-using Fanex.Affiliate.User.Core.DTO.UserPanel;
-using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
-using Fanex.Affiliate.User.Core.Repository.UserPanel;
-using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
-using Fanex.Affiliate.User.Core.Utilities;
-using Fanex.Affiliate.User.Core.ViewModels.UserPanel;
-using Moq;
-using System;
-using System.Collections.Generic;
-using System.Web.Mvc;
-using Xunit;
-
-namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
+﻿namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Web.Mvc;
+    using Core.BusinessService;
+    using Core.Controllers.UserPanel;
+    using Core.CoreService;
+    using Core.Repository.UserPanel;
+    using Core.Utilities;
+    using DTO.UserPanel;
+    using MetalModels.UserPanel;
+    using Moq;
+    using TestHelper;
+    using ViewModels.UserPanel;
+    using Xunit;
+
     public class SummaryControllerTest
     {
         private readonly DateTime monthDate = new DateTime(2019, 12, 20);
@@ -124,14 +124,16 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
         private static SummaryController CreateController(
         ISessionService sessionService = null,
         ILanguageService languageService = null,
-        IAccountOverviewRepository accountOverviewRepository = null)
+        IAccountOverviewRepository accountOverviewRepository = null,
+        IIpLocationService ipLocationService = null)
         {
             var appSetting = Mock.Of<IAppSetting>();
             sessionService = sessionService ?? MockingHelper.GetSessionService();
             languageService = languageService ?? Mock.Of<ILanguageService>();
+            ipLocationService = ipLocationService ?? Mock.Of<IIpLocationService>();
             accountOverviewRepository = accountOverviewRepository ?? Mock.Of<IAccountOverviewRepository>();
 
-            return new SummaryController(appSetting, sessionService, languageService, accountOverviewRepository);
+            return new SummaryController(appSetting, sessionService, languageService, accountOverviewRepository, ipLocationService);
         }
     }
 }

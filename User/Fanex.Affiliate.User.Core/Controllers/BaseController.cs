@@ -1,25 +1,34 @@
-﻿using Fanex.Affiliate.User.Core.BusinessService;
-using Fanex.Affiliate.User.Core.CoreService;
-using Fanex.Affiliate.User.Core.Utilities;
-using ONEbook.UM.AspNetMVC.Filters;
-using System.Web.Mvc;
-using System.Web.Routing;
-
-namespace Fanex.Affiliate.User.Core.Controllers
+﻿namespace Fanex.Affiliate.User.Core.Controllers
 {
+    using System;
+    using System.Web;
+    using System.Web.Mvc;
+    using System.Web.Routing;
+    using BusinessService;
+    using CoreService;
+    using Extensions;
+    using ONEbook.UM.AspNetMVC.Filters;
+    using Utilities;
+
     [CheckUMFilter]
     public class BaseController : Controller
     {
-        protected readonly ILanguageService LanguageService;
 
-        public BaseController(ISessionService sessionService,
-            ILanguageService languageService)
+        public BaseController(
+            ISessionService sessionService,
+            ILanguageService languageService,
+            IIpLocationService ipLocationService)
         {
             SessionService = sessionService;
             LanguageService = languageService;
+            IpLocationService = ipLocationService;
         }
 
+        protected ILanguageService LanguageService { get; }
+
         protected ISessionService SessionService { get; }
+
+        protected IIpLocationService IpLocationService { get; }
 
         protected virtual string RouteName => Constants.RouteName.DefaultRoute;
 
@@ -29,11 +38,15 @@ namespace Fanex.Affiliate.User.Core.Controllers
 
             var favoriteLanguage = LanguageService.GetFavoriteLanguage();
             var currentCountry = LanguageService.GetCountry();
+            var countryShort = IpLocationService.GetCountryFromIp(requestContext.HttpContext.Request.GetClientIP()).CountrySHORT;
+
             var sessionLang = SessionService.CurrentLanguage;
             var sessionCountry = SessionService.CurrentCountry;
+            var sessionCountryShort = SessionService.CountryShort;
+
             if (favoriteLanguage != sessionLang)
             {
-                requestContext.HttpContext.Response.Cookies.Add(new System.Web.HttpCookie(AppSetting.Instance.SiteName.ToLowerInvariant() + "_afffavoritelang", favoriteLanguage) { HttpOnly = true });
+                requestContext.HttpContext.Response.Cookies.Add(new HttpCookie(AppSetting.Instance.SiteName.ToLowerInvariant() + "_afffavoritelang", favoriteLanguage) { HttpOnly = true });
                 SessionService.CurrentLanguage = favoriteLanguage;
             }
 
@@ -41,6 +54,12 @@ namespace Fanex.Affiliate.User.Core.Controllers
             {
                 SessionService.CurrentCountry = currentCountry;
             }
+
+            if (countryShort != sessionCountryShort)
+            {
+                SessionService.CountryShort = countryShort;
+            }
+
             LanguageService.SetCulture(favoriteLanguage);
         }
 
@@ -53,6 +72,17 @@ namespace Fanex.Affiliate.User.Core.Controllers
             };
             var result = RedirectToRoute(RouteName, routeDic);
             return result;
+        }
+
+        public RedirectResult RedirectToAbsolutePath(string path)
+        {
+            if (Uri.IsWellFormedUriString(path, UriKind.Absolute))
+            {
+                return Redirect(path);
+            }
+
+            var absolutePath = VirtualPathUtility.ToAbsolute(path);
+            return Redirect(absolutePath);
         }
     }
 }

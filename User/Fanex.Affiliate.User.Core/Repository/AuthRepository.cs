@@ -54,7 +54,8 @@ namespace Fanex.Affiliate.User.Core.Repository
                         IsMaxSubLevel = reader.ToBool("IsMaxSubLevel"),
                         IsDepositFeePercent = reader.ToBool("Dep_IsDeductedPercent"),
                         IsWithdrawalFeePercent = reader.ToBool("Wit_IsDeductedPercent"),
-                        DisabledTransfer = reader.ToBool("DisabledTransfer")
+                        DisabledTransfer = reader.ToBool("DisabledTransfer"),
+                        TargetCountryCode = reader.ToString("TargetCountryCode")
                     } : null;
                 }
             }

@@ -1,24 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Mvc;
-using Fanex.Affiliate.User.Core.BusinessService;
-using Fanex.Affiliate.User.Core.Constants;
-using Fanex.Affiliate.User.Core.Controllers;
-using Fanex.Affiliate.User.Core.CoreService;
-using Fanex.Affiliate.User.Core.DTO;
-using Fanex.Affiliate.User.Core.DTO.UserPanel;
-using Fanex.Affiliate.User.Core.Enum;
-using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
-using Fanex.Affiliate.User.Core.Repository.UserPanel;
-using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
-using Fanex.Affiliate.User.Core.Utilities;
-using Fanex.Affiliate.User.Core.ViewModels.UserPanel.Statistics;
-using Moq;
-using Xunit;
-
-namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
+﻿namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web.Mvc;
+    using Constants;
+    using Core.BusinessService;
+    using Core.Controllers;
+    using Core.CoreService;
+    using Core.Repository.UserPanel;
+    using Core.Utilities;
+    using DTO;
+    using DTO.UserPanel;
+    using MetalModels.UserPanel;
+    using Moq;
+    using TestHelper;
+    using ViewModels.UserPanel.Statistics;
+    using Xunit;
+
     public class LandingPageStatisticsControllerTest
     {
         private const bool IsInternal = false;
@@ -28,7 +27,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
         {
             // Arrange
             var marketingService = new Mock<IMarketingService>();
-            marketingService.Setup(m => m.GetLandingPageList(IsInternal, It.IsAny<AffiliateLinkType>())).Returns(new List<LandingPage>());
+            marketingService.Setup(m => m.GetLandingPageList(It.Is<LandingPageParam>(p => !p.IsInternal))).Returns(new List<LandingPage>());
             var languageList = CreateFakeLanguageList();
             var languageService = new Mock<ILanguageService>();
             languageService.Setup(m => m.GetLanguageList(IsInternal)).Returns(languageList);
@@ -59,7 +58,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
             // Arrange
             LandingPageStatisticsParam passedParam = null;
             var marketingService = new Mock<IMarketingService>();
-            marketingService.Setup(m => m.GetLandingPageList(IsInternal, It.IsAny<AffiliateLinkType>())).Returns(new List<LandingPage>());
+            marketingService.Setup(m => m.GetLandingPageList(It.Is<LandingPageParam>(p => !p.IsInternal))).Returns(new List<LandingPage>());
             var languageList = CreateFakeLanguageList();
             var languageService = new Mock<ILanguageService>();
             languageService.Setup(m => m.GetLanguageList(IsInternal)).Returns(languageList);
@@ -147,20 +146,23 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
             ISessionService sessionService = null,
             ILanguageService languageService = null,
             IStatisticsRepository staticticsRepository = null,
-            IMarketingService marketingService = null)
+            IMarketingService marketingService = null,
+            IIpLocationService ipLocationService = null)
         {
             var appSetting = Mock.Of<IAppSetting>();
             var fakeSessionService = sessionService ?? MockingHelper.GetSessionService();
             var fakeLanguageService = languageService ?? Mock.Of<ILanguageService>();
             var fakeStaticticsRepository = staticticsRepository ?? Mock.Of<IStatisticsRepository>();
             var fakeMarketingService = marketingService ?? Mock.Of<IMarketingService>();
+            var fakeIpLocaltionService = ipLocationService ?? Mock.Of<IIpLocationService>();
 
             return new LandingPageStatisticsController(
                 appSetting,
                 fakeSessionService,
                 fakeLanguageService,
                 fakeStaticticsRepository,
-                fakeMarketingService);
+                fakeMarketingService,
+                fakeIpLocaltionService);
         }
     }
 }

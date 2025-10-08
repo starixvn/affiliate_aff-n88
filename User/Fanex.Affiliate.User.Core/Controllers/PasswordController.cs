@@ -1,17 +1,17 @@
 ﻿namespace Fanex.Affiliate.User.Core.Controllers
 {
+    using System.Linq;
+    using System.Web.Mvc;
     using BusinessService;
     using Constants;
     using CoreService;
     using DTO;
-    using Fanex.Affiliate.User.Core.Extensions;
+    using Extensions;
     using Filters;
     using MetalModels;
     using MetalModels.Email;
     using Repository.UserPanel;
     using Resources;
-    using System.Linq;
-    using System.Web.Mvc;
     using Utilities;
 
     public class PasswordController : BaseController
@@ -29,8 +29,9 @@
             IAccountRepository accountRepository,
             ICryptographyService cryptographyService,
             ILanguageService languageService,
+            IIpLocationService ipLocationService,
             IEmailService mailService)
-            : base(sessionService, languageService)
+            : base(sessionService, languageService, ipLocationService)
         {
             _accountRepository = accountRepository;
             _cryptographyService = cryptographyService;

@@ -1,18 +1,18 @@
-﻿using Fanex.Affiliate.User.Core.BusinessService;
-using Fanex.Affiliate.User.Core.Constants;
-using Fanex.Affiliate.User.Core.CoreService;
-using Fanex.Affiliate.User.Core.DTO;
-using Fanex.Affiliate.User.Core.DTO.Auth;
-using Fanex.Affiliate.User.Core.Extensions;
-using Fanex.Affiliate.User.Core.MetalModels;
-using Fanex.Affiliate.User.Core.Repository.UserPanel;
-using Fanex.Affiliate.User.Core.Resources;
-using Fanex.Affiliate.User.Core.Utilities;
-using System.Linq;
-using System.Web.Mvc;
-
-namespace Fanex.Affiliate.User.Core.Controllers
+﻿namespace Fanex.Affiliate.User.Core.Controllers
 {
+    using System.Linq;
+    using System.Web.Mvc;
+    using BusinessService;
+    using Constants;
+    using CoreService;
+    using DTO;
+    using DTO.Auth;
+    using Extensions;
+    using MetalModels;
+    using Repository.UserPanel;
+    using Resources;
+    using Utilities;
+
     public class AuthBaseController : BaseController
     {
         private readonly ICaptchaService _captchaService;
@@ -26,7 +26,8 @@ namespace Fanex.Affiliate.User.Core.Controllers
             IAppSetting appSetting,
             ICaptchaService captchaService,
             IAuthService authService,
-            IAccountRepository accountRepository) : base(sessionService, languageService)
+            IIpLocationService ipLocationService,
+            IAccountRepository accountRepository) : base(sessionService, languageService, ipLocationService)
         {
             _captchaService = captchaService;
             _appSetting = appSetting;
@@ -60,7 +61,7 @@ namespace Fanex.Affiliate.User.Core.Controllers
             return new ResultInfo { IsOk = true };
         }
 
-        protected bool IsValidDomain(string affType)
+        protected bool IsValidAffiliateType(string affType)
         {
             return _appSetting.AllowedAffiliateTypes.Any(t => t.Equals(affType));
         }

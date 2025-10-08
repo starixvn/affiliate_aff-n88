@@ -1,19 +1,19 @@
-﻿using Fanex.Affiliate.User.Core.BusinessService;
-using Fanex.Affiliate.User.Core.Controllers;
-using Fanex.Affiliate.User.Core.CoreService;
-using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
-using Fanex.Affiliate.User.Core.Utilities;
-using Fanex.Affiliate.User.Core.ViewModels;
-using Moq;
-using NSubstitute;
-using System;
-using System.Web;
-using System.Web.Mvc;
-using System.Web.Routing;
-using Xunit;
-
-namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
+﻿namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
 {
+    using System;
+    using System.Web;
+    using System.Web.Mvc;
+    using System.Web.Routing;
+    using Core.BusinessService;
+    using Core.Controllers;
+    using Core.CoreService;
+    using Core.Utilities;
+    using Moq;
+    using NSubstitute;
+    using TestHelper;
+    using ViewModels;
+    using Xunit;
+
     public class HomeControllerTest
     {
         const string PromotionTemplate = "https://promotions.{0}.com?lang=en&act=sports";
@@ -81,10 +81,11 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
         [Fact]
         public void Excute_WhenRequestChangeLang_SetForNewLang()
         {
-            var languageService = NSubstitute.Substitute.For<ILanguageService>();
+            var languageService = Substitute.For<ILanguageService>();
             var sessionService = NSubtituteMockingHelper.FakeSessionService();
-            var appSetting = NSubstitute.Substitute.For<IAppSetting>();
-            var controller = new HomeController(sessionService, appSetting, languageService);
+            var appSetting = Substitute.For<IAppSetting>();
+            var ipLocationService = Substitute.For<IIpLocationService>();
+            var controller = new HomeController(sessionService, appSetting, languageService, ipLocationService);
             NSubtituteMockingHelper.FakeController(controller);
             var requestContext = new RequestContext(controller.HttpContext, controller.RouteData);
             requestContext.HttpContext.Response.Cookies.Returns(new HttpCookieCollection());
@@ -102,18 +103,20 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
 
         private static HomeController CreateController(
             ILanguageService languageService = null,
+            IIpLocationService ipLocationService =null,
             ISessionService sessionService = null,
             IAppSetting appSetting = null,
             bool isAuthenticated = true,
             Uri uri = null)
         {
             languageService = languageService ?? Mock.Of<ILanguageService>();
+            ipLocationService = ipLocationService ?? Mock.Of<IIpLocationService>();
             sessionService = sessionService ?? MockingHelper.GetSessionService();
             appSetting = appSetting ?? Mock.Of<IAppSetting>(ap =>
                 !ap.IsEuroSite &&
                 ap.PromotionB2CLink == PromotionTemplate);
 
-            var controller = new HomeController(sessionService, appSetting, languageService);
+            var controller = new HomeController(sessionService, appSetting, languageService, ipLocationService);
             var request = MockingHelper.GetHttpRequest();
             var mockRequest = Mock.Get(request);
             mockRequest.Setup(r => r.IsAuthenticated).Returns(isAuthenticated);

@@ -8,5 +8,7 @@ namespace Fanex.Affiliate.User.Core.ViewModels
         public string SiteFriendlyName { get; set; }
 
         public string CurrentLanguage { get; set; }
+
+        public string CurrentCountry { get; set; }
     }
 }
