@@ -123,7 +123,7 @@
             var request = HttpContext.Current.Request;
             var countryInfo = _ipLocationService.GetCountryFromIp(request.GetClientIP());
             var country = countryInfo?.CountrySHORT;
-            SetCountryCookie(country, COUNTRY_IP_COOKIE_KEY);
+            //SetCountryCookie(country, COUNTRY_IP_COOKIE_KEY);
 
             if (!IsValidCountry(country))
             {
@@ -163,11 +163,12 @@
                            + GetCountryCodeKey();
 
             var languageList = _cacheService.Get<IEnumerable<Language>>(cacheKey);
+            var country = GetCountryByIp();
             if (languageList == null)
             {
                 languageList = _languageRepository
                     .GetLanguageList(isForInternal)
-                    .FilterPhLanguage(l => l.Code, _sessionService.UserSession?.TargetCountryCode);
+                    .FilterLanguageByCountry(l => l.Code, country);
                 _cacheService.Set(cacheKey, languageList);
             }
 
@@ -246,7 +247,6 @@
 
         public void SetCulture(string languageCode)
         {
-
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(languageCode);
             Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(languageCode);
 
@@ -256,10 +256,13 @@
 
         private IEnumerable<TargetCountryLanguage> GetTargetCountries(string targetCountryCode = "", bool isDefault = true)
         {
+            var request = HttpContext.Current.Request;
+            var countryInfo = _ipLocationService.GetCountryFromIp(request.GetClientIP());
+            var country = countryInfo?.CountrySHORT;
             var isInternal = _sessionService.IsInternal;
             return _languageRepository
                 .GetTargetCountryInfo(targetCountryCode, isDefault, isInternal)
-                .FilterPhCountry(c => c.TargetCountryCode, _sessionService.UserSession?.TargetCountryCode);
+                .FilterSpecialCountry(c => c.TargetCountryCode, country);
         }
 
         public Dictionary<string, List<TargetCountryLanguage>> GetTargetCountryLanguages()

@@ -1,9 +1,10 @@
-﻿using Fanex.Affiliate.User.Core.Resources;
-using Fanex.Affiliate.User.Core.Utilities;
-using System.Collections.Generic;
-
-namespace Fanex.Affiliate.User.Core.Constants
+﻿namespace Fanex.Affiliate.User.Core.Constants
 {
+    using System;
+    using System.Collections.Generic;
+    using Resources;
+    using Utilities;
+
     public static class SystemLanguage
     {
         private static readonly IAppSetting _appSetting = AppSetting.Instance;
@@ -43,15 +44,9 @@ namespace Fanex.Affiliate.User.Core.Constants
 
         public static IDictionary<string, string> SupportedFavoriteLanguages => _supportedFavoriteLanguages;
 
-        public static string DefaultLanguageCode
-        {
-            get { return _appSetting.DefaultLanguageCode; }
-        }
+        public static string DefaultLanguageCode => _appSetting.DefaultLanguageCode;
 
-        public static string DefaultShortedLanguageCode
-        {
-            get { return _appSetting.DefaultShortedLanguageCode; }
-        }
+        public static string DefaultShortedLanguageCode => _appSetting.DefaultShortedLanguageCode;
 
         public static string DefaultCountryCode => _appSetting.DefaultCountryCode;
 
@@ -64,6 +59,11 @@ namespace Fanex.Affiliate.User.Core.Constants
         public const string VietnameseLanguageCode = "vi-VN";
 
         public const string PhilippinesCountryCode = "PH";
+
+        public static Dictionary<string, List<string>> SpecialCountry => new Dictionary<string, List<string>>(StringComparer.OrdinalIgnoreCase)
+        {
+            {PhilippinesCountryCode, new List<string> { EnglishLanguageCode }}
+        };
 
         public static string GetUppercaseShortedCode(string languageCode)
         {

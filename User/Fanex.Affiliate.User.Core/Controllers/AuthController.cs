@@ -11,7 +11,6 @@
     using Extensions;
     using Filters;
     using MetalModels;
-    using NPOI.Util.Collections;
     using Repository.UserPanel;
     using Resources;
     using Utilities;
@@ -23,11 +22,6 @@
         private const int CaptchaImgHeight = 26;
 
         private const string DefaultCountryShort = "-";
-
-        private readonly HashSet<string> specialCountry = new HashSet<string>
-        {
-            SystemLanguage.PhilippinesCountryCode
-        };
 
         public AuthController(
             ISessionService sessionService,
@@ -228,9 +222,8 @@
                 return false; // only apply to N88 site
             }
 
-            bool isCountryShortEmpty = string.IsNullOrEmpty(countryShort) || countryShort == "-" || countryShort == DefaultCountryShort;
-            bool isTargetCountrySpecial = specialCountry.Contains(targetCountryCode);
-            bool isCountryShortSpecial = specialCountry.Contains(countryShort);
+            bool isCountryShortEmpty = string.IsNullOrEmpty(countryShort) || countryShort == DefaultCountryShort;
+            bool isTargetCountrySpecial = SystemLanguage.SpecialCountry.ContainsKey(targetCountryCode);
 
             // Case 1: IP country not detected
             if (isCountryShortEmpty)
@@ -238,6 +231,8 @@
                 // Invalid only if target is special (restricted access)
                 return isTargetCountrySpecial;
             }
+
+            bool isCountryShortSpecial = SystemLanguage.SpecialCountry.ContainsKey(countryShort);
 
             // Case 2: IP country is special → only valid if target matches
             if (isCountryShortSpecial)

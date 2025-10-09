@@ -1836,4 +1836,7 @@
   <data name="PlayerListSearchResultNote" xml:space="preserve">
     <value>Hasil pencarian mencakup pemain yang Tanggal Registrasi atau Tanggal Setoran Pertamanya berada dalam rentang waktu yang dipilih.</value>
   </data>
+  <data name="NotAllowOnCountry" xml:space="preserve">
+    <value>Akun Anda tidak tersedia di negara ini.</value>
+  </data>
 </root>

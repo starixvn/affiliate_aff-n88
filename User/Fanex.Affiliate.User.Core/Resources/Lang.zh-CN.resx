@@ -1853,4 +1853,7 @@ B2C合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
   <data name="PlayerListSearchResultNote" xml:space="preserve">
     <value>搜索结果将显示注册日期或首次存款日期在所选时间范围内的玩家。</value>
   </data>
+  <data name="NotAllowOnCountry" xml:space="preserve">
+    <value>您的账户在此国家不可用。</value>
+  </data>
 </root>

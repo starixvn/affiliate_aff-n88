@@ -11,33 +11,34 @@
         private static bool IsEqualIgnoreCase(string a, string b) =>
             string.Equals(a, b, StringComparison.InvariantCultureIgnoreCase);
 
-        public static IEnumerable<T> FilterPhCountry<T>(this IEnumerable<T> source, Func<T, string> selector, string code)
+        public static IEnumerable<T> FilterSpecialCountry<T>(this IEnumerable<T> source, Func<T, string> selector, string code)
         {
             if (AppSetting.Instance.SiteName != SiteName.N88)
             {
                 return source;
             }
 
-            const string phCode = SystemLanguage.PhilippinesCountryCode;
+            if (!string.IsNullOrEmpty(code) && SystemLanguage.SpecialCountry.ContainsKey(code))
+            {
+                return source.Where(x => IsEqualIgnoreCase(selector(x), code));
+            }
 
-            return IsEqualIgnoreCase(code, phCode)
-                ? source.Where(x => IsEqualIgnoreCase(selector(x), phCode))
-                : source.Where(x => !IsEqualIgnoreCase(selector(x), phCode));
+            return source.Where(x => !SystemLanguage.SpecialCountry.ContainsKey(selector(x)));
         }
 
-        public static IEnumerable<T> FilterPhLanguage<T>(this IEnumerable<T> source, Func<T, string> selector, string code)
+        public static IEnumerable<T> FilterLanguageByCountry<T>(this IEnumerable<T> source, Func<T, string> selector, string code)
         {
             if (AppSetting.Instance.SiteName != SiteName.N88)
             {
                 return source;
             }
 
-            const string phCountryCode = SystemLanguage.PhilippinesCountryCode;
-            const string phLanguageCode = SystemLanguage.EnglishLanguageCode;
+            if (!string.IsNullOrEmpty(code) && SystemLanguage.SpecialCountry.TryGetValue(code, out var supportLang))
+            {
+                return source.Where(x => supportLang.Contains(selector(x), StringComparer.OrdinalIgnoreCase));
+            }
 
-            return IsEqualIgnoreCase(code, phCountryCode)
-                ? source.Where(x => IsEqualIgnoreCase(selector(x), phLanguageCode))
-                : source;
+            return source;
         }
     }
 }

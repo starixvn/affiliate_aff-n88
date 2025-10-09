@@ -2084,4 +2084,7 @@ B2C सहयोगी की टीम&lt;br/&gt;&lt;br/&gt;
   <data name="PlayerListSearchResultNote" xml:space="preserve">
     <value>खोज परिणामों में वे खिलाड़ी शामिल हैं जिनकी पंजीकरण तिथि या पहली जमा तिथि चयनित सीमा के भीतर आती है।</value>
   </data>
+  <data name="NotAllowOnCountry" xml:space="preserve">
+    <value>आपका खाता इस देश में उपलब्ध नहीं है।</value>
+  </data>
 </root>

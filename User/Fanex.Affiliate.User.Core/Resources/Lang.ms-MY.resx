@@ -2075,4 +2075,7 @@ Jika anda mempunyai sebarang soalan dan memerlukan sebarang bantuan, sila jangan
   <data name="PlayerListSearchResultNote" xml:space="preserve">
     <value>Hasil carian termasuk pemain yang Tarikh Pendaftaran atau Tarikh Deposit Pertama berada dalam julat masa yang dipilih.</value>
   </data>
+  <data name="NotAllowOnCountry" xml:space="preserve">
+    <value>Akaun anda tidak tersedia di negara ini.</value>
+  </data>
 </root>

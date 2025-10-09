@@ -2109,4 +2109,7 @@
   <data name="PlayerListSearchResultNote" xml:space="preserve">
     <value>Kết quả tìm kiếm bao gồm những người chơi có Ngày đăng ký hoặc Ngày nạp tiền đầu tiên nằm trong khoảng thời gian đã chọn.</value>
   </data>
+  <data name="NotAllowOnCountry" xml:space="preserve">
+    <value>Tài khoản của bạn không khả dụng ở quốc gia này.</value>
+  </data>
 </root>

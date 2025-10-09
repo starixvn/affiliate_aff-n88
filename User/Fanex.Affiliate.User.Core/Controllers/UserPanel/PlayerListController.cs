@@ -1,12 +1,12 @@
 ﻿namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
 {
     using System.Web.Mvc;
-    using Fanex.Affiliate.User.Core.BusinessService;
-    using Fanex.Affiliate.User.Core.CoreService;
-    using Fanex.Affiliate.User.Core.Filters;
-    using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
-    using Fanex.Affiliate.User.Core.Utilities;
-    using Fanex.Affiliate.User.Core.ViewModels.UserPanel;
+    using BusinessService;
+    using CoreService;
+    using Filters;
+    using MetalModels.UserPanel;
+    using Utilities;
+    using ViewModels.UserPanel;
 
     public class PlayerListController : BaseController
     {
@@ -17,7 +17,9 @@
             IAppSetting appSetting,
             ISessionService sessionService,
             IPlayerListService playerListService,
-            ILanguageService languageService) : base(sessionService, languageService)
+            ILanguageService languageService,
+            IIpLocationService ipLocationService) 
+            : base(sessionService, languageService, ipLocationService)
         {
             _appSetting = appSetting;
             _playerListService = playerListService;
