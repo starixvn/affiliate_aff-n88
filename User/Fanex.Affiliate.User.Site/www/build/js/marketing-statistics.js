@@ -1263,7 +1263,7 @@
     var defaultSupportedLangs = ['en-US', 'bn-BD', 'hi-IN', 'km-KH', 'ms-MY', 'id-ID', 'zh-CN', 'zh-TW', 'th-TH', 'vi-VN', 'ko-KR'];
     var defaultLang = 'en-US';
 
-    var DEFAULT_PAGESIZE_LIST = [10, 20, 50, 100, 200];
+    var DEFAULT_PAGESIZE_LIST = [10, 20, 50, 100, 200, 500];
     var defaultOption = {
         pageIndex: 0,
         pageSize: 20,
