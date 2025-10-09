@@ -13,7 +13,6 @@
     var siteName = settingService.SiteName.ToLowerInvariant();
     var isN8G = string.Equals(settingService.SiteName, SiteName.N8G, StringComparison.CurrentCultureIgnoreCase);
     var targetCountryLanguages = languageService.GetTargetCountryLanguages();
-    var telegramContact = settingService.TelegramContact;
 }
 
 <!DOCTYPE html>
@@ -211,7 +210,7 @@
     
     <div class="contact-girl-floating-icon hidden" id="contactGirlIcon">
         <div class="contact-girl-close" id="contactGirlClose">&times;</div>
-        <a href="@telegramContact" target="_blank" class="contact-girl-link">
+        <a href="@Url.Content("~/ContactUs")" class="contact-girl-link">
             <img src="~/www/build/styles/Images/contact-girl/@(siteName)/contact-us.@(currentLanguage).webp" 
                  alt="Contact Girl" class="contact-girl-image" />
         </a>
