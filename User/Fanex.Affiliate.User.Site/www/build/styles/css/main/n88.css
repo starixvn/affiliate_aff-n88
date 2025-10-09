@@ -2446,9 +2446,6 @@ input[type=radio], input[type=checkbox] {
     font-size: 10px;
   }
 }
-.contact-girl-floating-icon.hidden {
-  display: none;
-}
 
 @media (min-width: 1024px) {
   .news {

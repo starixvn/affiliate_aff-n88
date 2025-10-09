@@ -12,19 +12,19 @@ var Layout = (function ($) {
 
         if (window.location.pathname.toLowerCase().endsWith('/contactus') ||
             window.location.pathname.toLowerCase().endsWith('/contactus/')) {
-            $contactGirlIcon.addClass('hidden');
+            $contactGirlIcon.hide();
             return;
         }
 
         if (sessionStorage.getItem('contactGirlIconHidden') !== 'true') {
-            $contactGirlIcon.removeClass('hidden');
+            $contactGirlIcon.show();
         }
 
         $('#contactGirlClose').on('click', function (e) {
             e.preventDefault();
             e.stopPropagation();
 
-            $contactGirlIcon.addClass('hidden');
+            $contactGirlIcon.hide();
             sessionStorage.setItem('contactGirlIconHidden', 'true');
         });
 
