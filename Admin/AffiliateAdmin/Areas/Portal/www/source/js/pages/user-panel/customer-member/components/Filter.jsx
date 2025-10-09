@@ -86,6 +86,7 @@ export class Filter extends React.Component {
                         <span className="oi oi-magnifying-glass"></span> {resource.Search}
                     </Button>
                 </Form>
+                <p><strong className="text-danger">* </strong>Note: Search results include players whose Registration Date or First Deposit Date falls within the selected range.</p>
             </div>
         )
     }
