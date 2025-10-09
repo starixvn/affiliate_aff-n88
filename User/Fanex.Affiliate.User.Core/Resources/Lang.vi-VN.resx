@@ -2106,4 +2106,7 @@
   <data name="Deposited" xml:space="preserve">
     <value>Đã gửi tiền</value>
   </data>
+  <data name="PlayerListSearchResultNote" xml:space="preserve">
+    <value>Kết quả tìm kiếm bao gồm những người chơi có Ngày đăng ký hoặc Ngày nạp tiền đầu tiên nằm trong khoảng thời gian đã chọn.</value>
+  </data>
 </root>
