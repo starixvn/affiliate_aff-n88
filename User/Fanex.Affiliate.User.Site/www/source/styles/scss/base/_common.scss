@@ -54,7 +54,7 @@ label {
 
 .moving-block {
     position: fixed;
-    bottom: 15px;
+    bottom: 14.6rem;
     right: 135px;
     z-index: 1;
 
@@ -64,6 +64,10 @@ label {
         .btn-move-top {
             margin-right: 10px;
         }
+    }
+
+    @media (max-width: 1023px) {
+        right: 15px;
     }
 
     @media (max-width: 1199px) and (min-width: 1024px) {
