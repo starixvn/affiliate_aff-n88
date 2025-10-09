@@ -2195,4 +2195,7 @@
   <data name="NonDeposited" xml:space="preserve">
     <value>Non-Deposited</value>
   </data>
+  <data name="PlayerListSearchResultNote" xml:space="preserve">
+    <value>Search results include players whose Registration Date or First Deposit Date falls within the selected range.</value>
+  </data>
 </root>

@@ -1833,4 +1833,7 @@
   <data name="Deposited" xml:space="preserve">
     <value>ฝากเเล้ว</value>
   </data>
+  <data name="PlayerListSearchResultNote" xml:space="preserve">
+    <value>ผลการค้นหาจะแสดงผู้เล่นที่มีวันที่ลงทะเบียน หรือวันที่ฝากเงินครั้งแรก ที่อยู่ภายในช่วงวันที่ที่เลือกไว้</value>
+  </data>
 </root>

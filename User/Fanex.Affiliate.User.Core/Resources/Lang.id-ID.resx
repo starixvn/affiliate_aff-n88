@@ -1833,4 +1833,7 @@
   <data name="Deposited" xml:space="preserve">
     <value>Sudah Deposit</value>
   </data>
+  <data name="PlayerListSearchResultNote" xml:space="preserve">
+    <value>Hasil pencarian mencakup pemain yang Tanggal Registrasi atau Tanggal Setoran Pertamanya berada dalam rentang waktu yang dipilih.</value>
+  </data>
 </root>

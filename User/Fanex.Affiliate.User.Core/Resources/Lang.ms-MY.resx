@@ -2072,4 +2072,7 @@ Jika anda mempunyai sebarang soalan dan memerlukan sebarang bantuan, sila jangan
   <data name="Deposited" xml:space="preserve">
     <value>Sudah Deposit</value>
   </data>
+  <data name="PlayerListSearchResultNote" xml:space="preserve">
+    <value>Hasil carian termasuk pemain yang Tarikh Pendaftaran atau Tarikh Deposit Pertama berada dalam julat masa yang dipilih.</value>
+  </data>
 </root>

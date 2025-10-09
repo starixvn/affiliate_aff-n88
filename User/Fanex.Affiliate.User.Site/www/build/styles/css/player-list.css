@@ -351,6 +351,9 @@ http://nicolasgallagher.com/micro-clearfix-hack/
   width: 300px;
   margin-bottom: 5px;
 }
+.form-filter .form-group.info-container {
+  width: 5px;
+}
 @media only screen and (max-width: 1023px) {
   .form-filter .form-group > label {
     width: 13%;

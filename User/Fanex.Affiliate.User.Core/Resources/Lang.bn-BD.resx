@@ -2086,4 +2086,7 @@
   <data name="Deposited" xml:space="preserve">
     <value>জমা হয়েছে</value>
   </data>
+  <data name="PlayerListSearchResultNote" xml:space="preserve">
+    <value>অনুসন্ধানের ফলাফলে এমন প্লেয়ারদের অন্তর্ভুক্ত করা হয়েছে, যাদের নিবন্ধনের তারিখ বা প্রথম জমার তারিখ নির্ধারিত সীমার মধ্যে পড়ে।</value>
+  </data>
 </root>
