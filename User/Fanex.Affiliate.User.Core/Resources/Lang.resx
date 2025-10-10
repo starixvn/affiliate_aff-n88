@@ -2198,4 +2198,10 @@
   <data name="PlayerListSearchResultNote" xml:space="preserve">
     <value>Search results include players whose Registration Date or First Deposit Date falls within the selected range.</value>
   </data>
+  <data name="SendMessageSuccess" xml:space="preserve">
+    <value>Thank you! Your message has been sent successfully.</value>
+  </data>
+  <data name="SomethingWentWrong" xml:space="preserve">
+    <value>Something went wrong. Please try again later.</value>
+  </data>
 </root>

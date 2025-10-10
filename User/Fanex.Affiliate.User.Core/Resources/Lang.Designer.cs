@@ -4633,6 +4633,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Thank you! Your message has been sent successfully..
+        /// </summary>
+        public static string SendMessageSuccess {
+            get {
+                return ResourceManager.GetString("SendMessageSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Senegal.
         /// </summary>
         public static string Senegal {
@@ -4818,6 +4827,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string Somalia {
             get {
                 return ResourceManager.GetString("Somalia", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Something went wrong. Please try again later..
+        /// </summary>
+        public static string SomethingWentWrong {
+            get {
+                return ResourceManager.GetString("SomethingWentWrong", resourceCulture);
             }
         }
         
