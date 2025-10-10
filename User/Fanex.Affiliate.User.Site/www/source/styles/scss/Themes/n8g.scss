@@ -380,6 +380,27 @@ select {
 }
 
 .page-container .content {
+    .page-title {
+        span.text {
+            color: #FAB617 !important;
+        }
+    }
+
+    .title-container {
+        .title {
+            color: #FAB617 !important;
+        }
+
+        span {
+            background-color: #152849 !important;
+        }
+
+        .button-toggle {
+            background: #FAB617 !important;
+        }
+    }
+
+
     .title-block {
         color: $group-title-color;
         font-weight: bold;
@@ -2753,6 +2774,13 @@ div.custom-panel {
             letter-spacing: 0.02em;
         }
     }
+
+    .new-content {
+        .faq-content {
+            max-width: 1296px !important;
+            margin: auto;
+        }
+    }
 }
 
 @media only screen and (max-width: 1199px) {
@@ -2800,6 +2828,47 @@ div.custom-panel {
                 white-space: nowrap;
                 display: flex;
                 overflow: scroll;
+            }
+        }
+    }
+}
+
+.term-condition-page {
+    .page-title {
+        text-align: center;
+    }
+
+    .page-title span {
+        color: #FAB617 !important;
+    }
+
+    .index-number {
+        color: #FFFFFF !important;
+    }
+    
+    .title-block {
+        .title {
+            color: #FAB617 !important;
+
+            span {
+                background-color: #152849 !important;
+            }
+        }
+
+        .button-toggle {
+            background: #FAB617 !important;
+        }
+    }
+
+    .content-block {
+        background: #192F56 !important;
+        color: white !important;
+
+        & > ul, > ol {
+            padding-left: 10px;
+
+            & > li::before {
+                background: #FAB617 !important;
             }
         }
     }

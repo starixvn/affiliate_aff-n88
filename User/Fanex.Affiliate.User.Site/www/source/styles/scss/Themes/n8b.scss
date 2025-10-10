@@ -1112,3 +1112,7 @@ input[type=radio][disabled] + span {
         margin-top: 30px;
     }
 }
+
+.title span {
+    background-color: #111111 !important;
+}

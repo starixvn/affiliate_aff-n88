@@ -9,6 +9,9 @@
         font-weight: 700;
     }
 }
+.page-title {
+    text-align: center;
+}
 
 .page-title span.text {
     color: #EA5500;
@@ -35,6 +38,7 @@
 
 .content-group {
     margin: 15px 0;
+
     .title-container {
         .index-number {
             color: #C2C2C2;
@@ -43,7 +47,7 @@
             line-height: normal;
             letter-spacing: 3.52px;
             text-transform: uppercase;
-            margin-bottom: 16px;
+            margin-bottom: 5px;
 
             @include Mobile {
                 font-size: 26px;
@@ -66,7 +70,7 @@
                 }
 
                 span {
-                    background: #F6F6F6;
+                    background: #F8F9FA;
                     position: relative;
                     z-index: 1;
                     padding-right: 24px;
@@ -145,9 +149,10 @@
         text-align: left;
         font-size: 14px;
         line-height: normal;
-        margin-top: 16px;
+        margin-top: 15px;
         position: relative;
         font-weight: 500;
+        text-align: justify;
 
         @include Mobile {
             font-size: 16px;
@@ -157,6 +162,9 @@
             padding: 16px 16px 40px;
         }
 
+        .text-block {
+            margin: 20px 0 !important;
+        } 
         & > ul, > ol {
             padding-left: 10px;
             list-style-type: none;

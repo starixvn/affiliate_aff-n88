@@ -18,12 +18,14 @@
     @Html.InlineScripts("~/www/build/js/faq.js")
 }
 
-<div class="content">
-    <div class="page-title">
-        <span class="text">@Lang.Faqs</span>
+<div class="content new-content">
+    <div class="faq-content">
+        <div class="page-title">
+            <span class="text">@Lang.Faqs</span>
+        </div>
+
+        @Html.Raw(htmlString)
+
+        @RazorHelper.RenderMovingTopButton()
     </div>
-
-    @Html.Raw(htmlString)
-
-    @RazorHelper.RenderMovingTopButton()
 </div>
