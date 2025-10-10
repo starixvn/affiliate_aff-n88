@@ -10,25 +10,35 @@
     }
 }
 
+.page-title span.text {
+    color: #EA5500;
+    font-size: 34px !important;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
 .term-condition-page {
-    .page-title {
+    .page-title span {
         color: #EA5500;
-        font-size: 42px;
+        font-size: 34px;
         font-weight: 700;
         text-transform: uppercase;
     }
 }
+
 .banner-terms-condition {
     color: #EA5500;
-    font-size: 42px;
+    font-size: 34px;
     font-weight: 700;
     text-transform: uppercase;
 }
+
 .content-group {
+    margin: 15px 0;
     .title-container {
         .index-number {
             color: #C2C2C2;
-            font-size: 42px;
+            font-size: 34px;
             font-weight: 700;
             line-height: normal;
             letter-spacing: 3.52px;
@@ -47,7 +57,7 @@
 
             .title {
                 color: #FF5D00;
-                font-size: 18px;
+                font-size: 20px;
                 font-weight: bold;
                 line-height: 1;
 
@@ -133,7 +143,7 @@
         background: #FFF;
         padding: 30px 30px;
         text-align: left;
-        font-size: 16px;
+        font-size: 14px;
         line-height: normal;
         margin-top: 16px;
         position: relative;

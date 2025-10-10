@@ -236,8 +236,4 @@
   //    "outputFile": "www/build/styles/css/n88/player-transfer-balance.css",
   //    "inputFile": "www/source/styles/pages/n88/player-transfer-balance.scss"
   //  },
-  {
-    "outputFile": "www/build/js/terms-and-conditions.js",
-    "inputFile": "www/source/js/pages/terms-and-conditions.js"
-  },
 ]

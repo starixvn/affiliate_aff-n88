@@ -241,5 +241,17 @@
       "www/source/js/pages/contact-us.js",
       "www/source/js/components/website.js"
     ]
+  },
+  {
+    "outputFileName": "www/build/js/terms-and-conditions.js",
+    "inputFiles": [
+      "www/source/js/pages/terms-and-conditions.js"
+    ]
+  },
+  {
+    "outputFileName": "www/build/js/faq.js",
+    "inputFiles": [
+      "www/source/js/pages/faq.js"
+    ]
   }
 ]

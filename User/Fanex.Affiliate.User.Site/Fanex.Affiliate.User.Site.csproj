@@ -568,6 +568,10 @@
     <Content Include="www\build\js\daily-earning.min.js">
       <DependentUpon>daily-earning.js</DependentUpon>
     </Content>
+    <Content Include="www\build\js\faq.js" />
+    <Content Include="www\build\js\faq.min.js">
+      <DependentUpon>faq.js</DependentUpon>
+    </Content>
     <Content Include="www\build\js\forgotpassword.js" />
     <Content Include="www\build\js\forgotpassword.min.js">
       <DependentUpon>forgotpassword.js</DependentUpon>
@@ -1126,6 +1130,7 @@
     <Content Include="www\build\styles\Images\themes\n8b.png" />
     <Content Include="www\source\js\components\intlTelInput.js" />
     <Content Include="www\source\js\pages\contact-us.js" />
+    <Content Include="www\source\js\pages\faq.js" />
     <Content Include="www\source\js\pages\terms-and-conditions.js" />
     <Content Include="www\source\js\pages\account-overview\account-overview.min.js">
       <DependentUpon>account-overview.js</DependentUpon>
