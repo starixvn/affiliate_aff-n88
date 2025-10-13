@@ -24,89 +24,82 @@
 
 @{
     var contentClass = siteName == "N88" ? "main-content" : "content";
-    var currentChannel = Model.ContactChannels?.FirstOrDefault(c =>
-        c.MarketID?.Equals(ViewContext.HttpContext.Session["CurrentLanguage"]?.ToString(), StringComparison.OrdinalIgnoreCase) == true)
-        ?? Model.ContactChannels?.FirstOrDefault();
     var imageBasePath = siteName == "N88" ? "~/www/build/styles/Images/contact-us/N88/" : "~/www/build/styles/Images/contact-us/";
 }
 
-<div class="@contentClass">
-    <div class="content">
+<div class="@contentClass contact">
+    <div>
         <div class="page-title">
             <span class="text">@Lang.ContactUs</span>
         </div>
 
-        <div class="slogan">
-            <p>@Html.Raw(Lang.PleaseDirectAnyComment)</p>
+        <div class="alert" role="alert" id="messageResult" style="display: none"></div>
+
+        <div class="contact-description">
+            @Html.Raw(string.Format(Lang.ContactUsIntro, siteFriendlyName, Url.Content("~/FAQ")))
         </div>
 
         <div class="alert alert-success" role="alert" id="messageSuccess" style="display: none;">
             <p class="text-center">Thank you for contacting us. We will get back to you shortly.</p>
         </div>
 
-        <div class="alert alert-danger" role="alert" id="messageError" style="display: none"></div>
-
         <div id="mainContent">
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-6">
+                <div class="row contact-panel">
+                    <div class="col-md-4">
                         <div class="contact-assistance">
-                            <h3>Get Personal Assistance</h3>
+                            <div class="contact-heading">Get Personal Assistance</div>
 
-                            @if (currentChannel != null)
+                            @if (!string.IsNullOrEmpty(Model.Email))
                             {
-                                if (!string.IsNullOrEmpty(currentChannel.Email))
-                                {
-                                    <div class="contact-item">
-                                        <div class="contact-icon">
-                                            <img class="contact-icon-img" src="@Url.Content(imageBasePath + "email.png")" alt="@Lang.EmailContactUs" />
-                                        </div>
-                                        <div class="contact-info">
-                                            <a href="mailto:@currentChannel.Email">@currentChannel.Email</a>
-                                        </div>
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <img class="contact-icon-img" src="@Url.Content(imageBasePath + "email.png")" alt="@Lang.EmailContactUs" />
                                     </div>
-                                }
+                                    <div class="contact-info">
+                                        <a href="mailto:@Model.Email">@Model.Email</a>
+                                    </div>
+                                </div>
+                            }
 
-                                if (!string.IsNullOrEmpty(currentChannel.Telegram))
-                                {
-                                    <div class="contact-item">
-                                        <div class="contact-icon">
-                                            <img class="contact-icon-img" src="@Url.Content(imageBasePath + "telegram.png")" alt="@Lang.Telegram" />
-                                        </div>
-                                        <div class="contact-info">
-                                            <a href="@currentChannel.Telegram" target="_blank">@currentChannel.Telegram</a>
-                                        </div>
+                            @if (!string.IsNullOrEmpty(Model.Telegram))
+                            {
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <img class="contact-icon-img" src="@Url.Content(imageBasePath + "telegram.png")" alt="@Lang.Telegram" />
                                     </div>
-                                }
+                                    <div class="contact-info">
+                                        <a href="@Model.Telegram" target="_blank">@Model.Telegram</a>
+                                    </div>
+                                </div>
+                            }
 
-                                if (!string.IsNullOrEmpty(currentChannel.Whatsapp))
-                                {
-                                    <div class="contact-item">
-                                        <div class="contact-icon">
-                                            <img class="contact-icon-img" src="@Url.Content(imageBasePath + "whatsapp.png")" alt="@Lang.Whatsapp" />
-                                        </div>
-                                        <div class="contact-info">
-                                            <a href="@currentChannel.Whatsapp" target="_blank">@currentChannel.Whatsapp</a>
-                                        </div>
+                            @if (!string.IsNullOrEmpty(Model.Whatsapp))
+                            {
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <img class="contact-icon-img" src="@Url.Content(imageBasePath + "whatsapp.png")" alt="@Lang.Whatsapp" />
                                     </div>
-                                }
+                                    <div class="contact-info">
+                                        <a href="@Model.Whatsapp" target="_blank">@Model.Whatsapp</a>
+                                    </div>
+                                </div>
+                            }
 
-                                if (!string.IsNullOrEmpty(currentChannel.Zalo))
-                                {
-                                    <div class="contact-item">
-                                        <div class="contact-icon">
-                                            <img class="contact-icon-img" src="@Url.Content(imageBasePath + "phone.png")" alt="Zalo" />
-                                        </div>
-                                        <div class="contact-info">
-                                            <span>Zalo</span>
-                                            <p>@currentChannel.Zalo</p>
-                                        </div>
+                            @if (!string.IsNullOrEmpty(Model.Zalo))
+                            {
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <img class="contact-icon-img" src="@Url.Content(imageBasePath + "zalo.png")" alt="Zalo" />
                                     </div>
-                                }
+                                    <div class="contact-info">
+                                        <p>@Model.Zalo</p>
+                                    </div>
+                                </div>
                             }
 
                             <div class="operating-hours">
-                                <h4>Operating Hours</h4>
+                                <div class="contact-heading">Operating Hours</div>
                                 <p>Monday - Friday</p>
                                 <p>10:00 am - 08:00 pm (GMT +8)</p>
                                 <p class="note">Support services are unavailable during weekends and public holidays</p>
@@ -114,47 +107,47 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6">
+                    <div class="col-md-8">
                         <div class="contact-form">
-                            <h3>Get In Touch</h3>
+                            <div class="contact-heading">Get In Touch</div>
 
                             @using (Html.BeginForm("Index", "ContactUs", FormMethod.Post, new { @id = "contactForm", @class = "form-horizontal" }))
                             {
                                 @Html.AntiForgeryToken()
+                                @Html.HiddenFor(m => m.ContactForm.ReceiverEmail)
 
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label class="control-label">@Lang.FName <span class="required">*</span></label>
+                                            <label class="control-label require">@Lang.FName</label>
                                             @Html.TextBoxFor(m => m.ContactForm.FirstName, new { @class = "form-control", @placeholder = "Your first name" })
-                                            <span class="help-block hide"></span>
+                                            @Html.ValidationMessageFor(x => x.ContactForm.FirstName, string.Empty, new { @class = "help-block hide" })
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label class="control-label">@Lang.LName <span class="required">*</span></label>
+                                            <label class="control-label require">@Lang.LName</label>
                                             @Html.TextBoxFor(m => m.ContactForm.LastName, new { @class = "form-control", @placeholder = "Your last name" })
-                                            <span class="help-block hide"></span>
+                                            @Html.ValidationMessageFor(x => x.ContactForm.LastName, string.Empty, new { @class = "help-block hide" })
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="control-label">Email Address <span class="required">*</span></label>
+                                    <label class="control-label require">Email Address</label>
                                     @Html.TextBoxFor(m => m.ContactForm.Email, new { @class = "form-control", @placeholder = "Your email address" })
-                                    <span class="help-block hide"></span>
+                                    @Html.ValidationMessageFor(x => x.ContactForm.Email, string.Empty, new { @class = "help-block hide" })
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="control-label">Subject of this message <span class="required">*</span></label>
+                                    <label class="control-label require">Subject of this message</label>
                                     @Html.TextBoxFor(m => m.ContactForm.Subject, new { @class = "form-control", @placeholder = "Subject of this message" })
-                                    <span class="help-block hide"></span>
+                                    @Html.ValidationMessageFor(x => x.ContactForm.Subject, string.Empty, new { @class = "help-block hide" })
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="control-label">Message</label>
                                     @Html.TextAreaFor(m => m.ContactForm.Message, new { @class = "form-control", @rows = 5, @placeholder = "Say something about us" })
-                                    <span class="help-block hide"></span>
+                                    @Html.ValidationMessageFor(x => x.ContactForm.Message, string.Empty, new { @class = "help-block hide" })
                                 </div>
 
                                 <div class="form-group">

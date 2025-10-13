@@ -1276,6 +1276,17 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Thank you for reaching out to {0}. Have you tried our &lt;a href=&quot;{1}&quot;&gt;FAQ&lt;/a&gt; to see if there&apos;s an answer you might be looking for? We&apos;ve provided some of our top areas of inquiries&lt;br&gt;
+        ///If you haven&apos;t found what you&apos;re looking for, listed below is a variety of convenient ways for you to contact us.&lt;br&gt;
+        ///If you need a new banner or would like to request a custom banner, feel free to contact us directly!.
+        /// </summary>
+        public static string ContactUsIntro {
+            get {
+                return ResourceManager.GetString("ContactUsIntro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Contact your affiliates support team for exclusive revenue rate to growth bigger revenue in your monthly earning.
         /// </summary>
         public static string ContactYourAffilliateSupportTeam {
@@ -3999,15 +4010,6 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string Pleasecheckyour {
             get {
                 return ResourceManager.GetString("Pleasecheckyour", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Please direct any comments or questions to following contact points:.
-        /// </summary>
-        public static string PleaseDirectAnyComment {
-            get {
-                return ResourceManager.GetString("PleaseDirectAnyComment", resourceCulture);
             }
         }
         

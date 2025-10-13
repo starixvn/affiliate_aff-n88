@@ -17,48 +17,42 @@ var ContactUs = (function ($) {
 
         submit: function () {
             var $form = $("#contactForm");
+            var validator = $form.validate();
+            var isValidForm = validator.form();
 
-            if (!$form.valid()) {
-                return false;
+            if (isValidForm) {
+                Site.showLoader();
+                WebSite.assignValueForWebSite();
+                var postData = $form.serializeObject();
+
+                $.ajax({
+                    type: "POST",
+                    url: Site.resolveRelativeUrl("ContactUs/Index"),
+                    data: postData,
+                    dataType: "json",
+                    cache: false,
+                    contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+                    success: function (response) {
+                        _me.handleResponseResult(response);
+                    },
+                    error: function () {
+                        _me.handleResponseResult({
+                            IsOk: false,
+                            Message: "An error occurred while sending your message. Please try again later."
+                        });
+                    },
+                    complete: function () {
+                        Site.hideLoader();
+                    }
+                });
             }
-
-            Site.showLoader();
-
-            var postData = $form.serializeObject();
-
-            $.ajax({
-                type: "POST",
-                url: Site.resolveRelativeUrl("ContactUs/Index"),
-                data: postData,
-                dataType: "json",
-                cache: false,
-                contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-                success: function (response) {
-                    _me.handleResponseResult(response);
-                },
-                error: function () {
-                    _me.handleResponseResult({
-                        IsOk: false,
-                        Message: "An error occurred while sending your message. Please try again later."
-                    });
-                },
-                complete: function () {
-                    Site.hideLoader();
-                }
-            });
-
-            return false;
+            else {
+                validator.focusInvalid();
+            }
         },
 
         handleResponseResult: function (response) {
-            $("#messageSuccess").toggle(response.IsOk);
-            $("#messageError").toggle(!response.IsOk).html(response.Message || "An error occurred. Please try again.");
-
-            if (response.IsOk) {
-                _me.reset();
-                $("#mainContent").hide();
-            }
-
+            Site.displayResult(response.IsOk, response.Message);
             $(window).scrollTop(0);
         },
 
@@ -78,7 +72,6 @@ var ContactUs = (function ($) {
     return _me;
 })(jQuery);
 
-// Initialize when document is ready
 $(document).ready(function () {
     ContactUs.initialize();
 });

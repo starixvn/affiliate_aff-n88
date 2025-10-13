@@ -23,11 +23,13 @@ namespace Fanex.Affiliate.User.Core.MetalModels
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Please enter the subject of your message.")]
-        [StringLength(100, ErrorMessage = "Please enter the subject of your message.")]
+        [StringLength(Number.OneHundred, ErrorMessage = "Please enter the subject of your message.")]
         public string Subject { get; set; }
 
         [Required(ErrorMessage = "Please enter your message.")]
-        [StringLength(5000, ErrorMessage = "Please enter your message.")]
+        [StringLength(Number.FiveThousand, ErrorMessage = "Please enter your message.")]
         public string Message { get; set; }
+
+        public string ReceiverEmail { get; set; }
     }
 }

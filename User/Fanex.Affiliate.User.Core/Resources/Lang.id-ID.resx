@@ -1446,9 +1446,6 @@
   <data name="Finished" xml:space="preserve">
     <value>SELESAI</value>
   </data>
-  <data name="PleaseDirectAnyComment" xml:space="preserve">
-    <value>Silakan kirim komentar atau pertanyaan ke kontak berikut:</value>
-  </data>
   <data name="FTDDate" xml:space="preserve">
     <value>Tanggal FTD</value>
   </data>

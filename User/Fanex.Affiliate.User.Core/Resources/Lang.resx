@@ -1703,9 +1703,6 @@
     <value>Working Time:&lt;br/&gt;Monday - Friday | &lt;strong&gt;09:00-19:00&lt;/strong&gt;&lt;br&gt;GMT +7</value>
     <comment>87923</comment>
   </data>
-  <data name="PleaseDirectAnyComment" xml:space="preserve">
-    <value>Please direct any comments or questions to following contact points:</value>
-  </data>
   <data name="Phone" xml:space="preserve">
     <value>Phone</value>
   </data>
@@ -2203,5 +2200,10 @@
   </data>
   <data name="SomethingWentWrong" xml:space="preserve">
     <value>Something went wrong. Please try again later.</value>
+  </data>
+  <data name="ContactUsIntro" xml:space="preserve">
+    <value>Thank you for reaching out to {0}. Have you tried our &lt;a href="{1}"&gt;FAQ&lt;/a&gt; to see if there's an answer you might be looking for? We've provided some of our top areas of inquiries&lt;br&gt;
+If you haven't found what you're looking for, listed below is a variety of convenient ways for you to contact us.&lt;br&gt;
+If you need a new banner or would like to request a custom banner, feel free to contact us directly!</value>
   </data>
 </root>

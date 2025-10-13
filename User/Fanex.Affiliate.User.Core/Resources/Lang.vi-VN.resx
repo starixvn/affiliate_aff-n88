@@ -1599,9 +1599,6 @@
   <data name="Phone" xml:space="preserve">
     <value>Điện Thoại</value>
   </data>
-  <data name="PleaseDirectAnyComment" xml:space="preserve">
-    <value>Nếu có bất kỳ góp ý hay thắc mắc nào, vui lòng liên hệ:</value>
-  </data>
   <data name="AConfirmationEmail" xml:space="preserve">
     <value>Email xác nhận đã được gửi đến Email của bạn.</value>
   </data>

@@ -1117,6 +1117,7 @@
     <Content Include="www\build\styles\Images\themes\n88.zh-CN.png" />
     <Content Include="www\build\styles\Images\themes\n8b.png" />
     <Content Include="www\source\js\components\intlTelInput.js" />
+    <Content Include="www\source\js\pages\contact-us.js" />
     <Content Include="www\source\js\pages\account-overview\account-overview.min.js">
       <DependentUpon>account-overview.js</DependentUpon>
     </Content>
@@ -1730,6 +1731,7 @@
     <Content Include="www\build\styles\Images\contact-girl\n8g\contact-us.vi-VN.webp" />
     <Content Include="www\source\styles\scss\components\_contact-girl-floating.scss" />
     <Content Include="Views\ContactUs\Index.cshtml" />
+    <Content Include="Views\Shared\Email\ContactUs\Content.en-US.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

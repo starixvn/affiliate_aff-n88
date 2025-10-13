@@ -2,7 +2,6 @@
 {
     using System;
     using System.Linq;
-    using System.Threading.Tasks;
     using System.Web.Mvc;
     using BusinessService;
     using CoreService;
@@ -35,10 +34,19 @@
         public ActionResult Index()
         {
             var contactChannels = _contactUsRepository.GetContactChannels();
+            var currentLanguage = SessionService.CurrentLanguage;
+
+            var currentChannel = contactChannels.FirstOrDefault(c =>
+                c.MarketID?.Equals(currentLanguage, StringComparison.OrdinalIgnoreCase) == true)
+                ?? contactChannels.FirstOrDefault();
 
             var model = new ContactUsViewModel
             {
-                ContactChannels = contactChannels
+                Email = currentChannel?.Email,
+                Telegram = currentChannel?.Telegram,
+                Whatsapp = currentChannel?.Whatsapp,
+                Zalo = currentChannel?.Zalo,
+                ContactForm = new ContactUsParam()
             };
 
             return View("~/Views/ContactUs/Index.cshtml", model);
@@ -46,7 +54,7 @@
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Index(ContactUsParam param)
+        public ActionResult Index(ContactUsViewModel model)
         {
             var result = new ResultInfo { IsOk = false };
 
@@ -59,24 +67,16 @@
 
             try
             {
-                var contactChannels = _contactUsRepository.GetContactChannels();
-                var currentLanguage = SessionService.CurrentLanguage;
-
-                var currentChannel = contactChannels.FirstOrDefault(c =>
-                    c.MarketID?.Equals(currentLanguage, StringComparison.OrdinalIgnoreCase) == true)
-                    ?? contactChannels.FirstOrDefault();
-
-                var supportEmail = currentChannel?.Email ?? _appSetting.GetMailContactByLanguageCode(currentLanguage);
-
                 var emailParam = new ContactUsEmailParam
                 {
-                    FirstName = Server.HtmlEncode(param.FirstName),
-                    LastName = Server.HtmlEncode(param.LastName),
-                    Sender = Server.HtmlEncode(param.Email),
-                    Subject = Server.HtmlEncode(param.Subject),
-                    Message = Server.HtmlEncode(param.Message),
+                    FirstName = Server.HtmlEncode(model.ContactForm.FirstName),
+                    LastName = Server.HtmlEncode(model.ContactForm.LastName),
+                    Sender = Server.HtmlEncode(model.ContactForm.Email),
+                    Subject = Server.HtmlEncode(model.ContactForm.Subject),
+                    Message = Server.HtmlEncode(model.ContactForm.Message),
                     SubmittedDateTime = DateTime.Now,
-                    Receiver = supportEmail,
+                    //Receiver = param.ReceiverEmail,
+                    Receiver = "happy.duong@starixsoft.com",
                     RootDomain = SiteDomainHelper.GetRootUrl(this, _appSetting)
                 };
 

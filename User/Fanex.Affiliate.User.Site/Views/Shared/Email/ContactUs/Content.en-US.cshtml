@@ -1,0 +1,17 @@
+@model Fanex.Affiliate.User.Core.MetalModels.Email.ContactUsEmailParam
+<div>
+    Dear Affiliate Support Team,<br />
+    <div style="margin-left: 30px;">
+        You have received a new inquiry from the Affiliate Contact Us form.<br />
+        Name: @Model.FirstName @Model.LastName<br />
+        Email: @Model.Sender<br />
+        Subject: @Model.Subject<br />
+        Message:<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;@Raw(Model.Message.Replace("\n", "<br />"))<br /><br />
+
+        Submitted at: @Model.SubmittedDateTime.ToString("yyyy-MM-dd HH:mm") (GMT +8)<br />
+    </div>
+    ---------------------------------------------------------------------------------------------------------------------------------------<br /><br />
+    Best regards,<br />
+    Affiliate System
+</div>
