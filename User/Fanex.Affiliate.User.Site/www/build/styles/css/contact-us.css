@@ -59,6 +59,6 @@
   max-width: none;
 }
 
-a {
+.contact-info a, .contact-description a {
   text-decoration: underline;
 }

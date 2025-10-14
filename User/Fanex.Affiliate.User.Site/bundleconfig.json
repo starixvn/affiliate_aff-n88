@@ -235,4 +235,11 @@
       "www/source/js/pages/account-overview/player-list.js"
     ]
   },
+  {
+    "outputFileName": "www/build/js/contact-us.js",
+    "inputFiles": [
+      "www/source/js/pages/contact-us.js",
+      "www/source/js/components/website.js"
+    ]
+  }
 ]
