@@ -149,6 +149,10 @@ body.zh-CN {
   opacity: 0.5;
 }
 
+.group-title {
+  color: #3391F6;
+}
+
 .table {
   font-size: 1.4rem;
 }
@@ -652,6 +656,17 @@ input[type=radio][disabled] + span {
 
 .main-container .page-container {
   color: #d0d0d0;
+}
+.main-container .page-container .content-block {
+  background: #252525;
+  color: #FFFFFF;
+}
+.main-container .new-content {
+  border-top: none !important;
+}
+.main-container .new-content .faq-content {
+  max-width: 1296px !important;
+  margin: auto;
 }
 
 .table .table {

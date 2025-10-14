@@ -107,10 +107,10 @@
   //    "outputFile": "www/build/styles/css/n8g.css",
   //    "inputFile": "www/source/styles/scss/themes/n8g.scss"
   //  },
-  //  {
-  //    "outputFile": "www/build/styles/css/n8b.css",
-  //    "inputFile": "www/source/styles/scss/themes/n8b.scss"
-  //  },
+    {
+      "outputFile": "www/build/styles/css/n8b.css",
+      "inputFile": "www/source/styles/scss/themes/n8b.scss"
+    },
   //  {
   //    "outputFile": "www/build/styles/css/n88.css",
   //    "inputFile": "www/source/styles/scss/themes/n88.scss"

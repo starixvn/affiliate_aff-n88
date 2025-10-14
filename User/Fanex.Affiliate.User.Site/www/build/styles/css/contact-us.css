@@ -1,14 +1,6 @@
 ﻿.contact {
   max-width: calc(100% - 30px);
 }
-.contact .page-title {
-  text-align: center;
-}
-.contact .page-title > span.text {
-  font-size: 34px;
-  font-weight: 700;
-  text-transform: uppercase;
-}
 .contact .contact-description {
   font-size: 16px;
   line-height: 2;
@@ -19,7 +11,6 @@
 .contact .contact-panel {
   padding: 0 10px 20px;
   background: #FFFFFF;
-  box-shadow: 0px 3px 8px 3px rgba(164, 164, 164, 0.25);
   border-radius: 4px;
   border: none;
 }
@@ -43,13 +34,13 @@
   flex-shrink: 0;
 }
 .contact-assistance .contact-item .contact-icon .contact-icon-img {
-  width: 20px;
+  width: 25px;
 }
 .contact-assistance .contact-item .contact-info {
   flex: 1;
 }
 .contact-assistance .operating-hours {
-  margin-top: 50px;
+  margin-top: 30px;
   font-size: 16px;
   line-height: 24px;
 }
@@ -66,4 +57,8 @@
 }
 .contact-form .form-group .form-control {
   max-width: none;
+}
+
+a {
+  text-decoration: underline;
 }
