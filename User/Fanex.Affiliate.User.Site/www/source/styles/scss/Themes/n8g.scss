@@ -380,12 +380,6 @@ select {
 }
 
 .page-container .content {
-    .page-title {
-        span.text {
-            color: #FAB617 !important;
-        }
-    }
-
     .title-container {
         .title {
             color: #FAB617 !important;
@@ -2833,42 +2827,57 @@ div.custom-panel {
     }
 }
 
-.term-condition-page {
+.new-content {
     .page-title {
         text-align: center;
-    }
 
-    .page-title span {
-        color: #FAB617 !important;
-    }
-
-    .index-number {
-        color: #FFFFFF !important;
-    }
-    
-    .title-block {
-        .title {
+        & span.text {
             color: #FAB617 !important;
+        }
+    }
 
-            span {
-                background-color: #152849 !important;
+    .content-group {
+        .page-title span {
+            color: #FAB617 !important;
+        }
+
+        .index-number {
+            color: #D5D5D5 !important;
+        }
+
+        .title-container {
+            .title {
+                color: #FAB617 !important;
+
+                span {
+                    background-color: #152849 !important;
+                }
+
+                &:after {
+                    background: #D5D5D5 !important;
+                }
+            }
+
+            .button-toggle {
+                background: #FAB617 !important;
             }
         }
 
-        .button-toggle {
-            background: #FAB617 !important;
-        }
-    }
+        .content-block {
+            background: #192F56 !important;
+            color: #D5D5D5 !important;
+            font-size: 1.6rem !important;
 
-    .content-block {
-        background: #192F56 !important;
-        color: white !important;
+            & > ul, > ol {
+                padding-left: 10px;
 
-        & > ul, > ol {
-            padding-left: 10px;
+                & > li::before {
+                    background: #FAB617 !important;
+                }
+            }
 
-            & > li::before {
-                background: #FAB617 !important;
+            > p {
+                font-size: 1.6rem !important;
             }
         }
     }
