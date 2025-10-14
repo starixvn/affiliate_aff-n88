@@ -85,8 +85,9 @@
                 result.IsOk = true;
                 result.Message = Lang.SendMessageSuccess;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                LogHelper.WriteError($"Contact Us send mail failed - {ex.Message}");
                 result.Message = Lang.SomethingWentWrong;
             }
 
