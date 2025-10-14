@@ -17,5 +17,7 @@ namespace Fanex.Affiliate.User.Core.MetalModels.Email
         public DateTime SubmittedDateTime { get; set; }
 
         public string Receiver { get; set; }
+
+        public string Language { get; set; }
     }
 }

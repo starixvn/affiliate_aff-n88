@@ -1,0 +1,17 @@
+@model Fanex.Affiliate.User.Core.MetalModels.Email.ContactUsEmailParam
+<div>
+    Tim Dukungan Afiliasi yang Terhormat,,<br />
+    <div style="margin-left: 30px;">
+        Anda telah menerima pertanyaan baru dari formulir Kontak Kami Afiliasi.<br />
+        Nama: @Model.FirstName @Model.LastName<br />
+        Email: @Model.Sender<br />
+        Subjek: @Model.Subject<br />
+        Pesan:<br />
+        <div style="margin-left: 30px;"> @Raw(Model.Message.Replace("\n", "<br />"))</div><br />
+
+        Dikirim pada: @Model.SubmittedDateTime.ToString("yyyy-MM-dd HH:mm 'GMT'zzz")<br />
+    </div>
+    ---------------------------------------------------------------------------------------------------------------------------------------<br /><br />
+    Salam hormat,<br />
+    Sistem Afiliasi
+</div>

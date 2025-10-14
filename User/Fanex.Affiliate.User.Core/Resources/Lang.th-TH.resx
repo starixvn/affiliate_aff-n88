@@ -1191,9 +1191,6 @@
   <data name="ScratchArcadeGames" xml:space="preserve">
     <value>เกมส์ขูดการ์ด/เกมส์ตู้</value>
   </data>
-  <data name="SupportTimeN88" xml:space="preserve">
-    <value>&lt;strong&gt;วันจันทร์ - วันศุกร์&lt;/strong&gt;&lt;br&gt;เวลา 10.00 น. - 20.00 น. (GMT+8)</value>
-  </data>
   <data name="TermAndCondition" xml:space="preserve">
     <value>ข้อกำหนดและเงื่อนไข</value>
   </data>
@@ -1412,9 +1409,6 @@
   </data>
   <data name="YourRevenueShare" xml:space="preserve">
     <value>ส่วนแบ่งรายได้ของคุณ</value>
-  </data>
-  <data name="SupportTime" xml:space="preserve">
-    <value>Working Time:&lt;br/&gt;Monday - Friday | &lt;strong&gt;09:00-19:00&lt;/strong&gt;&lt;br&gt;GMT +7</value>
   </data>
   <data name="AConfirmationEmail" xml:space="preserve">
     <value>อีเมลยืนยันกำลังส่งไปยังอีเมลของคุณ</value>
@@ -1832,5 +1826,54 @@
   </data>
   <data name="PlayerListSearchResultNote" xml:space="preserve">
     <value>ผลการค้นหาจะแสดงผู้เล่นที่มีวันที่ลงทะเบียน หรือวันที่ฝากเงินครั้งแรก ที่อยู่ภายในช่วงวันที่ที่เลือกไว้</value>
+  </data>
+  <data name="ContactUsIntro" xml:space="preserve">
+    <value>ขอบคุณที่ติดต่อ{0}ของเรา คุณได้ลองตรวจสอบคำถามที่พบบ่อย &lt;a href="{1}"&gt;FAQ&lt;/a&gt; หรือยังว่ามีคำตอบที่คุณกำลังมองหาหรือไม่? เราได้รวบรวมคำถามที่ถูกถามบ่อยไว้แล้ว&lt;br&gt;
+หากไม่มีคำถามหรือสิ่งที่ต้องการ เรามีช่องทางติดต่อที่หลากหลาย เลือกแบบที่สะดวกสำหรับคุณได้เลย&lt;br&gt;
+หากคุณต้องการแบนเนอร์ใหม่หรือต้องการขอแบนเนอร์แบบกำหนดเอง สามารถติดต่อเราได้ทันที!</value>
+  </data>
+  <data name="GetPersonalAssistance" xml:space="preserve">
+    <value>ติดต่อฝ่ายสนับสนุน</value>
+  </data>
+  <data name="OperatingHours" xml:space="preserve">
+    <value>เวลาทำการ</value>
+  </data>
+  <data name="SupportServicesUnvailable" xml:space="preserve">
+    <value>หยุดทำการในวันหยุดสุดสัปดาห์และวันหยุดนักขัตฤกษ์</value>
+  </data>
+  <data name="GetInTouch" xml:space="preserve">
+    <value>รับการติดต่อ</value>
+  </data>
+  <data name="YourFName" xml:space="preserve">
+    <value>ชื่อจริงของคุณ</value>
+  </data>
+  <data name="YourLName" xml:space="preserve">
+    <value>นามสกุลของคุณ</value>
+  </data>
+  <data name="YourEmailAddress" xml:space="preserve">
+    <value>อีเมลของคุณ</value>
+  </data>
+  <data name="SubjectEmail" xml:space="preserve">
+    <value>หัวข้อของข้อความนี้</value>
+  </data>
+  <data name="SaySthAboutUs" xml:space="preserve">
+    <value>กล่าวถึงเรา</value>
+  </data>
+  <data name="PleaseEnterMessage" xml:space="preserve">
+    <value>กรุณากรอกข้อความของคุณ</value>
+  </data>
+  <data name="PleaseEnterSubjectMessage" xml:space="preserve">
+    <value>กรุณากรอกหัวข้อของข้อความของคุณ</value>
+  </data>
+  <data name="SendMessageSuccess" xml:space="preserve">
+    <value>ข้อความของคุณถูกส่งเรียบร้อยแล้ว ขอบคุณค่ะ</value>
+  </data>
+  <data name="SupportTimeN88" xml:space="preserve">
+    <value>วันจันทร์ - วันศุกร์&lt;br&gt;
+เวลา 10.00 น. - 20.00 น. (GMT+8)</value>
+  </data>
+  <data name="SupportTime" xml:space="preserve">
+    <value>Monday - Friday&lt;br&gt;
+09:00-19:00 (GMT +7)</value>
   </data>
 </root>

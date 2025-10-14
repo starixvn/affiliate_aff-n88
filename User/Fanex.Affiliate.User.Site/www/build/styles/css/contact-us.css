@@ -1,6 +1,14 @@
 ﻿.contact {
   max-width: calc(100% - 30px);
 }
+.contact .page-title {
+  text-align: center;
+}
+.contact .page-title > span.text {
+  font-size: 34px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
 .contact .contact-description {
   font-size: 16px;
   line-height: 2;
@@ -40,6 +48,11 @@
 .contact-assistance .contact-item .contact-info {
   flex: 1;
 }
+.contact-assistance .operating-hours {
+  margin-top: 50px;
+  font-size: 16px;
+  line-height: 24px;
+}
 .contact-assistance .operating-hours .note {
   margin-top: 20px;
 }
@@ -50,4 +63,7 @@
 }
 .contact-form .form-group .control-label {
   font-weight: 600;
+}
+.contact-form .form-group .form-control {
+  max-width: none;
 }

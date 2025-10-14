@@ -126,16 +126,12 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
         public void SendContactUsEmail(ContactUsEmailParam emailParam)
         {
-            var prevLanguage = SetLanguage(SystemLanguage.EnglishLanguageCode);
-
             const string TemplateName = "ContactUs";
             emailParam.SiteFriendlyName = _appSetting.SiteFriendlyName;
-            var emailContent = GetEmailTextContent(TemplateName, SystemLanguage.EnglishLanguageCode, emailParam);
+            var emailContent = GetEmailTextContent(TemplateName, emailParam.Language, emailParam);
 
             var subject = $"[Affiliate Contact Us] {emailParam.Subject}";
-            _mailProcessor.Send(emailContent, emailParam.Receiver, subject, SystemLanguage.EnglishLanguageCode);
-
-            ResetLanguage(prevLanguage);
+            _mailProcessor.Send(emailContent, emailParam.Receiver, subject, emailParam.Language);
         }
 
         private string GetEmailTextContent(string templateName, string prefrerredLanguage, object model)

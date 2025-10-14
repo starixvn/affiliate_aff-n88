@@ -1,0 +1,17 @@
+﻿@model Fanex.Affiliate.User.Core.MetalModels.Email.ContactUsEmailParam
+<div>
+    প্রিয় অ্যাফিলিয়েট সাপোর্ট টিম,<br />
+    <div style="margin-left: 30px;">
+        আপনি অ্যাফিলিয়েট ‘যোগাযোগ করুন’ ফর্ম থেকে একটি নতুন অনুসন্ধান পেয়েছেন।<br />
+        নাম: @Model.FirstName @Model.LastName<br />
+        ইমেইল: @Model.Sender<br />
+        বিষয়: @Model.Subject<br />
+        বার্তা:<br />
+        <div style="margin-left: 30px;"> @Raw(Model.Message.Replace("\n", "<br />"))</div><br />
+
+        জমা দেওয়ার সময়: @Model.SubmittedDateTime.ToString("yyyy-MM-dd HH:mm 'GMT'zzz")<br />
+    </div>
+    ---------------------------------------------------------------------------------------------------------------------------------------<br /><br />
+    শুভেচ্ছান্তে,<br />
+    অ্যাফিলিয়েট সিস্টেম
+</div>

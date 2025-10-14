@@ -1,0 +1,17 @@
+﻿@model Fanex.Affiliate.User.Core.MetalModels.Email.ContactUsEmailParam
+<div>
+    尊敬的联盟支持团队：<br />
+    <div style="margin-left: 30px;">
+        您收到一条来自联盟联系我们表单的新咨询。<br />
+        姓名: @Model.FirstName @Model.LastName<br />
+        邮箱: @Model.Sender<br />
+        主题: @Model.Subject<br />
+        留言内容:<br />
+        <div style="margin-left: 30px;"> @Raw(Model.Message.Replace("\n", "<br />"))</div><br />
+
+        提交时间: @Model.SubmittedDateTime.ToString("yyyy-MM-dd HH:mm 'GMT'zzz")<br />
+    </div>
+    ---------------------------------------------------------------------------------------------------------------------------------------<br /><br />
+    此致<br />
+    代理系统
+</div>

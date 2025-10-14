@@ -1,0 +1,17 @@
+﻿@model Fanex.Affiliate.User.Core.MetalModels.Email.ContactUsEmailParam
+<div>
+    प्रिय एफिलिएट सपोर्ट टीम,<br />
+    <div style="margin-left: 30px;">
+        आपको एफिलिएट "हमसे संपर्क करें" फॉर्म से एक नया अनुरोध प्राप्त हुआ है।<br />
+        नाम: @Model.FirstName @Model.LastName<br />
+        ईमेल: @Model.Sender<br />
+        विषय: @Model.Subject<br />
+        संदेश:<br />
+        <div style="margin-left: 30px;"> @Raw(Model.Message.Replace("\n", "<br />"))</div><br />
+
+        जमा करने का समय: @Model.SubmittedDateTime.ToString("yyyy-MM-dd HH:mm 'GMT'zzz")<br />
+    </div>
+    ---------------------------------------------------------------------------------------------------------------------------------------<br /><br />
+    सादर,<br />
+    एफिलिएट सिस्टम
+</div>

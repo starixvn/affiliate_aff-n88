@@ -1,0 +1,17 @@
+﻿@model Fanex.Affiliate.User.Core.MetalModels.Email.ContactUsEmailParam
+<div>
+    Kính gửi Đội ngũ Hỗ trợ Đối tác,<br />
+    <div style="margin-left: 30px;">
+        Bạn đã nhận được một yêu cầu mới từ biểu mẫu Liên hệ Đối tác.<br />
+        Họ Tên: @Model.FirstName @Model.LastName<br />
+        Email: @Model.Sender<br />
+        Tiêu đề: @Model.Subject<br />
+        Nội dung tin nhắn:<br />
+        <div style="margin-left: 30px;"> @Raw(Model.Message.Replace("\n", "<br />"))</div><br />
+
+        Thời gian gửi: @Model.SubmittedDateTime.ToString("yyyy-MM-dd HH:mm 'GMT'zzz")<br />
+    </div>
+    ---------------------------------------------------------------------------------------------------------------------------------------<br /><br />
+    Trân trọng,<br />
+    Affiliate System
+</div>

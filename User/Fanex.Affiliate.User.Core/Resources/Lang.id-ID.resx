@@ -1194,9 +1194,6 @@
   <data name="ScratchArcadeGames" xml:space="preserve">
     <value>Permainan Gores/ Arcade</value>
   </data>
-  <data name="SupportTimeN88" xml:space="preserve">
-    <value>&lt;strong&gt;Senin - Jumat&lt;/strong&gt;&lt;br&gt;10:00 - 20:00 (GMT+8)</value>
-  </data>
   <data name="TermAndCondition" xml:space="preserve">
     <value>syarat dan ketentuan</value>
   </data>
@@ -1421,9 +1418,6 @@
   </data>
   <data name="YourRevenueShare" xml:space="preserve">
     <value>Pembagian Penghasilan Anda</value>
-  </data>
-  <data name="SupportTime" xml:space="preserve">
-    <value>Working Time:&lt;br/&gt;Monday - Friday | &lt;strong&gt;09:00-19:00&lt;/strong&gt;&lt;br&gt;GMT +7</value>
   </data>
   <data name="AConfirmationEmail" xml:space="preserve">
     <value>Email konfirmasi dikirimkan ke email Anda.</value>
@@ -1832,5 +1826,54 @@
   </data>
   <data name="PlayerListSearchResultNote" xml:space="preserve">
     <value>Hasil pencarian mencakup pemain yang Tanggal Registrasi atau Tanggal Setoran Pertamanya berada dalam rentang waktu yang dipilih.</value>
+  </data>
+  <data name="ContactUsIntro" xml:space="preserve">
+    <value>Terima kasih telah menghubungi {0}. Sudahkah Anda mencoba melihat bagian &lt;a href="{1}"&gt;FAQ&lt;/a&gt;kami untuk melihat apakah ada jawaban yang Anda cari? Kami telah menyediakan beberapa topik pertanyaan yang paling sering ditanyakan.&lt;br&gt;
+Jika Anda belum menemukan apa yang Anda cari, di bawah ini adalah berbagai cara mudah untuk menghubungi kami.&lt;br&gt;
+Jika Anda memerlukan banner baru atau ingin meminta banner kustom, silakan hubungi kami langsung!</value>
+  </data>
+  <data name="GetPersonalAssistance" xml:space="preserve">
+    <value>Dapatkan Bantuan Pribadi</value>
+  </data>
+  <data name="OperatingHours" xml:space="preserve">
+    <value>Jam Operasional</value>
+  </data>
+  <data name="SupportServicesUnvailable" xml:space="preserve">
+    <value>Layanan dukungan tidak tersedia pada akhir pekan dan hari libur nasional</value>
+  </data>
+  <data name="GetInTouch" xml:space="preserve">
+    <value>Hubungi Kami</value>
+  </data>
+  <data name="YourFName" xml:space="preserve">
+    <value>Nama Depan Anda</value>
+  </data>
+  <data name="YourLName" xml:space="preserve">
+    <value>Nama Belakang Anda</value>
+  </data>
+  <data name="YourEmailAddress" xml:space="preserve">
+    <value>Alamat Email</value>
+  </data>
+  <data name="SubjectEmail" xml:space="preserve">
+    <value>Judul Pesan</value>
+  </data>
+  <data name="SaySthAboutUs" xml:space="preserve">
+    <value>Tinggalkan Komen Tentang Kami</value>
+  </data>
+  <data name="PleaseEnterMessage" xml:space="preserve">
+    <value>Silakan masukkan pesan Anda.</value>
+  </data>
+  <data name="PleaseEnterSubjectMessage" xml:space="preserve">
+    <value>Silakan masukkan subjek pesan Anda.</value>
+  </data>
+  <data name="SendMessageSuccess" xml:space="preserve">
+    <value>Terima kasih! Pesan Anda telah berhasil dikirim.</value>
+  </data>
+  <data name="SupportTimeN88" xml:space="preserve">
+    <value>Senin - Jumat&lt;br&gt;
+10:00 - 20:00 (GMT+8)</value>
+  </data>
+  <data name="SupportTime" xml:space="preserve">
+    <value>Monday - Friday&lt;br&gt;
+09:00-19:00 (GMT +7)</value>
   </data>
 </root>

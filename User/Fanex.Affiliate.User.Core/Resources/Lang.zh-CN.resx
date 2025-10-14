@@ -1199,9 +1199,6 @@ B2C合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
   <data name="ScratchArcadeGames" xml:space="preserve">
     <value>刮刮乐/大型电游</value>
   </data>
-  <data name="SupportTimeN88" xml:space="preserve">
-    <value>周一至周五，北京时间上午10点至下午8点。</value>
-  </data>
   <data name="TermAndCondition" xml:space="preserve">
     <value>标准规则</value>
   </data>
@@ -1423,9 +1420,6 @@ B2C合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
   </data>
   <data name="YourRevenueShare" xml:space="preserve">
     <value>您的佣金盈利</value>
-  </data>
-  <data name="SupportTime" xml:space="preserve">
-    <value>Working Time:&lt;br/&gt;Monday - Friday | &lt;strong&gt;09:00-19:00&lt;/strong&gt;&lt;br&gt;GMT +7</value>
   </data>
   <data name="AConfirmationEmail" xml:space="preserve">
     <value>确认邮件已发送到您的电子邮箱。</value>
@@ -1849,5 +1843,53 @@ B2C合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
   </data>
   <data name="PlayerListSearchResultNote" xml:space="preserve">
     <value>搜索结果将显示注册日期或首次存款日期在所选时间范围内的玩家。</value>
+  </data>
+  <data name="ContactUsIntro" xml:space="preserve">
+    <value>感谢您联系{0}。您是否查看过我们的常见问题解答 &lt;a href="{1}"&gt;FAQ&lt;/a&gt;，看看是否能找到您需要的答案？我们已列出一些常见咨询领域。&lt;br&gt;
+如果您仍未找到所需信息，请通过以下方式联系我们。&lt;br&gt;
+如果您需要新的横幅广告或希望定制专属横幅，请随时联系我们！</value>
+  </data>
+  <data name="GetPersonalAssistance" xml:space="preserve">
+    <value>获取专属协助</value>
+  </data>
+  <data name="OperatingHours" xml:space="preserve">
+    <value>运营时间</value>
+  </data>
+  <data name="SupportServicesUnvailable" xml:space="preserve">
+    <value>周末及公共假期暂停客服服务</value>
+  </data>
+  <data name="GetInTouch" xml:space="preserve">
+    <value>联系我们</value>
+  </data>
+  <data name="YourFName" xml:space="preserve">
+    <value>您的名字</value>
+  </data>
+  <data name="YourLName" xml:space="preserve">
+    <value>您的姓氏</value>
+  </data>
+  <data name="YourEmailAddress" xml:space="preserve">
+    <value>您的电子邮件地址</value>
+  </data>
+  <data name="SubjectEmail" xml:space="preserve">
+    <value>信息主题</value>
+  </data>
+  <data name="SaySthAboutUs" xml:space="preserve">
+    <value>写下您的评语</value>
+  </data>
+  <data name="PleaseEnterMessage" xml:space="preserve">
+    <value>请输入您的留言内容</value>
+  </data>
+  <data name="PleaseEnterSubjectMessage" xml:space="preserve">
+    <value>请输入您的留言主题</value>
+  </data>
+  <data name="SendMessageSuccess" xml:space="preserve">
+    <value>感谢您！您的留言已成功发送</value>
+  </data>
+  <data name="SupportTimeN88" xml:space="preserve">
+    <value>周一至周五，北京时间上午10点至下午8点。</value>
+  </data>
+  <data name="SupportTime" xml:space="preserve">
+    <value>Monday - Friday&lt;br&gt;
+09:00-19:00 (GMT +7)</value>
   </data>
 </root>

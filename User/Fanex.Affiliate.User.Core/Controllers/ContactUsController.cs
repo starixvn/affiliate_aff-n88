@@ -9,6 +9,7 @@
     using Fanex.Affiliate.User.Core.MetalModels;
     using Fanex.Affiliate.User.Core.MetalModels.Email;
     using Fanex.Affiliate.User.Core.Repository;
+    using Fanex.Affiliate.User.Core.Resources;
     using Fanex.Affiliate.User.Core.ViewModels;
     using Utilities;
 
@@ -75,19 +76,18 @@
                     Subject = Server.HtmlEncode(model.ContactForm.Subject),
                     Message = Server.HtmlEncode(model.ContactForm.Message),
                     SubmittedDateTime = DateTime.Now,
-                    //Receiver = param.ReceiverEmail,
-                    Receiver = "happy.duong@starixsoft.com",
-                    RootDomain = SiteDomainHelper.GetRootUrl(this, _appSetting)
+                    Receiver = model.ContactForm.ReceiverEmail,
+                    Language = SessionService.CurrentLanguage
                 };
 
                 _emailService.SendContactUsEmail(emailParam);
 
                 result.IsOk = true;
-                result.Message = "Thank you for contacting us. We will get back to you shortly.";
+                result.Message = Lang.SendMessageSuccess;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                result.Message = "An error occurred while sending your message. Please try again later.";
+                result.Message = Lang.SomethingWentWrong;
             }
 
             return Json(result);

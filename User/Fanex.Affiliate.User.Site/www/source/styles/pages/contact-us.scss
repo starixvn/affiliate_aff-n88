@@ -1,6 +1,16 @@
 ﻿.contact {
     max-width: calc(100% - 30px);
 
+    .page-title {
+        text-align: center;
+
+        > span.text {
+            font-size: 34px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+    }
+
     .contact-description {
         font-size: 16px;
         line-height: 2;
@@ -49,6 +59,10 @@
     }
 
     .operating-hours {
+        margin-top: 50px;
+        font-size: 16px;
+        line-height: 24px;
+
         .note {
             margin-top: 20px;
         }
@@ -61,6 +75,10 @@
 
         .control-label {
             font-weight: 600;
+        }
+
+        .form-control {
+            max-width: none;
         }
     }
 }

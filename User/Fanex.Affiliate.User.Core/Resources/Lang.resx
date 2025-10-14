@@ -1320,10 +1320,6 @@
     <value>ISoftBet, Pragmatic Play</value>
     <comment>87923</comment>
   </data>
-  <data name="SupportTimeN88" xml:space="preserve">
-    <value>&lt;strong&gt;Monday - Friday&lt;/strong&gt;&lt;br&gt;10:00 am - 08:00 pm (GMT +8)</value>
-    <comment>87923</comment>
-  </data>
   <data name="SignUpAffiliateProgramNow" xml:space="preserve">
     <value>SIGN UP B2C AFFILIATE PROGRAM NOW!</value>
     <comment>87923</comment>
@@ -1698,10 +1694,6 @@
   </data>
   <data name="Rebate" xml:space="preserve">
     <value>Rebate</value>
-  </data>
-  <data name="SupportTime" xml:space="preserve">
-    <value>Working Time:&lt;br/&gt;Monday - Friday | &lt;strong&gt;09:00-19:00&lt;/strong&gt;&lt;br&gt;GMT +7</value>
-    <comment>87923</comment>
   </data>
   <data name="Phone" xml:space="preserve">
     <value>Phone</value>
@@ -2205,5 +2197,46 @@
     <value>Thank you for reaching out to {0}. Have you tried our &lt;a href="{1}"&gt;FAQ&lt;/a&gt; to see if there's an answer you might be looking for? We've provided some of our top areas of inquiries&lt;br&gt;
 If you haven't found what you're looking for, listed below is a variety of convenient ways for you to contact us.&lt;br&gt;
 If you need a new banner or would like to request a custom banner, feel free to contact us directly!</value>
+  </data>
+  <data name="GetPersonalAssistance" xml:space="preserve">
+    <value>Get Personal Assistance</value>
+  </data>
+  <data name="OperatingHours" xml:space="preserve">
+    <value>Operating Hours</value>
+  </data>
+  <data name="SupportServicesUnvailable" xml:space="preserve">
+    <value>Support services are unavailable during weekends and public holidays</value>
+  </data>
+  <data name="GetInTouch" xml:space="preserve">
+    <value>Get In Touch</value>
+  </data>
+  <data name="YourFName" xml:space="preserve">
+    <value>Your first name</value>
+  </data>
+  <data name="YourLName" xml:space="preserve">
+    <value>Your last name</value>
+  </data>
+  <data name="YourEmailAddress" xml:space="preserve">
+    <value>Your email address</value>
+  </data>
+  <data name="SubjectEmail" xml:space="preserve">
+    <value>Subject of this message</value>
+  </data>
+  <data name="SaySthAboutUs" xml:space="preserve">
+    <value>Say something about us</value>
+  </data>
+  <data name="PleaseEnterMessage" xml:space="preserve">
+    <value>Please enter your message.</value>
+  </data>
+  <data name="PleaseEnterSubjectMessage" xml:space="preserve">
+    <value>Please enter the subject of your message.</value>
+  </data>
+  <data name="SupportTimeN88" xml:space="preserve">
+    <value>Monday - Friday&lt;br&gt;
+10:00 am - 08:00 pm (GMT +8)</value>
+  </data>
+  <data name="SupportTime" xml:space="preserve">
+    <value>Monday - Friday&lt;br&gt;
+09:00-19:00 (GMT +7)</value>
   </data>
 </root>

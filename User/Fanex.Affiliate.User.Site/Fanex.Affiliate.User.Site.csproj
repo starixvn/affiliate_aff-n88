@@ -980,9 +980,9 @@
     <Content Include="www\build\styles\Images\contact-us\n88\qrcode.png" />
     <Content Include="www\build\styles\Images\contact-us\n88\telegram.png" />
     <Content Include="www\build\styles\Images\contact-us\n88\whatsapp.png" />
-    <Content Include="www\build\styles\Images\contact-us\phone.png" />
     <Content Include="www\build\styles\Images\contact-us\telegram.png" />
     <Content Include="www\build\styles\Images\contact-us\whatsapp.png" />
+    <Content Include="www\build\styles\Images\contact-us\zalo.png" />
     <Content Include="www\build\styles\Images\copy-link.png" />
     <Content Include="www\build\styles\Images\gift.svg" />
     <Content Include="www\build\styles\Images\header-bg.png" />
@@ -1732,6 +1732,13 @@
     <Content Include="www\source\styles\scss\components\_contact-girl-floating.scss" />
     <Content Include="Views\ContactUs\Index.cshtml" />
     <Content Include="Views\Shared\Email\ContactUs\Content.en-US.cshtml" />
+    <Content Include="Views\Shared\Email\ContactUs\Content.bn-BD.cshtml" />
+    <Content Include="Views\Shared\Email\ContactUs\Content.vi-VN.cshtml" />
+    <Content Include="Views\Shared\Email\ContactUs\Content.zh-CN.cshtml" />
+    <Content Include="Views\Shared\Email\ContactUs\Content.hi-IN.cshtml" />
+    <Content Include="Views\Shared\Email\ContactUs\Content.id-ID.cshtml" />
+    <Content Include="Views\Shared\Email\ContactUs\Content.ms-MY.cshtml" />
+    <Content Include="Views\Shared\Email\ContactUs\Content.th-TH.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
