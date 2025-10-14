@@ -917,6 +917,15 @@ input[type=radio][disabled] + span {
             color: #FFFFFF;
         }
     }
+
+    .new-content {
+        border-top: none !important;
+
+        .faq-content {
+            max-width: 1296px !important;
+            margin: auto;
+        }
+    }
 }
 
 .table .table {
@@ -1113,6 +1122,91 @@ input[type=radio][disabled] + span {
     }
 }
 
-.title span {
-    background-color: #111111 !important;
+.new-content {
+    .page-title {
+        text-align: left !important;
+
+        span.text {
+            color: #FFFFFF !important;
+            font-size: 20px !important;
+            font-family: 'Open Sans';
+            font-style: italic;
+        }
+    }
+
+    .title span {
+        background-color: #111111 !important;
+    }
+
+    .content-group .title-container {
+        .index-number {
+            color: #3391F6 !important;
+            letter-spacing: normal !important;
+            color: #C2C2C2 !important;
+        }
+
+        .title {
+            color: #3391F6 !important;
+
+            &:after {
+                background: #FFFFFF !important;
+            }
+        }
+
+        .title-block {
+            .button-toggle {
+                background: #3391F6 !important;
+
+                &:before {
+                    background: unset;
+                }
+
+                &:after {
+                    position: absolute;
+                    content: '';
+                    width: 0;
+                    height: 0;
+                    border: .5em solid transparent;
+                    border-left-color: #ffffff;
+                    transform-origin: 0 50%;
+                    transition: transform .25s;
+                    background: unset;
+                    top: 3px;
+                    left: 12px;
+                    transform: rotate(-180deg);
+                }
+            }
+
+            .button-toggle.open::after {
+                transform: rotate(-270deg);
+                transition: transform .25s;
+                background: unset;
+                left: 10px;
+                top: 1px;
+            }
+        }
+    }
+
+    .content-group {
+        .content-block {
+            background: #111111 !important;
+            color: #C2C2C2 !important;
+
+            & > ul, > ol {
+                padding-left: 10px;
+
+                li {
+                    margin: 20px 0 !important;
+                }
+
+                & > li::before {
+                    background: #3391F6 !important;
+                }
+            }
+
+            .text-block, .faq-group {
+                font-weight: normal !important;
+            }
+        }
+    }
 }
