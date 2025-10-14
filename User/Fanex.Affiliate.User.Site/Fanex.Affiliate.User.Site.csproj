@@ -560,9 +560,9 @@
     <Content Include="www\build\js\channel-link-statistic.min.js">
       <DependentUpon>channel-link-statistic.js</DependentUpon>
     </Content>
-    <Content Include="www\build\js\contactus.js" />
-    <Content Include="www\build\js\contactus.min.js">
-      <DependentUpon>contactus.js</DependentUpon>
+    <Content Include="www\build\js\contact-us.js" />
+    <Content Include="www\build\js\contact-us.min.js">
+      <DependentUpon>contact-us.js</DependentUpon>
     </Content>
     <Content Include="www\build\js\daily-earning.js" />
     <Content Include="www\build\js\daily-earning.min.js">
