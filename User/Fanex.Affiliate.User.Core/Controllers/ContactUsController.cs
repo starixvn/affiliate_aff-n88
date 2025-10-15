@@ -75,7 +75,7 @@
                     Sender = Server.HtmlEncode(model.ContactForm.Email),
                     Subject = Server.HtmlEncode(model.ContactForm.Subject),
                     Message = Server.HtmlEncode(model.ContactForm.Message),
-                    SubmittedDateTime = DateTime.Now,
+                    SubmittedDateTime = DateTimeHelper.Gmt8Now,
                     Receiver = model.ContactForm.ReceiverEmail,
                     Language = SessionService.CurrentLanguage
                 };

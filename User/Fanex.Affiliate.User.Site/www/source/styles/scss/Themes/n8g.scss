@@ -387,6 +387,19 @@ select {
         line-height: 29px;
         margin-bottom: 1rem;
     }
+
+    .content-block {
+        background: #192F56 !important;
+        color: white !important;
+
+        & > ul, > ol {
+            padding-left: 10px;
+
+            & > li::before {
+                background: #FAB617 !important;
+            }
+        }
+    }
 }
 
 

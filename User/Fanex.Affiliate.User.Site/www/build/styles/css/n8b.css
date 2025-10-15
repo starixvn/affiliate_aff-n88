@@ -433,8 +433,17 @@ label {
 .summary-content .dashboard-section .group-four {
   background-color: #158469;
 }
+.summary-content .dashboard-section .group-five {
+  background-color: #AE8F56;
+}
+.summary-content .dashboard-section .group-five .info-panel {
+  width: 100% !important;
+}
 .summary-content .dashboard-section .info-panel {
   min-height: 70px;
+}
+.summary-content .dashboard-section .img-icon .img-responsive {
+  min-width: 40px;
 }
 .summary-content .details-section-menu .menu {
   position: relative;
@@ -660,13 +669,6 @@ input[type=radio][disabled] + span {
 .main-container .page-container .content-block {
   background: #252525;
   color: #FFFFFF;
-}
-.main-container .new-content {
-  border-top: none !important;
-}
-.main-container .new-content .faq-content {
-  max-width: 1296px !important;
-  margin: auto;
 }
 
 .table .table {
