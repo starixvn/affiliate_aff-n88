@@ -22,12 +22,10 @@ namespace Fanex.Affiliate.User.Core.MetalModels
         [MaxLength(Number.Fifty, ErrorMessageResourceType = typeof(Lang), ErrorMessageResourceName = "EmailMaxLength")]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "Please enter the subject of your message.")]
-        [StringLength(Number.OneHundred, ErrorMessage = "Please enter the subject of your message.")]
+        [Required(ErrorMessageResourceType = typeof(Lang), ErrorMessageResourceName = "PleaseEnterSubjectMessage")]
         public string Subject { get; set; }
 
-        [Required(ErrorMessage = "Please enter your message.")]
-        [StringLength(Number.FiveThousand, ErrorMessage = "Please enter your message.")]
+        [Required(ErrorMessageResourceType = typeof(Lang), ErrorMessageResourceName = "PleaseEnterMessage")]
         public string Message { get; set; }
 
         public string ReceiverEmail { get; set; }

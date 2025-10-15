@@ -109,7 +109,8 @@
                             @using (Html.BeginForm("Index", "ContactUs", FormMethod.Post, new { @id = "contactForm", @class = "form-horizontal" }))
                             {
                                 @Html.AntiForgeryToken()
-                                @Html.HiddenFor(m => m.ContactForm.ReceiverEmail)
+
+                                <input type="hidden" name="ContactForm.ReceiverEmail" id="Email" value=@Model.Email />
 
                                 <div class="row">
                                     <div class="col-sm-6">
@@ -136,17 +137,17 @@
 
                                 <div class="form-group">
                                     <label class="control-label require">@Lang.SubjectEmail</label>
-                                    @Html.TextBoxFor(m => m.ContactForm.Subject, new { @class = "form-control", @placeholder = Lang.SubjectEmail })
+                                    @Html.TextBoxFor(m => m.ContactForm.Subject, new { @class = "form-control", @placeholder = Lang.SubjectEmail, @maxlength = "100" })
                                     @Html.ValidationMessageFor(x => x.ContactForm.Subject, string.Empty, new { @class = "help-block hide" })
                                 </div>
 
                                 <div class="form-group">
-                                    @Html.TextAreaFor(m => m.ContactForm.Message, new { @class = "form-control", @rows = 5, @placeholder = Lang.SaySthAboutUs })
+                                    @Html.TextAreaFor(m => m.ContactForm.Message, new { @class = "form-control", @rows = 5, @maxlength = 5000, @placeholder = Lang.SaySthAboutUs })
                                     @Html.ValidationMessageFor(x => x.ContactForm.Message, string.Empty, new { @class = "help-block hide" })
                                 </div>
 
                                 <div class="form-group">
-                                    <button class="btn btn-submit btn-block" id="btnSubmit" type="submit">Submit</button>
+                                    <button class="btn btn-submit btn-block" id="btnSubmit" type="submit">@Lang.Submit</button>
                                 </div>
                             }
                         </div>
