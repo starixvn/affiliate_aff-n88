@@ -156,9 +156,6 @@
   <data name="Copyright" xml:space="preserve">
     <value>© कॉपीराइट {0} | B2C. सर्वाधिकार सुरक्षित | 21</value>
   </data>
-  <data name="EmailContactUs" xml:space="preserve">
-    <value>ईमेल</value>
-  </data>
   <data name="Telegram" xml:space="preserve">
     <value>टेलीग्राम</value>
   </data>
@@ -2079,7 +2076,7 @@ B2C सहयोगी की टीम&lt;br/&gt;&lt;br/&gt;
     <value>खोज परिणामों में वे खिलाड़ी शामिल हैं जिनकी पंजीकरण तिथि या पहली जमा तिथि चयनित सीमा के भीतर आती है।</value>
   </data>
   <data name="ContactUsIntro" xml:space="preserve">
-    <value>{0} से संपर्क करने के लिए धन्यवाद। क्या आपने हमारा &lt;a href="{1}"&gt;FAQ&lt;/a&gt;देखा? हमने अक्सर पूछे जाने वाले कुछ प्रमुख प्रश्नों को वहाँ शामिल किया है।&lt;br&gt;
+    <value>एफिलिएट से संपर्क करने के लिए धन्यवाद। क्या आपने हमारा &lt;a href="{0}"&gt;FAQ&lt;/a&gt; देखा? हमने अक्सर पूछे जाने वाले कुछ प्रमुख प्रश्नों को वहाँ शामिल किया है।&lt;br&gt;
 यदि आपको आपकी जानकारी नहीं मिली है, तो नीचे दिए गए आसान तरीकों से आप हमसे संपर्क कर सकते हैं।&lt;br&gt;
 यदि आपको नया बैनर चाहिए या कस्टम बैनर की आवश्यकता है, तो बेझिझक हमसे सीधे संपर्क करें!</value>
   </data>
@@ -2122,5 +2119,8 @@ B2C सहयोगी की टीम&lt;br/&gt;&lt;br/&gt;
   <data name="SupportTimeN88" xml:space="preserve">
     <value>सोमवार - शुक्रवार&lt;br&gt;
 10:00 पूर्वाह्न - 08:00 अपराह्न (जीएमटी +8)</value>
+  </data>
+  <data name="SomethingWentWrong" xml:space="preserve">
+    <value>कुछ गलत हो गया है। कृपया बाद में पुनः प्रयास करें।</value>
   </data>
 </root>

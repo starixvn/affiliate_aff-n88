@@ -438,10 +438,6 @@
   <data name="Email" xml:space="preserve">
     <value>Email Address</value>
   </data>
-  <data name="EmailContactUs" xml:space="preserve">
-    <value>Email</value>
-    <comment>87923</comment>
-  </data>
   <data name="Emailaddressest" xml:space="preserve">
     <value>Email addresses that you entered do not match.</value>
   </data>
@@ -2194,7 +2190,7 @@
     <value>Something went wrong. Please try again later.</value>
   </data>
   <data name="ContactUsIntro" xml:space="preserve">
-    <value>Thank you for reaching out to {0}. Have you tried our &lt;a href="{1}"&gt;FAQ&lt;/a&gt; to see if there's an answer you might be looking for? We've provided some of our top areas of inquiries&lt;br&gt;
+    <value>Thank you for reaching out to Affiliate. Have you tried our &lt;a href="{0}"&gt;FAQ&lt;/a&gt; to see if there's an answer you might be looking for? We've provided some of our top areas of inquiries&lt;br&gt;
 If you haven't found what you're looking for, listed below is a variety of convenient ways for you to contact us.&lt;br&gt;
 If you need a new banner or would like to request a custom banner, feel free to contact us directly!</value>
   </data>

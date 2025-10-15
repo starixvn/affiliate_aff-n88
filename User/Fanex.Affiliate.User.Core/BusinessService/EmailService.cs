@@ -130,7 +130,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             emailParam.SiteFriendlyName = _appSetting.SiteFriendlyName;
             var emailContent = GetEmailTextContent(TemplateName, emailParam.Language, emailParam);
 
-            var subject = $"[Affiliate Contact Us] {emailParam.Subject}";
+            var subject = $"[{Lang.ContactUs}] {emailParam.Subject}";
             _mailProcessor.Send(emailContent, emailParam.Receiver, subject, emailParam.Language);
         }
 

@@ -429,9 +429,6 @@
   <data name="Email" xml:space="preserve">
     <value>Alamat e-mail</value>
   </data>
-  <data name="EmailContactUs" xml:space="preserve">
-    <value>E-mail</value>
-  </data>
   <data name="Emailaddressest" xml:space="preserve">
     <value>Alamat Email yang Anda masukkan tidak cocok.</value>
   </data>
@@ -1828,7 +1825,7 @@
     <value>Hasil pencarian mencakup pemain yang Tanggal Registrasi atau Tanggal Setoran Pertamanya berada dalam rentang waktu yang dipilih.</value>
   </data>
   <data name="ContactUsIntro" xml:space="preserve">
-    <value>Terima kasih telah menghubungi {0}. Sudahkah Anda mencoba melihat bagian &lt;a href="{1}"&gt;FAQ&lt;/a&gt;kami untuk melihat apakah ada jawaban yang Anda cari? Kami telah menyediakan beberapa topik pertanyaan yang paling sering ditanyakan.&lt;br&gt;
+    <value>Terima kasih telah menghubungi Affiliate. Sudahkah Anda mencoba melihat bagian &lt;a href="{0}"&gt;FAQ&lt;/a&gt; kami untuk melihat apakah ada jawaban yang Anda cari? Kami telah menyediakan beberapa topik pertanyaan yang paling sering ditanyakan.&lt;br&gt;
 Jika Anda belum menemukan apa yang Anda cari, di bawah ini adalah berbagai cara mudah untuk menghubungi kami.&lt;br&gt;
 Jika Anda memerlukan banner baru atau ingin meminta banner kustom, silakan hubungi kami langsung!</value>
   </data>
@@ -1875,5 +1872,8 @@ Jika Anda memerlukan banner baru atau ingin meminta banner kustom, silakan hubun
   <data name="SupportTime" xml:space="preserve">
     <value>Monday - Friday&lt;br&gt;
 09:00-19:00 (GMT +7)</value>
+  </data>
+  <data name="SomethingWentWrong" xml:space="preserve">
+    <value>Terjadi kesalahan. Silakan coba lagi nanti.</value>
   </data>
 </root>

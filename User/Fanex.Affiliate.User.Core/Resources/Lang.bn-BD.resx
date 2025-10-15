@@ -306,9 +306,6 @@
   <data name="InWitnessWhereOf" xml:space="preserve">
     <value>16. যার সাক্ষী</value>
   </data>
-  <data name="EmailContactUs" xml:space="preserve">
-    <value>ইমেল</value>
-  </data>
   <data name="EmailVerification" xml:space="preserve">
     <value>ইমেল</value>
   </data>
@@ -2084,7 +2081,7 @@
     <value>অনুসন্ধানের ফলাফলে এমন প্লেয়ারদের অন্তর্ভুক্ত করা হয়েছে, যাদের নিবন্ধনের তারিখ বা প্রথম জমার তারিখ নির্ধারিত সীমার মধ্যে পড়ে।</value>
   </data>
   <data name="ContactUsIntro" xml:space="preserve">
-    <value>{0} টিমের সাথে যোগাযোগ করার জন্য আপনাকে ধন্যবাদ। আপনি কি আমাদের &lt;a href="{1}"&gt;FAQ&lt;/a&gt;পরীক্ষা করেছেন? আমরা সবচেয়ে বেশি জিজ্ঞাসিত প্রশ্নগুলোর উত্তর সেখানে দিয়েছি।&lt;br&gt;
+    <value>অ্যাফিলিয়েট টিমের সাথে যোগাযোগ করার জন্য আপনাকে ধন্যবাদ। আপনি কি আমাদের &lt;a href="{0}"&gt;FAQ&lt;/a&gt; পরীক্ষা করেছেন? আমরা সবচেয়ে বেশি জিজ্ঞাসিত প্রশ্নগুলোর উত্তর সেখানে দিয়েছি।&lt;br&gt;
 আপনি যদি খুঁজে না পান তবে নিচে আমাদের সাথে যোগাযোগের কিছু সহজ উপায় উল্লেখ করা হলো।&lt;br&gt;
 আপনি যদি একটি নতুন ব্যানার প্রয়োজন মনে করেন বা কাস্টম ব্যানার অনুরোধ করতে চান, তাহলে নির্দ্বিধায় সরাসরি আমাদের সাথে যোগাযোগ করুন!
 </value>
@@ -2128,5 +2125,8 @@
   <data name="SupportTimeN88" xml:space="preserve">
     <value>সোমবার শুক্রবার&lt;br&gt;
 10:00 am - 08:00 pm (GMT +8)</value>
+  </data>
+  <data name="SomethingWentWrong" xml:space="preserve">
+    <value>কিছু ভুল হয়েছে। অনুগ্রহ করে পরে আবার চেষ্টা করুন।</value>
   </data>
 </root>

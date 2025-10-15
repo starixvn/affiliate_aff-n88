@@ -258,9 +258,6 @@
   <data name="SignUpAffiliateProgramNow" xml:space="preserve">
     <value>DAFTAR PROGRAM AFFLIATE B2C SEKARANG!</value>
   </data>
-  <data name="EmailContactUs" xml:space="preserve">
-    <value>E-mel</value>
-  </data>
   <data name="Copyright" xml:space="preserve">
     <value>© Hak Cipta {0} | B2C. Hak Cipta Terpelihara | 21+</value>
   </data>
@@ -2070,7 +2067,7 @@ Jika anda mempunyai sebarang soalan dan memerlukan sebarang bantuan, sila jangan
     <value>Hasil carian termasuk pemain yang Tarikh Pendaftaran atau Tarikh Deposit Pertama berada dalam julat masa yang dipilih.</value>
   </data>
   <data name="ContactUsIntro" xml:space="preserve">
-    <value>Terima kasih kerana menghubungi {0}. Sudahkah anda mencuba &lt;a href="{1}"&gt;FAQ&lt;/a&gt; kami untuk melihat sama ada jawapan yang anda cari tersedia di sana? Kami telah menyediakan beberapa topik pertanyaan utama untuk rujukan anda.&lt;br&gt;
+    <value>Terima kasih kerana menghubungi Affiliate. Sudahkah anda mencuba &lt;a href="{0}"&gt;FAQ&lt;/a&gt; kami untuk melihat sama ada jawapan yang anda cari tersedia di sana? Kami telah menyediakan beberapa topik pertanyaan utama untuk rujukan anda.&lt;br&gt;
 Jika anda masih belum menemui apa yang dicari, sila hubungi kami melalui saluran berikut.&lt;br&gt;
 Jika anda memerlukan banner baharu atau ingin memohon banner tersuai, sila hubungi kami secara langsung!</value>
   </data>
@@ -2113,5 +2110,8 @@ Jika anda memerlukan banner baharu atau ingin memohon banner tersuai, sila hubun
   <data name="SupportTimeN88" xml:space="preserve">
     <value>Isnin - Jumaat&lt;br&gt;
 10:00 pagi - 08:00 malam (GMT +8)</value>
+  </data>
+  <data name="SomethingWentWrong" xml:space="preserve">
+    <value>Terjadi kesilapan. Sila cuba lagi nanti.</value>
   </data>
 </root>

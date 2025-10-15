@@ -429,9 +429,6 @@
   <data name="Email" xml:space="preserve">
     <value>อีเมลล์แอดเดรส</value>
   </data>
-  <data name="EmailContactUs" xml:space="preserve">
-    <value>อีเมล</value>
-  </data>
   <data name="Emailaddressest" xml:space="preserve">
     <value>อีเมลล์แอดเดรสที่คุณกรอกไม่สอดคล้องกัน</value>
   </data>
@@ -1828,7 +1825,7 @@
     <value>ผลการค้นหาจะแสดงผู้เล่นที่มีวันที่ลงทะเบียน หรือวันที่ฝากเงินครั้งแรก ที่อยู่ภายในช่วงวันที่ที่เลือกไว้</value>
   </data>
   <data name="ContactUsIntro" xml:space="preserve">
-    <value>ขอบคุณที่ติดต่อ{0}ของเรา คุณได้ลองตรวจสอบคำถามที่พบบ่อย &lt;a href="{1}"&gt;FAQ&lt;/a&gt; หรือยังว่ามีคำตอบที่คุณกำลังมองหาหรือไม่? เราได้รวบรวมคำถามที่ถูกถามบ่อยไว้แล้ว&lt;br&gt;
+    <value>ขอบคุณที่ติดต่อฝ่ายพันธมิตรของเรา คุณได้ลองตรวจสอบคำถามที่พบบ่อย (&lt;a href="{0}"&gt;FAQ&lt;/a&gt;) หรือยังว่ามีคำตอบที่คุณกำลังมองหาหรือไม่? เราได้รวบรวมคำถามที่ถูกถามบ่อยไว้แล้ว&lt;br&gt;
 หากไม่มีคำถามหรือสิ่งที่ต้องการ เรามีช่องทางติดต่อที่หลากหลาย เลือกแบบที่สะดวกสำหรับคุณได้เลย&lt;br&gt;
 หากคุณต้องการแบนเนอร์ใหม่หรือต้องการขอแบนเนอร์แบบกำหนดเอง สามารถติดต่อเราได้ทันที!</value>
   </data>
@@ -1875,5 +1872,8 @@
   <data name="SupportTime" xml:space="preserve">
     <value>Monday - Friday&lt;br&gt;
 09:00-19:00 (GMT +7)</value>
+  </data>
+  <data name="SomethingWentWrong" xml:space="preserve">
+    <value>เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้งในภายหลัง</value>
   </data>
 </root>

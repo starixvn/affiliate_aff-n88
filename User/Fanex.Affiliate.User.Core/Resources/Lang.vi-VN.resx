@@ -429,9 +429,6 @@
   <data name="Email" xml:space="preserve">
     <value>Địa chỉ email</value>
   </data>
-  <data name="EmailContactUs" xml:space="preserve">
-    <value>Email</value>
-  </data>
   <data name="Emailaddressest" xml:space="preserve">
     <value>Địa chỉ email mà bạn nhập không khớp.</value>
   </data>
@@ -2101,7 +2098,7 @@
     <value>Kết quả tìm kiếm bao gồm những người chơi có Ngày đăng ký hoặc Ngày nạp tiền đầu tiên nằm trong khoảng thời gian đã chọn.</value>
   </data>
   <data name="ContactUsIntro" xml:space="preserve">
-    <value>Cảm ơn bạn đã liên hệ với Bộ phận {0}. Bạn đã thử kiểm tra phần Câu hỏi thường gặp &lt;a href="{1}"&gt;FAQ&lt;/a&gt; để xem có câu trả lời nào bạn đang tìm không? Chúng tôi đã liệt kê một số chủ đề được hỏi nhiều nhất.&lt;br&gt;
+    <value>Cảm ơn bạn đã liên hệ với Bộ phận Đại lý. Bạn đã thử kiểm tra phần Câu hỏi thường gặp &lt;a href="{0}"&gt;FAQ&lt;/a&gt; để xem có câu trả lời nào bạn đang tìm không? Chúng tôi đã liệt kê một số chủ đề được hỏi nhiều nhất.&lt;br&gt;
 Nếu bạn vẫn chưa tìm thấy điều mình cần, dưới đây là những cách thuận tiện để liên hệ với chúng tôi.&lt;br&gt;
 Nếu bạn cần banner mới hoặc muốn yêu cầu thiết kế banner tùy chỉnh, đừng ngần ngại liên hệ với chúng tôi!</value>
   </data>
@@ -2148,5 +2145,8 @@ Nếu bạn cần banner mới hoặc muốn yêu cầu thiết kế banner tùy
   <data name="SupportTime" xml:space="preserve">
     <value>Thứ Hai - Thứ Sáu&lt;br&gt;
 09:00-19:00 (GMT +7)</value>
+  </data>
+  <data name="SomethingWentWrong" xml:space="preserve">
+    <value>Đã xảy ra lỗi. Vui lòng thử lại sau.</value>
   </data>
 </root>

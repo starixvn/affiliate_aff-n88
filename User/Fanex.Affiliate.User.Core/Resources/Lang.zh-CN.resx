@@ -429,9 +429,6 @@
   <data name="Email" xml:space="preserve">
     <value>电邮地址</value>
   </data>
-  <data name="EmailContactUs" xml:space="preserve">
-    <value>电邮</value>
-  </data>
   <data name="Emailaddressest" xml:space="preserve">
     <value>您输入的电子邮件地址不符。</value>
   </data>
@@ -1845,7 +1842,7 @@ B2C合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
     <value>搜索结果将显示注册日期或首次存款日期在所选时间范围内的玩家。</value>
   </data>
   <data name="ContactUsIntro" xml:space="preserve">
-    <value>感谢您联系{0}。您是否查看过我们的常见问题解答 &lt;a href="{1}"&gt;FAQ&lt;/a&gt;，看看是否能找到您需要的答案？我们已列出一些常见咨询领域。&lt;br&gt;
+    <value>感谢您联系Affiliate。您是否查看过我们的常见问题解答 &lt;a href="{0}"&gt;FAQ&lt;/a&gt;，看看是否能找到您需要的答案？我们已列出一些常见咨询领域。&lt;br&gt;
 如果您仍未找到所需信息，请通过以下方式联系我们。&lt;br&gt;
 如果您需要新的横幅广告或希望定制专属横幅，请随时联系我们！</value>
   </data>
@@ -1891,5 +1888,8 @@ B2C合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
   <data name="SupportTime" xml:space="preserve">
     <value>Monday - Friday&lt;br&gt;
 09:00-19:00 (GMT +7)</value>
+  </data>
+  <data name="SomethingWentWrong" xml:space="preserve">
+    <value>发送失败，请稍后重试</value>
   </data>
 </root>
