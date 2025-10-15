@@ -19,6 +19,11 @@
 }
 
 @section scripts{
+    <script>
+        var resourceLanguage = {
+            generalError: '@Error.General',
+        }
+    </script>
     <script src="@Url.RenderLink("~/www/build/js/validation.js")"></script>
     <script src="@Url.RenderLink("~/www/build/js/contact-us.js")"></script>
 }
@@ -82,17 +87,17 @@
                                 </div>
                             }
 
-                                @if (!string.IsNullOrEmpty(Model.Zalo))
-                                {
-                                    <div class="contact-item">
-                                        <div class="contact-icon">
-                                            <img class="contact-icon-img" src="@Url.Content(imageBasePath + "zalo.png")" alt="Zalo" />
-                                        </div>
-                                        <div class="contact-info">
-                                            <a href="https://zalo.me/@(Model.Zalo.Replace("+", "").Replace("(", "").Replace(")", "").Replace(" ", ""))" target="_blank">@Model.Zalo</a>
-                                        </div>
+                            @if (!string.IsNullOrEmpty(Model.Zalo))
+                            {
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <img class="contact-icon-img" src="@Url.Content(imageBasePath + "zalo.png")" alt="Zalo" />
                                     </div>
-                                }
+                                    <div class="contact-info">
+                                        <a href="https://zalo.me/@(Model.Zalo.Replace("+", "").Replace("(", "").Replace(")", "").Replace(" ", ""))" target="_blank">@Model.Zalo</a>
+                                    </div>
+                                </div>
+                            }
 
                             <div class="operating-hours">
                                 <div class="contact-heading group-title">@Lang.OperatingHours</div>
@@ -130,7 +135,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="control-label require">@Lang.Email</label>
+                                    <label class="control-label require">@Lang.EmailSignup</label>
                                     @Html.TextBoxFor(m => m.ContactForm.Email, new { @class = "form-control", @placeholder = Lang.YourEmailAddress })
                                     @Html.ValidationMessageFor(x => x.ContactForm.Email, string.Empty, new { @class = "help-block hide" })
                                 </div>

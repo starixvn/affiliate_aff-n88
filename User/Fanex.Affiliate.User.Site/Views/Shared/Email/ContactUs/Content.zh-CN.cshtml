@@ -7,11 +7,13 @@
         邮箱: @Model.Sender<br />
         主题: @Model.Subject<br />
         留言内容:<br />
-        <div style="margin-left: 30px;"> @Raw(Model.Message.Replace("\n", "<br />"))</div><br />
+         <div style="margin-left: 30px;">
+             <pre style="font-family: inherit; font-size: inherit; margin: 0; white-space: pre-wrap;">@Model.Message</pre>
+         </div>
 
         提交时间: @Model.SubmittedDateTime.ToString("yyyy-MM-dd HH:mm") (GMT+8)<br />
     </div>
-    ---------------------------------------------------------------------------------------------------------------------------------------<br /><br />
+    ---------------------------------------------------------------------------------------------------------------------------------------<br />
     此致<br />
     代理系统
 </div>

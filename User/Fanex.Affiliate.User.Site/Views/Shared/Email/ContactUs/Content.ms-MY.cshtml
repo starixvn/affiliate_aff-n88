@@ -7,11 +7,13 @@
         E-mel: @Model.Sender<br />
         Subjek: @Model.Subject<br />
         Pesanan:<br />
-        <div style="margin-left: 30px;"> @Raw(Model.Message.Replace("\n", "<br />"))</div><br />
+         <div style="margin-left: 30px;">
+             <pre style="font-family: inherit; font-size: inherit; margin: 0; white-space: pre-wrap;">@Model.Message</pre>
+         </div>
 
         Dihantar pada: @Model.SubmittedDateTime.ToString("yyyy-MM-dd HH:mm") (GMT+8)<br />
     </div>
-    ---------------------------------------------------------------------------------------------------------------------------------------<br /><br />
+    ---------------------------------------------------------------------------------------------------------------------------------------<br />
     Dengan hormatnya,<br />
     Sistem Affiliate
 </div>

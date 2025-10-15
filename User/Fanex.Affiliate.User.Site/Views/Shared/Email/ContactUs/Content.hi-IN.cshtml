@@ -7,11 +7,13 @@
         ईमेल: @Model.Sender<br />
         विषय: @Model.Subject<br />
         संदेश:<br />
-        <div style="margin-left: 30px;"> @Raw(Model.Message.Replace("\n", "<br />"))</div><br />
+         <div style="margin-left: 30px;">
+             <pre style="font-family: inherit; font-size: inherit; margin: 0; white-space: pre-wrap;">@Model.Message</pre>
+         </div>
 
         जमा करने का समय: @Model.SubmittedDateTime.ToString("yyyy-MM-dd HH:mm") (GMT+8)<br />
     </div>
-    ---------------------------------------------------------------------------------------------------------------------------------------<br /><br />
+    ---------------------------------------------------------------------------------------------------------------------------------------<br />
     सादर,<br />
     एफिलिएट सिस्टम
 </div>

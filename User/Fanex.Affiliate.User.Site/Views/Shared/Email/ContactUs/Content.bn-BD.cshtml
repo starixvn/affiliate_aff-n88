@@ -7,11 +7,13 @@
         ইমেইল: @Model.Sender<br />
         বিষয়: @Model.Subject<br />
         বার্তা:<br />
-        <div style="margin-left: 30px;"> @Raw(Model.Message.Replace("\n", "<br />"))</div><br />
+         <div style="margin-left: 30px;">
+             <pre style="font-family: inherit; font-size: inherit; margin: 0; white-space: pre-wrap;">@Model.Message</pre>
+         </div>
 
         জমা দেওয়ার সময়: @Model.SubmittedDateTime.ToString("yyyy-MM-dd HH:mm") (GMT+8)<br />
     </div>
-    ---------------------------------------------------------------------------------------------------------------------------------------<br /><br />
+    ---------------------------------------------------------------------------------------------------------------------------------------<br />
     শুভেচ্ছান্তে,<br />
     অ্যাফিলিয়েট সিস্টেম
 </div>
