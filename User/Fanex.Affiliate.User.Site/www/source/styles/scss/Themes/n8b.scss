@@ -188,6 +188,10 @@ body {
     }
 }
 
+.group-title {
+    color: $group-title-color;
+}
+
 // Table
 .table {
     font-size: 1.4rem;
@@ -907,6 +911,11 @@ input[type=radio][disabled] + span {
 .main-container {
     .page-container {
         color: $text-color-white;
+
+        .content-block {
+            background: #252525;
+            color: #FFFFFF;
+        }
     }
 }
 

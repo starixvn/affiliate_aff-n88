@@ -1276,6 +1276,17 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Thank you for reaching out to {0}. Have you tried our &lt;a href=&quot;{1}&quot;&gt;FAQ&lt;/a&gt; to see if there&apos;s an answer you might be looking for? We&apos;ve provided some of our top areas of inquiries&lt;br&gt;
+        ///If you haven&apos;t found what you&apos;re looking for, listed below is a variety of convenient ways for you to contact us.&lt;br&gt;
+        ///If you need a new banner or would like to request a custom banner, feel free to contact us directly!.
+        /// </summary>
+        public static string ContactUsIntro {
+            get {
+                return ResourceManager.GetString("ContactUsIntro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Contact your affiliates support team for exclusive revenue rate to growth bigger revenue in your monthly earning.
         /// </summary>
         public static string ContactYourAffilliateSupportTeam {
@@ -2280,6 +2291,24 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string GetAll {
             get {
                 return ResourceManager.GetString("GetAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Get In Touch.
+        /// </summary>
+        public static string GetInTouch {
+            get {
+                return ResourceManager.GetString("GetInTouch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Get Personal Assistance.
+        /// </summary>
+        public static string GetPersonalAssistance {
+            get {
+                return ResourceManager.GetString("GetPersonalAssistance", resourceCulture);
             }
         }
         
@@ -3616,6 +3645,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Operating Hours.
+        /// </summary>
+        public static string OperatingHours {
+            get {
+                return ResourceManager.GetString("OperatingHours", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Our Plan.
         /// </summary>
         public static string OurPlan {
@@ -4003,11 +4041,20 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please direct any comments or questions to following contact points:.
+        ///   Looks up a localized string similar to Please enter your message..
         /// </summary>
-        public static string PleaseDirectAnyComment {
+        public static string PleaseEnterMessage {
             get {
-                return ResourceManager.GetString("PleaseDirectAnyComment", resourceCulture);
+                return ResourceManager.GetString("PleaseEnterMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter the subject of your message..
+        /// </summary>
+        public static string PleaseEnterSubjectMessage {
+            get {
+                return ResourceManager.GetString("PleaseEnterSubjectMessage", resourceCulture);
             }
         }
         
@@ -4570,6 +4617,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Say something about us.
+        /// </summary>
+        public static string SaySthAboutUs {
+            get {
+                return ResourceManager.GetString("SaySthAboutUs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SB Bonus.
         /// </summary>
         public static string SBBonus {
@@ -4629,6 +4685,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string SendCode {
             get {
                 return ResourceManager.GetString("SendCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Thank you! Your message has been sent successfully..
+        /// </summary>
+        public static string SendMessageSuccess {
+            get {
+                return ResourceManager.GetString("SendMessageSuccess", resourceCulture);
             }
         }
         
@@ -4822,6 +4887,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Something went wrong. Please try again later..
+        /// </summary>
+        public static string SomethingWentWrong {
+            get {
+                return ResourceManager.GetString("SomethingWentWrong", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to South Africa.
         /// </summary>
         public static string SouthAfrica {
@@ -4993,6 +5067,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Subject of this message.
+        /// </summary>
+        public static string SubjectEmail {
+            get {
+                return ResourceManager.GetString("SubjectEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to B2C Affiliates - Your login detail.
         /// </summary>
         public static string SubjectForgetPass {
@@ -5047,7 +5130,17 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Working Time:&lt;br/&gt;Monday - Friday | &lt;strong&gt;09:00-19:00&lt;/strong&gt;&lt;br&gt;GMT +7.
+        ///   Looks up a localized string similar to Support services are unavailable during weekends and public holidays.
+        /// </summary>
+        public static string SupportServicesUnvailable {
+            get {
+                return ResourceManager.GetString("SupportServicesUnvailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Monday - Friday&lt;br&gt;
+        ///09:00-19:00 (GMT +7).
         /// </summary>
         public static string SupportTime {
             get {
@@ -5056,7 +5149,8 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;strong&gt;Monday - Friday&lt;/strong&gt;&lt;br&gt;10:00 am - 08:00 pm (GMT +8).
+        ///   Looks up a localized string similar to Monday - Friday&lt;br&gt;
+        ///10:00 am - 08:00 pm (GMT +8).
         /// </summary>
         public static string SupportTimeN88 {
             get {
@@ -6024,6 +6118,33 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string YourEmail {
             get {
                 return ResourceManager.GetString("YourEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your email address.
+        /// </summary>
+        public static string YourEmailAddress {
+            get {
+                return ResourceManager.GetString("YourEmailAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your first name.
+        /// </summary>
+        public static string YourFName {
+            get {
+                return ResourceManager.GetString("YourFName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your last name.
+        /// </summary>
+        public static string YourLName {
+            get {
+                return ResourceManager.GetString("YourLName", resourceCulture);
             }
         }
         

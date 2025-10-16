@@ -33,5 +33,7 @@
         public const int TwoDoubleFive = 255;
 
         public const int ThreeHundred = 300;
+
+        public const int FiveThousand = 5000;
     }
 }

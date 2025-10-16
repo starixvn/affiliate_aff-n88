@@ -210,12 +210,6 @@
   <data name="AllBettingProducts" xml:space="preserve">
     <value>ផលិតផលភ្នាល់ទាំងអស់ត្រូវបានរាយបញ្ចូលក្នុងកម្មវិធីសម្ព័ន្ធ {0}។ យើងសូមអញ្ជើញអ្នកឱ្យក្លាយជាដៃគូរយៈពេលវែងរបស់យើង។ រួមចំណែកដល់ការយល់ដឹងអំពីម៉ាកយីហោ និងការផ្សាយពាណិជ្ជកម្មរបស់យើងទាក់ទងនឹងការនាំយកអតិថិជន។ រួមគ្នាបង្កើនប្រាក់ចំណូលរបស់អ្នក និងចំណែកប្រាក់ចំណូលស្របគ្នា។ ចូលរួមកម្មវិធីសាខាសម្ព័ន្ធ {0} របស់យើងថ្ងៃនេះ!</value>
   </data>
-  <data name="PleaseDirectAnyComment" xml:space="preserve">
-    <value>សូមផ្ដល់មតិយោបល់ ឬសំណួរទៅកាន់ចំណុចទំនាក់ទំនងខាងក្រោម៖</value>
-  </data>
-  <data name="SupportTimeN88" xml:space="preserve">
-    <value>&lt;strong&gt;ថ្ងៃចន្ទ - ថ្ងៃសុក្រ&lt;/strong&gt;&lt;br&gt;10:00 am - 08:00 pm (GMT +8)</value>
-  </data>
   <data name="AffiliateProgram" xml:space="preserve">
     <value>កម្មវិធីសម្ព័ន្ធ</value>
   </data>
@@ -322,9 +316,6 @@
     <value>16. សក្ខីភាពបញ្ជាក់សាក្សី</value>
   </data>
   <data name="EmailVerification" xml:space="preserve">
-    <value>អុីម៉ែល</value>
-  </data>
-  <data name="EmailContactUs" xml:space="preserve">
     <value>អុីម៉ែល</value>
   </data>
   <data name="Telegram" xml:space="preserve">

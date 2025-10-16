@@ -258,15 +258,6 @@
   <data name="SignUpAffiliateProgramNow" xml:space="preserve">
     <value>DAFTAR PROGRAM AFFLIATE B2C SEKARANG!</value>
   </data>
-  <data name="PleaseDirectAnyComment" xml:space="preserve">
-    <value>Sila hantar sebarang komen atau pertanyaan ke saluran hubungan berikut:</value>
-  </data>
-  <data name="EmailContactUs" xml:space="preserve">
-    <value>E-mel</value>
-  </data>
-  <data name="SupportTimeN88" xml:space="preserve">
-    <value>&lt;strong&gt;Isnin - Jumaat&lt;/strong&gt;&lt;br&gt;10:00 pagi - 08:00 malam (GMT +8)</value>
-  </data>
   <data name="Copyright" xml:space="preserve">
     <value>© Hak Cipta {0} | B2C. Hak Cipta Terpelihara | 21+</value>
   </data>
@@ -2074,5 +2065,53 @@ Jika anda mempunyai sebarang soalan dan memerlukan sebarang bantuan, sila jangan
   </data>
   <data name="PlayerListSearchResultNote" xml:space="preserve">
     <value>Hasil carian termasuk pemain yang Tarikh Pendaftaran atau Tarikh Deposit Pertama berada dalam julat masa yang dipilih.</value>
+  </data>
+  <data name="ContactUsIntro" xml:space="preserve">
+    <value>Terima kasih kerana menghubungi Affiliate. Sudahkah anda mencuba &lt;a href="{0}"&gt;FAQ&lt;/a&gt; kami untuk melihat sama ada jawapan yang anda cari tersedia di sana? Kami telah menyediakan beberapa topik pertanyaan utama untuk rujukan anda.&lt;br&gt;
+Jika anda masih belum menemui apa yang dicari, sila hubungi kami melalui saluran berikut.&lt;br&gt;
+Jika anda memerlukan banner baharu atau ingin memohon banner tersuai, sila hubungi kami secara langsung!</value>
+  </data>
+  <data name="GetPersonalAssistance" xml:space="preserve">
+    <value>Dapatkan Bantuan Peribadi</value>
+  </data>
+  <data name="OperatingHours" xml:space="preserve">
+    <value>Waktu Operasi</value>
+  </data>
+  <data name="SupportServicesUnvailable" xml:space="preserve">
+    <value>Perkhidmatan sokongan tidak tersedia pada hujung minggu dan cuti umum</value>
+  </data>
+  <data name="GetInTouch" xml:space="preserve">
+    <value>Hubungi Kami</value>
+  </data>
+  <data name="YourFName" xml:space="preserve">
+    <value>Nama Pertama Anda</value>
+  </data>
+  <data name="YourLName" xml:space="preserve">
+    <value>Nama Akhir Anda</value>
+  </data>
+  <data name="YourEmailAddress" xml:space="preserve">
+    <value>Alamat E-mel Anda</value>
+  </data>
+  <data name="SubjectEmail" xml:space="preserve">
+    <value>Subjek mesej ini</value>
+  </data>
+  <data name="SaySthAboutUs" xml:space="preserve">
+    <value>Tinggalkan Komen untuk kami</value>
+  </data>
+  <data name="PleaseEnterMessage" xml:space="preserve">
+    <value>Sila masukkan pesanan anda.</value>
+  </data>
+  <data name="PleaseEnterSubjectMessage" xml:space="preserve">
+    <value>Sila masukkan subjek pesanan anda</value>
+  </data>
+  <data name="SendMessageSuccess" xml:space="preserve">
+    <value>Terima kasih! Pesanan anda telah berjaya dihantar.</value>
+  </data>
+  <data name="SupportTimeN88" xml:space="preserve">
+    <value>Isnin - Jumaat&lt;br&gt;
+10:00 pagi - 08:00 malam (GMT +8)</value>
+  </data>
+  <data name="SomethingWentWrong" xml:space="preserve">
+    <value>Terjadi kesilapan. Sila cuba lagi nanti.</value>
   </data>
 </root>

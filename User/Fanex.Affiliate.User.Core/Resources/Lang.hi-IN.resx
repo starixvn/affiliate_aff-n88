@@ -136,7 +136,7 @@
     <value>सामान्य प्रश्नोत्तर</value>
   </data>
   <data name="ContactUs" xml:space="preserve">
-    <value>संपर्क करें</value>
+    <value>हमसे संपर्क करें</value>
   </data>
   <data name="SignUpAffiliate" xml:space="preserve">
     <value>साइन अप अफिलीएट</value>
@@ -156,20 +156,11 @@
   <data name="Copyright" xml:space="preserve">
     <value>© कॉपीराइट {0} | B2C. सर्वाधिकार सुरक्षित | 21</value>
   </data>
-  <data name="PleaseDirectAnyComment" xml:space="preserve">
-    <value>कृपया किसी भी टिप्पणी या प्रश्न को निम्नलिखित संपर्क बिंदुओं पर निर्देशित करें:</value>
-  </data>
-  <data name="EmailContactUs" xml:space="preserve">
-    <value>ईमेल</value>
-  </data>
   <data name="Telegram" xml:space="preserve">
     <value>टेलीग्राम</value>
   </data>
   <data name="Whatsapp" xml:space="preserve">
     <value>व्हाट्सएप</value>
-  </data>
-  <data name="SupportTimeN88" xml:space="preserve">
-    <value>&lt;strong&gt;सोमवार - शुक्रवार&lt;/strong&gt;&lt;br&gt;10:00 पूर्वाह्न - 08:00 अपराह्न (जीएमटी +8)</value>
   </data>
   <data name="JoinNow" xml:space="preserve">
     <value>अब शामिल हों!</value>
@@ -2083,5 +2074,53 @@ B2C सहयोगी की टीम&lt;br/&gt;&lt;br/&gt;
   </data>
   <data name="PlayerListSearchResultNote" xml:space="preserve">
     <value>खोज परिणामों में वे खिलाड़ी शामिल हैं जिनकी पंजीकरण तिथि या पहली जमा तिथि चयनित सीमा के भीतर आती है।</value>
+  </data>
+  <data name="ContactUsIntro" xml:space="preserve">
+    <value>एफिलिएट से संपर्क करने के लिए धन्यवाद। क्या आपने हमारा &lt;a href="{0}"&gt;FAQ&lt;/a&gt; देखा? हमने अक्सर पूछे जाने वाले कुछ प्रमुख प्रश्नों को वहाँ शामिल किया है।&lt;br&gt;
+यदि आपको आपकी जानकारी नहीं मिली है, तो नीचे दिए गए आसान तरीकों से आप हमसे संपर्क कर सकते हैं।&lt;br&gt;
+यदि आपको नया बैनर चाहिए या कस्टम बैनर की आवश्यकता है, तो बेझिझक हमसे सीधे संपर्क करें!</value>
+  </data>
+  <data name="GetPersonalAssistance" xml:space="preserve">
+    <value>व्यक्तिगत सहायता प्राप्त करें</value>
+  </data>
+  <data name="OperatingHours" xml:space="preserve">
+    <value>कार्य समय</value>
+  </data>
+  <data name="SupportServicesUnvailable" xml:space="preserve">
+    <value>सहायता सेवाएँ सप्ताहांत और सार्वजनिक छुट्टियों के दौरान उपलब्ध नहीं हैं।</value>
+  </data>
+  <data name="GetInTouch" xml:space="preserve">
+    <value>संपर्क में रहें</value>
+  </data>
+  <data name="YourFName" xml:space="preserve">
+    <value>आपका पहला नाम</value>
+  </data>
+  <data name="YourLName" xml:space="preserve">
+    <value>आपका अंतिम नाम</value>
+  </data>
+  <data name="YourEmailAddress" xml:space="preserve">
+    <value>आपका ईमेल पता</value>
+  </data>
+  <data name="SubjectEmail" xml:space="preserve">
+    <value>इस संदेश का विषय</value>
+  </data>
+  <data name="SaySthAboutUs" xml:space="preserve">
+    <value>हमारे बारे में कुछ बताएं</value>
+  </data>
+  <data name="PleaseEnterMessage" xml:space="preserve">
+    <value>कृपया अपना संदेश दर्ज करें।</value>
+  </data>
+  <data name="PleaseEnterSubjectMessage" xml:space="preserve">
+    <value>कृपया अपने संदेश का विषय दर्ज करें।</value>
+  </data>
+  <data name="SendMessageSuccess" xml:space="preserve">
+    <value>धन्यवाद! आपका संदेश सफलतापूर्वक भेजा गया है।</value>
+  </data>
+  <data name="SupportTimeN88" xml:space="preserve">
+    <value>सोमवार - शुक्रवार&lt;br&gt;
+10:00 पूर्वाह्न - 08:00 अपराह्न (जीएमटी +8)</value>
+  </data>
+  <data name="SomethingWentWrong" xml:space="preserve">
+    <value>कुछ गलत हो गया है। कृपया बाद में पुनः प्रयास करें।</value>
   </data>
 </root>

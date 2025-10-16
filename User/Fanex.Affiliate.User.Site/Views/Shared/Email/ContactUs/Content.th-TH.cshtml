@@ -1,0 +1,19 @@
+﻿@model Fanex.Affiliate.User.Core.MetalModels.Email.ContactUsEmailParam
+<div>
+    เรียน ทีมสนับสนุนพันธมิตร,<br />
+    <div style="margin-left: 30px;">
+        มีคำถามใหม่ส่งเข้ามาผ่านแบบฟอร์มติดต่อพันธมิตรของคุณ<br />
+        ชื่อ: @Model.FirstName @Model.LastName<br />
+        อีเมล: @Model.Sender<br />
+        หัวข้อ: @Model.Subject<br />
+        ข้อความ:<br />
+         <div style="margin-left: 30px;">
+             <pre style="font-family: inherit; font-size: inherit; margin: 0; white-space: pre-wrap;">@Model.Message</pre>
+         </div>
+
+        ส่งเมื่อ: @Model.SubmittedDateTime.ToString("yyyy-MM-dd HH:mm") (GMT+8)<br />
+    </div>
+    ---------------------------------------------------------------------------------------------------------------------------------------<br />
+    ขอแสดงความนับถือ,<br />
+    ระบบพันธมิตร
+</div>

@@ -1,0 +1,19 @@
+@model Fanex.Affiliate.User.Core.MetalModels.Email.ContactUsEmailParam
+<div>
+    Pasukan Sokongan Affiliate yang dihormati,<br />
+    <div style="margin-left: 30px;">
+        Anda telah menerima pertanyaan baharu daripada borang Hubungi Kami Affiliate.<br />
+        Nama: @Model.FirstName @Model.LastName<br />
+        E-mel: @Model.Sender<br />
+        Subjek: @Model.Subject<br />
+        Pesanan:<br />
+         <div style="margin-left: 30px;">
+             <pre style="font-family: inherit; font-size: inherit; margin: 0; white-space: pre-wrap;">@Model.Message</pre>
+         </div>
+
+        Dihantar pada: @Model.SubmittedDateTime.ToString("yyyy-MM-dd HH:mm") (GMT+8)<br />
+    </div>
+    ---------------------------------------------------------------------------------------------------------------------------------------<br />
+    Dengan hormatnya,<br />
+    Sistem Affiliate
+</div>

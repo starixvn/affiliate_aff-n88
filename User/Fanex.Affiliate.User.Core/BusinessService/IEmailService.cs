@@ -1,7 +1,7 @@
-﻿using Fanex.Affiliate.User.Core.MetalModels.Email;
-
-namespace Fanex.Affiliate.User.Core.BusinessService
+﻿namespace Fanex.Affiliate.User.Core.BusinessService
 {
+    using Fanex.Affiliate.User.Core.MetalModels.Email;
+
     public interface IEmailService
     {
         void SendRecoverPasswordEmail(RecoverPasswordEmailParam emailParam);
@@ -13,5 +13,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         void SendNoticeEmailToCsd(NoticeEmailParam emailParam);
 
         void SendVerificationEmail(VerificationAccountEmailParam emailParam);
+
+        void SendContactUsEmail(ContactUsEmailParam emailParam);
     }
 }

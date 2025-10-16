@@ -560,9 +560,9 @@
     <Content Include="www\build\js\channel-link-statistic.min.js">
       <DependentUpon>channel-link-statistic.js</DependentUpon>
     </Content>
-    <Content Include="www\build\js\contactus.js" />
-    <Content Include="www\build\js\contactus.min.js">
-      <DependentUpon>contactus.js</DependentUpon>
+    <Content Include="www\build\js\contact-us.js" />
+    <Content Include="www\build\js\contact-us.min.js">
+      <DependentUpon>contact-us.js</DependentUpon>
     </Content>
     <Content Include="www\build\js\daily-earning.js" />
     <Content Include="www\build\js\daily-earning.min.js">
@@ -973,16 +973,20 @@
     <Content Include="www\build\styles\Images\contact-in-home\n8g\bg_contact.png" />
     <Content Include="www\build\styles\Images\contact-in-home\n8g\contact.png" />
     <Content Include="www\build\styles\Images\contact-in-home\n8g\icon-arrow.png" />
-    <Content Include="www\build\styles\Images\contact-us\email.png" />
+    <Content Include="www\build\styles\Images\contact-us\n8b\email.png" />
+    <Content Include="www\build\styles\Images\contact-us\n8b\telegram.png" />
+    <Content Include="www\build\styles\Images\contact-us\n8b\whatsapp.png" />
+    <Content Include="www\build\styles\Images\contact-us\n8b\zalo.png" />
+    <Content Include="www\build\styles\Images\contact-us\n8g\email.png" />
     <Content Include="www\build\styles\Images\contact-us\goal123.png" />
     <Content Include="www\build\styles\Images\contact-us\n88\email.png" />
     <Content Include="www\build\styles\Images\contact-us\n88\zalo.png" />
     <Content Include="www\build\styles\Images\contact-us\n88\qrcode.png" />
     <Content Include="www\build\styles\Images\contact-us\n88\telegram.png" />
     <Content Include="www\build\styles\Images\contact-us\n88\whatsapp.png" />
-    <Content Include="www\build\styles\Images\contact-us\phone.png" />
-    <Content Include="www\build\styles\Images\contact-us\telegram.png" />
-    <Content Include="www\build\styles\Images\contact-us\whatsapp.png" />
+    <Content Include="www\build\styles\Images\contact-us\n8g\telegram.png" />
+    <Content Include="www\build\styles\Images\contact-us\n8g\whatsapp.png" />
+    <Content Include="www\build\styles\Images\contact-us\n8g\zalo.png" />
     <Content Include="www\build\styles\Images\copy-link.png" />
     <Content Include="www\build\styles\Images\gift.svg" />
     <Content Include="www\build\styles\Images\header-bg.png" />
@@ -1117,6 +1121,7 @@
     <Content Include="www\build\styles\Images\themes\n88.zh-CN.png" />
     <Content Include="www\build\styles\Images\themes\n8b.png" />
     <Content Include="www\source\js\components\intlTelInput.js" />
+    <Content Include="www\source\js\pages\contact-us.js" />
     <Content Include="www\source\js\pages\account-overview\account-overview.min.js">
       <DependentUpon>account-overview.js</DependentUpon>
     </Content>
@@ -1535,10 +1540,7 @@
     <Content Include="Views\CommissionStructure\N88\Index.cshtml" />
     <Content Include="Views\CommissionStructure\N8B\Index.cshtml" />
     <Content Include="Views\CommissionStructure\N8G\Index.cshtml" />
-    <Content Include="Views\ContactUs\N88\Index.cshtml" />
     <Content Include="www\source\styles\pages\n88\contact-us.scss" />
-    <Content Include="Views\ContactUs\N8B\Index.cshtml" />
-    <Content Include="Views\ContactUs\N8G\Index.cshtml" />
     <Content Include="Views\Faq\N88\Index.cshtml" />
     <Content Include="Views\Faq\Index.cshtml" />
     <Content Include="Views\News\N88\_MessageContent.cshtml" />
@@ -1732,6 +1734,15 @@
     <Content Include="www\build\styles\Images\contact-girl\n8b\contact-us.zh-CN.webp" />
     <Content Include="www\build\styles\Images\contact-girl\n8g\contact-us.vi-VN.webp" />
     <Content Include="www\source\styles\scss\components\_contact-girl-floating.scss" />
+    <Content Include="Views\ContactUs\Index.cshtml" />
+    <Content Include="Views\Shared\Email\ContactUs\Content.en-US.cshtml" />
+    <Content Include="Views\Shared\Email\ContactUs\Content.bn-BD.cshtml" />
+    <Content Include="Views\Shared\Email\ContactUs\Content.vi-VN.cshtml" />
+    <Content Include="Views\Shared\Email\ContactUs\Content.zh-CN.cshtml" />
+    <Content Include="Views\Shared\Email\ContactUs\Content.hi-IN.cshtml" />
+    <Content Include="Views\Shared\Email\ContactUs\Content.id-ID.cshtml" />
+    <Content Include="Views\Shared\Email\ContactUs\Content.ms-MY.cshtml" />
+    <Content Include="Views\Shared\Email\ContactUs\Content.th-TH.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

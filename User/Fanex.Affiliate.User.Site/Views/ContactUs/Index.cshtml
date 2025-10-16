@@ -1,0 +1,164 @@
+@using Fanex.Affiliate.User.Core.CoreService
+@model Fanex.Affiliate.User.Core.ViewModels.ContactUsViewModel
+
+@{
+    var settingService = DependencyResolver.Current.GetService<IAppSetting>();
+    var siteName = settingService.SiteName;
+    var layoutPath = siteName == "N88" ? "~/Views/Shared/N88/_LayoutBeforeLogin.cshtml" : "~/Views/Shared/_LayoutBeforeLogin.cshtml";
+    var siteFriendlyName = settingService.SiteFriendlyName;
+    var contentClass = siteName == "N88" ? "main-content" : "content";
+    var imageBasePath = $"~/www/build/styles/Images/contact-us/{siteName}/";
+    var supportTime = siteName == "N88" ? Lang.SupportTimeN88 : Lang.SupportTime;
+
+    Layout = layoutPath;
+    ViewBag.Title = $"{siteFriendlyName} {Lang.AffiliateProgram} | {Lang.ContactUs}";
+}
+
+@section styles{
+    <link href="@Url.RenderLink("~/www/build/styles/css/contact-us.css")" rel="stylesheet" />
+}
+
+@section scripts{
+    <script>
+        var resourceLanguage = {
+            generalError: '@Error.General',
+        }
+    </script>
+    <script src="@Url.RenderLink("~/www/build/js/validation.js")"></script>
+    <script src="@Url.RenderLink("~/www/build/js/contact-us.js")"></script>
+}
+
+<div class="@contentClass contact">
+    <div>
+        <div class="page-title">
+            <span class="text">@Lang.ContactUs</span>
+        </div>
+
+        <div class="alert" role="alert" id="messageResult" style="display: none"></div>
+
+        <div class="contact-description">
+            @Html.Raw(string.Format(Lang.ContactUsIntro, Url.Content("~/FAQ")))
+        </div>
+
+        <div class="alert alert-success" role="alert" id="messageSuccess" style="display: none;">
+            <p class="text-center">@Lang.SendMessageSuccess</p>
+        </div>
+
+        <div id="mainContent">
+            <div class="container-fluid">
+                <div class="row contact-panel content-block">
+                    <div class="col-md-4">
+                        <div class="contact-assistance">
+                            <div class="contact-heading group-title">@Lang.GetPersonalAssistance</div>
+
+                            @if (!string.IsNullOrEmpty(Model.Email))
+                            {
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <img class="contact-icon-img" src="@Url.Content(imageBasePath + "email.png")" alt="@Lang.Email" />
+                                    </div>
+                                    <div class="contact-info">
+                                        <a href="mailto:@Model.Email">@Model.Email</a>
+                                    </div>
+                                </div>
+                            }
+
+                            @if (!string.IsNullOrEmpty(Model.Telegram))
+                            {
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <img class="contact-icon-img" src="@Url.Content(imageBasePath + "telegram.png")" alt="@Lang.Telegram" />
+                                    </div>
+                                    <div class="contact-info">
+                                        <a href="@Model.Telegram" target="_blank">@Model.Telegram</a>
+                                    </div>
+                                </div>
+                            }
+
+                            @if (!string.IsNullOrEmpty(Model.Whatsapp))
+                            {
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <img class="contact-icon-img" src="@Url.Content(imageBasePath + "whatsapp.png")" alt="@Lang.Whatsapp" />
+                                    </div>
+                                    <div class="contact-info">
+                                        <a href="@Model.Whatsapp" target="_blank">@Model.Whatsapp</a>
+                                    </div>
+                                </div>
+                            }
+
+                            @if (!string.IsNullOrEmpty(Model.Zalo))
+                            {
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <img class="contact-icon-img" src="@Url.Content(imageBasePath + "zalo.png")" alt="Zalo" />
+                                    </div>
+                                    <div class="contact-info">
+                                        <a href="https://zalo.me/@(Model.Zalo.Replace("+", "").Replace("(", "").Replace(")", "").Replace(" ", ""))" target="_blank">@Model.Zalo</a>
+                                    </div>
+                                </div>
+                            }
+
+                            <div class="operating-hours">
+                                <div class="contact-heading group-title">@Lang.OperatingHours</div>
+                                @Html.Raw(supportTime)
+                                <p class="note">@Lang.SupportServicesUnvailable</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-8">
+                        <div class="contact-form">
+                            <div class="contact-heading group-title">@Lang.GetInTouch</div>
+
+                            @using (Html.BeginForm("Index", "ContactUs", FormMethod.Post, new { @id = "contactForm", @class = "form-horizontal" }))
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <input type="hidden" name="ContactForm.ReceiverEmail" id="Email" value=@Model.Email />
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="control-label require">@Lang.FName</label>
+                                            @Html.TextBoxFor(m => m.ContactForm.FirstName, new { @class = "form-control", @placeholder = Lang.YourFName })
+                                            @Html.ValidationMessageFor(x => x.ContactForm.FirstName, string.Empty, new { @class = "help-block hide" })
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="control-label require">@Lang.LName</label>
+                                            @Html.TextBoxFor(m => m.ContactForm.LastName, new { @class = "form-control", @placeholder = Lang.YourLName })
+                                            @Html.ValidationMessageFor(x => x.ContactForm.LastName, string.Empty, new { @class = "help-block hide" })
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label require">@Lang.EmailSignup</label>
+                                    @Html.TextBoxFor(m => m.ContactForm.Email, new { @class = "form-control", @placeholder = Lang.YourEmailAddress })
+                                    @Html.ValidationMessageFor(x => x.ContactForm.Email, string.Empty, new { @class = "help-block hide" })
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label require">@Lang.SubjectEmail</label>
+                                    @Html.TextBoxFor(m => m.ContactForm.Subject, new { @class = "form-control", @placeholder = Lang.SubjectEmail, @maxlength = "100" })
+                                    @Html.ValidationMessageFor(x => x.ContactForm.Subject, string.Empty, new { @class = "help-block hide" })
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.TextAreaFor(m => m.ContactForm.Message, new { @class = "form-control", @rows = 5, @maxlength = 5000, @placeholder = Lang.SaySthAboutUs })
+                                    @Html.ValidationMessageFor(x => x.ContactForm.Message, string.Empty, new { @class = "help-block hide" })
+                                </div>
+
+                                <div class="form-group">
+                                    <button class="btn btn-submit" id="btnSubmit" type="submit">@Lang.Submit</button>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

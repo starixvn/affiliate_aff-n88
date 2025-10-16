@@ -139,7 +139,7 @@
     <value>এফ এ কি উ এস</value>
   </data>
   <data name="ContactUs" xml:space="preserve">
-    <value>আমাদের সাথে যোগাযোগ</value>
+    <value>আমাদের সাথে যোগাযোগ করুন</value>
   </data>
   <data name="SignUpAffiliate" xml:space="preserve">
     <value>এফিলিয়েট এ সাইন আপ করুন</value>
@@ -212,12 +212,6 @@
   </data>
   <data name="AllBettingProducts" xml:space="preserve">
     <value>সমস্ত বেটিং পণ্য {0} অ্যাফিলিয়েট প্রোগ্রামে তালিকাভুক্ত করা হয়েছে। আমরা আপনাকে আমাদের দীর্ঘমেয়াদী অংশীদারদের একজন হতে আমন্ত্রণ জানাই। গ্রাহকদের আনার ক্ষেত্রে আমাদের ব্র্যান্ড সচেতনতা এবং বিজ্ঞাপনে অবদান রাখুন। একসাথে, উত্থাপন করুন</value>
-  </data>
-  <data name="PleaseDirectAnyComment" xml:space="preserve">
-    <value>অনুগ্রহ করে নিম্নলিখিত যোগাযোগের পয়েন্টগুলিতে কোন মন্তব্য বা প্রশ্ন করুন</value>
-  </data>
-  <data name="SupportTimeN88" xml:space="preserve">
-    <value>&lt;strong&gt;সোমবার শুক্রবার&lt;/strong&gt;&lt;br&gt;10:00 am - 08:00 pm (GMT +8)</value>
   </data>
   <data name="MarketingAndTracking" xml:space="preserve">
     <value>মার্কেটিং এবং ট্র্যাকিং</value>
@@ -311,9 +305,6 @@
   </data>
   <data name="InWitnessWhereOf" xml:space="preserve">
     <value>16. যার সাক্ষী</value>
-  </data>
-  <data name="EmailContactUs" xml:space="preserve">
-    <value>ইমেল</value>
   </data>
   <data name="EmailVerification" xml:space="preserve">
     <value>ইমেল</value>
@@ -2088,5 +2079,54 @@
   </data>
   <data name="PlayerListSearchResultNote" xml:space="preserve">
     <value>অনুসন্ধানের ফলাফলে এমন প্লেয়ারদের অন্তর্ভুক্ত করা হয়েছে, যাদের নিবন্ধনের তারিখ বা প্রথম জমার তারিখ নির্ধারিত সীমার মধ্যে পড়ে।</value>
+  </data>
+  <data name="ContactUsIntro" xml:space="preserve">
+    <value>অ্যাফিলিয়েট টিমের সাথে যোগাযোগ করার জন্য আপনাকে ধন্যবাদ। আপনি কি আমাদের &lt;a href="{0}"&gt;FAQ&lt;/a&gt; পরীক্ষা করেছেন? আমরা সবচেয়ে বেশি জিজ্ঞাসিত প্রশ্নগুলোর উত্তর সেখানে দিয়েছি।&lt;br&gt;
+আপনি যদি খুঁজে না পান তবে নিচে আমাদের সাথে যোগাযোগের কিছু সহজ উপায় উল্লেখ করা হলো।&lt;br&gt;
+আপনি যদি একটি নতুন ব্যানার প্রয়োজন মনে করেন বা কাস্টম ব্যানার অনুরোধ করতে চান, তাহলে নির্দ্বিধায় সরাসরি আমাদের সাথে যোগাযোগ করুন!
+</value>
+  </data>
+  <data name="GetPersonalAssistance" xml:space="preserve">
+    <value>ব্যক্তিগত সহায়তা নিন</value>
+  </data>
+  <data name="OperatingHours" xml:space="preserve">
+    <value>কাজের সময়</value>
+  </data>
+  <data name="SupportServicesUnvailable" xml:space="preserve">
+    <value>সপ্তাহান্ত এবং সরকারি ছুটির দিনে সহায়তা পরিষেবা উপলব্ধ নয়।</value>
+  </data>
+  <data name="GetInTouch" xml:space="preserve">
+    <value>যোগাযোগ করুন</value>
+  </data>
+  <data name="YourFName" xml:space="preserve">
+    <value>আপনার নাম</value>
+  </data>
+  <data name="YourLName" xml:space="preserve">
+    <value>আপনার উপনাম</value>
+  </data>
+  <data name="YourEmailAddress" xml:space="preserve">
+    <value>আপনার ইমেইল ঠিকানা</value>
+  </data>
+  <data name="SubjectEmail" xml:space="preserve">
+    <value>বার্তার বিষয়</value>
+  </data>
+  <data name="SaySthAboutUs" xml:space="preserve">
+    <value>আমাদের সম্পর্কে কিছু বলুন</value>
+  </data>
+  <data name="PleaseEnterMessage" xml:space="preserve">
+    <value>অনুগ্রহ করে আপনার বার্তা লিখুন।</value>
+  </data>
+  <data name="PleaseEnterSubjectMessage" xml:space="preserve">
+    <value>অনুগ্রহ করে আপনার বার্তার বিষয় লিখুন।</value>
+  </data>
+  <data name="SendMessageSuccess" xml:space="preserve">
+    <value>ধন্যবাদ! আপনার বার্তাটি সফলভাবে পাঠানো হয়েছে।</value>
+  </data>
+  <data name="SupportTimeN88" xml:space="preserve">
+    <value>সোমবার শুক্রবার&lt;br&gt;
+10:00 am - 08:00 pm (GMT +8)</value>
+  </data>
+  <data name="SomethingWentWrong" xml:space="preserve">
+    <value>কিছু ভুল হয়েছে। অনুগ্রহ করে পরে আবার চেষ্টা করুন।</value>
   </data>
 </root>

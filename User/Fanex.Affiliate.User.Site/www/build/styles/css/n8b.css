@@ -149,6 +149,10 @@ body.zh-CN {
   opacity: 0.5;
 }
 
+.group-title {
+  color: #3391F6;
+}
+
 .table {
   font-size: 1.4rem;
 }
@@ -429,8 +433,17 @@ label {
 .summary-content .dashboard-section .group-four {
   background-color: #158469;
 }
+.summary-content .dashboard-section .group-five {
+  background-color: #AE8F56;
+}
+.summary-content .dashboard-section .group-five .info-panel {
+  width: 100% !important;
+}
 .summary-content .dashboard-section .info-panel {
   min-height: 70px;
+}
+.summary-content .dashboard-section .img-icon .img-responsive {
+  min-width: 40px;
 }
 .summary-content .details-section-menu .menu {
   position: relative;
@@ -652,6 +665,10 @@ input[type=radio][disabled] + span {
 
 .main-container .page-container {
   color: #d0d0d0;
+}
+.main-container .page-container .content-block {
+  background: #252525;
+  color: #FFFFFF;
 }
 
 .table .table {

@@ -340,6 +340,10 @@ header {
   line-height: 28px;
 }
 
+.group-title {
+  color: #060818;
+}
+
 .after-login-container .info-group {
   margin-top: 0;
   margin-bottom: 0;
@@ -719,6 +723,15 @@ select.form-control:focus {
 }
 .summary-content .dashboard-section .group-four .info-panel-content {
   background-color: #FF3754;
+}
+.summary-content .dashboard-section .group-five {
+  background-color: #C3E4C2;
+}
+.summary-content .dashboard-section .group-five .img-icon {
+  background-color: #6BA86A;
+}
+.summary-content .dashboard-section .group-five .info-panel-content {
+  background-color: #6BA86A;
 }
 .summary-content .details-section-menu .menu {
   border-bottom: 1px solid #B5D1FF;

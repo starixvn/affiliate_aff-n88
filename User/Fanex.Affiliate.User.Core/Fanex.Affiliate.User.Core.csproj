@@ -275,6 +275,7 @@
     <Compile Include="DTO\Api\AccountApiResult.cs" />
     <Compile Include="DTO\Api\ApiResultInfo.cs" />
     <Compile Include="DTO\Api\CustomerBalanceInfo.cs" />
+    <Compile Include="DTO\ContactChannel.cs" />
     <Compile Include="DTO\IpLocationResult.cs" />
     <Compile Include="DTO\TargetCountry.cs" />
     <Compile Include="DTO\TargetCountryLanguage.cs" />
@@ -351,6 +352,8 @@
     <Compile Include="Extensions\HttpRequestExtension.cs" />
     <Compile Include="MetalModels\Api\AccountParam.cs" />
     <Compile Include="MetalModels\Api\TransferMoneyParam.cs" />
+    <Compile Include="MetalModels\ContactUsParam.cs" />
+    <Compile Include="MetalModels\Email\ContactUsEmailParam.cs" />
     <Compile Include="MetalModels\MarketingLinkParam.cs" />
     <Compile Include="DTO\UserPanel\Currency.cs" />
     <Compile Include="DTO\DBMode.cs" />
@@ -393,6 +396,8 @@
     <Compile Include="MetalModels\UserPanel\QrCodeParam.cs" />
     <Compile Include="MetalModels\UserPanel\SubAffComParam.cs" />
     <Compile Include="MetalModels\UserPanel\SubAffDetailParam.cs" />
+    <Compile Include="Repository\ContactUsRepository.cs" />
+    <Compile Include="Repository\IContactUsRepository.cs" />
     <Compile Include="Repository\IIpLocationRepository.cs" />
     <Compile Include="Repository\ILanguageRepository.cs" />
     <Compile Include="Repository\IpLocationRepository.cs" />
