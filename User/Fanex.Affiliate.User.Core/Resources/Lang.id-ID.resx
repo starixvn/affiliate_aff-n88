@@ -1876,4 +1876,22 @@ Jika Anda memerlukan banner baru atau ingin meminta banner kustom, silakan hubun
   <data name="SomethingWentWrong" xml:space="preserve">
     <value>Terjadi kesalahan. Silakan coba lagi nanti.</value>
   </data>
+  <data name="Keno" xml:space="preserve">
+    <value>Keno</value>
+  </data>
+  <data name="Fishing" xml:space="preserve">
+    <value>Memancing</value>
+  </data>
+  <data name="Slots" xml:space="preserve">
+    <value>Slot</value>
+  </data>
+  <data name="Esports" xml:space="preserve">
+    <value>Esports</value>
+  </data>
+  <data name="Lottery" xml:space="preserve">
+    <value>Lottery</value>
+  </data>
+  <data name="Our_Products" xml:space="preserve">
+    <value>PRODUK KAMI</value>
+  </data>
 </root>

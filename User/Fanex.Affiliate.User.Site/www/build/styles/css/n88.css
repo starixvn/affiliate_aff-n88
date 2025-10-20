@@ -1178,3 +1178,117 @@ select.form-control:focus {
     display: none;
   }
 }
+.product-new-page {
+  max-width: 1920px !important;
+  justify-content: center;
+}
+.product-new-page .product-block {
+  margin: 15px 0;
+}
+.product-new-page .product-block .sportbooks-block {
+  margin: 30px 10px;
+  padding: 70px 0;
+  border-radius: 12px;
+  background: url("../../../source/styles/Images/product/NV88_AFFF_PRODUCT_SPORTSBOOK.png"), linear-gradient(to right, #001332 0%, #002766 100%);
+  background-position: left 20px, center;
+  background-size: auto calc(100% - 40px), cover;
+  background-repeat: no-repeat;
+  padding-left: 320px;
+}
+.product-new-page .product-block .live-casino-block {
+  margin: 30px 10px;
+  padding: 70px 0;
+  border-radius: 12px;
+  background: url("../../../source/styles/Images/product/NV88_AFFF_PRODUCT_Live-Casino.png"), linear-gradient(to right, #001332 0%, #002766 100%);
+  background-position: right 20px, center;
+  background-size: auto calc(100% - 40px), cover;
+  background-repeat: no-repeat;
+}
+.product-new-page .product-block .live-casino-block .product-info {
+  max-width: 70%;
+}
+.product-new-page .product-block .slots-block {
+  margin: 30px 10px;
+  padding: 70px 0;
+  border-radius: 12px;
+  background: url("../../../source/styles/Images/product/NV88_AFFF_PRODUCT_Slots.png"), linear-gradient(to right, #001332 0%, #002766 100%);
+  background-position: left 20px, center;
+  background-size: auto calc(100% - 40px), cover;
+  background-repeat: no-repeat;
+  padding-left: 320px;
+}
+.product-new-page .product-block .esports-block {
+  margin: 30px 10px;
+  padding: 70px 0;
+  border-radius: 12px;
+  background: url("../../../source/styles/Images/product/NV88_AFFF_PRODUCT_Esports.png"), linear-gradient(to right, #001332 0%, #002766 100%);
+  background-position: right 20px, center;
+  background-size: auto calc(100% - 40px), cover;
+  background-repeat: no-repeat;
+}
+.product-new-page .product-block .esports-block .product-info {
+  max-width: 70%;
+}
+.product-new-page .product-block .lottery-block {
+  margin: 30px 10px;
+  padding: 70px 0;
+  border-radius: 12px;
+  background: url("../../../source/styles/Images/product/NV88_AFFF_PRODUCT_Lottery.png"), linear-gradient(to right, #001332 0%, #002766 100%);
+  background-position: left 20px, center;
+  background-size: auto calc(100% - 40px), cover;
+  background-repeat: no-repeat;
+  padding-left: 320px;
+}
+.product-new-page .product-block .fishing-block {
+  margin: 30px 10px;
+  padding: 70px 0;
+  border-radius: 12px;
+  background: url("../../../source/styles/Images/product/NV88_AFFF_PRODUCT_FISHING.png"), linear-gradient(to right, #001332 0%, #002766 100%);
+  background-position: right 20px, center;
+  background-size: auto calc(100% - 40px), cover;
+  background-repeat: no-repeat;
+}
+.product-new-page .product-block .fishing-block .product-info {
+  max-width: 70%;
+}
+.product-new-page .product-block .number-game-block {
+  margin: 30px 10px;
+  padding: 70px 0;
+  border-radius: 12px;
+  background: url("../../../source/styles/Images/product/NV88_AFFF_PRODUCT_Number-games.png"), linear-gradient(to right, #001332 0%, #002766 100%);
+  background-position: left 20px, center;
+  background-size: auto calc(100% - 40px), cover;
+  background-repeat: no-repeat;
+  padding-left: 320px;
+}
+.product-new-page .product-block .keno-block {
+  margin: 30px 10px;
+  padding: 70px 0;
+  border-radius: 12px;
+  background: url("../../../source/styles/Images/product/NV88_AFFF_PRODUCT_Kenno.png"), linear-gradient(to right, #001332 0%, #002766 100%);
+  background-position: right 20px, center;
+  background-size: auto calc(100% - 40px), cover;
+  background-repeat: no-repeat;
+}
+.product-new-page .product-block .keno-block .product-info {
+  max-width: 70%;
+}
+.product-new-page .product-block .product-info {
+  margin-left: 30px;
+  max-width: 80%;
+}
+.product-new-page .product-block .product-info .product-title, .product-new-page .product-block .product-info .product-content {
+  text-align: left;
+}
+.product-new-page .product-block .product-info .product-title h2 {
+  font-size: 34px;
+  font-weight: 700;
+  color: #EA5500;
+  text-transform: uppercase;
+}
+.product-new-page .product-block .product-info .product-content {
+  font-size: 16px;
+  line-height: 24px;
+  color: #FFFFFF;
+  text-align: justify;
+}

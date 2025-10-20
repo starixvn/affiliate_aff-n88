@@ -2149,4 +2149,22 @@ Nếu bạn cần banner mới hoặc muốn yêu cầu thiết kế banner tùy
   <data name="SomethingWentWrong" xml:space="preserve">
     <value>Đã xảy ra lỗi. Vui lòng thử lại sau.</value>
   </data>
+  <data name="Keno" xml:space="preserve">
+    <value>Keno</value>
+  </data>
+  <data name="Fishing" xml:space="preserve">
+    <value>Fishing</value>
+  </data>
+  <data name="Slots" xml:space="preserve">
+    <value>Quay hũ</value>
+  </data>
+  <data name="Esports" xml:space="preserve">
+    <value>Thể thao điện tử</value>
+  </data>
+  <data name="Lottery" xml:space="preserve">
+    <value>Lottery</value>
+  </data>
+  <data name="Our_Products" xml:space="preserve">
+    <value>SẢN PHẨM CỦA CHÚNG TÔI</value>
+  </data>
 </root>

@@ -2114,4 +2114,22 @@ Jika anda memerlukan banner baharu atau ingin memohon banner tersuai, sila hubun
   <data name="SomethingWentWrong" xml:space="preserve">
     <value>Terjadi kesilapan. Sila cuba lagi nanti.</value>
   </data>
+  <data name="Keno" xml:space="preserve">
+    <value>Keno</value>
+  </data>
+  <data name="Fishing" xml:space="preserve">
+    <value>Pancing Ikan</value>
+  </data>
+  <data name="Slots" xml:space="preserve">
+    <value>Slots</value>
+  </data>
+  <data name="Esports" xml:space="preserve">
+    <value>E-Sukan</value>
+  </data>
+  <data name="Lottery" xml:space="preserve">
+    <value>Loteri</value>
+  </data>
+  <data name="Our_Products" xml:space="preserve">
+    <value>Produk Kami</value>
+  </data>
 </root>

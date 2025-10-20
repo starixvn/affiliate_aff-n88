@@ -1892,4 +1892,22 @@ B2C合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
   <data name="SomethingWentWrong" xml:space="preserve">
     <value>发送失败，请稍后重试</value>
   </data>
+  <data name="Keno" xml:space="preserve">
+    <value>Keno</value>
+  </data>
+  <data name="Fishing" xml:space="preserve">
+    <value>钓鱼游戏</value>
+  </data>
+  <data name="Slots" xml:space="preserve">
+    <value>老虎机</value>
+  </data>
+  <data name="Esports" xml:space="preserve">
+    <value>电子竞技</value>
+  </data>
+  <data name="Lottery" xml:space="preserve">
+    <value>彩票</value>
+  </data>
+  <data name="Our_Products" xml:space="preserve">
+    <value>我们的产品</value>
+  </data>
 </root>

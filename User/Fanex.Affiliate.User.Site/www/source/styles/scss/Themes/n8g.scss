@@ -2882,3 +2882,119 @@ div.custom-panel {
         }
     }
 }
+
+.product-new-page {
+    max-width: 1920px !important;
+    justify-content: center;
+
+    .page-title {
+        text-align: center;
+        .text {
+            font-size: 34px !important;
+            color: #FAB617 !important;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+    }
+
+    .product-block {
+        margin: 15px 0;
+
+        .sportbooks-block {
+            margin: 30px 10px;
+            padding: 70px 0;
+            background: url('../../Images/product/N8G_AFFF_PRODUCT_Sportsbook.png'), #152849;
+            background-position: right, center;
+            background-size: auto calc(100%), cover;
+            background-repeat: no-repeat;
+        }
+
+        .live-casino-block {
+            margin: 30px 10px;
+            padding: 70px 0;
+            background: url('../../Images/product/N8G_AFFF_PRODUCT_Live-Casino.png'), #152849;
+            background-position: right, center;
+            background-size: auto calc(100%), cover;
+            background-repeat: no-repeat;
+        }
+
+        .slots-block {
+            margin: 30px 10px;
+            padding: 70px 0;
+            background: url('../../Images/product/N8G_AFFF_PRODUCT_SLOT.png'), #152849;
+            background-position: right, center;
+            background-size: auto calc(100%), cover;
+            background-repeat: no-repeat;
+        }
+
+        .esports-block {
+            margin: 30px 10px;
+            padding: 70px 0;
+            background: url('../../Images/product/N8G_AFFF_PRODUCT_ESPORTS.png'), #152849;
+            background-position: right, center;
+            background-size: auto calc(100%), cover;
+            background-repeat: no-repeat;
+        }
+
+        .lottery-block {
+            margin: 30px 10px;
+            padding: 70px 0;
+            background: url('../../Images/product/N8G_AFFF_PRODUCT_LOTTERY.png'), #152849;
+            background-position: right, center;
+            background-size: auto calc(100%), cover;
+            background-repeat: no-repeat;
+        }
+
+        .fishing-block {
+            margin: 30px 10px;
+            padding: 70px 0;
+            background: url('../../Images/product/N8G_AFFF_PRODUCT_FISHING.png'), #152849;
+            background-position: right, center;
+            background-size: auto calc(100%), cover;
+            background-repeat: no-repeat;
+        }
+
+        .number-game-block {
+            margin: 30px 10px;
+            padding: 70px 0;
+            background: url('../../Images/product/N8G_AFFF_PRODUCT_NUMBER-GAMES.png'), #152849;
+            background-position: right, center;
+            background-size: auto calc(100%), cover;
+            background-repeat: no-repeat;
+        }
+
+        .keno-block {
+            margin: 30px 10px;
+            padding: 70px 0;
+            background: url('../../Images/product/N8G_AFFF_PRODUCT_KENO.png'), #152849;
+            background-position: right, center;
+            background-size: auto calc(100%), cover;
+            background-repeat: no-repeat;
+        }
+
+        .product-info {
+            margin-left: 30px;
+            max-width: 314px;
+
+            .product-title, .product-content {
+                text-align: left;
+            }
+
+            .product-title {
+                h2 {
+                    font-size: 34px;
+                    font-weight: 700;
+                    color: #FAB617;
+                    text-transform: uppercase;
+                }
+            }
+
+            .product-content {
+                font-size: 16px;
+                line-height: 24px;
+                color: #FFFFFF;
+                text-align: justify;
+            }
+        }
+    }
+}
