@@ -214,7 +214,7 @@
     <value>Sukan Maya</value>
   </data>
   <data name="NumberGame" xml:space="preserve">
-    <value>Permainan Nombor</value>
+    <value>permainan nombor</value>
   </data>
   <data name="RngKeno" xml:space="preserve">
     <value>Rng Keno</value>
@@ -223,7 +223,7 @@
     <value>B2C KASINO</value>
   </data>
   <data name="LiveCasino" xml:space="preserve">
-    <value>Kasino Langsung</value>
+    <value>Live Kasino</value>
   </data>
   <data name="CasinoGame" xml:space="preserve">
     <value>Permainan Kasino</value>

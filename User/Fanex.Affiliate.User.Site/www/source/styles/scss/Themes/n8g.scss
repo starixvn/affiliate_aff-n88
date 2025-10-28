@@ -1,5 +1,6 @@
 ﻿@import "../abstracts/variables-n8g";
-
+@import '../abstracts/mixins';
+@import "../../fonts/OpenSans/font.css";
 body {
     color: $text-color;
     background: $bg-main-color;
@@ -2886,95 +2887,137 @@ div.custom-panel {
 .product-new-page {
     max-width: 1920px !important;
     justify-content: center;
+    font-family: 'Open Sans', sans-serif !important;
+
+    @include Mobile {
+        margin-top: 18px !important;
+    }
 
     .page-title {
         text-align: center;
+
         .text {
             font-size: 34px !important;
             color: #FAB617 !important;
             font-weight: 700;
             text-transform: uppercase;
+
+            @include Mobile {
+                line-height: unset;
+                font-size: 20px !important;
+            }
         }
     }
 
     .product-block {
         margin: 15px 0;
+        display: flex;
+        border-radius: 12px;
+        background: linear-gradient(90deg, #151E2F 0%, #192F56 100%);
+
+
+        @include Mobile {
+            margin: 10px 0;
+            border-radius: 8px;
+        }
+
+        .sport-left-block, .sport-right-block {
+            min-width: 420px;
+            min-height: 390px;
+            background-size: calc(100%), cover;
+            background-repeat: no-repeat;
+
+            @include Mobile {
+                min-width: 173px;
+                min-height: 330px;
+                background-size: calc(100%), cover !important;
+                background-repeat: no-repeat !important;
+            }
+        }
 
         .sportbooks-block {
-            margin: 30px 10px;
-            padding: 70px 0;
-            background: url('../../Images/product/N8G_AFFF_PRODUCT_Sportsbook.png'), #152849;
-            background-position: right, center;
-            background-size: auto calc(100%), cover;
-            background-repeat: no-repeat;
+            background: url('../../Images/product/N8G_AFFF_PRODUCT_Sportsbook.png') center bottom;
+
+            @include Mobile {
+                background: url('../../Images/product/N8G_AFFF_PRODUCT_SPORTSBOOK_Mobile.png') center bottom;
+            }
         }
 
         .live-casino-block {
-            margin: 30px 10px;
-            padding: 70px 0;
-            background: url('../../Images/product/N8G_AFFF_PRODUCT_Live-Casino.png'), #152849;
-            background-position: right, center;
-            background-size: auto calc(100%), cover;
-            background-repeat: no-repeat;
+            background: url('../../Images/product/N8G_AFFF_PRODUCT_Live-Casino.png') center bottom;
+
+            @include Mobile {
+                background: url('../../Images/product/N8G_AFFF_LIVE-CASINO-_Mobile.png') center bottom;
+            }
         }
 
         .slots-block {
-            margin: 30px 10px;
-            padding: 70px 0;
-            background: url('../../Images/product/N8G_AFFF_PRODUCT_SLOT.png'), #152849;
-            background-position: right, center;
-            background-size: auto calc(100%), cover;
-            background-repeat: no-repeat;
+            background: url('../../Images/product/N8G_AFFF_PRODUCT_SLOTS.png') center bottom;
+
+            @include Mobile {
+                background: url('../../Images/product/N8G_AFFF_PRODUCT_SLOTS_Mobile.png') center bottom;
+            }
         }
 
         .esports-block {
-            margin: 30px 10px;
-            padding: 70px 0;
-            background: url('../../Images/product/N8G_AFFF_PRODUCT_ESPORTS.png'), #152849;
-            background-position: right, center;
-            background-size: auto calc(100%), cover;
-            background-repeat: no-repeat;
+            background: url('../../Images/product/N8G_AFFF_PRODUCT_ESPORTS.png') center bottom;
+
+            @include Mobile {
+                background: url('../../Images/product/N8G_AFFF_PRODUCT_Esports_Mobile.png') center bottom;
+            }
         }
 
         .lottery-block {
-            margin: 30px 10px;
-            padding: 70px 0;
-            background: url('../../Images/product/N8G_AFFF_PRODUCT_LOTTERY.png'), #152849;
-            background-position: right, center;
-            background-size: auto calc(100%), cover;
-            background-repeat: no-repeat;
+            background: url('../../Images/product/N8G_AFFF_PRODUCT_LOTTERY.png') center bottom;
+
+            @include Mobile {
+                background: url('../../Images/product/N8G_AFFF_PRODUCT_LOTTERY_Mobile.png') center bottom;
+            }
         }
 
         .fishing-block {
-            margin: 30px 10px;
-            padding: 70px 0;
-            background: url('../../Images/product/N8G_AFFF_PRODUCT_FISHING.png'), #152849;
-            background-position: right, center;
-            background-size: auto calc(100%), cover;
-            background-repeat: no-repeat;
+            background: url('../../Images/product/N8G_AFFF_PRODUCT_FISHING.png') center bottom;
+
+            @include Mobile {
+                background: url('../../Images/product/N8G_AFFF_PRODUCT_FISHING-_Mobile.png') center bottom;
+            }
         }
 
         .number-game-block {
-            margin: 30px 10px;
-            padding: 70px 0;
-            background: url('../../Images/product/N8G_AFFF_PRODUCT_NUMBER-GAMES.png'), #152849;
-            background-position: right, center;
-            background-size: auto calc(100%), cover;
-            background-repeat: no-repeat;
+            background: url('../../Images/product/N8G_AFFF_PRODUCT_Number-Game.png') center bottom;
+
+            @include Mobile {
+                background: url('../../Images/product/N8G_AFFF_PRODUCT_Number-Game_Mobile.png') center bottom;
+            }
         }
 
         .keno-block {
-            margin: 30px 10px;
-            padding: 70px 0;
-            background: url('../../Images/product/N8G_AFFF_PRODUCT_KENO.png'), #152849;
-            background-position: right, center;
-            background-size: auto calc(100%), cover;
-            background-repeat: no-repeat;
+            background: url('../../Images/product/N8G_AFFF_PRODUCT_KENO.png') center bottom;
+
+            @include Mobile {
+                background: url('../../Images/product/N8G_AFFF_PRODUCT_KENNO_Mobile.png') center bottom;
+            }
         }
 
         .product-info {
-            margin-left: 30px;
-            max-width: 314px;
+            margin: 0;
+            padding: 70px 34px;
+            text-align: justify;
+
+            @media only screen and (max-width: 390px) {
+                margin: 0;
+                padding: 0px 10px !important;
+            }
+
+            @include Mobile {
+                margin: 0;
+                padding: 20px 10px;
+            }
+
+            @media only screen and (max-width: 820px) {
+                margin: 0;
+                padding: 20px 10px;
+            }
 
             .product-title, .product-content {
                 text-align: left;
@@ -2986,6 +3029,10 @@ div.custom-panel {
                     font-weight: 700;
                     color: #FAB617;
                     text-transform: uppercase;
+
+                    @include Mobile {
+                        font-size: 20px;
+                    }
                 }
             }
 
@@ -2994,6 +3041,21 @@ div.custom-panel {
                 line-height: 24px;
                 color: #FFFFFF;
                 text-align: justify;
+
+                @include Mobile {
+                    font-size: 14px;
+                    line-height: 22px;
+                }
+
+                p {
+                    font-size: 16px !important;
+                    line-height: 24px !important;
+
+                    @include Mobile {
+                        font-size: 14px !important;
+                        line-height: 22px !important;
+                    }
+                }
             }
         }
     }

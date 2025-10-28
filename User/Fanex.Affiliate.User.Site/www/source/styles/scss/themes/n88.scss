@@ -1,5 +1,6 @@
 ﻿@import "../abstracts/variables-n88";
 @import '../abstracts/mixins';
+@import "../../fonts/OpenSans/font.css";
 
 .btn {
     border-radius: 4px;
@@ -1501,116 +1502,152 @@ select.form-control {
     }
 }
 
+.main-content {
+    @media (max-width: 1024px) {
+        margin: 0 !important;
+        padding: 15px 0 !important;
+    }
+
+    .content {
+        @media (max-width: 1024px) {
+            padding: 0 15px !important;
+        }
+    }
+}
+
 .product-new-page {
     max-width: 1920px !important;
     justify-content: center;
+    font-family: 'Open Sans', sans-serif !important;
+
+    .page-title {
+        text-align: center;
+
+        .text {
+            font-size: 34px !important;
+            color: linear-gradient(180deg, #DD5000 0%, #EA5500 50%, #DD5000 100%);
+            font-weight: 700;
+            text-transform: uppercase;
+
+            @include Mobile {
+                line-height: unset;
+                font-size: 20px !important;
+            }
+        }
+    }
 
     .product-block {
         margin: 15px 0;
+        display: flex;
+        background: linear-gradient(to right, #001332 0%, #002766 100%);
+        border-radius: 12px;
+
+
+        @include Mobile {
+            margin: 10px 0;
+            border-radius: 8px;
+        }
+
+        .sport-left-block, .sport-right-block {
+            min-width: 420px;
+            min-height: 390px;
+            background-size: calc(100%), cover;
+            background-repeat: no-repeat !important;
+
+
+
+            @include Mobile {
+                min-width: 173px;
+                min-height: 330px;
+                background-size: calc(100%), cover !important;
+                background-repeat: no-repeat !important;
+            }
+        }
 
         .sportbooks-block {
-            margin: 30px 10px;
-            padding: 70px 0;
-            border-radius: 12px;
-            background: url('../../Images/product/NV88_AFFF_PRODUCT_SPORTSBOOK.png'), linear-gradient(to right, #001332 0%, #002766 100%);
-            background-position: left 20px, center;
-            background-size: auto calc(100% - 20px), cover;
-            background-repeat: no-repeat;
-            padding-left: 320px;
+            background: url('../../Images/product/NV88_AFFF_PRODUCT_SPORTSBOOK.png') center bottom;
+
+            @include Mobile {
+                background: url('../../Images/product/NV88_AFFF_PRODUCT_SPORTSBOOK_MOBILE.png') center bottom;
+            }
         }
 
         .live-casino-block {
-            margin: 30px 10px;
-            padding: 70px 0;
-            border-radius: 12px;
-            background: url('../../Images/product/NV88_AFFF_PRODUCT_Live-Casino.png'), linear-gradient(to right, #001332 0%, #002766 100%);
-            background-position: right 20px, center;
-            background-size: auto calc(100% - 20px), cover;
-            background-repeat: no-repeat;
+            background: url('../../Images/product/NV88_AFFF_PRODUCT_Live-Casino.png') center bottom;
 
-            .product-info {
-                max-width: 70%;
+            @include Mobile {
+                background: url('../../Images/product/NV88_AFFF_PRODUCT_Live-Casino_Mobile.png') center bottom;
             }
         }
 
         .slots-block {
-            margin: 30px 10px;
-            padding: 70px 0;
-            border-radius: 12px;
-            background: url('../../Images/product/NV88_AFFF_PRODUCT_Slots.png'), linear-gradient(to right, #001332 0%, #002766 100%);
-            background-position: left 20px, center;
-            background-size: auto calc(100% - 20px), cover;
-            background-repeat: no-repeat;
-            padding-left: 320px;
+            background: url('../../Images/product/NV88_AFFF_PRODUCT_Slots.png') center bottom;
+
+            @include Mobile {
+                background: url('../../Images/product/NV88_AFFF_PRODUCT_Slots_Mobile.png') center bottom;
+            }
         }
 
         .esports-block {
-            margin: 30px 10px;
-            padding: 70px 0;
-            border-radius: 12px;
-            background: url('../../Images/product/NV88_AFFF_PRODUCT_Esports.png'), linear-gradient(to right, #001332 0%, #002766 100%);
-            background-position: right 20px, center;
-            background-size: auto calc(100% - 20px), cover;
-            background-repeat: no-repeat;
+            background: url('../../Images/product/NV88_AFFF_PRODUCT_Esports.png') center bottom;
 
-            .product-info {
-                max-width: 70%;
+            @include Mobile {
+                background: url('../../Images/product/NV88_AFFF_PRODUCT_Esports_Mobile.png') center bottom;
             }
         }
 
         .lottery-block {
-            margin: 30px 10px;
-            padding: 70px 0;
-            border-radius: 12px;
-            background: url('../../Images/product/NV88_AFFF_PRODUCT_Lottery.png'), linear-gradient(to right, #001332 0%, #002766 100%);
-            background-position: left 20px, center;
-            background-size: auto calc(100% - 20px), cover;
-            background-repeat: no-repeat;
-            padding-left: 320px;
+            background: url('../../Images/product/NV88_AFFF_PRODUCT_Lottery.png') center bottom;
+
+            @include Mobile {
+                background: url('../../Images/product/NV88_AFFF_PRODUCT_Lottery_Mobile.png') center bottom;
+            }
         }
 
         .fishing-block {
-            margin: 30px 10px;
-            padding: 70px 0;
-            border-radius: 12px;
-            background: url('../../Images/product/NV88_AFFF_PRODUCT_FISHING.png'), linear-gradient(to right, #001332 0%, #002766 100%);
-            background-position: right 20px, center;
-            background-size: auto calc(100% - 20px), cover;
-            background-repeat: no-repeat;
+            background: url('../../Images/product/NV88_AFFF_PRODUCT_FISHING.png') center bottom;
 
-            .product-info {
-                max-width: 70%;
+            @include Mobile {
+                background: url('../../Images/product/NV88_AFFF_PRODUCT_FISHING_Mobile.png') center bottom;
             }
         }
 
         .number-game-block {
-            margin: 30px 10px;
-            padding: 70px 0;
-            border-radius: 12px;
-            background: url('../../Images/product/NV88_AFFF_PRODUCT_Number-games.png'), linear-gradient(to right, #001332 0%, #002766 100%);
-            background-position: left 20px, center;
-            background-size: auto calc(100% - 20px), cover;
-            background-repeat: no-repeat;
-            padding-left: 320px;
+            background: url('../../Images/product/NV88_AFFF_PRODUCT_Number-games.png') center bottom;
+
+            @include Mobile {
+                background: url('../../Images/product/NV88_AFFF_PRODUCT_Number-games_Mobile.png') center bottom;
+            }
         }
 
         .keno-block {
-            margin: 30px 10px;
-            padding: 70px 0;
-            border-radius: 12px;
-            background: url('../../Images/product/NV88_AFFF_PRODUCT_Kenno.png'), linear-gradient(to right, #001332 0%, #002766 100%);
-            background-position: right 20px, center;
-            background-size: auto calc(100% - 20px), cover;
-            background-repeat: no-repeat;
+            background: url('../../Images/product/NV88_AFFF_PRODUCT_Kenno.png') center bottom;
 
-            .product-info {
-                max-width: 70%;
+            @include Mobile {
+                background: url('../../Images/product/NV88_AFFF_PRODUCT_KENNO_Mobile.png') center bottom;
             }
         }
 
         .product-info {
-            margin-left: 30px;
-            max-width: 80%;
+            margin: 0;
+            padding: 70px 34px;
+            text-align: justify;
+
+            @media only screen and (max-width: 390px) {
+                margin: 0;
+                padding: 0px 10px !important;
+            }
+
+            @include Mobile {
+                margin: 0;
+                padding: 20px 10px;
+            }
+
+            @media only screen and (max-width: 820px) {
+                margin: 0;
+                padding: 20px 10px;
+            }
+
 
             .product-title, .product-content {
                 text-align: left;
@@ -1622,6 +1659,10 @@ select.form-control {
                     font-weight: 700;
                     color: #EA5500;
                     text-transform: uppercase;
+
+                    @include Mobile {
+                        font-size: 20px;
+                    }
                 }
             }
 
@@ -1630,6 +1671,21 @@ select.form-control {
                 line-height: 24px;
                 color: #FFFFFF;
                 text-align: justify;
+
+                @include Mobile {
+                    font-size: 14px;
+                    line-height: 22px;
+                }
+            }
+
+            p {
+                font-size: 16px !important;
+                line-height: 24px !important;
+
+                @include Mobile {
+                    font-size: 14px !important;
+                    line-height: 22px !important;
+                }
             }
         }
     }

@@ -1387,7 +1387,7 @@
     <value>โปรดกรอกCaptcha ที่แสดงด้านข้าง</value>
   </data>
   <data name="NumberGame" xml:space="preserve">
-    <value>เกมส์หมายเลข</value>
+    <value>เกมตัวเลข</value>
   </data>
   <data name="RngCasino" xml:space="preserve">
     <value>เกมส์คาสิโนแบบ RNG</value>

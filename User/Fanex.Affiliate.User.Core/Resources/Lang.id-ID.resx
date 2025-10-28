@@ -1183,7 +1183,7 @@
     <value>B2C CASINO</value>
   </data>
   <data name="LiveCasino" xml:space="preserve">
-    <value>Live Casino</value>
+    <value>Live Kasino</value>
   </data>
   <data name="Dragon" xml:space="preserve">
     <value>Naga/ Harimau</value>
@@ -1396,7 +1396,7 @@
     <value>ALLBET</value>
   </data>
   <data name="NumberGame" xml:space="preserve">
-    <value>Number Game</value>
+    <value>Permainan Angka</value>
   </data>
   <data name="RngCasino" xml:space="preserve">
     <value>RNG CASINO</value>
