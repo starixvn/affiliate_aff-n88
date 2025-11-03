@@ -2867,7 +2867,6 @@ div.custom-panel {
         .content-block {
             background: #192F56 !important;
             color: #D5D5D5 !important;
-            font-size: 1.6rem !important;
 
             & > ul, > ol {
                 padding-left: 10px;
@@ -2875,10 +2874,6 @@ div.custom-panel {
                 & > li::before {
                     background: #FAB617 !important;
                 }
-            }
-
-            > p {
-                font-size: 1.6rem !important;
             }
         }
     }
@@ -3045,6 +3040,7 @@ div.custom-panel {
                 @include Mobile {
                     font-size: 14px;
                     line-height: 22px;
+                    text-align: left;
                 }
 
                 p {
