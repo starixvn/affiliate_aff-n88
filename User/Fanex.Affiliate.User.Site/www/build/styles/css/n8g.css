@@ -1,4 +1,5 @@
-﻿body {
+﻿@import "../../fonts/OpenSans/font.css";
+body {
   color: #BAC2D2;
   background: #152849;
   font-family: "Roboto", sans-serif;
@@ -308,6 +309,15 @@ select {
   padding-left: 0;
 }
 
+.page-container .content .title-container .title {
+  color: #FAB617 !important;
+}
+.page-container .content .title-container span {
+  background-color: #152849 !important;
+}
+.page-container .content .title-container .button-toggle {
+  background: #FAB617 !important;
+}
 .page-container .content .title-block {
   color: #FAB617;
   font-weight: bold;
@@ -2106,6 +2116,10 @@ div.custom-panel {
   line-height: 24px;
   letter-spacing: 0.02em;
 }
+.page-container .new-content .faq-content {
+  max-width: 1296px !important;
+  margin: auto;
+}
 
 @media only screen and (max-width: 1199px) {
   .page-container .content {
@@ -2138,5 +2152,218 @@ div.custom-panel {
     white-space: nowrap;
     display: flex;
     overflow: scroll;
+  }
+}
+.new-content .page-title {
+  text-align: center;
+}
+.new-content .page-title span.text {
+  color: #FAB617 !important;
+}
+.new-content .content-group .page-title span {
+  color: #FAB617 !important;
+}
+.new-content .content-group .index-number {
+  color: #D5D5D5 !important;
+}
+.new-content .content-group .title-container .title {
+  color: #FAB617 !important;
+}
+.new-content .content-group .title-container .title span {
+  background-color: #152849 !important;
+}
+.new-content .content-group .title-container .title:after {
+  background: #D5D5D5 !important;
+}
+.new-content .content-group .title-container .button-toggle {
+  background: #FAB617 !important;
+}
+.new-content .content-group .content-block {
+  background: #192F56 !important;
+  color: #D5D5D5 !important;
+  font-size: 1.6rem !important;
+}
+.new-content .content-group .content-block > ul, .new-content .content-group .content-block > ol {
+  padding-left: 10px;
+}
+.new-content .content-group .content-block > ul > li::before, .new-content .content-group .content-block > ol > li::before {
+  background: #FAB617 !important;
+}
+.new-content .content-group .content-block > p {
+  font-size: 1.6rem !important;
+}
+
+.product-new-page {
+  max-width: 1920px !important;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif !important;
+}
+@media (max-width: 767px) {
+  .product-new-page {
+    margin-top: 18px !important;
+  }
+}
+.product-new-page .page-title {
+  text-align: center;
+}
+.product-new-page .page-title .text {
+  font-size: 34px !important;
+  color: #FAB617 !important;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+@media (max-width: 767px) {
+  .product-new-page .page-title .text {
+    line-height: unset;
+    font-size: 20px !important;
+  }
+}
+.product-new-page .product-block {
+  margin: 15px 0;
+  display: flex;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #151E2F 0%, #192F56 100%);
+}
+@media (max-width: 767px) {
+  .product-new-page .product-block {
+    margin: 10px 0;
+    border-radius: 8px;
+  }
+}
+.product-new-page .product-block .sport-left-block, .product-new-page .product-block .sport-right-block {
+  min-width: 420px;
+  min-height: 390px;
+  background-size: 100%, cover;
+  background-repeat: no-repeat;
+}
+@media (max-width: 767px) {
+  .product-new-page .product-block .sport-left-block, .product-new-page .product-block .sport-right-block {
+    min-width: 173px;
+    min-height: 330px;
+    background-size: 100%, cover !important;
+    background-repeat: no-repeat !important;
+  }
+}
+.product-new-page .product-block .sportbooks-block {
+  background: url("../../../source/styles/Images/product/N8G_AFFF_PRODUCT_Sportsbook.png") center bottom;
+}
+@media (max-width: 767px) {
+  .product-new-page .product-block .sportbooks-block {
+    background: url("../../../source/styles/Images/product/N8G_AFFF_PRODUCT_SPORTSBOOK_Mobile.png") center bottom;
+  }
+}
+.product-new-page .product-block .live-casino-block {
+  background: url("../../../source/styles/Images/product/N8G_AFFF_PRODUCT_Live-Casino.png") center bottom;
+}
+@media (max-width: 767px) {
+  .product-new-page .product-block .live-casino-block {
+    background: url("../../../source/styles/Images/product/N8G_AFFF_LIVE-CASINO-_Mobile.png") center bottom;
+  }
+}
+.product-new-page .product-block .slots-block {
+  background: url("../../../source/styles/Images/product/N8G_AFFF_PRODUCT_SLOTS.png") center bottom;
+}
+@media (max-width: 767px) {
+  .product-new-page .product-block .slots-block {
+    background: url("../../../source/styles/Images/product/N8G_AFFF_PRODUCT_SLOTS_Mobile.png") center bottom;
+  }
+}
+.product-new-page .product-block .esports-block {
+  background: url("../../../source/styles/Images/product/N8G_AFFF_PRODUCT_ESPORTS.png") center bottom;
+}
+@media (max-width: 767px) {
+  .product-new-page .product-block .esports-block {
+    background: url("../../../source/styles/Images/product/N8G_AFFF_PRODUCT_Esports_Mobile.png") center bottom;
+  }
+}
+.product-new-page .product-block .lottery-block {
+  background: url("../../../source/styles/Images/product/N8G_AFFF_PRODUCT_LOTTERY.png") center bottom;
+}
+@media (max-width: 767px) {
+  .product-new-page .product-block .lottery-block {
+    background: url("../../../source/styles/Images/product/N8G_AFFF_PRODUCT_LOTTERY_Mobile.png") center bottom;
+  }
+}
+.product-new-page .product-block .fishing-block {
+  background: url("../../../source/styles/Images/product/N8G_AFFF_PRODUCT_FISHING.png") center bottom;
+}
+@media (max-width: 767px) {
+  .product-new-page .product-block .fishing-block {
+    background: url("../../../source/styles/Images/product/N8G_AFFF_PRODUCT_FISHING-_Mobile.png") center bottom;
+  }
+}
+.product-new-page .product-block .number-game-block {
+  background: url("../../../source/styles/Images/product/N8G_AFFF_PRODUCT_Number-Game.png") center bottom;
+}
+@media (max-width: 767px) {
+  .product-new-page .product-block .number-game-block {
+    background: url("../../../source/styles/Images/product/N8G_AFFF_PRODUCT_Number-Game_Mobile.png") center bottom;
+  }
+}
+.product-new-page .product-block .keno-block {
+  background: url("../../../source/styles/Images/product/N8G_AFFF_PRODUCT_KENO.png") center bottom;
+}
+@media (max-width: 767px) {
+  .product-new-page .product-block .keno-block {
+    background: url("../../../source/styles/Images/product/N8G_AFFF_PRODUCT_KENNO_Mobile.png") center bottom;
+  }
+}
+.product-new-page .product-block .product-info {
+  margin: 0;
+  padding: 70px 34px;
+  text-align: justify;
+}
+@media only screen and (max-width: 390px) {
+  .product-new-page .product-block .product-info {
+    margin: 0;
+    padding: 0px 10px !important;
+  }
+}
+@media (max-width: 767px) {
+  .product-new-page .product-block .product-info {
+    margin: 0;
+    padding: 20px 10px;
+  }
+}
+@media only screen and (max-width: 820px) {
+  .product-new-page .product-block .product-info {
+    margin: 0;
+    padding: 20px 10px;
+  }
+}
+.product-new-page .product-block .product-info .product-title, .product-new-page .product-block .product-info .product-content {
+  text-align: left;
+}
+.product-new-page .product-block .product-info .product-title h2 {
+  font-size: 34px;
+  font-weight: 700;
+  color: #FAB617;
+  text-transform: uppercase;
+}
+@media (max-width: 767px) {
+  .product-new-page .product-block .product-info .product-title h2 {
+    font-size: 20px;
+  }
+}
+.product-new-page .product-block .product-info .product-content {
+  font-size: 16px;
+  line-height: 24px;
+  color: #FFFFFF;
+  text-align: justify;
+}
+@media (max-width: 767px) {
+  .product-new-page .product-block .product-info .product-content {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
+.product-new-page .product-block .product-info .product-content p {
+  font-size: 16px !important;
+  line-height: 24px !important;
+}
+@media (max-width: 767px) {
+  .product-new-page .product-block .product-info .product-content p {
+    font-size: 14px !important;
+    line-height: 22px !important;
   }
 }
