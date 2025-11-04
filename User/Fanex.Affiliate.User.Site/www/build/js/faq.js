@@ -13,6 +13,16 @@ var Faq = (function ($) {
                
                 $(this).closest('.title-container').next().slideToggle(300);
             });
+
+            $(".title-block .title span").click(function () {
+                if ($(this).closest('.title').next().hasClass('open')) {
+                    $(this).closest('.title').next().removeClass('open');
+                } else {
+                    $(this).closest('.title').next().addClass('open');
+                }
+
+                $(this).closest('.title-container').next().slideToggle(300);
+            });
         }
     };
 
