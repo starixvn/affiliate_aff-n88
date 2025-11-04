@@ -4,16 +4,26 @@
     Layout = "~/Views/Shared/_LayoutBeforeLogin.cshtml";
 }
 
+@section styles{
+    @Html.InlineStyles("~/www/build/styles/css/faq.css")
+}
+
+@section scripts{
+    @Html.InlineScripts("~/www/build/js/terms-and-conditions.js")
+}
+
 @{
     var htmlString = Html.RenderPartialByLanguage($"~/Views/TermAndCondition/_Content", Model.CurrentLanguage, Model.SiteFriendlyName);
 }
 
-<div class="content term-condition-page">
-    <div class="page-title">
-        <span class="text">@Lang.TermAndCondition</span>
+<div class="content new-content term-condition-page">
+    <div class="faq-content">
+        <div class="page-title">
+            <span class="text">@Lang.TermAndCondition</span>
+        </div>
+
+        @Html.Raw(htmlString)
+
+        @RazorHelper.RenderMovingTopButton()
     </div>
-
-    @Html.Raw(htmlString)
-
-    @RazorHelper.RenderMovingTopButton()
 </div>

@@ -1183,7 +1183,7 @@
     <value>B2C CASINO</value>
   </data>
   <data name="LiveCasino" xml:space="preserve">
-    <value>Live Casino</value>
+    <value>Live Kasino</value>
   </data>
   <data name="Dragon" xml:space="preserve">
     <value>Naga/ Harimau</value>
@@ -1396,7 +1396,7 @@
     <value>ALLBET</value>
   </data>
   <data name="NumberGame" xml:space="preserve">
-    <value>Number Game</value>
+    <value>Permainan Angka</value>
   </data>
   <data name="RngCasino" xml:space="preserve">
     <value>RNG CASINO</value>
@@ -1875,5 +1875,23 @@ Jika Anda memerlukan banner baru atau ingin meminta banner kustom, silakan hubun
   </data>
   <data name="SomethingWentWrong" xml:space="preserve">
     <value>Terjadi kesalahan. Silakan coba lagi nanti.</value>
+  </data>
+  <data name="Keno" xml:space="preserve">
+    <value>Keno</value>
+  </data>
+  <data name="Fishing" xml:space="preserve">
+    <value>Memancing</value>
+  </data>
+  <data name="Slots" xml:space="preserve">
+    <value>Slot</value>
+  </data>
+  <data name="Esports" xml:space="preserve">
+    <value>Esports</value>
+  </data>
+  <data name="Lottery" xml:space="preserve">
+    <value>Lottery</value>
+  </data>
+  <data name="Our_Products" xml:space="preserve">
+    <value>PRODUK KAMI</value>
   </data>
 </root>

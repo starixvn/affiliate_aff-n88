@@ -1,16 +1,60 @@
 ﻿[
+  //  {
+  //    "outputFile": "www/build/js/layout/n88.js",
+  //    "inputFile": "www/source/js/layout/n88.js"
+  //  },
+  //  {
+  //    "outputFile": "www/build/js/layout/n88-after-login.js",
+  //    "inputFile": "www/source/js/layout/n88-after-login.js"
+  //  },
+  //  {
+  //    "outputFile": "www/build/styles/css/main.css",
+  //    "inputFile": "www/source/styles/scss/main.scss"
+  //  },
+  //  {
+  //    "outputFile": "www/build/styles/css/main/n88.css",
+  //    "inputFile": "www/source/styles/scss/main/n88.scss"
+  //  },
+  //  {
+  //    "outputFile": "www/build/styles/css/main/n88-after-login.css",
+  //    "inputFile": "www/source/styles/scss/main/n88-after-login.scss"
+  //  },
+  //  {
+  //    "outputFile": "www/build/js/n88/left-menu-panel.js",
+  //    "inputFile": "www/source/js/pages/n88/left-menu-panel.js"
+  //  },
+  //  {
+  //    "outputFile": "www/build/js/n88/left-menu-panel-has-sub.js",
+  //    "inputFile": "www/source/js/pages/n88/left-menu-panel-has-sub.js"
+  //  },
+  //  {
+  //    "outputFile": "www/build/styles/css/bootstrap.css",
+  //    "inputFile": "www/source/styles/scss/vendors/_bootstrap.scss"
+  //  },
+  //  {
+  //    "outputFile": "www/build/styles/css/materialdesignicons.css",
+  //    "inputFile": "www/source/styles/scss/components/materialdesignicons.scss"
+  //  },
+  //  {
+  //    "outputFile": "www/build/styles/css/my-account.css",
+  //    "inputFile": "www/source/styles/pages/my-account.scss"
+  //  },
+  //  {
+  //    "outputFile": "www/build/styles/css/home.css",
+  //    "inputFile": "www/source/styles/pages/home.scss"
+  //  },
   {
-    "outputFile": "www/build/js/layout/n88.js",
-    "inputFile": "www/source/js/layout/n88.js"
+    "outputFile": "www/build/styles/css/faq.css",
+    "inputFile": "www/source/styles/pages/faq.scss"
   },
   //  {
   //    "outputFile": "www/build/styles/css/promotion.css",
   //    "inputFile": "www/source/styles/pages/promotion.scss"
   //  },
-    {
-      "outputFile": "www/build/styles/css/contact-us.css",
-      "inputFile": "www/source/styles/pages/contact-us.scss"
-    },
+  //  {
+  //    "outputFile": "www/build/styles/css/contact-us.css",
+  //    "inputFile": "www/source/styles/pages/contact-us.scss"
+  //  },
   //  {
   //    "outputFile": "www/build/styles/css/marketing.css",
   //    "inputFile": "www/source/styles/pages/marketing.scss"
@@ -107,10 +151,10 @@
   //    "outputFile": "www/build/styles/css/n8g.css",
   //    "inputFile": "www/source/styles/scss/themes/n8g.scss"
   //  },
-    {
-      "outputFile": "www/build/styles/css/n8b.css",
-      "inputFile": "www/source/styles/scss/themes/n8b.scss"
-    },
+  //  {
+  //    "outputFile": "www/build/styles/css/n8b.css",
+  //    "inputFile": "www/source/styles/scss/themes/n8b.scss"
+  //  },
   //  {
   //    "outputFile": "www/build/styles/css/n88.css",
   //    "inputFile": "www/source/styles/scss/themes/n88.scss"

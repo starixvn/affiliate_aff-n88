@@ -1186,7 +1186,7 @@
     <value>B2C CASINO</value>
   </data>
   <data name="LiveCasino" xml:space="preserve">
-    <value>Live Casino</value>
+    <value>Sòng bạc trực tuyến</value>
   </data>
   <data name="Dragon" xml:space="preserve">
     <value>Dragon/ Tiger</value>
@@ -1351,7 +1351,7 @@
     <value>Địa chỉ email</value>
   </data>
   <data name="Sportsbook" xml:space="preserve">
-    <value>SportsBook</value>
+    <value>CÁ CƯỢC THỂ THAO</value>
   </data>
   <data name="CasinoGame" xml:space="preserve">
     <value>Casino Game</value>
@@ -2148,5 +2148,23 @@ Nếu bạn cần banner mới hoặc muốn yêu cầu thiết kế banner tùy
   </data>
   <data name="SomethingWentWrong" xml:space="preserve">
     <value>Đã xảy ra lỗi. Vui lòng thử lại sau.</value>
+  </data>
+  <data name="Keno" xml:space="preserve">
+    <value>Keno</value>
+  </data>
+  <data name="Fishing" xml:space="preserve">
+    <value>Bắn cá</value>
+  </data>
+  <data name="Slots" xml:space="preserve">
+    <value>Quay hũ</value>
+  </data>
+  <data name="Esports" xml:space="preserve">
+    <value>Thể thao điện tử</value>
+  </data>
+  <data name="Lottery" xml:space="preserve">
+    <value>Xổ Số</value>
+  </data>
+  <data name="Our_Products" xml:space="preserve">
+    <value>SẢN PHẨM CỦA CHÚNG TÔI</value>
   </data>
 </root>

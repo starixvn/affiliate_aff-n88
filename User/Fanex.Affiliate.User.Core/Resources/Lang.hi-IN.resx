@@ -172,7 +172,7 @@
     <value>वर्चुअल स्पोर्ट्स</value>
   </data>
   <data name="NumberGame" xml:space="preserve">
-    <value>नंबर गेम</value>
+    <value>नंबर गेम्स</value>
   </data>
   <data name="RngKeno" xml:space="preserve">
     <value>आरएनजी केनो</value>
@@ -2122,5 +2122,23 @@ B2C सहयोगी की टीम&lt;br/&gt;&lt;br/&gt;
   </data>
   <data name="SomethingWentWrong" xml:space="preserve">
     <value>कुछ गलत हो गया है। कृपया बाद में पुनः प्रयास करें।</value>
+  </data>
+  <data name="Keno" xml:space="preserve">
+    <value>केनो</value>
+  </data>
+  <data name="Fishing" xml:space="preserve">
+    <value>फिशिंग</value>
+  </data>
+  <data name="Slots" xml:space="preserve">
+    <value>स्लॉट्स</value>
+  </data>
+  <data name="Esports" xml:space="preserve">
+    <value>ईस्पोर्ट्स</value>
+  </data>
+  <data name="Lottery" xml:space="preserve">
+    <value>लॉटरी</value>
+  </data>
+  <data name="Our_Products" xml:space="preserve">
+    <value>हमारे उत्पाद</value>
   </data>
 </root>

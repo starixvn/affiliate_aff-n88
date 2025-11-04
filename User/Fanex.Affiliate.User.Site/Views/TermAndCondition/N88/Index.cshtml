@@ -5,16 +5,20 @@
     Layout = "~/Views/Shared/N88/_LayoutBeforeLogin.cshtml";
 }
 
+@section styles{
+    @Html.InlineStyles("~/www/build/styles/css/faq.css")
+}
+
 @{
     var htmlString = Html.RenderPartialByLanguage($"~/Views/TermAndCondition/N88/_Content", Model.CurrentLanguage, Model.SiteFriendlyName);
 }
 
 @section scripts{
     @Html.InlineScripts("~/www/build/js/n88/left-menu-panel.js")
+    @Html.InlineScripts("~/www/build/js/terms-and-conditions.js")
 }
 
 <div class="main-content main-content-left-panel">
-    @RazorHelper.RenderLeftPanel(Menu.TermAndConditionMenuList)
     <div class="content">
         <div class="page-title">
             <span class="text">@Lang.TermAndCondition</span>

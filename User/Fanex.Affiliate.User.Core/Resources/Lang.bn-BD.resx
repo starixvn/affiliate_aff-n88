@@ -247,7 +247,7 @@
     <value>ভার্চুয়াল খেলাধুলা</value>
   </data>
   <data name="NumberGame" xml:space="preserve">
-    <value>গেম আর সংখ্যা</value>
+    <value>নম্বর গেমস</value>
   </data>
   <data name="RngKeno" xml:space="preserve">
     <value>RNG কেনো</value>
@@ -2128,5 +2128,23 @@
   </data>
   <data name="SomethingWentWrong" xml:space="preserve">
     <value>কিছু ভুল হয়েছে। অনুগ্রহ করে পরে আবার চেষ্টা করুন।</value>
+  </data>
+  <data name="Slots" xml:space="preserve">
+    <value>স্লট</value>
+  </data>
+  <data name="Keno" xml:space="preserve">
+    <value>কেনো</value>
+  </data>
+  <data name="Fishing" xml:space="preserve">
+    <value>ফিশিং</value>
+  </data>
+  <data name="Esports" xml:space="preserve">
+    <value>ইস্পোর্টস</value>
+  </data>
+  <data name="Lottery" xml:space="preserve">
+    <value>লটারি</value>
+  </data>
+  <data name="Our_Products" xml:space="preserve">
+    <value>আমাদের পণ্য</value>
   </data>
 </root>

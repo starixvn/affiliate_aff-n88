@@ -13,12 +13,19 @@
     @Html.InlineStyles("~/www/build/styles/css/faq.css")
 }
 
-<div class="content">
-    <div class="page-title">
-        <span class="text">@Lang.Faqs</span>
+
+@section scripts{
+    @Html.InlineScripts("~/www/build/js/faq.js")
+}
+
+<div class="content new-content">
+    <div class="faq-content">
+        <div class="page-title">
+            <span class="text">@Lang.Faqs</span>
+        </div>
+
+        @Html.Raw(htmlString)
+
+        @RazorHelper.RenderMovingTopButton()
     </div>
-
-    @Html.Raw(htmlString)
-
-    @RazorHelper.RenderMovingTopButton()
 </div>

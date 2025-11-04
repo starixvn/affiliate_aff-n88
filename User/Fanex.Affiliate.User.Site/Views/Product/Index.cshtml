@@ -12,18 +12,11 @@
     @Html.InlineStyles("~/www/build/styles/css/products.css")
 }
 
-<div class="content product-page">
+<div class="content product-page product-new-page">
     <div class="page-title">
-        <span class="text">@Lang.Product</span>
+        <span class="text">@Lang.Our_Products</span>
     </div>
 
     @Html.RenderPartialByLanguage("~/Views/Product/_Content", Model.CurrentLanguage, siteFriendlyName)
-
-    @if (!Model.IsAuthenticated)
-    {
-        <div class="col-sm-offset-3 col-sm-6 signup-block">
-            <a href="@Url.Content("~/SignUp")" class="btn btn-link btn-block nounderline">@SiteFriendlyNameHelper.ReplaceB2C(Lang.SignUpAffiliateProgramNow)</a>
-        </div>
-    }
     @RazorHelper.RenderMovingTopButton()
 </div>

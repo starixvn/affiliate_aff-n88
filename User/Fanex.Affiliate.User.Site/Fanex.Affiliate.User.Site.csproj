@@ -568,6 +568,10 @@
     <Content Include="www\build\js\daily-earning.min.js">
       <DependentUpon>daily-earning.js</DependentUpon>
     </Content>
+    <Content Include="www\build\js\faq.js" />
+    <Content Include="www\build\js\faq.min.js">
+      <DependentUpon>faq.js</DependentUpon>
+    </Content>
     <Content Include="www\build\js\forgotpassword.js" />
     <Content Include="www\build\js\forgotpassword.min.js">
       <DependentUpon>forgotpassword.js</DependentUpon>
@@ -728,6 +732,10 @@
     <Content Include="www\build\js\telegram-update-dialog.js" />
     <Content Include="www\build\js\telegram-update-dialog.min.js">
       <DependentUpon>telegram-update-dialog.js</DependentUpon>
+    </Content>
+    <Content Include="www\build\js\terms-and-conditions.js" />
+    <Content Include="www\build\js\terms-and-conditions.min.js">
+      <DependentUpon>terms-and-conditions.js</DependentUpon>
     </Content>
     <Content Include="www\build\js\user-panel.js" />
     <Content Include="www\build\js\user-panel.min.js">
@@ -900,6 +908,10 @@
     </Content>
     <Content Include="www\build\styles\fonts\noto-sans-sc\font.css" />
     <Content Include="www\build\styles\fonts\noto-sans-sc\font.min.css" />
+    <Content Include="www\build\styles\fonts\open-sans\font.css" />
+    <Content Include="www\build\styles\fonts\open-sans\font.min.css">
+      <DependentUpon>font.css</DependentUpon>
+    </Content>
     <Content Include="www\build\styles\fonts\tahoma\font.css" />
     <Content Include="www\build\styles\fonts\tahoma\font.min.css">
       <DependentUpon>font.css</DependentUpon>
@@ -1122,6 +1134,8 @@
     <Content Include="www\build\styles\Images\themes\n8b.png" />
     <Content Include="www\source\js\components\intlTelInput.js" />
     <Content Include="www\source\js\pages\contact-us.js" />
+    <Content Include="www\source\js\pages\faq.js" />
+    <Content Include="www\source\js\pages\terms-and-conditions.js" />
     <Content Include="www\source\js\pages\account-overview\account-overview.min.js">
       <DependentUpon>account-overview.js</DependentUpon>
     </Content>
@@ -1142,6 +1156,7 @@
     <Content Include="www\source\js\pages\promotion.js" />
     <Content Include="www\source\js\pages\statistics\marketing-statistics.js" />
     <Content Include="www\source\styles\fonts\noto-sans-sc\font.css" />
+    <Content Include="www\source\styles\fonts\OpenSans\font.css" />
     <Content Include="www\source\styles\Images\arrrow.png" />
     <Content Include="www\source\styles\Images\bg-Terms_&amp;_conditions_banner-bwing.png" />
     <Content Include="www\build\styles\Images\bg-Terms_&amp;_conditions_banner.png" />
@@ -1320,6 +1335,56 @@
     <Content Include="www\source\styles\Images\notify\iconnf.png" />
     <Content Include="www\source\styles\Images\notify\sry.png" />
     <Content Include="www\source\styles\Images\notify\srynf.png" />
+    <Content Include="www\source\styles\Images\product\N8B_AFFF_PRODUCT_ESPORTS.png" />
+    <Content Include="www\source\styles\Images\product\N8B_AFFF_PRODUCT_ESPORTS_MOBILE.png" />
+    <Content Include="www\source\styles\Images\product\N8B_AFFF_PRODUCT_FISHING.png" />
+    <Content Include="www\source\styles\Images\product\N8B_AFFF_PRODUCT_FISHING_MOBILE.png" />
+    <Content Include="www\source\styles\Images\product\N8B_AFFF_PRODUCT_KENNO.png" />
+    <Content Include="www\source\styles\Images\product\N8B_AFFF_PRODUCT_KENO_LIVE-CASINO.png" />
+    <Content Include="www\source\styles\Images\product\N8B_AFFF_PRODUCT_KENO_MOBILE.png" />
+    <Content Include="www\source\styles\Images\product\N8B_AFFF_PRODUCT_LIVE-CASINO.png" />
+    <Content Include="www\source\styles\Images\product\N8B_AFFF_PRODUCT_LOTTERY.png" />
+    <Content Include="www\source\styles\Images\product\N8B_AFFF_PRODUCT_LOTTERY_MOBILE.png" />
+    <Content Include="www\source\styles\Images\product\N8B_AFFF_PRODUCT_NUMBER-GAME.png" />
+    <Content Include="www\source\styles\Images\product\N8B_AFFF_PRODUCT_NUMBER-GAMES_MOBILE.png" />
+    <Content Include="www\source\styles\Images\product\N8B_AFFF_PRODUCT_SLOTS.png" />
+    <Content Include="www\source\styles\Images\product\N8B_AFFF_PRODUCT_SLOTS_MOBILE.png" />
+    <Content Include="www\source\styles\Images\product\N8B_AFFF_PRODUCT_SPORTSBOOK.png" />
+    <Content Include="www\source\styles\Images\product\N8B_AFFF_PRODUCT_SPORTSBOOK_MOBILE.png" />
+    <Content Include="www\source\styles\Images\product\N8G_AFFF_LIVE-CASINO-_Mobile.png" />
+    <Content Include="www\source\styles\Images\product\N8G_AFFF_PRODUCT_ESPORTS.png" />
+    <Content Include="www\source\styles\Images\product\N8G_AFFF_PRODUCT_Esports_Mobile.png" />
+    <Content Include="www\source\styles\Images\product\N8G_AFFF_PRODUCT_FISHING-_Mobile.png" />
+    <Content Include="www\source\styles\Images\product\N8G_AFFF_PRODUCT_FISHING.png" />
+    <Content Include="www\source\styles\Images\product\N8G_AFFF_PRODUCT_KENNO_Mobile.png" />
+    <Content Include="www\source\styles\Images\product\N8G_AFFF_PRODUCT_KENO.png" />
+    <Content Include="www\source\styles\Images\product\N8G_AFFF_PRODUCT_LIVE-CASINO.png" />
+    <Content Include="www\source\styles\Images\product\N8G_AFFF_PRODUCT_LOTTERY.png" />
+    <Content Include="www\source\styles\Images\product\N8G_AFFF_PRODUCT_LOTTERY_Mobile.png" />
+    <Content Include="www\source\styles\Images\product\N8G_AFFF_PRODUCT_Number-Game.png" />
+    <Content Include="www\source\styles\Images\product\N8G_AFFF_PRODUCT_Number-Game_Mobile.png" />
+    <Content Include="www\source\styles\Images\product\N8G_AFFF_PRODUCT_SLOTS.png" />
+    <Content Include="www\source\styles\Images\product\N8G_AFFF_PRODUCT_SLOTS_Mobile.png" />
+    <Content Include="www\source\styles\Images\product\N8G_AFFF_PRODUCT_SPORTSBOOK.png" />
+    <Content Include="www\source\styles\Images\product\N8G_AFFF_PRODUCT_SPORTSBOOK_Mobile.png" />
+    <Content Include="www\source\styles\Images\product\NV88_AFFF_PRODUCT_Esports.png" />
+    <Content Include="www\source\styles\Images\product\NV88_AFFF_PRODUCT_Esports_Mobile.png" />
+    <Content Include="www\source\styles\Images\product\NV88_AFFF_PRODUCT_FISHING.png" />
+    <Content Include="www\source\styles\Images\product\NV88_AFFF_PRODUCT_FISHING_Mobile.png" />
+    <Content Include="www\source\styles\Images\product\NV88_AFFF_PRODUCT_Kenno.png" />
+    <Content Include="www\source\styles\Images\product\NV88_AFFF_PRODUCT_KENNO_Mobile.png" />
+    <Content Include="www\source\styles\Images\product\NV88_AFFF_PRODUCT_KENO.png" />
+    <Content Include="www\source\styles\Images\product\NV88_AFFF_PRODUCT_Live-Casino.png" />
+    <Content Include="www\source\styles\Images\product\NV88_AFFF_PRODUCT_Live-Casino_Mobile.png" />
+    <Content Include="www\source\styles\Images\product\NV88_AFFF_PRODUCT_Lottery.png" />
+    <Content Include="www\source\styles\Images\product\NV88_AFFF_PRODUCT_Lottery_Mobile.png" />
+    <Content Include="www\source\styles\Images\product\NV88_AFFF_PRODUCT_Number-games.png" />
+    <Content Include="www\source\styles\Images\product\NV88_AFFF_PRODUCT_Number-games_Mobile.png" />
+    <Content Include="www\source\styles\Images\product\NV88_AFFF_PRODUCT_SLOT.png" />
+    <Content Include="www\source\styles\Images\product\NV88_AFFF_PRODUCT_Slots.png" />
+    <Content Include="www\source\styles\Images\product\NV88_AFFF_PRODUCT_Slots_Mobile.png" />
+    <Content Include="www\source\styles\Images\product\NV88_AFFF_PRODUCT_SPORTSBOOK.png" />
+    <Content Include="www\source\styles\Images\product\NV88_AFFF_PRODUCT_SPORTSBOOK_MOBILE.png" />
     <Content Include="www\source\styles\Images\shadown.png" />
     <Content Include="www\source\styles\scss\vendors\animate\animate.css" />
     <Content Include="www\source\styles\scss\vendors\animate\animate.min.css" />
@@ -1743,6 +1808,12 @@
     <Content Include="Views\Shared\Email\ContactUs\Content.id-ID.cshtml" />
     <Content Include="Views\Shared\Email\ContactUs\Content.ms-MY.cshtml" />
     <Content Include="Views\Shared\Email\ContactUs\Content.th-TH.cshtml" />
+    <Content Include="www\source\styles\fonts\OpenSans\OpenSans-Light.ttf" />
+    <Content Include="www\source\styles\fonts\OpenSans\OpenSans-Regular.ttf" />
+    <Content Include="www\source\styles\fonts\OpenSans\OpenSans-Medium.ttf" />
+    <Content Include="www\source\styles\fonts\OpenSans\OpenSans-SemiBold.ttf" />
+    <Content Include="www\source\styles\fonts\OpenSans\OpenSans-Bold.ttf" />
+    <Content Include="www\source\styles\fonts\OpenSans\OpenSans-ExtraBold.ttf" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

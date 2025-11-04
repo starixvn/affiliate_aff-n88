@@ -1188,7 +1188,7 @@ B2C合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
     <value>B2C 娱乐</value>
   </data>
   <data name="LiveCasino" xml:space="preserve">
-    <value>真人娱乐城</value>
+    <value>真人娱乐</value>
   </data>
   <data name="Dragon" xml:space="preserve">
     <value>龙虎</value>
@@ -1398,7 +1398,7 @@ B2C合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
     <value>AllBET</value>
   </data>
   <data name="NumberGame" xml:space="preserve">
-    <value>百练赛</value>
+    <value>数字游戏</value>
   </data>
   <data name="RngCasino" xml:space="preserve">
     <value>RNG赌场</value>
@@ -1891,5 +1891,23 @@ B2C合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
   </data>
   <data name="SomethingWentWrong" xml:space="preserve">
     <value>发送失败，请稍后重试</value>
+  </data>
+  <data name="Keno" xml:space="preserve">
+    <value>Keno</value>
+  </data>
+  <data name="Fishing" xml:space="preserve">
+    <value>钓鱼游戏</value>
+  </data>
+  <data name="Slots" xml:space="preserve">
+    <value>老虎机</value>
+  </data>
+  <data name="Esports" xml:space="preserve">
+    <value>电子竞技</value>
+  </data>
+  <data name="Lottery" xml:space="preserve">
+    <value>彩票</value>
+  </data>
+  <data name="Our_Products" xml:space="preserve">
+    <value>我们的产品</value>
   </data>
 </root>

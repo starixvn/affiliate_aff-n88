@@ -1,5 +1,11 @@
-﻿.contact {
-    max-width: calc(100% - 30px);
+﻿@import '../scss/abstracts/_mixins.scss';
+
+.contact {
+    padding: 15px 15px 0 15px !important;
+
+    .page-title {
+        text-align: center;
+    }
 
     .contact-description {
         font-size: 16px;
@@ -14,6 +20,11 @@
         background: #FFFFFF;
         border-radius: 4px;
         border: none;
+
+        @include Mobile {
+            display: flex;
+            flex-direction: column-reverse;
+        }
     }
 
     &.content {
@@ -61,6 +72,7 @@
         }
     }
 }
+
 .contact-form {
     .form-group {
         margin-left: 0 !important;

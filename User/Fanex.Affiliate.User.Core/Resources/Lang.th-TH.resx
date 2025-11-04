@@ -1387,7 +1387,7 @@
     <value>โปรดกรอกCaptcha ที่แสดงด้านข้าง</value>
   </data>
   <data name="NumberGame" xml:space="preserve">
-    <value>เกมส์หมายเลข</value>
+    <value>เกมตัวเลข</value>
   </data>
   <data name="RngCasino" xml:space="preserve">
     <value>เกมส์คาสิโนแบบ RNG</value>
@@ -1875,5 +1875,23 @@
   </data>
   <data name="SomethingWentWrong" xml:space="preserve">
     <value>เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้งในภายหลัง</value>
+  </data>
+  <data name="Keno" xml:space="preserve">
+    <value>คีโน</value>
+  </data>
+  <data name="Fishing" xml:space="preserve">
+    <value>เกมยิงปลา</value>
+  </data>
+  <data name="Slots" xml:space="preserve">
+    <value>สล็อต</value>
+  </data>
+  <data name="Esports" xml:space="preserve">
+    <value>อีสปอร์ต</value>
+  </data>
+  <data name="Lottery" xml:space="preserve">
+    <value>ล็อตเตอรี่</value>
+  </data>
+  <data name="Our_Products" xml:space="preserve">
+    <value>ผลิตภัณฑ์ที่ให้บริการ</value>
   </data>
 </root>

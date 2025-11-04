@@ -2235,4 +2235,22 @@ If you need a new banner or would like to request a custom banner, feel free to 
     <value>Monday - Friday&lt;br&gt;
 09:00-19:00 (GMT +7)</value>
   </data>
+  <data name="Slots" xml:space="preserve">
+    <value>Slots</value>
+  </data>
+  <data name="Esports" xml:space="preserve">
+    <value>Esports</value>
+  </data>
+  <data name="Lottery" xml:space="preserve">
+    <value>Lottery</value>
+  </data>
+  <data name="Fishing" xml:space="preserve">
+    <value>Fishing</value>
+  </data>
+  <data name="Keno" xml:space="preserve">
+    <value>Keno</value>
+  </data>
+  <data name="Our_Products" xml:space="preserve">
+    <value>Our Products</value>
+  </data>
 </root>
