@@ -1,5 +1,10 @@
 ﻿@model Fanex.Affiliate.User.Core.ViewModels.RevenueSharingStructureViewModel
-
+<div class="revenue-share-banner">
+    <div class="banner-title">
+        <div class="first-title">Struktur Pembagian</div>
+        <div>Pendapatan</div>
+    </div>
+</div>
 <div class="content-group">
     <div class="title-container">
         <div class="index-number">01</div>
@@ -9,9 +14,11 @@
         </div>
     </div>
     <div class="content-block">
-        <p>Permainan teratas dan produk taruhan online seperti Olahraga, Live Casino, Olahraga Maya, Keno, Permainan Slot, ditambah beragam pilihan permainan lainnya.</p>
-        <p>Merek terkenal dengan lebih dari 5 bahasa sehingga lebih mudah bagi Anda untuk menarik anggota.</p>
-        <p>Sarana pemasaran strategis yang memastikan konversi anggota dan tingkat retensi yang tinggi.</p>
+        <ul>
+            <li><p>Permainan teratas dan produk taruhan online seperti Olahraga, Live Casino, Olahraga Maya, Keno, Permainan Slot, ditambah beragam pilihan permainan lainnya.</p></li>
+            <li><p>Merek terkenal dengan lebih dari 5 bahasa sehingga lebih mudah bagi Anda untuk menarik anggota.</p></li>
+            <li><p>Sarana pemasaran strategis yang memastikan konversi anggota dan tingkat retensi yang tinggi.</p></li>
+        </ul>
     </div>
 </div>
 <div class="content-group">
@@ -23,10 +30,12 @@
         </div>
     </div>
     <div class="content-block">
-        <p>Tingkat pembagian penghasilan hingga @Model.MaxCommission</p>
-        <p>Tambahan 10% - merekrut teman untuk bergabung dengan program Afiliasi kami sebagai sub-afiliasi Anda dan dapatkan penghargaan Anda!</p>
-        <p>Sistem manajemen yang efektif dan mudah digunakan untuk pelacakan kinerja Anda.</p>
-        <p>Tim afiliasi yang ramah dan juga profesional selalu siap membantu Anda.</p>
+        <ul>
+            <li><p>Tingkat pembagian penghasilan hingga @Model.MaxCommission</p></li>
+            <li><p>Tambahan 10% - merekrut teman untuk bergabung dengan program Afiliasi kami sebagai sub-afiliasi Anda dan dapatkan penghargaan Anda!</p></li>
+            <li><p>Sistem manajemen yang efektif dan mudah digunakan untuk pelacakan kinerja Anda.</p></li>
+            <li><p>Tim afiliasi yang ramah dan juga profesional selalu siap membantu Anda.</p></li>
+        </ul>
     </div>
 </div>
 <div class="content-group">
@@ -39,9 +48,9 @@
     </div>
     <div class="content-block">
         <p>Pembagian hasil Anda terdiri dari dua bagian : (i) dari kerugian taruhan pemain yang Anda referensikan dan (ii) dari pembagian hasil afiliasi yang Anda referensikan:</p>
-        <p><strong>Struktur Komisi Regular:</strong></p>
+        <p><strong>i. Struktur Komisi Regular:</strong></p>
         @{ Html.RenderPartial($"~/Views/CommissionStructure/{Model.SiteName}/_RevenueShareTable.cshtml"); }
-        <p><<strong>Keuntungan Bersih Perusahaan:</strong> Keuntungan aktual yang tersisa dari kerugian bersih bulanan semua pemain yang Anda rekomendasikan ke @Model.SiteFriendlyName setelah dikurangi semua biaya terkait.</p>
+        <p><strong>Keuntungan Bersih Perusahaan:</strong> Keuntungan aktual yang tersisa dari kerugian bersih bulanan semua pemain yang Anda rekomendasikan ke @Model.SiteFriendlyName setelah dikurangi semua biaya terkait.</p>
         <p><strong>Pemain yang Memenuhi Syarat:</strong> Anggota dengan omset taruhan minimal USD 100,00 per bulan kalender.</p>
         <p>Jumlah dari pembagian hasil adalah minus pada bulan berjalan, akan diteruskan ke bulan berikutnya.</p>
         <p>Semua Affiliate dikenakan biaya administrasi dan pemasaran untuk pengakuisisi member.</p>
@@ -80,7 +89,7 @@
             <p class="text">(-5,000 - 500 - 150) × 25% = USD -1,412.50 (Lanjutkan ke bulan berikutnya)</p>
         </div>
         <p>
-            <strong>Struktur Sub Afiliasi:</strong> Anda berhak menerima tambahan 10% dari pembagian hasil afiliasi Anda,
+            <strong>ii. Struktur Sub Afiliasi:</strong> Anda berhak menerima tambahan 10% dari pembagian hasil afiliasi Anda,
             dan selama mereka membawa afiliasi lain, Anda juga dapat mengambil bagian dari pembagian hasil sub-afiliasi mereka juga!
         </p>
     </div>
@@ -98,7 +107,7 @@
         @{ Html.RenderPartial($"~/Views/CommissionStructure/{Model.SiteName}/_ExampleTable.cshtml"); }
     <p><strong>Gambaran 2:</strong> contoh untuk menunjukkan kepada Anda bagaimana perhitungan pembagian penghasilan Anda dari afiliasi yang anda referensikan (dan sub-afiliasi mereka)</p>
         <div class="img-support" style="max-width: 600px; margin: 15px auto;">
-            <img class="img-responsive" src="~/www/build/styles/Images/revenue-share-structure/@(Model.SiteName)/revenue-share-desktop.@(Model.CurrentLanguage).png" alt="hierarchy banner" />
+            <img class="img-responsive" src="~/www/build/styles/Images/revenue-share-structure/@(Model.SiteName)/revenue-share.@(Model.CurrentLanguage).png" alt="hierarchy banner" />
         </div>
         <p> Pembagian penghasilan Anda diperoleh dari afiliasi yang Anda referensikan:</p>
         <div>
@@ -126,7 +135,9 @@
         </div>
     </div>
     <div class="content-block">
-        <p>Sekali dalam sebulan, melalui akun pemain @Model.SiteFriendlyName Anda (USD, THB, MYR, IDR, INR, CNY, BDT &amp; VND) dan minimum jumlah penarikan adalah 100 USD (atau dalam mata uang yang setara). Untuk mata uang yang lain perlu mengajukan ke tim Afiliasi @Model.SiteFriendlyName.</p>
-        <p>Setiap permintaan penarikan kedua di bulan yang sama harus tunduk pada persetujuan tim Afiliasi @Model.SiteFriendlyName.</p>
+        <ul>
+            <li><p>Sekali dalam sebulan, melalui akun pemain @Model.SiteFriendlyName Anda (USD, THB, MYR, IDR, INR, CNY, BDT &amp; VND) dan minimum jumlah penarikan adalah 100 USD (atau dalam mata uang yang setara). Untuk mata uang yang lain perlu mengajukan ke tim Afiliasi @Model.SiteFriendlyName.</p></li>
+            <li><p>Setiap permintaan penarikan kedua di bulan yang sama harus tunduk pada persetujuan tim Afiliasi @Model.SiteFriendlyName.</p></li>
+        </ul>
     </div>
 </div>

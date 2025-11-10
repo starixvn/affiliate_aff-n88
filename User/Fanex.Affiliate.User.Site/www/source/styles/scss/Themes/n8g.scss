@@ -3061,28 +3061,66 @@ div.custom-panel {
     }
 }
 
-.revenue-share-banner {
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
-    min-height: 500px;
-    background: url('../../Images/revenue-share/revenue-share-banner.png') center;
-    display: flex;
 
-    .banner-title {
-        font-family: Open Sans;
-        font-weight: 700;
-        font-size: 48px;
-        text-transform: uppercase;
-        display: flex;
-        margin: auto;
-        width: 1320px;
-    }
-}
 
 .revenue-share-new-page {
     max-width: 1320px;
     margin: auto;
     font-family: 'Open Sans', sans-serif !important;
+
+    .content {
+        @media screen and (max-width: 1024px) {
+            margin: 0px !important;
+        }
+    }
+
+    .revenue-share-banner {
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
+        min-height: 500px;
+        background: url('../../Images/revenue-share/N88-revenue-share-banner.png') center;
+        display: flex;
+
+        @include Mobile {
+            background: url('../../Images/revenue-share/N88-revenue-share-banner_Mobile.png') center no-repeat;
+            min-height: 164px;
+            background-size: cover;
+        }
+
+        @media screen and (min-width: 768px) and (max-width: 1024px) {
+            background: url('../../Images/revenue-share/N88-revenue-share-banner_Ipad.png') center no-repeat;
+            min-height: 420px;
+        }
+
+        @media screen and (min-width: 820px) and (max-width: 1024px) {
+            background-size: cover;
+        }
+
+        .banner-title {
+            font-family: Open Sans;
+            font-weight: 700;
+            font-size: 48px;
+            text-transform: uppercase;
+            display: flex;
+            margin: auto;
+            width: 1320px;
+            flex-direction: column;
+
+            @media screen and (min-width: 768px) and (max-width: 1024px) {
+                margin-left: 10px;
+                font-size: 25px;
+            }
+
+            @include Mobile {
+                font-size: 20px;
+                margin-left: 10px;
+            }
+
+            .first-title {
+                color: var(--N8G-Brand-Colour, #FAB617);
+            }
+        }
+    }
 
     .page-title span {
         color: #EA5500;
@@ -3095,6 +3133,14 @@ div.custom-panel {
 
     .content-group {
         margin: 15px 0;
+
+        @media screen and (min-width: 768px) and (max-width: 1024px) {
+            padding: 0 10px;
+        }
+
+        @include Mobile {
+            padding: 0 10px;
+        }
 
         .title-container {
             .index-number {
@@ -3132,6 +3178,7 @@ div.custom-panel {
                         z-index: 1;
                         padding-right: 24px;
                         cursor: pointer;
+                        text-transform: capitalize;
 
                         @include Mobile {
                             padding-right: 12px;
@@ -3210,6 +3257,10 @@ div.custom-panel {
             background: #192f56;
             padding: 20px;
             color: #D5D5D5;
+
+            @include Mobile {
+                font-size: 12px;
+            }
         }
 
         .red-bold {
@@ -3224,6 +3275,10 @@ div.custom-panel {
             font-size: 16px;
             color: #152849;
 
+            @include Mobile {
+                font-size: 12px;
+                width: 600px !important;
+            }
 
             tbody {
                 tr:hover {
@@ -3244,7 +3299,7 @@ div.custom-panel {
             }
 
             th {
-                background: #3391F6;
+                background: #FAB617;
                 font-family: Open Sans;
                 font-weight: bold;
                 font-size: 16px;
@@ -3252,16 +3307,24 @@ div.custom-panel {
                 text-align: center;
                 vertical-align: middle;
                 color: #ffffff;
+
+                @include Mobile {
+                    font-size: 12px;
+                }
             }
 
             th, td {
                 border: 1px solid #F3F3F3;
-                padding: 15px 0;
+                padding: 15px 10px;
             }
 
             tr {
                 background: #F8F9FA;
                 color: #152849;
+
+                @include Mobile {
+                    font-size: 12px;
+                }
             }
 
             tr:nth-child(even) {

@@ -1,5 +1,10 @@
 ﻿@model Fanex.Affiliate.User.Core.ViewModels.RevenueSharingStructureViewModel
-
+<div class="revenue-share-banner">
+    <div class="banner-title">
+        <div class="first-title">Revenue Sharing</div>
+        <div>Structure</div>
+    </div>
+</div>
 <div class="content-group">
     <div class="title-container">
         <div class="index-number">01</div>
@@ -9,9 +14,13 @@
         </div>
     </div>
     <div class="content-block">
-        <p> Top-notch gaming and online betting products such as Sports, Live Casino, Virtual Sports, Keno, Slot games, plus a wide selection of games</p>
-        <p>Renowned brand with over 5 languages so it is easier for you to attract members</p>
-        <p>Strategic Marketing tools ensuring high member conversion and retention rate</p>
+        <ul>
+            <li><p> Top-notch gaming and online betting products such as Sports, Live Casino, Virtual Sports, Keno, Slot games, plus a wide selection of games</p></li>
+            <li>
+                <p>Renowned brand with over 5 languages so it is easier for you to attract members</p>
+            </li>
+            <li><p>Strategic Marketing tools ensuring high member conversion and retention rate</p></li>
+        </ul>
     </div>
 </div>
 <div class="content-group">
@@ -23,10 +32,12 @@
         </div>
     </div>
     <div class="content-block">
-        <p> Up to @Model.MaxCommission revenue share rate</p>
-        <p> An addition of 10% – recruit friends to join our Affiliate program as your sub-affiliate and get your reward!</p>
-        <p> Effective and easy-to-use management system for your performance tracking</p>
-        <p>Friendly and professional affiliate team always ready to assist you</p>
+        <ul>
+            <li><p> Up to @Model.MaxCommission revenue share rate</p></li>
+            <li><p> An addition of 10% – recruit friends to join our Affiliate program as your sub-affiliate and get your reward!</p></li>
+            <li><p> Effective and easy-to-use management system for your performance tracking</p></li>
+            <li><p>Friendly and professional affiliate team always ready to assist you</p></li>
+        </ul>
     </div>
 </div>
 <div class="content-group">
@@ -39,7 +50,7 @@
     </div>
     <div class="content-block">
         <p>Your revenue share consists of two parts: (i) from your referred player’s betting losses and (ii) from your referred affiliate’s revenue share:</p>
-        <p><strong>i. Regular Commission Struct:</strong></p>
+        <p><strong>i. Regular Commission Structure:</strong></p>
         @{ Html.RenderPartial($"~/Views/CommissionStructure/{Model.SiteName}/_RevenueShareTable.cshtml"); }
         <p><strong>Company’s Net Profit:</strong> The actual profit remaining from the monthly net loss of all players recommended by you to @Model.SiteFriendlyName after deducting all related costs.</p>
         <p><strong>Qualified Player:</strong> Members with at least USD 100.00 in wagering turnover per calendar month.</p>
@@ -98,7 +109,7 @@
         @{ Html.RenderPartial($"~/Views/CommissionStructure/{Model.SiteName}/_ExampleTable.cshtml"); }
         <p><strong>Figure 2:</strong> An example to show you how your revenue share earned from your referred affiliates (and their sub-affiliates) is calculated</p>
         <div class="img-support" style="max-width: 600px; margin: 15px auto;">
-            <img class="img-responsive" src="~/www/build/styles/Images/revenue-share-structure/@(Model.SiteName)/revenue-share-desktop.@(Model.CurrentLanguage).png" alt="hierarchy banner" />
+            <img class="img-responsive" src="~/www/build/styles/Images/revenue-share-structure/@(Model.SiteName)/revenue-share.@(Model.CurrentLanguage).png" alt="hierarchy banner" />
         </div>
         <p>Your revenue share earned from the referred affiliates:</p>
         <div>
@@ -126,7 +137,9 @@
         </div>
     </div>
     <div class="content-block">
-        <p> Once a month, through your @Model.SiteFriendlyName player account (in USD, THB, MYR, IDR, INR, CNY, BDT &amp; VND) and the minimum withdrawal amount is USD 100. For other currencies need to request from @Model.SiteFriendlyName Affiliate team.</p>
-        <p>Any 2nd withdrawal request in the same month shall be subject to @Model.SiteFriendlyName Affiliates team’s approval.</p>
+        <ul>
+            <li><p> Once a month, through your @Model.SiteFriendlyName player account (in USD, THB, MYR, IDR, INR, CNY, BDT &amp; VND) and the minimum withdrawal amount is USD 100. For other currencies need to request from @Model.SiteFriendlyName Affiliate team.</p></li>
+            <li><p>Any 2nd withdrawal request in the same month shall be subject to @Model.SiteFriendlyName Affiliates team’s approval.</p></li>
+        </ul>
     </div>
 </div>

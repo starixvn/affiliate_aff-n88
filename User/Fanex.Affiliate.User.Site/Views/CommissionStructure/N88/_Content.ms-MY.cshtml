@@ -1,5 +1,10 @@
 ﻿@model Fanex.Affiliate.User.Core.ViewModels.RevenueSharingStructureViewModel
-
+<div class="revenue-share-banner">
+    <div class="banner-title">
+        <div class="first-title">STRUKTUR PENGAGIHAN</div>
+        <div>KEUNTUNGAN</div>
+    </div>
+</div>
 <div class="content-group">
     <div class="title-container">
         <div class="index-number">01</div>
@@ -9,9 +14,11 @@
         </div>
     </div>
     <div class="content-block">
-        <p>Produk permainan dan pertaruhan dalam talian yang terkemuka seperti Sukan, Kasino Live, Sukan Maya, Keno, Permainan Slot, dan juga pelbagai pilihan permainan yang luas</p>
-        <p>Jenama yang terkenal dengan sokongan lebih dari 5 bahasa supaya lebih mudah untuk anda merujuk ahli baru</p>
-        <p>Alat Pemasaran Strategik memastikan kadar penukaran dan kadar pengekalan ahli yang tinggi</p>
+        <ul>
+            <li><p>Produk permainan dan pertaruhan dalam talian yang terkemuka seperti Sukan, Kasino Live, Sukan Maya, Keno, Permainan Slot, dan juga pelbagai pilihan permainan yang luas</p></li>
+            <li><p>Jenama yang terkenal dengan sokongan lebih dari 5 bahasa supaya lebih mudah untuk anda merujuk ahli baru</p></li>
+            <li><p>Alat Pemasaran Strategik memastikan kadar penukaran dan kadar pengekalan ahli yang tinggi</p></li>
+        </ul>
     </div>
 </div>
 <div class="content-group">
@@ -23,10 +30,12 @@
         </div>
     </div>
     <div class="content-block">
-        <p>Kadar pengagihan keuntungan sehingga @Model.MaxCommission</p>
-        <p>Tambahan sebanyak 10% – merujuk rakan untuk sertai program Affliate kami sebagai sub-affliate anda dan dapatkan ganjaran anda!</p>
-        <p>Sistem pengurusan yang berkesan dan mudah digunakan untuk penjejakan prestasi anda</p>
-        <p>Pasukan affliate yang mesra dan profesional sentiasa bersedia untuk membantu anda</p>
+        <ul>
+            <li><p>Kadar pengagihan keuntungan sehingga @Model.MaxCommission</p></li>
+            <li><p>Tambahan sebanyak 10% – merujuk rakan untuk sertai program Affliate kami sebagai sub-affliate anda dan dapatkan ganjaran anda!</p></li>
+            <li><p>Sistem pengurusan yang berkesan dan mudah digunakan untuk penjejakan prestasi anda</p></li>
+            <li><p>Pasukan affliate yang mesra dan profesional sentiasa bersedia untuk membantu anda</p></li>
+        </ul>
     </div>
 </div>
 <div class="content-group">
@@ -98,7 +107,7 @@
         @{ Html.RenderPartial($"~/Views/CommissionStructure/{Model.SiteName}/_ExampleTable.cshtml"); }
         <p><strong>Rajah 2:</strong> Contoh untuk tunjukkan pengiraan kepada anda cara pengagihan keuntungan anda yang diperoleh daripada ahli affliate yang dirujuk anda (dan ahli affliate mereka)</p>
         <div class="img-support" style="max-width: 600px; margin: 15px auto;">
-            <img class="img-responsive" src="~/www/build/styles/Images/revenue-share-structure/@(Model.SiteName)/revenue-share-desktop.@(Model.CurrentLanguage).png" alt="hierarchy banner" />
+            <img class="img-responsive" src="~/www/build/styles/Images/revenue-share-structure/@(Model.SiteName)/revenue-share.@(Model.CurrentLanguage).png" alt="hierarchy banner" />
         </div>
         <p>Pengagihan keuntungan anda yang diperoleh daripada ahli affliate yang dirujuk:</p>
         <div>
@@ -126,7 +135,9 @@
         </div>
     </div>
     <div class="content-block">
-        <p>Kami akan bayar sekali setiap bulan, terus ke akaun pemain @Model.SiteFriendlyName anda (dalam mata wangUSD, THB, MYR, IDR, INR, CNY, BDT &amp; VND) dan jumlah pengeluaran minimum ialah USD 100. Untuk bayaran dalam jenis mata wang yang lain, anda perlu hantar permintaan kepada Pasukan Affliate @Model.SiteFriendlyName.</p>
-        <p>Sebarang permintaan pengeluaran kali ke-dua pada bulan yang sama adalah tertakluk kepada kelulusan dari Pasukan Affliate @Model.SiteFriendlyName.</p>
+        <ul>
+            <li><p>Kami akan bayar sekali setiap bulan, terus ke akaun pemain @Model.SiteFriendlyName anda (dalam mata wangUSD, THB, MYR, IDR, INR, CNY, BDT &amp; VND) dan jumlah pengeluaran minimum ialah USD 100. Untuk bayaran dalam jenis mata wang yang lain, anda perlu hantar permintaan kepada Pasukan Affliate @Model.SiteFriendlyName.</p></li>
+            <li><p>Sebarang permintaan pengeluaran kali ke-dua pada bulan yang sama adalah tertakluk kepada kelulusan dari Pasukan Affliate @Model.SiteFriendlyName.</p></li>
+        </ul>
     </div>
 </div>

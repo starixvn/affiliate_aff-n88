@@ -1049,14 +1049,42 @@ input[type=radio][disabled] + span {
   text-align: left !important;
 }
 
-.revenue-share-banner {
+.revenue-share-new-page {
+  max-width: 1320px;
+  margin: auto;
+  font-family: "Open Sans", sans-serif !important;
+}
+@media screen and (max-width: 1024px) {
+  .revenue-share-new-page .content {
+    margin: 0px !important;
+  }
+}
+.revenue-share-new-page .revenue-share-banner {
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   min-height: 500px;
-  background: url("../../../source/styles/Images/revenue-share/revenue-share-banner.png") center;
+  background: url("../../../source/styles/Images/revenue-share/N88-revenue-share-banner.png") center;
   display: flex;
 }
-.revenue-share-banner .banner-title {
+@media (max-width: 767px) {
+  .revenue-share-new-page .revenue-share-banner {
+    background: url("../../../source/styles/Images/revenue-share/N88-revenue-share-banner_Mobile.png") center no-repeat;
+    min-height: 164px;
+    background-size: cover;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .revenue-share-new-page .revenue-share-banner {
+    background: url("../../../source/styles/Images/revenue-share/N88-revenue-share-banner_Ipad.png") center no-repeat;
+    min-height: 420px;
+  }
+}
+@media screen and (min-width: 820px) and (max-width: 1024px) {
+  .revenue-share-new-page .revenue-share-banner {
+    background-size: cover;
+  }
+}
+.revenue-share-new-page .revenue-share-banner .banner-title {
   font-family: Open Sans;
   font-weight: 700;
   font-size: 48px;
@@ -1064,12 +1092,22 @@ input[type=radio][disabled] + span {
   display: flex;
   margin: auto;
   width: 1320px;
+  flex-direction: column;
 }
-
-.revenue-share-new-page {
-  max-width: 1320px;
-  margin: auto;
-  font-family: "Open Sans", sans-serif !important;
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .revenue-share-new-page .revenue-share-banner .banner-title {
+    margin-left: 10px;
+    font-size: 25px;
+  }
+}
+@media (max-width: 767px) {
+  .revenue-share-new-page .revenue-share-banner .banner-title {
+    font-size: 20px;
+    margin-left: 10px;
+  }
+}
+.revenue-share-new-page .revenue-share-banner .banner-title .first-title {
+  color: #3391F6;
 }
 .revenue-share-new-page .page-title {
   text-align: left;
@@ -1088,6 +1126,11 @@ input[type=radio][disabled] + span {
 }
 .revenue-share-new-page .content-group {
   margin: 15px 0;
+}
+@media (max-width: 767px) {
+  .revenue-share-new-page .content-group {
+    padding: 0 10px;
+  }
 }
 .revenue-share-new-page .content-group .title-container .index-number {
   color: #C2C2C2;
@@ -1125,6 +1168,7 @@ input[type=radio][disabled] + span {
   z-index: 1;
   padding-right: 24px;
   cursor: pointer;
+  text-transform: capitalize;
 }
 @media (max-width: 767px) {
   .revenue-share-new-page .content-group .title-container .title-block .title span {
@@ -1209,10 +1253,20 @@ input[type=radio][disabled] + span {
   color: #C2C2C2;
   padding: 20px;
 }
+@media (max-width: 767px) {
+  .revenue-share-new-page .content-group .content-block {
+    font-size: 12px;
+  }
+}
 .revenue-share-new-page .content-group .content-block p {
   font-family: Open Sans;
   font-size: 16px;
   line-height: 26px;
+}
+@media (max-width: 767px) {
+  .revenue-share-new-page .content-group .content-block p {
+    font-size: 12px;
+  }
 }
 .revenue-share-new-page .content-group .red-bold {
   color: #D90F0F;
@@ -1224,6 +1278,12 @@ input[type=radio][disabled] + span {
   border-radius: 5px;
   font-size: 16px;
   color: #152849;
+}
+@media (max-width: 767px) {
+  .revenue-share-new-page .content-group .table table {
+    font-size: 12px;
+    width: 600px !important;
+  }
 }
 .revenue-share-new-page .content-group .table table tbody tr:hover {
   background-color: #F8F9FA !important;
@@ -1243,6 +1303,11 @@ input[type=radio][disabled] + span {
   text-align: center;
   vertical-align: middle;
 }
+@media (max-width: 767px) {
+  .revenue-share-new-page .content-group .table table th {
+    font-size: 12px;
+  }
+}
 .revenue-share-new-page .content-group .table table th, .revenue-share-new-page .content-group .table table td {
   border: 1px solid #F3F3F3;
   padding: 15px 0;
@@ -1250,6 +1315,11 @@ input[type=radio][disabled] + span {
 .revenue-share-new-page .content-group .table table tr {
   background: #F8F9FA;
   color: #152849;
+}
+@media (max-width: 767px) {
+  .revenue-share-new-page .content-group .table table tr {
+    font-size: 12px;
+  }
 }
 .revenue-share-new-page .content-group .table table tr:nth-child(even) {
   background-color: #FFFFFF !important;

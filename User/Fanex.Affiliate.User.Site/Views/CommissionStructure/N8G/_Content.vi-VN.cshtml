@@ -1,39 +1,48 @@
 ﻿@model Fanex.Affiliate.User.Core.ViewModels.RevenueSharingStructureViewModel
-
+<div class="revenue-share-banner">
+    <div class="banner-title">
+        <div class="first-title">Cấu Trúc</div>
+        <div>Hoa Hồng</div>
+    </div>
+</div>
 <div class="content-group">
     <div class="title-container">
         <div class="index-number">01</div>
         <div class="title-block">
-            <div class="title"><span>@Lang.WhatWeHave</span></div>
+            <div class="title"><span>Chúng Tôi Sở Hữu</span></div>
             <div class="button-toggle"></div>
         </div>
     </div>
     <div class="content-block">
-        <p>Những sản phẩm cá cược hàng đầu như Thể Thao, Casino Trực Tiếp, Thể Thao Ảo, Keno, Trò chơi Xèng, và vô số các trò chơi trực tuyến khác</p>
-        <p>Thương hiệu danh tiếng, hỗ trợ hơn 2 ngôn ngữ khác nhau, dễ dàng thu hút khách hàng tham gia</p>
-        <p>Chiến lược tiếp thị uy tín, đảm bảo tỷ lệ chuyển đổi và duy trì thành viên luôn ở mức cao nhất</p>
+        <ul>
+            <li><p>Những sản phẩm cá cược hàng đầu như Thể Thao, Casino Trực Tiếp, Thể Thao Ảo, Keno, Trò chơi Xèng, và vô số các trò chơi trực tuyến khác</p></li>
+            <li><p>Thương hiệu danh tiếng, hỗ trợ hơn 2 ngôn ngữ khác nhau, dễ dàng thu hút khách hàng tham gia</p></li>
+            <li><p>Chiến lược tiếp thị uy tín, đảm bảo tỷ lệ chuyển đổi và duy trì thành viên luôn ở mức cao nhất</p></li>
+        </ul>
     </div>
 </div>
 <div class="content-group">
     <div class="title-container">
         <div class="index-number">02</div>
         <div class="title-block">
-            <div class="title"><span>@Lang.WhatWeOffer</span></div>
+            <div class="title"><span>Quyền Lợi Khi Tham Gia</span></div>
             <div class="button-toggle"></div>
         </div>
     </div>
     <div class="content-block">
-        <p>Chiết khấu hoa hồng lên đến @Model.MaxCommission</p>
-        <p>Thưởng thêm 10% - khi giới thiệu thành công bạn bè tham gia chương trình cộng tác của chúng tôi với tư cách là Đại Lý Cấp Dưới</p>
-        <p>Hệ thống quản lý hiệu quả và dễ sử dụng để theo dõi hiệu suất kinh doanh của bạn</p>
-        <p>Đội ngũ tư vấn thân thiện và chuyên nghiệp luôn sẵn sàng hỗ trợ bạn</p>
+        <ul>
+            <li><p>Chiết khấu hoa hồng lên đến @Model.MaxCommission</p></li>
+            <li><p>Thưởng thêm 10% - khi giới thiệu thành công bạn bè tham gia chương trình cộng tác của chúng tôi với tư cách là Đại Lý Cấp Dưới</p></li>
+            <li><p>Hệ thống quản lý hiệu quả và dễ sử dụng để theo dõi hiệu suất kinh doanh của bạn</p></li>
+            <li><p>Đội ngũ tư vấn thân thiện và chuyên nghiệp luôn sẵn sàng hỗ trợ bạn</p></li>
+        </ul>
     </div>
 </div>
 <div class="content-group">
     <div class="title-container">
         <div class="index-number">03</div>
         <div class="title-block">
-            <div class="title"><span>@Lang.OurPlan</span></div>
+            <div class="title"><span>Chương Trình Đại Lý</span></div>
             <div class="button-toggle"></div>
         </div>
     </div>
@@ -90,7 +99,7 @@
     <div class="title-container">
         <div class="index-number">04</div>
         <div class="title-block">
-            <div class="title"><span>@Lang.RevenueSharePayoutExample</span></div>
+            <div class="title"><span>Ví dụ về cách tính tiền hoa hồng</span></div>
             <div class="button-toggle"></div>
         </div>
     </div>
@@ -99,7 +108,7 @@
         @{ Html.RenderPartial($"~/Views/CommissionStructure/_ExampleTable.cshtml", Model); }
         <p><strong>Hình 2:</strong> ví dụ về cách tính tiền hoa hồng bạn nhận được từ Đại Lý được bạn giới thiệu, và từ Đại Lý Cấp Dưới của họ</p>
         <div class="img-support" style="max-width: 600px; margin: 15px auto;">
-            <img class="img-responsive" src="~/www/build/styles/Images/revenue-share-structure/@(Model.SiteName)/revenue_share_hierarchy.@(Model.CurrentLanguage).png" alt="hierarchy banner" />
+            <img class="img-responsive" src="~/www/build/styles/Images/revenue-share-structure/@(Model.SiteName)/revenue-share.@(Model.CurrentLanguage).png" alt="hierarchy banner" />
         </div>
         <p>Tiền hoa hồng bạn nhận được:</p>
         <div>
@@ -122,12 +131,14 @@
     <div class="title-container">
         <div class="index-number">05</div>
         <div class="title-block">
-            <div class="title"><span>@Lang.HowWePay</span></div>
+            <div class="title"><span>Phương Thức Thanh Toán</span></div>
             <div class="button-toggle"></div>
         </div>
     </div>
     <div class="content-block">
-        <p>Chúng tôi sẽ trả tiền hoa hồng cho bạn mỗi tháng một lần, thông qua một tài khoản người chơi do bạn sở hữu tại @(Model.SiteFriendlyName) (bằng tiền VND) và số tiền rút tối thiểu phải tương đương 2,600,000₫.</p>
-        <p>Bất kỳ yêu cầu rút tiền thứ 2 nào trong tháng đều phải được sự đồng ý của nhóm Đại Lý @(Model.SiteFriendlyName).</p>
+        <ul>
+            <li><p>Chúng tôi sẽ trả tiền hoa hồng cho bạn mỗi tháng một lần, thông qua một tài khoản người chơi do bạn sở hữu tại @(Model.SiteFriendlyName) (bằng tiền VND) và số tiền rút tối thiểu phải tương đương 2,600,000₫.</p></li>
+            <li><p>Bất kỳ yêu cầu rút tiền thứ 2 nào trong tháng đều phải được sự đồng ý của nhóm Đại Lý @(Model.SiteFriendlyName).</p></li>
+        </ul>
     </div>
 </div>

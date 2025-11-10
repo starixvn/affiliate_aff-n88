@@ -1,5 +1,10 @@
 ﻿@model Fanex.Affiliate.User.Core.ViewModels.RevenueSharingStructureViewModel
-
+<div class="revenue-share-banner">
+    <div class="banner-title">
+        <div class="first-title">โครงสร้างรายได้</div>
+        <div>ส่วนแบ่ง</div>
+    </div>
+</div>
 <div class="content-group">
     <div class="title-container">
         <div class="index-number">01</div>
@@ -9,9 +14,11 @@
         </div>
     </div>
     <div class="content-block">
-        <p>ผลิตภัณฑ์ ที่เกี่ยวกับเกมมิ่งและการเดิมพันออนไลน์ เช่น กีฬา, คาสิโนสด, กีฬาเสมือนจริง, คีโน, เกมสล็อต รวมถึงเกมอื่นๆให้เลือกมากมาย</p>
-        <p>แบรนด์ที่มีชื่อเสียงมีมากกว่า 5 ภาษาเพื่อให้คุณดึงดูดสมาชิกได้ง่ายขึ้น</p>
-        <p> การตลาดเชิงกลยุทธ์เพื่อสร้างความมั่นใจในการแลกเปลี่ยนสมาชิกและการเก็บรักษาสมาชิก</p>
+        <ul>
+            <li><p>ผลิตภัณฑ์ ที่เกี่ยวกับเกมมิ่งและการเดิมพันออนไลน์ เช่น กีฬา, คาสิโนสด, กีฬาเสมือนจริง, คีโน, เกมสล็อต รวมถึงเกมอื่นๆให้เลือกมากมาย</p></li>
+            <li><p>แบรนด์ที่มีชื่อเสียงมีมากกว่า 5 ภาษาเพื่อให้คุณดึงดูดสมาชิกได้ง่ายขึ้น</p></li>
+            <li><p> การตลาดเชิงกลยุทธ์เพื่อสร้างความมั่นใจในการแลกเปลี่ยนสมาชิกและการเก็บรักษาสมาชิก</p></li>
+        </ul>
     </div>
 </div>
 <div class="content-group">
@@ -23,10 +30,12 @@
         </div>
     </div>
     <div class="content-block">
-        <p>ัตราส่วนแบ่งรายได้สูงถึง @Model.MaxCommission</p>
-        <p>รับเพิ่มอีก 10% เมื่อรับสมัครเพื่อนเพื่อเข้าร่วมโปรแกรมพันธมิตร(Affiliates)ของเราในฐานะพันธมิตรย่อยของคุณ</p>
-        <p>ระบบการจัดการที่มีประสิทธิภาพและใช้งานง่ายสำหรับการติดตามประสิทธิภาพของคุณ</p>
-        <p>ทีมพันธมิตรที่เป็นมิตรและเป็นมืออาชีพที่พร้อมที่จะให้ความช่วยเหลือคุณเสมอ</p>
+        <ul>
+            <li><p>อัตราส่วนแบ่งรายได้สูงถึง @Model.MaxCommission</p></li>
+            <li><p>รับเพิ่มอีก 10% เมื่อรับสมัครเพื่อนเพื่อเข้าร่วมโปรแกรมพันธมิตร(Affiliates)ของเราในฐานะพันธมิตรย่อยของคุณ</p></li>
+            <li><p>ระบบการจัดการที่มีประสิทธิภาพและใช้งานง่ายสำหรับการติดตามประสิทธิภาพของคุณ</p></li>
+            <li><p>ทีมพันธมิตรที่เป็นมิตรและเป็นมืออาชีพที่พร้อมที่จะให้ความช่วยเหลือคุณเสมอ</p></li>
+        </ul>
     </div>
 </div>
 <div class="content-group">
@@ -39,7 +48,7 @@
     </div>
     <div class="content-block">
         <p>ส่วนแบ่งรายได้ของคุณประกอบด้วยสองส่วน: (i) ส่วนแรกคือจากการเสียเดิมพันของผู้เล่นที่อ้างอิง และ (ii) ส่วนที่สองจากส่วนแบ่งรายได้ของพันธมิตร(Affiliates) ของคุณ:</p>
-        <p><<strong>โครงสร้างค่าคอมมิชชันปกติ:</strong></p>
+        <p><strong>i. โครงสร้างค่าคอมมิชชันปกติ:</strong></p>
         @{ Html.RenderPartial($"~/Views/CommissionStructure/{Model.SiteName}/_RevenueShareTable.cshtml"); }
         <p>
             <strong>กำไรสุทธิของบริษัท: </strong> คือกำไรที่เหลือหลังจากหักยอดเสีย
@@ -72,6 +81,7 @@
             <p class="text">ค่าภาคหลวงค่าธรรมเนียม = USD 2,500</p>
             <p class="text">คอมมิชชั่น = </p>
             <p class="text">(กำไร/ขาดทุนของสมาชิก - โบนัสของสมาชิก - ค่าธรรมเนียมทางการเงิน - ค่าภาคหลวงค่าธรรมเนียม) x อัตราเปอร์เซ็น คอมมิชชั่น %</p>
+            <p class="text">(60,000 − 5,000 − 550 − 2,500) × 45% = USD 23,377.5</p>
         </div>
         <p class="text"><i><strong>รายได้ติดลบ</strong></i></p>
         <div>
@@ -83,7 +93,7 @@
             <p class="text">(-5,000 - 500 - 150) × 25% = USD -1,412.50 (ยกยอดไปเดือนหน้า)</p>
         </div>
         <p>
-            <strong>โครงสร้างพันธมิตรย่อย:</strong> คุณจะมีสิทธิ์ได้รับส่วนแบ่งรายได้พิเศษ 10% จากพันธมิตร (Affiliates)ในเครือของคุณและตราบใดที่พวกเขาสามารถนำพันธมิตร
+            <strong>ii. โครงสร้างพันธมิตรย่อย:</strong> คุณจะมีสิทธิ์ได้รับส่วนแบ่งรายได้พิเศษ 10% จากพันธมิตร (Affiliates)ในเครือของคุณและตราบใดที่พวกเขาสามารถนำพันธมิตร
             Affiliates อื่นเข้ามา คุณก็สามารถมีส่วนแบ่งรายได้จากพันธมิตร Affiliates ย่อยของพวกเขาด้วยเช่นกัน!
         </p>
     </div>
@@ -101,9 +111,9 @@
         @{ Html.RenderPartial($"~/Views/CommissionStructure/{Model.SiteName}/_ExampleTable.cshtml"); }
     <p><strong>รูปที่ 2:</strong> ตัวอย่างเพื่อแสดงให้เห็นว่าการคำนวณส่วนแบ่งรายได้ของคุณจากพันธมิตร Affiliates ของคุณ (และ บริษัท ในเครือย่อย sub-affiliates) คำนวณอย่างไร</p>
         <div class="img-support" style="max-width: 600px; margin: 15px auto;">
-            <img class="img-responsive" src="~/www/build/styles/Images/revenue-share-structure/@(Model.SiteName)/revenue-share-desktop.@(Model.CurrentLanguage).png" alt="hierarchy banner" />
+            <img class="img-responsive" src="~/www/build/styles/Images/revenue-share-structure/@(Model.SiteName)/revenue-share.@(Model.CurrentLanguage).png" alt="hierarchy banner" />
         </div>
-        <p>่วนแบ่งรายได้ของคุณได้รับจากพันธมิตรที่ได้รับการแนะนำ:</p>
+        <p>ส่วนแบ่งรายได้ของคุณได้รับจากพันธมิตรที่ได้รับการแนะนำ:</p>
         <div>
             <p class="text">
                 = [B1+ ((C1 + C2) * 10%)]*10% + [B2 * 10%]
@@ -129,7 +139,9 @@
         </div>
     </div>
     <div class="content-block">
-        <p>@Model.SiteFriendlyName จะทำการจ่ายเงินเดือนละครั้งผ่านบัญชีผู้เล่น @Model.SiteFriendlyName ของคุณ (USD, THB, MYR, IDR, INR, CNY, BDT &amp; VND) และจำนวนการถอนขั้นต่ำคือ USD 100 (หรือในสกุลเงินเทียบเท่า) สำหรับสกุลเงินอื่นต้องทำการติดต่อจากทีมในเครือ @Model.SiteFriendlyName</p>
-        <p>คำขอถอนเงินครั้งที่ 2 ในเดือนเดียวกันจะต้องได้รับการอนุมัติจากทีมในเครือ @Model.SiteFriendlyName</p>
+        <ul>
+            <li><p>@Model.SiteFriendlyName จะทำการจ่ายเงินเดือนละครั้งผ่านบัญชีผู้เล่น @Model.SiteFriendlyName ของคุณ (USD, THB, MYR, IDR, INR, CNY, BDT &amp; VND) และจำนวนการถอนขั้นต่ำคือ USD 100 (หรือในสกุลเงินเทียบเท่า) สำหรับสกุลเงินอื่นต้องทำการติดต่อจากทีมในเครือ @Model.SiteFriendlyName</p></li>
+            <li><p>คำขอถอนเงินครั้งที่ 2 ในเดือนเดียวกันจะต้องได้รับการอนุมัติจากทีมในเครือ @Model.SiteFriendlyName</p></li>
+        </ul>
     </div>
 </div>
