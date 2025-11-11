@@ -1,6 +1,7 @@
 ﻿@import "../abstracts/variables-n8g";
 @import '../abstracts/mixins';
 @import "../../fonts/OpenSans/font.css";
+
 body {
     color: $text-color;
     background: $bg-main-color;
@@ -2883,12 +2884,15 @@ div.custom-panel {
     max-width: 1920px !important;
     justify-content: center;
     font-family: 'Open Sans', sans-serif !important;
+    margin: 0 auto;
 
-    @include Mobile {
+    @media only screen and (max-width: 1024px) {
+        padding: 0 10px;
         margin-top: 18px !important;
     }
 
     .page-title {
+        margin-top: 2.4rem;
         text-align: center;
 
         .text {

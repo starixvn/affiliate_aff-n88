@@ -1218,6 +1218,11 @@ input[type=radio][disabled] + span {
     max-width: 1920px !important;
     justify-content: center;
     font-family: 'Open Sans', sans-serif !important;
+    margin: 0 auto;
+
+    @media only screen and (max-width: 1024px) { 
+        padding: 0 10px;
+    }
 
     .product-block {
         margin: 15px 0;
