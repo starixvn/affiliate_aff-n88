@@ -15,18 +15,20 @@
 
 @section scripts{
     @Html.InlineScripts("~/www/build/js/n88/left-menu-panel-has-sub.js")
+
+    <script>
+        $(document).ready(function () {
+            $(".product-new-page").parent().addClass("product-container");
+        })
+    </script>
 }
-
-<div class="main-content main-content-left-panel">
-    <div class="content product-page product-new-page">
-        <div class="page-title">
-            <span class="text">@Lang.Our_Products</span>
-        </div>
-
-        @Html.RenderPartialByLanguage("~/Views/Product/N88/_Content", Model.CurrentLanguage, siteFriendlyName)
-
-
-        @RazorHelper.RenderN88MovingTopButton()
+<div class="product-new-page">
+    <div class="page-title">
+        <span class="text">@Lang.Our_Products</span>
     </div>
 
+    @Html.RenderPartialByLanguage("~/Views/Product/N88/_Content", Model.CurrentLanguage, siteFriendlyName)
+
+
+    @RazorHelper.RenderN88MovingTopButton()
 </div>
