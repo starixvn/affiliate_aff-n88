@@ -1102,7 +1102,7 @@ input[type=radio][disabled] + span {
 }
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   .revenue-share-new-page .revenue-share-banner .banner-title {
-    margin-left: 10px;
+    margin-left: 50px;
     font-size: 25px;
   }
 }
