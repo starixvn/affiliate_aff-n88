@@ -1394,7 +1394,10 @@
     <Content Include="www\source\styles\Images\revenue-share\N88-revenue-share-banner.png" />
     <Content Include="www\source\styles\Images\revenue-share\N88-revenue-share-banner_Ipad.png" />
     <Content Include="www\source\styles\Images\revenue-share\N88-revenue-share-banner_Mobile.png" />
+    <Content Include="www\source\styles\Images\revenue-share\N8B-revenue-share-banner.png" />
+    <Content Include="www\source\styles\Images\revenue-share\N8B-revenue-share-banner_Mobile.png" />
     <Content Include="www\source\styles\Images\revenue-share\N8G-revenue-share-banner.png" />
+    <Content Include="www\source\styles\Images\revenue-share\N8G-revenue-share-banner_Mobile.png" />
     <Content Include="www\source\styles\Images\shadown.png" />
     <Content Include="www\source\styles\scss\vendors\animate\animate.css" />
     <Content Include="www\source\styles\scss\vendors\animate\animate.min.css" />

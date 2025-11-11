@@ -3082,13 +3082,13 @@ div.custom-panel {
         display: flex;
 
         @include Mobile {
-            background: url('../../Images/revenue-share/N88-revenue-share-banner_Mobile.png') center no-repeat;
+            background: url('../../Images/revenue-share/N8G-revenue-share-banner_Mobile.png') center no-repeat;
             min-height: 164px;
             background-size: cover;
         }
 
         @media screen and (min-width: 768px) and (max-width: 1024px) {
-            background: url('../../Images/revenue-share/N88-revenue-share-banner_Ipad.png') center no-repeat;
+            background: url('../../Images/revenue-share/N8G-revenue-share-banner_Mobile.png') center no-repeat;
             min-height: 420px;
         }
 

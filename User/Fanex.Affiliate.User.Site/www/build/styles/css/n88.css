@@ -1191,12 +1191,25 @@ select.form-control:focus {
   }
 }
 
+.product-container {
+  max-width: 1344px !important;
+  flex-basis: auto !important;
+  margin: 0 auto;
+}
+
 .product-new-page {
-  max-width: 1920px !important;
+  max-width: 1320px !important;
   justify-content: center;
   font-family: "Open Sans", sans-serif !important;
+  margin: 0 auto;
+}
+@media only screen and (max-width: 1024px) {
+  .product-new-page {
+    padding: 0 10px;
+  }
 }
 .product-new-page .page-title {
+  margin-top: 2.4rem;
   text-align: center;
 }
 .product-new-page .page-title .text {
