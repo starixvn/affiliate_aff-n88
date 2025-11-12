@@ -1079,14 +1079,22 @@ input[type=radio][disabled] + span {
     background-size: cover;
   }
 }
-@media screen and (min-width: 768px) and (max-width: 1024px) {
+@media screen and (min-width: 768px) and (max-width: 819px) {
   .revenue-share-new-page .revenue-share-banner {
-    background: url("../../../source/styles/Images/revenue-share/N8B-revenue-share-banner_Mobile.png") center no-repeat;
+    background: url("../../../source/styles/Images/revenue-share/N8B-revenue-share-banner_Ipad_768.png") center no-repeat;
     min-height: 420px;
   }
 }
-@media screen and (min-width: 820px) and (max-width: 1024px) {
+@media screen and (min-width: 820px) and (max-width: 1023px) {
   .revenue-share-new-page .revenue-share-banner {
+    background: url("../../../source/styles/Images/revenue-share/N8B-revenue-share-banner_Ipad_820.png") center no-repeat;
+    min-height: 420px;
+  }
+}
+@media screen and (width: 1024px) {
+  .revenue-share-new-page .revenue-share-banner {
+    background: url("../../../source/styles/Images/revenue-share/N8B-revenue-share-banner_Ipad.png") center no-repeat;
+    min-height: 420px;
     background-size: cover;
   }
 }
@@ -1134,6 +1142,11 @@ input[type=radio][disabled] + span {
   margin: 15px 0;
 }
 @media (max-width: 767px) {
+  .revenue-share-new-page .content-group {
+    padding: 0 10px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
   .revenue-share-new-page .content-group {
     padding: 0 10px;
   }
@@ -1316,7 +1329,7 @@ input[type=radio][disabled] + span {
 }
 .revenue-share-new-page .content-group .table table th, .revenue-share-new-page .content-group .table table td {
   border: 1px solid #F3F3F3;
-  padding: 15px 0;
+  padding: 15px 10px;
 }
 .revenue-share-new-page .content-group .table table tr {
   background: #F8F9FA;

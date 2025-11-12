@@ -1402,12 +1402,19 @@ input[type=radio][disabled] + span {
             background-size: cover;
         }
 
-        @media screen and (min-width: 768px) and (max-width: 1024px) {
-            background: url('../../Images/revenue-share/N8B-revenue-share-banner_Mobile.png') center no-repeat;
+        @media screen and (min-width: 768px) and (max-width: 819px) {
+            background: url('../../Images/revenue-share/N8B-revenue-share-banner_Ipad_768.png') center no-repeat;
             min-height: 420px;
         }
 
-        @media screen and (min-width: 820px) and (max-width: 1024px) {
+        @media screen and (min-width: 820px) and (max-width: 1023px) {
+            background: url('../../Images/revenue-share/N8B-revenue-share-banner_Ipad_820.png') center no-repeat;
+            min-height: 420px;
+        }
+
+        @media screen and (width: 1024px) {
+            background: url('../../Images/revenue-share/N8B-revenue-share-banner_Ipad.png') center no-repeat;
+            min-height: 420px;
             background-size: cover;
         }
 
@@ -1461,6 +1468,10 @@ input[type=radio][disabled] + span {
         margin: 15px 0;
 
         @include Mobile {
+            padding: 0 10px;
+        }
+
+        @media screen and (min-width: 768px) and (max-width: 1024px) {
             padding: 0 10px;
         }
 
@@ -1661,7 +1672,7 @@ input[type=radio][disabled] + span {
 
             th, td {
                 border: 1px solid #F3F3F3;
-                padding: 15px 0;
+                padding: 15px 10px;
             }
 
             tr {
