@@ -713,6 +713,10 @@
     <Content Include="www\build\js\player-transfer-balance.min.js">
       <DependentUpon>player-transfer-balance.js</DependentUpon>
     </Content>
+    <Content Include="www\build\js\revenue-share.js" />
+    <Content Include="www\build\js\revenue-share.min.js">
+      <DependentUpon>revenue-share.js</DependentUpon>
+    </Content>
     <Content Include="www\build\js\revenue-structure.js" />
     <Content Include="www\build\js\revenue-structure.min.js">
       <DependentUpon>revenue-structure.js</DependentUpon>
@@ -1117,23 +1121,25 @@
     <Content Include="www\build\styles\Images\promotion\n8g\main.desktop.vi-VN.jpg" />
     <Content Include="www\build\styles\Images\promotion\n8g\main.mobile.en-US.jpg" />
     <Content Include="www\build\styles\Images\promotion\n8g\main.mobile.vi-VN.jpg" />
-    <Content Include="www\build\styles\Images\revenue-share-structure\n88\revenue_share_hierarchy.bn-BD.png" />
-    <Content Include="www\build\styles\Images\revenue-share-structure\n88\revenue_share_hierarchy.en-US.png" />
-    <Content Include="www\build\styles\Images\revenue-share-structure\n88\revenue_share_hierarchy.hi-IN.png" />
-    <Content Include="www\build\styles\Images\revenue-share-structure\n88\revenue_share_hierarchy.id-ID.png" />
-    <Content Include="www\build\styles\Images\revenue-share-structure\n88\revenue_share_hierarchy.ms-MY.png" />
-    <Content Include="www\build\styles\Images\revenue-share-structure\n88\revenue_share_hierarchy.th-TH.png" />
-    <Content Include="www\build\styles\Images\revenue-share-structure\n88\revenue_share_hierarchy.vi-VN.png" />
-    <Content Include="www\build\styles\Images\revenue-share-structure\n88\revenue_share_hierarchy.zh-CN.png" />
-    <Content Include="www\build\styles\Images\revenue-share-structure\n8b\revenue_share_hierarchy.en-US.png" />
-    <Content Include="www\build\styles\Images\revenue-share-structure\n8b\revenue_share_hierarchy.vi-VN.png" />
-    <Content Include="www\build\styles\Images\revenue-share-structure\n8g\revenue_share_hierarchy.en-US.png" />
-    <Content Include="www\build\styles\Images\revenue-share-structure\n8g\revenue_share_hierarchy.vi-VN.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\n88\revenue-share.bn-BD.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\n88\revenue-share.id-ID.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\n88\revenue-share.zh-CN.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\n88\revenue-share.hi-IN.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\n88\revenue-share.ms-MY.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\n88\revenue-share-banner.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\n88\revenue-share.en-US.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\n88\revenue-share.th-TH.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\n88\revenue-share.vi-VN.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\n8b\revenue-share.en-US.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\n8b\revenue-share.vi-VN.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\n8g\revenue-share.en-US.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\n8g\revenue-share.vi-VN.png" />
     <Content Include="www\build\styles\Images\themes\n88.png" />
     <Content Include="www\build\styles\Images\themes\n88.zh-CN.png" />
     <Content Include="www\build\styles\Images\themes\n8b.png" />
     <Content Include="www\source\js\components\intlTelInput.js" />
     <Content Include="www\source\js\pages\contact-us.js" />
+    <Content Include="www\source\js\pages\revenue-share.js" />
     <Content Include="www\source\js\pages\faq.js" />
     <Content Include="www\source\js\pages\terms-and-conditions.js" />
     <Content Include="www\source\js\pages\account-overview\account-overview.min.js">
@@ -1385,6 +1391,19 @@
     <Content Include="www\source\styles\Images\product\NV88_AFFF_PRODUCT_Slots_Mobile.png" />
     <Content Include="www\source\styles\Images\product\NV88_AFFF_PRODUCT_SPORTSBOOK.png" />
     <Content Include="www\source\styles\Images\product\NV88_AFFF_PRODUCT_SPORTSBOOK_MOBILE.png" />
+    <Content Include="www\source\styles\Images\revenue-share\N88-revenue-share-banner.png" />
+    <Content Include="www\source\styles\Images\revenue-share\N88-revenue-share-banner_Ipad.png" />
+    <Content Include="www\source\styles\Images\revenue-share\N88-revenue-share-banner_Mobile.png" />
+    <Content Include="www\source\styles\Images\revenue-share\N8B-revenue-share-banner.png" />
+    <Content Include="www\source\styles\Images\revenue-share\N8B-revenue-share-banner_Ipad.png" />
+    <Content Include="www\source\styles\Images\revenue-share\N8B-revenue-share-banner_Ipad_768.png" />
+    <Content Include="www\source\styles\Images\revenue-share\N8B-revenue-share-banner_Ipad_820.png" />
+    <Content Include="www\source\styles\Images\revenue-share\N8B-revenue-share-banner_Mobile.png" />
+    <Content Include="www\source\styles\Images\revenue-share\N8G-revenue-share-banner.png" />
+    <Content Include="www\source\styles\Images\revenue-share\N8G-revenue-share-banner_Ipad.png" />
+    <Content Include="www\source\styles\Images\revenue-share\N8G-revenue-share-banner_Ipad_768.png" />
+    <Content Include="www\source\styles\Images\revenue-share\N8G-revenue-share-banner_Ipad_820.png" />
+    <Content Include="www\source\styles\Images\revenue-share\N8G-revenue-share-banner_Mobile.png" />
     <Content Include="www\source\styles\Images\shadown.png" />
     <Content Include="www\source\styles\scss\vendors\animate\animate.css" />
     <Content Include="www\source\styles\scss\vendors\animate\animate.min.css" />

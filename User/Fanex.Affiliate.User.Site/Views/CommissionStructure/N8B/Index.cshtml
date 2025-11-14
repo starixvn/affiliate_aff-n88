@@ -8,11 +8,11 @@
     var htmlString = Html.RenderPartialByLanguage("~/Views/CommissionStructure/N8B/_Content", Model.CurrentLanguage, Model).ToHtmlString();
 }
 
-<div class="content">
-    <div class="page-title">
-        <span class="text">@Lang.CommissionStructure</span>
-    </div>
+@section scripts{
+    @Html.InlineScripts("~/www/build/js/revenue-share.js")
+}
 
+<div class="revenue-share-new-page">
     @Html.Raw(htmlString)
 
     @RazorHelper.RenderMovingTopButton()

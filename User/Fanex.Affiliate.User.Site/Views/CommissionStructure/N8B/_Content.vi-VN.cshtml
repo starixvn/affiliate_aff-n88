@@ -1,151 +1,145 @@
 ﻿@model Fanex.Affiliate.User.Core.ViewModels.RevenueSharingStructureViewModel
-
-<div class="info-group">
-    <div class="title">
-        <span class="text">Chúng Tôi Sở Hữu</span>
+<div class="revenue-share-banner">
+    <div class="banner-title">
+        <div class="first-title">Cấu Trúc</div>
+        <div>Hoa Hồng</div>
     </div>
-    <ul>
-        <li class="text">
-            Những sản phẩm cá cược hàng đầu như Thể Thao, Casino Trực Tiếp, Thể Thao Ảo, Keno, Trò chơi Xèng, và vô số các trò chơi trực tuyến khác
-        </li>
-        <li class="text">
-            Thương hiệu danh tiếng, hỗ trợ hơn 2 ngôn ngữ khác nhau, dễ dàng thu hút khách hàng tham gia
-        </li>
-        <li class="text">
-            Chiến lược tiếp thị uy tín, đảm bảo tỷ lệ chuyển đổi và duy trì thành viên luôn ở mức cao nhất
-        </li>
-    </ul>
 </div>
-<div class="info-group">
-    <div class="title">
-        <span class="text">Quyền Lợi Khi Tham Gia</span>
+<div class="content-group">
+    <div class="title-container">
+        <div class="index-number">01</div>
+        <div class="title-block">
+            <div class="title"><span>Chúng Tôi Sở Hữu</span></div>
+            <div class="button-toggle"></div>
+        </div>
     </div>
-    <ul>
-        <li class="text">
-            Chiết khấu hoa hồng lên đến @Model.MaxCommission
-        </li>
-        <li class="text">
-            Thưởng thêm 10% - khi giới thiệu thành công bạn bè tham gia chương trình cộng tác của chúng tôi với tư cách là Đại Lý Cấp Dưới
-        </li>
-        <li class="text">
-            Hệ thống quản lý hiệu quả và dễ sử dụng để theo dõi hiệu suất kinh doanh của bạn
-        </li>
-        <li class="text">
-            Đội ngũ tư vấn thân thiện và chuyên nghiệp luôn sẵn sàng hỗ trợ bạn
-        </li>
-    </ul>
+    <div class="content-block">
+        <ul>
+            <li><p>Những sản phẩm cá cược hàng đầu như Thể Thao, Casino Trực Tiếp, Thể Thao Ảo, Keno, Trò chơi Xèng, và vô số các trò chơi trực tuyến khác</p></li>
+            <li><p>Thương hiệu danh tiếng, hỗ trợ hơn 2 ngôn ngữ khác nhau, dễ dàng thu hút khách hàng tham gia</p></li>
+            <li><p>Chiến lược tiếp thị uy tín, đảm bảo tỷ lệ chuyển đổi và duy trì thành viên luôn ở mức cao nhất</p></li>
+        </ul>
+    </div>
 </div>
-<div class="info-group">
-    <div class="title">
-        <span class="text">Chương Trình Đại Lý</span>
+<div class="content-group">
+    <div class="title-container">
+        <div class="index-number">02</div>
+        <div class="title-block">
+            <div class="title"><span>Quyền Lợi Khi Tham Gia</span></div>
+            <div class="button-toggle"></div>
+        </div>
     </div>
-    <p class="text">
-        Bạn có thể nhận tiền hoa hồng từ cả hai (2) cách: (i) tiền thua cược của người chơi mà bạn giới thiệu và (ii) hoa hồng của các Đại Lý Cấp Dưới do bạn giới thiệu:
-    </p>
-    <ol type="i">
-        <li class="text-block">
-            <strong>Cấu Trúc Hoa Hồng Tiêu Chuẩn:</strong>
-            @{ Html.RenderPartial("~/Views/CommissionStructure/_RevenueShareTable.cshtml", Model.MaxCommission); }
-            <p class="text">Ví dụ:</p>
-            <p class="text"><i><strong>Doanh thu dương</strong></i></p>
-            <div style="padding-left: 30px;">
-                <p class="text">Lợi nhuận gộp = 3,000,000,000 ₫</p>
-                <p class="text">Khuyến mãi = 65,000,000 ₫</p>
-                <p class="text">Phí giao dịch = 30,000,000 ₫</p>
-                <p class="text">Phí bản quyền = 265,000,000 ₫</p>
-                <p class="text">Hoa hồng = </p>
-                <p class="text">(Lợi nhuận gộp – Khuyến mãi – Phí giao dịch - Phí bản quyền) x Tỷ lệ % hoa hồng</p>
-                <p class="text">(3,000,000,000₫ - 65,000,000₫ - 30,000,000₫ - 265,000,000₫) × 50% = 1,320,000,000 ₫</p>
-            </div>
-
-            <p class="text"><i><strong>Doanh thu âm</strong></i></p>
-            <div style="padding-left: 30px;">
-                <p class="text">Lợi nhuận gộp = -100,000,000 ₫</p>
-                <p class="text">Khuyến mãi thành viên = 10,000,000 ₫</p>
-                <p class="text">Phí giao dịch = 6,000,000 ₫</p>
-                <p class="text">Hoa hồng = </p>
-                <p class="text">(Lợi nhuận gộp – Khuyến mãi – Phí giao dịch) x Tỷ lệ % hoa hồng</p>
-                <p class="text">(-100,000,000₫ - 10,000,000₫ - 6,000,000₫) x 25% = -29,000,000₫ (Chuyển sang tháng sau)</p>
-            </div> <br />
-
-            <ul style="margin-left: -10px;">
-                <li class="text">
-                    <strong>Lợi nhuận ròng của công ty:</strong> Là phần lợi nhuận thực tế còn lại sau khi khấu trừ toàn bộ chi phí liên quan, tính trên tổng số tiền công ty nhận được theo tháng tương ứng từ tiền lời của người chơi do bạn giới thiệu cho Bwing.
+    <div class="content-block">
+        <ul>
+            <li><p>Chiết khấu hoa hồng lên đến @Model.MaxCommission</p></li>
+            <li><p>Thưởng thêm 10% - khi giới thiệu thành công bạn bè tham gia chương trình cộng tác của chúng tôi với tư cách là Đại Lý Cấp Dưới</p></li>
+            <li><p>Hệ thống quản lý hiệu quả và dễ sử dụng để theo dõi hiệu suất kinh doanh của bạn</p></li>
+            <li><p>Đội ngũ tư vấn thân thiện và chuyên nghiệp luôn sẵn sàng hỗ trợ bạn</p></li>
+        </ul>
+    </div>
+</div>
+<div class="content-group">
+    <div class="title-container">
+        <div class="index-number">03</div>
+        <div class="title-block">
+            <div class="title"><span>Chương Trình Đại Lý</span></div>
+            <div class="button-toggle"></div>
+        </div>
+    </div>
+    <div class="content-block">
+        <p>Bạn có thể nhận tiền hoa hồng từ cả hai (2) cách: (i) tiền thua cược của người chơi mà bạn giới thiệu và (ii) hoa hồng của các Đại Lý Cấp Dưới do bạn giới thiệu:</p>
+        <p><strong>i. Cấu Trúc Hoa Hồng Tiêu Chuẩn:</strong></p>
+        @{ Html.RenderPartial($"~/Views/CommissionStructure/_RevenueShareTable.cshtml", Model.MaxCommission); }
+        <p class="text">Ví dụ:</p>
+        <p class="text"><i><strong>Doanh thu dương</strong></i></p>
+        <div>
+            <p class="text">Lợi nhuận gộp = 3,000,000,000 ₫</p>
+            <p class="text">Khuyến mãi = 65,000,000 ₫</p>
+            <p class="text">Phí giao dịch = 30,000,000 ₫</p>
+            <p class="text">Phí bản quyền = 265,000,000 ₫</p>
+            <p class="text">Hoa hồng = </p>
+            <p class="text">(Lợi nhuận gộp – Khuyến mãi – Phí giao dịch - Phí bản quyền) x Tỷ lệ % hoa hồng</p>
+            <p class="text">(3,000,000,000₫ - 65,000,000₫ - 30,000,000₫ - 265,000,000₫) × 50% = 1,320,000,000 ₫</p>
+        </div>
+        <p class="text"><i><strong>Doanh thu âm</strong></i></p>
+        <div>
+            <p class="text">Lợi nhuận gộp = -100,000,000 ₫</p>
+            <p class="text">Khuyến mãi thành viên = 10,000,000 ₫</p>
+            <p class="text">Phí giao dịch = 6,000,000 ₫</p>
+            <p class="text">Hoa hồng = </p>
+            <p class="text">(Lợi nhuận gộp – Khuyến mãi – Phí giao dịch) x Tỷ lệ % hoa hồng</p>
+            <p class="text">(-100,000,000₫ - 10,000,000₫ - 6,000,000₫) x 25% = -29,000,000₫ (Chuyển sang tháng sau)</p>
+        </div>
+        <p><strong>Lợi nhuận ròng của công ty:</strong> Là phần lợi nhuận thực tế còn lại sau khi khấu trừ toàn bộ chi phí liên quan, tính trên tổng số tiền công ty nhận được theo tháng tương ứng từ tiền lời của người chơi do bạn giới thiệu cho @Model.SiteFriendlyName.</p>
+        <p><strong>Người chơi đủ điều kiện:</strong> Người chơi có tổng doanh thu cược tối thiểu 2,600,000₫ của tháng tương ứng.</p>
+        <p>Khoản tiền hoa hồng bị âm trong tháng sẽ được cộng dồn cho tháng tiếp theo.</p>
+        <p>Tất cả Đại Lý phải chịu phí quản lý và phí quảng cáo phát sinh trực tiếp để thu hút khách hàng.</p>
+        <p>
+            Các Chi phí sẽ được trừ vào doanh thu từng tháng gồm:
+            <ul class="dash">
+                <li>
+                    <strong>Phí ngân hàng</strong> - Phí Gửi và Rút tiền từ giao dịch của người chơi thuộc Đại Lý.
                 </li>
-                <li class="text">
-                    <strong>Người chơi đủ điều kiện:</strong> Người chơi có tổng doanh thu cược tối thiểu 2,600,000₫ của tháng tương ứng.
+                <li>
+                    <strong>Phí bản quyền</strong> - Phí bản quyền sản phẩm liên quan đến hoạt động chơi của người chơi thuộc Đại Lý.
                 </li>
-                <li class="text">
-                    Khoản tiền hoa hồng bị âm trong tháng sẽ được cộng dồn cho tháng tiếp theo.
-                </li>
-                <li class="text">
-                    Tất cả Đại Lý phải chịu phí quản lý và phí quảng cáo phát sinh trực tiếp để thu hút khách hàng.
-                </li>
-                <li class="text">
-                    Chi phí sẽ được trừ vào doanh thu từng tháng bao gồm:
-                    <ul class="dash-style">
-                        <li>
-                            <strong>Phí ngân hàng</strong> - Phí Gửi và Rút tiền từ giao dịch của người chơi thuộc Đại Lý.
-                        </li>
-                        <li>
-                            <strong>Phí bản quyền</strong> - Phí bản quyền sản phẩm liên quan đến hoạt động chơi của người chơi thuộc Đại Lý.
-                        </li>
-                        <li>
-                            <strong>Phí tiền thưởng</strong> - Tiền thưởng hoặc tiền hoàn trả cho người chơi thuộc Đại Lý.
-                        </li>
-                    </ul>
+                <li>
+                    <strong>Phí tiền thưởng</strong> - Tiền thưởng hoặc tiền hoàn trả cho người chơi thuộc Đại Lý.
                 </li>
             </ul>
-        </li>
-        <li class="text-block">
-            <strong>Cấu trúc tiền hoa hồng từ Đại Lý Cấp Dưới:</strong> bạn sẽ nhận được 10% doanh thu của các Đại Lý Cấp Dưới do bạn giới thiệu,
+        </p>
+
+        <p>
+            <strong>ii. Cấu trúc tiền hoa hồng từ Đại Lý Cấp Dưới:</strong> bạn sẽ nhận được 10% doanh thu của các Đại Lý Cấp Dưới do bạn giới thiệu,
             và nếu họ lại tiếp tục giới thiệu thành công các Đại Lý khác tham gia vào chương trình, bạn sẽ được nhận thêm một khoản
             doanh thu từ đó!
-        </li>
-    </ol>
+        </p>
+    </div>
 </div>
-<div class="info-group">
-    <div class="title">
-        <span class="text"><i>Ví dụ về cách tính tiền hoa hồng</i></span>
+<div class="content-group">
+    <div class="title-container">
+        <div class="index-number">04</div>
+        <div class="title-block">
+            <div class="title"><span>Ví dụ về cách tính tiền hoa hồng</span></div>
+            <div class="button-toggle"></div>
+        </div>
     </div>
-    <p class="text">
-        <i>Hình 1:</i> ví dụ về cách tính tiền hoa hồng bạn nhận được từ người chơi được bạn giới thiệu
-    </p>
-    @{ Html.RenderPartial("~/Views/CommissionStructure/_ExampleTable.cshtml", Model); }
-    <p class="text">
-        <i>Hình 2:</i> ví dụ về cách tính tiền hoa hồng bạn nhận được từ Đại Lý được bạn giới thiệu, và từ Đại Lý Cấp Dưới của họ
-    </p>
-    <div class="img-support" style="max-width: 600px; margin: 15px auto;">
-        <img class="img-responsive" src="~/www/build/styles/Images/revenue-share-structure/N8G/revenue_share_hierarchy.vi-VN.png?v=269365" alt="hierarchy banner" />
+    <div class="content-block">
+        <p><strong>Hình 1:</strong> ví dụ về cách tính tiền hoa hồng bạn nhận được từ người chơi được bạn giới thiệu</p>
+        @{ Html.RenderPartial($"~/Views/CommissionStructure/_ExampleTable.cshtml", Model); }
+        <p><strong>Hình 2:</strong> ví dụ về cách tính tiền hoa hồng bạn nhận được từ Đại Lý được bạn giới thiệu, và từ Đại Lý Cấp Dưới của họ</p>
+        <div class="img-support" style="max-width: 600px; margin: 15px auto;">
+            <img class="img-responsive" src="~/www/build/styles/Images/revenue-share-structure/@(Model.SiteName)/revenue-share.@(Model.CurrentLanguage).png" alt="hierarchy banner" />
+        </div>
+        <p>Tiền hoa hồng bạn nhận được:</p>
+        <div>
+            <p class="text">
+                = [B1+ ((C1 + C2) * 10%)]*10% + [B2 * 10%]
+            </p>
+            <p class="text">
+                = [0 + (1,150,000,000 + 690,000,000) * 10%)]*10% + [1,610,000,000 * 10%]
+            </p>
+            <p class="text">
+                = 179,400,000₫
+            </p>
+        </div>
+        <p>
+            <strong>=></strong> Tổng tiền hoa hồng trong tháng bạn nhận được: 1,336,250,000 + 179,400,000 = <strong>1,515,650,000₫</strong>
+        </p>
     </div>
-    <p class="text">
-        Tiền hoa hồng bạn nhận được:
-    </p>
-    <div style="padding-left: 30px;">
-        <p class="text">
-            = [B1+ ((C1 + C2) * 10%)]*10% + [B2 * 10%]
-        </p>
-        <p class="text">
-            = [0 + (1,150,000,000 + 690,000,000) * 10%)]*10% + [1,610,000,000 * 10%]
-        </p>
-        <p class="text">
-            = 179,400,000₫
-        </p>
-    </div>
-    <p class="text">
-        <strong>=></strong> Tổng tiền hoa hồng trong tháng bạn nhận được: 1,336,250,000 + 179,400,000 = <strong>1,515,650,000₫</strong>
-    </p>
 </div>
-<div class="info-group">
-    <div class="title">
-        <span class="text">Phương Thức Thanh Toán</span>
+<div class="content-group">
+    <div class="title-container">
+        <div class="index-number">05</div>
+        <div class="title-block">
+            <div class="title"><span>@Lang.HowWePay</span></div>
+            <div class="button-toggle"></div>
+        </div>
     </div>
-    <ul>
-        <li class="text">
-            Chúng tôi sẽ trả tiền hoa hồng cho bạn mỗi tháng một lần, thông qua một tài khoản người chơi do bạn sở hữu tại @(Model.SiteFriendlyName) (bằng tiền VND) và số tiền rút tối thiểu phải tương đương 2,600,000₫.
-        </li>
-        <li class="text">
-            Bất kỳ yêu cầu rút tiền thứ 2 nào trong tháng đều phải được sự đồng ý của nhóm Đại Lý @(Model.SiteFriendlyName).
-        </li>
-    </ul>
+    <div class="content-block">
+        <ul>
+            <li><p>Chúng tôi sẽ trả tiền hoa hồng cho bạn mỗi tháng một lần, thông qua một tài khoản người chơi do bạn sở hữu tại @(Model.SiteFriendlyName) (bằng tiền VND) và số tiền rút tối thiểu phải tương đương 2,600,000₫.</p></li>
+            <li><p>Bất kỳ yêu cầu rút tiền thứ 2 nào trong tháng đều phải được sự đồng ý của nhóm Đại Lý @(Model.SiteFriendlyName).</p></li>
+        </ul>
+    </div>
 </div>
