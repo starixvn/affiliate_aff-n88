@@ -1,6 +1,6 @@
 ﻿@import "../abstracts/variables-n8g";
 @import '../abstracts/mixins';
-@import "../../fonts/OpenSans/font.css";
+@import "../fonts/OpenSans/font.css";
 
 body {
     color: $text-color;
@@ -2830,6 +2830,8 @@ div.custom-panel {
 }
 
 .new-content {
+    font-family: "Open Sans", sans-serif !important;
+
     .page-title {
         text-align: center;
 
@@ -3077,56 +3079,6 @@ div.custom-panel {
     .revenue-share-banner {
         width: 100vw;
         margin-left: calc(-50vw + 50%);
-        min-height: 500px;
-        background: url('../../Images/revenue-share/N8G-revenue-share-banner.png') center;
-        display: flex;
-
-        @include Mobile {
-            background: url('../../Images/revenue-share/N8G-revenue-share-banner_Mobile.png') center no-repeat;
-            min-height: 164px;
-            background-size: cover;
-        }
-
-        @media screen and (min-width: 768px) and (max-width: 819px) {
-            background: url('../../Images/revenue-share/N8G-revenue-share-banner_Ipad_768.png') center no-repeat;
-            min-height: 420px;
-        }
-
-        @media screen and (min-width: 820px) and (max-width: 1023px) {
-            background: url('../../Images/revenue-share/N8G-revenue-share-banner_Ipad_820.png') center no-repeat;
-            min-height: 420px;
-        }
-
-        @media screen and (width: 1024px) {
-            background: url('../../Images/revenue-share/N8G-revenue-share-banner_Ipad.png') center no-repeat;
-            min-height: 420px;
-            background-size: cover;
-        }
-
-        .banner-title {
-            font-family: Open Sans;
-            font-weight: 700;
-            font-size: 48px;
-            text-transform: uppercase;
-            display: flex;
-            margin: auto;
-            width: 1320px;
-            flex-direction: column;
-
-            @media screen and (min-width: 768px) and (max-width: 1024px) {
-                margin-left: 50px;
-                font-size: 25px;
-            }
-
-            @include Mobile {
-                font-size: 20px;
-                margin-left: 10px;
-            }
-
-            .first-title {
-                color: var(--N8G-Brand-Colour, #FAB617);
-            }
-        }
     }
 
     .page-title span {
@@ -3141,7 +3093,7 @@ div.custom-panel {
     .content-group {
         margin: 15px 0;
 
-        @media screen and (min-width: 768px) and (max-width: 1024px) {
+        @media screen and (min-width: 768px) and (max-width: 1200px) {
             padding: 0 10px;
         }
 

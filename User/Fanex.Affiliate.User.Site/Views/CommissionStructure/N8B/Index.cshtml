@@ -5,6 +5,8 @@
     Layout = "~/Views/Shared/_LayoutBeforeLogin.cshtml";
 }
 @{
+     var mobileBannerPath = Url.Content($"~/www/build/styles/Images/revenue-share-structure/n8b/revenue-share-banner-mobile.{Model.CurrentLanguage}");
+    var desktopBannerPath = Url.Content($"~/www/build/styles/Images/revenue-share-structure/n8b/revenue-share-banner.{Model.CurrentLanguage}");
     var htmlString = Html.RenderPartialByLanguage("~/Views/CommissionStructure/N8B/_Content", Model.CurrentLanguage, Model).ToHtmlString();
 }
 
@@ -13,6 +15,14 @@
 }
 
 <div class="revenue-share-new-page">
+    <div class="revenue-share-banner">
+        <picture>
+            <source media="(max-width:767px)" srcset="@(mobileBannerPath + ".png?v=0.01")" type="image/png" />
+            <source srcset="@(desktopBannerPath + ".png?v=0.01")" type="image/png" />
+            <img class="img-item img-responsive" src="@(desktopBannerPath + ".png?v=0.01")" alt="Main Banner" />
+        </picture>
+    </div>
+
     @Html.Raw(htmlString)
 
     @RazorHelper.RenderMovingTopButton()

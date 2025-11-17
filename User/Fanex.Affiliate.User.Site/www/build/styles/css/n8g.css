@@ -1,4 +1,4 @@
-﻿@import "../../fonts/OpenSans/font.css";
+﻿@import "../fonts/OpenSans/font.css";
 body {
   color: #BAC2D2;
   background: #152849;
@@ -2154,6 +2154,9 @@ div.custom-panel {
     overflow: scroll;
   }
 }
+.new-content {
+  font-family: "Open Sans", sans-serif !important;
+}
 .new-content .page-title {
   text-align: center;
 }
@@ -2381,60 +2384,6 @@ div.custom-panel {
 .revenue-share-new-page .revenue-share-banner {
   width: 100vw;
   margin-left: calc(-50vw + 50%);
-  min-height: 500px;
-  background: url("../../../source/styles/Images/revenue-share/N8G-revenue-share-banner.png") center;
-  display: flex;
-}
-@media (max-width: 767px) {
-  .revenue-share-new-page .revenue-share-banner {
-    background: url("../../../source/styles/Images/revenue-share/N8G-revenue-share-banner_Mobile.png") center no-repeat;
-    min-height: 164px;
-    background-size: cover;
-  }
-}
-@media screen and (min-width: 768px) and (max-width: 819px) {
-  .revenue-share-new-page .revenue-share-banner {
-    background: url("../../../source/styles/Images/revenue-share/N8G-revenue-share-banner_Ipad_768.png") center no-repeat;
-    min-height: 420px;
-  }
-}
-@media screen and (min-width: 820px) and (max-width: 1023px) {
-  .revenue-share-new-page .revenue-share-banner {
-    background: url("../../../source/styles/Images/revenue-share/N8G-revenue-share-banner_Ipad_820.png") center no-repeat;
-    min-height: 420px;
-  }
-}
-@media screen and (width: 1024px) {
-  .revenue-share-new-page .revenue-share-banner {
-    background: url("../../../source/styles/Images/revenue-share/N8G-revenue-share-banner_Ipad.png") center no-repeat;
-    min-height: 420px;
-    background-size: cover;
-  }
-}
-.revenue-share-new-page .revenue-share-banner .banner-title {
-  font-family: Open Sans;
-  font-weight: 700;
-  font-size: 48px;
-  text-transform: uppercase;
-  display: flex;
-  margin: auto;
-  width: 1320px;
-  flex-direction: column;
-}
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-  .revenue-share-new-page .revenue-share-banner .banner-title {
-    margin-left: 50px;
-    font-size: 25px;
-  }
-}
-@media (max-width: 767px) {
-  .revenue-share-new-page .revenue-share-banner .banner-title {
-    font-size: 20px;
-    margin-left: 10px;
-  }
-}
-.revenue-share-new-page .revenue-share-banner .banner-title .first-title {
-  color: var(--N8G-Brand-Colour, #FAB617);
 }
 .revenue-share-new-page .page-title span {
   color: #EA5500;
@@ -2445,7 +2394,7 @@ div.custom-panel {
 .revenue-share-new-page .content-group {
   margin: 15px 0;
 }
-@media screen and (min-width: 768px) and (max-width: 1024px) {
+@media screen and (min-width: 768px) and (max-width: 1200px) {
   .revenue-share-new-page .content-group {
     padding: 0 10px;
   }

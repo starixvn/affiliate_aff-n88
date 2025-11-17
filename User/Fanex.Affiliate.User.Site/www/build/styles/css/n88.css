@@ -1,4 +1,4 @@
-﻿@import "../../fonts/OpenSans/font.css";
+﻿@import "../fonts/OpenSans/font.css";
 .btn {
   border-radius: 4px;
 }
@@ -1185,6 +1185,11 @@ select.form-control:focus {
     padding: 15px 0 !important;
   }
 }
+.main-content .new-content {
+  font-family: "Open Sans", sans-serif !important;
+  font-size: 16px !important;
+  line-height: 24px !important;
+}
 @media (max-width: 1024px) {
   .main-content .content {
     padding: 0 15px !important;
@@ -1388,53 +1393,6 @@ select.form-control:focus {
 .revenue-share-new-page .revenue-share-banner {
   width: 100vw;
   margin-left: calc(-50vw + 50%);
-  min-height: 500px;
-  background: url("../../../source/styles/Images/revenue-share/N88-revenue-share-banner.png") center;
-  display: flex;
-}
-@media (max-width: 767px) {
-  .revenue-share-new-page .revenue-share-banner {
-    background: url("../../../source/styles/Images/revenue-share/N88-revenue-share-banner_Mobile.png") center no-repeat;
-    min-height: 164px;
-    background-size: cover;
-  }
-}
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-  .revenue-share-new-page .revenue-share-banner {
-    background: url("../../../source/styles/Images/revenue-share/N88-revenue-share-banner_Ipad.png") center no-repeat;
-    min-height: 420px;
-  }
-}
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-  .revenue-share-new-page .revenue-share-banner {
-    background-size: cover;
-  }
-}
-.revenue-share-new-page .revenue-share-banner .banner-title {
-  font-family: Open Sans;
-  font-weight: 700;
-  font-size: 48px;
-  text-transform: uppercase;
-  display: flex;
-  margin: auto;
-  width: 1320px;
-  color: #ffffff;
-  flex-direction: column;
-}
-@media (max-width: 767px) {
-  .revenue-share-new-page .revenue-share-banner .banner-title {
-    font-size: 20px;
-    margin-left: 10px;
-  }
-}
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-  .revenue-share-new-page .revenue-share-banner .banner-title {
-    margin-left: 50px;
-    font-size: 25px;
-  }
-}
-.revenue-share-new-page .revenue-share-banner .banner-title .first-title {
-  color: #FF5D00;
 }
 .revenue-share-new-page .page-title span {
   color: #EA5500;

@@ -1,6 +1,6 @@
 ﻿@import "../abstracts/variables-n88";
 @import '../abstracts/mixins';
-@import "../../fonts/OpenSans/font.css";
+@import "../fonts/OpenSans/font.css";
 
 .btn {
     border-radius: 4px;
@@ -1508,6 +1508,12 @@ select.form-control {
         padding: 15px 0 !important;
     }
 
+    .new-content {
+        font-family: 'Open Sans', sans-serif !important;
+        font-size: 16px !important;
+        line-height: 24px !important;
+    }
+
     .content {
         @media (max-width: 1024px) {
             padding: 0 15px !important;
@@ -1718,50 +1724,6 @@ select.form-control {
     .revenue-share-banner {
         width: 100vw;
         margin-left: calc(-50vw + 50%);
-        min-height: 500px;
-        background: url('../../Images/revenue-share/N88-revenue-share-banner.png') center;
-        display: flex;
-
-        @include Mobile {
-            background: url('../../Images/revenue-share/N88-revenue-share-banner_Mobile.png') center no-repeat;
-            min-height: 164px;
-            background-size: cover;
-        }
-
-        @media screen and (min-width: 768px) and (max-width: 1024px) {
-            background: url('../../Images/revenue-share/N88-revenue-share-banner_Ipad.png') center no-repeat;
-            min-height: 420px;
-        }
-
-        @media screen and (min-width: 768px) and (max-width: 1024px) {
-            background-size: cover;
-        }
-
-        .banner-title {
-            font-family: Open Sans;
-            font-weight: 700;
-            font-size: 48px;
-            text-transform: uppercase;
-            display: flex;
-            margin: auto;
-            width: 1320px;
-            color: #ffffff;
-            flex-direction: column;
-
-            @include Mobile {
-                font-size: 20px;
-                margin-left: 10px;
-            }
-
-            @media screen and (min-width: 768px) and (max-width: 1024px) {
-                margin-left: 50px;
-                font-size: 25px;
-            }
-
-            .first-title {
-                color: #FF5D00;
-            }
-        }
     }
 
     .page-title span {
