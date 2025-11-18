@@ -1568,3 +1568,185 @@ select.form-control:focus {
 .revenue-share-new-page .content-group .table table tr:nth-child(even) {
   background-color: #FFFFFF !important;
 }
+
+.footer .footer-container {
+  max-width: 1344px;
+  width: 100%;
+  margin: 0 auto;
+  color: #ffffff;
+  font-family: Open Sans;
+  font-size: 16px;
+  line-height: 24px;
+  display: flex;
+  justify-content: space-between;
+  gap: 100px;
+  padding: 0 12px;
+}
+@media screen and (max-width: 1024px) {
+  .footer .footer-container {
+    max-width: unset;
+    display: grid;
+    gap: 20px;
+    justify-content: center;
+    gap: 20px;
+  }
+}
+@media screen and (min-width: 1025px) and (max-width: 1220px) {
+  .footer .footer-container {
+    gap: 20px;
+  }
+}
+.footer .footer-container .gamebling-licensee {
+  font-weight: 700;
+  font-size: 16px;
+}
+.footer .footer-container .gamebling-licensee .gamebling-licensee-title {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+}
+.footer .footer-container .gamebling-licensee img {
+  display: block;
+  width: 22px;
+  height: 22px;
+}
+.footer .footer-container .gamebling-licensee .game-award {
+  margin-top: 10px;
+}
+.footer .footer-container .gamebling-licensee .game-award img {
+  display: block;
+  width: 194px;
+  height: 70px;
+}
+@media screen and (max-width: 1024px) {
+  .footer .footer-container .gamebling-licensee {
+    display: grid;
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .footer .footer-container .awards-container {
+    display: grid;
+    gap: 10px;
+    justify-content: center;
+  }
+}
+.footer .footer-container .awards-container .awards-block {
+  display: block;
+  text-align: left;
+}
+.footer .footer-container .awards-container .awards-block > div {
+  display: block;
+  text-align: left;
+  margin: 2px 0;
+}
+@media screen and (max-width: 1024px) {
+  .footer .footer-container .awards-container .awards-block > div {
+    display: flex;
+    justify-content: center;
+  }
+}
+.footer .footer-container .awards-container .awards-block .awards-logo {
+  display: block;
+  text-align: left;
+}
+@media screen and (max-width: 1024px) {
+  .footer .footer-container .awards-container .awards-block .awards-logo {
+    display: flex;
+    justify-content: center;
+    aspect-ratio: 1/0.095;
+  }
+}
+.footer .footer-container .awards-container .awards-block .awards-title {
+  font-weight: 700;
+  align-items: center;
+}
+@media screen and (max-width: 1023px) {
+  .footer .footer-container .awards-container .awards-block .awards-title {
+    margin-bottom: 10px;
+  }
+}
+.footer .footer-container .awards-container .awards-block .awards-text {
+  font-weight: 400;
+}
+@media screen and (max-width: 1023px) {
+  .footer .footer-container .awards-container .awards-block .awards-text {
+    font-size: 14px;
+  }
+}
+.footer .footer-container ul {
+  float: right;
+}
+@media screen and (max-width: 1024px) {
+  .footer .footer-container ul {
+    display: grid;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+  }
+}
+.footer .footer-container ul li {
+  list-style: none;
+  text-align: left;
+  clear: both;
+}
+@media screen and (max-width: 1024px) {
+  .footer .footer-container ul li {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    justify-content: center;
+  }
+}
+.footer .footer-container ul li .contact-social-icons {
+  margin: 0 0 20px 0;
+  float: left;
+}
+.footer .footer-container ul li ul li {
+  list-style: none;
+  display: inline-block;
+  clear: both;
+}
+.footer .footer-container ul .copy-right-text {
+  margin: 0 0 0 15px;
+}
+@media screen and (max-width: 1024px) {
+  .footer .footer-container ul .copy-right-text {
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+  }
+}
+.footer .footer-container .contact-title {
+  font-weight: 700;
+  margin: 0 0 10px 15px;
+}
+@media screen and (max-width: 1024px) {
+  .footer .footer-container .contact-title {
+    margin: 0 0 10px 0;
+    display: flex;
+    justify-content: center;
+  }
+}
+.footer .footer-container .contact-social-icons {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+}
+@media screen and (max-width: 1024px) {
+  .footer .footer-container .contact-social-icons {
+    float: unset !important;
+    justify-content: center;
+  }
+}
+.footer .footer-container .contact-social-icons img {
+  width: 55px;
+  height: 55px;
+}
+@media screen and (max-width: 1024px) {
+  .footer .footer-container .contact-social-icons img {
+    width: 40px;
+    height: 40px;
+  }
+}

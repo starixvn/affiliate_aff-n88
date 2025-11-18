@@ -1,0 +1,48 @@
+﻿@{
+    var footerPath = Url.Content($"~/www/build/styles/Images/footer/n88/");
+    var threads = "https://www.threads.net/@nova88vn";
+    var viber = "viber://chat?number=+66991905974";
+}
+<ul class="contact-block">
+    <li class="contact-title">@Lang.ContactUs</li>
+    <li>
+        <ul class="contact-social-icons">
+            <li>
+                <a href="https://www.facebook.com/nova88official/" target="_blank">
+                    <img src="@(footerPath + "Facebook.svg")" alt="Facebook" type="image/svg+xml" />
+                </a>
+            </li>
+            <li>
+                <a href="https://twitter.com/Nova88official/" target="_blank">
+                    <img src="@(footerPath + "X.svg")" alt="Twitter/X" type="image/svg+xml" />
+                </a>
+            </li>
+            <li>
+                <a href="https://www.instagram.com/nova88_official/" target="_blank">
+                    <img src="@(footerPath + "Instagram.svg")" alt="Instagram" type="image/svg+xml" />
+                </a>
+            </li>
+            <li>
+                <a href="https://t.me/Nova88vncskh" target="_blank">
+                    <img src="@(footerPath + "Telegram.svg")" alt="Telegram" type="image/svg+xml" />
+                </a>
+            </li>
+            <li>
+                <a href="https://www.youtube.com/channel/UCoUtgrQN2E10oke1Hmj0ATw" target="_blank">
+                    <img src="@(footerPath + "Youtube.svg")" alt="YouTube" type="image/svg+xml" />
+                </a>
+            </li>
+            <li>
+                <a href="@threads" target="_blank">
+                    <img src="@(footerPath + "Thread.svg")" alt="Thread" type="image/svg+xml" />
+                </a>
+            </li>
+            <li>
+                <a href="@viber" target="_blank">
+                    <img src="@(footerPath + "Viber.svg")" alt="Customer Support Nova88 Viber" type="image/svg+xml" />
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class="copy-right-text">@string.Format(SiteFriendlyNameHelper.ReplaceB2C(Lang.Copyright), DateTime.Now.Year)</li>
+</ul>

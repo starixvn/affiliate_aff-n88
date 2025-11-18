@@ -1894,4 +1894,16 @@ Jika Anda memerlukan banner baru atau ingin meminta banner kustom, silakan hubun
   <data name="Our_Products" xml:space="preserve">
     <value>PRODUK KAMI</value>
   </data>
+  <data name="Awards" xml:space="preserve">
+    <value>Penghargaan</value>
+  </data>
+  <data name="SHORTLISTED_CRM_Campaign" xml:space="preserve">
+    <value>TERPILIH Kampanye CRM</value>
+  </data>
+  <data name="SHORTLISTED_Best_Operator" xml:space="preserve">
+    <value>TERPILIH Penyedia Layanan Terbaik</value>
+  </data>
+  <data name="GamingLicense" xml:space="preserve">
+    <value>Lisensi Resmi</value>
+  </data>
 </root>

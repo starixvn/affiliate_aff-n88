@@ -3297,3 +3297,45 @@ div.custom-panel {
     }
 }
 
+.footer {
+    background: #0E0C2E !important;
+
+    .footer-container {
+        max-width: 1344px;
+        width: 100%;
+        margin: 0 auto;
+        color: #ffffff;
+        font-family: Open Sans;
+        font-size: 16px;
+        line-height: 24px;
+
+        ul {
+            float: right;
+
+            li {
+                list-style: none;
+                text-align: left;
+
+                ul li {
+                    list-style: none;
+                    display: inline-block;
+                    margin: 0 5px;
+                }
+            }
+        }
+
+        .footer-text {
+            margin-top: 20px !important;
+        }
+
+        .contact-title {
+            font-weight: 700;
+            margin: 0 0 10px 15px;
+        }
+
+        .follow-us {
+            display: flex;
+            justify-content: center;
+        }
+    }
+}

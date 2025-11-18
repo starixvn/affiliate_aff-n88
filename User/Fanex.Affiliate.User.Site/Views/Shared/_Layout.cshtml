@@ -13,6 +13,9 @@
     var siteName = settingService.SiteName.ToLowerInvariant();
     var isN8G = string.Equals(settingService.SiteName, SiteName.N8G, StringComparison.CurrentCultureIgnoreCase);
     var targetCountryLanguages = languageService.GetTargetCountryLanguages();
+    var firstColumnCssClass = string.Empty;
+    var secondColumnCssClass = string.Empty;
+    var thirdColumnCssClass = string.Empty;
 }
 
 <!DOCTYPE html>
@@ -40,6 +43,12 @@
 
     <link href="~/www/build/styles/css/bootstrap-3.3.7.min.css" rel="stylesheet" />
     <link href="~/www/build/styles/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+
+    @{ 
+        firstColumnCssClass = isN8G ? "col-md-4" : "col-md-3";
+        secondColumnCssClass = isN8G ? "col-md-4 follow-us" : "col-md-6 follow-us";
+        thirdColumnCssClass = isN8G ? "col-md-4" : "col-md-3";
+    }
 
     @if (currentLanguage == SystemLanguage.ChineseLanguageCode)
     {
@@ -91,11 +100,11 @@
                         <div class="language-list-wrapper" id="languageList">
                             <ul class="list-unstyled language-list">
                                 @*@foreach (var language in languageList)
-                                {
-                                    <li>
-                                        <a href="javascript:;" class="language-item" data-option="@language.ShortedCode"><i class="flag flag-@language.Code"></i>@language.NativeName</a>
-                                    </li>
-                                }*@
+                                    {
+                                        <li>
+                                            <a href="javascript:;" class="language-item" data-option="@language.ShortedCode"><i class="flag flag-@language.Code"></i>@language.NativeName</a>
+                                        </li>
+                                    }*@
                                 @foreach (var country in targetCountryLanguages)
                                 {
                                     <li class="country-item">
@@ -166,10 +175,10 @@
                                     </a>
                                 </li>
                                 @*<li>
-                                    <a class="menu-item @(controllerName == "Promotion" ? "active" : string.Empty)" href="@Url.Content("~/Promotion")">
-                                        @Lang.Promotion
-                                    </a>
-                                </li>*@
+                                        <a class="menu-item @(controllerName == "Promotion" ? "active" : string.Empty)" href="@Url.Content("~/Promotion")">
+                                            @Lang.Promotion
+                                        </a>
+                                    </li>*@
                                 <li>
                                     <a class="menu-item @(controllerName == "FAQ" ? "active" : string.Empty)" href="@Url.Content("~/FAQ")">
                                         @Lang.Faqs
@@ -193,11 +202,24 @@
     </div>
 
     <div class="footer">
-        <div class="footer-text">
-            @string.Format(SiteFriendlyNameHelper.ReplaceB2C(Lang.Copyright), DateTime.Now.Year)
+        <div class="footer-container">
+            <div class="row">
+                <div class="@firstColumnCssClass">
+                    <img src=@Url.VersionedLink($"~/www/build/styles/Images/footer/{siteName.ToLowerInvariant()}/Licesences.png") alt="Gambling Licenseces" />
+                </div>
+                <div class="@secondColumnCssClass">
+                    @Html.RenderPartialByLanguage($"~/Views/Shared/Footer/{siteName}/FollowUsFooter", currentLanguage, siteFriendlyName)
+                </div>
+                <div class="@thirdColumnCssClass">
+                    @Html.RenderPartialByLanguage($"~/Views/Shared/Footer/{siteName}/ContactUsFooter", currentLanguage, siteFriendlyName)
+                </div>
+            </div>
+            <div class="row footer-text">
+                @string.Format(SiteFriendlyNameHelper.ReplaceB2C(Lang.Copyright), DateTime.Now.Year)
+            </div>
         </div>
-    </div>
 
+    </div>
     <div class="blocker" id="blocker" style="display: none;">
         <div class="spinner">
             <div class="dot1"></div>
@@ -207,15 +229,15 @@
 
     <input type="hidden" id="RootUrl" value="@Url.Content("~")" />
     <input type="hidden" id="Language" value="@currentLanguage" />
-    
+
     <div class="contact-girl-floating-icon display-none" id="contactGirlIcon">
         <div class="contact-girl-close" id="contactGirlClose">&times;</div>
         <a href="@Url.Content("~/ContactUs")" class="contact-girl-link">
-            <img src="~/www/build/styles/Images/contact-girl/@(siteName)/contact-us.@(currentLanguage).webp" 
+            <img src="~/www/build/styles/Images/contact-girl/@(siteName)/contact-us.@(currentLanguage).webp"
                  alt="Contact Girl" class="contact-girl-image" />
         </a>
     </div>
-    
+
     @Html.Raw(Fanex.Logging.LogManager.RenderJavascriptLogger())
     <script src="https://cdn.ravenjs.com/3.27.0/raven.min.js" crossorigin="anonymous"></script>
     <script>

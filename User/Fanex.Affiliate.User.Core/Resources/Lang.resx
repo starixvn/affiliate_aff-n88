@@ -2253,4 +2253,19 @@ If you need a new banner or would like to request a custom banner, feel free to 
   <data name="Our_Products" xml:space="preserve">
     <value>Our Products</value>
   </data>
+  <data name="Awards" xml:space="preserve">
+    <value>Awards</value>
+  </data>
+  <data name="SHORTLISTED_CRM_Campaign" xml:space="preserve">
+    <value>SHORTLISTED CRM Campaign</value>
+  </data>
+  <data name="SHORTLISTED_Best_Operator" xml:space="preserve">
+    <value>SHORTLISTED Best Operator</value>
+  </data>
+  <data name="FollowUs" xml:space="preserve">
+    <value>Follow Us</value>
+  </data>
+  <data name="GamingLicense" xml:space="preserve">
+    <value>Gaming License</value>
+  </data>
 </root>

@@ -2147,4 +2147,16 @@
   <data name="Our_Products" xml:space="preserve">
     <value>আমাদের পণ্য</value>
   </data>
+  <data name="Awards" xml:space="preserve">
+    <value>পুরস্কার</value>
+  </data>
+  <data name="SHORTLISTED_CRM_Campaign" xml:space="preserve">
+    <value>শর্টলিস্টেড CRM প্রচার</value>
+  </data>
+  <data name="SHORTLISTED_Best_Operator" xml:space="preserve">
+    <value>শর্টলিস্টেড সেরা অপারেটর</value>
+  </data>
+  <data name="GamingLicense" xml:space="preserve">
+    <value>খেলাধুলার অনুমতি পত্র</value>
+  </data>
 </root>

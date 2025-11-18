@@ -2576,3 +2576,39 @@ div.custom-panel {
 .revenue-share-new-page .content-group .table table tr:nth-child(even) {
   background-color: #FFFFFF !important;
 }
+
+.footer {
+  background: #0E0C2E !important;
+}
+.footer .footer-container {
+  max-width: 1344px;
+  width: 100%;
+  margin: 0 auto;
+  color: #ffffff;
+  font-family: Open Sans;
+  font-size: 16px;
+  line-height: 24px;
+}
+.footer .footer-container ul {
+  float: right;
+}
+.footer .footer-container ul li {
+  list-style: none;
+  text-align: left;
+}
+.footer .footer-container ul li ul li {
+  list-style: none;
+  display: inline-block;
+  margin: 0 5px;
+}
+.footer .footer-container .footer-text {
+  margin-top: 20px !important;
+}
+.footer .footer-container .contact-title {
+  font-weight: 700;
+  margin: 0 0 10px 15px;
+}
+.footer .footer-container .follow-us {
+  display: flex;
+  justify-content: center;
+}
