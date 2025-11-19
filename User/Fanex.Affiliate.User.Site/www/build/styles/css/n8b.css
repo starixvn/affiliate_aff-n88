@@ -1072,6 +1072,9 @@ input[type=radio][disabled] + span {
   width: 100vw;
   margin-left: calc(-50vw + 50%);
 }
+.revenue-share-new-page .revenue-share-banner .img-responsive {
+  width: 100%;
+}
 .revenue-share-new-page .page-title {
   text-align: left;
 }
