@@ -3079,6 +3079,10 @@ div.custom-panel {
     .revenue-share-banner {
         width: 100vw;
         margin-left: calc(-50vw + 50%);
+
+        .img-responsive {
+            width: 100%;
+        }
     }
 
     .page-title span {
