@@ -1586,7 +1586,6 @@ select.form-control:focus {
   .footer .footer-container {
     max-width: unset;
     display: grid;
-    gap: 20px;
     justify-content: center;
     gap: 20px;
   }
@@ -1744,9 +1743,15 @@ select.form-control:focus {
   width: 55px;
   height: 55px;
 }
-@media screen and (max-width: 1024px) {
+@media screen and (min-width: 391px) and (max-width: 1024px) {
   .footer .footer-container .contact-social-icons img {
     width: 40px;
     height: 40px;
+  }
+}
+@media screen and (max-width: 390px) {
+  .footer .footer-container .contact-social-icons img {
+    width: 35px;
+    height: 35px;
   }
 }

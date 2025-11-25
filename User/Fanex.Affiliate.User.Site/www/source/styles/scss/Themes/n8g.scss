@@ -3299,43 +3299,117 @@ div.custom-panel {
 
 .footer {
     background: #0E0C2E !important;
+    color: #ffffff;
+    font-family: Open Sans;
+    font-size: 16px;
+    line-height: 24px;
 
     .footer-container {
-        max-width: 1344px;
+        max-width: calc(100% - 400px);
         width: 100%;
         margin: 0 auto;
-        color: #ffffff;
-        font-family: Open Sans;
-        font-size: 16px;
-        line-height: 24px;
+        display: flex;
+        justify-content: space-between;
+        gap: 100px;
+
+        @include Mobile {
+            max-width: unset;
+            display: grid;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        @media screen and (min-width: 768px) and (max-width: 1024px) {
+            gap: 50px;
+            max-width: unset;
+            padding: 0 10px;
+        }
+
+        .game-licensee {
+            font-weight: 700;
+            font-size: 16px;
+            text-align: left;
+            display: grid;
+            gap: 10px;
+
+            .gamebling-licensee-title {
+                @include Mobile {
+                    text-align: center;
+                }
+            }
+
+            .game-curacao {
+                img {
+                    display: block;
+                    height: 64px;
+                    background-size: auto 64px;
+                    width: auto;
+                }
+            }
+        }
+
+        .follow-us-container, .contact-us-container {
+            @include Mobile {
+                display: flex;
+                justify-content: center;
+            }
+        }
 
         ul {
-            float: right;
+            padding: 0;
 
             li {
                 list-style: none;
                 text-align: left;
 
+                @include Mobile {
+                    display: flex;
+                    justify-content: center;
+                }
+
                 ul li {
                     list-style: none;
                     display: inline-block;
-                    margin: 0 5px;
                 }
             }
         }
 
         .footer-text {
-            margin-top: 20px !important;
+            margin-top: 30px !important;
         }
 
         .contact-title {
             font-weight: 700;
-            margin: 0 0 10px 15px;
+            margin: 0 0 10px 0;
+
+            @include Mobile {
+                margin: 0 0 10px 0;
+                display: flex;
+                justify-content: center;
+            }
         }
 
-        .follow-us {
+        .contact-social-icons {
             display: flex;
-            justify-content: center;
+            gap: 10px;
+
+            img {
+                width: 55px;
+                height: 55px;
+
+                @media screen and (max-width: 1024px) {
+                    width: 40px;
+                    height: 40px;
+                }
+            }
+        }
+    }
+
+    .copy-right-text {
+        margin: 20px 0 0 0;
+
+        @include Mobile {
+            font-size: 14px;
         }
     }
 }

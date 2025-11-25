@@ -13,9 +13,6 @@
     var siteName = settingService.SiteName.ToLowerInvariant();
     var isN8G = string.Equals(settingService.SiteName, SiteName.N8G, StringComparison.CurrentCultureIgnoreCase);
     var targetCountryLanguages = languageService.GetTargetCountryLanguages();
-    var firstColumnCssClass = string.Empty;
-    var secondColumnCssClass = string.Empty;
-    var thirdColumnCssClass = string.Empty;
 }
 
 <!DOCTYPE html>
@@ -43,12 +40,6 @@
 
     <link href="~/www/build/styles/css/bootstrap-3.3.7.min.css" rel="stylesheet" />
     <link href="~/www/build/styles/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
-
-    @{ 
-        firstColumnCssClass = isN8G ? "col-md-4" : "col-md-3";
-        secondColumnCssClass = isN8G ? "col-md-4 follow-us" : "col-md-6 follow-us";
-        thirdColumnCssClass = isN8G ? "col-md-4" : "col-md-3";
-    }
 
     @if (currentLanguage == SystemLanguage.ChineseLanguageCode)
     {
@@ -203,22 +194,24 @@
 
     <div class="footer">
         <div class="footer-container">
-            <div class="row">
-                <div class="@firstColumnCssClass">
-                    <img src=@Url.VersionedLink($"~/www/build/styles/Images/footer/{siteName.ToLowerInvariant()}/Licesences.png") alt="Gambling Licenseces" />
+            <div class="game-licensee">
+                <div class="gamebling-licensee-title">
+                    @Lang.GamingLicense
                 </div>
-                <div class="@secondColumnCssClass">
-                    @Html.RenderPartialByLanguage($"~/Views/Shared/Footer/{siteName}/FollowUsFooter", currentLanguage, siteFriendlyName)
-                </div>
-                <div class="@thirdColumnCssClass">
-                    @Html.RenderPartialByLanguage($"~/Views/Shared/Footer/{siteName}/ContactUsFooter", currentLanguage, siteFriendlyName)
+                <div class="game-curacao">
+                    <img src="~/www/build/styles/Images/footer/Gaming Curacao.svg" alt="Gamble Curacao" />
                 </div>
             </div>
-            <div class="row footer-text">
-                @string.Format(SiteFriendlyNameHelper.ReplaceB2C(Lang.Copyright), DateTime.Now.Year)
+            <div class="follow-us-container">
+                @Html.RenderPartialByLanguage($"~/Views/Shared/Footer/{siteName}/FollowUsFooter", currentLanguage, siteFriendlyName)
+            </div>
+            <div class="contact-us-container">
+                @Html.RenderPartialByLanguage($"~/Views/Shared/Footer/{siteName}/ContactUsFooter", currentLanguage, siteFriendlyName)
             </div>
         </div>
-
+        <div class="copy-right-text">
+            @string.Format(SiteFriendlyNameHelper.ReplaceB2C(Lang.Copyright), DateTime.Now.Year)
+        </div>
     </div>
     <div class="blocker" id="blocker" style="display: none;">
         <div class="spinner">

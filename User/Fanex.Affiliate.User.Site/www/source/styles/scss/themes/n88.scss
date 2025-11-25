@@ -1941,7 +1941,6 @@ select.form-control {
         @media screen and (max-width: 1024px) {
             max-width: unset;
             display: grid;
-            gap: 20px;
             justify-content: center;
             gap: 20px;
         }
@@ -2105,9 +2104,14 @@ select.form-control {
                 width: 55px;
                 height: 55px;
 
-                @media screen and (max-width: 1024px) {
+                @media screen and (min-width: 391px) and (max-width: 1024px) {
                     width: 40px;
                     height: 40px;
+                }
+
+                @media screen and (max-width: 390px) {
+                    width: 35px;
+                    height: 35px;
                 }
             }
         }
