@@ -1956,6 +1956,10 @@ select.form-control {
             .gamebling-licensee-title {
                 display: flex;
                 gap: 5px;
+
+                @media screen and (max-width: 1024px) {
+                    justify-content: center;
+                }
             }
 
             img {

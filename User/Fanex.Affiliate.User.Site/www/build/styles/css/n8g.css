@@ -2607,6 +2607,18 @@ div.custom-panel {
     padding: 0 10px;
   }
 }
+@media (min-width: 1025px) and (max-width: 1199px) {
+  .footer .footer-container {
+    max-width: 100%;
+    gap: 20px;
+    padding: 0 10px;
+  }
+}
+@media only screen and (min-width: 1200px) and (max-width: 1366px) {
+  .footer .footer-container {
+    max-width: calc(100% - 200px);
+  }
+}
 .footer .footer-container .game-licensee {
   font-weight: 700;
   font-size: 16px;
