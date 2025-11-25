@@ -1874,14 +1874,6 @@
     <Content Include="www\source\styles\fonts\OpenSans\OpenSans-SemiBold.ttf" />
     <Content Include="www\source\styles\fonts\OpenSans\OpenSans-Bold.ttf" />
     <Content Include="www\source\styles\fonts\OpenSans\OpenSans-ExtraBold.ttf" />
-    <Content Include="Views\Shared\N88\ContactUs-Footer\ContactUsFooter.en-US.cshtml" />
-    <Content Include="Views\Shared\N88\ContactUs-Footer\ContactUsFooter.bn-BD.cshtml" />
-    <Content Include="Views\Shared\N88\ContactUs-Footer\ContactUsFooter.hi-IN.cshtml" />
-    <Content Include="Views\Shared\N88\ContactUs-Footer\ContactUsFooter.id-ID.cshtml" />
-    <Content Include="Views\Shared\N88\ContactUs-Footer\ContactUsFooter.ms-MY.cshtml" />
-    <Content Include="Views\Shared\N88\ContactUs-Footer\ContactUsFooter.th-TH.cshtml" />
-    <Content Include="Views\Shared\N88\ContactUs-Footer\ContactUsFooter.vi-VN.cshtml" />
-    <Content Include="Views\Shared\N88\ContactUs-Footer\ContactUsFooter.zh-CN.cshtml" />
     <Content Include="Views\Shared\Footer\N8G\ContactUsFooter.en-US.cshtml" />
     <Content Include="Views\Shared\Footer\N8G\ContactUsFooter.vi-VN.cshtml" />
     <Content Include="Views\Shared\Footer\N8B\ContactUsFooter.en-US.cshtml" />
@@ -1890,6 +1882,13 @@
     <Content Include="Views\Shared\Footer\N8B\FollowUsFooter.vi-VN.cshtml" />
     <Content Include="Views\Shared\Footer\N8G\FollowUsFooter.en-US.cshtml" />
     <Content Include="Views\Shared\Footer\N8G\FollowUsFooter.vi-VN.cshtml" />
+    <Content Include="Views\Shared\N88\ContactInfo\_Content.BD.cshtml" />
+    <Content Include="Views\Shared\N88\ContactInfo\_Content.US.cshtml" />
+    <Content Include="Views\Shared\N88\ContactInfo\_Content.IN.cshtml" />
+    <Content Include="Views\Shared\N88\ContactInfo\_Content.ID.cshtml" />
+    <Content Include="Views\Shared\N88\ContactInfo\_Content.MY.cshtml" />
+    <Content Include="Views\Shared\N88\ContactInfo\_Content.TH.cshtml" />
+    <Content Include="Views\Shared\N88\ContactInfo\_Content.VN.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -17,9 +17,9 @@ namespace Fanex.Affiliate.User.Core.BusinessService
     {
         private static string siteName = AppSetting.Instance.SiteName.ToLowerInvariant();
 
-        private string LANGUAGE_COOKIE_KEY = $"{siteName}_afffavoritelang";
-        private string COUNTRY_COOKIE_KEY = $"{siteName}_country";
-        private string COUNTRY_IP_COOKIE_KEY = $"{siteName}_ipcountry";
+        private readonly string LANGUAGE_COOKIE_KEY = $"{siteName}_afffavoritelang";
+        private readonly string COUNTRY_COOKIE_KEY = $"{siteName}_country";
+        private readonly string COUNTRY_IP_COOKIE_KEY = $"{siteName}_ipcountry";
 
         private readonly ISessionService _sessionService;
         private readonly ILanguageRepository _languageRepository;

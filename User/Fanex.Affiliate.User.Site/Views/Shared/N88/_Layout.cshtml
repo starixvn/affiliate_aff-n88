@@ -231,7 +231,11 @@
                 </div>
             </div>
             <div class="contact-container">
-                @Html.RenderPartialByLanguage("~/Views/Shared/N88/ContactUs-Footer/ContactUsFooter", currentLanguage, siteFriendlyName)
+                <ul class="contact-block">
+                    <li class="contact-title">@Lang.ContactUs</li>
+                    @Html.RenderPartialByCountry($"~/Views/Shared/N88/ContactInfo/_Content", sessionService.CurrentCountry)
+                    <li class="copy-right-text">@string.Format(SiteFriendlyNameHelper.ReplaceB2C(Lang.Copyright), DateTime.Now.Year)</li>
+                </ul>
             </div>
         </div>
     </div>
