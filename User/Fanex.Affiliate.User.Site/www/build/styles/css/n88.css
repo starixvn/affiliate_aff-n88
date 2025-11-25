@@ -1603,7 +1603,6 @@ select.form-control:focus {
 .footer .footer-container .gamebling-licensee .gamebling-licensee-title {
   display: flex;
   gap: 5px;
-  justify-content: center;
 }
 .footer .footer-container .gamebling-licensee img {
   display: block;
@@ -1615,8 +1614,9 @@ select.form-control:focus {
 }
 .footer .footer-container .gamebling-licensee .game-award img {
   display: block;
-  width: 194px;
   height: 70px;
+  background-size: auto 70px;
+  width: auto;
 }
 @media screen and (max-width: 1024px) {
   .footer .footer-container .gamebling-licensee {

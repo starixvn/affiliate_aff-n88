@@ -1957,7 +1957,6 @@ select.form-control {
             .gamebling-licensee-title {
                 display: flex;
                 gap: 5px;
-                justify-content: center;
             }
 
             img {
@@ -1971,8 +1970,9 @@ select.form-control {
 
                 img {
                     display: block;
-                    width: 194px;
                     height: 70px;
+                    background-size: auto 70px;
+                    width: auto;
                 }
             }
 
