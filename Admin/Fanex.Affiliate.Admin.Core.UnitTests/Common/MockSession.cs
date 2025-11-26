@@ -8,7 +8,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Common
     {
         public static void SetUpHttpContextSession()
         {
-            var request = new HttpRequest(null, "https://aff.nova88.net", null);
+            var request = new HttpRequest(null, "https://affiliate.nova88.net", null);
             var respone = new HttpResponse(new StringWriter());
             HttpContext.Current = new HttpContext(request, respone);
             var sessionContainer = new HttpSessionStateContainer("id", new SessionStateItemCollection(), new HttpStaticObjectsCollection(), 10, true, HttpCookieMode.AutoDetect, SessionStateMode.InProc, false);
