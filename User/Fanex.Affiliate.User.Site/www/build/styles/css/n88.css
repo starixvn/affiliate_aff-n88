@@ -1582,7 +1582,7 @@ select.form-control:focus {
   gap: 100px;
   padding: 0 12px;
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1051px) {
   .footer .footer-container {
     max-width: unset;
     display: grid;
@@ -1590,9 +1590,14 @@ select.form-control:focus {
     gap: 20px;
   }
 }
-@media screen and (min-width: 1025px) and (max-width: 1220px) {
+@media screen and (min-width: 1052px) and (max-width: 1220px) {
   .footer .footer-container {
     gap: 20px;
+  }
+}
+@media screen and (min-width: 1221px) and (max-width: 1295px) {
+  .footer .footer-container {
+    gap: 50px;
   }
 }
 .footer .footer-container .gamebling-licensee {
@@ -1603,7 +1608,7 @@ select.form-control:focus {
   display: flex;
   gap: 5px;
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1051px) {
   .footer .footer-container .gamebling-licensee .gamebling-licensee-title {
     justify-content: center;
   }
@@ -1622,13 +1627,13 @@ select.form-control:focus {
   background-size: auto 70px;
   width: auto;
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1051px) {
   .footer .footer-container .gamebling-licensee {
     display: grid;
     justify-content: center;
   }
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1051px) {
   .footer .footer-container .awards-container {
     display: grid;
     gap: 10px;
@@ -1644,7 +1649,7 @@ select.form-control:focus {
   text-align: left;
   margin: 2px 0;
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1051px) {
   .footer .footer-container .awards-container .awards-block > div {
     display: flex;
     justify-content: center;
@@ -1654,7 +1659,7 @@ select.form-control:focus {
   display: block;
   text-align: left;
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1051px) {
   .footer .footer-container .awards-container .awards-block .awards-logo {
     display: flex;
     justify-content: center;
@@ -1665,7 +1670,7 @@ select.form-control:focus {
   font-weight: 700;
   align-items: center;
 }
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1051px) {
   .footer .footer-container .awards-container .awards-block .awards-title {
     margin-bottom: 10px;
   }
@@ -1673,7 +1678,7 @@ select.form-control:focus {
 .footer .footer-container .awards-container .awards-block .awards-text {
   font-weight: 400;
 }
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1051px) {
   .footer .footer-container .awards-container .awards-block .awards-text {
     font-size: 14px;
   }
@@ -1681,7 +1686,7 @@ select.form-control:focus {
 .footer .footer-container ul {
   float: right;
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1051px) {
   .footer .footer-container ul {
     display: grid;
     justify-content: center;
@@ -1694,7 +1699,7 @@ select.form-control:focus {
   text-align: left;
   clear: both;
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1051px) {
   .footer .footer-container ul li {
     display: flex;
     gap: 16px;
@@ -1714,7 +1719,7 @@ select.form-control:focus {
 .footer .footer-container ul .copy-right-text {
   margin: 0 0 0 15px;
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1051px) {
   .footer .footer-container ul .copy-right-text {
     font-size: 14px;
     display: flex;
@@ -1726,7 +1731,7 @@ select.form-control:focus {
   font-weight: 700;
   margin: 0 0 10px 15px;
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1051px) {
   .footer .footer-container .contact-title {
     margin: 0 0 10px 0;
     display: flex;
@@ -1738,7 +1743,7 @@ select.form-control:focus {
   gap: 10px;
   justify-content: space-between;
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1051px) {
   .footer .footer-container .contact-social-icons {
     float: unset !important;
     justify-content: center;
@@ -1748,7 +1753,13 @@ select.form-control:focus {
   width: 55px;
   height: 55px;
 }
-@media screen and (min-width: 391px) and (max-width: 1024px) {
+@media screen and (min-width: 1051px) and (max-width: 1295px) {
+  .footer .footer-container .contact-social-icons img {
+    width: 45px;
+    height: 45px;
+  }
+}
+@media screen and (min-width: 391px) and (max-width: 1050px) {
   .footer .footer-container .contact-social-icons img {
     width: 40px;
     height: 40px;
