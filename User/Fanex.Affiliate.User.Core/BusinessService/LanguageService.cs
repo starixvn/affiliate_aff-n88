@@ -15,7 +15,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 {
     public class LanguageService : ILanguageService
     {
-        private static string siteName = AppSetting.Instance.SiteName.ToLowerInvariant();
+        private static readonly string siteName = AppSetting.Instance.SiteName.ToLowerInvariant();
 
         private readonly string LANGUAGE_COOKIE_KEY = $"{siteName}_afffavoritelang";
         private readonly string COUNTRY_COOKIE_KEY = $"{siteName}_country";
@@ -25,17 +25,20 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         private readonly ILanguageRepository _languageRepository;
         private readonly IMemoryCacheService _cacheService;
         private readonly IIpLocationService _ipLocationService;
+        private readonly IUnderMaintenanceService _underMaintenanceService;
 
         public LanguageService(
             ILanguageRepository languageRepository,
             ISessionService sessionService,
             IMemoryCacheService cacheService,
-            IIpLocationService ipLocationService)
+            IIpLocationService ipLocationService,
+            IUnderMaintenanceService underMaintenanceService)
         {
             _languageRepository = languageRepository;
             _sessionService = sessionService;
             _cacheService = cacheService;
             _ipLocationService = ipLocationService;
+            _underMaintenanceService = underMaintenanceService;
         }
 
         public string GetCurrentLanguage()
@@ -120,9 +123,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
         private string GetCountryByIp()
         {
-            var request = HttpContext.Current.Request;
-            var countryInfo = _ipLocationService.GetCountryFromIp(request.GetClientIP());
-            var country = countryInfo?.CountrySHORT;
+            var country = GetCountryFromIp();
             SetCountryCookie(country, COUNTRY_IP_COOKIE_KEY);
 
             if (!IsValidCountry(country))
@@ -132,6 +133,19 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
             SetCountryCookie(country, COUNTRY_COOKIE_KEY);
             return country;
+        }
+
+        private string GetCountryFromIp()
+        {
+            if(_underMaintenanceService.IsUnderMaintenance())
+            {
+                return string.Empty;
+            }
+
+            var request = HttpContext.Current.Request;
+            var countryInfo = _ipLocationService.GetCountryFromIp(request.GetClientIP());
+
+            return countryInfo?.CountrySHORT;
         }
 
         private static void SetCountryCookie(string countryCode, string cookieKey)
@@ -160,7 +174,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             var cacheKey = isForInternal ? CacheKey.InternalLanguageList : CacheKey.LanguageList;
             var languageList = _cacheService.Get<IEnumerable<Language>>(cacheKey);
 
-            if (languageList == null)
+            if (!_underMaintenanceService.IsUnderMaintenance() && languageList == null)
             {
                 languageList = _languageRepository.GetLanguageList(isForInternal);
                 _cacheService.Set(cacheKey, languageList);
@@ -178,7 +192,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
             var languageListByTargetCountry = _cacheService.Get<IEnumerable<Language>>(cacheKey);
 
-            if (languageListByTargetCountry == null)
+            if (!_underMaintenanceService.IsUnderMaintenance() && languageListByTargetCountry == null)
             {
                 languageListByTargetCountry = GetTargetCountries(targetCountry, false)
                     .Select(l => new Language
@@ -219,7 +233,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             var cacheKey = isInternal ? CacheKey.InternalTargetCountryList : CacheKey.TargetCountryList;
 
             var targetCountryList = _cacheService.Get<IEnumerable<TargetCountryLanguage>>(cacheKey);
-            if (targetCountryList == null)
+            if (!_underMaintenanceService.IsUnderMaintenance() && targetCountryList == null)
             {
                 targetCountryList = GetTargetCountries();
                 _cacheService.Set(cacheKey, targetCountryList);
@@ -254,7 +268,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         {
             var cacheKey = _sessionService.IsInternal ? CacheKey.InternalTargetCountryLanguages : CacheKey.TargetCountryLanguages;
             var targetCountryLanguages = _cacheService.Get<IEnumerable<TargetCountryLanguage>>(cacheKey);
-            if (targetCountryLanguages == null)
+            if (!_underMaintenanceService.IsUnderMaintenance() && targetCountryLanguages == null)
             {
                 targetCountryLanguages = GetTargetCountries(string.Empty, false);
                 _cacheService.Set(cacheKey, targetCountryLanguages);
