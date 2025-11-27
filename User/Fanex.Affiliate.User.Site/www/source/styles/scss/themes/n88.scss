@@ -1935,17 +1935,17 @@ select.form-control {
         line-height: 24px;
         display: flex;
         justify-content: space-between;
-        gap: 100px;
+        gap: 90px;
         padding: 0 12px;
 
-        @media screen and (max-width: 1051px) {
+        @media screen and (max-width: 1080px) {
             max-width: unset;
             display: grid;
             justify-content: center;
             gap: 20px;
         }
 
-        @media screen and (min-width: 1052px) and (max-width: 1220px) {
+        @media screen and (min-width: 1081px) and (max-width: 1220px) {
             gap: 20px;
         }
 
@@ -1961,7 +1961,7 @@ select.form-control {
                 display: flex;
                 gap: 5px;
 
-                @media screen and (max-width: 1051px) {
+                @media screen and (max-width: 1080px) {
                     justify-content: center;
                 }
             }
@@ -1983,14 +1983,14 @@ select.form-control {
                 }
             }
 
-            @media screen and (max-width: 1051px) {
+            @media screen and (max-width: 1080px) {
                 display: grid;
                 justify-content: center;
             }
         }
 
         .awards-container {
-            @media screen and (max-width: 1051px) {
+            @media screen and (max-width: 1080px) {
                 display: grid;
                 gap: 10px;
                 justify-content: center;
@@ -2005,7 +2005,7 @@ select.form-control {
                     text-align: left;
                     margin: 2px 0;
 
-                    @media screen and (max-width: 1051px) {
+                    @media screen and (max-width: 1080px) {
                         display: flex;
                         justify-content: center;
                     }
@@ -2015,7 +2015,7 @@ select.form-control {
                     display: block;
                     text-align: left;
 
-                    @media screen and (max-width: 1051px) {
+                    @media screen and (max-width: 1080px) {
                         display: flex;
                         justify-content: center;
                         aspect-ratio: 1/0.095;
@@ -2026,7 +2026,7 @@ select.form-control {
                     font-weight: 700;
                     align-items: center;
 
-                    @media screen and (max-width: 1051px) {
+                    @media screen and (max-width: 1080px) {
                         margin-bottom: 10px;
                     }
                 }
@@ -2034,7 +2034,7 @@ select.form-control {
                 .awards-text {
                     font-weight: 400;
 
-                    @media screen and (max-width: 1051px) {
+                    @media screen and (max-width: 1080px) {
                         font-size: 14px;
                     }
                 }
@@ -2044,7 +2044,7 @@ select.form-control {
         ul {
             float: right;
 
-            @media screen and (max-width: 1051px) {
+            @media screen and (max-width: 1080px) {
                 display: grid;
                 justify-content: center;
                 padding: 0;
@@ -2056,7 +2056,7 @@ select.form-control {
                 text-align: left;
                 clear: both;
 
-                @media screen and (max-width: 1051px) {
+                @media screen and (max-width: 1080px) {
                     display: flex;
                     gap: 16px;
                     align-items: center;
@@ -2078,7 +2078,7 @@ select.form-control {
             .copy-right-text {
                 margin: 0 0 0 15px;
 
-                @media screen and (max-width: 1051px) {
+                @media screen and (max-width: 1080px) {
                     font-size: 14px;
                     display: flex;
                     justify-content: center;
@@ -2091,7 +2091,7 @@ select.form-control {
             font-weight: 700;
             margin: 0 0 10px 15px;
 
-            @media screen and (max-width: 1051px) {
+            @media screen and (max-width: 1080px) {
                 margin: 0 0 10px 0;
                 display: flex;
                 justify-content: center;
@@ -2103,22 +2103,23 @@ select.form-control {
             gap: 10px;
             justify-content: space-between;
 
-            @media screen and (max-width: 1051px) {
+            @media screen and (max-width: 1080px) {
                 float: unset !important;
                 justify-content: center;
+                gap: 8px;
             }
 
             img {
-                width: 55px;
-                height: 55px;
+                width: 52px;
+                height: 52px;
 
-                @media screen and (min-width: 1051px) and (max-width: 1295px) {
+                @media screen and (min-width: 1081px) and (max-width: 1295px) {
                     width: 45px;
                     height: 45px;
                 }
 
 
-                @media screen and (min-width: 391px) and (max-width: 1050px) {
+                @media screen and (min-width: 391px) and (max-width: 1080px) {
                     width: 40px;
                     height: 40px;
                 }

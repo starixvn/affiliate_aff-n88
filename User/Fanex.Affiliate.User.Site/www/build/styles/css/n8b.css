@@ -1311,7 +1311,7 @@ input[type=radio][disabled] + span {
   justify-content: space-between;
   gap: 100px;
 }
-@media screen and (max-width: 920px) {
+@media screen and (max-width: 1080px) {
   .footer .footer-container {
     max-width: unset;
     display: grid;
@@ -1319,14 +1319,7 @@ input[type=radio][disabled] + span {
     gap: 20px;
   }
 }
-@media screen and (min-width: 921px) and (max-width: 1024px) {
-  .footer .footer-container {
-    gap: 20px;
-    max-width: unset;
-    padding: 0 10px;
-  }
-}
-@media (min-width: 1025px) and (max-width: 1199px) {
+@media (min-width: 1081px) and (max-width: 1199px) {
   .footer .footer-container {
     max-width: 100%;
     gap: 20px;
@@ -1345,12 +1338,12 @@ input[type=radio][disabled] + span {
   display: grid;
   gap: 10px;
 }
-@media screen and (max-width: 920px) {
+@media screen and (max-width: 1080px) {
   .footer .footer-container .game-licensee {
     justify-content: center;
   }
 }
-@media screen and (max-width: 920px) {
+@media screen and (max-width: 1080px) {
   .footer .footer-container .game-licensee .gamebling-licensee-title {
     text-align: center;
   }
@@ -1361,11 +1354,14 @@ input[type=radio][disabled] + span {
   background-size: auto 64px;
   width: auto;
 }
-@media screen and (max-width: 920px) {
+@media screen and (max-width: 1080px) {
   .footer .footer-container .follow-us-container, .footer .footer-container .contact-us-container {
     display: flex;
     justify-content: center;
   }
+}
+.footer .footer-container ul {
+  padding: 0;
 }
 .footer .footer-container ul li {
   list-style: none;
@@ -1374,13 +1370,12 @@ input[type=radio][disabled] + span {
 .footer .footer-container ul li ul li {
   list-style: none;
   display: inline-block;
-  margin: 0 5px;
 }
 .footer .footer-container .contact-title {
   font-weight: 700;
   margin: 0 0 10px 15px;
 }
-@media screen and (max-width: 920px) {
+@media screen and (max-width: 1080px) {
   .footer .footer-container .contact-title {
     margin: 0 0 10px 0;
     display: flex;
@@ -1389,18 +1384,23 @@ input[type=radio][disabled] + span {
 }
 .footer .footer-container .contact-social-icons {
   display: flex;
-  gap: 5px;
+  gap: 10px;
+  padding: 0;
+  justify-content: space-between;
 }
-@media screen and (max-width: 920px) {
+@media screen and (max-width: 1080px) {
   .footer .footer-container .contact-social-icons {
-    gap: 2px;
+    gap: 5px;
   }
+}
+.footer .footer-container .contact-social-icons li {
+  padding: 0;
 }
 .footer .footer-container .contact-social-icons img {
   width: 55px;
   height: 55px;
 }
-@media screen and (max-width: 920px) {
+@media screen and (max-width: 1080px) {
   .footer .footer-container .contact-social-icons img {
     width: 40px;
     height: 40px;
@@ -1409,7 +1409,7 @@ input[type=radio][disabled] + span {
 .footer .copy-right-text {
   margin-top: 20px !important;
 }
-@media screen and (max-width: 920px) {
+@media screen and (max-width: 1080px) {
   .footer .copy-right-text {
     font-size: 14px;
   }

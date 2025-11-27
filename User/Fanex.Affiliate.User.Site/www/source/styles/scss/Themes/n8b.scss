@@ -1663,20 +1663,14 @@ input[type=radio][disabled] + span {
         justify-content: space-between;
         gap: 100px;
 
-        @media screen and (max-width: 920px) {
+        @media screen and (max-width: 1080px) {
             max-width: unset;
             display: grid;
             justify-content: center;
             gap: 20px;
         }
 
-        @media screen and (min-width: 921px) and (max-width: 1024px) {
-            gap: 20px;
-            max-width: unset;
-            padding: 0 10px;
-        }
-
-        @media (min-width: 1025px) and (max-width: 1199px) {
+        @media (min-width: 1081px) and (max-width: 1199px) {
             max-width: 100%;
             gap: 20px;
             padding: 0 10px;
@@ -1694,12 +1688,12 @@ input[type=radio][disabled] + span {
             display: grid;
             gap: 10px;
 
-            @media screen and (max-width: 920px) {
+            @media screen and (max-width: 1080px) {
                 justify-content: center;
             }
 
             .gamebling-licensee-title {
-                @media screen and (max-width: 920px) {
+                @media screen and (max-width: 1080px) {
                     text-align: center;
                 }
             }
@@ -1715,13 +1709,15 @@ input[type=radio][disabled] + span {
         }
 
         .follow-us-container, .contact-us-container {
-            @media screen and (max-width: 920px) {
+            @media screen and (max-width: 1080px) {
                 display: flex;
                 justify-content: center;
             }
         }
 
         ul {
+
+            padding: 0;
 
             li {
                 list-style: none;
@@ -1730,7 +1726,6 @@ input[type=radio][disabled] + span {
                 ul li {
                     list-style: none;
                     display: inline-block;
-                    margin: 0 5px;
                 }
             }
         }
@@ -1741,7 +1736,7 @@ input[type=radio][disabled] + span {
             font-weight: 700;
             margin: 0 0 10px 15px;
 
-            @media screen and (max-width: 920px) {
+            @media screen and (max-width: 1080px) {
                 margin: 0 0 10px 0;
                 display: flex;
                 justify-content: center;
@@ -1750,17 +1745,23 @@ input[type=radio][disabled] + span {
 
         .contact-social-icons {
             display: flex;
-            gap: 5px;
+            gap: 10px;
+            padding: 0;
+            justify-content: space-between;
 
-            @media screen and (max-width: 920px) {
-                gap: 2px;
+            @media screen and (max-width: 1080px) {
+                gap: 5px;
+            }
+
+            li {
+                padding: 0;
             }
 
             img {
                 width: 55px;
                 height: 55px;
 
-                @media screen and (max-width: 920px) {
+                @media screen and (max-width: 1080px) {
                     width: 40px;
                     height: 40px;
                 }
@@ -1771,7 +1772,7 @@ input[type=radio][disabled] + span {
     .copy-right-text {
         margin-top: 20px !important;
 
-        @media screen and (max-width: 920px) {
+        @media screen and (max-width: 1080px) {
             font-size: 14px;
         }
     }
