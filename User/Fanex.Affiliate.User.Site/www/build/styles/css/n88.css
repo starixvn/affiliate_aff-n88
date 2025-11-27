@@ -1579,7 +1579,7 @@ select.form-control:focus {
   line-height: 24px;
   display: flex;
   justify-content: space-between;
-  gap: 90px;
+  gap: 50px;
   padding: 0 12px;
 }
 @media screen and (max-width: 1080px) {
@@ -1597,7 +1597,7 @@ select.form-control:focus {
 }
 @media screen and (min-width: 1221px) and (max-width: 1295px) {
   .footer .footer-container {
-    gap: 50px;
+    gap: 30px;
   }
 }
 .footer .footer-container .gamebling-licensee {
