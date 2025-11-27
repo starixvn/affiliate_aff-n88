@@ -1,36 +1,16 @@
 ﻿var Home = (function ($) {
     var _me = {
         initialize: function () {
-            _me.initEvent();
+            _me.initSlider();
         },
-        initEvent: function () {
-            $('#sportBanner').on('click', function (event) {
-                event.preventDefault();
-                var redirectLink = $(this).attr('href');
-                PageTracking.addTrackingForSignUpPage();
 
-                setTimeout(function () {
-                    Site.redirect(redirectLink);
-                }, 10);
-            })
-
-            $('#casinoBanner').on('click', function (event) {
-                event.preventDefault();
-                var $this = $(this);
-                var isLoggedIn = !$this.hasClass('mediaLoginLink');
-
-                if (isLoggedIn) {
-                    PageTracking.addTrackingForMediaPage();
-
-                    setTimeout(function () {
-                        Site.redirect($this.attr('href'));
-                    }, 10);
-                }
-            })
+        initSlider: function() {
+            var $provider = $('#provider');
+            $provider.carousel();
         }
     };
 
-    return _me;
-})(jQuery);
+return _me;
+}) (jQuery);
 
 Home.initialize();
