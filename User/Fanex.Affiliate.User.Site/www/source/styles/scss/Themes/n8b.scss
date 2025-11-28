@@ -1222,7 +1222,7 @@ input[type=radio][disabled] + span {
     font-family: 'Open Sans', sans-serif !important;
     margin: 0 auto;
 
-    @media only screen and (max-width: 1024px) { 
+    @media only screen and (max-width: 1024px) {
         padding: 0 10px;
     }
 
@@ -1376,6 +1376,7 @@ input[type=radio][disabled] + span {
         }
     }
 }
+
 .contact .page-title {
     text-align: left !important;
 }
@@ -1643,6 +1644,136 @@ input[type=radio][disabled] + span {
             tr:nth-child(even) {
                 background-color: #FFFFFF !important;
             }
+        }
+    }
+}
+
+.footer {
+    background: #121C30 !important;
+    color: #ffffff;
+    font-family: Open Sans;
+    font-size: 16px;
+    line-height: 24px;
+
+    .footer-container {
+        max-width: calc(100% - 400px);
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        gap: 100px;
+
+        @media screen and (max-width: 1080px) {
+            max-width: unset;
+            display: grid;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        @media (min-width: 1081px) and (max-width: 1199px) {
+            max-width: 100%;
+            gap: 20px;
+            padding: 0 10px;
+        }
+
+
+        @media only screen and (min-width: 1200px) and (max-width: 1366px) {
+            max-width: calc(100% - 200px);
+        }
+
+        .game-licensee {
+            font-weight: 700;
+            font-size: 16px;
+            text-align: left;
+            display: grid;
+            gap: 10px;
+
+            @media screen and (max-width: 1080px) {
+                justify-content: center;
+            }
+
+            .gamebling-licensee-title {
+                @media screen and (max-width: 1080px) {
+                    text-align: center;
+                }
+            }
+
+            .game-curacao {
+                img {
+                    display: block;
+                    height: 64px;
+                    background-size: auto 64px;
+                    width: auto;
+                }
+            }
+        }
+
+        .follow-us-container, .contact-us-container {
+            @media screen and (max-width: 1080px) {
+                display: flex;
+                justify-content: center;
+            }
+        }
+
+        ul {
+
+            padding: 0;
+
+            li {
+                list-style: none;
+                text-align: left;
+
+                ul li {
+                    list-style: none;
+                    display: inline-block;
+                }
+            }
+        }
+
+
+
+        .contact-title {
+            font-weight: 700;
+            margin: 0 0 10px 15px;
+
+            @media screen and (max-width: 1080px) {
+                margin: 0 0 10px 0;
+                display: flex;
+                justify-content: center;
+            }
+        }
+
+        .contact-social-icons {
+            display: flex;
+            gap: 10px;
+            padding: 0;
+            justify-content: space-between;
+
+            @media screen and (max-width: 1080px) {
+                gap: 5px;
+            }
+
+            li {
+                padding: 0;
+            }
+
+            img {
+                width: 55px;
+                height: 55px;
+
+                @media screen and (max-width: 1080px) {
+                    width: 40px;
+                    height: 40px;
+                }
+            }
+        }
+    }
+
+    .copy-right-text {
+        margin-top: 20px !important;
+
+        @media screen and (max-width: 1080px) {
+            font-size: 14px;
         }
     }
 }

@@ -1,4 +1,3 @@
-using System.Linq;
 using System.Web;
 using Fanex.Affiliate.User.Core.Constants;
 using Fanex.Affiliate.User.Core.DTO.Auth;

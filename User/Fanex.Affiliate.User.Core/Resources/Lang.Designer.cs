@@ -529,6 +529,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Awards.
+        /// </summary>
+        public static string Awards {
+            get {
+                return ResourceManager.GetString("Awards", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Azerbaijan.
         /// </summary>
         public static string Azerbaijan {
@@ -1276,7 +1285,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Thank you for reaching out to {0}. Have you tried our &lt;a href=&quot;{1}&quot;&gt;FAQ&lt;/a&gt; to see if there&apos;s an answer you might be looking for? We&apos;ve provided some of our top areas of inquiries&lt;br&gt;
+        ///   Looks up a localized string similar to Thank you for reaching out to Affiliate. Have you tried our &lt;a href=&quot;{0}&quot;&gt;FAQ&lt;/a&gt; to see if there&apos;s an answer you might be looking for? We&apos;ve provided some of our top areas of inquiries&lt;br&gt;
         ///If you haven&apos;t found what you&apos;re looking for, listed below is a variety of convenient ways for you to contact us.&lt;br&gt;
         ///If you need a new banner or would like to request a custom banner, feel free to contact us directly!.
         /// </summary>
@@ -1791,15 +1800,6 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Email.
-        /// </summary>
-        public static string EmailContactUs {
-            get {
-                return ResourceManager.GetString("EmailContactUs", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Email is required.
         /// </summary>
         public static string EmailIsRequired {
@@ -2169,6 +2169,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Follow Us.
+        /// </summary>
+        public static string FollowUs {
+            get {
+                return ResourceManager.GetString("FollowUs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to For any reason, you do not receive the email, please check your Spam box or &lt;a href=&apos;{0}&apos;&gt;Contact Us&lt;/a&gt; and we will glad to assist you..
         /// </summary>
         public static string ForAnyReason {
@@ -2255,6 +2264,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string GamePlayInteractive {
             get {
                 return ResourceManager.GetString("GamePlayInteractive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gaming License.
+        /// </summary>
+        public static string GamingLicense {
+            get {
+                return ResourceManager.GetString("GamingLicense", resourceCulture);
             }
         }
         
@@ -4775,6 +4793,24 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string ShareBanner {
             get {
                 return ResourceManager.GetString("ShareBanner", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SHORTLISTED Best Operator.
+        /// </summary>
+        public static string SHORTLISTED_Best_Operator {
+            get {
+                return ResourceManager.GetString("SHORTLISTED_Best_Operator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SHORTLISTED CRM Campaign.
+        /// </summary>
+        public static string SHORTLISTED_CRM_Campaign {
+            get {
+                return ResourceManager.GetString("SHORTLISTED_CRM_Campaign", resourceCulture);
             }
         }
         

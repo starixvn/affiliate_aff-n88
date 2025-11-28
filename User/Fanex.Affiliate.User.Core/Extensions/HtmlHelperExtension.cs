@@ -33,6 +33,18 @@ namespace Fanex.Affiliate.User.Core.Extensions
             }
         }
 
+        public static MvcHtmlString RenderPartialByCountry(this HtmlHelper htmlHelper, string viewName, string country, object model = null)
+        {
+            try
+            {
+                return htmlHelper.Partial($"{viewName}.{country}.cshtml", model);
+            }
+            catch
+            {
+                return htmlHelper.Partial($"{viewName}.{AppSetting.Instance.DefaultCountryCode}.cshtml", model);
+            }
+        }
+
         private static IHtmlString InlineBundle(this HtmlHelper htmlHelper, string bundleVirtualPath, string htmlTagName)
         {
             string bundleContent = LoadBundleContent(htmlHelper.ViewContext.HttpContext, bundleVirtualPath);

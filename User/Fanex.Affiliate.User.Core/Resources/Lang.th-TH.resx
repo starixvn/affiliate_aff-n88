@@ -1894,4 +1894,16 @@
   <data name="Our_Products" xml:space="preserve">
     <value>ผลิตภัณฑ์ที่ให้บริการ</value>
   </data>
+  <data name="Awards" xml:space="preserve">
+    <value>รางวัลที่ได้รับ</value>
+  </data>
+  <data name="SHORTLISTED_CRM_Campaign" xml:space="preserve">
+    <value>รายชื่อผู้เข้ารอบสุดท้าย แคมเปญ CRM</value>
+  </data>
+  <data name="SHORTLISTED_Best_Operator" xml:space="preserve">
+    <value>รายชื่อผู้เข้ารอบสุดท้าย ผู้ให้บริการยอดเยี่ยม</value>
+  </data>
+  <data name="GamingLicense" xml:space="preserve">
+    <value>ใบอนุญาตเกม</value>
+  </data>
 </root>

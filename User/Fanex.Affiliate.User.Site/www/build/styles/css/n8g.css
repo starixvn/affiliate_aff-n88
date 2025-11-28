@@ -2576,3 +2576,123 @@ div.custom-panel {
 .revenue-share-new-page .content-group .table table tr:nth-child(even) {
   background-color: #FFFFFF !important;
 }
+
+.footer {
+  background: #0E0C2E !important;
+  color: #ffffff;
+  font-family: Open Sans;
+  font-size: 16px;
+  line-height: 24px;
+}
+.footer .footer-container {
+  max-width: calc(100% - 400px);
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 100px;
+}
+@media (max-width: 767px) {
+  .footer .footer-container {
+    max-width: unset;
+    display: grid;
+    justify-content: center;
+    gap: 20px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .footer .footer-container {
+    gap: 50px;
+    max-width: unset;
+    padding: 0 10px;
+  }
+}
+@media (min-width: 1025px) and (max-width: 1199px) {
+  .footer .footer-container {
+    max-width: 100%;
+    gap: 20px;
+    padding: 0 10px;
+  }
+}
+@media only screen and (min-width: 1200px) and (max-width: 1366px) {
+  .footer .footer-container {
+    max-width: calc(100% - 200px);
+  }
+}
+.footer .footer-container .game-licensee {
+  font-weight: 700;
+  font-size: 16px;
+  text-align: left;
+  display: grid;
+  gap: 10px;
+}
+@media (max-width: 767px) {
+  .footer .footer-container .game-licensee .gamebling-licensee-title {
+    text-align: center;
+  }
+}
+.footer .footer-container .game-licensee .game-curacao img {
+  display: block;
+  height: 64px;
+  background-size: auto 64px;
+  width: auto;
+}
+@media (max-width: 767px) {
+  .footer .footer-container .follow-us-container, .footer .footer-container .contact-us-container {
+    display: flex;
+    justify-content: center;
+  }
+}
+.footer .footer-container ul {
+  padding: 0;
+}
+.footer .footer-container ul li {
+  list-style: none;
+  text-align: left;
+}
+@media (max-width: 767px) {
+  .footer .footer-container ul li {
+    display: flex;
+    justify-content: center;
+  }
+}
+.footer .footer-container ul li ul li {
+  list-style: none;
+  display: inline-block;
+}
+.footer .footer-container .footer-text {
+  margin-top: 30px !important;
+}
+.footer .footer-container .contact-title {
+  font-weight: 700;
+  margin: 0 0 10px 0;
+}
+@media (max-width: 767px) {
+  .footer .footer-container .contact-title {
+    margin: 0 0 10px 0;
+    display: flex;
+    justify-content: center;
+  }
+}
+.footer .footer-container .contact-social-icons {
+  display: flex;
+  gap: 10px;
+}
+.footer .footer-container .contact-social-icons img {
+  width: 55px;
+  height: 55px;
+}
+@media screen and (max-width: 1024px) {
+  .footer .footer-container .contact-social-icons img {
+    width: 40px;
+    height: 40px;
+  }
+}
+.footer .copy-right-text {
+  margin: 20px 0 0 0;
+}
+@media (max-width: 767px) {
+  .footer .copy-right-text {
+    font-size: 14px;
+  }
+}

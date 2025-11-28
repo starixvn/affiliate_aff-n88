@@ -2132,4 +2132,16 @@ Jika anda memerlukan banner baharu atau ingin memohon banner tersuai, sila hubun
   <data name="Our_Products" xml:space="preserve">
     <value>Produk Kami</value>
   </data>
+  <data name="Awards" xml:space="preserve">
+    <value>Anugerah</value>
+  </data>
+  <data name="SHORTLISTED_CRM_Campaign" xml:space="preserve">
+    <value>MASUK DAFTAR PENDEK Kampanye CRM</value>
+  </data>
+  <data name="SHORTLISTED_Best_Operator" xml:space="preserve">
+    <value>MASUK DAFTAR PENDEK Pengendali Terbaik</value>
+  </data>
+  <data name="GamingLicense" xml:space="preserve">
+    <value>Lesen Permainan</value>
+  </data>
 </root>

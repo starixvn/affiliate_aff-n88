@@ -1520,11 +1520,13 @@ select.form-control {
         }
     }
 }
+
 .product-container {
     max-width: 1344px !important;
     flex-basis: auto !important;
     margin: 0 auto;
 }
+
 .product-new-page {
     max-width: 1320px !important;
     justify-content: center;
@@ -1917,6 +1919,215 @@ select.form-control {
 
             tr:nth-child(even) {
                 background-color: #FFFFFF !important;
+            }
+        }
+    }
+}
+
+.footer {
+    .footer-container {
+        max-width: 1344px;
+        width: 100%;
+        margin: 0 auto;
+        color: #ffffff;
+        font-family: Open Sans;
+        font-size: 16px;
+        line-height: 24px;
+        display: flex;
+        justify-content: space-between;
+        gap: 50px;
+        padding: 0 12px;
+
+        @media screen and (max-width: 1080px) {
+            max-width: unset;
+            display: grid;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        @media screen and (min-width: 1081px) and (max-width: 1220px) {
+            gap: 20px;
+        }
+
+        @media screen and (min-width: 1221px) and (max-width: 1295px) {
+            gap: 30px;
+        }
+
+        .gamebling-licensee {
+            font-weight: 700;
+            font-size: 16px;
+
+            .gamebling-licensee-title {
+                display: flex;
+                gap: 5px;
+
+                @media screen and (max-width: 1080px) {
+                    justify-content: center;
+                }
+            }
+
+            img {
+                display: block;
+                width: 22px;
+                height: 22px;
+            }
+
+            .game-award {
+                margin-top: 10px;
+
+                img {
+                    display: block;
+                    height: 70px;
+                    background-size: auto 70px;
+                    width: auto;
+                }
+            }
+
+            @media screen and (max-width: 1080px) {
+                display: grid;
+                justify-content: center;
+            }
+        }
+
+        .awards-container {
+            @media screen and (max-width: 1080px) {
+                display: grid;
+                gap: 10px;
+                justify-content: center;
+            }
+
+            .awards-block {
+                display: block;
+                text-align: left;
+
+                > div {
+                    display: block;
+                    text-align: left;
+                    margin: 2px 0;
+
+                    @media screen and (max-width: 1080px) {
+                        display: flex;
+                        justify-content: center;
+                    }
+                }
+
+                .awards-logo {
+                    display: block;
+                    text-align: left;
+
+                    @media screen and (max-width: 1080px) {
+                        display: flex;
+                        justify-content: center;
+                        aspect-ratio: 1/0.095;
+                    }
+                }
+
+                .awards-title {
+                    font-weight: 700;
+                    align-items: center;
+
+                    @media screen and (max-width: 1080px) {
+                        margin-bottom: 10px;
+                    }
+                }
+
+                .awards-text {
+                    font-weight: 400;
+
+                    @media screen and (max-width: 1080px) {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+
+        ul {
+            float: right;
+
+            @media screen and (max-width: 1080px) {
+                display: grid;
+                justify-content: center;
+                padding: 0;
+                margin: 0;
+            }
+
+            li {
+                list-style: none;
+                text-align: left;
+                clear: both;
+
+                @media screen and (max-width: 1080px) {
+                    display: flex;
+                    gap: 16px;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .contact-social-icons {
+                    margin: 0 0 20px 0;
+                    float: left;
+                }
+
+                ul li {
+                    list-style: none;
+                    display: inline-block;
+                    clear: both;
+                }
+            }
+
+            .copy-right-text {
+                margin: 0 0 0 15px;
+
+                @media screen and (max-width: 1080px) {
+                    font-size: 14px;
+                    display: flex;
+                    justify-content: center;
+                    margin: 0;
+                }
+            }
+        }
+
+        .contact-title {
+            font-weight: 700;
+            margin: 0 0 10px 15px;
+
+            @media screen and (max-width: 1080px) {
+                margin: 0 0 10px 0;
+                display: flex;
+                justify-content: center;
+            }
+        }
+
+        .contact-social-icons {
+            display: flex;
+            gap: 10px;
+            justify-content: space-between;
+
+            @media screen and (max-width: 1080px) {
+                float: unset !important;
+                justify-content: center;
+                gap: 8px;
+            }
+
+            img {
+                width: 52px;
+                height: 52px;
+
+                @media screen and (min-width: 1081px) and (max-width: 1295px) {
+                    width: 45px;
+                    height: 45px;
+                }
+
+
+                @media screen and (min-width: 391px) and (max-width: 1080px) {
+                    width: 40px;
+                    height: 40px;
+                }
+
+                @media screen and (max-width: 390px) {
+                    width: 35px;
+                    height: 35px;
+                }
             }
         }
     }

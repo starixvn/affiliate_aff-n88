@@ -1910,4 +1910,16 @@ B2C合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
   <data name="Our_Products" xml:space="preserve">
     <value>我们的产品</value>
   </data>
+  <data name="Awards" xml:space="preserve">
+    <value>奖项</value>
+  </data>
+  <data name="SHORTLISTED_CRM_Campaign" xml:space="preserve">
+    <value>入围 CRM 营销活动</value>
+  </data>
+  <data name="SHORTLISTED_Best_Operator" xml:space="preserve">
+    <value>入围 最佳运营商</value>
+  </data>
+  <data name="GamingLicense" xml:space="preserve">
+    <value>游戏许可证</value>
+  </data>
 </root>

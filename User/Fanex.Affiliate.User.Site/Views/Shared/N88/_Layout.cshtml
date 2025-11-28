@@ -85,11 +85,11 @@
                                 <div class="language-list-wrapper" id="languageList">
                                     <ul class="list-unstyled language-list">
                                         @*@foreach (var language in languageList)
-                                        {
-                                            <li>
-                                                <a href="javascript:;" class="language-item" data-option="@language.ShortedCode"><i class="flag flag-@language.Code"></i>@language.NativeName</a>
-                                            </li>
-                                        }*@
+                                            {
+                                                <li>
+                                                    <a href="javascript:;" class="language-item" data-option="@language.ShortedCode"><i class="flag flag-@language.Code"></i>@language.NativeName</a>
+                                                </li>
+                                            }*@
                                         @foreach (var country in targetCountryLanguages)
                                         {
                                             <li class="country-item">
@@ -180,10 +180,10 @@
                                     </a>
                                 </li>
                                 @*<li>
-                                    <a class="menu-item @(controllerName == "Promotion" ? "active" : string.Empty)" href="@Url.Content("~/Promotion")">
-                                        @Lang.Promotion
-                                    </a>
-                                </li>*@
+                                        <a class="menu-item @(controllerName == "Promotion" ? "active" : string.Empty)" href="@Url.Content("~/Promotion")">
+                                            @Lang.Promotion
+                                        </a>
+                                    </li>*@
                                 <li>
                                     <a class="menu-item @(controllerName == "FAQ" ? "active" : string.Empty)" href="@Url.Content("~/FAQ")">
                                         @Lang.Faqs
@@ -206,11 +206,39 @@
     </div>
 
     <div class="footer">
-        <div class="footer-text">
-            @string.Format(SiteFriendlyNameHelper.ReplaceB2C(Lang.Copyright), DateTime.Now.Year)
+        <div class="footer-container">
+            <div class="gamebling-licensee">
+                <div class="gamebling-licensee-title">
+                    @Lang.GamingLicense<span><img src="~/www/build/styles/Images/footer/n88/Tick.svg" alt="Gaming License" /></span>
+                </div>
+                <div class="game-award">
+                    <img src="~/www/build/styles/Images/footer/n88/Gamble Aware.svg" alt="Gamble Aware" />
+                </div>
+            </div>
+            <div class="awards-container">
+                <div class="awards-block">
+                    <div class="awards-title">@Lang.Awards</div>
+                    <div class="awards-logo">
+                        <img src="~/www/build/styles/Images/footer/n88/awards-egr2025-logo.png" alt="Marketing &amp; Innovation Awards" />
+                    </div>
+                    <div class="awards-text">@Lang.SHORTLISTED_CRM_Campaign</div>
+                </div>
+                <div class="awards-block">
+                    <div class="awards-logo">
+                        <img src="~/www/build/styles/Images/footer/n88/awards-egr2025-op-logo.png" alt="Operator Awards" />
+                    </div>
+                    <div class="awards-text">@Lang.SHORTLISTED_Best_Operator</div>
+                </div>
+            </div>
+            <div class="contact-container">
+                <ul class="contact-block">
+                    <li class="contact-title">@Lang.ContactUs</li>
+                    @Html.RenderPartialByCountry($"~/Views/Shared/N88/ContactInfo/_Content", sessionService.CurrentCountry)
+                    <li class="copy-right-text">@string.Format(SiteFriendlyNameHelper.ReplaceB2C(Lang.Copyright), DateTime.Now.Year)</li>
+                </ul>
+            </div>
         </div>
     </div>
-
     <div class="blocker" id="blocker" style="display: none;">
         <div class="spinner">
             <div class="dot1"></div>
@@ -220,15 +248,15 @@
 
     <input type="hidden" id="RootUrl" value="@Url.Content("~")" />
     <input type="hidden" id="Language" value="@currentLanguage" />
-    
+
     <div class="contact-girl-floating-icon display-none" id="contactGirlIcon">
         <div class="contact-girl-close" id="contactGirlClose">&times;</div>
         <a href="@Url.Content("~/ContactUs")" class="contact-girl-link">
-            <img src="~/www/build/styles/Images/contact-girl/n88/contact-us.@(currentLanguage).webp" 
+            <img src="~/www/build/styles/Images/contact-girl/n88/contact-us.@(currentLanguage).webp"
                  alt="Contact Girl" class="contact-girl-image" />
         </a>
     </div>
-    
+
     @Html.Raw(Fanex.Logging.LogManager.RenderJavascriptLogger())
     <script src="https://cdn.ravenjs.com/3.27.0/raven.min.js" crossorigin="anonymous"></script>
     <script>

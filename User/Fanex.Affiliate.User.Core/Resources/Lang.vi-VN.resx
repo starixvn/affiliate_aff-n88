@@ -2167,4 +2167,19 @@ Nếu bạn cần banner mới hoặc muốn yêu cầu thiết kế banner tùy
   <data name="Our_Products" xml:space="preserve">
     <value>SẢN PHẨM CỦA CHÚNG TÔI</value>
   </data>
+  <data name="Awards" xml:space="preserve">
+    <value>Giải thưởng</value>
+  </data>
+  <data name="SHORTLISTED_CRM_Campaign" xml:space="preserve">
+    <value>Được chọn lọc Chiến Dịch CRM</value>
+  </data>
+  <data name="SHORTLISTED_Best_Operator" xml:space="preserve">
+    <value>Được chọn lọc Nhà cung cấp dịch vụ xuất sắc nhất</value>
+  </data>
+  <data name="FollowUs" xml:space="preserve">
+    <value>Theo dõi chúng tôi</value>
+  </data>
+  <data name="GamingLicense" xml:space="preserve">
+    <value>Giấy phép trò chơi</value>
+  </data>
 </root>
