@@ -1,36 +1,101 @@
 ﻿.main {
+
     .home-page {
         max-width: 1344px;
         margin: 0 auto;
         padding: 0 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+
+        img {
+            width: 100%;
+        }
 
         .home-banner {
             width: 100vw;
             margin-left: calc(-50vw + 50%);
+
+            img {
+                width: 100%;
+            }
         }
 
-        .why-become-aff-row {
+        .why-become-aff {
             display: flex;
-            justify-content: space-between;
             gap: 20px;
+            flex-wrap: wrap;
 
-            .why-become-aff-child-row {
+            .why-become-aff-row {
                 display: flex;
                 justify-content: space-between;
-                margin: 20px 0 0 0;
+                gap: 20px;
+
+                .why-become-aff-child-row {
+                    display: flex;
+                    justify-content: space-between;
+                    margin: 20px 0 0 0;
+                    gap: 20px;
+                }
+            }
+        }
+
+        .apply-aff {
+            .apply-aff-section {
+                display: flex;
+                gap: 20px;
             }
         }
 
         .partner {
-            display: flex;
-            justify-content: space-between;
+            .partner-section {
+                display: flex;
+                justify-content: space-between;
+                flex-direction: row;
+                gap: 20px;
+
+                img {
+                    width: 100%;
+                }
+            }
         }
 
-        .our-product {
+        .product-provider {
             display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-            justify-content: space-between;
+            flex-direction: column;
+            gap: 20px;
+
+            .our-product {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 37px;
+                justify-content: space-between;
+                margin: 0 auto;
+                max-width: 1052px;
+
+                img {
+                    width: auto;
+                }
+            }
+
+            .provider {
+                width: 82%;
+                margin: 0 auto;
+            }
+        }
+
+        .block-title {
+            display: flex;
+            justify-content: center;
+            font-family: Open Sans;
+            font-weight: 700;
+            font-size: 32px;
+            color: #FF5D00;
+
+            span {
+                color: #424242;
+            }
         }
     }
 }

@@ -2,11 +2,6 @@ var Layout = (function ($) {
     var DEFAULT_SPEED = 20;
     const siteName = window.SiteName;
 
-    function initSlider() {
-        var $mainBanner = $('#mainBanner');
-        $mainBanner.carousel();
-    }
-
     function initContactGirl() {
         var $contactGirlIcon = $('#contactGirlIcon');
 
@@ -37,7 +32,6 @@ var Layout = (function ($) {
 
     var _me = {
         initialize: function () {
-            initSlider();
             _me.registerAjaxHandlerError();
             _me.initEvent();
             _me.renderHotNews();
