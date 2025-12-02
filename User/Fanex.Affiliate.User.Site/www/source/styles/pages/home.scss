@@ -32,11 +32,47 @@
                 justify-content: space-between;
                 gap: 20px;
 
+                .join-us {
+                    background: url('../Images/home/NV88_HOMEPAGE_09_B 1.png') no-repeat center;
+                    display: flex;
+                    justify-content: center;
+                    position: relative;
+                    width: 869px;
+                    height: 325px;
+
+                    .join-us-title {
+                        position: absolute;
+                        left: 0;
+                        top: 5px;
+                        font-size: 32px;
+                        font-weight: 700;
+                        color: #FF5D00;
+
+                        span {
+                            color: #424242;
+                        }
+                    }
+
+                    .join-us-button {
+                        width: 215px;
+                        height: 50px;
+                        position: absolute;
+                        bottom: 0px;
+                        text-transform: uppercase;
+                        transform: scale(1.075);
+                        animation: pulse 1s infinite;
+                    }
+                }
+
                 .why-become-aff-child-row {
                     display: flex;
                     justify-content: space-between;
                     margin: 20px 0 0 0;
                     gap: 20px;
+                }
+
+                .aff-commission {
+                    display: grid;
                 }
             }
         }
@@ -46,9 +82,29 @@
                 display: flex;
                 gap: 20px;
             }
+
+            .apply-aff-title {
+                display: flex;
+                justify-content: center;
+                font-size: 32px;
+                font-weight: 700;
+                color: #FF5D00;
+
+                span {
+                    color: #424242;
+                }
+            }
         }
 
         .partner {
+            .partner-title {
+                display: flex;
+                justify-content: center;
+                font-size: 32px;
+                font-weight: 700;
+                color: #FF5D00;
+            }
+
             .partner-section {
                 display: flex;
                 justify-content: space-between;
@@ -92,9 +148,88 @@
             font-weight: 700;
             font-size: 32px;
             color: #FF5D00;
+            text-transform: uppercase;
 
             span {
                 color: #424242;
+            }
+        }
+
+        .your-turn, .be-the-next {
+            font-family: Open Sans;
+            font-weight: 700;
+            font-size: 24px;
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .home-button {
+            text-transform: uppercase;
+            background: #FF5D00;
+            border-radius: 5px;
+            color: #ffffff;
+            border: none;
+            text-align: center;
+            padding: 8px 24px;
+            text-decoration: none;
+
+            &:hover {
+                transform: scale(1.05);
+            }
+        }
+        /* Animations */
+        @keyframes pulse {
+            0% {
+                transform: scale(1.05);
+            }
+
+            50% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(1.075);
+            }
+        }
+
+        .zoom-in {
+            cursor: zoom-in;
+
+            &:hover {
+                transform: scale(1.05);
+            }
+        }
+
+        .slide-button {
+            position: absolute !important;
+            color: #000000;
+            width: 32px !important;
+            height: 32px;
+            border-radius: 20px;
+            background: #E6E5E5 !important;
+            display: flex;
+            justify-content: center;
+        }
+
+        .prev-button {
+            left: -50px !important;
+        }
+
+        .next-button {
+            right: -50px !important;
+        }
+
+        .none-border {
+            border: none !important;
+        }
+
+        .carousel-indicators {
+            position: absolute;
+            bottom: -35px;
+
+            li {
+                background: #E6E5E5 !important;
             }
         }
     }

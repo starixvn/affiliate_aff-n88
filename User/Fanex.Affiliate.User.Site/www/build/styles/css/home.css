@@ -6,6 +6,7 @@
   flex-direction: column;
   gap: 20px;
   width: 100%;
+  /* Animations */
 }
 .main .home-page img {
   width: 100%;
@@ -27,15 +28,63 @@
   justify-content: space-between;
   gap: 20px;
 }
+.main .home-page .why-become-aff .why-become-aff-row .join-us {
+  background: url("../../../source/styles/Images/home/NV88_HOMEPAGE_09_B 1.png") no-repeat center;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 869px;
+  height: 325px;
+}
+.main .home-page .why-become-aff .why-become-aff-row .join-us .join-us-title {
+  position: absolute;
+  left: 0;
+  top: 5px;
+  font-size: 32px;
+  font-weight: 700;
+  color: #FF5D00;
+}
+.main .home-page .why-become-aff .why-become-aff-row .join-us .join-us-title span {
+  color: #424242;
+}
+.main .home-page .why-become-aff .why-become-aff-row .join-us .join-us-button {
+  width: 215px;
+  height: 50px;
+  position: absolute;
+  bottom: 0px;
+  text-transform: uppercase;
+  transform: scale(1.075);
+  animation: pulse 1s infinite;
+}
 .main .home-page .why-become-aff .why-become-aff-row .why-become-aff-child-row {
   display: flex;
   justify-content: space-between;
   margin: 20px 0 0 0;
   gap: 20px;
 }
+.main .home-page .why-become-aff .why-become-aff-row .aff-commission {
+  display: grid;
+}
 .main .home-page .apply-aff .apply-aff-section {
   display: flex;
   gap: 20px;
+}
+.main .home-page .apply-aff .apply-aff-title {
+  display: flex;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: 700;
+  color: #FF5D00;
+}
+.main .home-page .apply-aff .apply-aff-title span {
+  color: #424242;
+}
+.main .home-page .partner .partner-title {
+  display: flex;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: 700;
+  color: #FF5D00;
 }
 .main .home-page .partner .partner-section {
   display: flex;
@@ -73,7 +122,72 @@
   font-weight: 700;
   font-size: 32px;
   color: #FF5D00;
+  text-transform: uppercase;
 }
 .main .home-page .block-title span {
   color: #424242;
+}
+.main .home-page .your-turn, .main .home-page .be-the-next {
+  font-family: Open Sans;
+  font-weight: 700;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.main .home-page .home-button {
+  text-transform: uppercase;
+  background: #FF5D00;
+  border-radius: 5px;
+  color: #ffffff;
+  border: none;
+  text-align: center;
+  padding: 8px 24px;
+  text-decoration: none;
+}
+.main .home-page .home-button:hover {
+  transform: scale(1.05);
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1.05);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.075);
+  }
+}
+.main .home-page .zoom-in {
+  cursor: zoom-in;
+}
+.main .home-page .zoom-in:hover {
+  transform: scale(1.05);
+}
+.main .home-page .slide-button {
+  position: absolute !important;
+  color: #000000;
+  width: 32px !important;
+  height: 32px;
+  border-radius: 20px;
+  background: #E6E5E5 !important;
+  display: flex;
+  justify-content: center;
+}
+.main .home-page .prev-button {
+  left: -50px !important;
+}
+.main .home-page .next-button {
+  right: -50px !important;
+}
+.main .home-page .none-border {
+  border: none !important;
+}
+.main .home-page .carousel-indicators {
+  position: absolute;
+  bottom: -35px;
+}
+.main .home-page .carousel-indicators li {
+  background: #E6E5E5 !important;
 }

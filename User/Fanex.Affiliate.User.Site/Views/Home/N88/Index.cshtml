@@ -35,30 +35,30 @@
     <div class="why-become-aff">
         <div class="why-become-aff-row">
             <div class="left-block">
-                <div>
-                    <a href="~/Signup/Index">
-                        <img src="~/www/build/styles/Images/home/n88/Group 242.png" alt="Join Us" />
-                    </a>
-                    
+                <div class="join-us">
+                    <div class="join-us-title">Why <span>become a Nova88 Affiliate?</span></div>
+                    <a class="join-us-button" href="~/Signup/Index"><img src="~/www/build/styles/Images/home/n88/join-us-button.png" alt="Join us" /></a>
                 </div>
                 <div class="why-become-aff-child-row">
-                    <div><img src="~/www/build/styles/Images/home/n88/Group 196.png"  alt="User Friendly Marketing and Analytical Tools" /></div>
-                    <div><img src="~/www/build/styles/Images/home/n88/Group 194.png" alt="Highly Dedicated Team" /></div>
+                    <div class="zoom-in"><img src="~/www/build/styles/Images/home/n88/Group 196.png" alt="User Friendly Marketing and Analytical Tools" /></div>
+                    <div class="zoom-in"><img src="~/www/build/styles/Images/home/n88/Group 194.png" alt="Highly Dedicated Team" /></div>
                 </div>
             </div>
-            <div class="right-block">
+            <div class="right-block zoom-in">
                 <img src="~/www/build/styles/Images/home/n88/Group 193.png" alt="Flexible Commission" />
             </div>
         </div>
         <div class="why-become-aff-row">
-            <div class="left-block"> <img src="~/www/build/styles/Images/home/n88/NV88_HOMEPAGE_08 1.png" alt="Earning" /></div>
-            <div class="right-block">
-                <div class="left-block"> <img src="~/www/build/styles/Images/home/n88/Group 240.png" alt="Affiliate" /></div>
+            <div class="left-block zoom-in"> <img src="~/www/build/styles/Images/home/n88/NV88_HOMEPAGE_08 1.png" alt="Earning" /></div>
+            <div class="right-block aff-commission">
+                <div class="zoom-in"> <img src="~/www/build/styles/Images/home/n88/Group 226.png" alt="Affiliate" /></div>
+                <div class="zoom-in"> <img src="~/www/build/styles/Images/home/n88/Group 227.png" alt="Affiliate" /></div>
+                <div class="zoom-in"> <img src="~/www/build/styles/Images/home/n88/Group 228.png" alt="Affiliate" /></div>
             </div>
         </div>
     </div>
     <div class="partner">
-        <div class="partner-title block-title">Official Asian Betting Partner</div>
+        <div class="partner-title">Official Asian Betting Partner</div>
         <div class="partner-section">
             <div><img src="~/www/build/styles/Images/home/n88/aston-villa-en 1.png" alt="Aston Villa" /></div>
             <div><img src="~/www/build/styles/Images/home/n88/RR.png" alt="Sevilla FC" /></div>
@@ -66,13 +66,16 @@
         </div>
     </div>
     <div class="apply-aff">
-        <div class="apply-aff-title block-title">Apply<span>&nbsp; Nova88 Affilitate</span></div>
+        <div class="apply-aff-title">Apply<span>&nbsp; Nova88 Affilitate</span></div>
         <div class="apply-aff-section">
-            <div> <img src="~/www/build/styles/Images/home/n88/sign-up-account.png" alt="Sign Up" /></div>
-            <div> <img src="~/www/build/styles/Images/home/n88/advertise.png" alt="Advertise" /></div>
-            <div> <img src="~/www/build/styles/Images/home/n88/accquire-new-player.png" alt="Accquire New Player" /></div>
-            <div> <img src="~/www/build/styles/Images/home/n88/earning-revenue-share.png" alt="Earning Revenue Share" /></div>
+            <div class="zoom-in"> <img src="~/www/build/styles/Images/home/n88/sign-up-account.png" alt="Sign Up" /></div>
+            <div class="zoom-in"> <img src="~/www/build/styles/Images/home/n88/advertise.png" alt="Advertise" /></div>
+            <div class="zoom-in"> <img src="~/www/build/styles/Images/home/n88/accquire-new-player.png" alt="Accquire New Player" /></div>
+            <div class="zoom-in"> <img src="~/www/build/styles/Images/home/n88/earning-revenue-share.png" alt="Earning Revenue Share" /></div>
         </div>
+    </div>
+    <div class="be-the-next">
+        <a class="home-button" href="~/Signup/Index">Be the next #1!</a>
     </div>
     <div class="product-provider">
         <div class="product-provider-title block-title">Our Product and Provider</div>
@@ -87,6 +90,10 @@
             <img src="~/www/build/styles/Images/home/n88/product-lottery.png" alt="Lottery" />
         </div>
         <div id="provider" class="provider carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#provider" data-slide-to="5" class="active"></li>
+                <li data-target="#provider" data-slide-to="7"></li>
+            </ol>
             <div class="carousel-inner">
                 <div class="item  carousel-item active">
                     <img src="~/www/build/styles/Images/home/n88/Provider/Frame 7245.png" alt="1" />
@@ -113,9 +120,21 @@
                     <img src="~/www/build/styles/Images/home/n88/Provider/Frame 7252.png" alt="8" />
                 </div>
             </div>
+            <button class="left carousel-control none-border" type="button" data-target="#provider" data-slide="prev">
+                <span class="left chevron prev-button slide-button" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </button>
+            <button class="right carousel-control none-border" type="button" data-target="#provider" data-slide="next">
+                <span class="right chevron next-button slide-button" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </button>
         </div>
     </div>
+    <div class="your-turn">
+        <a class="home-button" href="~/Signup/Index">Your turn to top!</a>
+    </div>
     <div class="faq">
+        <div class="block-title">@Lang.Faqs</div>
         @Html.Raw(faqHtmlString)
     </div>
 </div>
