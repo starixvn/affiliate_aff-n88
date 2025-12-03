@@ -2268,4 +2268,37 @@ If you need a new banner or would like to request a custom banner, feel free to 
   <data name="GamingLicense" xml:space="preserve">
     <value>Gaming License</value>
   </data>
+  <data name="WhyBecomeAff" xml:space="preserve">
+    <value>Why &lt;span&gt;become a Nova88 Affiliate?&lt;/span&gt;</value>
+  </data>
+  <data name="LifeTimeRevenues" xml:space="preserve">
+    <value>LIFETIME REVENUES</value>
+  </data>
+  <data name="OnAll" xml:space="preserve">
+    <value>ON ALL</value>
+  </data>
+  <data name="Members" xml:space="preserve">
+    <value>Members</value>
+  </data>
+  <data name="FlexibleComm" xml:space="preserve">
+    <value>FLEXIBLE COMMISSION</value>
+  </data>
+  <data name="EarnUpTo" xml:space="preserve">
+    <value>EARN UP TO</value>
+  </data>
+  <data name="OfficialAsianBettingPartner" xml:space="preserve">
+    <value>Official Asian Betting Partner</value>
+  </data>
+  <data name="ApplyNova88Affiliate" xml:space="preserve">
+    <value>Apply &lt;span&gt;Nova88 Affiliate&lt;span&gt;</value>
+  </data>
+  <data name="BeTheNext" xml:space="preserve">
+    <value>Be the next #1!</value>
+  </data>
+  <data name="OurProductsAndProviders" xml:space="preserve">
+    <value>OUR PRODUCTS AND PROVIDERS</value>
+  </data>
+  <data name="YourTurnToTop" xml:space="preserve">
+    <value>Your turn to top!</value>
+  </data>
 </root>

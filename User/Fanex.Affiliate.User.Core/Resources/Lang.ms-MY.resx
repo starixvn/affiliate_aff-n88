@@ -2144,4 +2144,34 @@ Jika anda memerlukan banner baharu atau ingin memohon banner tersuai, sila hubun
   <data name="GamingLicense" xml:space="preserve">
     <value>Lesen Permainan</value>
   </data>
+  <data name="WhyBecomeAff" xml:space="preserve">
+    <value>Mengapa &lt;span&gt;Menjadi Rakan Kongsi Nova88?&lt;/span&gt;</value>
+  </data>
+  <data name="LifeTimeRevenues" xml:space="preserve">
+    <value>PENDAPATAN SEPANJANG</value>
+  </data>
+  <data name="OnAll" xml:space="preserve">
+    <value>HAYAT DARI &lt;br&gt;SEMUA</value>
+  </data>
+  <data name="Members" xml:space="preserve">
+    <value>AHLI</value>
+  </data>
+  <data name="FlexibleComm" xml:space="preserve">
+    <value>KOMISYEN FLEKSIBEL</value>
+  </data>
+  <data name="OfficialAsianBettingPartner" xml:space="preserve">
+    <value>Rakan Pertaruhan Rasmi Asia</value>
+  </data>
+  <data name="ApplyNova88Affiliate" xml:space="preserve">
+    <value>Ajukan Affiliasi Nova88</value>
+  </data>
+  <data name="BeTheNext" xml:space="preserve">
+    <value>JADI #1 SETERUSNYA!</value>
+  </data>
+  <data name="OurProductsAndProviders" xml:space="preserve">
+    <value>PRODUK DAN PEMBEKAL KAMI</value>
+  </data>
+  <data name="YourTurnToTop" xml:space="preserve">
+    <value>GILIRAN ANDA UNTUK MENJADI TERATAS!</value>
+  </data>
 </root>

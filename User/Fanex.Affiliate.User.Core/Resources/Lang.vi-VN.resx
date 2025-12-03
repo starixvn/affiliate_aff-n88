@@ -2182,4 +2182,34 @@ Nếu bạn cần banner mới hoặc muốn yêu cầu thiết kế banner tùy
   <data name="GamingLicense" xml:space="preserve">
     <value>Giấy phép trò chơi</value>
   </data>
+  <data name="WhyBecomeAff" xml:space="preserve">
+    <value>Tại sao &lt;span&gt;nên trở thành Đại Lý của Nova88?&lt;/span&gt;</value>
+  </data>
+  <data name="LifeTimeRevenues" xml:space="preserve">
+    <value>HOA HỒNG TRỌN ĐỜI</value>
+  </data>
+  <data name="OnAll" xml:space="preserve">
+    <value>TỪ TẤT CẢ</value>
+  </data>
+  <data name="Members" xml:space="preserve">
+    <value>NGƯỜI CHƠI</value>
+  </data>
+  <data name="FlexibleComm" xml:space="preserve">
+    <value>CHÍNH SÁCH &lt;br&gt;HOA HỒNG LINH HOẠT</value>
+  </data>
+  <data name="OfficialAsianBettingPartner" xml:space="preserve">
+    <value>Đối tác cá cược chính thức khu vực Châu Á</value>
+  </data>
+  <data name="ApplyNova88Affiliate" xml:space="preserve">
+    <value>Tham Gia &lt;span&gt;Đại Lý Nova88&lt;span&gt;</value>
+  </data>
+  <data name="BeTheNext" xml:space="preserve">
+    <value>TRỞ THÀNH #1 TIẾP THEO!</value>
+  </data>
+  <data name="OurProductsAndProviders" xml:space="preserve">
+    <value>SẢN PHẨM VÀ NHÀ CUNG CẤP CỦA CHÚNG TÔI</value>
+  </data>
+  <data name="YourTurnToTop" xml:space="preserve">
+    <value>CHINH PHỤC ĐỈNH CAO!</value>
+  </data>
 </root>

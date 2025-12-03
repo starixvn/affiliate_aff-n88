@@ -2013,4 +2013,7 @@
   <data name="NetRevenue" xml:space="preserve">
     <value>ប្រាក់ចំណូលសុទ្ធ</value>
   </data>
+  <data name="YourTurnToTop" xml:space="preserve">
+    <value>Your turn to top!</value>
+  </data>
 </root>

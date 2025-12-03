@@ -1906,4 +1906,34 @@
   <data name="GamingLicense" xml:space="preserve">
     <value>ใบอนุญาตเกม</value>
   </data>
+  <data name="WhyBecomeAff" xml:space="preserve">
+    <value>ทำไม &lt;span&gt;ต้องเป็นพันธมิตร Nova88?&lt;/span&gt;</value>
+  </data>
+  <data name="LifeTimeRevenues" xml:space="preserve">
+    <value>รายได้ตลอดชีพ</value>
+  </data>
+  <data name="OnAll" xml:space="preserve">
+    <value>สำหรับสมาชิก</value>
+  </data>
+  <data name="Members" xml:space="preserve">
+    <value>ทุกคน</value>
+  </data>
+  <data name="FlexibleComm" xml:space="preserve">
+    <value>ค่าคอมมิชชั่นที่ยืดหยุ่น</value>
+  </data>
+  <data name="OfficialAsianBettingPartner" xml:space="preserve">
+    <value>พันธมิตรเดิมพันอย่างเป็นทางการของเอเชีย</value>
+  </data>
+  <data name="ApplyNova88Affiliate" xml:space="preserve">
+    <value>สมัครพันธมิตรกับ&lt;span&gt;Nova88&lt;span&gt;</value>
+  </data>
+  <data name="BeTheNext" xml:space="preserve">
+    <value>เป็น #1 คนต่อไป!</value>
+  </data>
+  <data name="OurProductsAndProviders" xml:space="preserve">
+    <value>ผลิตภัณฑ์และผู้ให้บริการของเรา</value>
+  </data>
+  <data name="YourTurnToTop" xml:space="preserve">
+    <value>ถึงเวลาคุณ สู่จุดสูงสุดแล้ว!</value>
+  </data>
 </root>

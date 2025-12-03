@@ -403,6 +403,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Apply &lt;span&gt;Nova88 Affiliate&lt;span&gt;.
+        /// </summary>
+        public static string ApplyNova88Affiliate {
+            get {
+                return ResourceManager.GetString("ApplyNova88Affiliate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Apply B2C Affiliate.
         /// </summary>
         public static string ApplyOneTwoBetAffiliate {
@@ -678,6 +687,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string Bermuda {
             get {
                 return ResourceManager.GetString("Bermuda", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Be the next #1!.
+        /// </summary>
+        public static string BeTheNext {
+            get {
+                return ResourceManager.GetString("BeTheNext", resourceCulture);
             }
         }
         
@@ -1728,6 +1746,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to EARN UP TO.
+        /// </summary>
+        public static string EarnUpTo {
+            get {
+                return ResourceManager.GetString("EarnUpTo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ebet.
         /// </summary>
         public static string Ebet {
@@ -2156,6 +2183,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string Flat {
             get {
                 return ResourceManager.GetString("Flat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FLEXIBLE COMMISSION.
+        /// </summary>
+        public static string FlexibleComm {
+            get {
+                return ResourceManager.GetString("FlexibleComm", resourceCulture);
             }
         }
         
@@ -2952,6 +2988,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to LIFETIME REVENUES.
+        /// </summary>
+        public static string LifeTimeRevenues {
+            get {
+                return ResourceManager.GetString("LifeTimeRevenues", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 13. Limitation of Liability.
         /// </summary>
         public static string LimitationOfLiability {
@@ -3191,6 +3236,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string MediaGallery {
             get {
                 return ResourceManager.GetString("MediaGallery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Members.
+        /// </summary>
+        public static string Members {
+            get {
+                return ResourceManager.GetString("Members", resourceCulture);
             }
         }
         
@@ -3663,6 +3717,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Official Asian Betting Partner.
+        /// </summary>
+        public static string OfficialAsianBettingPartner {
+            get {
+                return ResourceManager.GetString("OfficialAsianBettingPartner", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Old Password.
         /// </summary>
         public static string OldPass {
@@ -3686,6 +3749,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string Oman {
             get {
                 return ResourceManager.GetString("Oman", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ON ALL.
+        /// </summary>
+        public static string OnAll {
+            get {
+                return ResourceManager.GetString("OnAll", resourceCulture);
             }
         }
         
@@ -3722,6 +3794,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string OurPlan {
             get {
                 return ResourceManager.GetString("OurPlan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OUR PRODUCTS AND PROVIDERS.
+        /// </summary>
+        public static string OurProductsAndProviders {
+            get {
+                return ResourceManager.GetString("OurProductsAndProviders", resourceCulture);
             }
         }
         
@@ -6086,6 +6167,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Why &lt;span&gt;become a Nova88 Affiliate?&lt;/span&gt;.
+        /// </summary>
+        public static string WhyBecomeAff {
+            get {
+                return ResourceManager.GetString("WhyBecomeAff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Winloss.
         /// </summary>
         public static string Winloss {
@@ -6271,6 +6361,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string YourRevenueShareN88 {
             get {
                 return ResourceManager.GetString("YourRevenueShareN88", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your turn to top!.
+        /// </summary>
+        public static string YourTurnToTop {
+            get {
+                return ResourceManager.GetString("YourTurnToTop", resourceCulture);
             }
         }
         

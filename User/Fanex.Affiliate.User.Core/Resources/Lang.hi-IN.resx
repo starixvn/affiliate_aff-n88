@@ -2153,4 +2153,34 @@ B2C सहयोगी की टीम&lt;br/&gt;&lt;br/&gt;
   <data name="GamingLicense" xml:space="preserve">
     <value>गेमिंग लाइसेंस</value>
   </data>
+  <data name="WhyBecomeAff" xml:space="preserve">
+    <value>क्यों बनें &lt;span&gt;Nova88 सहायक?&lt;/span&gt;</value>
+  </data>
+  <data name="LifeTimeRevenues" xml:space="preserve">
+    <value>सभी सदस्यों पर</value>
+  </data>
+  <data name="OnAll" xml:space="preserve">
+    <value>आजीवन</value>
+  </data>
+  <data name="Members" xml:space="preserve">
+    <value>आय</value>
+  </data>
+  <data name="FlexibleComm" xml:space="preserve">
+    <value>लचीला कमीशन</value>
+  </data>
+  <data name="OfficialAsianBettingPartner" xml:space="preserve">
+    <value>आधिकारिक एशियाई सट्टेबाजी भागीदार</value>
+  </data>
+  <data name="ApplyNova88Affiliate" xml:space="preserve">
+    <value>Nova88&lt;span&gt; संबद्धता लागू करें&lt;span&gt;</value>
+  </data>
+  <data name="BeTheNext" xml:space="preserve">
+    <value>अगला #1 बनें!</value>
+  </data>
+  <data name="OurProductsAndProviders" xml:space="preserve">
+    <value>हमारे उत्पाद और प्रदाता</value>
+  </data>
+  <data name="YourTurnToTop" xml:space="preserve">
+    <value>शीर्ष पर पहुँचने का आपका मौका!</value>
+  </data>
 </root>

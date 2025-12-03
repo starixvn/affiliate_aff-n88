@@ -1922,4 +1922,37 @@ B2C合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
   <data name="GamingLicense" xml:space="preserve">
     <value>游戏许可证</value>
   </data>
+  <data name="WhyBecomeAff" xml:space="preserve">
+    <value>为什么要 &lt;span&gt;成为 Nova88 的代理？&lt;/span&gt;</value>
+  </data>
+  <data name="LifeTimeRevenues" xml:space="preserve">
+    <value>所有会员 </value>
+  </data>
+  <data name="OnAll" xml:space="preserve">
+    <value>均享终身</value>
+  </data>
+  <data name="Members" xml:space="preserve">
+    <value>分成</value>
+  </data>
+  <data name="FlexibleComm" xml:space="preserve">
+    <value>灵活的佣金制度</value>
+  </data>
+  <data name="EarnUpTo" xml:space="preserve">
+    <value>赚取高达</value>
+  </data>
+  <data name="OfficialAsianBettingPartner" xml:space="preserve">
+    <value>官方亚洲博彩合作伙伴</value>
+  </data>
+  <data name="ApplyNova88Affiliate" xml:space="preserve">
+    <value>申请Nova88 合营</value>
+  </data>
+  <data name="BeTheNext" xml:space="preserve">
+    <value>成为下一个 #1！</value>
+  </data>
+  <data name="OurProductsAndProviders" xml:space="preserve">
+    <value>我们的产品及供应商</value>
+  </data>
+  <data name="YourTurnToTop" xml:space="preserve">
+    <value>轮到你登顶！</value>
+  </data>
 </root>

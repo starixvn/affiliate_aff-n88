@@ -2159,4 +2159,37 @@
   <data name="GamingLicense" xml:space="preserve">
     <value>খেলাধুলার অনুমতি পত্র</value>
   </data>
+  <data name="WhyBecomeAff" xml:space="preserve">
+    <value>কেন &lt;span&gt;কেন Nova88 এর এফিলিয়েট হওয়া উচিত?&lt;/span&gt;</value>
+  </data>
+  <data name="LifeTimeRevenues" xml:space="preserve">
+    <value>সমস্ত সদস্যদের</value>
+  </data>
+  <data name="OnAll" xml:space="preserve">
+    <value>উপর আজীবন </value>
+  </data>
+  <data name="Members" xml:space="preserve">
+    <value>আয়</value>
+  </data>
+  <data name="FlexibleComm" xml:space="preserve">
+    <value>নমনীয় কমিশন</value>
+  </data>
+  <data name="EarnUpTo" xml:space="preserve">
+    <value>কমিশন পর্যন&lt;br&gt;উপার্জন করুন</value>
+  </data>
+  <data name="OfficialAsianBettingPartner" xml:space="preserve">
+    <value>অফিশিয়াল এশিয়ান বেটিং পার্টনার</value>
+  </data>
+  <data name="ApplyNova88Affiliate" xml:space="preserve">
+    <value>Nova88 &lt;span&gt; এফিলিয়েট এ আবেদন করুন &lt;span&gt;</value>
+  </data>
+  <data name="BeTheNext" xml:space="preserve">
+    <value>পরবর্তী #1 হোন!</value>
+  </data>
+  <data name="OurProductsAndProviders" xml:space="preserve">
+    <value>আমাদের পণ্য এবং প্রদানকারীরা</value>
+  </data>
+  <data name="YourTurnToTop" xml:space="preserve">
+    <value>আপনার পালা শীর্ষে উঠার!</value>
+  </data>
 </root>

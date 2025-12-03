@@ -1,4 +1,6 @@
-﻿namespace Fanex.Affiliate.User.Core.ViewModels
+﻿using Fanex.Affiliate.User.Core.Utilities;
+
+namespace Fanex.Affiliate.User.Core.ViewModels
 {
     public class HomeViewModel
     {
@@ -13,5 +15,7 @@
         public string Language { get; set; }
 
         public string ShortedLanguageCode { get; set; }
+
+        public string SiteFriendlyName { get; set; }
     }
 }

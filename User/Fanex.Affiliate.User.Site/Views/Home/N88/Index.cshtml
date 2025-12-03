@@ -14,6 +14,17 @@
     var extraDesktopBannerPath = Url.Content($"~/www/build/styles/Images/home/n88/extra-banners/extra.desktop.{Model.Language}");
     var extraMobileBannerPath = Url.Content($"~/www/build/styles/Images/home/n88/extra-banners/extra.mobile.{Model.Language}");
     var faqHtmlString = Html.RenderPartialByLanguage("~/Views/Faq/N88/_Content", Model.Language, "N88").ToHtmlString();
+    var htmlLifeTimeRevenue = Html.RenderPartialByLanguage($"~/Views/Home/N88/Content/LifeTimeRevenue", Model.Language, Model.SiteFriendlyName);
+    var htmlCommission = Html.RenderPartialByLanguage($"~/Views/Home/N88/Content/Commission", Model.Language, Model.SiteFriendlyName);
+    var htmlReceivedMonthlyCommission = Html.RenderPartialByLanguage($"~/Views/Home/N88/Content/ReceivedMonthlyCommission", Model.Language, Model.SiteFriendlyName);
+    var htmlmonthlyIncome = Html.RenderPartialByLanguage($"~/Views/Home/N88/Content/MonthlyIncome", Model.Language, Model.SiteFriendlyName);
+    var htmlNumberAffiliate= Html.RenderPartialByLanguage($"~/Views/Home/N88/Content/NumberAffiliate", Model.Language, Model.SiteFriendlyName);
+    var htmlUserFriendly = Html.RenderPartialByLanguage($"~/Views/Home/N88/Content/UserFriendly", Model.Language, Model.SiteFriendlyName);
+    var highlyDedicatedTeam = Html.RenderPartialByLanguage($"~/Views/Home/N88/Content/HighlyDedicatedTeam", Model.Language, Model.SiteFriendlyName);
+    var htmlStepOne = Html.RenderPartialByLanguage($"~/Views/Home/N88/Content/StepOne", Model.Language, Model.SiteFriendlyName);
+    var htmlStepTwo = Html.RenderPartialByLanguage($"~/Views/Home/N88/Content/StepTwo", Model.Language, Model.SiteFriendlyName);
+    var htmlStepThree = Html.RenderPartialByLanguage($"~/Views/Home/N88/Content/StepThree", Model.Language, Model.SiteFriendlyName);
+    var htmlStepFour = Html.RenderPartialByLanguage($"~/Views/Home/N88/Content/StepFour", Model.Language, Model.SiteFriendlyName);
 }
 
 @section styles{
@@ -25,7 +36,7 @@
     @Html.InlineScripts("~/www/build/js/pages/home.js")
 }
 
-<div class="home-page content home-new">
+<div class="home-page home-new">
     <div class="home-banner">
         <img src="~/www/build/styles/Images/home/n88/NV88 Banner.png" alt="Banner" />
     </div>
@@ -36,29 +47,40 @@
         <div class="why-become-aff-row">
             <div class="left-block">
                 <div class="join-us">
-                    <div class="join-us-title">Why <span>become a Nova88 Affiliate?</span></div>
-                    <a class="join-us-button" href="~/Signup/Index"><img src="~/www/build/styles/Images/home/n88/join-us-button.png" alt="Join us" /></a>
+                    <div class="join-us-title">@Html.Raw(@Lang.WhyBecomeAff)</div>
+                    @Html.Raw(htmlLifeTimeRevenue)
                 </div>
                 <div class="why-become-aff-child-row">
-                    <div class="zoom-in"><img src="~/www/build/styles/Images/home/n88/Group 196.png" alt="User Friendly Marketing and Analytical Tools" /></div>
-                    <div class="zoom-in"><img src="~/www/build/styles/Images/home/n88/Group 194.png" alt="Highly Dedicated Team" /></div>
+                    <div class="marketing zoom-in ">
+                       @Html.Raw(htmlUserFriendly)
+                    </div>
+                    <div class="marketing zoom-in ">
+                        @Html.Raw(highlyDedicatedTeam)
+                    </div>
                 </div>
             </div>
             <div class="right-block zoom-in">
-                <img src="~/www/build/styles/Images/home/n88/Group 193.png" alt="Flexible Commission" />
+                @Html.Raw(htmlCommission)
             </div>
         </div>
-        <div class="why-become-aff-row">
-            <div class="left-block zoom-in"> <img src="~/www/build/styles/Images/home/n88/NV88_HOMEPAGE_08 1.png" alt="Earning" /></div>
-            <div class="right-block aff-commission">
-                <div class="zoom-in"> <img src="~/www/build/styles/Images/home/n88/Group 226.png" alt="Affiliate" /></div>
-                <div class="zoom-in"> <img src="~/www/build/styles/Images/home/n88/Group 227.png" alt="Affiliate" /></div>
-                <div class="zoom-in"> <img src="~/www/build/styles/Images/home/n88/Group 228.png" alt="Affiliate" /></div>
+        <div class="aff-com">
+            <div class="left-aff-com zoom-in"> <img src="~/www/build/styles/Images/home/n88/Group 4.png" alt="Earning" /></div>
+            <div class="right-aff-com">
+
+                <div class="zoom-in aff-info">
+                    @Html.Raw(htmlReceivedMonthlyCommission)
+                </div>
+                <div class="zoom-in aff-info">
+                    @Html.Raw(htmlmonthlyIncome)
+                </div>
+                <div class="zoom-in aff-info">
+                   @Html.Raw(htmlNumberAffiliate)
+                </div>
             </div>
         </div>
     </div>
     <div class="partner">
-        <div class="partner-title">Official Asian Betting Partner</div>
+        <div class="partner-title">@Html.Raw(@Lang.OfficialAsianBettingPartner)</div>
         <div class="partner-section">
             <div><img src="~/www/build/styles/Images/home/n88/aston-villa-en 1.png" alt="Aston Villa" /></div>
             <div><img src="~/www/build/styles/Images/home/n88/RR.png" alt="Sevilla FC" /></div>
@@ -66,28 +88,52 @@
         </div>
     </div>
     <div class="apply-aff">
-        <div class="apply-aff-title">Apply<span>&nbsp; Nova88 Affilitate</span></div>
+        <div class="apply-aff-title">@Html.Raw(@Lang.ApplyNova88Affiliate)</div>
         <div class="apply-aff-section">
-            <div class="zoom-in"> <img src="~/www/build/styles/Images/home/n88/sign-up-account.png" alt="Sign Up" /></div>
-            <div class="zoom-in"> <img src="~/www/build/styles/Images/home/n88/advertise.png" alt="Advertise" /></div>
-            <div class="zoom-in"> <img src="~/www/build/styles/Images/home/n88/accquire-new-player.png" alt="Accquire New Player" /></div>
-            <div class="zoom-in"> <img src="~/www/build/styles/Images/home/n88/earning-revenue-share.png" alt="Earning Revenue Share" /></div>
+            @Html.Raw(htmlStepOne)
+            @Html.Raw(htmlStepTwo)
+            @Html.Raw(htmlStepThree)
+            @Html.Raw(htmlStepFour)
         </div>
     </div>
     <div class="be-the-next">
-        <a class="home-button" href="~/Signup/Index">Be the next #1!</a>
+        <a class="home-button" href="~/Signup/Index">@Lang.BeTheNext</a>
     </div>
     <div class="product-provider">
-        <div class="product-provider-title block-title">Our Product and Provider</div>
+        <div class="product-provider-title block-title">@Html.Raw(Lang.OurProductsAndProviders)</div>
         <div class="our-product">
-            <img src="~/www/build/styles/Images/home/n88/product-sports.png" alt="Sports" />
-            <img src="~/www/build/styles/Images/home/n88/product-e-sports.png" alt="E-Sports" />
-            <img src="~/www/build/styles/Images/home/n88/product-live-casino.png" alt="Live Casino" />
-            <img src="~/www/build/styles/Images/home/n88/product-slots.png" alt="Slots" />
-            <img src="~/www/build/styles/Images/home/n88/product-fishing.png" alt="Fishing" />
-            <img src="~/www/build/styles/Images/home/n88/product-number-game.png" alt="Number Game" />
-            <img src="~/www/build/styles/Images/home/n88/product-keno.png" alt="Keno" />
-            <img src="~/www/build/styles/Images/home/n88/product-lottery.png" alt="Lottery" />
+            <div class="items">
+                <img src="~/www/build/styles/Images/home/n88/product-sports.png" alt="Sports" />
+                <div class="text">@Lang.Sportsbook</div>
+            </div>
+            <div class="items">
+                <img src="~/www/build/styles/Images/home/n88/product-e-sports.png" alt="Sports" />
+                <div class="text">@Lang.Esports</div>
+            </div>
+            <div class="items">
+                <img src="~/www/build/styles/Images/home/n88/product-live-casino.png" alt="Sports" />
+                <div class="text">@Lang.LiveCasino</div>
+            </div>
+            <div class="items">
+                <img src="~/www/build/styles/Images/home/n88/product-slots.png" alt="Sports" />
+                <div class="text">@Lang.Slots</div>
+            </div>
+            <div class="items">
+                <img src="~/www/build/styles/Images/home/n88/product-fishing.png" alt="Sports" />
+                <div class="text">@Lang.Fishing</div>
+            </div>
+            <div class="items">
+                <img src="~/www/build/styles/Images/home/n88/product-number-game.png" alt="Sports" />
+                <div class="text">@Lang.NumberGame</div>
+            </div>
+            <div class="items">
+                <img src="~/www/build/styles/Images/home/n88/product-keno.png" alt="Sports" />
+                <div class="text">@Lang.Keno</div>
+            </div>
+            <div class="items">
+                <img src="~/www/build/styles/Images/home/n88/product-lottery.png" alt="Sports" />
+                <div class="text">@Lang.Lottery</div>
+            </div>
         </div>
         <div id="provider" class="provider carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
@@ -131,7 +177,7 @@
         </div>
     </div>
     <div class="your-turn">
-        <a class="home-button" href="~/Signup/Index">Your turn to top!</a>
+        <a class="home-button" href="~/Signup/Index">@Lang.YourTurnToTop</a>
     </div>
     <div class="faq">
         <div class="block-title">@Lang.Faqs</div>

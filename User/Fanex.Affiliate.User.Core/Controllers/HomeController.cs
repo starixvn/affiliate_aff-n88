@@ -3,6 +3,7 @@ using Fanex.Affiliate.User.Core.Constants;
 using Fanex.Affiliate.User.Core.CoreService;
 using Fanex.Affiliate.User.Core.Utilities;
 using Fanex.Affiliate.User.Core.ViewModels;
+using Fanex.MailDeliver.MailClient;
 using System.Web.Mvc;
 
 namespace Fanex.Affiliate.User.Core.Controllers
@@ -31,7 +32,8 @@ namespace Fanex.Affiliate.User.Core.Controllers
                 ShortedLanguageCode = SystemLanguage.GetUppercaseShortedCode(SessionService.CurrentLanguage),
                 SignUpLink = isAuthenticated ? Url.Content("~/UserPanel/Main/#AccountOverview") : Url.Content("~/SignUp"),
                 BannerLink = isAuthenticated ? Url.Content("~/UserPanel/Main/#AccountOverview#MediaGallery") : "javascript:;",
-                PromotionB2CLink = GetPromotionLink()
+                PromotionB2CLink = GetPromotionLink(),
+                SiteFriendlyName = _appSetting.SiteFriendlyName
             };
 
             return View($"~/Views/Home/{_appSetting.SiteName}/Index.cshtml", viewModel);
