@@ -4,11 +4,12 @@
 @{
     var settingService = DependencyResolver.Current.GetService<IAppSetting>();
     var siteName = settingService.SiteName;
-    var layoutPath = siteName == "N88" ? "~/Views/Shared/N88/_LayoutBeforeLogin.cshtml" : "~/Views/Shared/_LayoutBeforeLogin.cshtml";
+    var isN88 = siteName == "N88";
+    var layoutPath = isN88 ? "~/Views/Shared/N88/_LayoutBeforeLogin.cshtml" : "~/Views/Shared/_LayoutBeforeLogin.cshtml";
     var siteFriendlyName = settingService.SiteFriendlyName;
-    var contentClass = siteName == "N88" ? "main-content" : "content";
+    var contentClass = isN88 ? "main-content" : "content";
     var imageBasePath = $"~/www/build/styles/Images/contact-us/{siteName}/";
-    var supportTime = siteName == "N88" ? Lang.SupportTimeN88 : Lang.SupportTime;
+    var supportTime = isN88 ? Lang.SupportTimeN88 : Lang.SupportTime;
 
     Layout = layoutPath;
     ViewBag.Title = $"{siteFriendlyName} {Lang.AffiliateProgram} | {Lang.ContactUs}";
@@ -75,7 +76,7 @@
                                 </div>
                             }
 
-                            @if (!string.IsNullOrEmpty(Model.Whatsapp))
+                            @if (!string.IsNullOrEmpty(Model.Whatsapp) && !isN88)
                             {
                                 <div class="contact-item">
                                     <div class="contact-icon">
