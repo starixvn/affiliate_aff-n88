@@ -2269,7 +2269,7 @@ If you need a new banner or would like to request a custom banner, feel free to 
     <value>Gaming License</value>
   </data>
   <data name="WhyBecomeAff" xml:space="preserve">
-    <value>Why &lt;span&gt;become a Nova88 Affiliate?&lt;/span&gt;</value>
+    <value>Why &lt;span&gt;be Nova88 Affiliate?&lt;/span&gt;</value>
   </data>
   <data name="LifeTimeRevenues" xml:space="preserve">
     <value>LIFETIME REVENUES</value>
@@ -2290,7 +2290,7 @@ If you need a new banner or would like to request a custom banner, feel free to 
     <value>Official Asian Betting Partner</value>
   </data>
   <data name="ApplyNova88Affiliate" xml:space="preserve">
-    <value>Apply &lt;span&gt;Nova88 Affiliate&lt;span&gt;</value>
+    <value>Apply &lt;span&gt;Nova88 Affiliate&lt;/span&gt;</value>
   </data>
   <data name="BeTheNext" xml:space="preserve">
     <value>Be the next #1!</value>

@@ -32,14 +32,28 @@
             gap: 20px;
             flex-wrap: wrap;
 
+            .join-us-title {
+                font-size: 32px;
+                font-weight: 700;
+                color: #FF5D00;
+                text-align: center;
+                width: 100%;
+
+                span {
+                    color: #424242;
+                }
+            }
+
             .why-become-aff-row {
                 display: flex;
                 justify-content: space-between;
                 gap: 20px;
+                width: 100%;
 
                 .marketing {
                     img {
                         width: auto;
+                        margin-bottom: 15px;
                     }
 
                     text-align: center;
@@ -52,7 +66,8 @@
                 }
 
                 .left-block {
-                    width: 72%;
+                    width: 68%;
+                    margin-top: 80px;
                 }
 
                 .right-block {
@@ -75,24 +90,28 @@
                         font-weight: 700;
                         font-size: 30px;
                         color: #000000;
+                        margin-top: 15px;
                     }
 
                     .line3 {
                         font-weight: 500;
                         font-size: 24px;
                         color: #333;
+                        margin-top: 15px;
                     }
 
                     .line4 {
                         font-weight: 800;
-                        font-size: 55px;
+                        font-size: 50px;
                         color: #FF5D00;
+                        margin-top: 15px;
                     }
 
                     .line5 {
                         font-weight: 500;
                         font-size: 24px;
                         color: #333;
+                        margin-top: 15px;
                     }
 
                     .line6 {
@@ -109,15 +128,7 @@
                     position: relative;
                     width: 100%;
 
-                    .join-us-title {
-                        font-size: 32px;
-                        font-weight: 700;
-                        color: #FF5D00;
 
-                        span {
-                            color: #424242;
-                        }
-                    }
 
                     .join-us-content {
                         background: #000000;
@@ -138,18 +149,20 @@
                         .line1 {
                             font-weight: 700;
                             font-size: 30px;
-                            margin-top: 20px;
+                            margin-top: 30px;
                         }
 
                         .line2 {
                             font-weight: 800;
-                            font-size: 55px;
+                            font-size: 50px;
                             color: #FF5D00;
+                            margin-top: 30px;
                         }
 
                         .line3 {
                             font-weight: 500;
                             font-size: 24px;
+                            margin-top: 30px;
                         }
 
 
@@ -163,6 +176,7 @@
 
                         .join-us-control {
                             text-align: center;
+                            margin-top: -40px;
 
                             .wrapper {
                                 background: #fff;
@@ -181,7 +195,7 @@
                         line-height: 22px;
                         color: #FFFFFF;
                         background: #FF5D00;
-                        border-radius: 10px 10px 0 0;
+                        border-radius: 10px;
                         display: inline-block;
                         transform: scale(1.075);
                         animation: pulse 1s infinite;
@@ -198,7 +212,7 @@
                     .marketing {
                         border-radius: 10px;
                         width: 50%;
-                        padding: 66px 0 50px 0;
+                        padding: 50px 0;
                     }
                 }
 
@@ -266,11 +280,12 @@
             }
 
             .apply-aff-title {
-                display: flex;
-                justify-content: center;
+                display: block;
+                text-align: center;
                 font-size: 32px;
                 font-weight: 700;
                 color: #FF5D00;
+                margin-bottom: 15px;
 
                 span {
                     color: #424242;
@@ -290,7 +305,8 @@
                     font-weight: bold;
                     text-align: center;
                     height: 100%;
-                    padding: 10px 20px;
+                    padding: 10px 10px 20px;
+                    border-radius: 10px;
                 }
 
                 .badge-aff {
@@ -303,17 +319,16 @@
                     }
                 }
 
-                .line1 {
-                }
-
                 .line2 {
                     font-size: 80px;
                 }
 
                 .line3 {
+                    color: #FF5D00;
+
                     span {
                         display: block;
-                        color: #FF5D00;
+                        color: #333;
                     }
                 }
             }
@@ -418,10 +433,6 @@
             text-align: center;
             padding: 8px 24px;
             text-decoration: none;
-
-            &:hover {
-                transform: scale(1.05);
-            }
         }
         /* Animations */
         @keyframes pulse {
@@ -439,9 +450,15 @@
         }
 
         .zoom-in {
-            cursor: zoom-in;
+            transition: all 0.25s;
+            will-change: transform;
+            backface-visibility: hidden;
 
-            &:hover {
+            * {
+                will-change: transform;
+                backface-visibility: hidden;
+            }
+            &:hover{
                 transform: scale(1.05);
             }
         }
@@ -477,6 +494,27 @@
 
             li {
                 background: #E6E5E5 !important;
+            }
+        }
+
+        .line-title {
+            position: relative;
+
+            span {
+                background: #f8f9fa;
+                padding: 0 20px;
+                position: relative;
+                z-index: 1;
+            }
+
+            &:before {
+                position: absolute;
+                content: "";
+                width: 80%;
+                height: 2px;
+                background: #D5D5D5;
+                left: 10%;
+                top: 50%;
             }
         }
     }

@@ -403,7 +403,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Apply &lt;span&gt;Nova88 Affiliate&lt;span&gt;.
+        ///   Looks up a localized string similar to Apply &lt;span&gt;Nova88 Affiliate&lt;/span&gt;.
         /// </summary>
         public static string ApplyNova88Affiliate {
             get {
@@ -6167,7 +6167,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Why &lt;span&gt;become a Nova88 Affiliate?&lt;/span&gt;.
+        ///   Looks up a localized string similar to Why &lt;span&gt;be Nova88 Affiliate?&lt;/span&gt;.
         /// </summary>
         public static string WhyBecomeAff {
             get {

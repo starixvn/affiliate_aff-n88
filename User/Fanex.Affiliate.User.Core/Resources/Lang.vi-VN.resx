@@ -2201,7 +2201,7 @@ Nếu bạn cần banner mới hoặc muốn yêu cầu thiết kế banner tùy
     <value>Đối tác cá cược chính thức khu vực Châu Á</value>
   </data>
   <data name="ApplyNova88Affiliate" xml:space="preserve">
-    <value>Tham Gia &lt;span&gt;Đại Lý Nova88&lt;span&gt;</value>
+    <value>Tham Gia &lt;span&gt;Đại Lý Nova88&lt;/span&gt;</value>
   </data>
   <data name="BeTheNext" xml:space="preserve">
     <value>TRỞ THÀNH #1 TIẾP THEO!</value>
