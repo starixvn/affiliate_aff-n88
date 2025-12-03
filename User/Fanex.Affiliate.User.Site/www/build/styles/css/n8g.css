@@ -2116,9 +2116,19 @@ div.custom-panel {
   line-height: 24px;
   letter-spacing: 0.02em;
 }
+@media (max-width: 767px) {
+  .page-container .content p {
+    font-size: 12px;
+  }
+}
 .page-container .new-content .faq-content {
   max-width: 1296px !important;
   margin: auto;
+}
+@media (max-width: 767px) {
+  .page-container .new-content .faq-content {
+    font-size: 12px;
+  }
 }
 
 @media only screen and (max-width: 1199px) {

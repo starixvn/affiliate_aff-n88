@@ -2768,6 +2768,10 @@ div.custom-panel {
             font-size: 1.4rem;
             line-height: 24px;
             letter-spacing: 0.02em;
+
+            @include Mobile {
+                font-size: 12px;
+            }
         }
     }
 
@@ -2775,6 +2779,10 @@ div.custom-panel {
         .faq-content {
             max-width: 1296px !important;
             margin: auto;
+
+            @include Mobile {
+                font-size: 12px;
+            }
         }
     }
 }
