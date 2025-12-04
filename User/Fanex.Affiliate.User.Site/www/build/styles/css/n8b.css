@@ -892,6 +892,11 @@ input[type=radio][disabled] + span {
   font-weight: normal !important;
   font-size: 16px !important;
 }
+@media (max-width: 767px) {
+  .new-content .content-group .content-block .text-block, .new-content .content-group .content-block .faq-group {
+    font-size: 12px !important;
+  }
+}
 
 .product-new-page {
   max-width: 1920px !important;
