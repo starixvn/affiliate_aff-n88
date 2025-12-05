@@ -1936,4 +1936,28 @@ Jika Anda memerlukan banner baru atau ingin meminta banner kustom, silakan hubun
   <data name="YourTurnToTop" xml:space="preserve">
     <value>GILIRANMU UNTUK MERAIH PUNCAK!</value>
   </data>
+  <data name="Home_Sports" xml:space="preserve">
+    <value>SPORTS</value>
+  </data>
+  <data name="Home_E_Sports" xml:space="preserve">
+    <value>E-SPORTS</value>
+  </data>
+  <data name="Home_Live_Casino" xml:space="preserve">
+    <value>LIVE CASINO</value>
+  </data>
+  <data name="Home_Slots" xml:space="preserve">
+    <value>SLOTS</value>
+  </data>
+  <data name="Home_Fishing" xml:space="preserve">
+    <value>FISHING</value>
+  </data>
+  <data name="Home_Number_Game" xml:space="preserve">
+    <value>NUMBER GAME</value>
+  </data>
+  <data name="Home_Keno" xml:space="preserve">
+    <value>KENO</value>
+  </data>
+  <data name="Home_Lottery" xml:space="preserve">
+    <value>LOTTERY</value>
+  </data>
 </root>

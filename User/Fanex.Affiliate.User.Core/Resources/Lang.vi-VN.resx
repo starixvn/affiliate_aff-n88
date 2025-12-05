@@ -2212,4 +2212,28 @@ Nếu bạn cần banner mới hoặc muốn yêu cầu thiết kế banner tùy
   <data name="YourTurnToTop" xml:space="preserve">
     <value>CHINH PHỤC ĐỈNH CAO!</value>
   </data>
+  <data name="Home_Sports" xml:space="preserve">
+    <value>THỂ THAO</value>
+  </data>
+  <data name="Home_E_Sports" xml:space="preserve">
+    <value>E-SPORTS</value>
+  </data>
+  <data name="Home_Live_Casino" xml:space="preserve">
+    <value>CASINO TRỰC TUYẾN</value>
+  </data>
+  <data name="Home_Slots" xml:space="preserve">
+    <value>QUAY HŨ</value>
+  </data>
+  <data name="Home_Fishing" xml:space="preserve">
+    <value>BẮN CÁ</value>
+  </data>
+  <data name="Home_Number_Game" xml:space="preserve">
+    <value>NUMBER GAME</value>
+  </data>
+  <data name="Home_Keno" xml:space="preserve">
+    <value>KENO</value>
+  </data>
+  <data name="Home_Lottery" xml:space="preserve">
+    <value>XỔ SỐ</value>
+  </data>
 </root>

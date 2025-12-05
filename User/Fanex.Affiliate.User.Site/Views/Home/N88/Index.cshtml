@@ -18,7 +18,7 @@
     var htmlCommission = Html.RenderPartialByLanguage($"~/Views/Home/N88/Content/Commission", Model.Language, Model.SiteFriendlyName);
     var htmlReceivedMonthlyCommission = Html.RenderPartialByLanguage($"~/Views/Home/N88/Content/ReceivedMonthlyCommission", Model.Language, Model.SiteFriendlyName);
     var htmlmonthlyIncome = Html.RenderPartialByLanguage($"~/Views/Home/N88/Content/MonthlyIncome", Model.Language, Model.SiteFriendlyName);
-    var htmlNumberAffiliate= Html.RenderPartialByLanguage($"~/Views/Home/N88/Content/NumberAffiliate", Model.Language, Model.SiteFriendlyName);
+    var htmlNumberAffiliate = Html.RenderPartialByLanguage($"~/Views/Home/N88/Content/NumberAffiliate", Model.Language, Model.SiteFriendlyName);
     var htmlUserFriendly = Html.RenderPartialByLanguage($"~/Views/Home/N88/Content/UserFriendly", Model.Language, Model.SiteFriendlyName);
     var highlyDedicatedTeam = Html.RenderPartialByLanguage($"~/Views/Home/N88/Content/HighlyDedicatedTeam", Model.Language, Model.SiteFriendlyName);
     var htmlStepOne = Html.RenderPartialByLanguage($"~/Views/Home/N88/Content/StepOne", Model.Language, Model.SiteFriendlyName);
@@ -51,7 +51,7 @@
 
                     @Html.Raw(htmlLifeTimeRevenue)
                 </div>
-                <div class="why-become-aff-child-row">
+                <div class="why-become-aff-child-row pc">
                     <div class="marketing zoom-in ">
                         @Html.Raw(htmlUserFriendly)
                     </div>
@@ -60,14 +60,27 @@
                     </div>
                 </div>
             </div>
-            <div class="right-block zoom-in">
-                @Html.Raw(htmlCommission)
+            <div class="wrapper-right">
+                <div class="sm left-com">
+                    <div class="why-become-aff-child-row">
+                        <div class="marketing zoom-in ">
+                            @Html.Raw(htmlUserFriendly)
+                        </div>
+                        <div class="marketing zoom-in ">
+                            @Html.Raw(highlyDedicatedTeam)
+                        </div>
+                    </div>
+                </div>
+                <div class="right-block zoom-in">
+
+                    @Html.Raw(htmlCommission)
+                </div>
+
             </div>
         </div>
         <div class="aff-com">
             <div class="left-aff-com zoom-in"> <img src="~/www/build/styles/Images/home/n88/Group 4.png" alt="Earning" /></div>
             <div class="right-aff-com">
-
                 <div class="zoom-in aff-info">
                     @Html.Raw(htmlReceivedMonthlyCommission)
                 </div>
@@ -82,10 +95,12 @@
     </div>
     <div class="partner">
         <div class="partner-title line-title"><span>@Html.Raw(@Lang.OfficialAsianBettingPartner)</span></div>
-        <div class="partner-section">
-            <div><img src="~/www/build/styles/Images/home/n88/aston-villa-en 1.png" alt="Aston Villa" /></div>
-            <div><img src="~/www/build/styles/Images/home/n88/RR.png" alt="Sevilla FC" /></div>
-            <div><img src="~/www/build/styles/Images/home/n88/aston-villa-en 3.png" alt="Inter Milan" /></div>
+        <div class="carousel slide slide-mobile" id="slide-mobile" >
+            <div class="partner-section carousel-inner" >
+                <div class="item carousel-item active"><img src="~/www/build/styles/Images/home/n88/aston-villa-en 1.png" alt="Aston Villa" /></div>
+                <div class="item carousel-item"><img src="~/www/build/styles/Images/home/n88/RR.png" alt="Sevilla FC" /></div>
+                <div class="item carousel-item"><img src="~/www/build/styles/Images/home/n88/aston-villa-en 3.png" alt="Inter Milan" /></div>
+            </div>
         </div>
     </div>
     <div class="apply-aff">
@@ -102,38 +117,40 @@
     </div>
     <div class="product-provider">
         <div class="product-provider-title block-title">@Html.Raw(Lang.OurProductsAndProviders)</div>
-        <div class="our-product">
-            <div class="items zoom-in">
-                <img src="~/www/build/styles/Images/home/n88/product-sports.png" alt="Sportsbook" />
-                <div class="text">@Lang.Sportsbook</div>
-            </div>
-            <div class="items zoom-in">
-                <img src="~/www/build/styles/Images/home/n88/product-e-sports.png" alt="E-Sports" />
-                <div class="text">@Lang.Esports</div>
-            </div>
-            <div class="items zoom-in">
-                <img src="~/www/build/styles/Images/home/n88/product-live-casino.png" alt="Live Casino" />
-                <div class="text">@Lang.LiveCasino</div>
-            </div>
-            <div class="items zoom-in">
-                <img src="~/www/build/styles/Images/home/n88/product-slots.png" alt="Slots" />
-                <div class="text">@Lang.Slots</div>
-            </div>
-            <div class="items zoom-in">
-                <img src="~/www/build/styles/Images/home/n88/product-fishing.png" alt="Fishing" />
-                <div class="text">@Lang.Fishing</div>
-            </div>
-            <div class="items zoom-in">
-                <img src="~/www/build/styles/Images/home/n88/product-number-game.png" alt="Number Game" />
-                <div class="text">@Lang.NumberGame</div>
-            </div>
-            <div class="items zoom-in">
-                <img src="~/www/build/styles/Images/home/n88/product-keno.png" alt="Keno" />
-                <div class="text">@Lang.Keno</div>
-            </div>
-            <div class="items zoom-in">
-                <img src="~/www/build/styles/Images/home/n88/product-lottery.png" alt="Lottery" />
-                <div class="text">@Lang.Lottery</div>
+        <div id="our-product" class="our-product carousel slide slide-mobile"  >
+            <div class="product-container carousel-inner">
+                <div class="items zoom-in item  carousel-item active">
+                    <img src="~/www/build/styles/Images/home/n88/product-sports.png" alt="Sportsbook" />
+                    <div class="text">@Lang.Home_Sports</div>
+                </div>
+                <div class="items zoom-in item  carousel-item">
+                    <img src="~/www/build/styles/Images/home/n88/product-e-sports.png" alt="E-Sports" />
+                    <div class="text">@Lang.Home_E_Sports</div>
+                </div>
+                <div class="items zoom-in item  carousel-item">
+                    <img src="~/www/build/styles/Images/home/n88/product-live-casino.png" alt="Live Casino" />
+                    <div class="text">@Lang.Home_Live_Casino</div>
+                </div>
+                <div class="items zoom-in item  carousel-item">
+                    <img src="~/www/build/styles/Images/home/n88/product-slots.png" alt="Slots" />
+                    <div class="text">@Lang.Home_Slots</div>
+                </div>
+                <div class="items zoom-in item  carousel-item">
+                    <img src="~/www/build/styles/Images/home/n88/product-fishing.png" alt="Fishing" />
+                    <div class="text">@Lang.Home_Fishing</div>
+                </div>
+                <div class="items zoom-in item  carousel-item">
+                    <img src="~/www/build/styles/Images/home/n88/product-number-game.png" alt="Number Game" />
+                    <div class="text">@Lang.Home_Number_Game</div>
+                </div>
+                <div class="items zoom-in item  carousel-item">
+                    <img src="~/www/build/styles/Images/home/n88/product-keno.png" alt="Keno" />
+                    <div class="text">@Lang.Home_Keno</div>
+                </div>
+                <div class="items zoom-in item  carousel-item">
+                    <img src="~/www/build/styles/Images/home/n88/product-lottery.png" alt="Lottery" />
+                    <div class="text">@Lang.Home_Lottery</div>
+                </div>
             </div>
         </div>
         <div id="provider" class="provider carousel slide" data-ride="carousel">

@@ -2174,4 +2174,28 @@ Jika anda memerlukan banner baharu atau ingin memohon banner tersuai, sila hubun
   <data name="YourTurnToTop" xml:space="preserve">
     <value>GILIRAN ANDA UNTUK MENJADI TERATAS!</value>
   </data>
+  <data name="Home_Sports" xml:space="preserve">
+    <value>SUKAN</value>
+  </data>
+  <data name="Home_E_Sports" xml:space="preserve">
+    <value>E-SUKAN</value>
+  </data>
+  <data name="Home_Live_Casino" xml:space="preserve">
+    <value>KASINO LANGSUNG</value>
+  </data>
+  <data name="Home_Slots" xml:space="preserve">
+    <value>SLOT</value>
+  </data>
+  <data name="Home_Fishing" xml:space="preserve">
+    <value>MEMANCING</value>
+  </data>
+  <data name="Home_Number_Game" xml:space="preserve">
+    <value>PERMAINAN NOMBOR</value>
+  </data>
+  <data name="Home_Keno" xml:space="preserve">
+    <value>KENO</value>
+  </data>
+  <data name="Home_Lottery" xml:space="preserve">
+    <value>LOTERI</value>
+  </data>
 </root>

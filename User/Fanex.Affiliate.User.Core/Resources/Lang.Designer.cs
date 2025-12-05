@@ -2520,6 +2520,78 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to E-SPORTS.
+        /// </summary>
+        public static string Home_E_Sports {
+            get {
+                return ResourceManager.GetString("Home_E_Sports", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FISHING.
+        /// </summary>
+        public static string Home_Fishing {
+            get {
+                return ResourceManager.GetString("Home_Fishing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to KENO.
+        /// </summary>
+        public static string Home_Keno {
+            get {
+                return ResourceManager.GetString("Home_Keno", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LIVE CASINO.
+        /// </summary>
+        public static string Home_Live_Casino {
+            get {
+                return ResourceManager.GetString("Home_Live_Casino", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LOTTERY.
+        /// </summary>
+        public static string Home_Lottery {
+            get {
+                return ResourceManager.GetString("Home_Lottery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to NUMBER GAME.
+        /// </summary>
+        public static string Home_Number_Game {
+            get {
+                return ResourceManager.GetString("Home_Number_Game", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SLOTS.
+        /// </summary>
+        public static string Home_Slots {
+            get {
+                return ResourceManager.GetString("Home_Slots", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SPORTS.
+        /// </summary>
+        public static string Home_Sports {
+            get {
+                return ResourceManager.GetString("Home_Sports", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Honduras.
         /// </summary>
         public static string Honduras {

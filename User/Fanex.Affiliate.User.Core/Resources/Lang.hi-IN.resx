@@ -2183,4 +2183,28 @@ B2C सहयोगी की टीम&lt;br/&gt;&lt;br/&gt;
   <data name="YourTurnToTop" xml:space="preserve">
     <value>शीर्ष पर पहुँचने का आपका मौका!</value>
   </data>
+  <data name="Home_Sports" xml:space="preserve">
+    <value>खेल</value>
+  </data>
+  <data name="Home_E_Sports" xml:space="preserve">
+    <value>ई-स्पोर्ट्स</value>
+  </data>
+  <data name="Home_Live_Casino" xml:space="preserve">
+    <value>लाइव कैसिनो</value>
+  </data>
+  <data name="Home_Slots" xml:space="preserve">
+    <value>स्लॉट्स</value>
+  </data>
+  <data name="Home_Fishing" xml:space="preserve">
+    <value>मछली पकड़ना</value>
+  </data>
+  <data name="Home_Number_Game" xml:space="preserve">
+    <value>नंबर गेम</value>
+  </data>
+  <data name="Home_Keno" xml:space="preserve">
+    <value>कीनो</value>
+  </data>
+  <data name="Home_Lottery" xml:space="preserve">
+    <value>लॉटरी</value>
+  </data>
 </root>

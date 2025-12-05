@@ -1,8 +1,11 @@
-﻿.page-container.new-home {
+﻿@import '../../styles/scss/abstracts/_mixins.scss';
+
+.page-container.new-home {
     max-width: 1344px;
     flex-basis: 1344px;
     width: 100%;
 }
+
 .main {
 
     .home-page {
@@ -70,16 +73,20 @@
                     margin-top: 80px;
                 }
 
-                .right-block {
+                .wrapper-right {
                     flex: 1;
+                }
+
+                .right-block {
                     background: linear-gradient(180deg, #F8D9C7 0%, #F6F6F6 38%, rgba(255, 255, 255, 0) 100%);
                     text-align: center;
                     box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
                     border-radius: 10px;
-
+                    height: 100%;
+                    padding-top: 10px;
 
                     .line1 {
-                        margin-top: 10px;
+
 
                         img {
                             width: auto;
@@ -91,6 +98,7 @@
                         font-size: 30px;
                         color: #000000;
                         margin-top: 15px;
+                        text-transform: uppercase;
                     }
 
                     .line3 {
@@ -98,6 +106,7 @@
                         font-size: 24px;
                         color: #333;
                         margin-top: 15px;
+                        text-transform: uppercase;
                     }
 
                     .line4 {
@@ -149,14 +158,14 @@
                         .line1 {
                             font-weight: 700;
                             font-size: 30px;
-                            margin-top: 30px;
+                            margin-top: 25px;
                         }
 
                         .line2 {
                             font-weight: 800;
                             font-size: 50px;
                             color: #FF5D00;
-                            margin-top: 30px;
+                            margin-top: 25px;
                         }
 
                         .line3 {
@@ -176,7 +185,7 @@
 
                         .join-us-control {
                             text-align: center;
-                            margin-top: -40px;
+                            margin-top: -50px;
 
                             .wrapper {
                                 background: #fff;
@@ -218,6 +227,10 @@
 
                 .aff-commission {
                     display: grid;
+                }
+
+                .text {
+                    text-transform: uppercase;
                 }
             }
         }
@@ -277,6 +290,7 @@
             .apply-aff-section {
                 display: flex;
                 justify-content: space-between;
+                overflow: auto;
             }
 
             .apply-aff-title {
@@ -307,6 +321,7 @@
                     height: 100%;
                     padding: 10px 10px 20px;
                     border-radius: 10px;
+
                 }
 
                 .badge-aff {
@@ -384,7 +399,7 @@
 
                     .text {
                         font-weight: 700;
-                        font-size: 24px;
+                        font-size: 20px;
                         color: #F8F9FA;
                         background: #FF5D00;
                         text-align: center;
@@ -449,19 +464,7 @@
             }
         }
 
-        .zoom-in {
-            transition: all 0.25s;
-            will-change: transform;
-            backface-visibility: hidden;
-
-            * {
-                will-change: transform;
-                backface-visibility: hidden;
-            }
-            &:hover{
-                transform: scale(1.05);
-            }
-        }
+        
 
         .slide-button {
             position: absolute !important;
@@ -518,4 +521,240 @@
             }
         }
     }
+}
+
+.sm {
+    display: none;
+}
+
+@include Mobile {
+    .pc {
+        display: none !important;
+    }
+
+    .sm {
+        display: block !important;
+    }
+
+    .main {
+        .home-page {
+            .faq {
+                .content-group {
+                    .content-block {
+                        font-size: 12px;
+                    }
+                }
+            }
+
+            .home-button {
+                font-size: 14px;
+            }
+
+            .block-title {
+                font-size: 20px;
+                text-align: center;
+            }
+
+            .why-become-aff {
+                .join-us-title {
+                    font-size: 20px;
+                }
+
+                .why-become-aff-row {
+                    flex-wrap: wrap;
+
+                    .left-block {
+                        width: 100%;
+                        margin-top: 0;
+                    }
+
+                    .wrapper-right {
+                        display: flex;
+                        gap: 15px;
+
+                        .right-block {
+                            width: 50%;
+
+                            .line2, .line3 {
+                                font-size: 14px;
+                            }
+
+                            .line4 {
+                                font-size: 40px;
+                            }
+
+                            .line6 {
+                                img {
+                                    max-width: 100%;
+                                }
+                            }
+                        }
+
+                        .left-com {
+                            width: 50%;
+                        }
+
+                        .why-become-aff-child-row {
+                            width: 100%;
+                            display: flex;
+                            flex-direction: column;
+                            margin-top: 0;
+
+                            .marketing {
+                                width: 100%;
+
+                                img {
+                                    width: 90px;
+                                }
+                            }
+                        }
+                    }
+
+                    .join-us {
+                        .join-us-content {
+                            .line1 {
+                                font-size: 14px;
+                            }
+
+                            .line2 {
+                                font-size: 32px;
+                            }
+
+                            .line3 {
+                                font-size: 14px;
+                            }
+                        }
+
+                        .join-us-button {
+                            font-size: 16px;
+                        }
+                    }
+
+                    .marketing {
+                        font-size: 14px;
+                    }
+                }
+            }
+
+            .aff-com {
+                align-items: center;
+
+                .left-aff-com {
+                    img {
+                        width: 105px;
+                    }
+                }
+
+                .right-aff-com {
+                    width: auto;
+                    gap: 5px;
+                }
+
+                .aff-info {
+                    padding: 10px;
+
+                    .text {
+                        font-size: 14px;
+                    }
+
+                    .number {
+                        font-size: 14px;
+
+                        sup {
+                            top: -2px
+                        }
+                    }
+                }
+            }
+
+            .partner {
+                .partner-title {
+                    font-size: 20px;
+                    text-align: center;
+                }
+            }
+
+            .apply-aff {
+                .apply-aff-section {
+                    padding-bottom: 10px;
+                }
+
+                .apply-aff-title {
+                    font-size: 20px;
+                    text-align: center;
+                }
+
+                .step {
+                    padding: 19px 0 0 19px;
+
+                    .wrapper {
+                        width: 94px;
+                    }
+
+                    .line1, .line2, .line3 {
+                        font-size: 14px;
+                    }
+
+                    .line3 {
+                        span {
+                            font-size: 16px;
+                        }
+                    }
+
+                    .badge-aff {
+                        top: -18px;
+                        left: -18px;
+
+                        img {
+                            width: 38px;
+                        }
+                    }
+                }
+            }
+
+            .product-provider {
+                .our-product {
+                    .items {
+                        .text {
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media only screen and (min-width : 769px){
+    .zoom-in {
+        transition: all 0.25s;
+        will-change: transform;
+        backface-visibility: hidden;
+
+        * {
+            will-change: transform;
+            backface-visibility: hidden;
+        }
+
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+    .slide-mobile {
+        .carousel-inner>.item{
+            display: block;
+            height: auto!important;
+        }
+    }
+    .our-product {
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+    }
+}
+@media Mobile{
+
 }

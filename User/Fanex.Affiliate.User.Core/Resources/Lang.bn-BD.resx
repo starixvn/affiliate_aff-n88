@@ -2192,4 +2192,28 @@
   <data name="YourTurnToTop" xml:space="preserve">
     <value>আপনার পালা শীর্ষে উঠার!</value>
   </data>
+  <data name="Home_Sports" xml:space="preserve">
+    <value>খেলাধুলা</value>
+  </data>
+  <data name="Home_E_Sports" xml:space="preserve">
+    <value>ই-স্পোর্টস</value>
+  </data>
+  <data name="Home_Live_Casino" xml:space="preserve">
+    <value>লাইভ ক্যাসিনো</value>
+  </data>
+  <data name="Home_Slots" xml:space="preserve">
+    <value>স্লটস</value>
+  </data>
+  <data name="Home_Fishing" xml:space="preserve">
+    <value>ফিশিং</value>
+  </data>
+  <data name="Home_Number_Game" xml:space="preserve">
+    <value>নাম্বার গেম</value>
+  </data>
+  <data name="Home_Keno" xml:space="preserve">
+    <value>কেনো</value>
+  </data>
+  <data name="Home_Lottery" xml:space="preserve">
+    <value>লটারী</value>
+  </data>
 </root>

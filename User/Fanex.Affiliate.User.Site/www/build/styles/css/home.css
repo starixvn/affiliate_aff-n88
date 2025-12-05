@@ -62,15 +62,16 @@
   width: 68%;
   margin-top: 80px;
 }
-.main .home-page .why-become-aff .why-become-aff-row .right-block {
+.main .home-page .why-become-aff .why-become-aff-row .wrapper-right {
   flex: 1;
+}
+.main .home-page .why-become-aff .why-become-aff-row .right-block {
   background: linear-gradient(180deg, #F8D9C7 0%, #F6F6F6 38%, rgba(255, 255, 255, 0) 100%);
   text-align: center;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
-}
-.main .home-page .why-become-aff .why-become-aff-row .right-block .line1 {
-  margin-top: 10px;
+  height: 100%;
+  padding-top: 10px;
 }
 .main .home-page .why-become-aff .why-become-aff-row .right-block .line1 img {
   width: auto;
@@ -80,12 +81,14 @@
   font-size: 30px;
   color: #000000;
   margin-top: 15px;
+  text-transform: uppercase;
 }
 .main .home-page .why-become-aff .why-become-aff-row .right-block .line3 {
   font-weight: 500;
   font-size: 24px;
   color: #333;
   margin-top: 15px;
+  text-transform: uppercase;
 }
 .main .home-page .why-become-aff .why-become-aff-row .right-block .line4 {
   font-weight: 800;
@@ -126,13 +129,13 @@
 .main .home-page .why-become-aff .why-become-aff-row .join-us .join-us-content .line1 {
   font-weight: 700;
   font-size: 30px;
-  margin-top: 30px;
+  margin-top: 25px;
 }
 .main .home-page .why-become-aff .why-become-aff-row .join-us .join-us-content .line2 {
   font-weight: 800;
   font-size: 50px;
   color: #FF5D00;
-  margin-top: 30px;
+  margin-top: 25px;
 }
 .main .home-page .why-become-aff .why-become-aff-row .join-us .join-us-content .line3 {
   font-weight: 500;
@@ -148,7 +151,7 @@
 }
 .main .home-page .why-become-aff .why-become-aff-row .join-us .join-us-content .join-us-control {
   text-align: center;
-  margin-top: -40px;
+  margin-top: -50px;
 }
 .main .home-page .why-become-aff .why-become-aff-row .join-us .join-us-content .join-us-control .wrapper {
   background: #fff;
@@ -183,6 +186,9 @@
 }
 .main .home-page .why-become-aff .why-become-aff-row .aff-commission {
   display: grid;
+}
+.main .home-page .why-become-aff .why-become-aff-row .text {
+  text-transform: uppercase;
 }
 .main .home-page .aff-com {
   display: flex;
@@ -227,6 +233,7 @@
 .main .home-page .apply-aff .apply-aff-section {
   display: flex;
   justify-content: space-between;
+  overflow: auto;
 }
 .main .home-page .apply-aff .apply-aff-title {
   display: block;
@@ -318,7 +325,7 @@
 }
 .main .home-page .product-provider .our-product .items .text {
   font-weight: 700;
-  font-size: 24px;
+  font-size: 20px;
   color: #F8F9FA;
   background: #FF5D00;
   text-align: center;
@@ -371,18 +378,6 @@
     transform: scale(1.075);
   }
 }
-.main .home-page .zoom-in {
-  transition: all 0.25s;
-  will-change: transform;
-  backface-visibility: hidden;
-}
-.main .home-page .zoom-in * {
-  will-change: transform;
-  backface-visibility: hidden;
-}
-.main .home-page .zoom-in:hover {
-  transform: scale(1.05);
-}
 .main .home-page .slide-button {
   position: absolute !important;
   color: #000000;
@@ -428,4 +423,161 @@
   background: #D5D5D5;
   left: 10%;
   top: 50%;
+}
+
+.sm {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .pc {
+    display: none !important;
+  }
+  .sm {
+    display: block !important;
+  }
+  .main .home-page .faq .content-group .content-block {
+    font-size: 12px;
+  }
+  .main .home-page .home-button {
+    font-size: 14px;
+  }
+  .main .home-page .block-title {
+    font-size: 20px;
+    text-align: center;
+  }
+  .main .home-page .why-become-aff .join-us-title {
+    font-size: 20px;
+  }
+  .main .home-page .why-become-aff .why-become-aff-row {
+    flex-wrap: wrap;
+  }
+  .main .home-page .why-become-aff .why-become-aff-row .left-block {
+    width: 100%;
+    margin-top: 0;
+  }
+  .main .home-page .why-become-aff .why-become-aff-row .wrapper-right {
+    display: flex;
+    gap: 15px;
+  }
+  .main .home-page .why-become-aff .why-become-aff-row .wrapper-right .right-block {
+    width: 50%;
+  }
+  .main .home-page .why-become-aff .why-become-aff-row .wrapper-right .right-block .line2, .main .home-page .why-become-aff .why-become-aff-row .wrapper-right .right-block .line3 {
+    font-size: 14px;
+  }
+  .main .home-page .why-become-aff .why-become-aff-row .wrapper-right .right-block .line4 {
+    font-size: 40px;
+  }
+  .main .home-page .why-become-aff .why-become-aff-row .wrapper-right .right-block .line6 img {
+    max-width: 100%;
+  }
+  .main .home-page .why-become-aff .why-become-aff-row .wrapper-right .left-com {
+    width: 50%;
+  }
+  .main .home-page .why-become-aff .why-become-aff-row .wrapper-right .why-become-aff-child-row {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 0;
+  }
+  .main .home-page .why-become-aff .why-become-aff-row .wrapper-right .why-become-aff-child-row .marketing {
+    width: 100%;
+  }
+  .main .home-page .why-become-aff .why-become-aff-row .wrapper-right .why-become-aff-child-row .marketing img {
+    width: 90px;
+  }
+  .main .home-page .why-become-aff .why-become-aff-row .join-us .join-us-content .line1 {
+    font-size: 14px;
+  }
+  .main .home-page .why-become-aff .why-become-aff-row .join-us .join-us-content .line2 {
+    font-size: 32px;
+  }
+  .main .home-page .why-become-aff .why-become-aff-row .join-us .join-us-content .line3 {
+    font-size: 14px;
+  }
+  .main .home-page .why-become-aff .why-become-aff-row .join-us .join-us-button {
+    font-size: 16px;
+  }
+  .main .home-page .why-become-aff .why-become-aff-row .marketing {
+    font-size: 14px;
+  }
+  .main .home-page .aff-com {
+    align-items: center;
+  }
+  .main .home-page .aff-com .left-aff-com img {
+    width: 105px;
+  }
+  .main .home-page .aff-com .right-aff-com {
+    width: auto;
+    gap: 5px;
+  }
+  .main .home-page .aff-com .aff-info {
+    padding: 10px;
+  }
+  .main .home-page .aff-com .aff-info .text {
+    font-size: 14px;
+  }
+  .main .home-page .aff-com .aff-info .number {
+    font-size: 14px;
+  }
+  .main .home-page .aff-com .aff-info .number sup {
+    top: -2px;
+  }
+  .main .home-page .partner .partner-title {
+    font-size: 20px;
+    text-align: center;
+  }
+  .main .home-page .apply-aff .apply-aff-section {
+    padding-bottom: 10px;
+  }
+  .main .home-page .apply-aff .apply-aff-title {
+    font-size: 20px;
+    text-align: center;
+  }
+  .main .home-page .apply-aff .step {
+    padding: 19px 0 0 19px;
+  }
+  .main .home-page .apply-aff .step .wrapper {
+    width: 94px;
+  }
+  .main .home-page .apply-aff .step .line1, .main .home-page .apply-aff .step .line2, .main .home-page .apply-aff .step .line3 {
+    font-size: 14px;
+  }
+  .main .home-page .apply-aff .step .line3 span {
+    font-size: 16px;
+  }
+  .main .home-page .apply-aff .step .badge-aff {
+    top: -18px;
+    left: -18px;
+  }
+  .main .home-page .apply-aff .step .badge-aff img {
+    width: 38px;
+  }
+  .main .home-page .product-provider .our-product .items .text {
+    font-size: 14px;
+  }
+}
+@media only screen and (min-width: 769px) {
+  .zoom-in {
+    transition: all 0.25s;
+    will-change: transform;
+    backface-visibility: hidden;
+  }
+  .zoom-in * {
+    will-change: transform;
+    backface-visibility: hidden;
+  }
+  .zoom-in:hover {
+    transform: scale(1.05);
+  }
+  .slide-mobile .carousel-inner > .item {
+    display: block;
+    height: auto !important;
+  }
+  .our-product .product-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
 }

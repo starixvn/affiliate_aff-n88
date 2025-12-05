@@ -1936,4 +1936,28 @@
   <data name="YourTurnToTop" xml:space="preserve">
     <value>ถึงเวลาคุณ สู่จุดสูงสุดแล้ว!</value>
   </data>
+  <data name="Home_Sports" xml:space="preserve">
+    <value>กีฬา</value>
+  </data>
+  <data name="Home_E_Sports" xml:space="preserve">
+    <value>อีสปอร์ต</value>
+  </data>
+  <data name="Home_Live_Casino" xml:space="preserve">
+    <value>คาสิโนสด</value>
+  </data>
+  <data name="Home_Slots" xml:space="preserve">
+    <value>สล็อต</value>
+  </data>
+  <data name="Home_Fishing" xml:space="preserve">
+    <value>ตกปลา</value>
+  </data>
+  <data name="Home_Number_Game" xml:space="preserve">
+    <value>เกมตัวเลข</value>
+  </data>
+  <data name="Home_Keno" xml:space="preserve">
+    <value>คีโน</value>
+  </data>
+  <data name="Home_Lottery" xml:space="preserve">
+    <value>ลอตเตอรี</value>
+  </data>
 </root>

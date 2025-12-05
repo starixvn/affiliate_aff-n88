@@ -8,6 +8,26 @@
         initSlider: function () {
             var $provider = $("#provider");
             $provider.carousel({ interval: 3000 });
+
+            $(window).on("load resize", function () {
+                if (window.innerWidth <= 768) {
+                    
+                    $("#slide-mobile").carousel({ interval: 3000 });
+                    $("#our-product").carousel({ interval: 3000 });
+                }
+                else {
+                    
+
+                    $("#slide-mobile").carousel('pause');
+                    $("#slide-mobile").removeData('bs.carousel');
+                    $("#slide-mobile").off('.carousel');
+
+                    $("#our-product").carousel('pause');
+                    $("#our-product").removeData('bs.carousel');
+                    $("#our-product").off('.carousel');
+
+                }
+            });
         },
 
         initFAQ: function () {
@@ -33,6 +53,10 @@
 
                 $(this).closest('.title-container').next().slideToggle(300);
             });
+
+
+
+
         }
     };
 
