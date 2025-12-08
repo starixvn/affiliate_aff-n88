@@ -28,17 +28,24 @@
 }
 
 @section styles{
+    <link href="@Url.RenderLink("~/www/build/styles/css/slick.css")" rel="stylesheet" />
     <link href="@Url.RenderLink("~/www/build/styles/css/home.css")" rel="stylesheet" />
     <link href="@Url.RenderLink("~/www/build/styles/css/faq.css")" rel="stylesheet" />
 }
 
 @section scripts{
+    @Html.InlineScripts("~/www/build/js/lib/slick.min.js")
     @Html.InlineScripts("~/www/build/js/pages/home.js")
 }
 
 <div class="home-page home-new">
     <div class="home-banner">
-        <img src="~/www/build/styles/Images/home/n88/NV88 Banner.png" alt="Banner" />
+        <img src="~/www/build/styles/Images/home/n88/main.png" alt="Banner" />
+        @*<div class="text-wrapper">
+            <div class="line1">THƯỞNG THÊM</div>
+            <div class="line2"><span>10%</span> HOA HỒNG</div>
+            <div class="line3">CHO ĐẠI LÝ CẤP DƯỚI</div>
+        </div>*@
     </div>
     <div class="hot-news">
         @RazorHelper.RenderHotN88News()
@@ -48,7 +55,6 @@
         <div class="why-become-aff-row">
             <div class="left-block">
                 <div class="join-us">
-
                     @Html.Raw(htmlLifeTimeRevenue)
                 </div>
                 <div class="why-become-aff-child-row pc">
@@ -95,12 +101,13 @@
     </div>
     <div class="partner">
         <div class="partner-title line-title"><span>@Html.Raw(@Lang.OfficialAsianBettingPartner)</span></div>
-        <div class="carousel slide slide-mobile" id="slide-mobile" >
-            <div class="partner-section carousel-inner" >
-                <div class="item carousel-item active"><img src="~/www/build/styles/Images/home/n88/aston-villa-en 1.png" alt="Aston Villa" /></div>
-                <div class="item carousel-item"><img src="~/www/build/styles/Images/home/n88/RR.png" alt="Sevilla FC" /></div>
-                <div class="item carousel-item"><img src="~/www/build/styles/Images/home/n88/aston-villa-en 3.png" alt="Inter Milan" /></div>
-            </div>
+        <div id="partner-section" class="slider partner-section">
+            <div class="partner-item"><img src="~/www/build/styles/Images/home/n88/aston-villa-en 1.png" alt="Aston Villa" /></div>
+            <div class="partner-item"><img src="~/www/build/styles/Images/home/n88/RR.png" alt="Sevilla FC" /></div>
+            <div class="partner-item"><img src="~/www/build/styles/Images/home/n88/aston-villa-en 3.png" alt="Inter Milan" /></div>
+            <div class="partner-item sm-flex"><img src="~/www/build/styles/Images/home/n88/aston-villa-en 1.png" alt="Aston Villa" /></div>
+            <div class="partner-item sm-flex"><img src="~/www/build/styles/Images/home/n88/RR.png" alt="Sevilla FC" /></div>
+            <div class="partner-item sm-flex"><img src="~/www/build/styles/Images/home/n88/aston-villa-en 3.png" alt="Inter Milan" /></div>
         </div>
     </div>
     <div class="apply-aff">
@@ -117,81 +124,170 @@
     </div>
     <div class="product-provider">
         <div class="product-provider-title block-title">@Html.Raw(Lang.OurProductsAndProviders)</div>
-        <div id="our-product" class="our-product carousel slide slide-mobile"  >
-            <div class="product-container carousel-inner">
-                <div class="items zoom-in item  carousel-item active">
-                    <img src="~/www/build/styles/Images/home/n88/product-sports.png" alt="Sportsbook" />
-                    <div class="text">@Lang.Home_Sports</div>
+        <div  class="our-product">
+            <div class="product-wrapper slider" id="our-product">
+                <div class="product-item">
+                    <div>
+                        <img src="~/www/build/styles/Images/home/n88/product-sports.png" alt="Sportsbook" />
+                        <div class="text">@Lang.Home_Sports</div>
+                    </div>
                 </div>
-                <div class="items zoom-in item  carousel-item">
-                    <img src="~/www/build/styles/Images/home/n88/product-e-sports.png" alt="E-Sports" />
-                    <div class="text">@Lang.Home_E_Sports</div>
+                <div class="product-item zoom-in">
+                    <div>
+                        <img src="~/www/build/styles/Images/home/n88/product-e-sports.png" alt="E-Sports" />
+                        <div class="text">@Lang.Home_E_Sports</div>
+                    </div>
                 </div>
-                <div class="items zoom-in item  carousel-item">
-                    <img src="~/www/build/styles/Images/home/n88/product-live-casino.png" alt="Live Casino" />
-                    <div class="text">@Lang.Home_Live_Casino</div>
+                <div class="product-item zoom-in">
+                    <div>
+                        <img src="~/www/build/styles/Images/home/n88/product-live-casino.png" alt="Live Casino" />
+                        <div class="text">@Lang.Home_Live_Casino</div>
+                    </div>
                 </div>
-                <div class="items zoom-in item  carousel-item">
-                    <img src="~/www/build/styles/Images/home/n88/product-slots.png" alt="Slots" />
-                    <div class="text">@Lang.Home_Slots</div>
+                <div class="product-item zoom-in">
+                    <div>
+                        <img src="~/www/build/styles/Images/home/n88/product-slots.png" alt="Slots" />
+                        <div class="text">@Lang.Home_Slots</div>
+                    </div>
                 </div>
-                <div class="items zoom-in item  carousel-item">
-                    <img src="~/www/build/styles/Images/home/n88/product-fishing.png" alt="Fishing" />
-                    <div class="text">@Lang.Home_Fishing</div>
+                <div class="product-item zoom-in">
+                    <div>
+                        <img src="~/www/build/styles/Images/home/n88/product-fishing.png" alt="Fishing" />
+                        <div class="text">@Lang.Home_Fishing</div>
+                    </div>
+                    </div>
+                <div class="product-item zoom-in">
+                    <div>
+                        <img src="~/www/build/styles/Images/home/n88/product-number-game.png" alt="Number Game" />
+                        <div class="text">@Lang.Home_Number_Game</div>
+                    </div>
                 </div>
-                <div class="items zoom-in item  carousel-item">
-                    <img src="~/www/build/styles/Images/home/n88/product-number-game.png" alt="Number Game" />
-                    <div class="text">@Lang.Home_Number_Game</div>
+                <div class="product-item zoom-in">
+                    <div>
+                        <img src="~/www/build/styles/Images/home/n88/product-keno.png" alt="Keno" />
+                        <div class="text">@Lang.Home_Keno</div>
+                    </div>
                 </div>
-                <div class="items zoom-in item  carousel-item">
-                    <img src="~/www/build/styles/Images/home/n88/product-keno.png" alt="Keno" />
-                    <div class="text">@Lang.Home_Keno</div>
+                    <div class="product-item zoom-in">
+                        <div>
+                            <img src="~/www/build/styles/Images/home/n88/product-lottery.png" alt="Lottery" />
+                            <div class="text">@Lang.Home_Lottery</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="items zoom-in item  carousel-item">
-                    <img src="~/www/build/styles/Images/home/n88/product-lottery.png" alt="Lottery" />
-                    <div class="text">@Lang.Home_Lottery</div>
-                </div>
-            </div>
         </div>
-        <div id="provider" class="provider carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#provider" data-slide-to="5" class="active"></li>
-                <li data-target="#provider" data-slide-to="7"></li>
-            </ol>
-            <div class="carousel-inner">
-                <div class="item  carousel-item active">
-                    <img src="~/www/build/styles/Images/home/n88/Provider/Frame 7245.png" alt="1" />
-                </div>
-                <div class="item carousel-item">
-                    <img src="~/www/build/styles/Images/home/n88/Provider/Frame 7246.png" alt="2" />
-                </div>
-                <div class="item carousel-item">
-                    <img src="~/www/build/styles/Images/home/n88/Provider/Frame 7247.png" alt="3" />
-                </div>
-                <div class="item carousel-item">
-                    <img src="~/www/build/styles/Images/home/n88/Provider/Frame 7248.png" alt="4" />
-                </div>
-                <div class="item carousel-item">
-                    <img src="~/www/build/styles/Images/home/n88/Provider/Frame 7249.png" alt="5" />
-                </div>
-                <div class="item carousel-item">
-                    <img src="~/www/build/styles/Images/home/n88/Provider/Frame 7250.png" alt="6" />
-                </div>
-                <div class="item carousel-item">
-                    <img src="~/www/build/styles/Images/home/n88/Provider/Frame 7251.png" alt="7" />
-                </div>
-                <div class="item carousel-item">
-                    <img src="~/www/build/styles/Images/home/n88/Provider/Frame 7252.png" alt="8" />
-                </div>
+        <div id="provider" class="provider slider">
+            <div class="provider-item">
+                <img src="~/www/build/styles/Images/home/n88/Provider/Frame 7206.png" alt="1" />
             </div>
-            <button class="left carousel-control none-border" type="button" data-target="#provider" data-slide="prev">
-                <span class="left chevron prev-button slide-button" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </button>
-            <button class="right carousel-control none-border" type="button" data-target="#provider" data-slide="next">
-                <span class="right chevron next-button slide-button" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </button>
+            <div class="provider-item">
+                <img src="~/www/build/styles/Images/home/n88/Provider/Frame 7207.png" alt="2" />
+            </div>
+            <div class="provider-item">
+                <img src="~/www/build/styles/Images/home/n88/Provider/Frame 7208.png" alt="3" />
+            </div>
+            <div class="provider-item">
+                <img src="~/www/build/styles/Images/home/n88/Provider/Frame 7209.png" alt="4" />
+            </div>
+            <div class="provider-item">
+                <img src="~/www/build/styles/Images/home/n88/Provider/Frame 7210.png" alt="5" />
+            </div>
+            <div class="provider-item">
+                <img src="~/www/build/styles/Images/home/n88/Provider/Frame 7211.png" alt="6" />
+            </div>
+            <div class="provider-item">
+                <img src="~/www/build/styles/Images/home/n88/Provider/Frame 7212.png" alt="7" />
+            </div>
+            <div class="provider-item">
+                <img src="~/www/build/styles/Images/home/n88/Provider/Frame 7213.png" alt="8" />
+            </div>
+            <div class="provider-item">
+                <img src="~/www/build/styles/Images/home/n88/Provider/Frame 7214.png" alt="9" />
+            </div>
+            <div class="provider-item">
+                <img src="~/www/build/styles/Images/home/n88/Provider/Frame 7215.png" alt="10" />
+            </div>
+            <div class="provider-item">
+                <img src="~/www/build/styles/Images/home/n88/Provider/Frame 7216.png" alt="11" />
+            </div>
+            <div class="provider-item">
+                <img src="~/www/build/styles/Images/home/n88/Provider/Frame 7217.png" alt="12" />
+            </div>
+            <div class="provider-item">
+                <img src="~/www/build/styles/Images/home/n88/Provider/Frame 7218.png" alt="13" />
+            </div>
+            <div class="provider-item">
+                <img src="~/www/build/styles/Images/home/n88/Provider/Frame 7219.png" alt="14" />
+            </div>
+            <div class="provider-item">
+                <img src="~/www/build/styles/Images/home/n88/Provider/Frame 7220.png" alt="15" />
+            </div>
+            <div class="provider-item">
+                <img src="~/www/build/styles/Images/home/n88/Provider/Frame 7221.png" alt="16" />
+            </div>
+            <div class="provider-item">
+                <img src="~/www/build/styles/Images/home/n88/Provider/Frame 7222.png" alt="17" />
+            </div>
+            <div class="provider-item">
+                <img src="~/www/build/styles/Images/home/n88/Provider/Frame 7223.png" alt="18" />
+            </div>
+            <div class="provider-item">
+                <img src="~/www/build/styles/Images/home/n88/Provider/Frame 7224.png" alt="19" />
+            </div>
+            <div class="provider-item">
+                <img src="~/www/build/styles/Images/home/n88/Provider/Frame 7225.png" alt="20" />
+            </div>
+            <div class="provider-item">
+                <img src="~/www/build/styles/Images/home/n88/Provider/Frame 7226.png" alt="21" />
+            </div>
+            <div class="provider-item">
+                <img src="~/www/build/styles/Images/home/n88/Provider/Frame 7227.png" alt="22" />
+            </div>
+            <div class="provider-item">
+                <img src="~/www/build/styles/Images/home/n88/Provider/Frame 7228.png" alt="23" />
+            </div>
+            <div class="provider-item">
+                <img src="~/www/build/styles/Images/home/n88/Provider/Frame 7229.png" alt="24" />
+            </div>
+            <div class="provider-item">
+                <img src="~/www/build/styles/Images/home/n88/Provider/Frame 7230.png" alt="25" />
+            </div>
+            <div class="provider-item">
+                <img src="~/www/build/styles/Images/home/n88/Provider/Frame 7231.png" alt="26" />
+            </div>
+            <div class="provider-item">
+                <img src="~/www/build/styles/Images/home/n88/Provider/Frame 7232.png" alt="27" />
+            </div>
+            <div class="provider-item">
+                <img src="~/www/build/styles/Images/home/n88/Provider/Frame 7233.png" alt="28" />
+            </div>
+            <div class="provider-item">
+                <img src="~/www/build/styles/Images/home/n88/Provider/Frame 7234.png" alt="29" />
+            </div>
+            <div class="provider-item">
+                <img src="~/www/build/styles/Images/home/n88/Provider/Frame 7235.png" alt="30" />
+            </div>
+            <div class="provider-item">
+                <img src="~/www/build/styles/Images/home/n88/Provider/Frame 7236.png" alt="31" />
+            </div>
+            <div class="provider-item">
+                <img src="~/www/build/styles/Images/home/n88/Provider/Frame 7237.png" alt="32" />
+            </div>
+            <div class="provider-item">
+                <img src="~/www/build/styles/Images/home/n88/Provider/Frame 7238.png" alt="33" />
+            </div>
+            <div class="provider-item">
+                <img src="~/www/build/styles/Images/home/n88/Provider/Frame 7239.png" alt="34" />
+            </div>
+            <div class="provider-item">
+                <img src="~/www/build/styles/Images/home/n88/Provider/Frame 7240.png" alt="35" />
+            </div>
+            <div class="provider-item">
+                <img src="~/www/build/styles/Images/home/n88/Provider/Frame 7241.png" alt="36" />
+            </div>
+            <div class="provider-item">
+                <img src="~/www/build/styles/Images/home/n88/Provider/Frame 7242.png" alt="37" />
+            </div>
         </div>
     </div>
     <div class="your-turn">

@@ -7,7 +7,6 @@
 }
 
 .main {
-
     .home-page {
         max-width: 1344px;
         margin: 0 auto;
@@ -24,9 +23,42 @@
         .home-banner {
             width: 100vw;
             margin-left: calc(-50vw + 50%);
+            position: relative;
 
             img {
                 width: 100%;
+            }
+
+            .text-wrapper {
+                position: absolute;
+                display: flex;
+                justify-content: center;
+                text-align: left;
+                top: 100px;
+                left: 390px;
+                flex-direction: column;
+                color: #fff;
+
+                .line1 {
+                    font-size: 30px;
+                    font-weight: 700;
+                }
+
+                .line2 {
+                    span {
+                        font-size: 50px;
+                        font-weight: 800;
+                        color: #ff5d00;
+                    }
+
+                    font-size: 50px;
+                    font-weight: 700;
+                }
+
+                .line3 {
+                    font-size: 30px;
+                    font-weight: 400;
+                }
             }
         }
 
@@ -290,7 +322,6 @@
             .apply-aff-section {
                 display: flex;
                 justify-content: space-between;
-                overflow: auto;
             }
 
             .apply-aff-title {
@@ -321,7 +352,6 @@
                     height: 100%;
                     padding: 10px 10px 20px;
                     border-radius: 10px;
-
                 }
 
                 .badge-aff {
@@ -362,10 +392,16 @@
                 display: flex;
                 justify-content: space-between;
                 flex-direction: row;
-                gap: 20px;
+                margin: 30px 0 15px;
+
 
                 img {
                     width: 100%;
+                }
+
+                .partner-item {
+                    width: 32.333%;
+                    margin-right: 1.5%;
                 }
             }
         }
@@ -383,18 +419,17 @@
                 margin: 0 auto;
                 max-width: 1052px;
 
-                @media screen and (max-width: 1024px) {
+                @include Mobile {
                     gap: 15px;
                     justify-content: center;
                 }
 
-                .items {
-                    border-radius: 5px;
-                    overflow: hidden;
+                .product-item {
                     width: 235px;
 
                     img {
                         display: block;
+                        border-radius: 5px 5px 0 0;
                     }
 
                     .text {
@@ -406,13 +441,22 @@
                         height: 52px;
                         line-height: 52px;
                         text-transform: uppercase;
+                        border-radius: 0 0 5px 5px;
                     }
                 }
             }
 
             .provider {
-                width: 82%;
                 margin: 0 auto;
+                width: 82%;
+
+                .provider-item {
+
+
+                    img {
+                        width: 163px;
+                    }
+                }
             }
         }
 
@@ -464,39 +508,18 @@
             }
         }
 
-        
-
-        .slide-button {
-            position: absolute !important;
-            color: #000000;
-            width: 32px !important;
-            height: 32px;
-            border-radius: 20px;
-            background: #E6E5E5 !important;
-            display: flex;
-            justify-content: center;
-        }
-
-        .prev-button {
-            left: -50px !important;
-            top: 15px !important;
-        }
-
-        .next-button {
-            right: -50px !important;
-            top: 15px !important;
-        }
 
         .none-border {
             border: none !important;
         }
 
-        .carousel-indicators {
-            position: absolute;
-            bottom: -35px;
 
-            li {
-                background: #E6E5E5 !important;
+        .slick-prev, .slick-next {
+            background: #000000;
+
+            &:before {
+                background: #E6E5E5;
+                boder-radius: 50%;
             }
         }
 
@@ -523,7 +546,7 @@
     }
 }
 
-.sm {
+.sm, .sm-flex {
     display: none;
 }
 
@@ -534,6 +557,10 @@
 
     .sm {
         display: block !important;
+    }
+
+    .sm-flex {
+        display: flex !important;
     }
 
     .main {
@@ -562,6 +589,7 @@
 
                 .why-become-aff-row {
                     flex-wrap: wrap;
+                    margin-top: 20px;
 
                     .left-block {
                         width: 100%;
@@ -585,7 +613,7 @@
 
                             .line6 {
                                 img {
-                                    max-width: 100%;
+                                    max-width: 90%;
                                 }
                             }
                         }
@@ -612,21 +640,42 @@
 
                     .join-us {
                         .join-us-content {
+                            padding-left: 13px;
+
                             .line1 {
                                 font-size: 14px;
+                                margin-top: 15px;
                             }
 
                             .line2 {
                                 font-size: 32px;
+                                margin-top: 10px;
                             }
 
                             .line3 {
                                 font-size: 14px;
+                                margin-top: 10px;
                             }
-                        }
 
-                        .join-us-button {
-                            font-size: 16px;
+                            .join-us-person {
+                                width: 44%;
+                            }
+
+                            .join-us-control {
+                                margin-top: 5px;
+
+                                .wrapper {
+                                    padding: 5px 5px 0 5px;
+                                    border-radius: 5px 5px 0 0;
+
+                                    .join-us-button {
+                                        font-size: 16px;
+                                        width: 120px;
+                                        padding: 3px 0;
+                                        border-radius: 5px;
+                                    }
+                                }
+                            }
                         }
                     }
 
@@ -648,13 +697,21 @@
                 .right-aff-com {
                     width: auto;
                     gap: 5px;
+                    width: 60%;
                 }
 
                 .aff-info {
                     padding: 10px;
+                    display: flex;
+                    flex-wrap: wrap;
+                    text-align: center;
+                    justify-content: center;
+
 
                     .text {
                         font-size: 14px;
+                        width: 100%;
+                        margin-top: 5px;
                     }
 
                     .number {
@@ -672,11 +729,35 @@
                     font-size: 20px;
                     text-align: center;
                 }
+
+                .partner-section {
+                    max-width: 100%;
+                    display: block;
+                    margin: 0;
+
+                    .partner-item {
+                        width: 85px;
+                        margin: 0 20px;
+                        height: 134px;
+                        display: flex;
+                        align-items: center;
+
+                        img {
+                            transition: all 0.35s;
+                        }
+
+
+                        &.slick-center > img {
+                            transform: scale(1.65);
+                        }
+                    }
+                }
             }
 
             .apply-aff {
                 .apply-aff-section {
-                    padding-bottom: 10px;
+                    overflow: auto;
+                    padding: 0px 5px 10px 0px;
                 }
 
                 .apply-aff-title {
@@ -686,19 +767,23 @@
 
                 .step {
                     padding: 19px 0 0 19px;
+                    max-width: 115px;
 
                     .wrapper {
-                        width: 94px;
+                        width: 95px;
+                        padding: 10px 2px;
+                        display: flex;
+                        align-items: center;
+                        flex-direction: column;
+                        justify-content: center;
                     }
 
                     .line1, .line2, .line3 {
                         font-size: 14px;
                     }
 
-                    .line3 {
-                        span {
-                            font-size: 16px;
-                        }
+                    .line2 {
+                        font-size: 16px;
                     }
 
                     .badge-aff {
@@ -713,10 +798,37 @@
             }
 
             .product-provider {
+
                 .our-product {
-                    .items {
+                    max-width: 100%;
+                    display: block;
+
+                    .product-item {
+                        width: 109px;
+                        margin: 0 20px;
+                        height: 134px;
+                        display: flex;
+                        align-items: center;
+
+                        &.slick-center > div {
+                            transform: scale(1.22);
+                        }
+
                         .text {
-                            font-size: 14px;
+                            font-size: 10px;
+                            height: 24px;
+                            line-height: 24px;
+                        }
+                    }
+                }
+
+                .provider {
+                    width: 90%;
+
+                    .provider-item {
+                        img {
+                            width: 109px;
+                            margin: 0 auto;
                         }
                     }
                 }
@@ -726,7 +838,7 @@
 }
 
 
-@media only screen and (min-width : 769px){
+@media only screen and (min-width : 768px) {
     .zoom-in {
         transition: all 0.25s;
         will-change: transform;
@@ -741,20 +853,224 @@
             transform: scale(1.05);
         }
     }
+
     .slide-mobile {
-        .carousel-inner>.item{
+        .carousel-inner > .item {
             display: block;
-            height: auto!important;
+            height: auto !important;
         }
     }
+
     .our-product {
-        .product-container {
+        .product-wrapper {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
         }
     }
 }
-@media Mobile{
 
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .main {
+        .home-page {
+            .block-title {
+                font-size: 30px;
+            }
+
+            .why-become-aff {
+                .join-us-title {
+                    font-size: 30px;
+                }
+
+                .why-become-aff-row {
+                    .join-us {
+                        .join-us-content {
+                            padding-left: 33px;
+
+                            .line1 {
+                                font-size: 18px;
+                                margin-top: 10px;
+                            }
+
+                            .line2 {
+                                font-size: 40px;
+                                margin-top: 10px;
+                            }
+
+                            .line3 {
+                                font-size: 18px;
+                                margin: 10px 0;
+                            }
+
+                            .join-us-control {
+                                margin-top: -40px;
+
+                                .wrapper {
+                                    padding: 10px 10px 0 10px;
+
+                                    .join-us-button {
+                                        font-size: 18px;
+                                        width: 125px;
+                                        padding: 5px 0;
+                                        border-radius: 5px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .right-block {
+                        .line2 {
+                            margin-top: 10px;
+                            font-size: 18px;
+                        }
+
+                        .line3 {
+                            margin-top: 10px;
+                            font-size: 18px;
+                        }
+
+                        .line4 {
+                            margin-top: 10px;
+                            font-size: 40px;
+                        }
+
+                        .line5 {
+                            margin-top: 10px;
+                        }
+
+                        .line6 {
+                            img {
+                                width: 85%;
+                            }
+                        }
+                    }
+
+                    .marketing {
+                        font-size: 18px;
+
+                        img {
+                            width: 78px;
+                        }
+                    }
+                }
+            }
+
+            .aff-com {
+                align-items: center;
+                gap: 20px;
+
+                .left-aff-com {
+                    img {
+                        width: 100%;
+                    }
+                }
+
+                .right-aff-com {
+                    width: auto;
+                    gap: 10px;
+                    width: 60%;
+                }
+
+                .aff-info {
+                    padding: 30px;
+                    display: flex;
+                    flex-wrap: wrap;
+                    text-align: center;
+                    justify-content: center;
+
+
+                    .text {
+                        font-size: 18px;
+                        width: 100%;
+                        margin-top: 15px;
+                    }
+
+                    .number {
+                        font-size: 25px;
+
+                        sup {
+                            top: -2px
+                        }
+                    }
+                }
+            }
+
+            .apply-aff {
+                .apply-aff-title {
+                    font-size: 30px;
+                    text-align: center;
+                }
+
+                .step {
+                    padding: 19px 0 0 19px;
+                    max-width: 180px;
+
+                    .wrapper {
+                        width: 150px;
+                        padding: 10px 2px;
+                        display: flex;
+                        align-items: center;
+                        flex-direction: column;
+                        justify-content: center;
+                    }
+
+                    .line1, .line2, .line3 {
+                        font-size: 16px;
+                    }
+
+                    .line2 {
+                        font-size: 16px;
+                    }
+
+                    .badge-aff {
+                        top: -18px;
+                        left: -18px;
+
+                        img {
+                            width: 38px;
+                        }
+                    }
+                }
+
+                .apply-aff-section {
+                    display: flex;
+                    justify-content: center;
+                }
+            }
+
+            .product-provider {
+                .provider {
+                    width: 90%;
+                }
+
+                .our-product {
+                    .product-wrapper {
+                        gap: 0;
+                    }
+
+                    .product-item {
+                        width: 23.875%;
+                        margin-right: 1.5%;
+                        margin-bottom: 15px;
+
+                        &:nth-child(4n) {
+                            margin-right: 0;
+                        }
+
+                        img {
+                        }
+
+                        .text{
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+
+            .be-the-next {
+                font-size: 14px;
+            }
+        }
+    }
 }

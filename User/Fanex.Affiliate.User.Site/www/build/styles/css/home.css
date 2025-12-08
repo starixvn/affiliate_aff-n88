@@ -20,9 +20,37 @@
 .main .home-page .home-banner {
   width: 100vw;
   margin-left: calc(-50vw + 50%);
+  position: relative;
 }
 .main .home-page .home-banner img {
   width: 100%;
+}
+.main .home-page .home-banner .text-wrapper {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  text-align: left;
+  top: 100px;
+  left: 390px;
+  flex-direction: column;
+  color: #fff;
+}
+.main .home-page .home-banner .text-wrapper .line1 {
+  font-size: 30px;
+  font-weight: 700;
+}
+.main .home-page .home-banner .text-wrapper .line2 {
+  font-size: 50px;
+  font-weight: 700;
+}
+.main .home-page .home-banner .text-wrapper .line2 span {
+  font-size: 50px;
+  font-weight: 800;
+  color: #ff5d00;
+}
+.main .home-page .home-banner .text-wrapper .line3 {
+  font-size: 30px;
+  font-weight: 400;
 }
 .main .home-page .why-become-aff {
   display: flex;
@@ -233,7 +261,6 @@
 .main .home-page .apply-aff .apply-aff-section {
   display: flex;
   justify-content: space-between;
-  overflow: auto;
 }
 .main .home-page .apply-aff .apply-aff-title {
   display: block;
@@ -291,10 +318,14 @@
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  gap: 20px;
+  margin: 30px 0 15px;
 }
 .main .home-page .partner .partner-section img {
   width: 100%;
+}
+.main .home-page .partner .partner-section .partner-item {
+  width: 32.333%;
+  margin-right: 1.5%;
 }
 .main .home-page .product-provider {
   display: flex;
@@ -309,21 +340,20 @@
   margin: 0 auto;
   max-width: 1052px;
 }
-@media screen and (max-width: 1024px) {
+@media (max-width: 767px) {
   .main .home-page .product-provider .our-product {
     gap: 15px;
     justify-content: center;
   }
 }
-.main .home-page .product-provider .our-product .items {
-  border-radius: 5px;
-  overflow: hidden;
+.main .home-page .product-provider .our-product .product-item {
   width: 235px;
 }
-.main .home-page .product-provider .our-product .items img {
+.main .home-page .product-provider .our-product .product-item img {
   display: block;
+  border-radius: 5px 5px 0 0;
 }
-.main .home-page .product-provider .our-product .items .text {
+.main .home-page .product-provider .our-product .product-item .text {
   font-weight: 700;
   font-size: 20px;
   color: #F8F9FA;
@@ -332,10 +362,14 @@
   height: 52px;
   line-height: 52px;
   text-transform: uppercase;
+  border-radius: 0 0 5px 5px;
 }
 .main .home-page .product-provider .provider {
-  width: 82%;
   margin: 0 auto;
+  width: 82%;
+}
+.main .home-page .product-provider .provider .provider-item img {
+  width: 163px;
 }
 .main .home-page .block-title {
   display: flex;
@@ -378,33 +412,15 @@
     transform: scale(1.075);
   }
 }
-.main .home-page .slide-button {
-  position: absolute !important;
-  color: #000000;
-  width: 32px !important;
-  height: 32px;
-  border-radius: 20px;
-  background: #E6E5E5 !important;
-  display: flex;
-  justify-content: center;
-}
-.main .home-page .prev-button {
-  left: -50px !important;
-  top: 15px !important;
-}
-.main .home-page .next-button {
-  right: -50px !important;
-  top: 15px !important;
-}
 .main .home-page .none-border {
   border: none !important;
 }
-.main .home-page .carousel-indicators {
-  position: absolute;
-  bottom: -35px;
+.main .home-page .slick-prev, .main .home-page .slick-next {
+  background: #000000;
 }
-.main .home-page .carousel-indicators li {
-  background: #E6E5E5 !important;
+.main .home-page .slick-prev:before, .main .home-page .slick-next:before {
+  background: #E6E5E5;
+  boder-radius: 50%;
 }
 .main .home-page .line-title {
   position: relative;
@@ -425,7 +441,7 @@
   top: 50%;
 }
 
-.sm {
+.sm, .sm-flex {
   display: none;
 }
 
@@ -435,6 +451,9 @@
   }
   .sm {
     display: block !important;
+  }
+  .sm-flex {
+    display: flex !important;
   }
   .main .home-page .faq .content-group .content-block {
     font-size: 12px;
@@ -451,6 +470,7 @@
   }
   .main .home-page .why-become-aff .why-become-aff-row {
     flex-wrap: wrap;
+    margin-top: 20px;
   }
   .main .home-page .why-become-aff .why-become-aff-row .left-block {
     width: 100%;
@@ -470,7 +490,7 @@
     font-size: 40px;
   }
   .main .home-page .why-become-aff .why-become-aff-row .wrapper-right .right-block .line6 img {
-    max-width: 100%;
+    max-width: 90%;
   }
   .main .home-page .why-become-aff .why-become-aff-row .wrapper-right .left-com {
     width: 50%;
@@ -487,17 +507,36 @@
   .main .home-page .why-become-aff .why-become-aff-row .wrapper-right .why-become-aff-child-row .marketing img {
     width: 90px;
   }
+  .main .home-page .why-become-aff .why-become-aff-row .join-us .join-us-content {
+    padding-left: 13px;
+  }
   .main .home-page .why-become-aff .why-become-aff-row .join-us .join-us-content .line1 {
     font-size: 14px;
+    margin-top: 15px;
   }
   .main .home-page .why-become-aff .why-become-aff-row .join-us .join-us-content .line2 {
     font-size: 32px;
+    margin-top: 10px;
   }
   .main .home-page .why-become-aff .why-become-aff-row .join-us .join-us-content .line3 {
     font-size: 14px;
+    margin-top: 10px;
   }
-  .main .home-page .why-become-aff .why-become-aff-row .join-us .join-us-button {
+  .main .home-page .why-become-aff .why-become-aff-row .join-us .join-us-content .join-us-person {
+    width: 44%;
+  }
+  .main .home-page .why-become-aff .why-become-aff-row .join-us .join-us-content .join-us-control {
+    margin-top: 5px;
+  }
+  .main .home-page .why-become-aff .why-become-aff-row .join-us .join-us-content .join-us-control .wrapper {
+    padding: 5px 5px 0 5px;
+    border-radius: 5px 5px 0 0;
+  }
+  .main .home-page .why-become-aff .why-become-aff-row .join-us .join-us-content .join-us-control .wrapper .join-us-button {
     font-size: 16px;
+    width: 120px;
+    padding: 3px 0;
+    border-radius: 5px;
   }
   .main .home-page .why-become-aff .why-become-aff-row .marketing {
     font-size: 14px;
@@ -511,12 +550,19 @@
   .main .home-page .aff-com .right-aff-com {
     width: auto;
     gap: 5px;
+    width: 60%;
   }
   .main .home-page .aff-com .aff-info {
     padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
   }
   .main .home-page .aff-com .aff-info .text {
     font-size: 14px;
+    width: 100%;
+    margin-top: 5px;
   }
   .main .home-page .aff-com .aff-info .number {
     font-size: 14px;
@@ -528,8 +574,27 @@
     font-size: 20px;
     text-align: center;
   }
+  .main .home-page .partner .partner-section {
+    max-width: 100%;
+    display: block;
+    margin: 0;
+  }
+  .main .home-page .partner .partner-section .partner-item {
+    width: 85px;
+    margin: 0 20px;
+    height: 134px;
+    display: flex;
+    align-items: center;
+  }
+  .main .home-page .partner .partner-section .partner-item img {
+    transition: all 0.35s;
+  }
+  .main .home-page .partner .partner-section .partner-item.slick-center > img {
+    transform: scale(1.65);
+  }
   .main .home-page .apply-aff .apply-aff-section {
-    padding-bottom: 10px;
+    overflow: auto;
+    padding: 0px 5px 10px 0px;
   }
   .main .home-page .apply-aff .apply-aff-title {
     font-size: 20px;
@@ -537,14 +602,20 @@
   }
   .main .home-page .apply-aff .step {
     padding: 19px 0 0 19px;
+    max-width: 115px;
   }
   .main .home-page .apply-aff .step .wrapper {
-    width: 94px;
+    width: 95px;
+    padding: 10px 2px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
   }
   .main .home-page .apply-aff .step .line1, .main .home-page .apply-aff .step .line2, .main .home-page .apply-aff .step .line3 {
     font-size: 14px;
   }
-  .main .home-page .apply-aff .step .line3 span {
+  .main .home-page .apply-aff .step .line2 {
     font-size: 16px;
   }
   .main .home-page .apply-aff .step .badge-aff {
@@ -554,11 +625,34 @@
   .main .home-page .apply-aff .step .badge-aff img {
     width: 38px;
   }
-  .main .home-page .product-provider .our-product .items .text {
-    font-size: 14px;
+  .main .home-page .product-provider .our-product {
+    max-width: 100%;
+    display: block;
+  }
+  .main .home-page .product-provider .our-product .product-item {
+    width: 109px;
+    margin: 0 20px;
+    height: 134px;
+    display: flex;
+    align-items: center;
+  }
+  .main .home-page .product-provider .our-product .product-item.slick-center > div {
+    transform: scale(1.22);
+  }
+  .main .home-page .product-provider .our-product .product-item .text {
+    font-size: 10px;
+    height: 24px;
+    line-height: 24px;
+  }
+  .main .home-page .product-provider .provider {
+    width: 90%;
+  }
+  .main .home-page .product-provider .provider .provider-item img {
+    width: 109px;
+    margin: 0 auto;
   }
 }
-@media only screen and (min-width: 769px) {
+@media only screen and (min-width: 768px) {
   .zoom-in {
     transition: all 0.25s;
     will-change: transform;
@@ -575,9 +669,151 @@
     display: block;
     height: auto !important;
   }
-  .our-product .product-container {
+  .our-product .product-wrapper {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .main .home-page .block-title {
+    font-size: 30px;
+  }
+  .main .home-page .why-become-aff .join-us-title {
+    font-size: 30px;
+  }
+  .main .home-page .why-become-aff .why-become-aff-row .join-us .join-us-content {
+    padding-left: 33px;
+  }
+  .main .home-page .why-become-aff .why-become-aff-row .join-us .join-us-content .line1 {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+  .main .home-page .why-become-aff .why-become-aff-row .join-us .join-us-content .line2 {
+    font-size: 40px;
+    margin-top: 10px;
+  }
+  .main .home-page .why-become-aff .why-become-aff-row .join-us .join-us-content .line3 {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+  .main .home-page .why-become-aff .why-become-aff-row .join-us .join-us-content .join-us-control {
+    margin-top: -40px;
+  }
+  .main .home-page .why-become-aff .why-become-aff-row .join-us .join-us-content .join-us-control .wrapper {
+    padding: 10px 10px 0 10px;
+  }
+  .main .home-page .why-become-aff .why-become-aff-row .join-us .join-us-content .join-us-control .wrapper .join-us-button {
+    font-size: 18px;
+    width: 125px;
+    padding: 5px 0;
+    border-radius: 5px;
+  }
+  .main .home-page .why-become-aff .why-become-aff-row .right-block .line2 {
+    margin-top: 10px;
+    font-size: 18px;
+  }
+  .main .home-page .why-become-aff .why-become-aff-row .right-block .line3 {
+    margin-top: 10px;
+    font-size: 18px;
+  }
+  .main .home-page .why-become-aff .why-become-aff-row .right-block .line4 {
+    margin-top: 10px;
+    font-size: 40px;
+  }
+  .main .home-page .why-become-aff .why-become-aff-row .right-block .line5 {
+    margin-top: 10px;
+  }
+  .main .home-page .why-become-aff .why-become-aff-row .right-block .line6 img {
+    width: 85%;
+  }
+  .main .home-page .why-become-aff .why-become-aff-row .marketing {
+    font-size: 18px;
+  }
+  .main .home-page .why-become-aff .why-become-aff-row .marketing img {
+    width: 78px;
+  }
+  .main .home-page .aff-com {
+    align-items: center;
+    gap: 20px;
+  }
+  .main .home-page .aff-com .left-aff-com img {
+    width: 100%;
+  }
+  .main .home-page .aff-com .right-aff-com {
+    width: auto;
+    gap: 10px;
+    width: 60%;
+  }
+  .main .home-page .aff-com .aff-info {
+    padding: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+  }
+  .main .home-page .aff-com .aff-info .text {
+    font-size: 18px;
+    width: 100%;
+    margin-top: 15px;
+  }
+  .main .home-page .aff-com .aff-info .number {
+    font-size: 25px;
+  }
+  .main .home-page .aff-com .aff-info .number sup {
+    top: -2px;
+  }
+  .main .home-page .apply-aff .apply-aff-title {
+    font-size: 30px;
+    text-align: center;
+  }
+  .main .home-page .apply-aff .step {
+    padding: 19px 0 0 19px;
+    max-width: 180px;
+  }
+  .main .home-page .apply-aff .step .wrapper {
+    width: 150px;
+    padding: 10px 2px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .main .home-page .apply-aff .step .line1, .main .home-page .apply-aff .step .line2, .main .home-page .apply-aff .step .line3 {
+    font-size: 16px;
+  }
+  .main .home-page .apply-aff .step .line2 {
+    font-size: 16px;
+  }
+  .main .home-page .apply-aff .step .badge-aff {
+    top: -18px;
+    left: -18px;
+  }
+  .main .home-page .apply-aff .step .badge-aff img {
+    width: 38px;
+  }
+  .main .home-page .apply-aff .apply-aff-section {
+    display: flex;
+    justify-content: center;
+  }
+  .main .home-page .product-provider .provider {
+    width: 90%;
+  }
+  .main .home-page .product-provider .our-product .product-wrapper {
+    gap: 0;
+  }
+  .main .home-page .product-provider .our-product .product-item {
+    width: 23.875%;
+    margin-right: 1.5%;
+    margin-bottom: 15px;
+  }
+  .main .home-page .product-provider .our-product .product-item:nth-child(4n) {
+    margin-right: 0;
+  }
+  .main .home-page .product-provider .our-product .product-item .text {
+    font-size: 16px;
+  }
+  .main .home-page .be-the-next {
+    font-size: 14px;
   }
 }

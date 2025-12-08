@@ -253,5 +253,12 @@
     "inputFiles": [
       "www/source/js/pages/faq.js"
     ]
+  },
+  {
+    "outputFileName": "www/build/styles/css/slick.css",
+    "inputFiles": [
+      "www/source/styles/scss/vendors/slick/slick-theme.css",
+      "www/source/styles/scss/vendors/slick/slick.css"
+    ]
   }
 ]

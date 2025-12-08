@@ -9,22 +9,74 @@ var Home = (function ($) {
 
         initSlider: function initSlider() {
             var $provider = $("#provider");
-            $provider.carousel({ interval: 3000 });
+            $provider.slick({
+                autoplay: true,
+                arrows: false,
+                dots: false,
+                slidesToShow: 5,
+                centerMode: true,
+                centerPadding: '1px',
+                responsive: [{
+                    breakpoint: 991,
+                    settings: {
+                        slidesToShow: 4
+                    }
+                }, {
+                    breakpoint: 767,
+                    settings: {
+                        slidesToShow: 3
+                    }
+                }]
+            });
 
             $(window).on("load resize", function () {
-                if (window.innerWidth <= 768) {
+                var $partner = $("#partner-section");
+                var $product = $("#our-product");
+                if (window.innerWidth < 768) {
+                    $partner.slick({
+                        autoplay: true,
+                        slidesToShow: 3,
+                        variableWidth: true,
+                        arrows: false,
+                        infinite: true,
+                        responsive: [{
+                            breakpoint: 9999,
+                            settings: "unslick"
+                        }, {
+                            breakpoint: 767,
+                            settings: {
+                                centerPadding: '30px',
+                                arrows: false,
+                                centerMode: true,
+                                slidesToShow: 3
+                            }
+                        }]
 
-                    $("#slide-mobile").carousel({ interval: 3000 });
-                    $("#our-product").carousel({ interval: 3000 });
+                    });
+
+                    $product.slick({
+                        autoplay: true,
+                        slidesToShow: 3,
+                        variableWidth: true,
+                        arrows: false,
+                        infinite: true,
+                        responsive: [{
+                            breakpoint: 9999,
+                            settings: "unslick"
+                        }, {
+                            breakpoint: 767,
+                            settings: {
+                                centerPadding: '10px',
+                                arrows: false,
+                                centerMode: true,
+                                slidesToShow: 3
+                            }
+                        }]
+
+                    });
                 } else {
-
-                    $("#slide-mobile").carousel('pause');
-                    $("#slide-mobile").removeData('bs.carousel');
-                    $("#slide-mobile").off('.carousel');
-
-                    $("#our-product").carousel('pause');
-                    $("#our-product").removeData('bs.carousel');
-                    $("#our-product").off('.carousel');
+                    $partner.slick("unslick");
+                    $product.slick("unslick");
                 }
             });
         },
